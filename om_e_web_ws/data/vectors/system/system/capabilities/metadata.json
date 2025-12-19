@@ -1,0 +1,828 @@
+{
+  "texts": [
+    "ScrollDown: Scroll down the page. Scrolls the page down by one viewport height. page down, move down, scroll lower, go down",
+    "ScrollUp: Scroll up the page. Scrolls the page up by one viewport height. page up, move up, scroll higher, go up",
+    "ScrollTop: Go to top of page. Scrolls to the very top of the page. top of page, beginning, start of page, scroll to top",
+    "ScrollBottom: Go to bottom of page. Scrolls to the very bottom of the page. end of page, bottom, scroll to bottom, page end",
+    "ZoomIn: Zoom in / make bigger. Increases browser zoom by 15%. make bigger, enlarge, magnify, increase size",
+    "ZoomOut: Zoom out / make smaller. Decreases browser zoom by 15%. make smaller, shrink, reduce size, decrease zoom",
+    "ZoomReset: Reset zoom to 100%. Resets browser zoom to default 100%. normal zoom, default zoom, 100%, original size",
+    "OpenTab: Open new tab. Opens a new browser tab, optionally with a URL. new tab, open website, go to url, navigate to, open page, take me to",
+    "CloseTab: Close a browser tab. Closes a browser tab by tab ID or name. Say 'close the google tab' or 'close facebook'.. close this tab, close tab, shut tab, close window, close the tab, close X tab",
+    "SwitchTab: Switch to another tab. Switches to a different browser tab by tab ID or name. Say 'switch to the google tab' or 'go to youtube'.. go to tab, change tab, switch to tab, activate tab, go to the tab, switch to X tab",
+    "GoBack: Go back in browser history. Navigates back in the current tab's history. back, previous page, go back, back button",
+    "GoForward: Go forward in browser history. Navigates forward in the current tab's history. forward, next page, go forward, forward button",
+    "Refresh: Refresh / reload the page. Reloads the current page. reload, refresh page, reload page, update page",
+    "SwitchView: Switch between HUD and orb view. Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view. switch view, swap view, toggle view, switch to hud, switch to orb, change view, fullscreen mode, orb mode, chat view, chat mode, full chat, open chat view, browser mode, browser view, switch to browser, change to browser, exit hud, close hud, go to browser, nav mode, navigation mode, floating mode, mini mode, compact mode",
+    "ToggleHUD: Toggle HUD on/off. Toggles the HUD overlay between visible and hidden. Same as SwitchView.. toggle hud, show hud, hide hud, hud on, hud off, toggle overlay, toggle interface",
+    "SetTheme: Change orb character style. Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.. set theme, change theme, switch theme, change orb, orb style, change character, switch persona, change to kawaii, switch to kawaii, be kawaii, become kawaii, change to robot, switch to robot, be robot, become robot, change to atom, switch to atom, be atom, become atom, change to ome, switch to ome, be ome, become ome, change to om-e, switch to om-e, be om-e, robot, om-e, ome, purple robot, goggles, cyan eyes, mechanical, robot guy, robot head, default orb, kawaii, cute cat, white cat, fluffy cat, bunny, white bunny, cherry head, pink cheeks, blue eyes, sparkly eyes, anime, cute mode, adorable, atom, atomic, nucleus, electrons, green rings, orbital, science, green atom, purple core, electron orbits",
+    "ShowPrompt: Show the chat prompt. Shows the text input area for typing messages. show prompt, open prompt, show input, show the prompt, open input, show text field, show input field, show message box",
+    "HidePrompt: Hide the chat prompt. Hides the text input area for typing messages. hide prompt, close prompt, hide input, hide the prompt, close input, hide text field, hide input field, hide message box",
+    "ShowChats: Show chats panel. Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.. show chats, show my chats, show me my chats, see my chats, view chats, view my chats, my chats, where are my chats, open chats, show conversations, show past chats, where are the conversations, my conversations, where are conversations, past conversations, conversation history, chat history, show history, list chats, list my chats, get my chats, what chats do I have",
+    "HideChats: Hide chats panel. Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.. hide chats, close chats, hide my chats, close conversations, close those chats, close the chats, hide the chats, close chat panel, close sidebar, hide sidebar, close the sidebar",
+    "ToggleChats: Toggle chats panel. Opens or closes the chats panel. toggle chats, chats on off",
+    "LoadChat: Load a chat. Returns full chat content including all messages. Use the chat NUMBER from visible chats list.. open chat, load conversation, get chat, retrieve chat",
+    "CreateChat: Create a new chat. Creates a new chat file and returns the chat_id. new chat, start conversation, new conversation, fresh chat",
+    "AppendMessage: Append a message to a chat. Appends a user or assistant message to a chat. Creates chat if chat_id is null.. add message, save message, append to chat",
+    "AppendUserMessage: Append a user message to current chat. Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.. add user message, save my message, record user input",
+    "AppendAssistantMessage: Append an assistant message to current chat. Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.. add assistant message, save response, record assistant reply",
+    "RenameChat: Rename a chat. Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y'.. rename conversation, change chat title, update chat name, rename it, rename this chat",
+    "DeleteChat: Delete a chat. Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.. remove chat, delete conversation, erase chat, delete it, delete this chat",
+    "GetCurrentChat: Get the current active chat. Returns the current chat ID and chat data. current chat, active chat, which chat, what chat am i in",
+    "SetCurrentChat: Switch to a chat. Switches to a chat by number OR name. Use number if visible, name for fuzzy match.. switch chat, change to chat, activate chat, make current, go to chat, open chat, load chat, open the chat, switch to chat",
+    "SearchChats: Search chats by title or content. Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.. find chat, search conversations, look for chat, find in history, search for that, find that chat, which chat, search chats, find the one about, that one about, look for the chat",
+    "GetLLMConfig: Get LLM configuration. Returns current LLM config including providers and settings. show config, what model, current settings, llm settings, which ai",
+    "SetLLMProvider: Switch active LLM provider. Changes which provider is used for LLM calls. change provider, switch to openai, switch to anthropic, use different ai",
+    "SetLLMEndpoint: Set LLM endpoint URL. Updates the API endpoint for a provider. change endpoint, set api url, update endpoint",
+    "SetLLMModel: Set LLM model. Changes the model for a provider. change model, switch model, use gpt4, use claude, different model",
+    "SetLLMAPIKey: Set API key. Sets the API key for a provider. set key, update api key, change api key",
+    "SetTemperature: Set temperature. Adjusts LLM temperature (0.0-2.0). change temperature, more creative, less creative, randomness",
+    "SetMaxTokens: Set max tokens. Sets maximum response tokens. response length, max length, longer responses, shorter responses",
+    "ReloadLLMConfig: Reload LLM config. Reloads the server-side LLM agent config from disk. refresh config, reload settings, apply config changes",
+    "AddLLMProvider: Add new LLM provider. Adds a new provider configuration. new provider, add ai provider, configure new llm",
+    "RemoveLLMProvider: Remove LLM provider. Removes a provider from config. delete provider, remove ai provider, uninstall provider",
+    "LLMChat: Send message to LLM. Send a chat message to the configured LLM and get a response. chat with ai, ask llm, send to ai, get ai response"
+  ],
+  "metadata": [
+    {
+      "name": "ScrollDown",
+      "group": "browser",
+      "label": "Scroll down the page",
+      "description": "Scrolls the page down by one viewport height",
+      "example": "{\"cap\": \"ScrollDown\"}",
+      "synonyms": [
+        "page down",
+        "move down",
+        "scroll lower",
+        "go down"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ScrollUp",
+      "group": "browser",
+      "label": "Scroll up the page",
+      "description": "Scrolls the page up by one viewport height",
+      "example": "{\"cap\": \"ScrollUp\"}",
+      "synonyms": [
+        "page up",
+        "move up",
+        "scroll higher",
+        "go up"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ScrollTop",
+      "group": "browser",
+      "label": "Go to top of page",
+      "description": "Scrolls to the very top of the page",
+      "example": "{\"cap\": \"ScrollTop\"}",
+      "synonyms": [
+        "top of page",
+        "beginning",
+        "start of page",
+        "scroll to top"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ScrollBottom",
+      "group": "browser",
+      "label": "Go to bottom of page",
+      "description": "Scrolls to the very bottom of the page",
+      "example": "{\"cap\": \"ScrollBottom\"}",
+      "synonyms": [
+        "end of page",
+        "bottom",
+        "scroll to bottom",
+        "page end"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ZoomIn",
+      "group": "browser",
+      "label": "Zoom in / make bigger",
+      "description": "Increases browser zoom by 15%",
+      "example": "{\"cap\": \"ZoomIn\"}",
+      "synonyms": [
+        "make bigger",
+        "enlarge",
+        "magnify",
+        "increase size"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ZoomOut",
+      "group": "browser",
+      "label": "Zoom out / make smaller",
+      "description": "Decreases browser zoom by 15%",
+      "example": "{\"cap\": \"ZoomOut\"}",
+      "synonyms": [
+        "make smaller",
+        "shrink",
+        "reduce size",
+        "decrease zoom"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ZoomReset",
+      "group": "browser",
+      "label": "Reset zoom to 100%",
+      "description": "Resets browser zoom to default 100%",
+      "example": "{\"cap\": \"ZoomReset\"}",
+      "synonyms": [
+        "normal zoom",
+        "default zoom",
+        "100%",
+        "original size"
+      ],
+      "params": {}
+    },
+    {
+      "name": "OpenTab",
+      "group": "browser",
+      "label": "Open new tab",
+      "description": "Opens a new browser tab, optionally with a URL",
+      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "synonyms": [
+        "new tab",
+        "open website",
+        "go to url",
+        "navigate to",
+        "open page",
+        "take me to"
+      ],
+      "params": {
+        "url": "Optional - URL to open in the new tab"
+      }
+    },
+    {
+      "name": "CloseTab",
+      "group": "browser",
+      "label": "Close a browser tab",
+      "description": "Closes a browser tab by tab ID or name. Say 'close the google tab' or 'close facebook'.",
+      "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
+      "synonyms": [
+        "close this tab",
+        "close tab",
+        "shut tab",
+        "close window",
+        "close the tab",
+        "close X tab"
+      ],
+      "params": {
+        "tabId": "Optional - numeric tab ID to close",
+        "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
+      }
+    },
+    {
+      "name": "SwitchTab",
+      "group": "browser",
+      "label": "Switch to another tab",
+      "description": "Switches to a different browser tab by tab ID or name. Say 'switch to the google tab' or 'go to youtube'.",
+      "example": "{\"cap\": \"SwitchTab\", \"params\": {\"name\": \"youtube\"}}",
+      "synonyms": [
+        "go to tab",
+        "change tab",
+        "switch to tab",
+        "activate tab",
+        "go to the tab",
+        "switch to X tab"
+      ],
+      "params": {
+        "tabId": "Optional - numeric tab ID to switch to",
+        "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'youtube')"
+      }
+    },
+    {
+      "name": "GoBack",
+      "group": "browser",
+      "label": "Go back in browser history",
+      "description": "Navigates back in the current tab's history",
+      "example": "{\"cap\": \"GoBack\"}",
+      "synonyms": [
+        "back",
+        "previous page",
+        "go back",
+        "back button"
+      ],
+      "params": {}
+    },
+    {
+      "name": "GoForward",
+      "group": "browser",
+      "label": "Go forward in browser history",
+      "description": "Navigates forward in the current tab's history",
+      "example": "{\"cap\": \"GoForward\"}",
+      "synonyms": [
+        "forward",
+        "next page",
+        "go forward",
+        "forward button"
+      ],
+      "params": {}
+    },
+    {
+      "name": "Refresh",
+      "group": "browser",
+      "label": "Refresh / reload the page",
+      "description": "Reloads the current page",
+      "example": "{\"cap\": \"Refresh\"}",
+      "synonyms": [
+        "reload",
+        "refresh page",
+        "reload page",
+        "update page"
+      ],
+      "params": {}
+    },
+    {
+      "name": "SwitchView",
+      "group": "hud",
+      "label": "Switch between HUD and orb view",
+      "description": "Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view",
+      "example": "{\"cap\": \"SwitchView\"}",
+      "synonyms": [
+        "switch view",
+        "swap view",
+        "toggle view",
+        "switch to hud",
+        "switch to orb",
+        "change view",
+        "fullscreen mode",
+        "orb mode",
+        "chat view",
+        "chat mode",
+        "full chat",
+        "open chat view",
+        "browser mode",
+        "browser view",
+        "switch to browser",
+        "change to browser",
+        "exit hud",
+        "close hud",
+        "go to browser",
+        "nav mode",
+        "navigation mode",
+        "floating mode",
+        "mini mode",
+        "compact mode"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ToggleHUD",
+      "group": "hud",
+      "label": "Toggle HUD on/off",
+      "description": "Toggles the HUD overlay between visible and hidden. Same as SwitchView.",
+      "example": "{\"cap\": \"ToggleHUD\"}",
+      "synonyms": [
+        "toggle hud",
+        "show hud",
+        "hide hud",
+        "hud on",
+        "hud off",
+        "toggle overlay",
+        "toggle interface"
+      ],
+      "params": {}
+    },
+    {
+      "name": "SetTheme",
+      "group": "hud",
+      "label": "Change orb character style",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "synonyms": [
+        "set theme",
+        "change theme",
+        "switch theme",
+        "change orb",
+        "orb style",
+        "change character",
+        "switch persona",
+        "change to kawaii",
+        "switch to kawaii",
+        "be kawaii",
+        "become kawaii",
+        "change to robot",
+        "switch to robot",
+        "be robot",
+        "become robot",
+        "change to atom",
+        "switch to atom",
+        "be atom",
+        "become atom",
+        "change to ome",
+        "switch to ome",
+        "be ome",
+        "become ome",
+        "change to om-e",
+        "switch to om-e",
+        "be om-e",
+        "robot",
+        "om-e",
+        "ome",
+        "purple robot",
+        "goggles",
+        "cyan eyes",
+        "mechanical",
+        "robot guy",
+        "robot head",
+        "default orb",
+        "kawaii",
+        "cute cat",
+        "white cat",
+        "fluffy cat",
+        "bunny",
+        "white bunny",
+        "cherry head",
+        "pink cheeks",
+        "blue eyes",
+        "sparkly eyes",
+        "anime",
+        "cute mode",
+        "adorable",
+        "atom",
+        "atomic",
+        "nucleus",
+        "electrons",
+        "green rings",
+        "orbital",
+        "science",
+        "green atom",
+        "purple core",
+        "electron orbits"
+      ],
+      "params": {
+        "theme": "Required - robot (purple Om-E with goggles), kawaii (white fluffy cat with cherry), or atom (green orbital rings)"
+      }
+    },
+    {
+      "name": "ShowPrompt",
+      "group": "hud",
+      "label": "Show the chat prompt",
+      "description": "Shows the text input area for typing messages",
+      "example": "{\"cap\": \"ShowPrompt\"}",
+      "synonyms": [
+        "show prompt",
+        "open prompt",
+        "show input",
+        "show the prompt",
+        "open input",
+        "show text field",
+        "show input field",
+        "show message box"
+      ],
+      "params": {}
+    },
+    {
+      "name": "HidePrompt",
+      "group": "hud",
+      "label": "Hide the chat prompt",
+      "description": "Hides the text input area for typing messages",
+      "example": "{\"cap\": \"HidePrompt\"}",
+      "synonyms": [
+        "hide prompt",
+        "close prompt",
+        "hide input",
+        "hide the prompt",
+        "close input",
+        "hide text field",
+        "hide input field",
+        "hide message box"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ShowChats",
+      "group": "hud",
+      "label": "Show chats panel",
+      "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
+      "example": "{\"cap\": \"ShowChats\"}",
+      "synonyms": [
+        "show chats",
+        "show my chats",
+        "show me my chats",
+        "see my chats",
+        "view chats",
+        "view my chats",
+        "my chats",
+        "where are my chats",
+        "open chats",
+        "show conversations",
+        "show past chats",
+        "where are the conversations",
+        "my conversations",
+        "where are conversations",
+        "past conversations",
+        "conversation history",
+        "chat history",
+        "show history",
+        "list chats",
+        "list my chats",
+        "get my chats",
+        "what chats do I have"
+      ],
+      "params": {}
+    },
+    {
+      "name": "HideChats",
+      "group": "hud",
+      "label": "Hide chats panel",
+      "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
+      "example": "{\"cap\": \"HideChats\"}",
+      "synonyms": [
+        "hide chats",
+        "close chats",
+        "hide my chats",
+        "close conversations",
+        "close those chats",
+        "close the chats",
+        "hide the chats",
+        "close chat panel",
+        "close sidebar",
+        "hide sidebar",
+        "close the sidebar"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ToggleChats",
+      "group": "hud",
+      "label": "Toggle chats panel",
+      "description": "Opens or closes the chats panel",
+      "example": "{\"cap\": \"ToggleChats\"}",
+      "synonyms": [
+        "toggle chats",
+        "chats on off"
+      ],
+      "params": {}
+    },
+    {
+      "name": "LoadChat",
+      "group": "chat",
+      "label": "Load a chat",
+      "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
+      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
+      "synonyms": [
+        "open chat",
+        "load conversation",
+        "get chat",
+        "retrieve chat"
+      ],
+      "params": {
+        "chat": "Required - the chat NUMBER from visible chats list"
+      }
+    },
+    {
+      "name": "CreateChat",
+      "group": "chat",
+      "label": "Create a new chat",
+      "description": "Creates a new chat file and returns the chat_id",
+      "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
+      "synonyms": [
+        "new chat",
+        "start conversation",
+        "new conversation",
+        "fresh chat"
+      ],
+      "params": {
+        "title": "Optional - title for the chat",
+        "page_url": "Optional - page URL for metadata",
+        "page_title": "Optional - page title for metadata"
+      }
+    },
+    {
+      "name": "AppendMessage",
+      "group": "chat",
+      "label": "Append a message to a chat",
+      "description": "Appends a user or assistant message to a chat. Creates chat if chat_id is null.",
+      "example": "{\"cap\": \"AppendMessage\", \"params\": {\"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}}",
+      "synonyms": [
+        "add message",
+        "save message",
+        "append to chat"
+      ],
+      "params": {
+        "chat_id": "Chat ID (null to create new chat)",
+        "role": "Message role: user or assistant",
+        "content": "Message content",
+        "title": "Optional - title for new chat",
+        "page_url": "Optional - page URL for new chat metadata",
+        "page_title": "Optional - page title for new chat metadata"
+      }
+    },
+    {
+      "name": "AppendUserMessage",
+      "group": "chat",
+      "label": "Append a user message to current chat",
+      "description": "Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.",
+      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"Hello there\"}}",
+      "synonyms": [
+        "add user message",
+        "save my message",
+        "record user input"
+      ],
+      "params": {
+        "content": "Required - message content",
+        "page_url": "Optional - page URL for new chat metadata",
+        "page_title": "Optional - page title for new chat metadata"
+      }
+    },
+    {
+      "name": "AppendAssistantMessage",
+      "group": "chat",
+      "label": "Append an assistant message to current chat",
+      "description": "Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.",
+      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"Hi, how can I help?\"}}",
+      "synonyms": [
+        "add assistant message",
+        "save response",
+        "record assistant reply"
+      ],
+      "params": {
+        "content": "Required - message content"
+      }
+    },
+    {
+      "name": "RenameChat",
+      "group": "chat",
+      "label": "Rename a chat",
+      "description": "Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y'.",
+      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
+      "synonyms": [
+        "rename conversation",
+        "change chat title",
+        "update chat name",
+        "rename it",
+        "rename this chat"
+      ],
+      "params": {
+        "chat": "Optional - chat NUMBER (omit for current chat)",
+        "name": "Optional - existing chat title for fuzzy matching",
+        "title": "Required - the new title"
+      }
+    },
+    {
+      "name": "DeleteChat",
+      "group": "chat",
+      "label": "Delete a chat",
+      "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
+      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
+      "synonyms": [
+        "remove chat",
+        "delete conversation",
+        "erase chat",
+        "delete it",
+        "delete this chat"
+      ],
+      "params": {
+        "chat": "Optional - chat NUMBER (omit for current chat)",
+        "name": "Optional - chat title for fuzzy matching"
+      }
+    },
+    {
+      "name": "GetCurrentChat",
+      "group": "chat",
+      "label": "Get the current active chat",
+      "description": "Returns the current chat ID and chat data",
+      "example": "{\"cap\": \"GetCurrentChat\"}",
+      "synonyms": [
+        "current chat",
+        "active chat",
+        "which chat",
+        "what chat am i in"
+      ],
+      "params": {}
+    },
+    {
+      "name": "SetCurrentChat",
+      "group": "chat",
+      "label": "Switch to a chat",
+      "description": "Switches to a chat by number OR name. Use number if visible, name for fuzzy match.",
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"switch view\"}}",
+      "synonyms": [
+        "switch chat",
+        "change to chat",
+        "activate chat",
+        "make current",
+        "go to chat",
+        "open chat",
+        "load chat",
+        "open the chat",
+        "switch to chat"
+      ],
+      "params": {
+        "chat": "Optional - the chat NUMBER from visible chats list",
+        "name": "Optional - chat title for fuzzy matching (e.g. 'switch view', 'my project')"
+      }
+    },
+    {
+      "name": "SearchChats",
+      "group": "chat",
+      "label": "Search chats by title or content",
+      "description": "Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
+      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"dude\"}}",
+      "synonyms": [
+        "find chat",
+        "search conversations",
+        "look for chat",
+        "find in history",
+        "search for that",
+        "find that chat",
+        "which chat",
+        "search chats",
+        "find the one about",
+        "that one about",
+        "look for the chat"
+      ],
+      "params": {
+        "query": "Required - search query string (extract from user request)"
+      }
+    },
+    {
+      "name": "GetLLMConfig",
+      "group": "config",
+      "label": "Get LLM configuration",
+      "description": "Returns current LLM config including providers and settings",
+      "example": "{\"cap\": \"GetLLMConfig\"}",
+      "synonyms": [
+        "show config",
+        "what model",
+        "current settings",
+        "llm settings",
+        "which ai"
+      ],
+      "params": {}
+    },
+    {
+      "name": "SetLLMProvider",
+      "group": "config",
+      "label": "Switch active LLM provider",
+      "description": "Changes which provider is used for LLM calls",
+      "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
+      "synonyms": [
+        "change provider",
+        "switch to openai",
+        "switch to anthropic",
+        "use different ai"
+      ],
+      "params": {
+        "provider": "Required - provider key (openai, anthropic, lm_studio)"
+      }
+    },
+    {
+      "name": "SetLLMEndpoint",
+      "group": "config",
+      "label": "Set LLM endpoint URL",
+      "description": "Updates the API endpoint for a provider",
+      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}}",
+      "synonyms": [
+        "change endpoint",
+        "set api url",
+        "update endpoint"
+      ],
+      "params": {
+        "provider": "Required - provider to update",
+        "endpoint": "Required - full endpoint URL"
+      }
+    },
+    {
+      "name": "SetLLMModel",
+      "group": "config",
+      "label": "Set LLM model",
+      "description": "Changes the model for a provider",
+      "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
+      "synonyms": [
+        "change model",
+        "switch model",
+        "use gpt4",
+        "use claude",
+        "different model"
+      ],
+      "params": {
+        "provider": "Optional - provider to update (default: active)",
+        "model": "Required - model name/ID"
+      }
+    },
+    {
+      "name": "SetLLMAPIKey",
+      "group": "config",
+      "label": "Set API key",
+      "description": "Sets the API key for a provider",
+      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"openai\", \"api_key\": \"sk-...\"}}",
+      "synonyms": [
+        "set key",
+        "update api key",
+        "change api key"
+      ],
+      "params": {
+        "provider": "Required - provider to update",
+        "api_key": "Required - API key or $ENV_VAR reference"
+      }
+    },
+    {
+      "name": "SetTemperature",
+      "group": "config",
+      "label": "Set temperature",
+      "description": "Adjusts LLM temperature (0.0-2.0)",
+      "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
+      "synonyms": [
+        "change temperature",
+        "more creative",
+        "less creative",
+        "randomness"
+      ],
+      "params": {
+        "temperature": "Required - temperature value"
+      }
+    },
+    {
+      "name": "SetMaxTokens",
+      "group": "config",
+      "label": "Set max tokens",
+      "description": "Sets maximum response tokens",
+      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 2000}}",
+      "synonyms": [
+        "response length",
+        "max length",
+        "longer responses",
+        "shorter responses"
+      ],
+      "params": {
+        "max_tokens": "Required - max tokens"
+      }
+    },
+    {
+      "name": "ReloadLLMConfig",
+      "group": "config",
+      "label": "Reload LLM config",
+      "description": "Reloads the server-side LLM agent config from disk",
+      "example": "{\"cap\": \"ReloadLLMConfig\"}",
+      "synonyms": [
+        "refresh config",
+        "reload settings",
+        "apply config changes"
+      ],
+      "params": {}
+    },
+    {
+      "name": "AddLLMProvider",
+      "group": "config",
+      "label": "Add new LLM provider",
+      "description": "Adds a new provider configuration",
+      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}}",
+      "synonyms": [
+        "new provider",
+        "add ai provider",
+        "configure new llm"
+      ],
+      "params": {
+        "key": "Required - unique provider key",
+        "name": "Required - display name",
+        "type": "Required - openai, anthropic, or openai_compatible",
+        "endpoint": "Required - API endpoint URL",
+        "model": "Required - default model",
+        "api_key": "Optional - API key or $ENV_VAR"
+      }
+    },
+    {
+      "name": "RemoveLLMProvider",
+      "group": "config",
+      "label": "Remove LLM provider",
+      "description": "Removes a provider from config",
+      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"custom\"}}",
+      "synonyms": [
+        "delete provider",
+        "remove ai provider",
+        "uninstall provider"
+      ],
+      "params": {
+        "provider": "Required - provider key to remove"
+      }
+    },
+    {
+      "name": "LLMChat",
+      "group": "config",
+      "label": "Send message to LLM",
+      "description": "Send a chat message to the configured LLM and get a response",
+      "example": "{\"cap\": \"LLMChat\", \"params\": {\"message\": \"What is the weather?\"}}",
+      "synonyms": [
+        "chat with ai",
+        "ask llm",
+        "send to ai",
+        "get ai response"
+      ],
+      "params": {
+        "message": "Required - the message to send",
+        "chat_id": "Optional - chat ID to associate response with",
+        "clear_history": "Optional - reset agent conversation history"
+      }
+    }
+  ]
+}

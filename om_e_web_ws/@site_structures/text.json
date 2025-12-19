@@ -1,715 +1,82 @@
 {
   "metadata": {
-    "url": "https://www.google.com/",
-    "title": "Google",
-    "timestamp": "2025-12-19T05:08:59Z",
-    "element_count": 64
+    "url": "http://127.0.0.1:8080/",
+    "title": "OM-E Web",
+    "timestamp": "2025-12-19T14:53:07Z",
+    "element_count": 7
   },
   "elements": {
     "0": {
-      "label": "About",
-      "type": "Link",
-      "tag": "a",
+      "label": "TOGGLE HUD OVERLAY",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a.MV3Tnb"
+        "#hudToggleBtn",
+        "button.hud-toggle-btn"
       ],
-      "href": "https://about.google/?fg=1&utm_source=google-AU&utm_medium=referral&utm_campaign=hp-header"
+      "href": null
     },
     "1": {
-      "label": "Store",
-      "type": "Link",
-      "tag": "a",
+      "label": "WebSocket URL",
+      "type": "Input",
+      "tag": "input",
       "selectors": [
-        "a[href*='/AU']",
-        "a.MV3Tnb"
+        "#wsUrl",
+        "input[placeholder='WebSocket URL']",
+        "input[type='text'][placeholder='WebSocket URL']"
       ],
-      "href": "https://store.google.com/AU?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-AU"
+      "href": null
     },
     "2": {
-      "label": "Gmail",
-      "type": "Link",
-      "tag": "a",
+      "label": "Save & Reconnect",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Gmail ']",
-        "[aria-label='Gmail ']",
-        "a[href*='/mail/']",
-        "[data-pid='23']",
-        "a.gb_Z"
+        "#saveBtn",
+        "button.primary"
       ],
-      "href": "https://mail.google.com/mail/?authuser=0&ogbl"
+      "href": null
     },
     "3": {
-      "label": "Search for Images",
-      "type": "Link",
-      "tag": "a",
+      "label": "Kawaii",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Search for Images ']",
-        "[aria-label='Search for Images ']",
-        "a[href*='/imghp']",
-        "[data-pid='2']",
-        "a.gb_Z"
+        "#orbKawaii",
+        "[data-theme='kawaii']",
+        "button.orb-btn"
       ],
-      "href": "https://www.google.com/imghp?hl=en&authuser=0&ogbl"
+      "href": null
     },
     "4": {
-      "label": "Google apps",
+      "label": "Om-E",
       "type": "Button",
-      "tag": "a",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Google apps']",
-        "[aria-label='Google apps']",
-        "[role='button'][aria-label='Google apps']",
-        "a[href*='/intl/en/about/products']",
-        "a.gb_B"
+        "#orbRobot",
+        "[data-theme='robot']",
+        "button.orb-btn"
       ],
-      "href": "https://www.google.com.au/intl/en/about/products"
+      "href": null
     },
     "5": {
-      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
+      "label": "Atom",
       "type": "Button",
-      "tag": "a",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "a[href*='/SignOutOptions']",
-        "a.gb_B.gb_0a"
+        "#orbAtom",
+        "[data-theme='atom']",
+        "button.orb-btn"
       ],
-      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/&ec=futura_exp_og_si_72776762_e"
+      "href": null
     },
     "6": {
-      "label": "Upload files or images",
+      "label": "Extension Settings",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Upload files or images']",
-        "[aria-label='Upload files or images']",
-        "[data-ved='0ahUKEwjmj4qG8ciRAxW2XGwGHU8VBcYQ0J0RCA8']",
-        "button.sF3Vod"
-      ],
-      "href": null
-    },
-    "7": {
-      "label": "Search",
-      "type": "Select",
-      "tag": "textarea",
-      "selectors": [
-        "textarea[aria-label='Search']",
-        "[aria-label='Search']",
-        "#APjFqb",
-        "textarea[name='q']",
-        "[role='combobox'][aria-label='Search']",
-        "[data-ved='0ahUKEwjmj4qG8ciRAxW2XGwGHU8VBcYQ39UDCBQ']",
-        "textarea.gLFyf"
-      ],
-      "href": null
-    },
-    "8": {
-      "label": "Search by voice",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Search by voice']",
-        "[aria-label='Search by voice']",
-        "[role='button'][aria-label='Search by voice']",
-        "[data-ved='0ahUKEwjmj4qG8ciRAxW2XGwGHU8VBcYQvs8DCBY']",
-        "div.XDyW0e"
-      ],
-      "href": null
-    },
-    "9": {
-      "label": "Search by image",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Search by image']",
-        "[aria-label='Search by image']",
-        "[role='button'][aria-label='Search by image']",
-        "[data-base-lens-url='https://lens.google.com']",
-        "div.nDcEnd"
-      ],
-      "href": null
-    },
-    "10": {
-      "label": "AI Mode",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "[data-ved='0ahUKEwjmj4qG8ciRAxW2XGwGHU8VBcYQteYPCBg']",
-        "button.plR5qb.Y5MKCd"
-      ],
-      "href": null
-    },
-    "11": {
-      "label": "Google Search",
-      "type": "Button",
-      "tag": "input",
-      "selectors": [
-        "input[aria-label='Google Search']",
-        "[aria-label='Google Search']",
-        "input[name='btnK']",
-        "[role='button'][aria-label='Google Search']",
-        "[data-ved='0ahUKEwjmj4qG8ciRAxW2XGwGHU8VBcYQ4dUDCCU']",
-        "input[type='submit'][name='btnK']",
-        "input.gNO89b"
-      ],
-      "href": null
-    },
-    "12": {
-      "label": "I'm Feeling Lucky",
-      "type": "Button",
-      "tag": "input",
-      "selectors": [
-        "input[aria-label='I\\'m Feeling Lucky']",
-        "[aria-label='I\\'m Feeling Lucky']",
-        "input[name='btnI']",
-        "[data-ved='0ahUKEwjmj4qG8ciRAxW2XGwGHU8VBcYQ19QECCY']",
-        "input[type='submit'][name='btnI']",
-        "input.RNmpXc"
-      ],
-      "href": null
-    },
-    "13": {
-      "label": "Skip to Discover feed",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwjmj4qG8ciRAxW2XGwGHU8VBcYQ67oDCCg']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/#"
-    },
-    "14": {
-      "label": "Skip to sidebar",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwjmj4qG8ciRAxW2XGwGHU8VBcYQ67oDCCk']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/#"
-    },
-    "15": {
-      "label": "Skip to footer",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwjmj4qG8ciRAxW2XGwGHU8VBcYQ67oDCCo']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/#"
-    },
-    "16": {
-      "label": "Accessibility help",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/websearch/answer/181196']",
-        "a.JMWBtb"
-      ],
-      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
-    },
-    "17": {
-      "label": "Accessibility feedback",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-async-trigger='duf3-78']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/#"
-    },
-    "18": {
-      "label": "Gemini for Home is missing something Google Assistant users took for granted\nYou can't use Continued Conversation after upgrading to Gemini for Home, unless you pay for Google's Home Premium subscription.\nAndroid Authority\n · \n2d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/gemini-for-home-continued-conversations-3625555/']",
-        "[data-hveid='CBkQAQ']"
-      ],
-      "href": "https://www.androidauthority.com/gemini-for-home-continued-conversations-3625555/"
-    },
-    "19": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQAw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "20": {
-      "label": "Australian dollar holds firm as US job losses mount\nOvernight we saw the release of both the October and November US jobs reports which at first glance looked nominal but in reality show a worsening...\nMacroBusiness\n · \n2d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/2025/12/australian-dollar-holds-firm-as-us-job-losses-mount/']",
-        "[data-hveid='CEAQAQ']"
-      ],
-      "href": "https://www.macrobusiness.com.au/2025/12/australian-dollar-holds-firm-as-us-job-losses-mount/"
-    },
-    "21": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQBQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "22": {
-      "label": "2026 Cupra Terramar review\nIt's the base model, but this is no basic car. The new Cupra Terramar S isn't cheap, but it's a class above some mid-size SUV rivals.\nCarExpert\n · \n16h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/car-reviews/2026-cupra-terramar-review']",
-        "[data-hveid='CGcQAQ']"
-      ],
-      "href": "https://www.carexpert.com.au/car-reviews/2026-cupra-terramar-review"
-    },
-    "23": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQBw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "24": {
-      "label": "Humanoid Robots For War And Work: Startup Plans To Build 50,000 By End Of 2027\nSilicon Valley startup Foundation isn't shy about employing its humanoid robots in the defense industry. And yes, the CEO is planning for Phantom to hold a...\nForbes\n · \n2d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-hveid='CI4BEAE']"
-      ],
-      "href": "https://www.forbes.com/sites/johnkoetsier/2025/12/16/humanoid-robots-for-war-and-work-startup-plans-to-build-50000-by-end-of-2027/"
-    },
-    "25": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQCQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "26": {
-      "label": "Don't Blink: How I Chased the Soon-to-Vanish 3I/ATLAS Comet With a Smart Telescope\nI've taken incredible photos of this interstellar comet for more than a month using two tiny iPad-connected scopes in my windowsill. You can catch it too,...\nPCMag UK\n · \n11h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/162147/dont-blink-how-i-chased-the-soon-to-vanish-3iatlas-comet-with-a-smart-telescope']",
-        "[data-hveid='CLUBEAE']"
-      ],
-      "href": "https://uk.pcmag.com/news/162147/dont-blink-how-i-chased-the-soon-to-vanish-3iatlas-comet-with-a-smart-telescope"
-    },
-    "27": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQCw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "28": {
-      "label": "0:43\nGemini 3 Flash | Master Any Subject in a Flash\nGoogle\nYouTube\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "[data-hveid='CNsBEAE']"
-      ],
-      "href": "https://www.youtube.com/watch?v=zg_66Q3oSss"
-    },
-    "29": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQDQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "30": {
-      "label": "Samsung Galaxy S26 Ultra – Redefining Flagship Power with 400MP Camera, Snapdragon 8 Gen 4 Chip, and Next-Gen AI Experience\nSamsung has officially lifted the curtain on its most ambitious smartphone yet, the Galaxy S26 Ultra, a device built to redefine what flagship power truly...\nholisticbody.co.in\n · \n2h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/samsung-galaxy-s26-ultra-price-usa/']",
-        "[data-hveid='CIICEAE']"
-      ],
-      "href": "https://holisticbody.co.in/samsung-galaxy-s26-ultra-price-usa/"
-    },
-    "31": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQDw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "32": {
-      "label": "Australia’s property hotspots for 2026 named in expert housing guide\nThey're the suburbs offering buyers better bang for their buck and the prospect of more equity gains over 2026. A new LJ Hooker report has revealed the...\nReal Estate\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/australias-property-hotspots-for-2026-named-in-expert-housing-guide/']",
-        "[data-hveid='CKkCEAE']"
-      ],
-      "href": "https://www.realestate.com.au/news/australias-property-hotspots-for-2026-named-in-expert-housing-guide/"
-    },
-    "33": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQEQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "34": {
-      "label": "South Koreans hunt for old LG air-conditioners after logos turn out to be pure gold\nSEOUL – An old LG air-conditioner from more than two decades ago is suddenly the hottest commodity in South Korea right now, after a viral video showed that...\nThe Straits Times\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/asia/east-asia/south-koreans-hunt-for-old-lg-air-conditioners-after-logos-turn-out-to-be-pure-gold']",
-        "[data-hveid='CNACEAE']"
-      ],
-      "href": "https://www.straitstimes.com/asia/east-asia/south-koreans-hunt-for-old-lg-air-conditioners-after-logos-turn-out-to-be-pure-gold"
-    },
-    "35": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQEw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "36": {
-      "label": "Corporate Travel Management won’t say how much cash it has left\nCorporate Travel Management still cannot say when it will be able to publish its 2025 financial accounts as it continues to work through an accounting mess...\nAFR\n · \n3h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-hveid='CPcCEAE']"
-      ],
-      "href": "https://www.afr.com/companies/transport/corporate-travel-management-won-t-say-how-much-cash-it-has-left-20251219-p5np0b"
-    },
-    "37": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQFQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "38": {
-      "label": "“Major turning point”: Plug-in vehicles make up more than a quarter of new cars sold this year\nEmerging markets across the globe are driving an important shift in the car market, with a quarter of new cars sold so far in 2025 being either a full...\nThe Driven\n · \n2h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-hveid='CBkQAQ']"
-      ],
-      "href": "https://thedriven.io/2025/12/19/major-turning-point-plug-in-vehicles-make-up-more-than-a-quarter-of-new-cars-sold-this-year/"
-    },
-    "39": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQFw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "40": {
-      "label": "You can now buy groceries in ChatGPT\nOpenAI's chatbot will now allow you to buy groceries via Instacart right in the app.\nMashable\n · \n1w",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/article/chatgpt-grocery-delivery-instacart']",
-        "[data-hveid='CEAQAQ']"
-      ],
-      "href": "https://mashable.com/article/chatgpt-grocery-delivery-instacart"
-    },
-    "41": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQGQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "42": {
-      "label": "Galileo’s first Ariane 6 launch strengthens European resilience\nOn 17 December, two Galileo satellites lifted off from Europe's Spaceport in French Guiana aboard an Ariane 6 rocket. This marked the 14th launch for...\nEuropean Space Agency\n · \n6h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/Applications/Satellite_navigation/Galileo_s_first_Ariane_6_launch_strengthens_European_resilience']",
-        "[data-hveid='CGcQAQ']"
-      ],
-      "href": "https://www.esa.int/Applications/Satellite_navigation/Galileo_s_first_Ariane_6_launch_strengthens_European_resilience"
-    },
-    "43": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQGw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "44": {
-      "label": "Rare 1,300-year-old medallion decorated with menorahs found near Jerusalem's Temple Mount\nAn excavation at the City of David in Jerusalem unearthed a 1,300-year-old medallion decorated with a seven-branched menorah on each side.\nLive Science\n · \n17h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-hveid='CI4BEAE']"
-      ],
-      "href": "https://www.livescience.com/archaeology/rare-1-300-year-old-medallion-decorated-with-menorahs-found-near-jerusalems-temple-mount"
-    },
-    "45": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQHQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "46": {
-      "label": "Dark matter search narrows as detector sets new limits and spots solar neutrinos\nAustralian researchers have played a central role in a landmark result from the LUX-ZEPLIN (LZ) experiment in South Dakota—the world's most sensitive dark...\nPhys.org\n · \n3d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/2025-12-dark-narrows-detector-limits-solar.html']",
-        "[data-hveid='CLUBEAE']"
-      ],
-      "href": "https://phys.org/news/2025-12-dark-narrows-detector-limits-solar.html"
-    },
-    "47": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQHw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "48": {
-      "label": "Man charged over counterfeit money and driving offences\n19 Dec 2025 11:50am. A Whyalla man is facing multiple charges after being found by Port Pirie Police with counterfeit money and stolen number plates.\nSAPOL - Home\n · \n3h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-hveid='CNwBEAE']"
-      ],
-      "href": "https://www.police.sa.gov.au/sa-police-news-assets/yorke-mid-north-region/man-charged-over-counterfeit-money-and-driving-offences"
-    },
-    "49": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQIQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "50": {
-      "label": "Saturn’s moon Titan may not have a buried ocean as long suspected, new study suggests\nSaturn's giant moon Titan may not have a vast underground ocean after all. New research suggests Titan instead may hold deep layers of ice and slush more...\nAP News\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/article/saturn-moon-titan-cassini-nasa-826b80d16af4a5ba7c37726285d6e036']",
-        "[data-hveid='CIMCEAE']"
-      ],
-      "href": "https://apnews.com/article/saturn-moon-titan-cassini-nasa-826b80d16af4a5ba7c37726285d6e036"
-    },
-    "51": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQIw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "52": {
-      "label": "VIDEO: Wednesday finance with Alan Kohler\nThe global oil pr.ice has fallen to its lowest level since 2021. Business, Economics and Finance · Stock Market · Oil and Gas. More ABC News video...\nAustralian Broadcasting Corporation\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/2025-12-17/wednesday-finance-with-alan-kohler/106155170']",
-        "[data-hveid='CKoCEAE']"
-      ],
-      "href": "https://www.abc.net.au/news/2025-12-17/wednesday-finance-with-alan-kohler/106155170"
-    },
-    "53": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQJQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "54": {
-      "label": "Chalmers rushes to get new superannuation tax in place by July\nTreasurer Jim Chalmers has moved to fast-track contentious laws that will impose a tax rate of up to 40 per cent on earnings in large superannuation...\nAFR\n · \n4h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/politics/chalmers-releases-draft-legislation-for-new-superannuation-tax-20251219-p5noz8']",
-        "[data-hveid='CNECEAE']"
-      ],
-      "href": "https://www.afr.com/politics/chalmers-releases-draft-legislation-for-new-superannuation-tax-20251219-p5noz8"
-    },
-    "55": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQJw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "56": {
-      "label": "Westpac pushes back on RBA hike calls, sees rates on hold through 2026\nThe note challenges market pricing of renewed tightening and supports a flatter front-end rates profile, with downside risks to AUD if labour-market easing...\ninvestingLive\n · \n2d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/centralbank/westpac-pushes-back-on-rba-hike-calls-sees-rates-on-hold-through-2026-20251216/']",
-        "[data-hveid='CPgCEAE']"
-      ],
-      "href": "https://investinglive.com/centralbank/westpac-pushes-back-on-rba-hike-calls-sees-rates-on-hold-through-2026-20251216/"
-    },
-    "57": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjA_ZCH8ciRAxUAAAAAHQAAAAAQKQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "58": {
-      "label": "Advertising",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/intl/en_au/ads/']",
-        "a.pHiOh"
-      ],
-      "href": "https://www.google.com/intl/en_au/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1"
-    },
-    "59": {
-      "label": "Business",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/services/']",
-        "a.pHiOh"
-      ],
-      "href": "https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1"
-    },
-    "60": {
-      "label": "How Search works",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search/howsearchworks/']",
-        "a.pHiOh"
-      ],
-      "href": "https://google.com/search/howsearchworks/?fg=1"
-    },
-    "61": {
-      "label": "Privacy",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/privacy']",
-        "a.pHiOh"
-      ],
-      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
-    },
-    "62": {
-      "label": "Terms",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/terms']",
-        "a.pHiOh"
-      ],
-      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
-    },
-    "63": {
-      "label": "Settings",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.CcNe6e"
+        "#extPageBtn",
+        "button.ext-toggle-btn"
       ],
       "href": null
     }

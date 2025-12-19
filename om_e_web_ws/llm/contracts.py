@@ -79,6 +79,7 @@ class DecisionType(str, Enum):
     OPTIONS = "options"   # Multiple valid options - present to user
     CANNOT = "cannot"     # Can't do it (triggers escalation offer)
     NOOP = "noop"         # Already done / no action needed
+    CLARIFY = "clarify"   # Missing required param - ask user
 
 
 class ExecutorOption(BaseModel):
@@ -94,6 +95,7 @@ class ExecutorOption(BaseModel):
     type: Literal["cap", "act", "custom", "cancel"]
     target: Optional[str] = None  # Required for cap/act, None for custom/cancel
     label: str = Field(..., min_length=1, max_length=100)  # Human-readable description
+    params: Optional[Dict] = None  # Params to execute when this option is selected
 
     @field_validator('target')
     @classmethod
@@ -120,6 +122,8 @@ class DecisionEngineOutput(BaseModel):
     params: Optional[Dict] = None  # capability params (e.g. {"url": "https://youtube.com"})
     options: Optional[List[ExecutorOption]] = None  # for OPTIONS decision
     reason: Optional[str] = None  # for cannot/noop explanations
+    missing: Optional[str] = None  # for clarify - missing param name
+    prompt: Optional[str] = None  # for clarify - question to ask user
 
     @field_validator('target')
     @classmethod
@@ -136,10 +140,8 @@ class DecisionEngineOutput(BaseModel):
         if info.data.get('decision') == DecisionType.OPTIONS:
             if not v or len(v) < 2:
                 raise ValueError('options decision requires at least 2 options')
-            # Verify custom and cancel are present
+            # Verify cancel is present (custom is nice-to-have but not required)
             types = [opt.type for opt in v]
-            if 'custom' not in types:
-                raise ValueError('options must include a custom option')
             if 'cancel' not in types:
                 raise ValueError('options must include a cancel option')
         return v

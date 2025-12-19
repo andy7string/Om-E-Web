@@ -1,0 +1,51 @@
+{
+  "chat_id": "hud-mode-please__20251219T145019",
+  "project_id": "default",
+  "created_at": "2025-12-19T14:50:19.835963Z",
+  "updated_at": "2025-12-19T14:50:58.799957Z",
+  "title": "19_50_14_19_12_2025_hud",
+  "default_title": "19_50_14_19_12_2025_hud",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hud mode please",
+      "timestamp": "2025-12-19T14:50:19.835999Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-19T14:50:22.733348Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "show chats",
+      "timestamp": "2025-12-19T14:50:28.376128Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-19T14:50:32.039373Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "wow nav to the 27 messages chat",
+      "timestamp": "2025-12-19T14:50:54.818765Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-19T14:50:58.799957Z"
+    }
+  ]
+}

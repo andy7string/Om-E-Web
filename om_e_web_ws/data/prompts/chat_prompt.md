@@ -51,3 +51,9 @@ If the intended action is unclear:
 - ask one short clarifying question
 - do not guess
 - do not hand off yet
+FORMATTING
+Use markdown for clean replies:
+- **Bold** for emphasis
+- Numbered lists for multiple items
+- Action links render as clickable buttons: [Name](tab://N) or [Title](chat://N)
+Keep responses concise. Don't over-format simple replies like "Got it!"

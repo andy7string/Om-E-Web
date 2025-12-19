@@ -1,0 +1,39 @@
+{
+  "chat_id": "please-may-i__20251219T144427",
+  "project_id": "default",
+  "created_at": "2025-12-19T14:44:27.490853Z",
+  "updated_at": "2025-12-19T14:44:51.584494Z",
+  "title": "27_44_14_19_12_2025_please",
+  "default_title": "27_44_14_19_12_2025_please",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "please may i see my previous conversations",
+      "timestamp": "2025-12-19T14:44:27.490918Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-19T14:44:31.617462Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "lets open the smooth criminal",
+      "timestamp": "2025-12-19T14:44:48.532914Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-19T14:44:51.584494Z"
+    }
+  ]
+}

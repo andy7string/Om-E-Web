@@ -98,6 +98,10 @@ PERSONA_ORCHESTRATOR = None        # PersonaOrchestrator instance (created on fi
 # Set by LLMChat when hud_state includes visible_chats
 VISIBLE_CHATS = []                 # [{chat_id, title, message_count}, ...]
 
+# 🏠 Default landing page for OpenTab when no URL provided
+# TODO: Make this configurable via settings
+DEFAULT_LANDING_PAGE = "http://127.0.0.1:8080/"
+
 
 def resolve_chat_number(chat_num: int) -> str | None:
     """
@@ -368,6 +372,61 @@ def update_tabs_from_response(tabs: list) -> None:
     print(f"🚀 [IMMEDIATE] Updated tabs from capability response: {len(CURRENT_TABS_INFO)} tabs")
     update_tabs_in_text_md()
     print(f"🚀 [IMMEDIATE] text.md updated from capability response")
+
+
+def find_matching_tab(url_or_name: str) -> Optional[dict]:
+    """
+    🔍 Smart tab matching - finds an existing tab by URL or name.
+
+    Checks:
+    1. URL contains the search term (e.g. "google" matches "https://www.google.com")
+    2. Title contains the search term (case-insensitive)
+
+    @param url_or_name: URL fragment or tab name to search for
+    @return: Matching tab dict with stable_num, or None if no match
+    """
+    if not CURRENT_TABS_INFO or not url_or_name:
+        return None
+
+    search = url_or_name.lower().strip()
+
+    # Strip protocol and www for URL matching
+    if search.startswith("http://"):
+        search = search[7:]
+    elif search.startswith("https://"):
+        search = search[8:]
+    if search.startswith("www."):
+        search = search[4:]
+
+    # Remove trailing slashes
+    search = search.rstrip("/")
+
+    for tab in CURRENT_TABS_INFO:
+        tab_url = (tab.get("url") or "").lower()
+        tab_title = (tab.get("title") or "").lower()
+
+        # Clean URL for comparison
+        clean_url = tab_url
+        if clean_url.startswith("http://"):
+            clean_url = clean_url[7:]
+        elif clean_url.startswith("https://"):
+            clean_url = clean_url[8:]
+        if clean_url.startswith("www."):
+            clean_url = clean_url[4:]
+        clean_url = clean_url.rstrip("/")
+
+        # Check for match
+        if search in clean_url or search in tab_title:
+            # Get stable number
+            tab_id = tab.get('id')
+            stable_num = get_stable_tab_number(tab_id)
+            if stable_num:
+                tab_copy = dict(tab)
+                tab_copy["stable_num"] = stable_num
+                print(f"🔍 [SMART-TAB] Found match for '{url_or_name}': Tab {stable_num} - {tab.get('title')}")
+                return tab_copy
+
+    return None
 
 
 def get_all_site_configs():
@@ -951,17 +1010,28 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         original_text = params.get("original_text", "")
 
         # 🔍 Parse chat name from original text if not provided
-        # Patterns: "open the X chat", "switch to X chat", "go to the X chat"
+        # Patterns: "open the X chat", "switch to X chat", "go to the X chat", "switch chat to X"
         if not chat_name and not chat_num and original_text:
             import re
-            # Match patterns like "open the my project chat" or "switch to close the side chat"
-            pattern = r'(?:open|switch to|go to|load)\s+(?:the\s+)?(.+?)\s+chat$'
-            match = re.search(pattern, original_text.lower().strip(), re.IGNORECASE)
+            text_lower = original_text.lower().strip()
+            name_part = None
+
+            # Pattern 1: "open/switch to/go to the X chat"
+            pattern1 = r'(?:open|switch to|go to|load)\s+(?:the\s+)?(.+?)\s+chat$'
+            match = re.search(pattern1, text_lower, re.IGNORECASE)
             if match:
                 name_part = match.group(1).strip()
-                if name_part not in ("this", "current", "a", "that"):
-                    chat_name = name_part
-                    print(f"💬 SetCurrentChat: Parsed name '{chat_name}' from original text")
+
+            # Pattern 2: "switch chat to X" / "change chat to X"
+            if not name_part:
+                pattern2 = r'(?:switch|change|go to)\s+chat\s+to\s+(.+)$'
+                match = re.search(pattern2, text_lower, re.IGNORECASE)
+                if match:
+                    name_part = match.group(1).strip()
+
+            if name_part and name_part not in ("this", "current", "a", "that"):
+                chat_name = name_part
+                print(f"💬 SetCurrentChat: Parsed name '{chat_name}' from original text")
 
         # Resolve chat number to chat_id if provided
         if chat_num is not None:
@@ -1029,7 +1099,13 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         limit = params.get("limit", 20)
 
         if not query:
-            return {"error": "Missing query parameter"}
+            # Return needs_input to prompt user for search term
+            return {
+                "needs_input": True,
+                "capability": "SearchChats",
+                "param": "query",
+                "prompt": "What would you like to search for?"
+            }
 
         # Get all chats
         all_chats = list_chats()
@@ -1100,8 +1176,8 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         # Map common names to actual theme values
         theme_map = {
             "om-e": "robot", "ome": "robot", "robot": "robot", "purple": "robot", "default": "robot",
-            "kawaii": "kawaii", "cat": "kawaii", "cute": "kawaii", "bunny": "kawaii",
-            "atom": "atom", "atomic": "atom", "science": "atom", "nucleus": "atom",
+            "kawaii": "kawaii", "cat": "kawaii", "cute": "kawaii", "bunny": "kawaii", "kitten": "kawaii", "kitty": "kawaii",
+            "atom": "atom", "atomic": "atom", "science": "atom", "nucleus": "atom", "green": "atom",
         }
         theme = theme_map.get(theme, theme)
         return {"_hud_action": {"type": "set_theme", "theme": theme}}
@@ -5250,7 +5326,8 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                     chat_id=CURRENT_CHAT_ID,
                                     active_tab=CURRENT_ACTIVE_TAB,
                                     tabs=get_tabs_with_stable_numbers(),  # 🗂️ Tabs with stable numbers
-                                    orb_theme=CURRENT_ORB_THEME
+                                    orb_theme=CURRENT_ORB_THEME,
+                                    visible_chats=VISIBLE_CHATS if VISIBLE_CHATS else None  # 📚 When sidebar open
                                 )
 
                                 response_text = orch_result.response_text
@@ -5319,18 +5396,39 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                         print(f"🎭 Sent {cap_action}")
 
                                     elif cap_action in tab_actions and EXTENSION_WS:
-                                        translated_params, tab_error = translate_tab_params(cap_params)
+                                        # 🧠 SMART TAB LOGIC: OpenTab auto-switches if tab exists
+                                        final_action = cap_action
+                                        final_params = cap_params
+
+                                        if cap_action == "OpenTab":
+                                            # Check if we have a URL - if not, use default landing page
+                                            url_or_name = cap_params.get("url") or cap_params.get("name", "")
+                                            if not url_or_name:
+                                                # No URL - use default landing page (never open blank tabs)
+                                                url_or_name = DEFAULT_LANDING_PAGE
+                                                final_params["url"] = DEFAULT_LANDING_PAGE
+                                                print(f"🏠 OpenTab: No URL provided, using default: {DEFAULT_LANDING_PAGE}")
+
+                                            # Check if we should switch instead of open
+                                            existing_tab = find_matching_tab(url_or_name)
+                                            if existing_tab:
+                                                # Tab exists - switch to it instead
+                                                print(f"🧠 [SMART-TAB] OpenTab→SwitchTab: Found existing tab {existing_tab['stable_num']}")
+                                                final_action = "SwitchTab"
+                                                final_params = {"tabId": existing_tab["id"]}
+
+                                        translated_params, tab_error = translate_tab_params(final_params)
                                         if tab_error:
                                             cap_result = {"ok": False, "error": tab_error}
                                         else:
                                             await EXTENSION_WS.send(json.dumps({
                                                 "type": "execute_capability",
-                                                "id": f"cap_{cap_action}_{int(time.time() * 1000)}",
-                                                "action": cap_action,
+                                                "id": f"cap_{final_action}_{int(time.time() * 1000)}",
+                                                "action": final_action,
                                                 "params": translated_params
                                             }))
                                             cap_result = {"ok": True}
-                                            print(f"🎭 Sent {cap_action}")
+                                            print(f"🎭 Sent {final_action}")
 
                                     elif cap_action in nav_actions and EXTENSION_WS:
                                         await EXTENSION_WS.send(json.dumps({
@@ -5355,6 +5453,35 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                     else:
                                         # Internal capability
                                         cap_result = execute_internal_capability(cap_action, cap_params)
+
+                                        # 🔄 Handle needs_input: capability asking for missing param
+                                        if isinstance(cap_result, dict) and cap_result.get("needs_input"):
+                                            # Store pending state in orchestrator
+                                            PERSONA_ORCHESTRATOR.state.pending_param_input = {
+                                                "capability": cap_result.get("capability", cap_action),
+                                                "param": cap_result.get("param", ""),
+                                                "prompt": cap_result.get("prompt", "Please provide the required input.")
+                                            }
+                                            # Override response with prompt
+                                            prompt_msg = cap_result.get("prompt", "What would you like to provide?")
+                                            # Send prompt to user
+                                            if CURRENT_CHAT_ID:
+                                                chat_dict = load_chat(CURRENT_CHAT_ID)
+                                                if chat_dict:
+                                                    append_assistant_message(chat_dict, prompt_msg)
+                                                    save_chat(chat_dict)
+                                            if EXTENSION_WS:
+                                                await EXTENSION_WS.send(json.dumps({
+                                                    "type": "hud_action",
+                                                    "action": {
+                                                        "type": "append_message",
+                                                        "chat_id": CURRENT_CHAT_ID,
+                                                        "message": {"role": "assistant", "content": prompt_msg}
+                                                    }
+                                                }))
+                                            print(f"🔄 needs_input: waiting for {cap_result.get('param')}")
+                                            # Skip normal result handling
+                                            continue
 
                                         # Push HUD action to extension if capability wants to drive UI
                                         hud_action = cap_result.get("_hud_action") if isinstance(cap_result, dict) else None
@@ -5483,9 +5610,22 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
 
                         # 🔢 Translate tab numbers for tab capabilities
                         tab_actions = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL']
-                        translated_params = params
-                        if action in tab_actions:
-                            translated_params, tab_error = translate_tab_params(params)
+                        final_action = action
+                        final_params = params
+
+                        # 🧠 SMART TAB LOGIC: OpenTab auto-switches if tab exists
+                        if action == "OpenTab":
+                            url_or_name = params.get("url") or params.get("name", "")
+                            if url_or_name:
+                                existing_tab = find_matching_tab(url_or_name)
+                                if existing_tab:
+                                    print(f"🧠 [SMART-TAB] OpenTab→SwitchTab: Found existing tab {existing_tab['stable_num']}")
+                                    final_action = "SwitchTab"
+                                    final_params = {"tabId": existing_tab["id"]}
+
+                        translated_params = final_params
+                        if final_action in tab_actions:
+                            translated_params, tab_error = translate_tab_params(final_params)
                             if tab_error:
                                 await ws.send(json.dumps({"ok": False, "error": tab_error}))
                                 continue
@@ -5493,7 +5633,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                         capability_command = {
                             "type": "execute_capability",
                             "id": request_id,
-                            "action": action,
+                            "action": final_action,
                             "params": translated_params
                         }
 
@@ -6629,19 +6769,21 @@ def create_new_chat(chat_id: str, prompt: str, meta: Dict[str, Any]) -> Dict[str
     @param meta: Additional metadata (page_url, page_title, etc.)
     @return: New chat dictionary
     """
-    now_iso = datetime.utcnow().isoformat() + "Z"
+    now = datetime.utcnow()
+    now_iso = now.isoformat() + "Z"
 
-    # Default title from first three words
-    words = prompt.strip().split()[:3]
-    default_title = " ".join(words) if words else "New Chat"
+    # Default title: timestamp_firstword (e.g. "45_30_14_19_12_2025_hello")
+    # Format: seconds_minutes_hours_days_months_years_(first word)
+    first_word = prompt.strip().split()[0].lower() if prompt.strip() else "chat"
+    timestamp_title = now.strftime(f"%S_%M_%H_%d_%m_%Y_{first_word}")
 
     return {
         "chat_id": chat_id,
         "project_id": "default",  # "default" = unassigned, otherwise user project ID
         "created_at": now_iso,
         "updated_at": now_iso,
-        "title": default_title,
-        "default_title": default_title.lower(),
+        "title": timestamp_title,
+        "default_title": timestamp_title,
         "meta": {
             "source": "ome-web",
             "page_url": meta.get("page_url"),

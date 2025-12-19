@@ -1,42 +1,28 @@
 {
-  "timestamp": 1766120939.734744,
+  "timestamp": 1766155987.369813,
   "browser_state": {
-    "total_tabs": 3,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138052907,
-      "url": "https://www.google.com/",
-      "title": "Google",
+      "id": 1138053515,
+      "url": "http://127.0.0.1:8080/",
+      "title": "OM-E Web",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138052900,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138052903,
+        "id": 1138053515,
         "url": "http://127.0.0.1:8080/",
         "title": "OM-E Web",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138052907,
-        "url": "https://www.google.com/",
-        "title": "Google",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 30099.878946416,
+    "last_tabs_update": 65008.355962916,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/",
-    "title": "Google",
+    "url": "http://127.0.0.1:8080/",
+    "title": "OM-E Web",
     "is_active_tab": true
   },
   "menu_structure": {

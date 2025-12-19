@@ -1,13 +1,13 @@
 # Decision Engine Debug (Role B)
 
-**Generated:** 2025-12-19 15:38:39
-**Intent:** search chats for 'close current tab'
-**Estimated Tokens:** 788 (system: 542, user: 246)
+**Generated:** 2025-12-20 01:23:09
+**Intent:** open a new tab with YouTube
+**Estimated Tokens:** 817 (system: 605, user: 212)
 
 **Retrieved:**
-- Capabilities: 6
-- Score range: 0.68 - 1.00
-- Active tab: Google
+- Capabilities: 4
+- Score range: 0.61 - 0.97
+- Active tab: OM-E Web
 
 ---
 
@@ -28,6 +28,7 @@ You execute user requests by selecting from provided options.
 - "Required" params MUST be filled from the intent
 - Extract values naturally (e.g. "open google" → url: "https://google.com")
 - Match references to available IDs (tabs, chats, elements)
+- For tab operations: use the Tab NUMBER from the Tabs list (e.g. "close google tab" → find Google in tabs → use that tab's number)
 
 ## Intent Parsing
 - The PRIMARY ACTION is at the START of the intent
@@ -43,24 +44,27 @@ You execute user requests by selecting from provided options.
 {"decision":"cap","target":"OpenTab","params":{"url":"https://google.com"}}
 ```
 
-**Multiple valid options** - use options FROM THE PROVIDED LIST, always include custom/cancel:
+**Multiple valid options** - MUST include params for each option so it can execute:
 ```json
 {"decision":"options","options":[
-  {"type":"cap","target":"ScrollDown","label":"Scroll down one page"},
-  {"type":"cap","target":"ScrollBottom","label":"Scroll to bottom"},
-  {"type":"custom","label":"Describe what you want"},
+  {"type":"cap","target":"SetTheme","params":{"theme":"robot"},"label":"Change to robot"},
+  {"type":"cap","target":"SetTheme","params":{"theme":"kawaii"},"label":"Change to kawaii"},
   {"type":"cancel","label":"Cancel"}
 ]}
 ```
 
-**Unclear/ambiguous request** - present relevant options FROM THE PROVIDED LIST for clarification:
+**Unclear/ambiguous request** - present options with params filled:
 ```json
 {"decision":"options","options":[
-  {"type":"cap","target":"CloseTab","label":"Close current tab"},
-  {"type":"cap","target":"SwitchTab","label":"Switch to different tab"},
-  {"type":"custom","label":"Tell me which tab"},
+  {"type":"cap","target":"CloseTab","params":{"tabId":1},"label":"Close Extensions tab"},
+  {"type":"cap","target":"CloseTab","params":{"tabId":2},"label":"Close Google tab"},
   {"type":"cancel","label":"Cancel"}
 ]}
+```
+
+**Missing required param** - capability matches but required value not provided:
+```json
+{"decision":"clarify","missing":"title","prompt":"What would you like to rename it to?"}
 ```
 
 **No match** - nothing in the provided list fits:
@@ -81,35 +85,33 @@ JSON only. No explanation.
 ## Input (sent to LLM)
 
 ```
-Intent: search chats for 'close current tab'
+Intent: open a new tab with YouTube
 
-- SearchChats [chat] (1.00): Searches all chats for a keyword or phrase. Ext...
-  example: {"cap": "SearchChats", "params": {"query": "dude"}}
-  params: {query: "Required - search query string (extract from user request)"}
-- CloseTab [browser] (0.91): Closes a browser tab by its tab ID
-  example: {"cap": "CloseTab", "params": {"tabId": 123}}
-  params: {tabId: "Required - the tab ID to close"}
-- SwitchTab [browser] (0.83): Switches to a different browser tab by its tab ID
-  example: {"cap": "SwitchTab", "params": {"tabId": 123}}
-  params: {tabId: "Required - the tab ID to switch to"}
-- ToggleChats [hud] (0.70): Opens or closes the chats panel
-  example: {"cap": "ToggleChats"}
-- HideChats [hud] (0.70): Closes the chats sidebar UI panel. Does NOT del...
-  example: {"cap": "HideChats"}
-- HidePrompt [hud] (0.68): Hides the text input area for typing messages
-  example: {"cap": "HidePrompt"}
+- OpenTab [browser] (0.97): Opens a URL or switches to existing tab. Auto-s...
+  example: {"cap": "OpenTab", "params": {"url": "https://google.com"}}
+  params: {url: "Optional - URL or site name (e.g. 'google.com', 'youtube')"}
+- CloseTab [browser] (0.83): Closes a tab by ID or name. Say 'close the goog...
+  example: {"cap": "CloseTab", "params": {"name": "google"}}
+  params: {tabId: "Optional - numeric tab ID to close", name: "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"}
+- GoBack [browser] (0.62): Navigates back in the current tab's history
+  example: {"cap": "GoBack"}
+- GoForward [browser] (0.61): Navigates forward in the current tab's history
+  example: {"cap": "GoForward"}
 
-Active: Google (https://www.google.com/)
+Active: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs:
+- Tab 2: "OM-E Web" (127.0.0.1:8080) -- ACTIVE
 ```
 
 ---
 
 ## LLM Response
 
-**Response Tokens:** 23
+**Response Tokens:** 22
 
 ```json
 ```json
-{"decision":"cap","target":"SearchChats","params":{"query":"close current tab"}}
+{"decision":"cap","target":"OpenTab","params":{"url":"https://youtube.com"}}
 ```
 ```

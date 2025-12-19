@@ -145,15 +145,31 @@ def shape_options(
                     elif opt.name == "SetCurrentChat":
                         opt.score = max(0.0, opt.score - 0.3)  # Suppress chat switching
             break  # Only match first theme found
-    # 🔄 VIEW SWITCHING - "switch view" should trigger SwitchView, NOT SetCurrentChat
-    # SwitchView toggles between orb and HUD modes
-    VIEW_SWITCH_PHRASES = ["switch view", "change view", "toggle view", "swap view"]
-    if any(phrase in intent_lower for phrase in VIEW_SWITCH_PHRASES):
+    # 🔄 VIEW/HUD/ORB CONTEXT - Smart detection for view switching
+    # When these keywords appear, likely a view operation not a chat operation
+    HUD_ORB_KEYWORDS = ["hud", "orb", "view", "views"]
+    has_view_keyword = any(kw in intent_lower for kw in HUD_ORB_KEYWORDS)
+
+    if has_view_keyword:
+        # Check if it's NOT a chat reference (e.g., "go to the hud chat" should be SetCurrentChat)
+        is_chat_reference = "chat" in intent_lower and not any(p in intent_lower for p in ["chat view", "chat mode"])
+
+        if not is_chat_reference:
+            for opt in deduped:
+                if opt.name == "SwitchView":
+                    opt.score = min(1.0, opt.score + 0.5)  # Strong boost
+                elif opt.name == "ToggleHUD":
+                    opt.score = min(1.0, opt.score + 0.3)  # Moderate boost
+                elif opt.name == "SetCurrentChat":
+                    opt.score = max(0.0, opt.score - 0.4)  # Suppress chat switching
+
+    # 📝 PROMPT CONTEXT - When "prompt" appears, boost prompt operations
+    if "prompt" in intent_lower:
         for opt in deduped:
-            if opt.name == "SwitchView":
+            if opt.name in ("ShowPrompt", "HidePrompt"):
                 opt.score = min(1.0, opt.score + 0.5)  # Strong boost
             elif opt.name == "SetCurrentChat":
-                opt.score = max(0.0, opt.score - 0.4)  # Suppress chat switching
+                opt.score = max(0.0, opt.score - 0.3)  # Suppress chat switching
 
     # Tab operations with names - boost CloseTab/SwitchTab when "[action] X tab" pattern detected
     close_tab_match = re.search(r'\bclose\s+(?:the\s+)?(\w+)\s*(?:tab)?\b', intent_lower)

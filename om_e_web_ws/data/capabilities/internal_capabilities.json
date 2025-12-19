@@ -5,7 +5,7 @@
       "action": "ScrollDown",
       "label": "Scroll down the page",
       "description": "Scrolls the page down by one viewport height",
-      "synonyms": ["page down", "move down", "scroll lower", "go down"],
+      "synonyms": ["page down", "move down", "lower", "down more"],
       "example": "{\"cap\": \"ScrollDown\"}",
       "params": {}
     },
@@ -14,7 +14,7 @@
       "action": "ScrollUp",
       "label": "Scroll up the page",
       "description": "Scrolls the page up by one viewport height",
-      "synonyms": ["page up", "move up", "scroll higher", "go up"],
+      "synonyms": ["page up", "move up", "higher", "up more"],
       "example": "{\"cap\": \"ScrollUp\"}",
       "params": {}
     },
@@ -23,7 +23,7 @@
       "action": "ScrollTop",
       "label": "Go to top of page",
       "description": "Scrolls to the very top of the page",
-      "synonyms": ["top of page", "beginning", "start of page", "scroll to top"],
+      "synonyms": ["beginning", "start of page", "jump to top", "back to top"],
       "example": "{\"cap\": \"ScrollTop\"}",
       "params": {}
     },
@@ -32,7 +32,7 @@
       "action": "ScrollBottom",
       "label": "Go to bottom of page",
       "description": "Scrolls to the very bottom of the page",
-      "synonyms": ["end of page", "bottom", "scroll to bottom", "page end"],
+      "synonyms": ["end of page", "page end", "jump to bottom", "all the way down"],
       "example": "{\"cap\": \"ScrollBottom\"}",
       "params": {}
     },
@@ -40,8 +40,8 @@
       "group": "browser",
       "action": "ZoomIn",
       "label": "Zoom in / make bigger",
-      "description": "Increases browser zoom by 15%",
-      "synonyms": ["make bigger", "enlarge", "magnify", "increase size"],
+      "description": "Increases page zoom by 15%",
+      "synonyms": ["enlarge", "magnify", "bigger", "increase size"],
       "example": "{\"cap\": \"ZoomIn\"}",
       "params": {}
     },
@@ -49,8 +49,8 @@
       "group": "browser",
       "action": "ZoomOut",
       "label": "Zoom out / make smaller",
-      "description": "Decreases browser zoom by 15%",
-      "synonyms": ["make smaller", "shrink", "reduce size", "decrease zoom"],
+      "description": "Decreases page zoom by 15%",
+      "synonyms": ["shrink", "reduce size", "smaller", "minimize"],
       "example": "{\"cap\": \"ZoomOut\"}",
       "params": {}
     },
@@ -58,61 +58,49 @@
       "group": "browser",
       "action": "ZoomReset",
       "label": "Reset zoom to 100%",
-      "description": "Resets browser zoom to default 100%",
-      "synonyms": ["normal zoom", "default zoom", "100%", "original size"],
+      "description": "Resets page zoom to default 100%",
+      "synonyms": ["normal zoom", "default zoom", "original size", "actual size"],
       "example": "{\"cap\": \"ZoomReset\"}",
       "params": {}
     },
     "OpenTab": {
       "group": "browser",
       "action": "OpenTab",
-      "label": "Open new tab",
-      "description": "Opens a new browser tab, optionally with a URL",
-      "synonyms": ["new tab", "open website", "go to url", "navigate to", "open page", "take me to"],
+      "label": "Go to tab or open URL",
+      "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
+      "synonyms": ["new tab", "open website", "navigate to", "visit site", "go to url"],
       "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
       "params": {
-        "url": "Optional - URL to open in the new tab"
+        "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
       }
     },
     "CloseTab": {
       "group": "browser",
       "action": "CloseTab",
-      "label": "Close a browser tab",
-      "description": "Closes a browser tab by tab ID or name. Say 'close the google tab' or 'close facebook'.",
-      "synonyms": ["close this tab", "close tab", "shut tab", "close window", "close the tab", "close X tab"],
+      "label": "Close a tab",
+      "description": "Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
+      "synonyms": ["shut tab", "kill tab", "close window", "close it"],
       "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
       "params": {
         "tabId": "Optional - numeric tab ID to close",
         "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
       }
     },
-    "SwitchTab": {
-      "group": "browser",
-      "action": "SwitchTab",
-      "label": "Switch to another tab",
-      "description": "Switches to a different browser tab by tab ID or name. Say 'switch to the google tab' or 'go to youtube'.",
-      "synonyms": ["go to tab", "change tab", "switch to tab", "activate tab", "go to the tab", "switch to X tab"],
-      "example": "{\"cap\": \"SwitchTab\", \"params\": {\"name\": \"youtube\"}}",
-      "params": {
-        "tabId": "Optional - numeric tab ID to switch to",
-        "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'youtube')"
-      }
-    },
     "GoBack": {
       "group": "browser",
       "action": "GoBack",
-      "label": "Go back in browser history",
+      "label": "Go back in history",
       "description": "Navigates back in the current tab's history",
-      "synonyms": ["back", "previous page", "go back", "back button"],
+      "synonyms": ["back", "previous page", "back button", "last page"],
       "example": "{\"cap\": \"GoBack\"}",
       "params": {}
     },
     "GoForward": {
       "group": "browser",
       "action": "GoForward",
-      "label": "Go forward in browser history",
+      "label": "Go forward in history",
       "description": "Navigates forward in the current tab's history",
-      "synonyms": ["forward", "next page", "go forward", "forward button"],
+      "synonyms": ["forward", "next page", "forward button", "ahead"],
       "example": "{\"cap\": \"GoForward\"}",
       "params": {}
     },
@@ -121,7 +109,7 @@
       "action": "Refresh",
       "label": "Refresh / reload the page",
       "description": "Reloads the current page",
-      "synonyms": ["reload", "refresh page", "reload page", "update page"],
+      "synonyms": ["reload", "update page", "refresh it", "reload it"],
       "example": "{\"cap\": \"Refresh\"}",
       "params": {}
     },
@@ -129,18 +117,9 @@
       "group": "hud",
       "action": "SwitchView",
       "label": "Switch between HUD and orb view",
-      "description": "Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view",
-      "synonyms": ["switch view", "swap view", "toggle view", "switch to hud", "switch to orb", "change view", "fullscreen mode", "orb mode", "chat view", "chat mode", "full chat", "open chat view", "browser mode", "browser view", "switch to browser", "change to browser", "exit hud", "close hud", "go to browser", "nav mode", "navigation mode", "floating mode", "mini mode", "compact mode"],
+      "description": "Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floating orb.",
+      "synonyms": ["toggle view", "hud mode", "orb mode", "browser mode", "fullscreen", "floating orb"],
       "example": "{\"cap\": \"SwitchView\"}",
-      "params": {}
-    },
-    "ToggleHUD": {
-      "group": "hud",
-      "action": "ToggleHUD",
-      "label": "Toggle HUD on/off",
-      "description": "Toggles the HUD overlay between visible and hidden. Same as SwitchView.",
-      "synonyms": ["toggle hud", "show hud", "hide hud", "hud on", "hud off", "toggle overlay", "toggle interface"],
-      "example": "{\"cap\": \"ToggleHUD\"}",
       "params": {}
     },
     "SetTheme": {
@@ -148,20 +127,10 @@
       "action": "SetTheme",
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
-      "synonyms": [
-        "set theme", "change theme", "switch theme", "change orb", "orb style", "change character", "switch persona",
-        "change to kawaii", "switch to kawaii", "be kawaii", "become kawaii",
-        "change to robot", "switch to robot", "be robot", "become robot",
-        "change to atom", "switch to atom", "be atom", "become atom",
-        "change to ome", "switch to ome", "be ome", "become ome",
-        "change to om-e", "switch to om-e", "be om-e",
-        "robot", "om-e", "ome", "purple robot", "goggles", "cyan eyes", "mechanical", "robot guy", "robot head", "default orb",
-        "kawaii", "cute cat", "white cat", "fluffy cat", "bunny", "white bunny", "cherry head", "pink cheeks", "blue eyes", "sparkly eyes", "anime", "cute mode", "adorable",
-        "atom", "atomic", "nucleus", "electrons", "green rings", "orbital", "science", "green atom", "purple core", "electron orbits"
-      ],
+      "synonyms": ["switch persona", "different orb", "robot mode", "cute mode", "atom mode", "change character"],
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "params": {
-        "theme": "Required - robot (purple Om-E with goggles), kawaii (white fluffy cat with cherry), or atom (green orbital rings)"
+        "theme": "Required - robot/ome/purple, kawaii/kitten/kitty/cat/cute, or atom/green/science"
       }
     },
     "ShowPrompt": {
@@ -169,7 +138,7 @@
       "action": "ShowPrompt",
       "label": "Show the chat prompt",
       "description": "Shows the text input area for typing messages",
-      "synonyms": ["open prompt", "show input", "show the prompt", "open input", "show text field", "show input field", "show message box"],
+      "synonyms": ["open prompt", "text field", "input box", "type here"],
       "example": "{\"cap\": \"ShowPrompt\"}",
       "params": {}
     },
@@ -178,7 +147,7 @@
       "action": "HidePrompt",
       "label": "Hide the chat prompt",
       "description": "Hides the text input area for typing messages",
-      "synonyms": ["close prompt", "hide input", "hide the prompt", "close input", "hide text field", "hide input field", "hide message box"],
+      "synonyms": ["close prompt", "dismiss prompt", "hide input", "close input"],
       "example": "{\"cap\": \"HidePrompt\"}",
       "params": {}
     },
@@ -187,7 +156,7 @@
       "action": "ShowChats",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "synonyms": ["show chats", "show my chats", "show me my chats", "see my chats", "view chats", "view my chats", "my chats", "where are my chats", "open chats", "show conversations", "show past chats", "where are the conversations", "my conversations", "where are conversations", "past conversations", "conversation history", "chat history", "show history", "list chats", "list my chats", "get my chats", "what chats do I have"],
+      "synonyms": ["show chats", "see chats", "my chats", "go to chats", "view chats", "chat list"],
       "example": "{\"cap\": \"ShowChats\"}",
       "params": {}
     },
@@ -196,7 +165,7 @@
       "action": "HideChats",
       "label": "Hide chats panel",
       "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
-      "synonyms": ["hide chats", "close chats", "hide my chats", "close conversations", "close those chats", "close the chats", "hide the chats", "close chat panel", "close sidebar", "hide sidebar", "close the sidebar"],
+      "synonyms": ["close chats", "hide chats", "close sidebar", "dismiss sidebar", "hide sidebar"],
       "example": "{\"cap\": \"HideChats\"}",
       "params": {}
     },
@@ -205,7 +174,7 @@
       "action": "ToggleChats",
       "label": "Toggle chats panel",
       "description": "Opens or closes the chats panel",
-      "synonyms": ["toggle chats", "chats on off"],
+      "synonyms": ["toggle sidebar", "chats on off"],
       "example": "{\"cap\": \"ToggleChats\"}",
       "params": {}
     },
@@ -215,7 +184,7 @@
       "action": "GetChatList",
       "label": "Get chat list data (internal)",
       "description": "Returns JSON array of chats with id, title, date_short, message_count. Internal/programmatic use - for UI display use ShowChats instead.",
-      "synonyms": ["get chat list", "fetch chats", "retrieve chat list", "chat list data"],
+      "synonyms": ["fetch chats", "retrieve chat list", "chat list data"],
       "example": "{\"cap\": \"GetChatList\"}",
       "params": {
         "project_id": "Optional - filter by project (use 'default' for unassigned)"
@@ -226,7 +195,7 @@
       "action": "LoadChat",
       "label": "Load a chat",
       "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
-      "synonyms": ["open chat", "load conversation", "get chat", "retrieve chat"],
+      "synonyms": ["open conversation", "get chat", "retrieve chat", "read chat"],
       "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
       "params": {
         "chat": "Required - the chat NUMBER from visible chats list"
@@ -237,7 +206,7 @@
       "action": "CreateChat",
       "label": "Create a new chat",
       "description": "Creates a new chat file and returns the chat_id",
-      "synonyms": ["new chat", "start conversation", "new conversation", "fresh chat"],
+      "synonyms": ["new conversation", "start chat", "fresh chat", "begin chat"],
       "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
       "params": {
         "title": "Optional - title for the chat",
@@ -290,7 +259,7 @@
       "action": "RenameChat",
       "label": "Rename a chat",
       "description": "Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y'.",
-      "synonyms": ["rename conversation", "change chat title", "update chat name", "rename it", "rename this chat"],
+      "synonyms": ["change title", "update name", "rename it", "new title"],
       "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
@@ -303,7 +272,7 @@
       "action": "DeleteChat",
       "label": "Delete a chat",
       "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
-      "synonyms": ["remove chat", "delete conversation", "erase chat", "delete it", "delete this chat"],
+      "synonyms": ["remove chat", "erase chat", "delete it", "trash chat"],
       "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
@@ -315,20 +284,20 @@
       "action": "GetCurrentChat",
       "label": "Get the current active chat",
       "description": "Returns the current chat ID and chat data",
-      "synonyms": ["current chat", "active chat", "which chat", "what chat am i in"],
+      "synonyms": ["active chat", "which chat", "what chat am i in", "current conversation"],
       "example": "{\"cap\": \"GetCurrentChat\"}",
       "params": {}
     },
     "SetCurrentChat": {
       "group": "chat",
       "action": "SetCurrentChat",
-      "label": "Switch to a chat",
-      "description": "Switches to a chat by number OR name. Use number if visible, name for fuzzy match.",
-      "synonyms": ["switch chat", "change to chat", "activate chat", "make current", "go to chat", "open chat", "load chat", "open the chat", "switch to chat"],
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"switch view\"}}",
+      "label": "Activate a chat",
+      "description": "Makes a chat active by number or name. Use number if visible, name for fuzzy match.",
+      "synonyms": ["go to chat", "open chat", "load chat", "activate chat"],
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
-        "name": "Optional - chat title for fuzzy matching (e.g. 'switch view', 'my project')"
+        "name": "Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')"
       }
     },
     "SearchChats": {
@@ -336,7 +305,7 @@
       "action": "SearchChats",
       "label": "Search chats by title or content",
       "description": "Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
-      "synonyms": ["find chat", "search conversations", "look for chat", "find in history", "search for that", "find that chat", "which chat", "search chats", "find the one about", "that one about", "look for the chat"],
+      "synonyms": ["find chat", "look for chat", "find in history", "search for"],
       "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"dude\"}}",
       "params": {
         "query": "Required - search query string (extract from user request)"
@@ -347,7 +316,7 @@
       "action": "GetLLMConfig",
       "label": "Get LLM configuration",
       "description": "Returns current LLM config including providers and settings",
-      "synonyms": ["show config", "what model", "current settings", "llm settings", "which ai"],
+      "synonyms": ["show config", "what model", "current settings", "which ai"],
       "example": "{\"cap\": \"GetLLMConfig\"}",
       "params": {}
     },
@@ -379,7 +348,7 @@
       "action": "SetLLMModel",
       "label": "Set LLM model",
       "description": "Changes the model for a provider",
-      "synonyms": ["change model", "switch model", "use gpt4", "use claude", "different model"],
+      "synonyms": ["change model", "switch model", "use gpt4", "different model"],
       "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
       "params": {
         "provider": "Optional - provider to update (default: active)",

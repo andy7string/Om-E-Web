@@ -38,10 +38,7 @@ def get_capabilities_store() -> CapabilitiesStore:
         t0 = time.time()
         print(f"[RAG] ⚡ Creating capabilities store singleton (first call)")
         _capabilities_store = CapabilitiesStore()
-        # Try to load from disk first
-        if not _capabilities_store.load():
-            # Not on disk, build fresh
-            _capabilities_store.build()
+        _capabilities_store.load_or_build()  # Auto-rebuilds if source newer than index
         print(f"[RAG] Capabilities store init: {(time.time()-t0)*1000:.0f}ms")
     else:
         print(f"[RAG] ✓ Reusing capabilities store singleton ({_capabilities_store.count()} items)")
@@ -152,7 +149,8 @@ def query(user_prompt: str, k_elements: int = 7, k_caps: int = 10) -> RetrievalR
     # Search both stores
     element_results = elements_store.search(user_prompt, k=k_elements, threshold=0.25)
     t3 = time.time()
-    cap_results = caps_store.search(user_prompt, k=k_caps, threshold=0.25)
+    # Use search_capabilities() for grouped results with max-score aggregation
+    cap_results = caps_store.search_capabilities(user_prompt, k=k_caps * 2, threshold=0.25)
     t4 = time.time()
     print(f"[RAG] query(): get_elem={t1-t0:.0f}ms get_caps={t2-t1:.0f}ms search_elem={t3-t2:.0f}ms search_caps={t4-t3:.0f}ms total={t4-t0:.0f}ms")
 
@@ -167,14 +165,15 @@ def query(user_prompt: str, k_elements: int = 7, k_caps: int = 10) -> RetrievalR
         for r in element_results
     ]
 
+    # cap_results is list of (action, score, metadata) tuples - already grouped
     capabilities = [
         {
-            'name': r.metadata['name'],
-            'label': r.metadata['label'],
-            'example': r.metadata.get('example', f'{{"cap": "{r.metadata["name"]}"}}'),
-            'score': r.score
+            'name': action,
+            'label': metadata['label'],
+            'example': metadata.get('example', f'{{"cap": "{action}"}}'),
+            'score': score
         }
-        for r in cap_results
+        for action, score, metadata in cap_results[:k_caps]  # Limit after grouping
     ]
 
     # Check for ambiguity: top 2 elements have very similar scores

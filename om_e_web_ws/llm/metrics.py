@@ -65,7 +65,7 @@ class TurnMetrics:
 
     # Decisions
     handoff: bool = False
-    decision_type: str = "unknown"  # cap, act, ask_user, cannot, noop, chat_only
+    decision_type: str = "unknown"  # cap, act, ask_user, cannot, noop, clarify, chat_only
 
     # Confidence
     top_score: float = 0.0

@@ -1,0 +1,63 @@
+{
+  "chat_id": "wanna-check-out__20251219T140412",
+  "project_id": "default",
+  "created_at": "2025-12-19T14:04:12.672264Z",
+  "updated_at": "2025-12-19T14:05:01.654799Z",
+  "title": "12_04_14_19_12_2025_wanna",
+  "default_title": "12_04_14_19_12_2025_wanna",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "wanna check out some fb bro",
+      "timestamp": "2025-12-19T14:04:12.672306Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T14:04:16.046039Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "yo you ma man, how can you open a tab with no url",
+      "timestamp": "2025-12-19T14:04:33.196955Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Hehe, you caught me! I can't just open a tab without a URL. But if you want to check out Facebook, I can help you navigate there. Just let me know!",
+      "timestamp": "2025-12-19T14:04:34.973159Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "go",
+      "timestamp": "2025-12-19T14:04:47.749978Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T14:04:49.197647Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-19T14:04:59.861671Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T14:05:01.654799Z"
+    }
+  ]
+}

@@ -1,0 +1,387 @@
+{
+  "chat_id": "hey-guy-lets__20251219T120352",
+  "project_id": "default",
+  "created_at": "2025-12-19T12:03:52.125243Z",
+  "updated_at": "2025-12-19T14:53:09.899183Z",
+  "title": "53 messages",
+  "default_title": "52_03_12_19_12_2025_hey",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey guy lets go to browser mode",
+      "timestamp": "2025-12-19T12:03:52.125281Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hehe, we're already in browser mode! What mischief shall we get up to?",
+      "timestamp": "2025-12-19T12:03:54.082104Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "na the view that i can see the browser in",
+      "timestamp": "2025-12-19T12:04:10.016047Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-19T12:04:11.587399Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "thank god open google",
+      "timestamp": "2025-12-19T12:04:17.923228Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T12:04:21.389926Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "zoom out dude",
+      "timestamp": "2025-12-19T12:04:26.865882Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-19T12:04:30.015621Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "again",
+      "timestamp": "2025-12-19T12:04:34.093146Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-19T12:04:36.677566Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "nice lets open youtube",
+      "timestamp": "2025-12-19T12:04:45.871149Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T12:04:48.340270Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "open googel",
+      "timestamp": "2025-12-19T12:05:27.953777Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T12:05:30.861874Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "can you open a new tab with google",
+      "timestamp": "2025-12-19T12:05:40.476294Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Tab with the requested URL is already open and active.",
+      "timestamp": "2025-12-19T12:05:43.305914Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "ya i want another one",
+      "timestamp": "2025-12-19T12:05:52.406778Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Already on Google tab",
+      "timestamp": "2025-12-19T12:05:55.518161Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "so you wont open a new one for me",
+      "timestamp": "2025-12-19T12:06:07.805333Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Already on Google tab",
+      "timestamp": "2025-12-19T12:06:10.672903Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-19T12:06:17.397245Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T12:06:19.992098Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "scroll down",
+      "timestamp": "2025-12-19T12:06:26.620674Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Executing ScrollDown...",
+      "timestamp": "2025-12-19T12:06:29.364757Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "up",
+      "timestamp": "2025-12-19T12:06:32.254964Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Executing ScrollUp...",
+      "timestamp": "2025-12-19T12:06:33.650118Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "hide prompt",
+      "timestamp": "2025-12-19T12:06:38.604496Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Executing HidePrompt...",
+      "timestamp": "2025-12-19T12:06:40.780308Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "lets go to chat view",
+      "timestamp": "2025-12-19T12:07:54.286977Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-19T12:07:55.888510Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "zoom rest",
+      "timestamp": "2025-12-19T12:08:02.981917Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Executing ZoomReset...",
+      "timestamp": "2025-12-19T12:08:05.576298Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "make the text smaller",
+      "timestamp": "2025-12-19T12:08:10.598059Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-19T12:08:13.461248Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "again",
+      "timestamp": "2025-12-19T12:08:16.182979Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-19T12:08:18.574119Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "user",
+      "content": "close the side na",
+      "timestamp": "2025-12-19T12:08:21.356731Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "Executing CloseTab...",
+      "timestamp": "2025-12-19T12:08:23.911989Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "user",
+      "content": "side nav",
+      "timestamp": "2025-12-19T12:08:28.223349Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "assistant",
+      "content": "No capability matches this request",
+      "timestamp": "2025-12-19T12:08:30.655175Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "user",
+      "content": "close the side nav",
+      "timestamp": "2025-12-19T12:08:35.111784Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "assistant",
+      "content": "Executing CloseTab...",
+      "timestamp": "2025-12-19T12:08:36.633727Z"
+    },
+    {
+      "id": "m_0043",
+      "role": "user",
+      "content": "close chats",
+      "timestamp": "2025-12-19T12:08:39.487615Z"
+    },
+    {
+      "id": "m_0044",
+      "role": "assistant",
+      "content": "Executing CloseTab...",
+      "timestamp": "2025-12-19T12:08:40.760961Z"
+    },
+    {
+      "id": "m_0045",
+      "role": "user",
+      "content": "smooth ma man, lets rename this",
+      "timestamp": "2025-12-19T14:36:44.022572Z"
+    },
+    {
+      "id": "m_0046",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-19T14:36:46.981849Z"
+    },
+    {
+      "id": "m_0047",
+      "role": "user",
+      "content": "dont we need to rename it to something first",
+      "timestamp": "2025-12-19T14:37:02.329667Z"
+    },
+    {
+      "id": "m_0048",
+      "role": "assistant",
+      "content": "Hehe, you're right! What shall we rename it to? Just give me the name!",
+      "timestamp": "2025-12-19T14:37:03.721155Z"
+    },
+    {
+      "id": "m_0049",
+      "role": "user",
+      "content": "smooth criminal",
+      "timestamp": "2025-12-19T14:37:14.925291Z"
+    },
+    {
+      "id": "m_0050",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-19T14:37:19.892643Z"
+    },
+    {
+      "id": "m_0051",
+      "role": "user",
+      "content": "i want to rename the chat with 27 mmessages",
+      "timestamp": "2025-12-19T14:45:21.378557Z"
+    },
+    {
+      "id": "m_0052",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-19T14:45:23.840903Z"
+    },
+    {
+      "id": "m_0053",
+      "role": "user",
+      "content": "can we rename this chat to 53 messages",
+      "timestamp": "2025-12-19T14:51:15.312095Z"
+    },
+    {
+      "id": "m_0054",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-19T14:51:18.527426Z"
+    },
+    {
+      "id": "m_0055",
+      "role": "user",
+      "content": "that worked lets search for 53",
+      "timestamp": "2025-12-19T14:51:45.313627Z"
+    },
+    {
+      "id": "m_0056",
+      "role": "assistant",
+      "content": "Executing SearchChats...",
+      "timestamp": "2025-12-19T14:51:47.840289Z"
+    },
+    {
+      "id": "m_0057",
+      "role": "user",
+      "content": "can we close the search",
+      "timestamp": "2025-12-19T14:51:58.739952Z"
+    },
+    {
+      "id": "m_0058",
+      "role": "assistant",
+      "content": "Which would you like?\n\n1. Close search tab\n2. Hide text input area\n3. Close the chats sidebar\n4. Scroll to the bottom of the page\n5. Cancel",
+      "timestamp": "2025-12-19T14:52:03.237973Z"
+    },
+    {
+      "id": "m_0059",
+      "role": "user",
+      "content": "3",
+      "timestamp": "2025-12-19T14:52:14.688211Z"
+    },
+    {
+      "id": "m_0060",
+      "role": "assistant",
+      "content": "Executing HideChats...",
+      "timestamp": "2025-12-19T14:52:14.718186Z"
+    },
+    {
+      "id": "m_0061",
+      "role": "user",
+      "content": "can we go have a look on youtube",
+      "timestamp": "2025-12-19T14:53:07.342972Z"
+    },
+    {
+      "id": "m_0062",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T14:53:09.899183Z"
+    }
+  ]
+}

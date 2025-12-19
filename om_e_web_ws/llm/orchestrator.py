@@ -86,6 +86,7 @@ class OrchestratorState:
     pending_critical_action: Optional[DecisionEngineOutput] = None
     pending_critical_context: Optional[Dict] = None
     pending_options: Optional[List[Dict]] = None  # Options presented to user
+    pending_param_input: Optional[Dict] = None  # Awaiting param input (e.g. search query)
 
     def transition_to(self, new_state: TurnState) -> None:
         """Explicit state transition with logging."""
@@ -104,6 +105,10 @@ class OrchestratorState:
         """Check if waiting for user to select from options."""
         return self.pending_options is not None and len(self.pending_options) > 0
 
+    def is_awaiting_param_input(self) -> bool:
+        """Check if waiting for user to provide a missing parameter."""
+        return self.pending_param_input is not None
+
     def reset_turn(self) -> None:
         """Reset state for a new turn."""
         self.current_turn_state = TurnState.TURN_CHAT_ONLY
@@ -112,6 +117,7 @@ class OrchestratorState:
         self.pending_critical_action = None
         self.pending_critical_context = None
         self.pending_options = None
+        self.pending_param_input = None
 
 
 @dataclass
@@ -185,8 +191,7 @@ class PersonaOrchestrator:
         if self._cap_store is None:
             from retrieval.capabilities_store import CapabilitiesStore
             self._cap_store = CapabilitiesStore()
-            if not self._cap_store.load():
-                self._cap_store.build()
+            self._cap_store.load_or_build()  # Auto-rebuilds if source newer than index
         return self._cap_store
 
     # --------------------------------------------------------
@@ -200,6 +205,7 @@ class PersonaOrchestrator:
         active_tab: Optional[Dict] = None,
         tabs: Optional[List[Dict]] = None,
         orb_theme: Optional[str] = None,
+        visible_chats: Optional[List[Dict]] = None,
     ) -> OrchestratorResult:
         """
         Process user message through the two-role architecture.
@@ -210,6 +216,7 @@ class PersonaOrchestrator:
             active_tab: Current active tab {url, title}
             tabs: List of open tabs [{id, url, title}, ...]
             orb_theme: Current orb theme for personality injection
+            visible_chats: List of visible chats when sidebar is open [{chat_id, title, ...}]
 
         Returns:
             OrchestratorResult with response and action details
@@ -246,6 +253,14 @@ class PersonaOrchestrator:
                 await log_turn_metrics(metrics)
                 return result
 
+        # Check if user is providing a missing parameter
+        if self.state.is_awaiting_param_input():
+            result = await self._handle_param_input(user_message)
+            if result is not None:
+                metrics.total_ms = (time.time() - turn_start) * 1000
+                await log_turn_metrics(metrics)
+                return result
+
         # 🎨 THEME SHORTCUT: Catch short theme phrases that Role A might miss
         theme_intent = self._detect_theme_shortcut(user_message)
         if theme_intent:
@@ -263,8 +278,20 @@ class PersonaOrchestrator:
 
             shaped_options = shape_options(theme_intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
 
+            # Perfect match bypass for theme shortcuts too
+            perfect_match = self._check_perfect_match(shaped_options)
+            if perfect_match:
+                logger.info(f"[Orchestrator] Perfect match bypass (theme): {perfect_match.target}")
+                metrics.decision_engine_ms = 0
+                metrics.decision_type = perfect_match.decision.value
+                metrics.handoff = True
+                result = await self._apply_confidence_gating(perfect_match, theme_intent, shaped_options)
+                metrics.total_ms = (time.time() - turn_start) * 1000
+                await log_turn_metrics(metrics)
+                return result
+
             t0 = time.time()
-            decision_output = await self._call_decision_engine(theme_intent, shaped_options, active_tab, tabs)
+            decision_output = await self._call_decision_engine(theme_intent, shaped_options, active_tab, tabs, visible_chats)
             metrics.decision_engine_ms = (time.time() - t0) * 1000
             metrics.decision_type = decision_output.decision.value
             metrics.handoff = True
@@ -274,10 +301,50 @@ class PersonaOrchestrator:
             await log_turn_metrics(metrics)
             return result
 
+        # 🔄 VIEW SHORTCUT: Catch view switching phrases that Role A might misinterpret
+        view_intent = self._detect_view_shortcut(user_message)
+        if view_intent:
+            # Skip Role A, go directly to RAG + Role B with the view intent
+            logger.info(f"[Orchestrator] View shortcut detected: {view_intent}")
+            self.state.transition_to(TurnState.TURN_HANDOFF_PENDING)
+            self.state.last_intent = view_intent
+            self.state.pending_original_text = user_message
+
+            t0 = time.time()
+            raw_options = await self._query_capabilities(view_intent)
+            metrics.rag_ms = (time.time() - t0) * 1000
+            if raw_options:
+                metrics.top_score = raw_options[0].get("score", 0)
+
+            shaped_options = shape_options(view_intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
+
+            # Perfect match bypass for view shortcuts too
+            perfect_match = self._check_perfect_match(shaped_options)
+            if perfect_match:
+                logger.info(f"[Orchestrator] Perfect match bypass (view): {perfect_match.target}")
+                metrics.decision_engine_ms = 0
+                metrics.decision_type = perfect_match.decision.value
+                metrics.handoff = True
+                result = await self._apply_confidence_gating(perfect_match, view_intent, shaped_options)
+                metrics.total_ms = (time.time() - turn_start) * 1000
+                await log_turn_metrics(metrics)
+                return result
+
+            t0 = time.time()
+            decision_output = await self._call_decision_engine(view_intent, shaped_options, active_tab, tabs, visible_chats)
+            metrics.decision_engine_ms = (time.time() - t0) * 1000
+            metrics.decision_type = decision_output.decision.value
+            metrics.handoff = True
+
+            result = await self._apply_confidence_gating(decision_output, view_intent, shaped_options)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return result
+
         # STEP 1: Call Chat Persona (Role A)
         t0 = time.time()
         persona_output = await self._call_chat_persona(
-            user_message, active_tab, tabs, chat_id, orb_theme
+            user_message, active_tab, tabs, chat_id, orb_theme, visible_chats
         )
         metrics.chat_persona_ms = (time.time() - t0) * 1000
 
@@ -310,9 +377,20 @@ class PersonaOrchestrator:
         # STEP 3: Shape options (dedup, boost, diversity)
         shaped_options = shape_options(intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
 
+        # STEP 3.5: Perfect match bypass - skip Role B if top score is 1.00
+        perfect_match = self._check_perfect_match(shaped_options)
+        if perfect_match:
+            logger.info(f"[Orchestrator] Perfect match bypass: {perfect_match.target}")
+            metrics.decision_engine_ms = 0
+            metrics.decision_type = perfect_match.decision.value
+            result = await self._apply_confidence_gating(perfect_match, intent, shaped_options)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return result
+
         # STEP 4: Call Decision Engine (Role B)
         t0 = time.time()
-        decision_output = await self._call_decision_engine(intent, shaped_options, active_tab, tabs)
+        decision_output = await self._call_decision_engine(intent, shaped_options, active_tab, tabs, visible_chats)
         metrics.decision_engine_ms = (time.time() - t0) * 1000
         metrics.decision_type = decision_output.decision.value
 
@@ -335,6 +413,7 @@ class PersonaOrchestrator:
         tabs: Optional[List[Dict]],
         chat_id: Optional[str] = None,
         orb_theme: Optional[str] = None,
+        visible_chats: Optional[List[Dict]] = None,
     ) -> ChatPersonaOutput:
         """
         Call Chat Persona role with rolling history.
@@ -342,8 +421,8 @@ class PersonaOrchestrator:
         Returns:
             ChatPersonaOutput (either ChatPersonaReply or ChatPersonaHandoff)
         """
-        # Build environment hint
-        env_hint = self._build_environment_hint(active_tab, tabs)
+        # Build environment hint (includes visible chats when sidebar open)
+        env_hint = self._build_environment_hint(active_tab, tabs, visible_chats, chat_id)
 
         # Get rolling history from JSON file
         chat_history = self._get_rolling_history(chat_id, MAX_HISTORY_TOKENS)
@@ -412,7 +491,9 @@ USER MESSAGE
     def _build_environment_hint(
         self,
         active_tab: Optional[Dict],
-        tabs: Optional[List[Dict]]
+        tabs: Optional[List[Dict]],
+        visible_chats: Optional[List[Dict]] = None,
+        current_chat_id: Optional[str] = None
     ) -> str:
         """Build environment context for Chat Persona."""
         lines = []
@@ -432,6 +513,23 @@ USER MESSAGE
                 tab_domain = self._extract_domain(tab.get("url", ""))
                 marker = " (ACTIVE)" if tab.get("id") == active_id else ""
                 lines.append(f"- {i}. {tab_title} ({tab_domain}){marker}")
+            # Formatting hint for tabs
+            lines.append("Format tabs as clickable: [Tab Name](tab://NUMBER)")
+
+        # 📚 Visible chats (when sidebar is open in HUD mode)
+        if visible_chats:
+            lines.append("")
+            lines.append(f"Chats ({len(visible_chats)} visible):")
+            for i, chat in enumerate(visible_chats, 1):
+                chat_title = chat.get("title", "Untitled")[:40]
+                msg_count = chat.get("message_count", 0)
+                # Mark current chat
+                if current_chat_id and chat.get("chat_id") == current_chat_id:
+                    lines.append(f"- {i}. \"{chat_title}\" ({msg_count} msgs) ← CURRENT")
+                else:
+                    lines.append(f"- {i}. \"{chat_title}\" ({msg_count} msgs)")
+            # Formatting hint for chats
+            lines.append("Format chats as clickable: [Chat Title](chat://NUMBER)")
 
         return "\n".join(lines) if lines else "No tab info"
 
@@ -478,6 +576,39 @@ USER MESSAGE
                 if theme_word in THEME_MAP:
                     theme_param = THEME_MAP[theme_word]
                     return f"change theme to '{theme_param}'"
+
+        return None
+
+    def _detect_view_shortcut(self, message: str) -> Optional[str]:
+        """
+        🔄 Detect view switching phrases that Role A might misinterpret.
+        Returns normalized intent string if detected, None otherwise.
+
+        These exact phrases bypass Role A to prevent context confusion
+        (e.g. user talking about a chat named "view" then saying "switch view").
+        """
+        msg_lower = message.lower().strip()
+
+        # Exact phrases that mean "switch view"
+        VIEW_PHRASES = {
+            # Direct commands
+            "switch view", "toggle view", "swap view", "change view",
+            # Mode names - browser/orb = floating view, hud/chat = fullscreen
+            "orb mode", "hud mode", "chat mode", "nav mode",
+            "orb view", "hud view", "chat view",
+            "browser mode", "browser view",  # browser = orb/floating view
+            "full chat", "full chat view", "fullscreen mode",
+            "floating mode", "mini mode", "compact mode",
+            # Actions
+            "go to orb", "go to hud", "go to browser",
+            "switch to orb", "switch to hud", "switch to browser",
+            "exit hud", "close hud", "show hud", "hide hud",
+            "toggle hud", "hud on", "hud off",
+        }
+
+        if msg_lower in VIEW_PHRASES:
+            logger.debug(f"[Orchestrator] View shortcut detected: {msg_lower}")
+            return "switch between HUD and orb view"
 
         return None
 
@@ -577,6 +708,43 @@ USER MESSAGE
             logger.warning(f"Capabilities query error: {e}")
             return []
 
+    def _check_perfect_match(self, options: List[Dict]) -> Optional[DecisionEngineOutput]:
+        """
+        Check if top option is a perfect match (score >= 0.99).
+        If so, bypass Role B and return decision directly.
+
+        Only bypasses for paramless capabilities - if the capability needs
+        params (like OpenTab needing url), we must call Role B to extract them.
+
+        Returns DecisionEngineOutput if perfect match, None otherwise.
+        """
+        if not options:
+            return None
+
+        top = options[0]
+        top_score = top.get("score", 0)
+
+        # Must be essentially 1.00 (accounts for float precision)
+        if top_score < 0.99:
+            return None
+
+        # Check if capability has params - if so, need Role B to extract them
+        top_params = top.get("params", {})
+        if top_params:
+            # Has params - can't bypass, need Role B to extract values
+            return None
+
+        # Perfect match with no params - safe to bypass Role B
+        target = top.get("label", "")
+
+        logger.info(f"[PerfectMatch] Bypassing Role B: {target} (score={top_score:.2f}, no params)")
+
+        return DecisionEngineOutput(
+            decision=DecisionType.CAP,
+            target=target,
+            params={}
+        )
+
     # --------------------------------------------------------
     # Role B: Decision Engine
     # --------------------------------------------------------
@@ -586,7 +754,8 @@ USER MESSAGE
         intent: str,
         capabilities: List[Dict],
         active_tab: Optional[Dict],
-        tabs: Optional[List[Dict]] = None
+        tabs: Optional[List[Dict]] = None,
+        visible_chats: Optional[List[Dict]] = None
     ) -> DecisionEngineOutput:
         """
         Call Decision Engine with server-prepared options.
@@ -634,6 +803,17 @@ USER MESSAGE
                 tab_domain = self._extract_domain(tab.get("url", ""))
                 marker = " -- ACTIVE" if tab.get("id") == active_id else ""
                 lines.append(f"- Tab {tab_num}: \"{tab_title}\" ({tab_domain}){marker}")
+
+        # 📚 Include visible chats for chat operations (SetCurrentChat, DeleteChat, etc.)
+        if visible_chats:
+            lines.append("")
+            lines.append("Chats:")
+            current_chat_id = self.state.current_chat_id
+            for i, chat in enumerate(visible_chats, 1):
+                chat_title = chat.get("title", "Untitled")[:40]
+                marker = " -- CURRENT" if current_chat_id and chat.get("chat_id") == current_chat_id else ""
+                lines.append(f"- Chat {i}: \"{chat_title}\"{marker}")
+            lines.append("(Use chat NUMBER for params: {\"chat\": 3} or name: {\"name\": \"show\"})")
 
         user_content = "\n".join(lines)
 
@@ -704,6 +884,15 @@ USER MESSAGE
                 turn_state=TurnState.TURN_COMPLETED,
                 action_type="noop",
                 noop_reason=decision.reason
+            )
+
+        elif decision.decision == DecisionType.CLARIFY:
+            # Missing required param - ask user for it
+            prompt_text = decision.prompt or f"What {decision.missing} would you like?"
+            return OrchestratorResult(
+                response_text=prompt_text,
+                turn_state=TurnState.TURN_COMPLETED,
+                action_type="clarify"
             )
 
         elif decision.decision == DecisionType.CANNOT:
@@ -789,7 +978,8 @@ USER MESSAGE
             options_data.append({
                 "type": opt.type,
                 "target": opt.target,
-                "label": opt.label
+                "label": opt.label,
+                "params": opt.params or {}  # Store params for execution
             })
 
         self.state.pending_intent = intent  # Save for follow-up handling
@@ -897,6 +1087,44 @@ USER MESSAGE
                 turn_state=TurnState.TURN_COMPLETED
             )
 
+    async def _handle_param_input(
+        self,
+        user_message: str
+    ) -> Optional[OrchestratorResult]:
+        """
+        Handle user providing a missing parameter value.
+        Called when a capability returned needs_input asking for a required param.
+        """
+        pending = self.state.pending_param_input
+        if not pending:
+            return None
+
+        capability = pending.get("capability", "")
+        param_name = pending.get("param", "")
+
+        # User's message IS the param value
+        param_value = user_message.strip()
+
+        # Clear pending state
+        self.state.pending_param_input = None
+
+        if not param_value:
+            self.state.reset_turn()
+            return OrchestratorResult(
+                response_text="Cancelled.",
+                turn_state=TurnState.TURN_COMPLETED,
+                action_executed=False
+            )
+
+        # Execute capability with the filled-in param
+        params = {param_name: param_value}
+        decision = DecisionEngineOutput(
+            decision=DecisionType.CAP,
+            target=capability,
+            params=params
+        )
+        return await self._handle_cap_decision(decision, f"{capability} with {param_name}={param_value}")
+
     async def _handle_option_selection(
         self,
         user_message: str
@@ -936,10 +1164,11 @@ USER MESSAGE
                     )
 
                 if opt_type == "cap" and opt_target:
-                    # Execute the selected capability
-                    # Build params - for chat operations, use current chat
-                    params = {}
-                    if opt_target in ["DeleteChat", "RenameChat"] and self.state.current_chat_id:
+                    # Execute the selected capability with stored params
+                    params = dict(selected.get("params", {}))
+
+                    # For chat operations without params, use current chat
+                    if opt_target in ["DeleteChat", "RenameChat"] and not params and self.state.current_chat_id:
                         params["chat_id"] = self.state.current_chat_id
 
                     decision = DecisionEngineOutput(
@@ -984,16 +1213,26 @@ USER MESSAGE
         except json.JSONDecodeError:
             pass
 
-        # Remove markdown code blocks
-        if text.startswith("```"):
-            lines = text.split("\n")
-            if len(lines) >= 2:
-                # Remove first and last lines (``` markers)
-                text = "\n".join(lines[1:-1]).strip()
-                try:
-                    return json.loads(text)
-                except json.JSONDecodeError:
-                    pass
+        # Remove markdown code blocks (handles nested blocks like ```json\n```json\n{...}\n```\n```)
+        # Remove ALL ``` lines and language tags like "json"
+        lines = text.split("\n")
+        cleaned_lines = []
+        for line in lines:
+            stripped = line.strip()
+            # Skip markdown fence lines (```, ```json, etc.)
+            if stripped.startswith("```"):
+                continue
+            # Skip standalone language tags that might appear after nested ```
+            if stripped in ("json", "javascript", "python", ""):
+                continue
+            cleaned_lines.append(line)
+
+        if cleaned_lines:
+            cleaned_text = "\n".join(cleaned_lines).strip()
+            try:
+                return json.loads(cleaned_text)
+            except json.JSONDecodeError:
+                pass
 
         # Look for JSON on its own line
         for line in text.split("\n"):
