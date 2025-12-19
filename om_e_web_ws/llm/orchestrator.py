@@ -164,6 +164,7 @@ class PersonaOrchestrator:
         role_to_file = {
             "chat_persona": "chat_prompt.md",
             "decision_engine": "executor_prompt.md",
+            "unified": "unified_prompt.md",  # Single-call prompt
         }
         for role, filename in role_to_file.items():
             path = PROMPTS_DIR / filename
@@ -851,6 +852,308 @@ USER MESSAGE
             decision=DecisionType.CANNOT,
             reason="Failed to process request"
         )
+
+    # --------------------------------------------------------
+    # Unified Single-Call (Role A + B merged)
+    # --------------------------------------------------------
+
+    async def _call_unified(
+        self,
+        user_message: str,
+        capabilities: List[Dict],
+        active_tab: Optional[Dict],
+        tabs: Optional[List[Dict]],
+        chat_id: Optional[str] = None,
+        orb_theme: Optional[str] = None,
+        visible_chats: Optional[List[Dict]] = None,
+    ) -> Dict:
+        """
+        Single LLM call combining Chat Persona + Decision Engine.
+
+        Returns dict with type: reply | action | clarify | options | cannot | noop
+        """
+        system_prompt = self._prompt_cache.get("unified", "")
+
+        # Inject orb personality if available
+        if orb_theme and orb_theme in self._orb_profiles:
+            profile = self._orb_profiles[orb_theme]
+            personality_inject = f"""
+YOUR PERSONALITY
+You are {profile.get('name', 'Orb')}. {profile.get('personality', '')}
+Tone: {profile.get('tone', 'helpful')}
+Example phrases: {', '.join(profile.get('example_phrases', []))}
+"""
+            system_prompt = system_prompt + "\n" + personality_inject
+
+        # Build environment section
+        env_lines = []
+        if active_tab:
+            env_lines.append(f"Page: {active_tab.get('title', 'Unknown')} ({active_tab.get('url', '')})")
+
+        if tabs:
+            env_lines.append("")
+            env_lines.append("Tabs:")
+            active_id = active_tab.get("id") if active_tab else None
+            for tab in tabs[:8]:
+                tab_num = tab.get("stable_num", "?")
+                tab_title = tab.get("title", "Untitled")[:40]
+                tab_domain = self._extract_domain(tab.get("url", ""))
+                marker = " *" if tab.get("id") == active_id else ""
+                env_lines.append(f"  {tab_num}. {tab_title} ({tab_domain}){marker}")
+
+        if visible_chats:
+            env_lines.append("")
+            env_lines.append("Chats:")
+            current_chat_id = self.state.current_chat_id
+            for i, chat in enumerate(visible_chats, 1):
+                chat_title = chat.get("title", "Untitled")[:40]
+                marker = " *" if current_chat_id and chat.get("chat_id") == current_chat_id else ""
+                env_lines.append(f"  {i}. {chat_title}{marker}")
+
+        # Build capabilities section
+        cap_lines = []
+        if capabilities:
+            cap_lines.append("Capabilities:")
+            for cap in capabilities:
+                label = cap['label']
+                desc = cap['description'][:60]
+                score = cap['score']
+                params = cap.get('params', {})
+                example = cap.get('example', '')
+
+                cap_lines.append(f"- {label} ({score:.2f}): {desc}")
+                if example:
+                    cap_lines.append(f"  ex: {example}")
+                if params:
+                    param_str = ", ".join(f'{k}' for k in params.keys())
+                    cap_lines.append(f"  params: {param_str}")
+
+        # Get rolling history
+        chat_history = self._get_rolling_history(chat_id, MAX_HISTORY_TOKENS)
+
+        # Build messages
+        messages = []
+        for msg in chat_history:
+            messages.append(msg)
+
+        # Build user content
+        user_content_parts = []
+        if env_lines:
+            user_content_parts.append("ENVIRONMENT\n" + "\n".join(env_lines))
+        if cap_lines:
+            user_content_parts.append("\n".join(cap_lines))
+        user_content_parts.append(f"USER: {user_message}")
+
+        user_content = "\n\n".join(user_content_parts)
+        messages.append({"role": "user", "content": user_content})
+
+        try:
+            response_text = await self._client.chat(
+                system_prompt=system_prompt,
+                messages=messages,
+                temperature=0.1,
+                max_tokens=500
+            )
+
+            # Write debug file
+            debug_content = self._build_unified_debug(
+                user_message=user_message,
+                system_prompt=system_prompt,
+                user_content=user_content,
+                capabilities=capabilities,
+                chat_history_count=len(chat_history),
+                response_text=response_text
+            )
+            _write_debug_file("llm_unified.md", debug_content)
+
+            # Parse JSON response
+            json_data = self._extract_json(response_text)
+            if json_data:
+                return json_data
+
+        except Exception as e:
+            logger.warning(f"Unified call error: {e}")
+
+        # Fallback
+        return {"type": "cannot", "text": "I couldn't understand that."}
+
+    def _build_unified_debug(
+        self,
+        user_message: str,
+        system_prompt: str,
+        user_content: str,
+        capabilities: List[Dict],
+        chat_history_count: int,
+        response_text: str
+    ) -> str:
+        """Build debug markdown for unified call."""
+        timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+        system_tokens = estimate_tokens(system_prompt)
+        user_tokens = estimate_tokens(user_content)
+
+        lines = [
+            "# Unified LLM Call Debug",
+            "",
+            f"**Generated:** {timestamp}",
+            f"**User Message:** {user_message}",
+            f"**History Messages:** {chat_history_count}",
+            f"**Capabilities:** {len(capabilities)}",
+            f"**Tokens:** ~{system_tokens + user_tokens} (system: {system_tokens}, user: {user_tokens})",
+            "",
+            "## System Prompt",
+            "```",
+            system_prompt,
+            "```",
+            "",
+            "## User Content",
+            "```",
+            user_content,
+            "```",
+            "",
+            "## Response",
+            "```json",
+            response_text,
+            "```",
+        ]
+        return "\n".join(lines)
+
+    async def process_message_unified(
+        self,
+        user_message: str,
+        chat_id: Optional[str] = None,
+        active_tab: Optional[Dict] = None,
+        tabs: Optional[List[Dict]] = None,
+        orb_theme: Optional[str] = None,
+        visible_chats: Optional[List[Dict]] = None,
+    ) -> OrchestratorResult:
+        """
+        UNIFIED: Single LLM call for chat + action.
+        """
+        metrics = TurnMetrics(
+            timestamp=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            chat_id=chat_id or "unknown"
+        )
+        turn_start = time.time()
+        self.state.current_chat_id = chat_id
+
+        # Check special states (critical confirmation, escalation, options, params)
+        if self.state.is_awaiting_critical_confirmation():
+            result = await self._handle_critical_confirmation(user_message)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return result
+
+        if self.state.is_awaiting_deep_scan_consent():
+            result = await self._handle_escalation_consent(user_message)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return result
+
+        if self.state.is_awaiting_option_selection():
+            result = await self._handle_option_selection(user_message)
+            if result is not None:
+                metrics.total_ms = (time.time() - turn_start) * 1000
+                await log_turn_metrics(metrics)
+                return result
+
+        if self.state.is_awaiting_param_input():
+            result = await self._handle_param_input(user_message)
+            if result is not None:
+                metrics.total_ms = (time.time() - turn_start) * 1000
+                await log_turn_metrics(metrics)
+                return result
+
+        # STEP 1: RAG retrieval (always)
+        t0 = time.time()
+        raw_options = await self._query_capabilities(user_message)
+        metrics.rag_ms = (time.time() - t0) * 1000
+        if raw_options:
+            metrics.top_score = raw_options[0].get("score", 0)
+
+        shaped_options = shape_options(user_message, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
+
+        # STEP 2: Single unified LLM call
+        t0 = time.time()
+        output = await self._call_unified(
+            user_message, shaped_options, active_tab, tabs, chat_id, orb_theme, visible_chats
+        )
+        metrics.chat_persona_ms = (time.time() - t0) * 1000  # Reuse field for unified call
+
+        # STEP 3: Handle output type
+        output_type = output.get("type", "reply")
+        metrics.decision_type = output_type
+
+        if output_type == "reply":
+            self.state.transition_to(TurnState.TURN_CHAT_ONLY)
+            metrics.handoff = False
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return OrchestratorResult(
+                response_text=output.get("text", ""),
+                turn_state=TurnState.TURN_CHAT_ONLY,
+                action_executed=False
+            )
+
+        elif output_type == "action":
+            metrics.handoff = True
+            cap_name = output.get("cap", "")
+            params = output.get("params", {})
+
+            self.state.transition_to(TurnState.TURN_EXECUTING)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return OrchestratorResult(
+                response_text=f"Executing {cap_name}...",
+                turn_state=TurnState.TURN_EXECUTING,
+                action_type="cap",
+                action_target=cap_name,
+                action_params=params,
+                action_executed=True
+            )
+
+        elif output_type == "clarify":
+            self.state.transition_to(TurnState.TURN_COMPLETED)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return OrchestratorResult(
+                response_text=output.get("text", "Could you clarify?"),
+                turn_state=TurnState.TURN_COMPLETED,
+                action_type="clarify"
+            )
+
+        elif output_type == "options":
+            options_list = output.get("options", [])
+            self.state.pending_options = options_list
+            self.state.transition_to(TurnState.TURN_COMPLETED)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+
+            # Format options for display
+            option_text = output.get("text", "Which one?")
+            for i, opt in enumerate(options_list, 1):
+                option_text += f"\n{i}. {opt.get('label', opt.get('cap', 'Option'))}"
+
+            return OrchestratorResult(
+                response_text=option_text,
+                turn_state=TurnState.TURN_COMPLETED
+            )
+
+        elif output_type == "noop":
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return OrchestratorResult(
+                response_text=output.get("text", "Already done."),
+                turn_state=TurnState.TURN_COMPLETED,
+                action_type="noop"
+            )
+
+        else:  # cannot or unknown
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return OrchestratorResult(
+                response_text=output.get("text", "I can't do that."),
+                turn_state=TurnState.TURN_COMPLETED
+            )
 
     # --------------------------------------------------------
     # Confidence Gating

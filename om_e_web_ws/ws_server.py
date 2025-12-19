@@ -92,6 +92,7 @@ CHAT_INDEX_LOADED = False          # Flag to track initial load
 # Role A: Chat Persona (intent extraction, conversational responses)
 # Role B: Decision Engine (capability selection, action execution)
 USE_ORCHESTRATOR = True            # Always use orchestrator (legacy agent removed)
+USE_UNIFIED_PROMPT = True          # Single LLM call (Role A + B merged) - faster!
 PERSONA_ORCHESTRATOR = None        # PersonaOrchestrator instance (created on first chat)
 
 # 📚 Visible chats context - for resolving chat numbers to chat_ids
@@ -5320,15 +5321,27 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 print("🎭 Created new PersonaOrchestrator")
 
                             try:
-                                print("🎭 Orchestrator: Processing message...")
-                                orch_result = await PERSONA_ORCHESTRATOR.process_message(
-                                    user_message=message,
-                                    chat_id=CURRENT_CHAT_ID,
-                                    active_tab=CURRENT_ACTIVE_TAB,
-                                    tabs=get_tabs_with_stable_numbers(),  # 🗂️ Tabs with stable numbers
-                                    orb_theme=CURRENT_ORB_THEME,
-                                    visible_chats=VISIBLE_CHATS if VISIBLE_CHATS else None  # 📚 When sidebar open
-                                )
+                                # 🚀 Single-call unified or two-call legacy
+                                if USE_UNIFIED_PROMPT:
+                                    print("🚀 Unified: Processing message (single call)...")
+                                    orch_result = await PERSONA_ORCHESTRATOR.process_message_unified(
+                                        user_message=message,
+                                        chat_id=CURRENT_CHAT_ID,
+                                        active_tab=CURRENT_ACTIVE_TAB,
+                                        tabs=get_tabs_with_stable_numbers(),
+                                        orb_theme=CURRENT_ORB_THEME,
+                                        visible_chats=VISIBLE_CHATS if VISIBLE_CHATS else None
+                                    )
+                                else:
+                                    print("🎭 Orchestrator: Processing message (two calls)...")
+                                    orch_result = await PERSONA_ORCHESTRATOR.process_message(
+                                        user_message=message,
+                                        chat_id=CURRENT_CHAT_ID,
+                                        active_tab=CURRENT_ACTIVE_TAB,
+                                        tabs=get_tabs_with_stable_numbers(),
+                                        orb_theme=CURRENT_ORB_THEME,
+                                        visible_chats=VISIBLE_CHATS if VISIBLE_CHATS else None
+                                    )
 
                                 response_text = orch_result.response_text
                                 capability_results = []
