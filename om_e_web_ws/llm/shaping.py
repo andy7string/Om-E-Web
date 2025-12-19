@@ -98,6 +98,7 @@ def shape_options(
     # 3b. Strong boost for explicit action prefixes (prevents RAG noise from embedded terms)
     intent_lower = intent.lower()
     EXPLICIT_PREFIXES = {
+        # Chat operations
         "search chats": "SearchChats",
         "search for": "SearchChats",  # When context is chats
         "find chat": "SearchChats",
@@ -110,7 +111,62 @@ def shape_options(
         "show chats": "ShowChats",
         "hide chats": "HideChats",
         "close chats": "HideChats",
+        # Theme/orb changes - MUST come before generic "switch to"
+        "change theme": "SetTheme",
+        "switch theme": "SetTheme",
+        "set theme": "SetTheme",
+        "change orb": "SetTheme",
+        "switch orb": "SetTheme",
     }
+
+    # Theme name matching - boost SetTheme when intent contains theme names
+    # MUST run BEFORE EXPLICIT_PREFIXES to catch "change to kawaii" before "switch to chat"
+    THEME_NAMES = ["kawaii", "robot", "atom", "ome", "om-e", "minimal", "ghost", "bunny"]
+    theme_matched = False
+    for theme in THEME_NAMES:
+        if theme in intent_lower:
+            # Check if it looks like a theme change, not a chat reference
+            # Patterns: "change to kawaii", "switch to robot", "be atom", "become kawaii"
+            theme_patterns = [
+                f"change to {theme}",
+                f"switch to {theme}",
+                f"be {theme}",
+                f"become {theme}",
+                f"to {theme}",  # "change to kawaii" ends with "to kawaii"
+            ]
+            # Also check general triggers without specific pattern
+            theme_triggers = ["change theme", "switch theme", "set theme", "change orb", "switch orb"]
+
+            if any(pat in intent_lower for pat in theme_patterns) or any(t in intent_lower for t in theme_triggers):
+                for opt in deduped:
+                    if opt.name == "SetTheme":
+                        opt.score = min(1.0, opt.score + 0.5)  # Very strong boost
+                        theme_matched = True
+                    elif opt.name == "SetCurrentChat":
+                        opt.score = max(0.0, opt.score - 0.3)  # Suppress chat switching
+            break  # Only match first theme found
+    # Tab operations with names - boost CloseTab/SwitchTab when "[action] X tab" pattern detected
+    close_tab_match = re.search(r'\bclose\s+(?:the\s+)?(\w+)\s*(?:tab)?\b', intent_lower)
+    switch_tab_match = re.search(r'\b(?:switch|go)\s+to\s+(?:the\s+)?(\w+)\s*tab\b', intent_lower)
+
+    if close_tab_match:
+        tab_name = close_tab_match.group(1)
+        # Don't boost if the "name" is a theme or generic word
+        if tab_name not in THEME_NAMES and tab_name not in ("this", "current", "it"):
+            for opt in deduped:
+                if opt.name == "CloseTab":
+                    opt.score = min(1.0, opt.score + 0.4)  # Strong boost
+                elif opt.name == "SetCurrentChat":
+                    opt.score = max(0.0, opt.score - 0.2)  # Suppress chat switching
+    elif switch_tab_match:
+        tab_name = switch_tab_match.group(1)
+        if tab_name not in THEME_NAMES:
+            for opt in deduped:
+                if opt.name == "SwitchTab":
+                    opt.score = min(1.0, opt.score + 0.4)  # Strong boost
+                elif opt.name == "SetCurrentChat":
+                    opt.score = max(0.0, opt.score - 0.2)  # Suppress chat switching
+
     for prefix, cap_name in EXPLICIT_PREFIXES.items():
         if intent_lower.startswith(prefix):
             for opt in deduped:

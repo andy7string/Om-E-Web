@@ -284,7 +284,7 @@ class PersonaOrchestrator:
 
         # STEP 4: Call Decision Engine (Role B)
         t0 = time.time()
-        decision_output = await self._call_decision_engine(intent, shaped_options, active_tab)
+        decision_output = await self._call_decision_engine(intent, shaped_options, active_tab, tabs)
         metrics.decision_engine_ms = (time.time() - t0) * 1000
         metrics.decision_type = decision_output.decision.value
 
@@ -520,7 +520,8 @@ USER MESSAGE
         self,
         intent: str,
         capabilities: List[Dict],
-        active_tab: Optional[Dict]
+        active_tab: Optional[Dict],
+        tabs: Optional[List[Dict]] = None
     ) -> DecisionEngineOutput:
         """
         Call Decision Engine with server-prepared options.
@@ -556,6 +557,18 @@ USER MESSAGE
         if active_tab:
             lines.append("")
             lines.append(f"Active: {active_tab.get('title', 'Unknown')} ({active_tab.get('url', '')})")
+
+        # 🗂️ Include tabs context for tab operations (CloseTab, SwitchTab)
+        if tabs:
+            lines.append("")
+            lines.append("Tabs:")
+            active_id = active_tab.get("id") if active_tab else None
+            for tab in tabs[:8]:  # Limit to 8 tabs
+                tab_num = tab.get("stable_num", "?")
+                tab_title = tab.get("title", "Untitled")[:40]
+                tab_domain = self._extract_domain(tab.get("url", ""))
+                marker = " -- ACTIVE" if tab.get("id") == active_id else ""
+                lines.append(f"- Tab {tab_num}: \"{tab_title}\" ({tab_domain}){marker}")
 
         user_content = "\n".join(lines)
 

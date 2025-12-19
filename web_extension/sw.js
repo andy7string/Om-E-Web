@@ -1644,11 +1644,33 @@ async function handleNavigateCommand(message) {
  */
 async function handleSwitchTabCommand(message) {
     try {
-        const { tabId } = message.params || {};
+        let { tabId, name } = message.params || {};
         console.log("[SW] 🗂️ Executing switchTab command with params:", message.params);
 
+        // 🔍 If name provided, find tab by fuzzy title match
+        if (!tabId && name) {
+            const tabs = await chrome.tabs.query({});
+            const nameLower = name.toLowerCase();
+            // Try exact match first, then contains match
+            let matchedTab = tabs.find(t => t.title && t.title.toLowerCase() === nameLower);
+            if (!matchedTab) {
+                matchedTab = tabs.find(t => t.title && t.title.toLowerCase().includes(nameLower));
+            }
+            if (!matchedTab) {
+                // Try URL match
+                matchedTab = tabs.find(t => t.url && t.url.toLowerCase().includes(nameLower));
+            }
+            if (matchedTab) {
+                tabId = matchedTab.id;
+                console.log(`[SW] 🗂️ Found tab "${matchedTab.title}" (${tabId}) for name "${name}"`);
+            } else {
+                sendErrorResponse(message.id, "TAB_NOT_FOUND", `No tab found matching "${name}"`);
+                return;
+            }
+        }
+
         if (!tabId) {
-            sendErrorResponse(message.id, "MISSING_PARAM", "tabId is required for switchTab");
+            sendErrorResponse(message.id, "MISSING_PARAM", "tabId or name is required for switchTab");
             return;
         }
 
@@ -1737,11 +1759,33 @@ async function handleOpenTabCommand(message) {
  */
 async function handleCloseTabCommand(message) {
     try {
-        const { tabId } = message.params || {};
+        let { tabId, name } = message.params || {};
         console.log("[SW] 🗂️ Executing closeTab command with params:", message.params);
 
+        // 🔍 If name provided, find tab by fuzzy title match
+        if (!tabId && name) {
+            const tabs = await chrome.tabs.query({});
+            const nameLower = name.toLowerCase();
+            // Try exact match first, then contains match
+            let matchedTab = tabs.find(t => t.title && t.title.toLowerCase() === nameLower);
+            if (!matchedTab) {
+                matchedTab = tabs.find(t => t.title && t.title.toLowerCase().includes(nameLower));
+            }
+            if (!matchedTab) {
+                // Try URL match
+                matchedTab = tabs.find(t => t.url && t.url.toLowerCase().includes(nameLower));
+            }
+            if (matchedTab) {
+                tabId = matchedTab.id;
+                console.log(`[SW] 🗂️ Found tab "${matchedTab.title}" (${tabId}) for name "${name}"`);
+            } else {
+                sendErrorResponse(message.id, "TAB_NOT_FOUND", `No tab found matching "${name}"`);
+                return;
+            }
+        }
+
         if (!tabId) {
-            sendErrorResponse(message.id, "MISSING_PARAM", "tabId is required for closeTab");
+            sendErrorResponse(message.id, "MISSING_PARAM", "tabId or name is required for closeTab");
             return;
         }
 

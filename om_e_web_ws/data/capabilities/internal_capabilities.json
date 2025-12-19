@@ -78,22 +78,24 @@
       "group": "browser",
       "action": "CloseTab",
       "label": "Close a browser tab",
-      "description": "Closes a browser tab by its tab ID",
-      "synonyms": ["close this tab", "close tab", "shut tab", "close window"],
-      "example": "{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 123}}",
+      "description": "Closes a browser tab by tab ID or name. Say 'close the google tab' or 'close facebook'.",
+      "synonyms": ["close this tab", "close tab", "shut tab", "close window", "close the tab", "close X tab"],
+      "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
       "params": {
-        "tabId": "Required - the tab ID to close"
+        "tabId": "Optional - numeric tab ID to close",
+        "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
       }
     },
     "SwitchTab": {
       "group": "browser",
       "action": "SwitchTab",
       "label": "Switch to another tab",
-      "description": "Switches to a different browser tab by its tab ID",
-      "synonyms": ["go to tab", "change tab", "switch to tab", "activate tab"],
-      "example": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 123}}",
+      "description": "Switches to a different browser tab by tab ID or name. Say 'switch to the google tab' or 'go to youtube'.",
+      "synonyms": ["go to tab", "change tab", "switch to tab", "activate tab", "go to the tab", "switch to X tab"],
+      "example": "{\"cap\": \"SwitchTab\", \"params\": {\"name\": \"youtube\"}}",
       "params": {
-        "tabId": "Required - the tab ID to switch to"
+        "tabId": "Optional - numeric tab ID to switch to",
+        "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'youtube')"
       }
     },
     "GoBack": {

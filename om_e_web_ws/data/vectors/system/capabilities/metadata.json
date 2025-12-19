@@ -8,8 +8,8 @@
     "ZoomOut: Zoom out / make smaller. Decreases browser zoom by 15%. make smaller, shrink, reduce size, decrease zoom",
     "ZoomReset: Reset zoom to 100%. Resets browser zoom to default 100%. normal zoom, default zoom, 100%, original size",
     "OpenTab: Open new tab. Opens a new browser tab, optionally with a URL. new tab, open website, go to url, navigate to, open page, take me to",
-    "CloseTab: Close a browser tab. Closes a browser tab by its tab ID. close this tab, close tab, shut tab, close window",
-    "SwitchTab: Switch to another tab. Switches to a different browser tab by its tab ID. go to tab, change tab, switch to tab, activate tab",
+    "CloseTab: Close a browser tab. Closes a browser tab by tab ID or name. Say 'close the google tab' or 'close facebook'.. close this tab, close tab, shut tab, close window, close the tab, close X tab",
+    "SwitchTab: Switch to another tab. Switches to a different browser tab by tab ID or name. Say 'switch to the google tab' or 'go to youtube'.. go to tab, change tab, switch to tab, activate tab, go to the tab, switch to X tab",
     "GoBack: Go back in browser history. Navigates back in the current tab's history. back, previous page, go back, back button",
     "GoForward: Go forward in browser history. Navigates forward in the current tab's history. forward, next page, go forward, forward button",
     "Refresh: Refresh / reload the page. Reloads the current page. reload, refresh page, reload page, update page",
@@ -26,10 +26,10 @@
     "AppendMessage: Append a message to a chat. Appends a user or assistant message to a chat. Creates chat if chat_id is null.. add message, save message, append to chat",
     "AppendUserMessage: Append a user message to current chat. Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.. add user message, save my message, record user input",
     "AppendAssistantMessage: Append an assistant message to current chat. Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.. add assistant message, save response, record assistant reply",
-    "RenameChat: Rename a chat. Updates the title of an existing chat. Use the chat NUMBER from visible chats list.. rename conversation, change chat title, update chat name",
-    "DeleteChat: Delete a chat. Permanently deletes a chat. Use the chat NUMBER from visible chats list.. remove chat, delete conversation, erase chat",
+    "RenameChat: Rename a chat. Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y'.. rename conversation, change chat title, update chat name, rename it, rename this chat",
+    "DeleteChat: Delete a chat. Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.. remove chat, delete conversation, erase chat, delete it, delete this chat",
     "GetCurrentChat: Get the current active chat. Returns the current chat ID and chat data. current chat, active chat, which chat, what chat am i in",
-    "SetCurrentChat: Switch to a chat. Switches to a chat. Use the chat NUMBER from visible chats list.. switch chat, change to chat, activate chat, make current, go to chat, open chat, load chat",
+    "SetCurrentChat: Switch to a chat. Switches to a chat by number OR name. Use number if visible, name for fuzzy match.. switch chat, change to chat, activate chat, make current, go to chat, open chat, load chat, open the chat, switch to chat",
     "SearchChats: Search chats by title or content. Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.. find chat, search conversations, look for chat, find in history, search for that, find that chat, which chat, search chats, find the one about, that one about, look for the chat",
     "GetLLMConfig: Get LLM configuration. Returns current LLM config including providers and settings. show config, what model, current settings, llm settings, which ai",
     "SetLLMProvider: Switch active LLM provider. Changes which provider is used for LLM calls. change provider, switch to openai, switch to anthropic, use different ai",
@@ -164,32 +164,38 @@
       "name": "CloseTab",
       "group": "browser",
       "label": "Close a browser tab",
-      "description": "Closes a browser tab by its tab ID",
-      "example": "{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 123}}",
+      "description": "Closes a browser tab by tab ID or name. Say 'close the google tab' or 'close facebook'.",
+      "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
       "synonyms": [
         "close this tab",
         "close tab",
         "shut tab",
-        "close window"
+        "close window",
+        "close the tab",
+        "close X tab"
       ],
       "params": {
-        "tabId": "Required - the tab ID to close"
+        "tabId": "Optional - numeric tab ID to close",
+        "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
       }
     },
     {
       "name": "SwitchTab",
       "group": "browser",
       "label": "Switch to another tab",
-      "description": "Switches to a different browser tab by its tab ID",
-      "example": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 123}}",
+      "description": "Switches to a different browser tab by tab ID or name. Say 'switch to the google tab' or 'go to youtube'.",
+      "example": "{\"cap\": \"SwitchTab\", \"params\": {\"name\": \"youtube\"}}",
       "synonyms": [
         "go to tab",
         "change tab",
         "switch to tab",
-        "activate tab"
+        "activate tab",
+        "go to the tab",
+        "switch to X tab"
       ],
       "params": {
-        "tabId": "Required - the tab ID to switch to"
+        "tabId": "Optional - numeric tab ID to switch to",
+        "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'youtube')"
       }
     },
     {
@@ -523,15 +529,18 @@
       "name": "RenameChat",
       "group": "chat",
       "label": "Rename a chat",
-      "description": "Updates the title of an existing chat. Use the chat NUMBER from visible chats list.",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat\": 1, \"title\": \"New Title\"}}",
+      "description": "Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y'.",
+      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
       "synonyms": [
         "rename conversation",
         "change chat title",
-        "update chat name"
+        "update chat name",
+        "rename it",
+        "rename this chat"
       ],
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list",
+        "chat": "Optional - chat NUMBER (omit for current chat)",
+        "name": "Optional - existing chat title for fuzzy matching",
         "title": "Required - the new title"
       }
     },
@@ -539,15 +548,18 @@
       "name": "DeleteChat",
       "group": "chat",
       "label": "Delete a chat",
-      "description": "Permanently deletes a chat. Use the chat NUMBER from visible chats list.",
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}",
+      "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
+      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
       "synonyms": [
         "remove chat",
         "delete conversation",
-        "erase chat"
+        "erase chat",
+        "delete it",
+        "delete this chat"
       ],
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - chat NUMBER (omit for current chat)",
+        "name": "Optional - chat title for fuzzy matching"
       }
     },
     {
@@ -568,8 +580,8 @@
       "name": "SetCurrentChat",
       "group": "chat",
       "label": "Switch to a chat",
-      "description": "Switches to a chat. Use the chat NUMBER from visible chats list.",
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 5}}",
+      "description": "Switches to a chat by number OR name. Use number if visible, name for fuzzy match.",
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"switch view\"}}",
       "synonyms": [
         "switch chat",
         "change to chat",
@@ -577,10 +589,13 @@
         "make current",
         "go to chat",
         "open chat",
-        "load chat"
+        "load chat",
+        "open the chat",
+        "switch to chat"
       ],
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - the chat NUMBER from visible chats list",
+        "name": "Optional - chat title for fuzzy matching (e.g. 'switch view', 'my project')"
       }
     },
     {

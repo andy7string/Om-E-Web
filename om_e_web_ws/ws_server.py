@@ -331,6 +331,31 @@ def get_tab_registry_state() -> dict:
     }
 
 
+def get_tabs_with_stable_numbers() -> list:
+    """
+    🗂️ Get CURRENT_TABS_INFO enriched with stable numbers.
+    Follows same pattern as update_tabs_in_text_md() for consistency.
+
+    @return: List of (stable_num, tab) tuples sorted by stable number
+    """
+    if not CURRENT_TABS_INFO:
+        return []
+
+    tabs_with_numbers = []
+    for tab in CURRENT_TABS_INFO:
+        tab_id = tab.get('id')
+        stable_num = get_stable_tab_number(tab_id)
+        if stable_num:
+            # Create enriched copy with stable_num
+            tab_copy = dict(tab)
+            tab_copy["stable_num"] = stable_num
+            tabs_with_numbers.append(tab_copy)
+
+    # Sort by stable number for consistent display
+    tabs_with_numbers.sort(key=lambda x: x["stable_num"])
+    return tabs_with_numbers
+
+
 def update_tabs_from_response(tabs: list) -> None:
     """
     🚀 IMMEDIATE: Update CURRENT_TABS_INFO and text.md from capability response.
@@ -5224,7 +5249,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                     user_message=message,
                                     chat_id=CURRENT_CHAT_ID,
                                     active_tab=CURRENT_ACTIVE_TAB,
-                                    tabs=CURRENT_TABS_INFO,
+                                    tabs=get_tabs_with_stable_numbers(),  # 🗂️ Tabs with stable numbers
                                     orb_theme=CURRENT_ORB_THEME
                                 )
 
