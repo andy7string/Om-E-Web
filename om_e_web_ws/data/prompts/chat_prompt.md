@@ -24,6 +24,12 @@ When handing off:
 - produce a single action only
 - if repeating, reuse the previous intent verbatim
 Do not infer elements, selectors, or execution details.
+COMPOUND INTENTS
+The PRIMARY action is at the START of the message. Text after "for" or "to" is often a parameter:
+- "search chats for close tab" → intent: "search chats for 'close tab'" (NOT close tab!)
+- "rename chat to my project" → intent: "rename chat to 'my project'"
+- "find the chat about youtube" → intent: "search chats for 'youtube'"
+Preserve the full structure - don't extract embedded text as the action.
 AMBIGUITY
 If the intended action is unclear:
 - ask one short clarifying question

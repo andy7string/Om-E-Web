@@ -95,6 +95,28 @@ def shape_options(
         if any(kw in opt.name.lower() for kw in keywords):
             opt.score = min(1.0, opt.score + 0.2)  # Boost obvious matches
 
+    # 3b. Strong boost for explicit action prefixes (prevents RAG noise from embedded terms)
+    intent_lower = intent.lower()
+    EXPLICIT_PREFIXES = {
+        "search chats": "SearchChats",
+        "search for": "SearchChats",  # When context is chats
+        "find chat": "SearchChats",
+        "rename chat": "RenameChat",
+        "delete chat": "DeleteChat",
+        "switch to chat": "SetCurrentChat",
+        "open chat": "SetCurrentChat",
+        "show chats": "ShowChats",
+        "hide chats": "HideChats",
+        "close chats": "HideChats",
+    }
+    for prefix, cap_name in EXPLICIT_PREFIXES.items():
+        if intent_lower.startswith(prefix):
+            for opt in deduped:
+                if opt.name == cap_name:
+                    opt.score = min(1.0, opt.score + 0.3)  # Strong boost for explicit match
+                    break
+            break
+
     # 4. Cap descriptions to 50 chars
     for opt in deduped:
         if len(opt.description) > 50:

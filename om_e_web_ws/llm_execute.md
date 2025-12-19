@@ -1,12 +1,12 @@
 # Decision Engine Debug (Role B)
 
-**Generated:** 2025-12-19 15:09:35
-**Intent:** show my chats
-**Estimated Tokens:** 542 (system: 445, user: 97)
+**Generated:** 2025-12-19 15:38:39
+**Intent:** search chats for 'close current tab'
+**Estimated Tokens:** 788 (system: 542, user: 246)
 
 **Retrieved:**
-- Capabilities: 3
-- Score range: 0.66 - 0.77
+- Capabilities: 6
+- Score range: 0.68 - 1.00
 - Active tab: Google
 
 ---
@@ -28,6 +28,13 @@ You execute user requests by selecting from provided options.
 - "Required" params MUST be filled from the intent
 - Extract values naturally (e.g. "open google" → url: "https://google.com")
 - Match references to available IDs (tabs, chats, elements)
+
+## Intent Parsing
+- The PRIMARY ACTION is at the START of the intent
+- Text AFTER "for" or in quotes is usually a parameter value, not a separate action
+- Example: "search chats for close current tab" → SearchChats with query="close current tab"
+- Example: "rename chat to 'my project'" → RenameChat with title="my project"
+- Don't confuse embedded parameter values with the main action
 
 ## Response Formats (use these as templates)
 
@@ -74,14 +81,23 @@ JSON only. No explanation.
 ## Input (sent to LLM)
 
 ```
-Intent: show my chats
+Intent: search chats for 'close current tab'
 
-- ShowChats [hud] (0.77): Opens the chats sidebar to display saved conver...
-  example: {"cap": "ShowChats"}
-- ShowPrompt [hud] (0.73): Shows the text input area for typing messages
-  example: {"cap": "ShowPrompt"}
-- HideChats [hud] (0.66): Closes the chats sidebar UI panel. Does NOT del...
+- SearchChats [chat] (1.00): Searches all chats for a keyword or phrase. Ext...
+  example: {"cap": "SearchChats", "params": {"query": "dude"}}
+  params: {query: "Required - search query string (extract from user request)"}
+- CloseTab [browser] (0.91): Closes a browser tab by its tab ID
+  example: {"cap": "CloseTab", "params": {"tabId": 123}}
+  params: {tabId: "Required - the tab ID to close"}
+- SwitchTab [browser] (0.83): Switches to a different browser tab by its tab ID
+  example: {"cap": "SwitchTab", "params": {"tabId": 123}}
+  params: {tabId: "Required - the tab ID to switch to"}
+- ToggleChats [hud] (0.70): Opens or closes the chats panel
+  example: {"cap": "ToggleChats"}
+- HideChats [hud] (0.70): Closes the chats sidebar UI panel. Does NOT del...
   example: {"cap": "HideChats"}
+- HidePrompt [hud] (0.68): Hides the text input area for typing messages
+  example: {"cap": "HidePrompt"}
 
 Active: Google (https://www.google.com/)
 ```
@@ -90,10 +106,10 @@ Active: Google (https://www.google.com/)
 
 ## LLM Response
 
-**Response Tokens:** 15
+**Response Tokens:** 23
 
 ```json
 ```json
-{"decision":"cap","target":"ShowChats","params":{}}
+{"decision":"cap","target":"SearchChats","params":{"query":"close current tab"}}
 ```
 ```
