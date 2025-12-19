@@ -145,6 +145,16 @@ def shape_options(
                     elif opt.name == "SetCurrentChat":
                         opt.score = max(0.0, opt.score - 0.3)  # Suppress chat switching
             break  # Only match first theme found
+    # 🔄 VIEW SWITCHING - "switch view" should trigger SwitchView, NOT SetCurrentChat
+    # SwitchView toggles between orb and HUD modes
+    VIEW_SWITCH_PHRASES = ["switch view", "change view", "toggle view", "swap view"]
+    if any(phrase in intent_lower for phrase in VIEW_SWITCH_PHRASES):
+        for opt in deduped:
+            if opt.name == "SwitchView":
+                opt.score = min(1.0, opt.score + 0.5)  # Strong boost
+            elif opt.name == "SetCurrentChat":
+                opt.score = max(0.0, opt.score - 0.4)  # Suppress chat switching
+
     # Tab operations with names - boost CloseTab/SwitchTab when "[action] X tab" pattern detected
     close_tab_match = re.search(r'\bclose\s+(?:the\s+)?(\w+)\s*(?:tab)?\b', intent_lower)
     switch_tab_match = re.search(r'\b(?:switch|go)\s+to\s+(?:the\s+)?(\w+)\s*tab\b', intent_lower)

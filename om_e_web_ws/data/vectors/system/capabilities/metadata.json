@@ -13,7 +13,7 @@
     "GoBack: Go back in browser history. Navigates back in the current tab's history. back, previous page, go back, back button",
     "GoForward: Go forward in browser history. Navigates forward in the current tab's history. forward, next page, go forward, forward button",
     "Refresh: Refresh / reload the page. Reloads the current page. reload, refresh page, reload page, update page",
-    "SwitchView: Switch between HUD and orb view. Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view. switch to hud, switch to orb, change view, fullscreen mode, orb mode, chat view, chat mode, full chat, open chat view, browser mode, browser view, switch to browser, change to browser, exit hud, close hud, go to browser, nav mode, navigation mode, floating mode, mini mode, compact mode",
+    "SwitchView: Switch between HUD and orb view. Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view. switch view, swap view, toggle view, switch to hud, switch to orb, change view, fullscreen mode, orb mode, chat view, chat mode, full chat, open chat view, browser mode, browser view, switch to browser, change to browser, exit hud, close hud, go to browser, nav mode, navigation mode, floating mode, mini mode, compact mode",
     "ToggleHUD: Toggle HUD on/off. Toggles the HUD overlay between visible and hidden. Same as SwitchView.. toggle hud, show hud, hide hud, hud on, hud off, toggle overlay, toggle interface",
     "SetTheme: Change orb character style. Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.. set theme, change theme, switch theme, change orb, orb style, change character, switch persona, change to kawaii, switch to kawaii, be kawaii, become kawaii, change to robot, switch to robot, be robot, become robot, change to atom, switch to atom, be atom, become atom, change to ome, switch to ome, be ome, become ome, change to om-e, switch to om-e, be om-e, robot, om-e, ome, purple robot, goggles, cyan eyes, mechanical, robot guy, robot head, default orb, kawaii, cute cat, white cat, fluffy cat, bunny, white bunny, cherry head, pink cheeks, blue eyes, sparkly eyes, anime, cute mode, adorable, atom, atomic, nucleus, electrons, green rings, orbital, science, green atom, purple core, electron orbits",
     "ShowPrompt: Show the chat prompt. Shows the text input area for typing messages. open prompt, show input, show the prompt, open input, show text field, show input field, show message box",
@@ -247,6 +247,9 @@
       "description": "Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view",
       "example": "{\"cap\": \"SwitchView\"}",
       "synonyms": [
+        "switch view",
+        "swap view",
+        "toggle view",
         "switch to hud",
         "switch to orb",
         "change view",
