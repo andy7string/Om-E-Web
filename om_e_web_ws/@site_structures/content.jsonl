@@ -1,11 +1,11 @@
 {
-  "timestamp": 1766155987.3706381,
+  "timestamp": 1766156584.059506,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 3,
     "active_tab": {
-      "id": 1138053515,
-      "url": "http://127.0.0.1:8080/",
-      "title": "OM-E Web",
+      "id": 1138053523,
+      "url": "https://www.facebook.com/",
+      "title": "(2) Facebook",
       "status": "loading"
     },
     "all_tabs": [
@@ -13,16 +13,30 @@
         "id": 1138053515,
         "url": "http://127.0.0.1:8080/",
         "title": "OM-E Web",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138053520,
+        "url": "https://www.youtube.com/",
+        "title": "(3) YouTube",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138053523,
+        "url": "https://www.facebook.com/",
+        "title": "(2) Facebook",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 65008.355962916,
+    "last_tabs_update": 65409.28495425,
     "extension_connected": true
   },
   "current_page": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
+    "url": "https://www.facebook.com/",
+    "title": "(2) Facebook",
     "is_active_tab": true
   },
   "content_structure": {},

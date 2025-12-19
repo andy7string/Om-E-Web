@@ -1,13 +1,13 @@
 # Decision Engine Debug (Role B)
 
-**Generated:** 2025-12-20 01:23:09
-**Intent:** open a new tab with YouTube
-**Estimated Tokens:** 817 (system: 605, user: 212)
+**Generated:** 2025-12-20 01:31:46
+**Intent:** search chats for 'show'
+**Estimated Tokens:** 853 (system: 605, user: 248)
 
 **Retrieved:**
-- Capabilities: 4
-- Score range: 0.61 - 0.97
-- Active tab: OM-E Web
+- Capabilities: 2
+- Score range: 0.87 - 1.00
+- Active tab: (2) Facebook
 
 ---
 
@@ -85,33 +85,43 @@ JSON only. No explanation.
 ## Input (sent to LLM)
 
 ```
-Intent: open a new tab with YouTube
+Intent: search chats for 'show'
 
-- OpenTab [browser] (0.97): Opens a URL or switches to existing tab. Auto-s...
-  example: {"cap": "OpenTab", "params": {"url": "https://google.com"}}
-  params: {url: "Optional - URL or site name (e.g. 'google.com', 'youtube')"}
-- CloseTab [browser] (0.83): Closes a tab by ID or name. Say 'close the goog...
-  example: {"cap": "CloseTab", "params": {"name": "google"}}
-  params: {tabId: "Optional - numeric tab ID to close", name: "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"}
-- GoBack [browser] (0.62): Navigates back in the current tab's history
-  example: {"cap": "GoBack"}
-- GoForward [browser] (0.61): Navigates forward in the current tab's history
-  example: {"cap": "GoForward"}
+- SearchChats [chat] (1.00): Searches all chats for a keyword or phrase. Ext...
+  example: {"cap": "SearchChats", "params": {"query": "dude"}}
+  params: {query: "Required - search query string (extract from user request)"}
+- ShowChats [hud] (0.87): Opens the chats sidebar to display saved conver...
+  example: {"cap": "ShowChats"}
 
-Active: OM-E Web (http://127.0.0.1:8080/)
+Active: (2) Facebook (https://www.facebook.com/)
 
 Tabs:
-- Tab 2: "OM-E Web" (127.0.0.1:8080) -- ACTIVE
+- Tab 2: "OM-E Web" (127.0.0.1:8080)
+- Tab 3: "(3) YouTube" (www.youtube.com)
+- Tab 4: "(2) Facebook" (www.facebook.com) -- ACTIVE
+
+Chats:
+- Chat 1: "24_59_14_19_12_2025_thats"
+- Chat 2: "27_44_14_19_12_2025_please" -- CURRENT
+- Chat 3: "29_36_14_19_12_2025_go"
+- Chat 4: "35_29_14_19_12_2025_so"
+- Chat 5: "35_16_14_19_12_2025_what"
+- Chat 6: "12_04_14_19_12_2025_wanna"
+- Chat 7: "15_18_13_19_12_2025_im"
+- Chat 8: "02_33_12_19_12_2025_hey"
+- Chat 9: "26_22_12_19_12_2025_show"
+- Chat 10: "53 messages"
+(Use chat NUMBER for params: {"chat": 3} or name: {"name": "show"})
 ```
 
 ---
 
 ## LLM Response
 
-**Response Tokens:** 22
+**Response Tokens:** 19
 
 ```json
 ```json
-{"decision":"cap","target":"OpenTab","params":{"url":"https://youtube.com"}}
+{"decision":"cap","target":"SearchChats","params":{"query":"show"}}
 ```
 ```
