@@ -457,6 +457,156 @@ async function requestScan(tabId, url, trigger) {
 // 🌳 AT SCAN: Accessibility Tree via chrome.debugger CDP
 // ============================================================================
 
+// ============================================================================
+// 🌳 AT ACTION EXECUTION: Click/SetValue via CDP
+// ============================================================================
+
+/**
+ * Find AT element by role + name definition (targeted search)
+ * @param {number} tabId - Tab ID
+ * @param {string} role - Element role (e.g., 'link', 'button')
+ * @param {string} name - Element accessible name
+ * @returns {Promise<number|null>} - backendNodeId or null
+ */
+async function findATElementByDefinition(tabId, role, name) {
+    const debuggee = { tabId };
+
+    try {
+        await new Promise((resolve, reject) => {
+            chrome.debugger.attach(debuggee, '1.3', () => {
+                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+                else resolve();
+            });
+        });
+
+        // Get full AT tree and search for matching element
+        const result = await new Promise((resolve, reject) => {
+            chrome.debugger.sendCommand(debuggee, 'Accessibility.getFullAXTree', {}, (res) => {
+                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+                else resolve(res);
+            });
+        });
+
+        // Find node matching role + name
+        const nodes = result.nodes || [];
+        for (const node of nodes) {
+            if (node.ignored) continue;
+
+            const nodeRole = node.role?.value;
+            const nodeName = node.name?.value;
+
+            if (nodeRole === role && nodeName === name) {
+                console.log(`[SW] 🌳 Found element: ${role} "${name}" → backendNodeId: ${node.backendDOMNodeId}`);
+                return node.backendDOMNodeId;
+            }
+        }
+
+        console.log(`[SW] 🌳 Element not found: ${role} "${name}"`);
+        return null;
+
+    } finally {
+        await new Promise(resolve => chrome.debugger.detach(debuggee, resolve));
+    }
+}
+
+/**
+ * Execute AT click using CDP backendNodeId
+ * @param {number} tabId - Tab ID
+ * @param {number} backendNodeId - CDP backendDOMNodeId
+ */
+async function executeATClick(tabId, backendNodeId) {
+    const debuggee = { tabId };
+
+    try {
+        await new Promise((resolve, reject) => {
+            chrome.debugger.attach(debuggee, '1.3', () => {
+                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+                else resolve();
+            });
+        });
+
+        // Enable DOM
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'DOM.enable', {}, resolve));
+
+        // Get box model for click coordinates
+        const boxModel = await new Promise((resolve, reject) => {
+            chrome.debugger.sendCommand(debuggee, 'DOM.getBoxModel', { backendNodeId }, result => {
+                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+                else resolve(result);
+            });
+        });
+
+        if (!boxModel?.model) {
+            throw new Error('Could not get element position');
+        }
+
+        // Calculate center of element
+        const content = boxModel.model.content;
+        const x = (content[0] + content[2] + content[4] + content[6]) / 4;
+        const y = (content[1] + content[3] + content[5] + content[7]) / 4;
+
+        console.log(`[SW] 🌳 AT CLICK at (${x}, ${y})`);
+
+        // Dispatch mouse events
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.dispatchMouseEvent', {
+            type: 'mousePressed', x, y, button: 'left', clickCount: 1
+        }, resolve));
+
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.dispatchMouseEvent', {
+            type: 'mouseReleased', x, y, button: 'left', clickCount: 1
+        }, resolve));
+
+        console.log(`[SW] 🌳 AT CLICK complete`);
+
+    } finally {
+        await new Promise(resolve => chrome.debugger.detach(debuggee, resolve));
+    }
+}
+
+/**
+ * Execute AT setValue using CDP backendNodeId
+ * @param {number} tabId - Tab ID
+ * @param {number} backendNodeId - CDP backendDOMNodeId
+ * @param {string} value - Value to set
+ */
+async function executeATSetValue(tabId, backendNodeId, value) {
+    const debuggee = { tabId };
+
+    try {
+        await new Promise((resolve, reject) => {
+            chrome.debugger.attach(debuggee, '1.3', () => {
+                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+                else resolve();
+            });
+        });
+
+        // Enable DOM
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'DOM.enable', {}, resolve));
+
+        // Focus the element
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'DOM.focus', { backendNodeId }, resolve));
+
+        // Select all (Ctrl+A) then type new value
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.dispatchKeyEvent', {
+            type: 'keyDown', modifiers: 2, key: 'a', code: 'KeyA'
+        }, resolve));
+
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.dispatchKeyEvent', {
+            type: 'keyUp', modifiers: 2, key: 'a', code: 'KeyA'
+        }, resolve));
+
+        // Type the new value
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.insertText', {
+            text: value
+        }, resolve));
+
+        console.log(`[SW] 🌳 AT SET VALUE: "${value}"`);
+
+    } finally {
+        await new Promise(resolve => chrome.debugger.detach(debuggee, resolve));
+    }
+}
+
 /**
  * Execute Accessibility Tree scan using chrome.debugger
  * Runs entirely in service worker, no content script needed
@@ -510,9 +660,15 @@ async function executeATScan(tabId, url, trigger) {
             console.warn(`[SW] 🌳 AT SCAN: WebSocket not connected`);
         }
 
-        // Release scan lock
-        const state = tabState.get(tabId);
-        if (state) state.scanInProgress = false;
+        // Release scan lock and store AT registry for action execution
+        let state = tabState.get(tabId);
+        if (!state) {
+            state = { scanInProgress: false };
+            tabState.set(tabId, state);
+        }
+        state.scanInProgress = false;
+        state.atRegistry = formatted.registry;  // Store for AT action execution
+        console.log(`[SW] 🌳 AT registry stored: ${formatted.registry.length} elements for tab ${tabId}`);
 
         // Resolve pending scan-and-wait callbacks
         if (pendingScanCallbacks.has(tabId)) {
@@ -2919,6 +3075,89 @@ async function handleExecuteLLMAction(message, sendResponse) {
             actionInProgress = false;
             sendResponse({ ok: false, error: "No active tab found" });
             return;
+        }
+
+        // 🌳 AT MODE: Execute via CDP using backendNodeId
+        if (orbState.scanMode === 'at') {
+            console.log("[SW] 🌳 AT mode - executing via CDP");
+            try {
+                // 🎯 DIRECT ELEMENT DEFINITION: LLM sends role+name directly
+                // No registry lookup - element definition comes from LLM context
+                let role = params?.role;
+                let name = params?.name;
+
+                // Fallback: lookup from registry if role/name not provided
+                if (!role || !name) {
+                    const actNum = parseInt(actionId, 10);
+                    const state = tabState.get(activeTab.id);
+                    const registry = state?.atRegistry || [];
+                    const element = registry.find(el => el.id === actNum);
+
+                    if (!element) {
+                        actionInProgress = false;
+                        sendResponse({ ok: false, error: `AT element not found and no role/name provided: ${actionId}` });
+                        return;
+                    }
+                    role = element.role;
+                    name = element.name;
+                }
+
+                console.log("[SW] 🌳 AT element definition:", role, name);
+
+                // 🎯 QUERY AT TREE: Find element by role+name directly
+                const freshNodeId = await findATElementByDefinition(activeTab.id, role, name);
+
+                if (!freshNodeId) {
+                    actionInProgress = false;
+                    sendResponse({ ok: false, error: `Element not found in current page: ${role} "${name}"` });
+                    return;
+                }
+
+                console.log("[SW] 🌳 Fresh backendNodeId:", freshNodeId);
+
+                if (actionType === 'click' || !actionType) {
+                    await executeATClick(activeTab.id, freshNodeId);
+                    actionInProgress = false;
+                    sendResponse({ ok: true, result: { action: 'click', role: element.role, name: element.name } });
+                    return;
+                } else if (actionType === 'setValue') {
+                    const value = params?.value || '';
+                    await executeATSetValue(activeTab.id, freshNodeId, value);
+
+                    // Handle submit if requested
+                    if (params?.submit) {
+                        // Press Enter after setting value
+                        const debuggee = { tabId: activeTab.id };
+                        await new Promise(resolve => chrome.debugger.attach(debuggee, '1.3', resolve));
+                        await new Promise(resolve => {
+                            chrome.debugger.sendCommand(debuggee, 'Input.dispatchKeyEvent', {
+                                type: 'keyDown',
+                                key: 'Enter',
+                                code: 'Enter',
+                                windowsVirtualKeyCode: 13
+                            }, resolve);
+                        });
+                        await new Promise(resolve => {
+                            chrome.debugger.sendCommand(debuggee, 'Input.dispatchKeyEvent', {
+                                type: 'keyUp',
+                                key: 'Enter',
+                                code: 'Enter',
+                                windowsVirtualKeyCode: 13
+                            }, resolve);
+                        });
+                        await new Promise(resolve => chrome.debugger.detach(debuggee, resolve));
+                    }
+
+                    actionInProgress = false;
+                    sendResponse({ ok: true, result: { action: 'setValue', value: value } });
+                    return;
+                }
+            } catch (atError) {
+                console.error("[SW] 🌳 AT execution failed:", atError);
+                actionInProgress = false;
+                sendResponse({ ok: false, error: atError.message });
+                return;
+            }
         }
 
         // 🖼️ IFRAME ELEMENT: Execute directly in iframes using scripting API

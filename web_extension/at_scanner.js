@@ -615,7 +615,8 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
       // Add to registry (ref stays server-side, not in LLM output)
       registry.push({
         id: actionIndex,
-        ref: node.ref_id,           // CDP backendNodeId for interaction
+        ref: node.ref_id,           // AT nodeId for reference
+        backendNodeId: node.backendNodeId,  // CDP backendDOMNodeId for clicking
         role: node.role,
         name: node.name || null,
         value: node.value,
@@ -638,6 +639,7 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
           registry.push({
             id: actionIndex,
             ref: child.ref_id,
+            backendNodeId: child.backendNodeId,  // CDP backendDOMNodeId for clicking
             role: child.role,
             name: child.name || null,
             value: child.value,
