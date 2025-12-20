@@ -1,9 +1,17 @@
 /**
  * 🚀 Chrome Extension Service Worker for WebSocket Communication
- * 
+ *
  * This service worker acts as a bridge between the WebSocket server and
  * the content scripts running in web pages. It implements the message
  * routing part of the full round-trip communication pattern.
+ *
+ * 🌳 AT SCAN MODE: Supports Accessibility Tree scanning via chrome.debugger API
+ */
+
+// Import AT Scanner module
+importScripts('at_scanner.js');
+
+/**
  * 
  * 🔗 FULL ROUND-TRIP COMMUNICATION PATTERN:
  * 1. WebSocket Server → Service Worker: Receives command via WebSocket
@@ -53,7 +61,8 @@ const orbState = {
     chatInput: '',        // 💬 Text in input box (persists across nav)
     chatPanelSize: null,  // 📐 Chat panel dimensions { width, height } or null for default
     sidebarOpen: false,   // 📚 Sidebar open/closed
-    activeChatId: null    // 💬 Active chat file ID (from chats/*.json)
+    activeChatId: null,   // 💬 Active chat file ID (from chats/*.json)
+    scanMode: 'dom'       // 🌳 Scan mode: 'dom' (default) or 'at' (accessibility tree)
 };
 
 // 🚀 SESSION FLAG - tracks if default position has been applied this browser session
@@ -434,8 +443,112 @@ async function requestScan(tabId, url, trigger) {
         lastUrl: url
     });
 
-    console.log(`[SW] 🚀 Starting scan: trigger=${trigger}`);
+    console.log(`[SW] 🚀 Starting scan: trigger=${trigger}, mode=${orbState.scanMode}`);
 
+    // 🌳 BRANCH: AT scan (accessibility tree) vs DOM scan (content script)
+    if (orbState.scanMode === 'at') {
+        await executeATScan(tabId, url, trigger);
+    } else {
+        await executeDOMScan(tabId, url, trigger, pageVersion);
+    }
+}
+
+// ============================================================================
+// 🌳 AT SCAN: Accessibility Tree via chrome.debugger CDP
+// ============================================================================
+
+/**
+ * Execute Accessibility Tree scan using chrome.debugger
+ * Runs entirely in service worker, no content script needed
+ * @param {number} tabId - Tab to scan
+ * @param {string} url - Current URL
+ * @param {string} trigger - What triggered the scan
+ */
+async function executeATScan(tabId, url, trigger) {
+    console.log(`[SW] 🌳 AT SCAN START: tab=${tabId}`);
+    const startTime = performance.now();
+
+    try {
+        // ATScanner is loaded via importScripts('at_scanner.js')
+        const atResult = await ATScanner.getAccessibilityTree(tabId);
+        const scanTime = Math.round(performance.now() - startTime);
+
+        console.log(`[SW] 🌳 AT SCAN: ${atResult.nodeCount} nodes in ${scanTime}ms`);
+
+        // Format as markdown for output (returns {markdown, registry})
+        // Pass config with viewport for position-aware filtering
+        const configWithViewport = {
+            ...(atResult.config || {}),
+            viewport: atResult.viewport || {}
+        };
+        const formatted = ATScanner.formatTreeAsMarkdown(atResult.nodes, {
+            title: atResult.title,
+            url: atResult.url,
+            timestamp: atResult.timestamp
+        }, configWithViewport);
+
+        console.log(`[SW] 🌳 AT SCAN: ${formatted.registry.length} actionable elements`);
+
+        // 📡 Send to WebSocket server (same pattern as DOM scan)
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({
+                type: 'at_intelligence_update',
+                tabId: tabId,
+                data: {
+                    title: atResult.title,
+                    url: atResult.url,
+                    timestamp: atResult.timestamp,
+                    nodeCount: atResult.nodeCount,
+                    scanTimeMs: scanTime,
+                    trigger: trigger,
+                    registry: formatted.registry,     // actionId → ref mapping (like ELEMENT_REGISTRY)
+                    markdown: formatted.markdown      // Ready for AT_text.md
+                }
+            }));
+            console.log(`[SW] 🌳 AT SCAN: Sent to server`);
+        } else {
+            console.warn(`[SW] 🌳 AT SCAN: WebSocket not connected`);
+        }
+
+        // Release scan lock
+        const state = tabState.get(tabId);
+        if (state) state.scanInProgress = false;
+
+        // Resolve pending scan-and-wait callbacks
+        if (pendingScanCallbacks.has(tabId)) {
+            const cb = pendingScanCallbacks.get(tabId);
+            pendingScanCallbacks.delete(tabId);
+            cb({ ok: true, mode: 'at', nodeCount: atResult.nodeCount, scanTimeMs: scanTime });
+        }
+
+    } catch (error) {
+        console.error(`[SW] 🌳 AT SCAN ERROR:`, error.message);
+
+        // Release lock
+        const state = tabState.get(tabId);
+        if (state) state.scanInProgress = false;
+
+        // Resolve callbacks with error
+        if (pendingScanCallbacks.has(tabId)) {
+            const cb = pendingScanCallbacks.get(tabId);
+            pendingScanCallbacks.delete(tabId);
+            cb({ ok: false, mode: 'at', error: error.message });
+        }
+    }
+}
+
+// ============================================================================
+// 📄 DOM SCAN: Content script TreeWalker (existing behavior)
+// ============================================================================
+
+/**
+ * Execute DOM scan via content script
+ * @param {number} tabId - Tab to scan
+ * @param {string} url - Current URL
+ * @param {string} trigger - What triggered the scan
+ * @param {null} pageVersion - Deprecated, always null
+ */
+async function executeDOMScan(tabId, url, trigger, pageVersion) {
     // Ensure content script is injected
     try {
         await chrome.scripting.executeScript({
@@ -1073,6 +1186,20 @@ function handleServerMessage(messageData) {
             return;
         }
 
+        // 🌳 Set scan mode (from web dashboard via server)
+        if (message.type === "set_scan_mode") {
+            const newMode = message.mode;
+            console.log("[SW] 🌳 Processing scan mode change from server:", newMode);
+            if (newMode === 'dom' || newMode === 'at') {
+                orbState.scanMode = newMode;
+                chrome.storage.local.set({ omeScanMode: newMode });
+                // Notify server that mode was changed (for other dashboard sync)
+                sendToServer({ type: 'scan_mode_changed', mode: newMode });
+                console.log(`[SW] 🌳 Scan mode updated to: ${newMode}`);
+            }
+            return;
+        }
+
         // 🎨 Get available orb themes
         if (message.type === "get_orb_themes") {
             console.log("[SW] 🎨 Getting available orb themes");
@@ -1562,6 +1689,30 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     }
                 })();
                 return true; // Keep channel open for async
+
+            case 'set_scan_mode':
+                // 🌳 Toggle scan mode: 'dom' (content script) or 'at' (accessibility tree)
+                const newMode = message.mode;
+                if (newMode === 'dom' || newMode === 'at') {
+                    orbState.scanMode = newMode;
+                    console.log(`[SW] 🌳 Scan mode set to: ${newMode}`);
+
+                    // Persist to storage
+                    chrome.storage.local.set({ omeScanMode: newMode });
+
+                    // Notify server of mode change
+                    sendToServer({ type: 'scan_mode_changed', mode: newMode });
+
+                    sendResponse({ ok: true, scanMode: newMode });
+                } else {
+                    sendResponse({ ok: false, error: `Invalid scan mode: ${newMode}. Use 'dom' or 'at'` });
+                }
+                break;
+
+            case 'get_scan_mode':
+                // 🌳 Get current scan mode
+                sendResponse({ ok: true, scanMode: orbState.scanMode });
+                break;
 
             default:
                 console.warn("[SW] Unknown internal message type:", message.type);
@@ -3866,10 +4017,10 @@ connectWebSocket();
 ensureKeepAlivePort();
 scheduleHeartbeatAlarm();
 
-// 🎨 Restore saved orb theme, chat panel size, and active chat on startup
+// 🎨 Restore saved orb theme, chat panel size, scan mode, and active chat on startup
 (async () => {
     try {
-        const { orbTheme, chatPanelSize, activeChatId } = await chrome.storage.local.get(['orbTheme', 'chatPanelSize', 'activeChatId']);
+        const { orbTheme, chatPanelSize, activeChatId, omeScanMode } = await chrome.storage.local.get(['orbTheme', 'chatPanelSize', 'activeChatId', 'omeScanMode']);
 
         // Restore theme/icon
         if (orbTheme) {
@@ -3889,6 +4040,12 @@ scheduleHeartbeatAlarm();
         if (chatPanelSize) {
             orbState.chatPanelSize = chatPanelSize;
             console.log('[SW] 📐 Restored chat panel size:', chatPanelSize);
+        }
+
+        // 🌳 Restore scan mode (dom or at)
+        if (omeScanMode && (omeScanMode === 'dom' || omeScanMode === 'at')) {
+            orbState.scanMode = omeScanMode;
+            console.log('[SW] 🌳 Restored scan mode:', omeScanMode);
         }
 
         // 💬 DON'T restore active chat ID - browser startup always starts with new chat

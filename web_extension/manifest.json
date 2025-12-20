@@ -11,7 +11,8 @@
     "webNavigation",
     "storage",
     "alarms",
-    "offscreen"
+    "offscreen",
+    "debugger"
   ],
   
   "host_permissions": [

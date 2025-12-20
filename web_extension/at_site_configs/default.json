@@ -1,0 +1,92 @@
+{
+  "_comment": "Default AT scanning config - applies to all sites unless overridden",
+
+  "exclude_roles": [
+    "none",
+    "presentation",
+    "generic",
+    "paragraph",
+    "LineBreak",
+    "InlineTextBox",
+    "StaticText"
+  ],
+
+  "exclude_names": [
+    "HIDE PROMPT",
+    "HUD",
+    "Scroll to top",
+    "Drag to scroll",
+    "Scroll to bottom",
+    "Send message",
+    "Ask anything...",
+    "Copy to clipboard"
+  ],
+
+  "exclude_name_patterns": [
+    "^\\+$",
+    "^−$",
+    "^ome-",
+    "Om_E"
+  ],
+
+  "include_roles": [
+    "RootWebArea",
+    "navigation",
+    "banner",
+    "main",
+    "contentinfo",
+    "region",
+    "article",
+    "heading",
+    "link",
+    "button",
+    "textbox",
+    "combobox",
+    "searchbox",
+    "listbox",
+    "option",
+    "menu",
+    "menuitem",
+    "tab",
+    "tablist",
+    "tabpanel",
+    "dialog",
+    "alertdialog",
+    "checkbox",
+    "radio",
+    "slider",
+    "switch",
+    "img",
+    "figure",
+    "table",
+    "list",
+    "listitem",
+    "form",
+    "search",
+    "complementary",
+    "tooltip",
+    "tree",
+    "treeitem",
+    "grid",
+    "gridcell",
+    "row",
+    "rowgroup",
+    "columnheader",
+    "rowheader"
+  ],
+
+  "max_depth": 15,
+  "max_nodes": 500,
+
+  "output": {
+    "show_empty_names": false,
+    "show_disabled": true,
+    "show_hidden": false,
+    "indent_size": 2
+  },
+
+  "llm_output": {
+    "first_nodes": 50,
+    "viewport_nodes": 100
+  }
+}

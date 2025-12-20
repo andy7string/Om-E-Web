@@ -127,8 +127,16 @@ def resolve_chat_number(chat_num: int) -> str | None:
 # Structure: { "a_id_0": {"type": "Link", "tag": "a", "href": "...", "label": "..."}, ... }
 ELEMENT_REGISTRY = {}
 
+# 🌳 AT Element Registry - maps action IDs to AT element data for CDP interaction
+# Populated from at_intelligence_update registry (same pattern as ELEMENT_REGISTRY)
+# Structure: { 0: {"ref": "12345", "role": "button", "name": "Search", ...}, ... }
+AT_ELEMENT_REGISTRY = {}
+
 # 🎨 Current orb theme (synced across all clients)
 CURRENT_ORB_THEME = 'robot'
+
+# 🌳 Current scan mode: 'dom' (TreeWalker) or 'at' (Accessibility Tree)
+CURRENT_SCAN_MODE = 'dom'
 
 
 async def broadcast_to_web_dashboards(message: dict, exclude_ws=None):
@@ -4784,7 +4792,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
     - Responses from extension → Routed back to test clients
     - Tab updates from extension → Logged for debugging
     """
-    global EXTENSION_WS, CURRENT_ORB_THEME
+    global EXTENSION_WS, CURRENT_ORB_THEME, CURRENT_SCAN_MODE
     print(f"🔌 Client connected! Total clients: {len(CLIENTS) + 1}")
     CLIENTS.add(ws)
     
@@ -5143,6 +5151,53 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
 
                 except Exception as e:
                     print(f"❌ Error processing intelligence update: {e}")
+                    import traceback
+                    traceback.print_exc()
+
+            # 🌳 AT INTELLIGENCE UPDATE: Accessibility Tree scan results
+            if msg.get("type") == "at_intelligence_update":
+                print("🌳 AT Intelligence update received")
+                try:
+                    at_data = msg.get("data", {})
+
+                    title = at_data.get("title", "Unknown")
+                    url = at_data.get("url", "")
+                    node_count = at_data.get("nodeCount", 0)
+                    scan_time = at_data.get("scanTimeMs", 0)
+                    trigger = at_data.get("trigger", "unknown")
+                    markdown = at_data.get("markdown", "")
+                    registry = at_data.get("registry", [])
+
+                    print(f"🌳 AT: {node_count} nodes in {scan_time}ms (trigger: {trigger})")
+                    print(f"🌳 AT: Title='{title}', URL='{url}'")
+
+                    # Write AT_text.md
+                    at_text_path = os.path.join("@site_structures", "AT_text.md")
+
+                    if markdown:
+                        with open(at_text_path, 'w', encoding='utf-8') as f:
+                            f.write(markdown)
+                        print(f"✅ AT_text.md written ({len(markdown)} chars)")
+                    else:
+                        print("⚠️ No markdown in AT update")
+
+                    # 🎯 Populate AT_ELEMENT_REGISTRY (same pattern as ELEMENT_REGISTRY)
+                    global AT_ELEMENT_REGISTRY
+                    AT_ELEMENT_REGISTRY = {}
+                    for el in registry:
+                        el_id = el.get("id")
+                        if el_id is not None:
+                            AT_ELEMENT_REGISTRY[el_id] = {
+                                "ref": el.get("ref"),       # CDP backendNodeId
+                                "role": el.get("role"),     # button, link, textbox, etc.
+                                "name": el.get("name"),     # Accessible name
+                                "value": el.get("value"),   # Current value (for inputs)
+                                "states": el.get("states", {})
+                            }
+                    print(f"🎯 AT Element registry updated: {len(AT_ELEMENT_REGISTRY)} elements")
+
+                except Exception as e:
+                    print(f"❌ Error processing AT intelligence update: {e}")
                     import traceback
                     traceback.print_exc()
 
@@ -5905,6 +5960,84 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                 except Exception as e:
                     print(f"❌ Error getting orb themes: {e}")
                     await ws.send(json.dumps({"ok": False, "error": str(e)}))
+
+            # 🌳 SCAN MODE: Get current scan mode
+            if msg.get("type") == "get_scan_mode":
+                print("🌳 Get scan mode request")
+                response = {
+                    "ok": True,
+                    "scanMode": CURRENT_SCAN_MODE
+                }
+                if msg.get("_requestId"):
+                    response["_requestId"] = msg["_requestId"]
+                await ws.send(json.dumps(response))
+
+            # 🌳 SCAN MODE: Set scan mode (dom or at)
+            if msg.get("type") == "set_scan_mode":
+                mode = msg.get("mode", "dom")
+                print(f"🌳 Set scan mode request: {mode}")
+                try:
+                    if mode not in ["dom", "at"]:
+                        response = {
+                            "ok": False,
+                            "error": f"Invalid scan mode: {mode}. Use 'dom' or 'at'"
+                        }
+                        if msg.get("_requestId"):
+                            response["_requestId"] = msg["_requestId"]
+                        await ws.send(json.dumps(response))
+                    elif EXTENSION_WS:
+                        scan_mode_command = {
+                            "type": "set_scan_mode",
+                            "mode": mode,
+                            "id": f"scanmode_{int(time.time() * 1000)}"
+                        }
+                        await EXTENSION_WS.send(json.dumps(scan_mode_command))
+                        print(f"📤 Sent set_scan_mode command to extension: {mode}")
+
+                        # Update global state
+                        CURRENT_SCAN_MODE = mode
+
+                        # Respond with success
+                        response = {
+                            "ok": True,
+                            "scanMode": mode,
+                            "message": f"Scan mode set to: {mode}"
+                        }
+                        if msg.get("_requestId"):
+                            response["_requestId"] = msg["_requestId"]
+                        await ws.send(json.dumps(response))
+
+                        # Broadcast to other web dashboard clients
+                        await broadcast_to_web_dashboards({
+                            "type": "scan_mode_changed",
+                            "mode": mode
+                        }, exclude_ws=ws)
+                    else:
+                        response = {
+                            "ok": False,
+                            "error": "Extension not connected"
+                        }
+                        if msg.get("_requestId"):
+                            response["_requestId"] = msg["_requestId"]
+                        await ws.send(json.dumps(response))
+
+                except Exception as e:
+                    print(f"❌ Error setting scan mode: {e}")
+                    response = {"ok": False, "error": str(e)}
+                    if msg.get("_requestId"):
+                        response["_requestId"] = msg["_requestId"]
+                    await ws.send(json.dumps(response))
+
+            # 🌳 SCAN MODE CHANGED: Broadcast from extension to web dashboards
+            if msg.get("type") == "scan_mode_changed":
+                mode = msg.get("mode", "dom")
+                print(f"🌳 Scan mode changed by extension: {mode}")
+                CURRENT_SCAN_MODE = mode
+                # Broadcast to all web dashboard clients
+                await broadcast_to_web_dashboards({
+                    "type": "scan_mode_changed",
+                    "mode": mode
+                })
 
             # 🆕 NEW: DOM CHANGE NOTIFICATIONS: Handle real-time DOM change updates
             if msg.get("type") == "dom_content_changed":
