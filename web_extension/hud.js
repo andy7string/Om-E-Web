@@ -950,6 +950,66 @@
                 display: none;
             }
 
+            /* ═══════════════════════════════════════════════════════════════════════
+               📚 HUD OPEN CHATS HEADER - Shows chat list when sidebar is open
+               Only visible in HUD view when sidebar/chats panel is open
+               ═══════════════════════════════════════════════════════════════════════ */
+            .ome-hud-open-chats {
+                display: none;  /* Hidden by default */
+                position: absolute;
+                top: 10px;
+                left: 284px;  /* Aligned with content when sidebar open */
+                right: 50px;
+                padding: 8px 12px;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 8px;
+                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.2);
+                z-index: 5;
+            }
+            /* 📚 Show when sidebar is open */
+            .ome-hud.sidebar-open .ome-hud-open-chats {
+                display: block;
+            }
+            .ome-hud-open-chats-label {
+                font-size: 11px;
+                font-weight: 600;
+                color: rgba(var(--theme-color, 126,200,227), 0.6);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 6px;
+            }
+            .ome-hud-open-chats-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .ome-hud-chat-chip {
+                display: inline-flex;
+                align-items: center;
+                padding: 4px 10px;
+                background: rgba(var(--theme-color, 126,200,227), 0.1);
+                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.2);
+                border-radius: 12px;
+                font-size: 12px;
+                color: rgba(var(--theme-color, 126,200,227), 0.85);
+                cursor: pointer;
+                transition: all 0.15s ease;
+            }
+            .ome-hud-chat-chip:hover {
+                background: rgba(var(--theme-color, 126,200,227), 0.2);
+                border-color: rgba(var(--theme-color, 126,200,227), 0.4);
+            }
+            .ome-hud-chat-chip.active {
+                background: rgba(var(--theme-color, 126,200,227), 0.25);
+                border-color: rgba(var(--theme-color, 126,200,227), 0.5);
+                color: rgba(var(--theme-color, 126,200,227), 1);
+            }
+            .ome-hud-chat-chip-num {
+                font-size: 10px;
+                opacity: 0.6;
+                margin-right: 4px;
+            }
+
             /* 💬 HUD Messages Area - scrollable container with scrollbar at far right */
             .ome-hud-messages-area {
                 position: absolute;
@@ -1880,6 +1940,20 @@
                 border-bottom: 1px dotted rgba(147,197,253,0.5);
             }
             .md-link:hover { color: #bfdbfe; border-bottom-color: #bfdbfe; }
+            /* 🔗 Action links (tab://, chat://) - clickable, distinct style */
+            .ome-action-link {
+                color: #a5f3fc;
+                background: rgba(34,211,238,0.15);
+                padding: 2px 6px;
+                border-radius: 4px;
+                border-bottom: none;
+                cursor: pointer;
+                transition: background 0.15s, color 0.15s;
+            }
+            .ome-action-link:hover {
+                color: #fff;
+                background: rgba(34,211,238,0.35);
+            }
             .md-blockquote {
                 border-left: 3px solid rgba(139,92,246,0.5);
                 padding-left: 12px;
@@ -2337,7 +2411,9 @@
                 background: rgba(var(--theme-color, 126,200,227), 0.1);
             }
             .ome-sidebar-chat.active {
-                background: rgba(var(--theme-color, 126,200,227), 0.15);
+                background: rgba(var(--theme-color, 126,200,227), 0.12);
+                border-left: 3px solid rgba(var(--theme-color, 126,200,227), 0.6);
+                padding-left: 9px; /* Compensate for border */
             }
             .ome-sidebar-chat.new-chat {
                 opacity: 0.7;
@@ -3208,9 +3284,12 @@
                     autoResizeOrbInput();
                     saveChatInput('');
 
+                    // 📬 Immediately display user message in chat
+                    addChatMessage('user', text);
+
                     // Send through chat pipeline
                     try {
-                        // 1. Save user message to chat
+                        // 1. Save user message to chat (backend)
                         const t1 = performance.now();
                         const result = await sendChatMessage(text);
                         const t2 = performance.now();
@@ -3221,11 +3300,16 @@
                         const t3 = performance.now();
                         console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t3 - t2)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
-                        // 2. Send to LLM for response (response comes via hud_action)
+                        // 2. Send to LLM for response
                         const llmResult = await sendLLMChat(text);
                         const t4 = performance.now();
                         console.log(`[Content] ⏱️ LLMChat: ${Math.round(t4 - t3)}ms`);
                         console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t4 - t0)}ms`);
+
+                        // 📬 Display assistant response
+                        if (llmResult?.response) {
+                            addChatMessage('assistant', llmResult.response);
+                        }
 
                         // 🚨 Check for capability execution errors
                         if (llmResult?.capability_results?.length) {
@@ -3733,6 +3817,11 @@
 
                 <!-- 🎯 Main Area - messages + input -->
                 <div class="ome-hud-main">
+                    <!-- 📚 Open Chats Header - shows visible chats as chips when sidebar is open -->
+                    <div class="ome-hud-open-chats">
+                        <div class="ome-hud-open-chats-label">OPEN CHATS</div>
+                        <div class="ome-hud-open-chats-list"></div>
+                    </div>
                     <!-- 💬 Messages Area - scrollbar at far right, content centered -->
                     <div class="ome-hud-messages-area">
                         <div class="ome-hud-messages-flex">
@@ -4377,9 +4466,12 @@
             autoResizeTextarea();
             saveChatInput(''); // Clear shared state so orb input stays in sync
 
+            // 📬 Immediately display user message in chat
+            addChatMessage('user', text);
+
             // Send through chat pipeline
             try {
-                // 1. Save user message to chat
+                // 1. Save user message to chat (backend)
                 const t1 = performance.now();
                 const result = await sendChatMessage(text);
                 const t2 = performance.now();
@@ -4390,11 +4482,16 @@
                 const t3 = performance.now();
                 console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t3 - t2)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
-                // 2. Send to LLM for response (response comes via hud_action)
+                // 2. Send to LLM for response
                 const llmResult = await sendLLMChat(text);
                 const t4 = performance.now();
                 console.log(`[Content] ⏱️ LLMChat: ${Math.round(t4 - t3)}ms`);
                 console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t4 - t0)}ms`);
+
+                // 📬 Display assistant response
+                if (llmResult?.response) {
+                    addChatMessage('assistant', llmResult.response);
+                }
 
                 // 🚨 Check for capability execution errors
                 if (llmResult?.capability_results?.length) {
@@ -5766,6 +5863,11 @@
 
             chatList.appendChild(item);
         });
+
+        // 📚 Re-apply active state to current chat after render
+        if (chatState.currentChatId) {
+            markActiveChatInSidebar(chatState.currentChatId);
+        }
     }
 
     /**
@@ -6653,9 +6755,20 @@
                     break;
 
                 case 'show_prompt':
-                    // Smart show - checks if in HUD or orb view
+                    // Show prompt input area
                     if (hudState.visible) {
-                        // In HUD view - HUD is already showing the prompt, just focus it
+                        // In HUD view - show prompt wrapper and focus it
+                        hudState.chatVisible = true;
+                        const promptWrapper = hudState.hud?.querySelector('.ome-hud-prompt-wrapper');
+                        const promptBtn = hudState.hud?.querySelector('.ome-hud-prompt-btn');
+                        if (promptWrapper) {
+                            promptWrapper.classList.remove('hidden-by-user');
+                        }
+                        hudState.hud?.classList.remove('prompt-hidden');
+                        if (promptBtn) {
+                            promptBtn.classList.add('active');
+                            promptBtn.textContent = 'HIDE PROMPT';
+                        }
                         focusHUDPromptGuard(true);
                     } else {
                         // In orb view - expand the chat panel
@@ -6669,10 +6782,20 @@
                     break;
 
                 case 'hide_prompt':
-                    // Smart hide - checks if in HUD or orb view
+                    // Hide prompt input area (NOT the whole HUD)
                     if (hudState.visible) {
-                        // In HUD view - close the whole HUD
-                        toggleHUD();
+                        // In HUD view - hide the prompt wrapper
+                        hudState.chatVisible = false;
+                        const promptWrapper = hudState.hud?.querySelector('.ome-hud-prompt-wrapper');
+                        const promptBtn = hudState.hud?.querySelector('.ome-hud-prompt-btn');
+                        if (promptWrapper) {
+                            promptWrapper.classList.add('hidden-by-user');
+                        }
+                        hudState.hud?.classList.add('prompt-hidden');
+                        if (promptBtn) {
+                            promptBtn.classList.remove('active');
+                            promptBtn.textContent = 'Show Prompt';
+                        }
                     } else {
                         // In orb view - collapse the chat panel
                         if (hudState.chatPanel && hudState.chatPanel.classList.contains('visible')) {
@@ -6764,8 +6887,15 @@
         html = html.replace(/(?<!\w)\*([^*]+)\*(?!\w)/g, '<em>$1</em>');
         html = html.replace(/(?<!\w)_([^_]+)_(?!\w)/g, '<em>$1</em>');
 
-        // Links [text](url)
-        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="md-link">$1</a>');
+        // Links [text](url) - mark special protocols with data attribute
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, url) => {
+            if (url.startsWith('tab://') || url.startsWith('chat://')) {
+                // Special Om-E action links - don't open in new tab
+                return `<a href="${url}" class="md-link ome-action-link" data-ome-action="${url}">${text}</a>`;
+            }
+            // Regular external links
+            return `<a href="${url}" target="_blank" rel="noopener" class="md-link">${text}</a>`;
+        });
 
         // Auto-link URLs (not already in href)
         html = html.replace(/(?<!href="|">)(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" class="md-link">$1</a>');
@@ -6790,6 +6920,46 @@
         html = html.replace(/\n/g, '<br>');
 
         return html;
+    }
+
+    /**
+     * 🔗 Handle Om-E action link clicks (tab://, chat://)
+     * @param {Event} e - Click event
+     */
+    function handleActionLinkClick(e) {
+        const link = e.target.closest('.ome-action-link');
+        if (!link) return;
+
+        const action = link.dataset.omeAction;
+        if (!action) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Parse action URL: tab://3 or chat://2
+        if (action.startsWith('tab://')) {
+            const tabNum = parseInt(action.replace('tab://', ''), 10);
+            if (!isNaN(tabNum)) {
+                console.log(`[HUD] 🔗 Action link: switch to tab ${tabNum}`);
+                // Send capability to switch tab
+                chrome.runtime.sendMessage({
+                    type: 'execute_capability',
+                    action: 'OpenTab',
+                    params: { tabId: tabNum }
+                });
+            }
+        } else if (action.startsWith('chat://')) {
+            const chatNum = parseInt(action.replace('chat://', ''), 10);
+            if (!isNaN(chatNum)) {
+                console.log(`[HUD] 🔗 Action link: switch to chat ${chatNum}`);
+                // Send capability to switch chat
+                chrome.runtime.sendMessage({
+                    type: 'execute_capability',
+                    action: 'SetCurrentChat',
+                    params: { chat: chatNum }
+                });
+            }
+        }
     }
 
     /**
@@ -7109,6 +7279,10 @@
     };
     window.hudTrace = hudTrace;
     hudTrace.log('hud.js loaded');
+
+    // 🔗 Global click handler for action links (tab://, chat://)
+    // Uses event delegation so it works for dynamically added messages
+    document.addEventListener('click', handleActionLinkClick, true);
 
     // 🚀 Auto-init orb IMMEDIATELY - don't wait for page content
     function initWhenBodyReady() {

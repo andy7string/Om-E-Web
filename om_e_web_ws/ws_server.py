@@ -730,10 +730,29 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
     elif action == "RenameChat":
         # Rename an existing chat by ID, number, or name (fuzzy)
-        chat_num = params.get("chat")
+        # Support LLM param name variations (chatId, newName, newTitle, etc.)
+        # Note: LLM often sends chatId/chat as number (position) or string (name)
+        llm_chat = params.get("chat")
+        llm_chat_id = params.get("chatId")
+        chat_num = params.get("chatNum")
         chat_id = params.get("chat_id")
-        chat_name = params.get("name")
-        new_title = params.get("title")
+        chat_name = params.get("name") or params.get("chatName")
+
+        # Handle "chat" param: if numeric treat as number, if string treat as name
+        if llm_chat is not None:
+            if isinstance(llm_chat, int) or (isinstance(llm_chat, str) and llm_chat.isdigit()):
+                chat_num = int(llm_chat) if chat_num is None else chat_num
+            else:
+                chat_name = llm_chat if chat_name is None else chat_name
+
+        # Handle "chatId" param: if numeric treat as number, if string treat as chat_id
+        if llm_chat_id is not None:
+            if isinstance(llm_chat_id, int) or (isinstance(llm_chat_id, str) and llm_chat_id.isdigit()):
+                chat_num = int(llm_chat_id) if chat_num is None else chat_num
+            else:
+                chat_id = llm_chat_id if chat_id is None else chat_id
+
+        new_title = params.get("title") or params.get("newTitle") or params.get("newName")
         original_text = params.get("original_text", "")
 
         # 🔍 Parse source chat name from original text if not provided
@@ -818,9 +837,27 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
     elif action == "DeleteChat":
         # Delete a chat file by ID, number, or name (fuzzy)
-        chat_num = params.get("chat")
+        # Support LLM param name variations (chatId, chatNum, etc.)
+        llm_chat = params.get("chat")
+        llm_chat_id = params.get("chatId")
+        chat_num = params.get("chatNum")
         chat_id = params.get("chat_id")
-        chat_name = params.get("name")
+        chat_name = params.get("name") or params.get("chatName")
+
+        # Handle "chat" param: if numeric treat as number, if string treat as name
+        if llm_chat is not None:
+            if isinstance(llm_chat, int) or (isinstance(llm_chat, str) and llm_chat.isdigit()):
+                chat_num = int(llm_chat) if chat_num is None else chat_num
+            else:
+                chat_name = llm_chat if chat_name is None else chat_name
+
+        # Handle "chatId" param: if numeric treat as number, if string treat as chat_id
+        if llm_chat_id is not None:
+            if isinstance(llm_chat_id, int) or (isinstance(llm_chat_id, str) and llm_chat_id.isdigit()):
+                chat_num = int(llm_chat_id) if chat_num is None else chat_num
+            else:
+                chat_id = llm_chat_id if chat_id is None else chat_id
+
         original_text = params.get("original_text", "")
 
         # 🔍 Parse chat name from original text if not provided

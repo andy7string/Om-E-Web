@@ -2,8 +2,8 @@
   "chat_id": "hey-guy-lets__20251219T120352",
   "project_id": "default",
   "created_at": "2025-12-19T12:03:52.125243Z",
-  "updated_at": "2025-12-19T14:53:09.899183Z",
-  "title": "53 messages",
+  "updated_at": "2025-12-20T05:33:36.739559Z",
+  "title": "74 messages",
   "default_title": "52_03_12_19_12_2025_hey",
   "meta": {
     "source": "ome-web",
@@ -382,6 +382,210 @@
       "role": "assistant",
       "content": "Executing OpenTab...",
       "timestamp": "2025-12-19T14:53:09.899183Z"
+    },
+    {
+      "id": "m_0063",
+      "role": "user",
+      "content": "go to bed",
+      "timestamp": "2025-12-19T15:21:12.580234Z"
+    },
+    {
+      "id": "m_0064",
+      "role": "assistant",
+      "content": "Hehe, I don't sleep, but I'll be here when you need me! Sweet dreams, human! 😉",
+      "timestamp": "2025-12-19T15:21:13.891766Z"
+    },
+    {
+      "id": "m_0065",
+      "role": "user",
+      "content": "rename it to 64 messages",
+      "timestamp": "2025-12-20T00:59:47.248270Z"
+    },
+    {
+      "id": "m_0066",
+      "role": "assistant",
+      "content": "Which chat would you like to rename to '64 messages'?",
+      "timestamp": "2025-12-20T00:59:48.304469Z"
+    },
+    {
+      "id": "m_0067",
+      "role": "user",
+      "content": "yes",
+      "timestamp": "2025-12-20T00:59:53.250024Z"
+    },
+    {
+      "id": "m_0068",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-20T00:59:55.154779Z"
+    },
+    {
+      "id": "m_0069",
+      "role": "user",
+      "content": "this one",
+      "timestamp": "2025-12-20T00:59:57.175757Z"
+    },
+    {
+      "id": "m_0070",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-20T00:59:58.830276Z"
+    },
+    {
+      "id": "m_0071",
+      "role": "user",
+      "content": "list the messages nicely",
+      "timestamp": "2025-12-20T01:02:26.041573Z"
+    },
+    {
+      "id": "m_0072",
+      "role": "assistant",
+      "content": "Here's a nice list of your chats:\n\n1. 11_58_00_20_12_2025_hey\n2. 16_19_15_19_12_2025_hey\n3. 24_59_14_19_12_2025_thats\n4. 27_44_14_19_12_2025_please\n5. 29_36_14_19_12_2025_go\n6. 35_29_14_19_12_2025_so\n7. 35_16_14_19_12_2025_what\n8. 12_04_14_19_12_2025_wanna\n9. 15_18_13_19_12_2025_im\n10. 02_33_12_19_12_2025_hey\n11. 26_22_12_19_12_2025_show\n12. 53 messages (current)",
+      "timestamp": "2025-12-20T01:02:31.049293Z"
+    },
+    {
+      "id": "m_0073",
+      "role": "user",
+      "content": "go to message no 4",
+      "timestamp": "2025-12-20T01:02:37.372625Z"
+    },
+    {
+      "id": "m_0074",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-20T01:02:38.406312Z"
+    },
+    {
+      "id": "m_0075",
+      "role": "user",
+      "content": "happy days can we rename this to 74 messages",
+      "timestamp": "2025-12-20T03:20:20.389487Z"
+    },
+    {
+      "id": "m_0076",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-20T03:20:21.677604Z"
+    },
+    {
+      "id": "m_0077",
+      "role": "user",
+      "content": "so good thank youlets go to the chat above this one",
+      "timestamp": "2025-12-20T03:20:39.587920Z"
+    },
+    {
+      "id": "m_0078",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-20T03:20:40.709453Z"
+    },
+    {
+      "id": "m_0079",
+      "role": "user",
+      "content": "can you see all the chats",
+      "timestamp": "2025-12-20T03:20:49.808459Z"
+    },
+    {
+      "id": "m_0080",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-20T03:20:51.400473Z"
+    },
+    {
+      "id": "m_0081",
+      "role": "user",
+      "content": "you got them in your prompt dude list them",
+      "timestamp": "2025-12-20T03:21:04.070519Z"
+    },
+    {
+      "id": "m_0082",
+      "role": "assistant",
+      "content": "Here are your chats:\n1. 15_19_03_20_12_2025_hey\n2. 36_53_02_20_12_2025_take\n3. 35_03_01_20_12_2025_lets\n4. 11_58_00_20_12_2025_hey\n5. 16_19_15_19_12_2025_hey\n6. 24_59_14_19_12_2025_thats\n7. 29_36_14_19_12_2025_go\n8. 35_29_14_19_12_2025_so\n9. 35_16_14_19_12_2025_what\n10. 12_04_14_19_12_2025_wanna\n11. 15_18_13_19_12_2025_im\n12. 02_33_12_19_12_2025_hey\n13. 26_22_12_19_12_2025_show\n14. 53 messages (current)",
+      "timestamp": "2025-12-20T03:21:08.097373Z"
+    },
+    {
+      "id": "m_0083",
+      "role": "user",
+      "content": "yes so what is just before the one we on now",
+      "timestamp": "2025-12-20T03:21:16.614384Z"
+    },
+    {
+      "id": "m_0084",
+      "role": "assistant",
+      "content": "The chat just before '53 messages' is '26_22_12_19_12_2025_show'.",
+      "timestamp": "2025-12-20T03:21:18.766529Z"
+    },
+    {
+      "id": "m_0085",
+      "role": "user",
+      "content": "so go to it",
+      "timestamp": "2025-12-20T03:21:24.048153Z"
+    },
+    {
+      "id": "m_0086",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-20T03:21:25.226178Z"
+    },
+    {
+      "id": "m_0087",
+      "role": "user",
+      "content": "can you get rid of this prompt pelase",
+      "timestamp": "2025-12-20T03:22:33.760910Z"
+    },
+    {
+      "id": "m_0088",
+      "role": "assistant",
+      "content": "Executing HidePrompt...",
+      "timestamp": "2025-12-20T03:22:34.768761Z"
+    },
+    {
+      "id": "m_0089",
+      "role": "user",
+      "content": "hide the prompt",
+      "timestamp": "2025-12-20T05:30:22.448463Z"
+    },
+    {
+      "id": "m_0090",
+      "role": "assistant",
+      "content": "Executing HidePrompt...",
+      "timestamp": "2025-12-20T05:30:24.275470Z"
+    },
+    {
+      "id": "m_0091",
+      "role": "user",
+      "content": "hideprompt",
+      "timestamp": "2025-12-20T05:31:46.581006Z"
+    },
+    {
+      "id": "m_0092",
+      "role": "assistant",
+      "content": "Executing HidePrompt...",
+      "timestamp": "2025-12-20T05:31:48.431328Z"
+    },
+    {
+      "id": "m_0093",
+      "role": "user",
+      "content": "hideprompt",
+      "timestamp": "2025-12-20T05:32:27.595242Z"
+    },
+    {
+      "id": "m_0094",
+      "role": "assistant",
+      "content": "Executing HidePrompt...",
+      "timestamp": "2025-12-20T05:32:28.521358Z"
+    },
+    {
+      "id": "m_0095",
+      "role": "user",
+      "content": "lets start a new chat",
+      "timestamp": "2025-12-20T05:33:35.659871Z"
+    },
+    {
+      "id": "m_0096",
+      "role": "assistant",
+      "content": "Executing CreateChat...",
+      "timestamp": "2025-12-20T05:33:36.739559Z"
     }
   ]
 }

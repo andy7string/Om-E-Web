@@ -2,7 +2,7 @@
   "chat_id": "wanna-check-out__20251219T140412",
   "project_id": "default",
   "created_at": "2025-12-19T14:04:12.672264Z",
-  "updated_at": "2025-12-19T14:05:01.654799Z",
+  "updated_at": "2025-12-20T02:56:32.628228Z",
   "title": "12_04_14_19_12_2025_wanna",
   "default_title": "12_04_14_19_12_2025_wanna",
   "meta": {
@@ -58,6 +58,174 @@
       "role": "assistant",
       "content": "Executing OpenTab...",
       "timestamp": "2025-12-19T14:05:01.654799Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "delete it",
+      "timestamp": "2025-12-20T01:09:24.764226Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Which one do you want to delete?\n1. Google tab\n2. YouTube tab",
+      "timestamp": "2025-12-20T01:09:25.973492Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "2",
+      "timestamp": "2025-12-20T01:09:38.181183Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Executing CloseTab...",
+      "timestamp": "2025-12-20T01:09:38.980846Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "can you delte this chat",
+      "timestamp": "2025-12-20T01:09:45.653396Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Executing DeleteChat...",
+      "timestamp": "2025-12-20T01:09:46.760781Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "go to google",
+      "timestamp": "2025-12-20T01:24:12.228417Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-20T01:24:13.681908Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "browser view",
+      "timestamp": "2025-12-20T01:24:20.555519Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-20T01:24:21.333097Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "please scroll down",
+      "timestamp": "2025-12-20T01:24:53.161301Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Executing ScrollDown...",
+      "timestamp": "2025-12-20T01:24:54.339495Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "can you see our chat",
+      "timestamp": "2025-12-20T01:25:16.086293Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Executing GetCurrentChat...",
+      "timestamp": "2025-12-20T01:25:16.932555Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "no our conversation we having now how are you",
+      "timestamp": "2025-12-20T01:25:27.554817Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Ah, I see what you mean! Yep, I can see our chat right here. I'm doing great, thanks for asking! How about you? Ready for some more mischief?",
+      "timestamp": "2025-12-20T01:25:29.017365Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "what are we talking about",
+      "timestamp": "2025-12-20T01:25:43.351890Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "We're chatting about opening tabs, deleting them, and a bit of playful banter. You asked me to open Facebook, delete a tab, and now you're curious about our conversation. Anything else you'd like to do?",
+      "timestamp": "2025-12-20T01:25:44.791408Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "scroll up",
+      "timestamp": "2025-12-20T01:26:06.543997Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Executing ScrollUp...",
+      "timestamp": "2025-12-20T01:26:08.308462Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "go to the top of the page",
+      "timestamp": "2025-12-20T01:26:13.779904Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Executing ScrollTop...",
+      "timestamp": "2025-12-20T01:26:14.630476Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "can you switch to hud view",
+      "timestamp": "2025-12-20T01:26:41.594318Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-20T01:26:42.690425Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "please rename this chat to big balls",
+      "timestamp": "2025-12-20T01:28:00.583189Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-20T01:28:01.925765Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "switch chat to 53 messages",
+      "timestamp": "2025-12-20T02:56:31.782920Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-20T02:56:32.628228Z"
     }
   ]
 }

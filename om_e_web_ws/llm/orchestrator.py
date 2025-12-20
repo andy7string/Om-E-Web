@@ -959,9 +959,8 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             debug_content = self._build_unified_debug(
                 user_message=user_message,
                 system_prompt=system_prompt,
-                user_content=user_content,
+                messages=messages,
                 capabilities=capabilities,
-                chat_history_count=len(chat_history),
                 response_text=response_text
             )
             _write_debug_file("llm_unified.md", debug_content)
@@ -981,40 +980,50 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         self,
         user_message: str,
         system_prompt: str,
-        user_content: str,
+        messages: List[Dict],
         capabilities: List[Dict],
-        chat_history_count: int,
         response_text: str
     ) -> str:
-        """Build debug markdown for unified call."""
+        """Build debug markdown for unified call showing full message list."""
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
         system_tokens = estimate_tokens(system_prompt)
-        user_tokens = estimate_tokens(user_content)
+        messages_tokens = sum(estimate_tokens(m.get("content", "")) for m in messages)
 
         lines = [
             "# Unified LLM Call Debug",
             "",
             f"**Generated:** {timestamp}",
             f"**User Message:** {user_message}",
-            f"**History Messages:** {chat_history_count}",
+            f"**Messages:** {len(messages)}",
             f"**Capabilities:** {len(capabilities)}",
-            f"**Tokens:** ~{system_tokens + user_tokens} (system: {system_tokens}, user: {user_tokens})",
+            f"**Tokens:** ~{system_tokens + messages_tokens} (system: {system_tokens}, messages: {messages_tokens})",
             "",
             "## System Prompt",
             "```",
             system_prompt,
             "```",
             "",
-            "## User Content",
-            "```",
-            user_content,
-            "```",
+            "## Messages (sent to LLM)",
             "",
+        ]
+
+        # Show all messages sent to LLM
+        for i, msg in enumerate(messages):
+            role = msg.get("role", "unknown").upper()
+            content = msg.get("content", "")
+            lines.append(f"### {i+1}. {role}")
+            lines.append("")
+            lines.append("```")
+            lines.append(content)
+            lines.append("```")
+            lines.append("")
+
+        lines.extend([
             "## Response",
             "```json",
             response_text,
             "```",
-        ]
+        ])
         return "\n".join(lines)
 
     async def process_message_unified(
@@ -1098,6 +1107,17 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             metrics.handoff = True
             cap_name = output.get("cap", "")
             params = output.get("params", {})
+
+            # Check if LLM made up a capability not in retrieved options
+            known_caps = {opt.get("action") for opt in shaped_options}
+            if cap_name and cap_name not in known_caps:
+                # RAG resolve: query the made-up name to find the real capability
+                logger.info(f"Unknown cap '{cap_name}' - RAG resolving...")
+                resolved = await self._query_capabilities(cap_name)
+                if resolved and resolved[0].get("score", 0) > 0.5:
+                    real_cap = resolved[0].get("action", cap_name)
+                    logger.info(f"Resolved '{cap_name}' → '{real_cap}'")
+                    cap_name = real_cap
 
             self.state.transition_to(TurnState.TURN_EXECUTING)
             metrics.total_ms = (time.time() - turn_start) * 1000
