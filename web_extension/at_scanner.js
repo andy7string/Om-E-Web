@@ -556,7 +556,11 @@ function buildHierarchy(nodes) {
 function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
   const headerLines = [];
   const contentLines = [];
+  const contentMeta = [];  // Track role for each line (for always_include filtering)
   const registry = [];  // Maps actionId → element data (like DOM's ELEMENT_REGISTRY)
+
+  // Always include these roles regardless of viewport position
+  const alwaysIncludeRoles = new Set(config.always_include_roles || []);
 
   // Header (always included)
   headerLines.push(`# ${pageInfo.title}`);
@@ -581,6 +585,16 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
     let line = indent;
 
     if (node.interactive) {
+      // 🎯 PARENT-CHILD DEDUP: If parent and child are same role + same name, skip parent
+      if (node.children?.length === 1) {
+        const child = node.children[0];
+        if (child.role === node.role && child.name === node.name) {
+          // Skip this node entirely, just process child
+          formatNode(child, depth);
+          return;
+        }
+      }
+
       // Build action hint (matches DOM format)
       const actionHint = { act: actionIndex };
 
@@ -611,6 +625,38 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
       actionIndex++;
     } else {
       // Non-interactive elements (landmarks, headings, etc.)
+
+      // 🎯 HEADING + LINK DEDUP: If heading has a link child with same name, merge them
+      if (role === 'heading' && node.children?.length === 1) {
+        const child = node.children[0];
+        if (child.role === 'link' && child.name === node.name) {
+          // Merge: heading: [N] link: "name" → {"act": N}
+          const actionHint = { act: actionIndex };
+          line += `heading: [${actionIndex}] link: ${name} → ${JSON.stringify(actionHint)}`;
+
+          // Register the link action
+          registry.push({
+            id: actionIndex,
+            ref: child.ref_id,
+            role: child.role,
+            name: child.name || null,
+            value: child.value,
+            states: child.states
+          });
+          actionIndex++;
+
+          // Add states if present
+          const stateStr = formatStates(node.states);
+          if (stateStr) line += ` (${stateStr})`;
+
+          contentLines.push(line);
+          contentMeta.push({ role: node.role, alwaysInclude: alwaysIncludeRoles.has(node.role) });
+
+          // Skip children - already processed the link
+          return;
+        }
+      }
+
       line += role;
       if (name) line += `: ${name}`;
     }
@@ -620,6 +666,7 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
     if (stateStr) line += ` (${stateStr})`;
 
     contentLines.push(line);
+    contentMeta.push({ role: node.role, alwaysInclude: alwaysIncludeRoles.has(node.role) });
 
     // Recurse children
     for (const child of node.children || []) {
@@ -668,10 +715,30 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
     // Build output: first N (nav/search) + viewport slice
     const firstPart = contentLines.slice(0, firstN);
     const viewportPart = contentLines.slice(sliceStart, sliceEnd);
-    const skippedBefore = sliceStart - firstN;
+
+    // Find always_include lines that are outside our slices
+    const alwaysIncludeLines = [];
+    for (let i = 0; i < contentLines.length; i++) {
+      if (contentMeta[i]?.alwaysInclude) {
+        // Check if this line is NOT already included
+        const inFirstPart = i < firstN;
+        const inViewportPart = i >= sliceStart && i < sliceEnd;
+        if (!inFirstPart && !inViewportPart) {
+          alwaysIncludeLines.push(contentLines[i]);
+        }
+      }
+    }
+
+    const skippedBefore = sliceStart - firstN - alwaysIncludeLines.length;
     const skippedAfter = contentEnd - sliceEnd;
 
     filteredContent = [...firstPart];
+
+    // Add always_include elements after first part
+    if (alwaysIncludeLines.length > 0) {
+      filteredContent.push('  [search]');  // Label for clarity
+      filteredContent.push(...alwaysIncludeLines);
+    }
 
     if (skippedBefore > 0) {
       filteredContent.push('', `... [${skippedBefore} lines above viewport] ...`, '');

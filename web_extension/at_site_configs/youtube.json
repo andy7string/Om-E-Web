@@ -106,6 +106,8 @@
     "button"
   ],
 
+  "always_include_roles": ["search", "searchbox", "combobox"],
+
   "video_page": {
     "url_pattern": "/watch?v=",
     "focus_selectors": [
