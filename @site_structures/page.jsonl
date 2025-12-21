@@ -1,0 +1,54 @@
+{
+  "timestamp": 1766241950.541704,
+  "browser_state": {
+    "total_tabs": 2,
+    "active_tab": {
+      "id": 1138054610,
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster) - YouTube",
+      "status": "complete"
+    },
+    "all_tabs": [
+      {
+        "id": 1138054541,
+        "url": "http://127.0.0.1:8080/",
+        "title": "OM-E Web",
+        "active": true,
+        "status": "complete"
+      },
+      {
+        "id": 1138054610,
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster) - YouTube",
+        "active": true,
+        "status": "complete"
+      }
+    ],
+    "last_tabs_update": 49944.430831458,
+    "extension_connected": true
+  },
+  "current_page": {
+    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster) - YouTube",
+    "is_active_tab": true
+  },
+  "menu_structure": {
+    "menus": [],
+    "summary": {
+      "total_menus": 0,
+      "total_items": 0,
+      "navigation_links": 0,
+      "toggle_buttons": 0
+    }
+  },
+  "page_state": {},
+  "recent_insights": [],
+  "summary": {
+    "total_menus": 0,
+    "total_items": 0,
+    "navigation_links": 0,
+    "toggle_buttons": 0
+  },
+  "intelligence_version": "2.0",
+  "transcripts": []
+}

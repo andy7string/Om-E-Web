@@ -1,49 +1,35 @@
 {
-  "timestamp": 1766210567.762429,
+  "timestamp": 1766305270.886487,
   "browser_state": {
-    "total_tabs": 4,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138053743,
-      "url": "https://www.facebook.com/",
-      "title": "(2) Facebook",
+      "id": 1138054800,
+      "url": "https://chatgpt.com/c/6947ade1-9378-8323-9f85-9e07f983cd42",
+      "title": "Search for cats summary",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138053730,
-        "url": "http://127.0.0.1:8080/",
-        "title": "OM-E Web",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138053737,
-        "url": "https://www.youtube.com/",
-        "title": "(7) YouTube",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138053740,
-        "url": "https://www.google.com/",
-        "title": "Google",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138053743,
-        "url": "https://www.facebook.com/",
-        "title": "(2) Facebook",
+        "id": 1138054800,
+        "url": "https://chatgpt.com/c/6947ade1-9378-8323-9f85-9e07f983cd42",
+        "title": "Search for cats summary",
         "active": true,
+        "status": "complete"
+      },
+      {
+        "id": 1138054806,
+        "url": "chrome://extensions/",
+        "title": "Extensions",
+        "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 18553.165218375,
+    "last_tabs_update": 30870.008044458,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.facebook.com/",
-    "title": "(2) Facebook",
+    "url": "https://chatgpt.com/c/6947ade1-9378-8323-9f85-9e07f983cd42",
+    "title": "Search for cats summary",
     "is_active_tab": true
   },
   "content_structure": {},

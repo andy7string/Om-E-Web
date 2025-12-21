@@ -136,7 +136,8 @@ AT_ELEMENT_REGISTRY = {}
 CURRENT_ORB_THEME = 'robot'
 
 # 🌳 Current scan mode: 'dom' (TreeWalker) or 'at' (Accessibility Tree)
-CURRENT_SCAN_MODE = 'dom'
+# Default to 'at' - overridden from llm_config.json on startup
+CURRENT_SCAN_MODE = 'at'
 
 
 async def broadcast_to_web_dashboards(message: dict, exclude_ws=None):
@@ -1349,6 +1350,30 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         config["settings"]["max_tokens"] = tokens_val
         if save_llm_config(config):
             return {"max_tokens": tokens_val}
+        return {"error": "Failed to save config"}
+
+    elif action == "GetScanMode":
+        # Get current scan mode from config
+        config = load_llm_config()
+        if "extension" not in config:
+            config["extension"] = {"scan_mode": "at"}
+        scan_mode = config.get("extension", {}).get("scan_mode", "at")
+        return {"scan_mode": scan_mode}
+
+    elif action == "SetScanMode":
+        # Set scan mode (at or dom)
+        mode = params.get("mode")
+        if not mode:
+            return {"error": "Missing mode parameter"}
+        if mode not in ["at", "dom"]:
+            return {"error": f"Invalid scan mode: {mode}. Must be 'at' or 'dom'"}
+
+        config = load_llm_config()
+        if "extension" not in config:
+            config["extension"] = {}
+        config["extension"]["scan_mode"] = mode
+        if save_llm_config(config):
+            return {"scan_mode": mode}
         return {"error": "Failed to save config"}
 
     elif action == "AddLLMProvider":
@@ -5997,6 +6022,14 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                         # Update global state
                         CURRENT_SCAN_MODE = mode
 
+                        # 💾 Persist to llm_config.json
+                        config = load_llm_config()
+                        if "extension" not in config:
+                            config["extension"] = {}
+                        config["extension"]["scan_mode"] = mode
+                        save_llm_config(config)
+                        print(f"💾 Scan mode persisted to config: {mode}")
+
                         # Respond with success
                         response = {
                             "ok": True,
@@ -6033,6 +6066,15 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                 mode = msg.get("mode", "dom")
                 print(f"🌳 Scan mode changed by extension: {mode}")
                 CURRENT_SCAN_MODE = mode
+
+                # 💾 Persist to llm_config.json
+                config = load_llm_config()
+                if "extension" not in config:
+                    config["extension"] = {}
+                config["extension"]["scan_mode"] = mode
+                save_llm_config(config)
+                print(f"💾 Scan mode persisted to config: {mode}")
+
                 # Broadcast to all web dashboard clients
                 await broadcast_to_web_dashboards({
                     "type": "scan_mode_changed",
@@ -6143,10 +6185,20 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                     
                     # Forward LLM instruction to extension for execution
                     if EXTENSION_WS and EXTENSION_WS != ws:
-                        # 🆕 Look up hints from text.json for selector-based resolution
-                        hints = resolve_action_hints(action_id)
-
-                        if hints:
+                        # 🌳 AT MODE: Skip hints, send directly with role+name
+                        if CURRENT_SCAN_MODE == 'at':
+                            instruction_msg = {
+                                "id": f"llm-{uuid.uuid4().hex[:8]}",
+                                "type": "execute_llm_action",
+                                "data": {
+                                    "actionId": action_id,
+                                    "actionType": action_type,
+                                    "params": action_params
+                                }
+                            }
+                            print(f"🌳 AT mode - direct execution: {action_id} with role={action_params.get('role')}, name={action_params.get('name', '')[:30]}")
+                        # 🆕 DOM MODE: Look up hints from text.json for selector-based resolution
+                        elif (hints := resolve_action_hints(action_id)):
                             # Use hint-based execution (robust, survives re-renders)
                             instruction_msg = {
                                 "id": f"llm-{uuid.uuid4().hex[:8]}",
@@ -8538,6 +8590,18 @@ async def main():
 
     📡 SERVER ENDPOINT: ws://127.0.0.1:17892
     """
+    global CURRENT_SCAN_MODE
+
+    # 🌳 Load scan mode from llm_config.json (persisted setting)
+    config = load_llm_config()
+    saved_mode = config.get("extension", {}).get("scan_mode", "at")
+    if saved_mode in ["dom", "at"]:
+        CURRENT_SCAN_MODE = saved_mode
+        print(f"🌳 Scan mode loaded from config: {CURRENT_SCAN_MODE}")
+    else:
+        CURRENT_SCAN_MODE = "at"
+        print("🌳 Scan mode defaulted to: at")
+
     # 🎯 PREMIUM: Load site configs on startup (Polling Mode)
     await start_site_config_polling()
 

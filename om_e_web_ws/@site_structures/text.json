@@ -1,1393 +1,335 @@
 {
   "metadata": {
-    "url": "https://www.facebook.com/",
-    "title": "(2) Facebook",
-    "timestamp": "2025-12-20T06:02:47Z",
-    "element_count": 126
+    "url": "https://chatgpt.com/c/6947ade1-9378-8323-9f85-9e07f983cd42",
+    "title": "Search for cats summary",
+    "timestamp": "2025-12-21T08:21:10Z",
+    "element_count": 29
   },
   "elements": {
     "0": {
-      "label": "Facebook",
+      "label": "Skip to content",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Facebook']",
-        "[aria-label='Facebook']",
-        "[role='link'][aria-label='Facebook']",
-        "a.x1i10hfl.x1qjc9v5"
+        "a[href*='/c/6947ade1-9378-8323-9f85-9e07f983cd42']",
+        "a[href*='#main']",
+        "a.bg-token-main-surface-primary.fixed"
       ],
-      "href": "https://www.facebook.com/"
+      "href": "https://chatgpt.com/c/6947ade1-9378-8323-9f85-9e07f983cd42#main"
     },
     "1": {
-      "label": "Search Facebook",
-      "type": "Input",
-      "tag": "input",
+      "label": "Open sidebar",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "input[aria-label='Search Facebook']",
-        "[aria-label='Search Facebook']",
-        "input[placeholder='Search Facebook']",
-        "[role='combobox'][aria-label='Search Facebook']",
-        "input[type='search'][placeholder='Search Facebook']",
-        "input.x1i10hfl.xggy1nq"
+        "button[aria-label='Open sidebar']",
+        "[aria-label='Open sidebar']",
+        "button.text-token-text-primary.no-draggable"
       ],
       "href": null
     },
     "2": {
-      "label": "Home",
-      "type": "Link",
-      "tag": "a",
+      "label": "Open profile menu",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[aria-label='Home']",
-        "[aria-label='Home']",
-        "[role='link'][aria-label='Home']",
-        "a.x1i10hfl.xjbqb8w"
+        "div[aria-label='Open profile menu']",
+        "[aria-label='Open profile menu']",
+        "#radix-_R_6daoosk9l35_",
+        "[role='button'][aria-label='Open profile menu']",
+        "[data-size='large']",
+        "div.group.gap-2"
       ],
-      "href": "https://www.facebook.com/"
+      "href": null
     },
     "3": {
-      "label": "Video",
-      "type": "Link",
-      "tag": "a",
+      "label": "Model selector, current model is 5.2",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Video']",
-        "[aria-label='Video']",
-        "[role='link'][aria-label='Video']",
-        "a[href*='/watch/']",
-        "a.x1i10hfl.xjbqb8w"
+        "button[aria-label='Model selector, current model is 5.2']",
+        "[aria-label='Model selector, current model is 5.2']",
+        "#radix-_R_squb33ih6kcm_",
+        "[data-state='closed']",
+        "button.group.flex"
       ],
-      "href": "https://www.facebook.com/watch/?ref=tab"
+      "href": null
     },
     "4": {
-      "label": "Marketplace",
-      "type": "Link",
-      "tag": "a",
+      "label": "Share",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Marketplace']",
-        "[aria-label='Marketplace']",
-        "[role='link'][aria-label='Marketplace']",
-        "a[href*='/marketplace/']",
-        "a.x1i10hfl.xjbqb8w"
+        "button[aria-label='Share']",
+        "[aria-label='Share']",
+        "[data-testid='share-chat-button']",
+        "button.btn.relative"
       ],
-      "href": "https://www.facebook.com/marketplace/?ref=app_tab"
+      "href": null
     },
     "5": {
-      "label": "Groups",
-      "type": "Link",
-      "tag": "a",
+      "label": "Start a group chat",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Groups']",
-        "[aria-label='Groups']",
-        "[role='link'][aria-label='Groups']",
-        "a[href*='/groups/']",
-        "a.x1i10hfl.xjbqb8w"
+        "button[aria-label='Start a group chat']",
+        "[aria-label='Start a group chat']",
+        "[data-testid='start-group-chat-from-conversation-button']",
+        "button.btn.relative"
       ],
-      "href": "https://www.facebook.com/groups/"
+      "href": null
     },
     "6": {
-      "label": "Gaming",
-      "type": "Link",
-      "tag": "a",
+      "label": "Open conversation options",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Gaming']",
-        "[aria-label='Gaming']",
-        "[role='link'][aria-label='Gaming']",
-        "a[href*='/gaming/play/']",
-        "a.x1i10hfl.xjbqb8w"
+        "button[aria-label='Open conversation options']",
+        "[aria-label='Open conversation options']",
+        "[data-testid='conversation-options-button']",
+        "button.text-token-text-primary.no-draggable"
       ],
-      "href": "https://www.facebook.com/gaming/play/?store_visit_source=gaming_tab"
+      "href": null
     },
     "7": {
-      "label": "Menu",
-      "type": "Button",
-      "tag": "div",
+      "label": "Wikipedia",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='Menu']",
-        "[aria-label='Menu']",
-        "[role='button'][aria-label='Menu']",
-        "div.x1i10hfl.xjqpnuy"
+        "a[href*='/wiki/Cat']",
+        "a.flex.h-4\\.5"
       ],
-      "href": null
+      "href": "https://en.wikipedia.org/wiki/Cat?utm_source=chatgpt.com"
     },
     "8": {
-      "label": "Messenger",
-      "type": "Button",
-      "tag": "div",
+      "label": "https://en.wikipedia.org/wiki/Cat",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='Messenger']",
-        "[aria-label='Messenger']",
-        "[role='button'][aria-label='Messenger']",
-        "div.x1i10hfl.xjqpnuy"
+        "a[href*='/wiki/Cat']",
+        "[data-start='440']",
+        "a.decorated-link"
       ],
-      "href": null
+      "href": "https://en.wikipedia.org/wiki/Cat?utm_source=chatgpt.com"
     },
     "9": {
-      "label": "Messenger",
-      "type": "Button",
-      "tag": "div",
+      "label": "Charlottesville Cat Care Clinic",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='Messenger']",
-        "[aria-label='Messenger']",
-        "[role='button'][aria-label='Messenger']",
-        "div.x1i10hfl.x1qjc9v5"
+        "a[href*='/veterinary-topics/101-amazing-cat-facts-fun-trivia-about-your-feline-friend/']",
+        "a.flex.h-4\\.5"
       ],
-      "href": null
+      "href": "https://cvillecatcare.com/veterinary-topics/101-amazing-cat-facts-fun-trivia-about-your-feline-friend/?utm_source=chatgpt.com"
     },
     "10": {
-      "label": "Notifications, 2 unread",
-      "type": "Button",
-      "tag": "div",
+      "label": "Wikipedia",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='Notifications, 2 unread']",
-        "[aria-label='Notifications, 2 unread']",
-        "[role='button'][aria-label='Notifications, 2 unread']",
-        "div.x1i10hfl.xjqpnuy"
+        "a[href*='/wiki/Cat_righting_reflex']",
+        "a.flex.h-4\\.5"
       ],
-      "href": null
+      "href": "https://en.wikipedia.org/wiki/Cat_righting_reflex?utm_source=chatgpt.com"
     },
     "11": {
-      "label": "Notifications, 2 unread",
-      "type": "Button",
-      "tag": "div",
+      "label": "Vetwest Veterinary Clinics",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='Notifications, 2 unread']",
-        "[aria-label='Notifications, 2 unread']",
-        "[role='button'][aria-label='Notifications, 2 unread']",
-        "div.x1i10hfl.x1qjc9v5"
+        "a[href*='/pet-library/20-amazing-feline-facts/']",
+        "a.flex.h-4\\.5"
       ],
-      "href": null
+      "href": "https://www.vetwest.com.au/pet-library/20-amazing-feline-facts/?utm_source=chatgpt.com"
     },
     "12": {
-      "label": "Your profile",
-      "type": "Button",
-      "tag": "div",
+      "label": "Fun Kids",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='Your profile']",
-        "[aria-label='Your profile']",
-        "[role='button'][aria-label='Your profile']",
-        "div.x1i10hfl.x1qjc9v5"
+        "a[href*='/learn/top-10-facts/top-10-facts-about-cats/']",
+        "a.flex.h-4\\.5"
+      ],
+      "href": "https://www.funkidslive.com/learn/top-10-facts/top-10-facts-about-cats/?utm_source=chatgpt.com"
+    },
+    "13": {
+      "label": "The Drake Center For Veterinary Care",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/services/cats/blog/20-amazing-facts-about-cats']",
+        "a.flex.h-4\\.5"
+      ],
+      "href": "https://www.thedrakecenter.com/services/cats/blog/20-amazing-facts-about-cats?utm_source=chatgpt.com"
+    },
+    "14": {
+      "label": "日朗動物醫院",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/en/blogs/20-fun-facts-about-cats-that-will-surprise-you']",
+        "a.flex.h-4\\.5"
+      ],
+      "href": "https://www.sunnysidevet.com.hk/en/blogs/20-fun-facts-about-cats-that-will-surprise-you?utm_source=chatgpt.com"
+    },
+    "15": {
+      "label": "Wikipedia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Kneading_%28cats%29']",
+        "a.flex.h-4\\.5"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Kneading_%28cats%29?utm_source=chatgpt.com"
+    },
+    "16": {
+      "label": "Wikipedia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Cats_in_Australia']",
+        "a.flex.h-4\\.5"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Cats_in_Australia?utm_source=chatgpt.com"
+    },
+    "17": {
+      "label": "Wikipedia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Cats_%28musical%29']",
+        "a.flex.h-4\\.5"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Cats_%28musical%29?utm_source=chatgpt.com"
+    },
+    "18": {
+      "label": "Copy",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Copy']",
+        "[aria-label='Copy']",
+        "[data-testid='copy-turn-action-button']",
+        "button.text-token-text-secondary.rounded-lg"
       ],
       "href": null
     },
-    "13": {
-      "label": "Andrew Orsmond",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/andrew.orsmond.9']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/andrew.orsmond.9"
-    },
-    "14": {
-      "label": "Meta AI",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/l.php']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.meta.ai%2F%3Futm_source%3Dfacebook_bookmarks%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExSlJJSnFGaEt2WFpSNFJ1SHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR7N5afUrlKwtucm7qrDoLnrnWLoV7vV2Y3uYiHPZi6cJkFEe9lRdElca_K2EA_aem_IJ-Ap06HyGdkRdNTyBbJ5Q&h=AT1lVVxXzHy9i9u0OqhmfuRcnojDS5WVn3Y2bac5JM9leGaR5QAUZxYDIc13M90HeO1378S4PaLnETMhaKVVG9FKgAYh5LE-v0MriwIa7ToO28mVxHc7KJThuN6cxK6pfxR7jnxR"
-    },
-    "15": {
-      "label": "Friends",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/friends/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/friends/"
-    },
-    "16": {
-      "label": "Memories",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/onthisday/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/onthisday/?source=bookmark"
-    },
-    "17": {
-      "label": "Saved",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/saved/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/saved/?cref=28"
-    },
-    "18": {
-      "label": "Groups",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/groups/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/groups/?ref=bookmarks"
-    },
     "19": {
-      "label": "Video",
-      "type": "Link",
-      "tag": "a",
+      "label": "Good response",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/watch/']",
-        "a.x1i10hfl.x1qjc9v5"
+        "button[aria-label='Good response']",
+        "[aria-label='Good response']",
+        "[data-testid='good-response-turn-action-button']",
+        "button.text-token-text-secondary.rounded-lg"
       ],
-      "href": "https://www.facebook.com/watch/"
+      "href": null
     },
     "20": {
-      "label": "Marketplace",
-      "type": "Link",
-      "tag": "a",
+      "label": "Bad response",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/marketplace/']",
-        "a.x1i10hfl.x1qjc9v5"
+        "button[aria-label='Bad response']",
+        "[aria-label='Bad response']",
+        "[data-testid='bad-response-turn-action-button']",
+        "button.text-token-text-secondary.rounded-lg"
       ],
-      "href": "https://www.facebook.com/marketplace/?ref=bookmark"
+      "href": null
     },
     "21": {
-      "label": "See more",
+      "label": "Share",
       "type": "Button",
-      "tag": "div",
+      "tag": "button",
       "selectors": [
-        "div.x1i10hfl.x1qjc9v5"
+        "button[aria-label='Share']",
+        "[aria-label='Share']",
+        "[data-state='closed']",
+        "button.text-token-text-secondary.rounded-lg"
       ],
       "href": null
     },
     "22": {
-      "label": "Fitness Motivation",
-      "type": "Link",
-      "tag": "a",
+      "label": "Switch model",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/groups/395361065794251/']",
-        "a.x1i10hfl.x1qjc9v5"
+        "button[aria-label='Switch model']",
+        "[aria-label='Switch model']",
+        "#radix-_r_6i_",
+        "[data-state='closed']",
+        "button.cursor-pointer.text-token-text-secondary"
       ],
-      "href": "https://www.facebook.com/groups/395361065794251/"
+      "href": null
     },
     "23": {
-      "label": "Fitness Lovers 🔥",
-      "type": "Link",
-      "tag": "a",
+      "label": "More actions",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/groups/1328003397369502/']",
-        "a.x1i10hfl.x1qjc9v5"
+        "button[aria-label='More actions']",
+        "[aria-label='More actions']",
+        "#radix-_r_6l_",
+        "[data-state='closed']",
+        "button.text-token-text-secondary.touch\\:w-10"
       ],
-      "href": "https://www.facebook.com/groups/1328003397369502/"
+      "href": null
     },
     "24": {
-      "label": "“ONLY” OVER 50+ FITNESS FANATICS",
-      "type": "Link",
-      "tag": "a",
+      "label": "Sources",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/groups/414828193578100/']",
-        "a.x1i10hfl.x1qjc9v5"
+        "button[aria-label='Sources']",
+        "[aria-label='Sources']",
+        "button.group\\/footnote.bg-token-bg-primary"
       ],
-      "href": "https://www.facebook.com/groups/414828193578100/"
+      "href": null
     },
     "25": {
-      "label": "Fitness Lovers",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/groups/fitnesslovers1/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/groups/fitnesslovers1/"
-    },
-    "26": {
-      "label": "FitOver 50",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/groups/befitover50/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/groups/befitover50/"
-    },
-    "27": {
-      "label": "See more",
-      "type": "Button",
+      "label": "Ask anything",
+      "type": "Input",
       "tag": "div",
       "selectors": [
-        "div.x1i10hfl.x1qjc9v5"
+        "#prompt-textarea",
+        "[data-virtualkeyboard='true']",
+        "div.ProseMirror"
+      ],
+      "href": null
+    },
+    "26": {
+      "label": "Add files and more",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Add files and more']",
+        "[aria-label='Add files and more']",
+        "#composer-plus-btn",
+        "[data-testid='composer-plus-btn']",
+        "button.composer-btn"
+      ],
+      "href": null
+    },
+    "27": {
+      "label": "Dictate button",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Dictate button']",
+        "[aria-label='Dictate button']",
+        "button.composer-btn"
       ],
       "href": null
     },
     "28": {
-      "label": "Privacy",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/privacy/policy/']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/privacy/policy/?entry_point=comet_dropdown"
-    },
-    "29": {
-      "label": "Terms",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/policies']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/policies?ref=pf"
-    },
-    "30": {
-      "label": "Advertising",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/business/']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/business/"
-    },
-    "31": {
-      "label": "Ad choices",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/help/568137493302217']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/help/568137493302217"
-    },
-    "32": {
-      "label": "Cookies",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/policies/cookies/']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/policies/cookies/"
-    },
-    "33": {
-      "label": "More",
+      "label": "Start voice mode",
       "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.xjbqb8w"
-      ],
-      "href": null
-    },
-    "34": {
-      "label": "Andrew Orsmond's timeline",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Andrew Orsmond\\'s timeline']",
-        "[aria-label='Andrew Orsmond\\'s timeline']",
-        "[role='link'][aria-label='Andrew Orsmond\\'s timeline']",
-        "a[href*='/andrew.orsmond.9']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/andrew.orsmond.9"
-    },
-    "35": {
-      "label": "What's on your mind, Andrew?",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.x1ejq31n"
-      ],
-      "href": null
-    },
-    "36": {
-      "label": "Live video",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Live video']",
-        "[aria-label='Live video']",
-        "[role='button'][aria-label='Live video']",
-        "div.x1i10hfl.xjbqb8w"
-      ],
-      "href": null
-    },
-    "37": {
-      "label": "Photo/video",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Photo/video']",
-        "[aria-label='Photo/video']",
-        "[role='button'][aria-label='Photo/video']",
-        "div.x1i10hfl.xjbqb8w"
-      ],
-      "href": null
-    },
-    "38": {
-      "label": "Feeling/activity",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Feeling/activity']",
-        "[aria-label='Feeling/activity']",
-        "[role='button'][aria-label='Feeling/activity']",
-        "div.x1i10hfl.xjbqb8w"
-      ],
-      "href": null
-    },
-    "39": {
-      "label": "Create story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Create story']",
-        "[aria-label='Create story']",
-        "[role='link'][aria-label='Create story']",
-        "a[href*='/stories/create/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/create/"
-    },
-    "40": {
-      "label": "Firon Woo's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Firon Woo\\'s Story']",
-        "[aria-label='Firon Woo\\'s Story']",
-        "[role='link'][aria-label='Firon Woo\\'s Story']",
-        "a[href*='/stories/155042326622332/UzpfSVNDOjEzNjYxMzAzNjg4NjA3NDE=/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/155042326622332/UzpfSVNDOjEzNjYxMzAzNjg4NjA3NDE=/?bucket_count=9&source=story_tray"
-    },
-    "41": {
-      "label": "Shaun Wulf's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Shaun Wulf\\'s Story']",
-        "[aria-label='Shaun Wulf\\'s Story']",
-        "[role='link'][aria-label='Shaun Wulf\\'s Story']",
-        "a[href*='/stories/181936876776719/UzpfSVNDOjg4Nzk4ODMyMzc5OTA1OA==/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/181936876776719/UzpfSVNDOjg4Nzk4ODMyMzc5OTA1OA==/?bucket_count=9&source=story_tray"
-    },
-    "42": {
-      "label": "Nessi Penman's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Nessi Penman\\'s Story']",
-        "[aria-label='Nessi Penman\\'s Story']",
-        "[role='link'][aria-label='Nessi Penman\\'s Story']",
-        "a[href*='/stories/177356847309954/UzpfSVNDOjE5MjAxNzUxNzE5NTc0Mjc=/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/177356847309954/UzpfSVNDOjE5MjAxNzUxNzE5NTc0Mjc=/?bucket_count=9&source=story_tray"
-    },
-    "43": {
-      "label": "Christiaan Van Renen's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Christiaan Van Renen\\'s Story']",
-        "[aria-label='Christiaan Van Renen\\'s Story']",
-        "[role='link'][aria-label='Christiaan Van Renen\\'s Story']",
-        "a[href*='/stories/10158212638649766/UzpfSVNDOjg3NTk5Mzk2ODIwNzY2MQ==/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/10158212638649766/UzpfSVNDOjg3NTk5Mzk2ODIwNzY2MQ==/?bucket_count=9&source=story_tray"
-    },
-    "44": {
-      "label": "Christopher Parry's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Christopher Parry\\'s Story']",
-        "[aria-label='Christopher Parry\\'s Story']",
-        "[role='link'][aria-label='Christopher Parry\\'s Story']",
-        "a[href*='/stories/1510173145746832/UzpfSVNDOjE0MTc1NjE2MzY1NDExODc=/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/1510173145746832/UzpfSVNDOjE0MTc1NjE2MzY1NDExODc=/?bucket_count=9&source=story_tray"
-    },
-    "45": {
-      "label": "Positive Grid's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Positive Grid\\'s Story']",
-        "[aria-label='Positive Grid\\'s Story']",
-        "[role='link'][aria-label='Positive Grid\\'s Story']",
-        "a[href*='/stories/109940277826322/UzpfSVNDOjE5MDc4NzczNDk4MTAzMzI=/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/109940277826322/UzpfSVNDOjE5MDc4NzczNDk4MTAzMzI=/?bucket_count=9&source=story_tray"
-    },
-    "46": {
-      "label": "Leigh van Biljon's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Leigh van Biljon\\'s Story']",
-        "[aria-label='Leigh van Biljon\\'s Story']",
-        "[role='link'][aria-label='Leigh van Biljon\\'s Story']",
-        "a[href*='/stories/675912292779873/UzpfSVNDOjc0OTE5OTk2NDM0NDI2MQ==/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/675912292779873/UzpfSVNDOjc0OTE5OTk2NDM0NDI2MQ==/?bucket_count=9&source=story_tray"
-    },
-    "47": {
-      "label": "Dirk Klut's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Dirk Klut\\'s Story']",
-        "[aria-label='Dirk Klut\\'s Story']",
-        "[role='link'][aria-label='Dirk Klut\\'s Story']",
-        "a[href*='/stories/10225923834469634/UzpfSVNDOjEzMTgxMDY3NzcxODEyMTE=/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/10225923834469634/UzpfSVNDOjEzMTgxMDY3NzcxODEyMTE=/?bucket_count=9&source=story_tray"
-    },
-    "48": {
-      "label": "William Steenekamp's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='William Steenekamp\\'s Story']",
-        "[aria-label='William Steenekamp\\'s Story']",
-        "[role='link'][aria-label='William Steenekamp\\'s Story']",
-        "a[href*='/stories/3797426590377709/UzpfSVNDOjg1NzkyMzgyNjk3OTc5Nw==/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/3797426590377709/UzpfSVNDOjg1NzkyMzgyNjk3OTc5Nw==/?bucket_count=9&source=story_tray"
-    },
-    "49": {
-      "label": "James Cross's Story",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='James Cross\\'s Story']",
-        "[aria-label='James Cross\\'s Story']",
-        "[role='link'][aria-label='James Cross\\'s Story']",
-        "a[href*='/stories/101552348647214/UzpfSVNDOjE3NTMxODQ4NDg5NzQzMDc=/']",
-        "a.x1i10hfl.x1ypdohk"
-      ],
-      "href": "https://www.facebook.com/stories/101552348647214/UzpfSVNDOjE3NTMxODQ4NDg5NzQzMDc=/?bucket_count=9&source=story_tray"
-    },
-    "50": {
-      "label": "Next items",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Next items']",
-        "[aria-label='Next items']",
-        "[role='button'][aria-label='Next items']",
-        "div.x1i10hfl.xjqpnuy"
-      ],
-      "href": null
-    },
-    "51": {
-      "label": "Pure Blood Dating - Unvaxxed",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Pure Blood Dating - Unvaxxed']",
-        "[aria-label='Pure Blood Dating - Unvaxxed']",
-        "[role='link'][aria-label='Pure Blood Dating - Unvaxxed']",
-        "a[href*='/groups/382978410246631/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/groups/382978410246631/?__cft__[0]=AZZvm7LJv3Zdss-ekxUc-zTar3z7c3SS__VK0NUC7WPg5ihdh9HplX9aYBasY3zvhHo4QTvolZcgTQCh2fNhOJQtCnvqb7VzTreb3Br8idePNnMccUbeiUTzBoIRbVpTchggIad4mffRCQLyFq3Bx91lxPv-kvpwSUbTuPlVNKXVZ_WxHtGAowejdwX1TW4SmuN1LfMjImXz2kVtCAbWaU37&__tn__=%3C%3C%2CP-R"
-    },
-    "52": {
-      "label": "Pure Blood Dating - Unvaxxed",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/groups/382978410246631/']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/groups/382978410246631/?__cft__[0]=AZZvm7LJv3Zdss-ekxUc-zTar3z7c3SS__VK0NUC7WPg5ihdh9HplX9aYBasY3zvhHo4QTvolZcgTQCh2fNhOJQtCnvqb7VzTreb3Br8idePNnMccUbeiUTzBoIRbVpTchggIad4mffRCQLyFq3Bx91lxPv-kvpwSUbTuPlVNKXVZ_WxHtGAowejdwX1TW4SmuN1LfMjImXz2kVtCAbWaU37&__tn__=-UC%2CP-R"
-    },
-    "53": {
-      "label": "Jim Chase",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/groups/382978410246631/user/61550302453101/']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/groups/382978410246631/user/61550302453101/?__cft__[0]=AZZvm7LJv3Zdss-ekxUc-zTar3z7c3SS__VK0NUC7WPg5ihdh9HplX9aYBasY3zvhHo4QTvolZcgTQCh2fNhOJQtCnvqb7VzTreb3Br8idePNnMccUbeiUTzBoIRbVpTchggIad4mffRCQLyFq3Bx91lxPv-kvpwSUbTuPlVNKXVZ_WxHtGAowejdwX1TW4SmuN1LfMjImXz2kVtCAbWaU37&__tn__=%2CP-R"
-    },
-    "54": {
-      "label": "s\no\nd\no\nt\nn\np\nr\ne\nS\nh\n1\nl\nh\n0\nu\ng\n1\nh\ng\n5\n9\na\n4\nc\n0\n4\n5\nt\nl\n1\n6\nm\n4\n9\n1\n2\n2\nf\nh\n3\ni\nt\nl\n1\nh\n4\nt\n1\na\n3\n7\n7\ni\ni\ni\n9\n1\n6\n0",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='#?ghi']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/?__cft__[0]=AZZvm7LJv3Zdss-ekxUc-zTar3z7c3SS__VK0NUC7WPg5ihdh9HplX9aYBasY3zvhHo4QTvolZcgTQCh2fNhOJQtCnvqb7VzTreb3Br8idePNnMccUbeiUTzBoIRbVpTchggIad4mffRCQLyFq3Bx91lxPv-kvpwSUbTuPlVNKXVZ_WxHtGAowejdwX1TW4SmuN1LfMjImXz2kVtCAbWaU37&__tn__=%2CO%2CP-R#?ghi"
-    },
-    "55": {
-      "label": "Actions for this post",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Actions for this post']",
-        "[aria-label='Actions for this post']",
-        "[role='button'][aria-label='Actions for this post']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "56": {
-      "label": "hide post",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='hide post']",
-        "[aria-label='hide post']",
-        "[role='link'][aria-label='hide post']",
-        "a.x1i10hfl.xjqpnuy"
-      ],
-      "href": "https://www.facebook.com/#"
-    },
-    "57": {
-      "label": "Like: 57 people",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Like: 57 people']",
-        "[aria-label='Like: 57 people']",
-        "[role='button'][aria-label='Like: 57 people']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "58": {
-      "label": "Sad: 24 people",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Sad: 24 people']",
-        "[aria-label='Sad: 24 people']",
-        "[role='button'][aria-label='Sad: 24 people']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "59": {
-      "label": "Haha: 14 people",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Haha: 14 people']",
-        "[aria-label='Haha: 14 people']",
-        "[role='button'][aria-label='Haha: 14 people']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "60": {
-      "label": "All reactions:\n105\n105",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.xjbqb8w"
-      ],
-      "href": null
-    },
-    "61": {
-      "label": "78 comments",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "#_R_5lalqnapl5bb6ismj5ilipamH4_",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "62": {
-      "label": "29 shares",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "63": {
-      "label": "Like",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Like']",
-        "[aria-label='Like']",
-        "[role='button'][aria-label='Like']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "64": {
-      "label": "React",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='React']",
-        "[aria-label='React']",
-        "[role='button'][aria-label='React']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "65": {
-      "label": "Leave a comment",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Leave a comment']",
-        "[aria-label='Leave a comment']",
-        "[role='button'][aria-label='Leave a comment']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "66": {
-      "label": "Send this to friends or post it on your profile.",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Send this to friends or post it on your profile.']",
-        "[aria-label='Send this to friends or post it on your profile.']",
-        "[role='button'][aria-label='Send this to friends or post it on your profile.']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "67": {
-      "label": "Australian Outdoor Living",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Australian Outdoor Living']",
-        "[aria-label='Australian Outdoor Living']",
-        "[role='link'][aria-label='Australian Outdoor Living']",
-        "a[href*='/australianoutdoorliving']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/australianoutdoorliving?__cft__[0]=AZa24-kIGXRPF7LeH_6GP3xlBMLlecUXwHC6wLu-FZGwXttLmHAmMVKRBV428k3PMy3Yz_0zBgAPTisIwZeinLZSTPyXq6tjxObgR0W_439M-aNJVTWNZ6lQCiP8JOnRIqoFZBZbp5wWf9TM_bvusiWcZbH3E2dNstBuDqfP70pZvn_ALVVbe_SR-ZRYHxM6lpYQtCx6CTBsos84uTjSueFmCFHl4B-2J8q0cfMHVhuYNvGLuHfHNK-tldiP-pJukDdP93MkOgHQ8zO73tnL0httjwbjgxLQNfh1F7xUQz0WZktWKgOrcTo_tPJQoC42GN7m11gVMpElFjaJvzw-GOcY3Bs4LwVi8iTUYppeIBIe1A&__tn__=%3C%3C%2CP-R"
-    },
-    "68": {
-      "label": "Australian Outdoor Living",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/australianoutdoorliving']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/australianoutdoorliving?__cft__[0]=AZa24-kIGXRPF7LeH_6GP3xlBMLlecUXwHC6wLu-FZGwXttLmHAmMVKRBV428k3PMy3Yz_0zBgAPTisIwZeinLZSTPyXq6tjxObgR0W_439M-aNJVTWNZ6lQCiP8JOnRIqoFZBZbp5wWf9TM_bvusiWcZbH3E2dNstBuDqfP70pZvn_ALVVbe_SR-ZRYHxM6lpYQtCx6CTBsos84uTjSueFmCFHl4B-2J8q0cfMHVhuYNvGLuHfHNK-tldiP-pJukDdP93MkOgHQ8zO73tnL0httjwbjgxLQNfh1F7xUQz0WZktWKgOrcTo_tPJQoC42GN7m11gVMpElFjaJvzw-GOcY3Bs4LwVi8iTUYppeIBIe1A&__tn__=-UC%2CP-R"
-    },
-    "69": {
-      "label": "p\nr\no\nS\nt\no\nd\nn\ns\ne\ng\nl\nn\n6\n3\n0\n5\ng\ni\n2\n0\n9\no\nc\n1\ni\n4\nt\n1\n6\ni\nS\ne\nl\np\nf\n9\nm\n0\n7\no\ng\n6\nd\nf\n4\n5\nc\nl\ns\n4\nu\n6\n6\n2\ng\n8\nr\nu\n1",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='#?dgi']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/?__cft__[0]=AZa24-kIGXRPF7LeH_6GP3xlBMLlecUXwHC6wLu-FZGwXttLmHAmMVKRBV428k3PMy3Yz_0zBgAPTisIwZeinLZSTPyXq6tjxObgR0W_439M-aNJVTWNZ6lQCiP8JOnRIqoFZBZbp5wWf9TM_bvusiWcZbH3E2dNstBuDqfP70pZvn_ALVVbe_SR-ZRYHxM6lpYQtCx6CTBsos84uTjSueFmCFHl4B-2J8q0cfMHVhuYNvGLuHfHNK-tldiP-pJukDdP93MkOgHQ8zO73tnL0httjwbjgxLQNfh1F7xUQz0WZktWKgOrcTo_tPJQoC42GN7m11gVMpElFjaJvzw-GOcY3Bs4LwVi8iTUYppeIBIe1A#?dgi"
-    },
-    "70": {
-      "label": "Actions for this post",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Actions for this post']",
-        "[aria-label='Actions for this post']",
-        "[role='button'][aria-label='Actions for this post']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "71": {
-      "label": "hide post",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='hide post']",
-        "[aria-label='hide post']",
-        "[role='link'][aria-label='hide post']",
-        "a.x1i10hfl.xjqpnuy"
-      ],
-      "href": "https://www.facebook.com/#"
-    },
-    "72": {
-      "label": "See more",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.xjbqb8w"
-      ],
-      "href": null
-    },
-    "73": {
-      "label": "play",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='play']",
-        "[aria-label='play']",
-        "[role='button'][aria-label='play']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "74": {
-      "label": "AUSTRALIANOUTDOORLIVING.COM.AU\n 4.3 From 3200+ Product Reviews\np\nr\no\nS\nt\no\nd\nn\ns\ne\ng\nl\n \n6\n3\n0\n5\ng\ni\n2\n0\n9\nu\nc\n1\ni\n4\nt\n1\n6\ni\nG\nt\nl\ne\nf\n9\nm\n0\n7\nt\ng\n6\ne\nf\n4\n5\nc\nl\nq\n4\nu\n6\n6\n2\ng\n8\no\nu\n1",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='#?jci']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/?__cft__[0]=AZa24-kIGXRPF7LeH_6GP3xlBMLlecUXwHC6wLu-FZGwXttLmHAmMVKRBV428k3PMy3Yz_0zBgAPTisIwZeinLZSTPyXq6tjxObgR0W_439M-aNJVTWNZ6lQCiP8JOnRIqoFZBZbp5wWf9TM_bvusiWcZbH3E2dNstBuDqfP70pZvn_ALVVbe_SR-ZRYHxM6lpYQtCx6CTBsos84uTjSueFmCFHl4B-2J8q0cfMHVhuYNvGLuHfHNK-tldiP-pJukDdP93MkOgHQ8zO73tnL0httjwbjgxLQNfh1F7xUQz0WZktWKgOrcTo_tPJQoC42GN7m11gVMpElFjaJvzw-GOcY3Bs4LwVi8iTUYppeIBIe1A&__tn__=%2C%3C%2CmH-R#?jci"
-    },
-    "75": {
-      "label": "Like: 52 people",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Like: 52 people']",
-        "[aria-label='Like: 52 people']",
-        "[role='button'][aria-label='Like: 52 people']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "76": {
-      "label": "All reactions:\n53\n53",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.xjbqb8w"
-      ],
-      "href": null
-    },
-    "77": {
-      "label": "2 comments",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "#_r_2j_",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "78": {
-      "label": "3 shares",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "79": {
-      "label": "Like",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Like']",
-        "[aria-label='Like']",
-        "[role='button'][aria-label='Like']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "80": {
-      "label": "React",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='React']",
-        "[aria-label='React']",
-        "[role='button'][aria-label='React']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "81": {
-      "label": "Leave a comment",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Leave a comment']",
-        "[aria-label='Leave a comment']",
-        "[role='button'][aria-label='Leave a comment']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "82": {
-      "label": "Send this to friends or post it on your profile.",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Send this to friends or post it on your profile.']",
-        "[aria-label='Send this to friends or post it on your profile.']",
-        "[role='button'][aria-label='Send this to friends or post it on your profile.']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "83": {
-      "label": "“ONLY” OVER 50+ FITNESS FANATICS",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='“ONLY” OVER 50+ FITNESS FANATICS']",
-        "[aria-label='“ONLY” OVER 50+ FITNESS FANATICS']",
-        "[role='link'][aria-label='“ONLY” OVER 50+ FITNESS FANATICS']",
-        "a[href*='/groups/414828193578100/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/groups/414828193578100/?__cft__[0]=AZak1WOpLiYbNsZgVWiWQdSGuSR_4hyKJboc5atPj4RbcrH6zw8xFYf5ej4gqOxlrpUJmlmGhnamROR7BcLrs3YKMOy_SAw2jRJfBLU2ZVPagBkO43s18V8FTUY96aVRjZ8wqcTMcOLIhMkmhjMT0x322hve_dpzXwDcsCJuqv5qxb3WnUcGwkYz6vpRtDdLUfazlzzDqaHRjMtwtfhdJPLQ&__tn__=%3C%3C%2CP-R"
-    },
-    "84": {
-      "label": "“ONLY” OVER 50+ FITNESS FANATICS",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/groups/414828193578100/']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/groups/414828193578100/?__cft__[0]=AZak1WOpLiYbNsZgVWiWQdSGuSR_4hyKJboc5atPj4RbcrH6zw8xFYf5ej4gqOxlrpUJmlmGhnamROR7BcLrs3YKMOy_SAw2jRJfBLU2ZVPagBkO43s18V8FTUY96aVRjZ8wqcTMcOLIhMkmhjMT0x322hve_dpzXwDcsCJuqv5qxb3WnUcGwkYz6vpRtDdLUfazlzzDqaHRjMtwtfhdJPLQ&__tn__=-UC%2CP-R"
-    },
-    "85": {
-      "label": "Gary Festa",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/groups/414828193578100/user/100074618264887/']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/groups/414828193578100/user/100074618264887/?__cft__[0]=AZak1WOpLiYbNsZgVWiWQdSGuSR_4hyKJboc5atPj4RbcrH6zw8xFYf5ej4gqOxlrpUJmlmGhnamROR7BcLrs3YKMOy_SAw2jRJfBLU2ZVPagBkO43s18V8FTUY96aVRjZ8wqcTMcOLIhMkmhjMT0x322hve_dpzXwDcsCJuqv5qxb3WnUcGwkYz6vpRtDdLUfazlzzDqaHRjMtwtfhdJPLQ&__tn__=%2CP-R"
-    },
-    "86": {
-      "label": "s\no\nd\no\nt\nn\np\nr\ne\nS\nh\n1\nl\nh\n0\nu\ng\n1\nh\ng\n4\n9\na\n4\nc\n0\n4\n5\nt\nl\n1\n6\nm\n4\n9\n1\n2\n2\nf\nh\n3\ni\nt\nl\n1\nh\n4\nt\n1\na\n3\n7\n7\ni\ni\ni\n9\n1\n6\n0",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='#?fak']",
-        "a.x1i10hfl.xjbqb8w"
-      ],
-      "href": "https://www.facebook.com/?__cft__[0]=AZak1WOpLiYbNsZgVWiWQdSGuSR_4hyKJboc5atPj4RbcrH6zw8xFYf5ej4gqOxlrpUJmlmGhnamROR7BcLrs3YKMOy_SAw2jRJfBLU2ZVPagBkO43s18V8FTUY96aVRjZ8wqcTMcOLIhMkmhjMT0x322hve_dpzXwDcsCJuqv5qxb3WnUcGwkYz6vpRtDdLUfazlzzDqaHRjMtwtfhdJPLQ&__tn__=%2CO%2CP-R#?fak"
-    },
-    "87": {
-      "label": "Actions for this post",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Actions for this post']",
-        "[aria-label='Actions for this post']",
-        "[role='button'][aria-label='Actions for this post']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "88": {
-      "label": "hide post",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='hide post']",
-        "[aria-label='hide post']",
-        "[role='link'][aria-label='hide post']",
-        "a.x1i10hfl.xjqpnuy"
-      ],
-      "href": "https://www.facebook.com/#"
-    },
-    "89": {
-      "label": "See more",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.xjbqb8w"
-      ],
-      "href": null
-    },
-    "90": {
-      "label": "Like: 12 people",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Like: 12 people']",
-        "[aria-label='Like: 12 people']",
-        "[role='button'][aria-label='Like: 12 people']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "91": {
-      "label": "All reactions:\n12\n12",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.xjbqb8w"
-      ],
-      "href": null
-    },
-    "92": {
-      "label": "Like",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Like']",
-        "[aria-label='Like']",
-        "[role='button'][aria-label='Like']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "93": {
-      "label": "React",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='React']",
-        "[aria-label='React']",
-        "[role='button'][aria-label='React']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "94": {
-      "label": "Leave a comment",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Leave a comment']",
-        "[aria-label='Leave a comment']",
-        "[role='button'][aria-label='Leave a comment']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "95": {
-      "label": "Send",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "96": {
-      "label": "Save up to $2,750 + Tax Benefits.\nnla.com.au/tesla",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/l.php']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.novatedleaseaustralia.com.au%2Fquotes%3Futm_source%3Dpaidsocial%26utm_medium%3Dfacebook%26utm_campaign%3Dcarsgreenlow%26utm_content%3Dtesladiscount%26loan_amount%26hsa_acc%3D1086204095355552%26hsa_cam%3D120219930751160515%26hsa_grp%3D120221417261810515%26hsa_ad%3D120237396868890515%26hsa_src%3Dfb%26hsa_net%3Dfacebook%26hsa_ver%3D3%26utm_id%3D120221417261810515_v2_s52_e39_i20251219%26utm_term%3D120221417261810515%26fbclid%3DIwZXh0bgNhZW0BMABhZGlkAasrqyDGLHNicmlkETFKUklKcUZoS3ZYWlI0UnVIc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgAh2_8W0zVFYQsgu5pbFfrVfS_SM43pP5yZ3B12aK0wv_x6d8gY0gq-rfhN_aem_z_MDLlpeuC2nF5Ub4zTisA&h=AT1lVVxXzHy9i9u0OqhmfuRcnojDS5WVn3Y2bac5JM9leGaR5QAUZxYDIc13M90HeO1378S4PaLnETMhaKVVG9FKgAYh5LE-v0MriwIa7ToO28mVxHc7KJThuN6cxK6pfxR7jnxR&__tn__=*I&c[0]=AT0fuZYFOB2HSMht0_iteYRSslUxEv9eOUOgp4oXRpKJG_FUlj-AJX4FkOwgqqVGz0V1GFlNVkszYwXNpXQaet3x722OmPmtEjK5cUpKTayyV9YSuvW6DHRzAtkwJ3HvCvK4k2aCK09vn7XJbucje1O_xqj2IUaVKPpDaQ7teyKqalo5uNfoUhexS_AQeLowk-pebj4RqLU2A71kbIAsAU4"
-    },
-    "97": {
-      "label": "More",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='More']",
-        "[aria-label='More']",
-        "[role='button'][aria-label='More']",
-        "div.x1i10hfl.xjqpnuy"
-      ],
-      "href": null
-    },
-    "98": {
-      "label": "Custom Whole House Filtration\nhttps://sovereignfiltration.com.au/",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/l.php']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://l.facebook.com/l.php?u=https%3A%2F%2Fsovereignfiltration.com.au%2F%3Futm_medium%3Dpaid%26utm_source%3Dfb%26utm_id%3D120230508578540026%26utm_content%3D120232346794010026%26utm_term%3D120230596387530026%26utm_campaign%3D120230508578540026%26fbclid%3DIwZXh0bgNhZW0BMABhZGlkAasp_JoXhHpicmlkETFKUklKcUZoS3ZYWlI0UnVIc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgAh2_8W0zVFYQsgu5pbFfrVfS_SM43pP5yZ3B12aK0wv_x6d8gY0gq-rfhN_aem_TeTPTGxKxrwVuCuMlzwU9A&h=AT1lVVxXzHy9i9u0OqhmfuRcnojDS5WVn3Y2bac5JM9leGaR5QAUZxYDIc13M90HeO1378S4PaLnETMhaKVVG9FKgAYh5LE-v0MriwIa7ToO28mVxHc7KJThuN6cxK6pfxR7jnxR&__tn__=*I&c[0]=AT3BntbPeaRGWMQQ9OpBpV2Kq9gWMER0UuvQvzzgf3f1xlmYHDYEeO8v6Wx046nVdxXcTJNz5WUz43p7AxGywaiRhaJKH0ulLpxo8EPPmkji44Febpoz-kqTzTDp8eWZabJ3iCgaNehaG6HpOHt2nq91EUOy4ta3aPVG2sKGbPktgEq_mwnExKbsHqY_-jKLOxE9YgErZuzvqrzC-vgd5F4"
-    },
-    "99": {
-      "label": "More",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='More']",
-        "[aria-label='More']",
-        "[role='button'][aria-label='More']",
-        "div.x1i10hfl.xjqpnuy"
-      ],
-      "href": null
-    },
-    "100": {
-      "label": "Greg Bester's birthday is today.",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/events/birthdays/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/events/birthdays/"
-    },
-    "101": {
-      "label": "Search for a name or group",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Search for a name or group']",
-        "[aria-label='Search for a name or group']",
-        "[role='button'][aria-label='Search for a name or group']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "102": {
-      "label": "More options for contacts",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='More options for contacts']",
-        "[aria-label='More options for contacts']",
-        "[role='button'][aria-label='More options for contacts']",
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "103": {
-      "label": "Meta AI",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/36327,2227039302/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/36327,2227039302/"
-    },
-    "104": {
-      "label": "Online status indicator\nActive\nSonnet La Grange",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/1069976027/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/1069976027/"
-    },
-    "105": {
-      "label": "Online status indicator\nActive\nTaryn Collister",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/633320287/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/633320287/"
-    },
-    "106": {
-      "label": "Online status indicator\nActive\nAngelique Cronje",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/739778301/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/739778301/"
-    },
-    "107": {
-      "label": "Online status indicator\nActive\nDaniel Khronos Fenech",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/100001688986889/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/100001688986889/"
-    },
-    "108": {
-      "label": "Online status indicator\nActive\nGillian Hurford",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/1167619183/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/1167619183/"
-    },
-    "109": {
-      "label": "Online status indicator\nActive\nRuben Wentzel",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/798860883/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/798860883/"
-    },
-    "110": {
-      "label": "Online status indicator\nActive\nLisa Holburn",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/100005123383136/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/100005123383136/"
-    },
-    "111": {
-      "label": "Online status indicator\nActive\nJohan Gillen",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/1220624692/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/1220624692/"
-    },
-    "112": {
-      "label": "Online status indicator\nActive\nLuke Cayzer",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/100006127868296/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/100006127868296/"
-    },
-    "113": {
-      "label": "Online status indicator\nActive\nClemond Dartnall",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/586878667/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/586878667/"
-    },
-    "114": {
-      "label": "Online status indicator\nActive\nJustin Moore",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/670564465/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/670564465/"
-    },
-    "115": {
-      "label": "Online status indicator\nActive\nJosh Grove",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/100004577344584/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/100004577344584/"
-    },
-    "116": {
-      "label": "Online status indicator\nActive\nDewald Pretorius",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/732425355/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/732425355/"
-    },
-    "117": {
-      "label": "Online status indicator\nActive\nNeil Breytenbach",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/100007310586152/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/100007310586152/"
-    },
-    "118": {
-      "label": "Online status indicator\nActive\nLinson Tseng",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/609316652/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/609316652/"
-    },
-    "119": {
-      "label": "Online status indicator\nActive\nDerrick Dos Santos",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/871780061/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/871780061/"
-    },
-    "120": {
-      "label": "Online status indicator\nActive\nJoshua Oosthuizen",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/messages/t/686243512/']",
-        "a.x1i10hfl.x1qjc9v5"
-      ],
-      "href": "https://www.facebook.com/messages/t/686243512/"
-    },
-    "121": {
-      "label": "46w\nOlivia and Josh",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "122": {
-      "label": "Online status indicator\nActive\nLinson and Facebook user",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "123": {
-      "label": "5y\nMatt, Jacky and Heimdall",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "124": {
-      "label": "Create group chat",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.x1i10hfl.x1qjc9v5"
-      ],
-      "href": null
-    },
-    "125": {
-      "label": "New message",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='New message']",
-        "[aria-label='New message']",
-        "[role='button'][aria-label='New message']",
-        "div.x1i10hfl.xjqpnuy"
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Start voice mode']",
+        "[aria-label='Start voice mode']",
+        "button.composer-submit-button-color.text-submit-btn-text"
       ],
       "href": null
     }

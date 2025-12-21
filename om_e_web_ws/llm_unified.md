@@ -1,10 +1,10 @@
 # Unified LLM Call Debug
 
-**Generated:** 2025-12-20 16:32:48
-**User Message:** ok, can we zoom reset
-**Messages:** 38
-**Capabilities:** 3
-**Tokens:** ~1033 (system: 645, messages: 388)
+**Generated:** 2025-12-21 18:50:11
+**User Message:** s
+**Messages:** 2
+**Capabilities:** 4
+**Tokens:** ~795 (system: 645, messages: 150)
 
 ## System Prompt
 ```
@@ -93,259 +93,35 @@ Example phrases: Hehe, watch this!, Consider it done... or did I?, I may have do
 ### 1. USER
 
 ```
-go to chats
+s
 ```
 
-### 2. ASSISTANT
-
-```
-Executing ShowChats...
-```
-
-### 3. USER
-
-```
-nice can you hide this prompt
-```
-
-### 4. ASSISTANT
-
-```
-Executing HidePrompt...
-```
-
-### 5. USER
-
-```
-hide prompt
-```
-
-### 6. ASSISTANT
-
-```
-Executing HidePrompt...
-```
-
-### 7. USER
-
-```
-hide input
-```
-
-### 8. ASSISTANT
-
-```
-Executing HidePrompt...
-```
-
-### 9. USER
-
-```
-got to youtube
-```
-
-### 10. ASSISTANT
-
-```
-Executing OpenTab...
-```
-
-### 11. USER
-
-```
-lets surf the web on google
-```
-
-### 12. ASSISTANT
-
-```
-Executing OpenTab...
-```
-
-### 13. USER
-
-```
-nice can you open facebook
-```
-
-### 14. ASSISTANT
-
-```
-Executing OpenTab...
-```
-
-### 15. USER
-
-```
-take be back to youtube
-```
-
-### 16. ASSISTANT
-
-```
-Executing OpenTab...
-```
-
-### 17. USER
-
-```
-nice lets see the tabs
-```
-
-### 18. ASSISTANT
-
-```
-Here are your open tabs: OM-E Web, YouTube, Google, and Facebook. Which one should I switch to or do you want to manage them somehow? 😉
-```
-
-### 19. USER
-
-```
-list them
-```
-
-### 20. ASSISTANT
-
-```
-Here are your open tabs:
-1. OM-E Web
-2. YouTube
-3. Google
-4. Facebook
-What shall we do with them? Close, switch, or prank? 😉
-```
-
-### 21. USER
-
-```
-with links
-```
-
-### 22. ASSISTANT
-
-```
-Here are your open tabs with links:
-1. OM-E Web - http://127.0.0.1:8080
-2. YouTube - https://www.youtube.com/
-3. Google - https://www.google.com/
-4. Facebook - https://www.facebook.com/
-What shall we do next? 😉
-```
-
-### 23. USER
-
-```
-open chats
-```
-
-### 24. ASSISTANT
-
-```
-Executing ShowChats...
-```
-
-### 25. USER
-
-```
-hide the side nav
-```
-
-### 26. ASSISTANT
-
-```
-Executing HideChats...
-```
-
-### 27. USER
-
-```
-make the text bigger
-```
-
-### 28. ASSISTANT
-
-```
-Executing ZoomIn...
-```
-
-### 29. USER
-
-```
-again
-```
-
-### 30. ASSISTANT
-
-```
-Executing ZoomIn...
-```
-
-### 31. USER
-
-```
-again
-```
-
-### 32. ASSISTANT
-
-```
-Executing ZoomIn...
-```
-
-### 33. USER
-
-```
-nice go to facebook
-```
-
-### 34. ASSISTANT
-
-```
-Executing OpenTab...
-```
-
-### 35. USER
-
-```
-switch views
-```
-
-### 36. ASSISTANT
-
-```
-Executing SwitchView...
-```
-
-### 37. USER
-
-```
-ok, can we zoom reset
-```
-
-### 38. USER
+### 2. USER
 
 ```
 ENVIRONMENT
-Page: (2) Facebook (https://www.facebook.com/)
+Page: ChatGPT (https://chatgpt.com/)
 
 Tabs:
-  2. OM-E Web (127.0.0.1:8080)
-  3. (7) YouTube (www.youtube.com)
-  4. Google (www.google.com)
-  5. (2) Facebook (www.facebook.com) *
+  1. ChatGPT (chatgpt.com) *
+  2. Extensions (extensions)
 
 Capabilities:
-- ZoomReset (0.82): Resets page zoom to default 100%
-  ex: {"cap": "ZoomReset"}
-- ReloadLLMConfig (0.67): Reloads the server-side LLM agent config from disk
-  ex: {"cap": "ReloadLLMConfig"}
-- SwitchView (0.67): Switches between fullscreen HUD mode and floati...
-  ex: {"cap": "SwitchView"}
+- GoBack (0.64): Navigates back in the current tab's history
+  ex: {"cap": "GoBack"}
+- ScrollTop (0.62): Scrolls to the very top of the page
+  ex: {"cap": "ScrollTop"}
+- OpenTab (0.60): Opens a URL or switches to existing tab. Auto-s...
+  ex: {"cap": "OpenTab", "params": {"url": "https://google.com"}}
+  params: url
+- SearchChats (0.60): Searches all chats for a keyword or phrase. Ext...
+  ex: {"cap": "SearchChats", "params": {"query": "dude"}}
+  params: query
 
-USER: ok, can we zoom reset
+USER: s
 ```
 
 ## Response
 ```json
-{"type":"action","cap":"ZoomReset","params":{}}
+{"type":"reply","text":"Hey there! Looks like you sent an 's'. Want me to search for something or open a site starting with 's'? Just say the word!"}
 ```

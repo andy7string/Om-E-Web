@@ -51,6 +51,7 @@ function connectWebSocket(url = 'ws://127.0.0.1:17892') {
         // Initial state fetch
         updateStatusDisplay();
         loadCurrentOrbTheme();
+        loadCurrentScanMode();
     };
 
     ws.onmessage = (event) => {
@@ -96,6 +97,12 @@ function handleServerMessage(msg) {
             setActiveOrbButton(msg.theme);
             break;
 
+        case 'scan_mode_changed':
+            // Another client changed the scan mode - update our UI
+            console.log('🌳 Scan mode sync:', msg.mode);
+            setActiveScanModeButton(msg.mode);
+            break;
+
         case 'hud_toggled':
             // HUD was toggled by another client
             console.log('🎛️ HUD sync:', msg.visible ? 'visible' : 'hidden');
@@ -110,6 +117,7 @@ function handleServerMessage(msg) {
         case 'state_update':
             // Generic state update broadcast
             if (msg.orbTheme) setActiveOrbButton(msg.orbTheme);
+            if (msg.scanMode) setActiveScanModeButton(msg.scanMode);
             if (msg.status) updateStatusFromData(msg.status);
             break;
 
@@ -165,6 +173,11 @@ const orbRobotBtn = document.getElementById('orbRobot');
 const orbAtomBtn = document.getElementById('orbAtom');
 const orbButtons = [orbKawaiiBtn, orbRobotBtn, orbAtomBtn];
 
+// Scan Mode Buttons
+const scanModeDomBtn = document.getElementById('scanModeDom');
+const scanModeAtBtn = document.getElementById('scanModeAt');
+const scanModeButtons = [scanModeDomBtn, scanModeAtBtn];
+
 // Status display elements
 const connectionStatus = document.getElementById('connectionStatus');
 const activeTabs = document.getElementById('activeTabs');
@@ -212,6 +225,20 @@ function showStatus(message, type = 'success') {
 function setActiveOrbButton(themeName) {
     orbButtons.forEach(btn => {
         if (btn && btn.dataset.theme === themeName) {
+            btn.classList.add('active');
+        } else if (btn) {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+/**
+ * Set active scan mode button styling
+ * @param {string} mode - 'dom' or 'at'
+ */
+function setActiveScanModeButton(mode) {
+    scanModeButtons.forEach(btn => {
+        if (btn && btn.dataset.mode === mode) {
             btn.classList.add('active');
         } else if (btn) {
             btn.classList.remove('active');
@@ -306,6 +333,24 @@ async function loadCurrentOrbTheme() {
 }
 
 /**
+ * Load current scan mode from server and update button state
+ */
+async function loadCurrentScanMode() {
+    try {
+        const response = await sendMessage({ type: 'get_scan_mode' });
+        if (response && response.ok && response.scanMode) {
+            setActiveScanModeButton(response.scanMode);
+        } else {
+            // Default to dom if not set
+            setActiveScanModeButton('dom');
+        }
+    } catch (error) {
+        console.error('Error loading scan mode:', error);
+        setActiveScanModeButton('dom');
+    }
+}
+
+/**
  * Handle orb theme button click
  * @param {string} themeName - Theme key to set
  */
@@ -326,6 +371,31 @@ async function handleOrbThemeClick(themeName) {
         }
     } catch (error) {
         showStatus('Error changing orb style: ' + error.message, 'error');
+    }
+}
+
+/**
+ * Handle scan mode button click
+ * @param {string} mode - 'dom' or 'at'
+ */
+async function handleScanModeClick(mode) {
+    try {
+        const modeLabel = mode === 'at' ? 'Accessibility Tree' : 'DOM TreeWalker';
+        showStatus(`Switching to ${modeLabel}...`, 'info');
+
+        const response = await sendMessage({
+            type: 'set_scan_mode',
+            mode: mode
+        });
+
+        if (response && response.ok) {
+            setActiveScanModeButton(mode);
+            showStatus(`Scan mode: ${modeLabel}`, 'success');
+        } else {
+            showStatus(response?.error || 'Failed to change scan mode', 'error');
+        }
+    } catch (error) {
+        showStatus('Error changing scan mode: ' + error.message, 'error');
     }
 }
 
@@ -413,6 +483,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btn) {
             btn.addEventListener('click', () => {
                 handleOrbThemeClick(btn.dataset.theme);
+            });
+        }
+    });
+
+    // Attach scan mode button handlers
+    scanModeButtons.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                handleScanModeClick(btn.dataset.mode);
             });
         }
     });

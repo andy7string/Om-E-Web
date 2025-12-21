@@ -97,8 +97,11 @@ async function getATConfig(url) {
       const defaultConfig = await getATConfig('about:blank'); // Get default
       const merged = { ...defaultConfig, ...config };
       // Merge arrays instead of replace
+      merged.exclude_roles = [...(defaultConfig.exclude_roles || []), ...(config.exclude_roles || [])];
       merged.exclude_names = [...(defaultConfig.exclude_names || []), ...(config.exclude_names || [])];
       merged.exclude_name_patterns = [...(defaultConfig.exclude_name_patterns || []), ...(config.exclude_name_patterns || [])];
+      // Merge output settings
+      merged.output = { ...(defaultConfig.output || {}), ...(config.output || {}) };
       atConfigCache.set(configPath, merged);
       return merged;
     }
@@ -155,9 +158,6 @@ async function getAccessibilityTree(tabId) {
 
     // Process nodes into our format (with config-driven filtering)
     let nodes = processATNodes(rawTree.nodes || [], config);
-
-    // 🔧 Fix names for promoted textboxes using DOM data-placeholder pattern
-    nodes = await enrichPromotedTextboxNames(debuggee, nodes);
 
     // Build hierarchical structure
     const tree = buildHierarchy(nodes);
@@ -706,6 +706,17 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
     let line = indent;
 
     if (node.interactive) {
+      // 🎯 EMPTY NAME FILTER: Skip interactive elements with no name if config says so
+      if (config.output?.show_empty_names === false && !node.name) {
+        // Still process children in case they have names
+        if (node.children) {
+          for (const child of node.children) {
+            formatNode(child, depth);
+          }
+        }
+        return;
+      }
+
       // 🎯 PARENT-CHILD DEDUP: If parent and child are same role + same name, skip parent
       if (node.children?.length === 1) {
         const child = node.children[0];

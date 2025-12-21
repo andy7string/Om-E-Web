@@ -11,6 +11,11 @@ const orbRobotBtn = document.getElementById("orbRobot");
 const orbAtomBtn = document.getElementById("orbAtom");
 const orbButtons = [orbKawaiiBtn, orbRobotBtn, orbAtomBtn];
 
+// Scan Mode Buttons
+const scanModeDomBtn = document.getElementById("scanModeDom");
+const scanModeAtBtn = document.getElementById("scanModeAt");
+const scanModeButtons = [scanModeDomBtn, scanModeAtBtn];
+
 // Status display elements
 const connectionStatus = document.getElementById("connectionStatus");
 const activeTabs = document.getElementById("activeTabs");
@@ -129,6 +134,79 @@ orbButtons.forEach(btn => {
     });
 });
 
+// ============================================================================
+// 🌳 SCAN MODE SELECTION
+// ============================================================================
+
+/**
+ * Set active scan mode button styling
+ * @param {string} mode - 'dom' or 'at'
+ */
+function setActiveScanModeButton(mode) {
+    scanModeButtons.forEach(btn => {
+        if (btn.dataset.mode === mode) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+/**
+ * Handle scan mode button click
+ * @param {string} mode - 'dom' or 'at'
+ */
+async function handleScanModeClick(mode) {
+    try {
+        const modeLabel = mode === 'at' ? 'Accessibility Tree' : 'DOM TreeWalker';
+        showStatus(`Switching to ${modeLabel}...`, "info");
+
+        // Send message to service worker to change scan mode
+        const response = await chrome.runtime.sendMessage({
+            type: "set_scan_mode",
+            mode: mode
+        });
+
+        if (response && response.ok) {
+            setActiveScanModeButton(mode);
+
+            // Persist to storage
+            await chrome.storage.local.set({ omeScanMode: mode });
+
+            showStatus(`Scan mode: ${modeLabel}`, "success");
+        } else {
+            showStatus(response?.error || "Failed to change scan mode", "error");
+        }
+    } catch (error) {
+        showStatus("Error changing scan mode: " + error.message, "error");
+    }
+}
+
+// Attach click handlers to scan mode buttons
+scanModeButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        handleScanModeClick(btn.dataset.mode);
+    });
+});
+
+/**
+ * Load current scan mode from service worker and update button state
+ */
+async function loadCurrentScanMode() {
+    try {
+        const response = await chrome.runtime.sendMessage({ type: "get_scan_mode" });
+        if (response && response.ok && response.scanMode) {
+            setActiveScanModeButton(response.scanMode);
+        } else {
+            // Default to dom if not set
+            setActiveScanModeButton('dom');
+        }
+    } catch (error) {
+        console.error("Error loading scan mode:", error);
+        setActiveScanModeButton('dom');
+    }
+}
+
 /**
  * Load current orb theme from service worker and update button state
  */
@@ -231,6 +309,7 @@ wsUrlInput.addEventListener("keypress", (event) => {
 document.addEventListener("DOMContentLoaded", () => {
     updateStatusDisplay();
     loadCurrentOrbTheme();
+    loadCurrentScanMode();
 
     // Update status every 2 seconds while popup is open
     const statusInterval = setInterval(updateStatusDisplay, 2000);

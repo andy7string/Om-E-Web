@@ -3028,7 +3028,7 @@
                 </div>
                 <div class="ome-chat-input-area">
                     <div class="ome-chat-input-wrapper">
-                        <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
+                        <textarea class="ome-chat-input" placeholder="Ask me anything..." rows="1"></textarea>
                     </div>
                     <button class="ome-chat-send" title="Send message">
                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -3410,7 +3410,7 @@
                 </div>
                 <div class="ome-chat-input-area">
                     <div class="ome-chat-input-wrapper">
-                        <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
+                        <textarea class="ome-chat-input" placeholder="Ask me anything..." rows="1"></textarea>
                     </div>
                     <button class="ome-chat-send" title="Send message">
                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -3840,7 +3840,7 @@
                     <div class="ome-hud-input-area">
                         <div class="ome-hud-prompt-wrapper">
                             <div class="ome-hud-prompt">
-                                <textarea class="ome-hud-prompt-textarea" placeholder="Ask anything..." rows="1"></textarea>
+                                <textarea class="ome-hud-prompt-textarea" placeholder="Ask me anything..." rows="1"></textarea>
                                 <div class="ome-hud-prompt-actions">
                                     <button class="ome-hud-clear-btn" title="Clear prompt">
                                         <svg viewBox="0 0 24 24">

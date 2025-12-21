@@ -2,5 +2,8 @@
   "youtube.com": "at_site_configs/youtube.json",
   "*.youtube.com": "at_site_configs/youtube.json",
   "youtu.be": "at_site_configs/youtube.json",
+  "chatgpt.com": "at_site_configs/chatgpt.json",
+  "*.chatgpt.com": "at_site_configs/chatgpt.json",
+  "chat.openai.com": "at_site_configs/chatgpt.json",
   "default": "at_site_configs/default.json"
 }

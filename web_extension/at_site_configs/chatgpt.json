@@ -1,0 +1,58 @@
+{
+  "_comment": "ChatGPT-specific AT config - clean output, use SetInputValue capability for input",
+  "extends": "default",
+
+  "exclude_roles": [
+    "none",
+    "presentation",
+    "generic",
+    "paragraph",
+    "LineBreak",
+    "InlineTextBox",
+    "StaticText",
+    "image",
+    "img"
+  ],
+
+  "exclude_names": [
+    "Ask anything",
+    "HIDE PROMPT",
+    "HUD",
+    "Scroll to top",
+    "Drag to scroll",
+    "Scroll to bottom",
+    "Send message",
+    "Copy to clipboard",
+    "Copy",
+    "Edit",
+    "Regenerate",
+    "Good response",
+    "Bad response",
+    "Read aloud",
+    "Get app"
+  ],
+
+  "exclude_name_patterns": [
+    "^\\+$",
+    "^−$",
+    "^ome-",
+    "Om_E",
+    "^ChatGPT can make mistakes",
+    "^Model:",
+    "^GPT-"
+  ],
+
+  "priority_roles": [
+    "main",
+    "textbox",
+    "button",
+    "link"
+  ],
+
+  "max_depth": 12,
+  "max_nodes": 300,
+
+  "output": {
+    "show_empty_names": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "chat_id": "s__20251221T053834",
+  "project_id": "default",
+  "created_at": "2025-12-21T05:38:34.053694Z",
+  "updated_at": "2025-12-21T05:39:48.225818Z",
+  "title": "34_38_05_21_12_2025_s",
+  "default_title": "34_38_05_21_12_2025_s",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "s",
+      "timestamp": "2025-12-21T05:38:34.053733Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey there! Looks like you sent an 's'. Want me to search for something starting with 's' or was that a secret code? 😉",
+      "timestamp": "2025-12-21T05:38:35.246829Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "new scan",
+      "timestamp": "2025-12-21T05:39:46.901172Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "New scan? Could you tell me what exactly you want to scan or check? I'm ready to zap into action!",
+      "timestamp": "2025-12-21T05:39:48.225818Z"
+    }
+  ]
+}

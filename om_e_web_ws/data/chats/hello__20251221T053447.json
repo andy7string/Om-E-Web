@@ -1,0 +1,51 @@
+{
+  "chat_id": "hello__20251221T053447",
+  "project_id": "default",
+  "created_at": "2025-12-21T05:34:47.496874Z",
+  "updated_at": "2025-12-21T05:36:07.652581Z",
+  "title": "47_34_05_21_12_2025_hello",
+  "default_title": "47_34_05_21_12_2025_hello",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-12-21T05:34:47.496918Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey there! Ready to chat or pull a little digital prank? What’s on your mind?",
+      "timestamp": "2025-12-21T05:34:49.734911Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "switch to dom",
+      "timestamp": "2025-12-21T05:35:57.720305Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "I can't switch to DOM view from here.",
+      "timestamp": "2025-12-21T05:35:58.718026Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "d",
+      "timestamp": "2025-12-21T05:36:06.393878Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Hey, looks like you typed 'd'. Need help with something starting with that letter, or just testing my attention span? 😉",
+      "timestamp": "2025-12-21T05:36:07.652581Z"
+    }
+  ]
+}

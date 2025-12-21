@@ -271,6 +271,73 @@
             width: 14px;
             height: 14px;
         }
+
+        /* Scan Mode Selector */
+        .scan-mode-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .scan-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 8px;
+            background: rgba(60, 50, 90, 0.35);
+            border: 2px solid rgba(100, 80, 140, 0.25);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: auto;
+            margin-bottom: 0;
+        }
+
+        .scan-btn:hover {
+            background: rgba(80, 65, 110, 0.45);
+            border-color: rgba(147, 112, 219, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .scan-btn.active {
+            background: rgba(100, 80, 140, 0.4);
+            border-color: rgba(147, 112, 219, 0.5);
+            box-shadow: 0 0 16px rgba(147, 112, 219, 0.2);
+        }
+
+        .scan-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+            color: #6b7280;
+        }
+
+        .scan-btn.active .scan-icon {
+            color: #a5b4fc;
+        }
+
+        .scan-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b7280;
+            letter-spacing: 0.3px;
+        }
+
+        .scan-btn.active .scan-label {
+            color: #a5b4fc;
+        }
+
+        .scan-desc {
+            font-size: 9px;
+            color: #4b5563;
+            margin-top: 2px;
+        }
+
+        .scan-btn.active .scan-desc {
+            color: #8b9cc4;
+        }
     </style>
 </head>
 <body>
@@ -447,6 +514,34 @@
                 </svg>
             </span>
             <span class="orb-label">Atom</span>
+        </button>
+    </div>
+
+    <!-- Scan Mode Selector -->
+    <div class="divider"></div>
+    <h4>Scan Mode</h4>
+    <div class="scan-mode-grid">
+        <button id="scanModeDom" class="scan-btn active" data-mode="dom">
+            <span class="scan-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </span>
+            <span class="scan-label">DOM</span>
+            <span class="scan-desc">TreeWalker</span>
+        </button>
+        <button id="scanModeAt" class="scan-btn" data-mode="at">
+            <span class="scan-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="6"/>
+                    <circle cx="12" cy="12" r="2"/>
+                </svg>
+            </span>
+            <span class="scan-label">AT</span>
+            <span class="scan-desc">Accessibility</span>
         </button>
     </div>
 
