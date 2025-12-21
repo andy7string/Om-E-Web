@@ -2462,6 +2462,11 @@
             .ome-sidebar-chat-title.editing {
                 user-select: text;
             }
+            /* 🎨 Selection highlight for editing - high contrast */
+            .ome-sidebar-chat-title.editing::selection {
+                background: rgba(var(--theme-color, 126,200,227), 0.5);
+                color: #fff;
+            }
             /* 🎨 Remove pink text selection highlight */
             ::selection {
                 background: transparent;
@@ -2537,24 +2542,25 @@
                 height: 28px;
                 border: none;
                 border-radius: 6px;
-                background: rgba(var(--theme-color, 126,200,227), 0.15);
+                background: rgba(var(--theme-color, 126,200,227), 0.1);
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s, transform 0.15s;
+                /* Simplified: opacity only, no transform transitions */
+                opacity: 0.5;
             }
             .ome-sidebar-action-btn:hover {
-                background: rgba(var(--theme-color, 126,200,227), 0.3);
-                transform: scale(1.1);
+                opacity: 1;
+                background: rgba(var(--theme-color, 126,200,227), 0.35);
             }
             .ome-sidebar-action-btn svg {
                 width: 14px;
                 height: 14px;
-                fill: rgba(var(--theme-color, 126,200,227), 0.8);
+                fill: rgba(var(--theme-color, 126,200,227), 0.9);
             }
             .ome-sidebar-action-btn.ome-action-delete:hover {
-                background: rgba(255, 100, 100, 0.3);
+                background: rgba(255, 100, 100, 0.4);
             }
             .ome-sidebar-action-btn.ome-action-delete:hover svg {
                 fill: #ff6b6b;
@@ -2575,13 +2581,14 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+                /* Simplified: no transform transitions */
+                opacity: 0.6;
             }
             .ome-confirm-delete-btn:hover {
-                transform: scale(1.1);
+                opacity: 1;
             }
             .ome-confirm-delete-btn:active {
-                transform: scale(0.95);
+                opacity: 0.8;
             }
             .ome-confirm-delete-btn svg {
                 width: 14px;
@@ -2590,28 +2597,26 @@
                 fill: none;
             }
             .ome-confirm-delete-btn.yes {
-                background: rgba(255, 80, 80, 0.25);
-                border-color: rgba(255, 100, 100, 0.5);
+                background: rgba(255, 80, 80, 0.2);
+                border-color: rgba(255, 100, 100, 0.4);
+            }
+            .ome-confirm-delete-btn.yes:hover {
+                background: rgba(255, 80, 80, 0.5);
+                border-color: rgba(255, 100, 100, 0.8);
             }
             .ome-confirm-delete-btn.yes svg {
                 stroke: #ff6b6b;
             }
-            .ome-confirm-delete-btn.yes:hover {
-                background: rgba(255, 80, 80, 0.4);
-            }
             .ome-confirm-delete-btn.no {
-                background: rgba(var(--theme-color, 126,200,227), 0.15);
-                border-color: rgba(var(--theme-color, 126,200,227), 0.4);
+                background: rgba(var(--theme-color, 126,200,227), 0.1);
+                border-color: rgba(var(--theme-color, 126,200,227), 0.3);
+            }
+            .ome-confirm-delete-btn.no:hover {
+                background: rgba(var(--theme-color, 126,200,227), 0.35);
+                border-color: rgba(var(--theme-color, 126,200,227), 0.6);
             }
             .ome-confirm-delete-btn.no svg {
                 stroke: rgba(var(--theme-color, 126,200,227), 0.9);
-            }
-            .ome-confirm-delete-btn.no:hover {
-                background: rgba(var(--theme-color, 126,200,227), 0.3);
-            }
-            @keyframes pulse-red {
-                0%, 100% { box-shadow: 0 0 6px rgba(255, 100, 100, 0.3); }
-                50% { box-shadow: 0 0 12px rgba(255, 100, 100, 0.6); }
             }
 
             /* 📚 Confirm Edit - inline icon buttons (tick/cross for rename) */
@@ -2629,13 +2634,14 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+                /* Simplified: no transform transitions */
+                opacity: 0.6;
             }
             .ome-confirm-edit-btn:hover {
-                transform: scale(1.1);
+                opacity: 1;
             }
             .ome-confirm-edit-btn:active {
-                transform: scale(0.95);
+                opacity: 0.8;
             }
             .ome-confirm-edit-btn svg {
                 width: 14px;
@@ -2644,24 +2650,26 @@
                 fill: none;
             }
             .ome-confirm-edit-btn.yes {
-                background: rgba(100, 200, 100, 0.25);
-                border-color: rgba(100, 200, 100, 0.5);
+                background: rgba(100, 200, 100, 0.2);
+                border-color: rgba(100, 200, 100, 0.4);
+            }
+            .ome-confirm-edit-btn.yes:hover {
+                background: rgba(100, 200, 100, 0.5);
+                border-color: rgba(100, 200, 100, 0.8);
             }
             .ome-confirm-edit-btn.yes svg {
                 stroke: #6bd66b;
             }
-            .ome-confirm-edit-btn.yes:hover {
-                background: rgba(100, 200, 100, 0.4);
-            }
             .ome-confirm-edit-btn.no {
-                background: rgba(200, 150, 100, 0.15);
-                border-color: rgba(200, 150, 100, 0.4);
+                background: rgba(200, 150, 100, 0.1);
+                border-color: rgba(200, 150, 100, 0.3);
+            }
+            .ome-confirm-edit-btn.no:hover {
+                background: rgba(200, 150, 100, 0.4);
+                border-color: rgba(200, 150, 100, 0.7);
             }
             .ome-confirm-edit-btn.no svg {
                 stroke: rgba(200, 150, 100, 0.9);
-            }
-            .ome-confirm-edit-btn.no:hover {
-                background: rgba(200, 150, 100, 0.3);
             }
 
             /* 📚 Dropdown menu (legacy - keeping for reference) */
@@ -6088,12 +6096,8 @@
         titleEl.classList.add('editing');
         titleEl.focus();
 
-        // Select all text
-        const range = document.createRange();
-        range.selectNodeContents(titleEl);
-        const sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
+        // Select all text - use execCommand for Shadow DOM compatibility
+        document.execCommand('selectAll', false, null);
 
         // Cleanup function - restore UI state
         const cleanup = () => {
@@ -6167,14 +6171,15 @@
             }
         };
 
-        // Blur also saves (like clicking away)
-        titleEl.onblur = (e) => {
-            // Small delay to allow button clicks to register first
+        // Blur saves - delay to allow click-to-reposition inside text
+        titleEl.onblur = () => {
             setTimeout(() => {
+                // If element regained focus (user clicked inside), don't save
+                if (hudState.shadow?.activeElement === titleEl) return;
                 if (titleEl.contentEditable === 'true') {
                     saveAndCreate();
                 }
-            }, 100);
+            }, 150);
         };
     }
 
@@ -6216,12 +6221,8 @@
         titleEl.classList.add('editing');
         titleEl.focus();
 
-        // Select all text
-        const range = document.createRange();
-        range.selectNodeContents(titleEl);
-        const sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
+        // Select all text - use execCommand for Shadow DOM compatibility
+        document.execCommand('selectAll', false, null);
 
         // Save function
         const saveRename = () => {
@@ -6271,8 +6272,16 @@
             }
         };
 
-        // Save on blur
-        titleEl.onblur = saveRename;
+        // Save on blur - delay to allow click-to-reposition inside text
+        titleEl.onblur = () => {
+            setTimeout(() => {
+                // If element regained focus (user clicked inside), don't save
+                if (hudState.shadow?.activeElement === titleEl) return;
+                if (titleEl.contentEditable === 'true') {
+                    saveRename();
+                }
+            }, 150);
+        };
     }
 
     /**

@@ -87,6 +87,6 @@
 
   "llm_output": {
     "first_nodes": 50,
-    "viewport_nodes": 100
+    "viewport_nodes": 50
   }
 }

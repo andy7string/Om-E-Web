@@ -162,9 +162,8 @@ class PersonaOrchestrator:
     def _load_prompts(self):
         """Load prompt templates from files."""
         role_to_file = {
-            "chat_persona": "chat_prompt.md",
-            "decision_engine": "executor_prompt.md",
-            "unified": "unified_prompt.md",  # Single-call prompt
+            "chat_persona": "chat_prompt.md",      # Role A - main prompt
+            "decision_engine": "executor_prompt.md",  # Role B - callback for edge cases
         }
         for role, filename in role_to_file.items():
             path = PROMPTS_DIR / filename
@@ -868,11 +867,12 @@ USER MESSAGE
         visible_chats: Optional[List[Dict]] = None,
     ) -> Dict:
         """
-        Single LLM call combining Chat Persona + Decision Engine.
+        Single LLM call - builds prompt from chat_prompt.md + injected context.
 
         Returns dict with type: reply | action | clarify | options | cannot | noop
         """
-        system_prompt = self._prompt_cache.get("unified", "")
+        # Build from Role A base (chat_prompt.md), not a separate unified template
+        system_prompt = self._prompt_cache.get("chat_persona", "")
 
         # Inject orb personality if available
         if orb_theme and orb_theme in self._orb_profiles:

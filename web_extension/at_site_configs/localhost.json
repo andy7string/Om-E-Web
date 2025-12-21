@@ -1,0 +1,43 @@
+{
+  "_comment": "Localhost landing page AT config - clean output for Om-E HUD",
+  "extends": "default",
+
+  "exclude_roles": [
+    "none",
+    "presentation",
+    "generic",
+    "paragraph",
+    "LineBreak",
+    "InlineTextBox",
+    "StaticText",
+    "image"
+  ],
+
+  "exclude_names": [
+    "HIDE PROMPT",
+    "HUD",
+    "Scroll to top",
+    "Drag to scroll",
+    "Scroll to bottom",
+    "Send message",
+    "Ask me anything...",
+    "Copy to clipboard"
+  ],
+
+  "exclude_name_patterns": [
+    "^\\+$",
+    "^−$",
+    "^ome-",
+    "Om_E"
+  ],
+
+  "priority_roles": [
+    "heading",
+    "button",
+    "textbox",
+    "combobox"
+  ],
+
+  "max_depth": 10,
+  "max_nodes": 200
+}
