@@ -1,6 +1,6 @@
 # Om_E_Web - Complete System Architecture
 
-**Version:** 1.1
+**Version:** 1.2
 **Last Updated:** 2025-12-21
 **System:** Chrome Extension (MV3) + Python WebSocket Server + LLM Intelligence Pipeline
 
@@ -535,6 +535,159 @@ Is it execute_capability?
       └── NO → Standard AT execution via CDP
                (Works for native inputs, buttons, links)
 ```
+
+### 9. AT Site Configs (at_site_configs/)
+
+**Overview:** AT mode has its own config system separate from DOM mode. These configs control AT-specific filtering, output formatting, and capabilities.
+
+**Directory Structure:**
+```
+web_extension/
+├── at_site_configs.json          # Index: domain → config file path
+├── at_site_configs/
+│   ├── default.json              # Default config (all sites)
+│   ├── youtube.json              # YouTube-specific
+│   ├── chatgpt.json              # ChatGPT-specific
+│   └── ...
+```
+
+**Config Loading Flow:**
+```
+1. at_scanner.js getATConfig(url)
+   ↓
+2. Load at_site_configs.json index
+   ↓
+3. Match domain → config file path
+   ↓
+4. Load domain config, merge with default if "extends": "default"
+   ↓
+5. Return merged config for scanning + output
+```
+
+**Config Options:**
+
+| Option | Type | Purpose |
+|--------|------|---------|
+| `exclude_roles` | Array | Roles to filter out (e.g., "image", "generic") |
+| `exclude_names` | Array | Element names to filter out |
+| `exclude_name_patterns` | Array | Regex patterns to filter names |
+| `label_overrides` | Object | Friendly labels for elements (e.g., `"combobox:Search": "YouTube Video Search"`) |
+| `capabilities` | Object | Domain capabilities with url_pattern filtering |
+| `output.show_empty_names` | Boolean | Hide elements with no accessible name |
+| `max_depth` | Number | Max tree traversal depth |
+| `max_nodes` | Number | Max nodes to process |
+
+**Example: YouTube AT Config (at_site_configs/youtube.json):**
+
+```json
+{
+  "extends": "default",
+
+  "exclude_roles": ["image", "generic", "StaticText"],
+
+  "exclude_names": ["More actions", "Skip navigation"],
+
+  "label_overrides": {
+    "combobox:Search": "YouTube Video Search"
+  },
+
+  "capabilities": {
+    "transcript": {
+      "action": "RetrieveTranscript",
+      "label": "Get video transcript",
+      "description": "Retrieves the full transcript for this YouTube video",
+      "url_pattern": "/watch?v=",
+      "params": {},
+      "usage": "{\"type\": \"execute_capability\", \"action\": \"RetrieveTranscript\"}"
+    },
+    "playPause": {
+      "action": "TogglePlayPause",
+      "label": "Toggle video playback",
+      "url_pattern": "/watch?v=",
+      "usage": "{\"type\": \"execute_capability\", \"action\": \"TogglePlayPause\"}"
+    }
+  },
+
+  "output": {
+    "show_empty_names": false
+  }
+}
+```
+
+**Capabilities with url_pattern:**
+
+Capabilities are only shown in AT output when the current URL matches the `url_pattern`:
+
+```
+YouTube Home (youtube.com/)
+  → No capabilities shown (no url_pattern match)
+
+YouTube Video (youtube.com/watch?v=xyz)
+  → Shows: RetrieveTranscript, TogglePlayPause, LikeVideo
+  → url_pattern: "/watch?v=" matches current URL
+```
+
+**Label Overrides:**
+
+Transform technical role names into LLM-friendly labels:
+
+```
+Before: [5] combobox: "Search" → {...}
+After:  [5] YouTube Video Search: "Search" → {...}
+
+Config: "label_overrides": { "combobox:Search": "YouTube Video Search" }
+```
+
+**AT vs DOM Config Sources:**
+
+| Mode | Config Source | Capabilities From |
+|------|--------------|-------------------|
+| DOM | `site_configs/*.json` | Same file |
+| AT | `at_site_configs/*.json` | Same file |
+
+When `orbState.scanMode === 'at'`:
+- Scan filtering uses `at_site_configs/`
+- Capabilities come from `at_site_configs/`
+- Output formatting uses AT config options
+
+**Key Files:**
+
+| File | Purpose |
+|------|---------|
+| `at_site_configs.json` | Domain → config path index |
+| `at_site_configs/default.json` | Default filtering rules |
+| `at_site_configs/youtube.json` | YouTube-specific config |
+| `at_site_configs/chatgpt.json` | ChatGPT-specific config |
+| `at_scanner.js:34-113` | Config loading + merging |
+| `at_scanner.js:667-699` | Capability output with url_pattern |
+| `at_scanner.js:743-748` | Label override application |
+
+**Adding a New AT Site Config:**
+
+1. Create `at_site_configs/mysite.json`:
+```json
+{
+  "extends": "default",
+  "exclude_names": ["Cookie banner", "Ad"],
+  "capabilities": {
+    "search": {
+      "action": "SiteSearch",
+      "url_pattern": "/search",
+      "usage": "{\"type\": \"execute_capability\", \"action\": \"SiteSearch\"}"
+    }
+  }
+}
+```
+
+2. Add to `at_site_configs.json`:
+```json
+{
+  "mysite.com": "at_site_configs/mysite.json",
+  "*.mysite.com": "at_site_configs/mysite.json"
+}
+```
+
+3. Reload extension - config auto-loads on next AT scan.
 
 ---
 
