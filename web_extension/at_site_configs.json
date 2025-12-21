@@ -5,5 +5,7 @@
   "chatgpt.com": "at_site_configs/chatgpt.json",
   "*.chatgpt.com": "at_site_configs/chatgpt.json",
   "chat.openai.com": "at_site_configs/chatgpt.json",
+  "google.com": "at_site_configs/google.json",
+  "*.google.com": "at_site_configs/google.json",
   "default": "at_site_configs/default.json"
 }

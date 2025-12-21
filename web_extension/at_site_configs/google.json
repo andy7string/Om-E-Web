@@ -1,0 +1,8 @@
+{
+  "extends": "default",
+  "exclude_roles": ["image"],
+  "exclude_names": ["More options"],
+  "label_overrides": {
+    "combobox:Search": "SEARCH GOOGLE"
+  }
+}

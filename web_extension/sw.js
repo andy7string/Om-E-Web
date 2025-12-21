@@ -556,6 +556,23 @@ async function findATElementByDefinition(tabId, role, name) {
 }
 
 /**
+ * 🎯 Scroll AT element into view before any action
+ * Called by all AT action functions to ensure element is visible.
+ * @param {Object} debuggee - CDP debuggee object
+ * @param {number} backendNodeId - CDP backendDOMNodeId
+ */
+async function scrollATElementIntoView(debuggee, backendNodeId) {
+    await new Promise((resolve) => {
+        chrome.debugger.sendCommand(debuggee, 'DOM.scrollIntoViewIfNeeded', { backendNodeId }, () => {
+            resolve(); // Ignore errors - some elements may not support this
+        });
+    });
+    // Brief delay for scroll animation to complete
+    await new Promise(resolve => setTimeout(resolve, 100));
+    console.log(`[SW] 🌳 Scrolled element into view`);
+}
+
+/**
  * Execute AT click using CDP backendNodeId
  * @param {number} tabId - Tab ID
  * @param {number} backendNodeId - CDP backendDOMNodeId
@@ -571,36 +588,39 @@ async function executeATClick(tabId, backendNodeId) {
             });
         });
 
-        // Enable DOM
+        // Enable DOM and Runtime
         await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'DOM.enable', {}, resolve));
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Runtime.enable', {}, resolve));
 
-        // Get box model for click coordinates
-        const boxModel = await new Promise((resolve, reject) => {
-            chrome.debugger.sendCommand(debuggee, 'DOM.getBoxModel', { backendNodeId }, result => {
+        // 🎯 Scroll into view before action
+        await scrollATElementIntoView(debuggee, backendNodeId);
+
+        // 🎯 RESOLVE: Convert backendNodeId to RemoteObject for direct JS access
+        const resolveResult = await new Promise((resolve, reject) => {
+            chrome.debugger.sendCommand(debuggee, 'DOM.resolveNode', { backendNodeId }, (result) => {
                 if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
                 else resolve(result);
             });
         });
 
-        if (!boxModel?.model) {
-            throw new Error('Could not get element position');
+        if (!resolveResult?.object?.objectId) {
+            throw new Error('Failed to resolve backendNodeId to RemoteObject');
         }
 
-        // Calculate center of element
-        const content = boxModel.model.content;
-        const x = (content[0] + content[2] + content[4] + content[6]) / 4;
-        const y = (content[1] + content[3] + content[5] + content[7]) / 4;
+        const objectId = resolveResult.object.objectId;
+        console.log(`[SW] 🌳 AT CLICK via .click() on objectId`);
 
-        console.log(`[SW] 🌳 AT CLICK at (${x}, ${y})`);
-
-        // Dispatch mouse events
-        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.dispatchMouseEvent', {
-            type: 'mousePressed', x, y, button: 'left', clickCount: 1
-        }, resolve));
-
-        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.dispatchMouseEvent', {
-            type: 'mouseReleased', x, y, button: 'left', clickCount: 1
-        }, resolve));
+        // 🎯 Direct .click() call - more reliable than synthetic mouse events
+        await new Promise((resolve, reject) => {
+            chrome.debugger.sendCommand(debuggee, 'Runtime.callFunctionOn', {
+                objectId,
+                functionDeclaration: `function() { this.click(); }`,
+                returnByValue: true
+            }, (result) => {
+                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+                else resolve(result);
+            });
+        });
 
         console.log(`[SW] 🌳 AT CLICK complete`);
 
@@ -630,6 +650,9 @@ async function executeATSetValue(tabId, backendNodeId, value) {
         // Enable required domains
         await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'DOM.enable', {}, resolve));
         await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Runtime.enable', {}, resolve));
+
+        // 🎯 Scroll into view before action
+        await scrollATElementIntoView(debuggee, backendNodeId);
 
         // 🎯 RESOLVE: Convert backendNodeId to RemoteObjectId for JS access
         const resolveResult = await new Promise((resolve, reject) => {
@@ -3243,6 +3266,23 @@ async function handleExecuteLLMAction(message, sendResponse) {
         // 🌳 AT MODE: Execute via CDP using backendNodeId
         if (orbState.scanMode === 'at') {
             console.log("[SW] 🌳 AT mode - executing via CDP");
+            const urlBeforeAction = activeTab.url;
+
+            // 🔄 Helper: Schedule post-action scan if URL didn't change (dialogs, dropdowns, etc.)
+            const schedulePostActionScan = () => {
+                setTimeout(async () => {
+                    try {
+                        const tab = await chrome.tabs.get(activeTab.id);
+                        if (tab.url === urlBeforeAction) {
+                            console.log("[SW] 🔄 Non-navigation action detected, triggering post-action scan");
+                            requestScan(activeTab.id, tab.url, 'post_action');
+                        }
+                    } catch (e) {
+                        // Tab may have closed/navigated - ignore
+                    }
+                }, 200);
+            };
+
             try {
                 // 🎯 DIRECT ELEMENT DEFINITION: LLM sends role+name directly
                 // No registry lookup - element definition comes from LLM context
@@ -3289,6 +3329,7 @@ async function handleExecuteLLMAction(message, sendResponse) {
                     await executeATClick(activeTab.id, freshNodeId);
                     actionInProgress = false;
                     sendResponse({ ok: true, result: { action: 'click', role: role, name: name } });
+                    schedulePostActionScan();
                     return;
                 } else if (actionType === 'setValue') {
                     const value = params?.value || '';
@@ -3318,6 +3359,7 @@ async function handleExecuteLLMAction(message, sendResponse) {
                             if (response?.ok) {
                                 actionInProgress = false;
                                 sendResponse({ ok: true, result: { action: 'setValue', value: value } });
+                                schedulePostActionScan();
                                 return;
                             }
                         } catch (e) {
@@ -3353,6 +3395,7 @@ async function handleExecuteLLMAction(message, sendResponse) {
 
                     actionInProgress = false;
                     sendResponse({ ok: true, result: { action: 'setValue', value: value } });
+                    schedulePostActionScan();
                     return;
                 }
             } catch (atError) {
