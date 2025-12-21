@@ -295,52 +295,115 @@ Elements are identified by `[N] role: "name"` format with action metadata.
 
 ```
 1. LLM reads AT output: [6] link: "Video Title"
-2. LLM sends command with role+name:
+2. LLM sends command:
    {
      type: "llm_instruction",
      data: {
        actionId: "6",
-       actionType: "click",
-       params: { role: "link", name: "Video Title" }
+       actionType: "click"
      }
    }
 
 3. ws_server.py receives message:
    - Checks CURRENT_SCAN_MODE == 'at'
-   - Skips hint resolution (DOM-only)
-   - Forwards as execute_llm_action with params
+   - Forwards as execute_llm_action
 
 4. sw.js handleExecuteLLMAction():
-   - Checks orbState.scanMode === 'at'
-   - Extracts role+name from params
+   - Looks up actionId in atRegistry → gets { ref, backendNodeId, role, name }
    - Calls findATElementByDefinition(tabId, role, name)
      → Queries LIVE AT tree via CDP Accessibility.getFullAXTree
-     → Finds node matching role+name
      → Returns fresh backendNodeId
 
-5. executeATClick(tabId, backendNodeId):
+5. executeATAction(tabId, backendNodeId, actionType, params):
    - chrome.debugger.attach(tabId)
-   - DOM.getBoxModel(backendNodeId) → get x,y coordinates
-   - Input.dispatchMouseEvent(mousePressed, x, y)
-   - Input.dispatchMouseEvent(mouseReleased, x, y)
+   - DOM.resolveNode(backendNodeId) → objectId (exact element reference)
+   - Runtime.callFunctionOn(objectId, INJECTABLE_ACTION_DISPATCHER)
+     → Injects full content.js executeAction logic into page context
+     → Runs ON the exact element with all execution strategies
    - chrome.debugger.detach()
 ```
 
-**Key Principle:** No cached element references. Fresh AT tree query at execution time using role+name. Elements are identified by their accessibility properties, not DOM attributes.
+**INJECTABLE_ACTION_DISPATCHER - The Power Behind AT Execution:**
+
+The dispatcher is a complete action pipeline injected via CDP `Runtime.callFunctionOn`. It runs in the page's JavaScript context on the exact element resolved from `backendNodeId`. This gives AT mode the same execution power as DOM mode.
+
+**Dispatcher Actions:**
+
+| Action | Logic |
+|--------|-------|
+| `click` | Detects toggle elements (checkbox/radio/switch) → simple click. Otherwise → universalClick with 6 strategies |
+| `toggle` | Sets `element.checked` directly + dispatches change/input events |
+| `navigate` | Uses `element.href` or finds parent `<a>`, falls back to click |
+| `setValue` | React-compatible native setter, contenteditable (ProseMirror/Lexical), keyboard events |
+| `getValue/getText/getHref` | Direct property access |
+
+**universalClick - 6 Strategies for Maximum Compatibility:**
+
+```javascript
+// Strategy 1: Pointer events (React/Facebook)
+el.dispatchEvent(new PointerEvent('pointerdown', {...}));
+el.dispatchEvent(new PointerEvent('pointerup', {...}));
+el.dispatchEvent(new MouseEvent('click', {...}));
+
+// Strategy 2: Native click()
+el.click();
+
+// Strategy 3: MouseEvent simulation
+el.dispatchEvent(new MouseEvent('click', {...}));
+
+// Strategy 4: Focus + Enter key
+el.focus();
+el.dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', ...}));
+
+// Strategy 5: mousedown + mouseup
+el.dispatchEvent(new MouseEvent('mousedown', {...}));
+el.dispatchEvent(new MouseEvent('mouseup', {...}));
+
+// Strategy 6: Touch events (mobile)
+el.dispatchEvent(new TouchEvent('touchstart', {...}));
+el.dispatchEvent(new TouchEvent('touchend', {...}));
+```
+
+For React-like elements (detected by `role="button"` on non-button tags with complex classes), ALL strategies run. For normal elements, stops at first success.
+
+**setValue - Framework Agnostic:**
+
+```javascript
+// Input/Textarea: React-compatible native setter
+const proto = isTextarea ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
+const desc = Object.getOwnPropertyDescriptor(proto, 'value');
+desc.set.call(element, value);
+element.dispatchEvent(new Event('input', { bubbles: true }));
+element.dispatchEvent(new Event('change', { bubbles: true }));
+
+// Contenteditable (ProseMirror, Lexical):
+// Method 1: Clipboard paste
+const dt = new DataTransfer();
+dt.setData('text/plain', value);
+element.dispatchEvent(new ClipboardEvent('paste', { clipboardData: dt, ... }));
+
+// Method 2: execCommand fallback
+document.execCommand('selectAll'); document.execCommand('insertText', false, value);
+
+// Method 3: Direct textContent (last resort)
+element.textContent = value;
+```
+
+**Key Principle:** Element is resolved ONCE via `backendNodeId` → `objectId`. The full execution pipeline runs on that exact element in page context. No re-searching, no selector guessing.
 
 **Key Files & Functions:**
 
 | File | Function | Purpose |
 |------|----------|---------|
 | `ws_server.py:140` | `CURRENT_SCAN_MODE` | Global scan mode state |
-| `ws_server.py:8567-8593` | `main()` | Loads scan_mode from config on startup |
-| `ws_server.py:6188-6199` | `llm_instruction` handler | Routes to AT path when mode='at' |
-| `sw.js:65` | `orbState.scanMode` | Extension scan mode state |
-| `sw.js:471-513` | `findATElementByDefinition()` | Queries AT tree by role+name |
-| `sw.js:517-564` | `executeATClick()` | CDP click via coordinates |
-| `sw.js:573-670` | `executeATSetValue()` | CDP focus + type text |
-| `sw.js:3159-3260` | `handleExecuteLLMAction()` | Routes click/setValue based on scan mode |
-| `at_scanner.js` | `scanAccessibilityTree()` | Scans AT and generates output |
+| `ws_server.py` | `llm_instruction` handler | Routes to AT path when mode='at' |
+| `sw.js:580-878` | `INJECTABLE_ACTION_DISPATCHER` | Full executeAction pipeline as injectable string |
+| `sw.js:888-943` | `executeATAction()` | Resolves backendNodeId → injects dispatcher via CDP |
+| `sw.js:946-948` | `executeATClick()` | Legacy wrapper → calls executeATAction('click') |
+| `sw.js:951-953` | `executeATSetValue()` | Legacy wrapper → calls executeATAction('setValue') |
+| `sw.js` | `findATElementByDefinition()` | Queries AT tree by role+name |
+| `sw.js` | `handleExecuteLLMAction()` | Routes actions, looks up atRegistry |
+| `at_scanner.js` | `scanAccessibilityTree()` | Scans AT, builds registry with backendNodeId |
 
 **Changing Scan Mode:**
 
@@ -387,13 +450,15 @@ python3 om_e_web_ws/test_navigation.py \
 | Aspect | DOM Mode | AT Mode |
 |--------|----------|---------|
 | Scan method | TreeWalker + CSS selectors | CDP Accessibility.getFullAXTree |
-| Element ID | CSS selector hints | role + name |
-| Execution | querySelector → element.click() | CDP backendNodeId → Input events |
-| Stale elements | Re-query via selectors | Re-query AT tree by role+name |
+| Element ID | CSS selector hints | role + name + backendNodeId |
+| Execution | content.js executeAction() | INJECTABLE_ACTION_DISPATCHER via CDP |
+| Click strategies | universalClick (6 strategies) | universalClick (6 strategies) ✅ SAME |
+| setValue | React-compatible + contenteditable | React-compatible + contenteditable ✅ SAME |
+| Toggle handling | Detects checkbox/radio/switch | Detects checkbox/radio/switch ✅ SAME |
 | Output file | `text.md` with selectors | `AT_text.md` with role+name |
 | Best for | Complex DOM, SPAs | Screen reader compatible sites |
 
-**Same Pattern as Claude Extension:** This implementation mirrors how Claude's browser extension works - scan AT tree, identify by role+name, fresh lookup at execution time, CDP events for interaction.
+**Key Achievement:** AT mode now has **identical execution power** to DOM mode. The `INJECTABLE_ACTION_DISPATCHER` contains the same logic as content.js `executeAction()` - including universalClick's 6 strategies, toggle detection, React-compatible setValue, and contenteditable support (ProseMirror, Lexical).
 
 ### 8. AT Capability Pipeline (Hybrid AT + Selector Execution)
 

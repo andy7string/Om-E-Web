@@ -573,11 +573,319 @@ async function scrollATElementIntoView(debuggee, backendNodeId) {
 }
 
 /**
- * Execute AT click using CDP backendNodeId
+ * 🎯 INJECTABLE ACTION DISPATCHER - Full executeAction pipeline via CDP
+ * This is the entire action dispatcher from content.js, inlined for CDP injection.
+ * Handles: click (with universalClick), toggle, navigate, setValue (with contenteditable)
+ */
+const INJECTABLE_ACTION_DISPATCHER = `
+function(actionType, params) {
+    const element = this;
+    const tag = element.tagName?.toUpperCase() || '';
+    const inputType = (element.type || element.getAttribute('type') || '').toLowerCase();
+    const role = element.getAttribute('role') || '';
+
+    console.log('[AT Action] 🎯 Executing:', actionType, 'on', tag, role || inputType);
+
+    // ═══════════════════════════════════════════════════════════════════
+    // UNIVERSAL CLICK - 6 strategies for maximum compatibility
+    // ═══════════════════════════════════════════════════════════════════
+    function universalClick(el, simple = false) {
+        if (!el) return { success: false, reason: 'No element' };
+
+        // Simple mode: single click for toggles (avoid double-toggle)
+        if (simple) {
+            try {
+                el.click();
+                return { success: true, method: 'simple click()' };
+            } catch (e) {
+                return { success: false, reason: e.message };
+            }
+        }
+
+        // Aggressive mode: try all strategies
+        const strategies = [
+            // Strategy 1: Pointer events (React/Facebook)
+            () => {
+                const rect = el.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+                el.dispatchEvent(new PointerEvent('pointerdown', {
+                    bubbles: true, cancelable: true, view: window,
+                    clientX: x, clientY: y, pointerId: 1, pointerType: 'mouse'
+                }));
+                el.dispatchEvent(new PointerEvent('pointerup', {
+                    bubbles: true, cancelable: true, view: window,
+                    clientX: x, clientY: y, pointerId: 1, pointerType: 'mouse'
+                }));
+                el.dispatchEvent(new MouseEvent('click', {
+                    bubbles: true, cancelable: true, view: window,
+                    clientX: x, clientY: y
+                }));
+                return 'pointer events';
+            },
+            // Strategy 2: Native click()
+            () => { el.click(); return 'native click()'; },
+            // Strategy 3: MouseEvent
+            () => {
+                el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+                return 'MouseEvent';
+            },
+            // Strategy 4: Focus + Enter
+            () => {
+                el.focus();
+                el.dispatchEvent(new KeyboardEvent('keydown', {
+                    key: 'Enter', code: 'Enter', keyCode: 13, bubbles: true, cancelable: true
+                }));
+                return 'focus + Enter';
+            },
+            // Strategy 5: mousedown + mouseup
+            () => {
+                el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
+                el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
+                return 'mousedown/up';
+            },
+            // Strategy 6: Touch events
+            () => {
+                el.dispatchEvent(new TouchEvent('touchstart', { bubbles: true, cancelable: true }));
+                el.dispatchEvent(new TouchEvent('touchend', { bubbles: true, cancelable: true }));
+                return 'touch events';
+            }
+        ];
+
+        // Detect React-like elements (run all strategies)
+        const isReactLike = role === 'button' && tag !== 'BUTTON' &&
+                           (el.className.length > 50 || (el.className + '').includes(' x'));
+
+        let lastMethod = 'none';
+        for (const strategy of strategies) {
+            try {
+                lastMethod = strategy();
+                console.log('[AT Action] ✅ Click strategy worked:', lastMethod);
+                if (!isReactLike) break; // Stop at first success unless React
+            } catch (e) {
+                console.log('[AT Action] ⚠️ Strategy failed:', e.message);
+            }
+        }
+        return { success: true, method: lastMethod };
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // ACTION DISPATCHER
+    // ═══════════════════════════════════════════════════════════════════
+    let result = { success: false, action: actionType };
+
+    switch (actionType) {
+
+        // ─────────────────────────────────────────────────────────────────
+        // CLICK ACTION
+        // ─────────────────────────────────────────────────────────────────
+        case 'click': {
+            // Detect toggle elements - use simple click to avoid double-toggle
+            const isToggle = inputType === 'checkbox' || inputType === 'radio' || inputType === 'range' ||
+                            role === 'checkbox' || role === 'radio' || role === 'switch' || role === 'slider';
+
+            if (isToggle) {
+                console.log('[AT Action] 🔘 Toggle detected - using simple click');
+                const clickResult = universalClick(element, true);
+                result = { success: clickResult.success, action: 'click', method: 'simple', checked: element.checked };
+            } else {
+                // Full universalClick for buttons, links, etc.
+                const clickResult = universalClick(element, false);
+                result = { success: clickResult.success, action: 'click', method: clickResult.method };
+            }
+            break;
+        }
+
+        // ─────────────────────────────────────────────────────────────────
+        // TOGGLE ACTION - Set checkbox/radio/switch state directly
+        // ─────────────────────────────────────────────────────────────────
+        case 'toggle': {
+            const prevState = element.checked;
+            const desiredState = params?.value === true || params?.value === 'true' || params?.value === '1';
+
+            if (prevState !== desiredState) {
+                element.checked = desiredState;
+                element.dispatchEvent(new Event('change', { bubbles: true }));
+                element.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+
+            result = { success: true, action: 'toggle', previous: prevState, current: element.checked };
+            break;
+        }
+
+        // ─────────────────────────────────────────────────────────────────
+        // NAVIGATE ACTION - Use href or click link
+        // ─────────────────────────────────────────────────────────────────
+        case 'navigate': {
+            const href = element.href || element.getAttribute('href');
+            if (href) {
+                window.location.href = href;
+                result = { success: true, action: 'navigate', href: href };
+            } else if (tag === 'A' || role === 'link') {
+                element.click();
+                result = { success: true, action: 'navigate', method: 'click' };
+            } else {
+                // Try parent link
+                const parentLink = element.closest('a[href]');
+                if (parentLink) {
+                    window.location.href = parentLink.href;
+                    result = { success: true, action: 'navigate', href: parentLink.href, via: 'parent' };
+                } else {
+                    result = { success: false, action: 'navigate', error: 'No href found' };
+                }
+            }
+            break;
+        }
+
+        // ─────────────────────────────────────────────────────────────────
+        // SETVALUE ACTION - Input, textarea, contenteditable
+        // ─────────────────────────────────────────────────────────────────
+        case 'setValue': {
+            const value = params?.value != null ? String(params.value) : '';
+
+            element.focus();
+
+            const isTextarea = tag === 'TEXTAREA';
+            const isInput = tag === 'INPUT';
+            const isContentEditable = element.isContentEditable || element.getAttribute('contenteditable') === 'true';
+
+            if (isTextarea || isInput) {
+                // Use native setter for React compatibility
+                const proto = isTextarea ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
+                const desc = Object.getOwnPropertyDescriptor(proto, 'value');
+                if (desc?.set) {
+                    desc.set.call(element, value);
+                } else {
+                    element.value = value;
+                }
+
+                // Dispatch events for all frameworks
+                element.dispatchEvent(new Event('input', { bubbles: true }));
+                element.dispatchEvent(new Event('change', { bubbles: true }));
+
+                // Keyboard events for Knockout.js etc
+                const lastChar = value.slice(-1) || ' ';
+                element.dispatchEvent(new KeyboardEvent('keydown', { key: lastChar, bubbles: true }));
+                element.dispatchEvent(new KeyboardEvent('keyup', { key: lastChar, bubbles: true }));
+
+                result = { success: true, action: 'setValue', value: value, elementType: 'input' };
+
+            } else if (isContentEditable) {
+                // Contenteditable (ProseMirror, Lexical, etc.)
+                console.log('[AT Action] 🔤 Contenteditable detected');
+
+                let insertSuccess = false;
+
+                // Method 1: Clipboard paste (Lexical, ProseMirror)
+                try {
+                    element.focus();
+                    if (element.textContent.length > 0) {
+                        const range = document.createRange();
+                        range.selectNodeContents(element);
+                        const sel = window.getSelection();
+                        sel.removeAllRanges();
+                        sel.addRange(range);
+                        element.dispatchEvent(new KeyboardEvent('keydown', {
+                            key: 'Backspace', code: 'Backspace', keyCode: 8, bubbles: true
+                        }));
+                    }
+
+                    const dt = new DataTransfer();
+                    dt.setData('text/plain', value);
+                    element.dispatchEvent(new ClipboardEvent('paste', {
+                        clipboardData: dt, bubbles: true, cancelable: true
+                    }));
+
+                    if (element.textContent.includes(value.substring(0, Math.min(10, value.length)))) {
+                        insertSuccess = true;
+                        console.log('[AT Action] ✅ Paste worked');
+                    }
+                } catch (e) {
+                    console.log('[AT Action] ⚠️ Paste failed:', e.message);
+                }
+
+                // Method 2: execCommand (fallback)
+                if (!insertSuccess) {
+                    try {
+                        element.focus();
+                        document.execCommand('selectAll', false, null);
+                        document.execCommand('delete', false, null);
+                        document.execCommand('insertText', false, value);
+                        insertSuccess = element.textContent.includes(value.substring(0, 5));
+                    } catch (e) {}
+                }
+
+                // Method 3: Direct set (last resort)
+                if (!insertSuccess) {
+                    element.textContent = value;
+                    element.dispatchEvent(new InputEvent('input', {
+                        bubbles: true, inputType: 'insertText', data: value
+                    }));
+                }
+
+                element.dispatchEvent(new Event('change', { bubbles: true }));
+                result = { success: true, action: 'setValue', value: value, elementType: 'contenteditable' };
+
+            } else if (element.value !== undefined) {
+                // Generic value property
+                element.value = value;
+                element.dispatchEvent(new Event('input', { bubbles: true }));
+                element.dispatchEvent(new Event('change', { bubbles: true }));
+                result = { success: true, action: 'setValue', value: value, elementType: 'value-property' };
+            } else {
+                result = { success: false, action: 'setValue', error: 'Element does not support setValue' };
+            }
+
+            // Handle submit if requested
+            if (params?.submit && result.success) {
+                console.log('[AT Action] 📤 Submit requested');
+                element.dispatchEvent(new KeyboardEvent('keydown', {
+                    key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true
+                }));
+                element.dispatchEvent(new KeyboardEvent('keyup', {
+                    key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true
+                }));
+                result.submitted = true;
+            }
+            break;
+        }
+
+        // ─────────────────────────────────────────────────────────────────
+        // GET VALUE / TEXT / HREF
+        // ─────────────────────────────────────────────────────────────────
+        case 'getValue':
+            result = { success: true, action: 'getValue', value: element.value || element.textContent?.trim() || '' };
+            break;
+
+        case 'getText':
+            result = { success: true, action: 'getText', text: element.textContent?.trim() || '' };
+            break;
+
+        case 'getHref':
+            result = { success: true, action: 'getHref', href: element.href || element.getAttribute('href') || '' };
+            break;
+
+        default:
+            // Unknown action - try click as fallback
+            console.log('[AT Action] ⚠️ Unknown action, falling back to click');
+            const fallbackClick = universalClick(element, false);
+            result = { success: fallbackClick.success, action: actionType, fallback: 'click', method: fallbackClick.method };
+    }
+
+    console.log('[AT Action] 📦 Result:', JSON.stringify(result));
+    return result;
+}
+`;
+
+/**
+ * 🎯 Execute AT action using CDP - Full dispatcher with universalClick
+ * Replaces executeATClick with the complete action pipeline
  * @param {number} tabId - Tab ID
  * @param {number} backendNodeId - CDP backendDOMNodeId
+ * @param {string} actionType - Action: click, toggle, navigate, setValue, getValue, getText, getHref
+ * @param {Object} params - Action params (value, submit, etc.)
  */
-async function executeATClick(tabId, backendNodeId) {
+async function executeATAction(tabId, backendNodeId, actionType = 'click', params = {}) {
     const debuggee = { tabId };
 
     try {
@@ -608,13 +916,17 @@ async function executeATClick(tabId, backendNodeId) {
         }
 
         const objectId = resolveResult.object.objectId;
-        console.log(`[SW] 🌳 AT CLICK via .click() on objectId`);
+        console.log(`[SW] 🌳 AT ACTION: ${actionType} via injectable dispatcher`);
 
-        // 🎯 Direct .click() call - more reliable than synthetic mouse events
-        await new Promise((resolve, reject) => {
+        // 🎯 INJECT FULL DISPATCHER - Execute action with all strategies
+        const actionResult = await new Promise((resolve, reject) => {
             chrome.debugger.sendCommand(debuggee, 'Runtime.callFunctionOn', {
                 objectId,
-                functionDeclaration: `function() { this.click(); }`,
+                functionDeclaration: INJECTABLE_ACTION_DISPATCHER,
+                arguments: [
+                    { value: actionType },
+                    { value: params }
+                ],
                 returnByValue: true
             }, (result) => {
                 if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
@@ -622,165 +934,22 @@ async function executeATClick(tabId, backendNodeId) {
             });
         });
 
-        console.log(`[SW] 🌳 AT CLICK complete`);
+        console.log(`[SW] 🌳 AT ACTION complete:`, actionResult?.result?.value);
+        return actionResult?.result?.value || { success: true, action: actionType };
 
     } finally {
         await new Promise(resolve => chrome.debugger.detach(debuggee, resolve));
     }
 }
 
-/**
- * Execute AT setValue using CDP - resolves backendNodeId to DOM element, then
- * sets value directly via JavaScript with proper event dispatch for all frameworks.
- * @param {number} tabId - Tab ID
- * @param {number} backendNodeId - CDP backendDOMNodeId
- * @param {string} value - Value to set
- */
+// Legacy wrapper for backwards compatibility
+async function executeATClick(tabId, backendNodeId) {
+    return executeATAction(tabId, backendNodeId, 'click', {});
+}
+
+// Legacy wrapper for backwards compatibility
 async function executeATSetValue(tabId, backendNodeId, value) {
-    const debuggee = { tabId };
-
-    try {
-        await new Promise((resolve, reject) => {
-            chrome.debugger.attach(debuggee, '1.3', () => {
-                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
-                else resolve();
-            });
-        });
-
-        // Enable required domains
-        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'DOM.enable', {}, resolve));
-        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Runtime.enable', {}, resolve));
-
-        // 🎯 Scroll into view before action
-        await scrollATElementIntoView(debuggee, backendNodeId);
-
-        // 🎯 RESOLVE: Convert backendNodeId to RemoteObjectId for JS access
-        const resolveResult = await new Promise((resolve, reject) => {
-            chrome.debugger.sendCommand(debuggee, 'DOM.resolveNode', { backendNodeId }, (result) => {
-                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
-                else resolve(result);
-            });
-        });
-
-        if (!resolveResult?.object?.objectId) {
-            throw new Error('Failed to resolve backendNodeId to RemoteObject');
-        }
-
-        const objectId = resolveResult.object.objectId;
-
-        // 🎯 ATOMIC SET VALUE + EVENT DISPATCH: All in one JS call on the resolved element
-        // This bypasses Input.insertText flakiness and works for all element types/frameworks
-        const result = await new Promise((resolve, reject) => {
-            chrome.debugger.sendCommand(debuggee, 'Runtime.callFunctionOn', {
-                objectId,
-                functionDeclaration: `
-                    function(newValue) {
-                        const el = this;
-                        const tag = el.tagName.toLowerCase();
-                        const type = (el.type || '').toLowerCase();
-                        const isContentEditable = el.isContentEditable;
-                        let elementType = 'unknown';
-                        let prevValue = '';
-
-                        // 🎯 FOCUS: Ensure element is focused
-                        el.focus();
-
-                        // 🎯 SET VALUE: Handle different element types
-                        const textTypes = ['text', 'search', 'email', 'password', 'url', 'tel', 'number', 'date', 'time', 'datetime-local', 'month', 'week', ''];
-
-                        if (tag === 'textarea' || (tag === 'input' && textTypes.includes(type))) {
-                            prevValue = el.value;
-                            // React compatibility: use native setter
-                            const nativeSetter = Object.getOwnPropertyDescriptor(
-                                tag === 'textarea' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
-                                'value'
-                            )?.set;
-                            if (nativeSetter) {
-                                nativeSetter.call(el, newValue);
-                            } else {
-                                el.value = newValue;
-                            }
-                            elementType = 'text_input';
-                        } else if (tag === 'select') {
-                            prevValue = el.value;
-                            // Find option by value or text
-                            const option = Array.from(el.options).find(o => o.value === newValue || o.text === newValue);
-                            if (option) {
-                                el.value = option.value;
-                                elementType = 'select';
-                            } else {
-                                return { ok: false, reason: 'option_not_found', value: newValue };
-                            }
-                        } else if (tag === 'input' && ['checkbox', 'radio'].includes(type)) {
-                            prevValue = el.checked;
-                            el.checked = newValue === 'true' || newValue === true || newValue === '1';
-                            elementType = 'checkbox_radio';
-                        } else if (tag === 'input' && type === 'range') {
-                            prevValue = el.value;
-                            el.value = newValue;
-                            elementType = 'range';
-                        } else if (tag === 'input' && type === 'color') {
-                            prevValue = el.value;
-                            el.value = newValue;
-                            elementType = 'color';
-                        } else if (isContentEditable || el.closest('[contenteditable="true"]')) {
-                            // 🔧 ProseMirror/Lexical/contenteditable: find actual editable element
-                            // AT may point to child (e.g. <p data-placeholder>) not the editable itself
-                            const editableEl = el.isContentEditable ? el : el.closest('[contenteditable="true"]');
-                            if (!editableEl) {
-                                return { ok: false, reason: 'no_editable_found' };
-                            }
-                            prevValue = editableEl.textContent;
-                            editableEl.focus();
-                            document.execCommand('selectAll', false);
-                            document.execCommand('delete', false);
-                            document.execCommand('insertText', false, newValue);
-                            elementType = 'contenteditable';
-                        } else {
-                            // Fallback: try value property
-                            prevValue = el.value;
-                            el.value = newValue;
-                            elementType = 'fallback';
-                        }
-
-                        // 🎯 DISPATCH EVENTS: Framework-agnostic event triggering
-                        if (elementType === 'text_input' || elementType === 'range' || elementType === 'color' || elementType === 'fallback') {
-                            el.dispatchEvent(new InputEvent('input', { bubbles: true, cancelable: true, inputType: 'insertText', data: newValue }));
-                            el.dispatchEvent(new Event('change', { bubbles: true }));
-                        } else if (elementType === 'select') {
-                            el.dispatchEvent(new Event('change', { bubbles: true }));
-                        } else if (elementType === 'checkbox_radio') {
-                            el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-                            el.dispatchEvent(new Event('change', { bubbles: true }));
-                        } else if (elementType === 'contenteditable') {
-                            el.dispatchEvent(new InputEvent('input', { bubbles: true, cancelable: true, inputType: 'insertText' }));
-                        }
-
-                        // 🎯 BLUR/FOCUS: Trigger validation and framework updates
-                        el.dispatchEvent(new FocusEvent('blur', { bubbles: true }));
-                        el.focus();
-
-                        return { ok: true, elementType, tag, type: type || null, prevValue, newValue };
-                    }
-                `,
-                arguments: [{ value: value }],
-                returnByValue: true
-            }, (res) => {
-                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
-                else resolve(res);
-            });
-        });
-
-        const outcome = result?.result?.value;
-        console.log(`[SW] 🌳 AT SET VALUE: "${value}" → ${JSON.stringify(outcome)}`);
-
-        if (!outcome?.ok) {
-            throw new Error(outcome?.reason || 'setValue failed');
-        }
-
-    } finally {
-        await new Promise(resolve => chrome.debugger.detach(debuggee, resolve));
-    }
+    return executeATAction(tabId, backendNodeId, 'setValue', { value });
 }
 
 /**
@@ -3325,79 +3494,15 @@ async function handleExecuteLLMAction(message, sendResponse) {
 
                 console.log("[SW] 🌳 Fresh backendNodeId:", freshNodeId);
 
-                if (actionType === 'click' || !actionType) {
-                    await executeATClick(activeTab.id, freshNodeId);
-                    actionInProgress = false;
-                    sendResponse({ ok: true, result: { action: 'click', role: role, name: name } });
-                    schedulePostActionScan();
-                    return;
-                } else if (actionType === 'setValue') {
-                    const value = params?.value || '';
+                // 🎯 UNIFIED ACTION DISPATCHER: Use executeATAction for ALL action types
+                // This injects the full content.js executeAction pipeline via CDP
+                const effectiveAction = actionType || 'click';
+                const result = await executeATAction(activeTab.id, freshNodeId, effectiveAction, params || {});
 
-                    // 🎯 CAPABILITY TEXTBOX: Use site config capability if available
-                    // This handles ProseMirror/Lexical editors (ChatGPT, etc.) via selector-based pipeline
-                    const tabUrl = activeTab.url || '';
-                    const domain = new URL(tabUrl).hostname.replace(/^www\./, '');
-                    const siteConfig = siteConfigs[domain] || siteConfigs['default'];
-                    const setInputCap = siteConfig?.capabilities?.setInput;
-                    if (role === 'textbox' && setInputCap?.selectors?.length > 0) {
-                        console.log("[SW] 🌳 Using setInput capability for textbox");
-                        try {
-                            const response = await chrome.tabs.sendMessage(activeTab.id, {
-                                type: 'execute_action_with_hints',
-                                data: {
-                                    actionId: actionId,
-                                    actionType: 'setValue',
-                                    params: { value: value, submit: params?.submit },
-                                    hints: {
-                                        label: name || '',
-                                        type: 'textbox',
-                                        selectors: setInputCap.selectors
-                                    }
-                                }
-                            });
-                            if (response?.ok) {
-                                actionInProgress = false;
-                                sendResponse({ ok: true, result: { action: 'setValue', value: value } });
-                                schedulePostActionScan();
-                                return;
-                            }
-                        } catch (e) {
-                            console.log("[SW] 🌳 Capability delegation failed, falling back to CDP:", e.message);
-                        }
-                    }
-
-                    await executeATSetValue(activeTab.id, freshNodeId, value);
-
-                    // Handle submit if requested
-                    if (params?.submit) {
-                        // Press Enter after setting value
-                        const debuggee = { tabId: activeTab.id };
-                        await new Promise(resolve => chrome.debugger.attach(debuggee, '1.3', resolve));
-                        await new Promise(resolve => {
-                            chrome.debugger.sendCommand(debuggee, 'Input.dispatchKeyEvent', {
-                                type: 'keyDown',
-                                key: 'Enter',
-                                code: 'Enter',
-                                windowsVirtualKeyCode: 13
-                            }, resolve);
-                        });
-                        await new Promise(resolve => {
-                            chrome.debugger.sendCommand(debuggee, 'Input.dispatchKeyEvent', {
-                                type: 'keyUp',
-                                key: 'Enter',
-                                code: 'Enter',
-                                windowsVirtualKeyCode: 13
-                            }, resolve);
-                        });
-                        await new Promise(resolve => chrome.debugger.detach(debuggee, resolve));
-                    }
-
-                    actionInProgress = false;
-                    sendResponse({ ok: true, result: { action: 'setValue', value: value } });
-                    schedulePostActionScan();
-                    return;
-                }
+                actionInProgress = false;
+                sendResponse({ ok: result?.success !== false, result: { ...result, role: role, name: name } });
+                schedulePostActionScan();
+                return;
             } catch (atError) {
                 console.error("[SW] 🌳 AT execution failed:", atError);
                 actionInProgress = false;

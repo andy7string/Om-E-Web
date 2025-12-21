@@ -54,7 +54,9 @@
     "Save",
     "Report",
     "Not interested",
-    "Don't recommend channel"
+    "Don't recommend channel",
+    "Translate to English",
+    "Reply"
   ],
 
   "exclude_name_patterns": [
@@ -82,7 +84,12 @@
     "^Show (more|less)$",
     "^See (more|less)$",
     "^Read more$",
-    "^\\.\\.\\.$"
+    "^\\.\\.\\.$",
+    "^Translate to ",
+    "^@[a-zA-Z0-9_]+$",
+    "^Like this comment",
+    "^Dislike this comment",
+    "^\\d+ repl"
   ],
 
   "exclude_roles": [
