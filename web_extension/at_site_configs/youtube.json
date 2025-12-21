@@ -108,6 +108,37 @@
 
   "always_include_roles": ["search", "searchbox", "combobox"],
 
+  "label_overrides": {
+    "combobox:Search": "YouTube Video Search"
+  },
+
+  "capabilities": {
+    "transcript": {
+      "action": "RetrieveTranscript",
+      "label": "Get video transcript",
+      "description": "Retrieves the full transcript for this YouTube video",
+      "url_pattern": "/watch?v=",
+      "params": {},
+      "usage": "{\"type\": \"execute_capability\", \"action\": \"RetrieveTranscript\", \"params\": {}}"
+    },
+    "playPause": {
+      "action": "TogglePlayPause",
+      "label": "Toggle video playback",
+      "description": "Toggles play/pause state of the video player",
+      "url_pattern": "/watch?v=",
+      "params": {},
+      "usage": "{\"type\": \"execute_capability\", \"action\": \"TogglePlayPause\", \"params\": {}}"
+    },
+    "like": {
+      "action": "LikeVideo",
+      "label": "Like this video",
+      "description": "Likes the current YouTube video",
+      "url_pattern": "/watch?v=",
+      "params": {},
+      "usage": "{\"type\": \"execute_capability\", \"action\": \"LikeVideo\", \"params\": {}}"
+    }
+  },
+
   "video_page": {
     "url_pattern": "/watch?v=",
     "focus_selectors": [

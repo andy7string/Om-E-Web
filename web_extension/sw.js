@@ -786,14 +786,13 @@ async function executeATScan(tabId, url, trigger) {
 
         // Format as markdown for output (returns {markdown, registry})
         // Pass config with viewport for position-aware filtering
-        // Include domain capabilities so they appear in AT output
-        const domain = new URL(url).hostname.replace(/^www\./, '');
-        const domainConfig = siteConfigs[domain] || siteConfigs['default'];
-        console.log(`[SW] 🌳 AT Config lookup: domain="${domain}", hasConfig=${!!domainConfig}, capabilities=${domainConfig?.capabilities ? Object.keys(domainConfig.capabilities).join(',') : 'none'}`);
+        // Use AT config capabilities when in AT mode (at_site_configs)
+        const capabilities = atResult.config?.capabilities || null;
+        console.log(`[SW] 🌳 AT Config: capabilities=${capabilities ? Object.keys(capabilities).join(',') : 'none'}`);
         const configWithViewport = {
             ...(atResult.config || {}),
             viewport: atResult.viewport || {},
-            capabilities: domainConfig?.capabilities || null
+            capabilities
         };
         const formatted = ATScanner.formatTreeAsMarkdown(atResult.nodes, {
             title: atResult.title,

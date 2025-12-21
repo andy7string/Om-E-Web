@@ -665,26 +665,35 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
   headerLines.push(`**Scan Type:** Accessibility Tree`);
 
   // 🎯 CAPABILITIES: Show available domain capabilities with usage info
+  // Filter by url_pattern if specified (e.g., YouTube video-only capabilities)
   if (config.capabilities && Object.keys(config.capabilities).length > 0) {
-    headerLines.push('');
-    headerLines.push('**Available Capabilities:**');
-    for (const [key, cap] of Object.entries(config.capabilities)) {
+    const currentUrl = pageInfo.url || '';
+    const matchingCaps = Object.entries(config.capabilities).filter(([key, cap]) => {
+      if (!cap.url_pattern) return true; // No pattern = always show
+      return currentUrl.includes(cap.url_pattern);
+    });
+
+    if (matchingCaps.length > 0) {
       headerLines.push('');
-      headerLines.push(`### \`${cap.action}\``);
-      if (cap.description) {
-        headerLines.push(cap.description);
-      }
-      if (cap.params && Object.keys(cap.params).length > 0) {
-        headerLines.push('**Params:**');
-        for (const [pname, ptype] of Object.entries(cap.params)) {
-          headerLines.push(`- \`${pname}\`: ${ptype}`);
+      headerLines.push('**Available Capabilities:**');
+      for (const [key, cap] of matchingCaps) {
+        headerLines.push('');
+        headerLines.push(`### \`${cap.action}\``);
+        if (cap.description) {
+          headerLines.push(cap.description);
         }
-      }
-      if (cap.usage) {
-        headerLines.push('**Usage:**');
-        headerLines.push('```json');
-        headerLines.push(cap.usage);
-        headerLines.push('```');
+        if (cap.params && Object.keys(cap.params).length > 0) {
+          headerLines.push('**Params:**');
+          for (const [pname, ptype] of Object.entries(cap.params)) {
+            headerLines.push(`- \`${pname}\`: ${ptype}`);
+          }
+        }
+        if (cap.usage) {
+          headerLines.push('**Usage:**');
+          headerLines.push('```json');
+          headerLines.push(cap.usage);
+          headerLines.push('```');
+        }
       }
     }
   }
@@ -740,7 +749,11 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
       if (node.states.expanded !== undefined) actionHint.expanded = node.states.expanded;
       if (node.states.checked !== undefined) actionHint.checked = node.states.checked;
 
-      line += `[${actionIndex}] ${role}`;
+      // 🎯 Check for label override (config-driven friendly labels)
+      const overrideKey = `${role}:${node.name || ''}`;
+      const displayLabel = config.label_overrides?.[overrideKey] || role;
+
+      line += `[${actionIndex}] ${displayLabel}`;
       if (name) line += `: ${name}`;
       line += ` → ${JSON.stringify(actionHint)}`;
 

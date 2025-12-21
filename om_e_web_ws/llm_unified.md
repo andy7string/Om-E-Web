@@ -1,10 +1,10 @@
 # Unified LLM Call Debug
 
-**Generated:** 2025-12-21 18:50:11
-**User Message:** s
-**Messages:** 2
-**Capabilities:** 4
-**Tokens:** ~795 (system: 645, messages: 150)
+**Generated:** 2025-12-21 19:00:55
+**User Message:** a
+**Messages:** 4
+**Capabilities:** 3
+**Tokens:** ~789 (system: 645, messages: 144)
 
 ## System Prompt
 ```
@@ -93,35 +93,43 @@ Example phrases: Hehe, watch this!, Consider it done... or did I?, I may have do
 ### 1. USER
 
 ```
-s
+a
 ```
 
-### 2. USER
+### 2. ASSISTANT
+
+```
+Hey there! Looks like you sent an 'a'. What mischief shall we get up to today?
+```
+
+### 3. USER
+
+```
+a
+```
+
+### 4. USER
 
 ```
 ENVIRONMENT
-Page: ChatGPT (https://chatgpt.com/)
+Page: (1) My thoughts on editing playing videos - YouTube (https://www.youtube.com/watch?v=SpB6vjMO4Ac)
 
 Tabs:
-  1. ChatGPT (chatgpt.com) *
+  1. (1) My thoughts on editing playing video (www.youtube.com) *
   2. Extensions (extensions)
 
 Capabilities:
-- GoBack (0.64): Navigates back in the current tab's history
+- GoBack (0.66): Navigates back in the current tab's history
   ex: {"cap": "GoBack"}
-- ScrollTop (0.62): Scrolls to the very top of the page
+- ScrollTop (0.64): Scrolls to the very top of the page
   ex: {"cap": "ScrollTop"}
-- OpenTab (0.60): Opens a URL or switches to existing tab. Auto-s...
-  ex: {"cap": "OpenTab", "params": {"url": "https://google.com"}}
-  params: url
-- SearchChats (0.60): Searches all chats for a keyword or phrase. Ext...
-  ex: {"cap": "SearchChats", "params": {"query": "dude"}}
-  params: query
+- GoForward (0.63): Navigates forward in the current tab's history
+  ex: {"cap": "GoForward"}
 
-USER: s
+USER: a
 ```
 
 ## Response
 ```json
-{"type":"reply","text":"Hey there! Looks like you sent an 's'. Want me to search for something or open a site starting with 's'? Just say the word!"}
+{"type":"reply","text":"Looks like you're testing the letter 'a' again. Ready to play or need help with that YouTube video tab?"}
 ```
