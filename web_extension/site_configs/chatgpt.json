@@ -5,6 +5,27 @@
     "chatgpt.com",
     "*.chatgpt.com"
   ],
+  "capabilities": {
+    "setInput": {
+      "action": "SetInputValue",
+      "label": "Set ChatGPT prompt text",
+      "description": "Type into the ChatGPT prompt input (ProseMirror contenteditable). Use this capability instead of direct AT textbox setValue for reliable input on ChatGPT.",
+      "url_pattern": "chatgpt.com",
+      "params": {
+        "value": "string (the text to type)",
+        "submit": "boolean (optional, send message after typing)"
+      },
+      "usage": "{\"type\": \"execute_capability\", \"action\": \"SetInputValue\", \"params\": {\"value\": \"Hello ChatGPT\", \"submit\": true}}",
+      "selectors": [
+        "#prompt-textarea",
+        "div.ProseMirror[contenteditable='true']",
+        "div[contenteditable='true'][data-placeholder]",
+        "textarea[name='prompt-textarea']"
+      ],
+      "submitMethod": "enter",
+      "autoSubmit": true
+    }
+  },
   "focus_targets": [
     "div[contenteditable='true'][data-placeholder]",
     "div[contenteditable='true'][role='textbox']",

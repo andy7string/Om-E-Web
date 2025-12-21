@@ -303,25 +303,56 @@ function sendHeartbeat(reason = "manual") {
 }
 
 /**
- * 🆕 NEW: Load site configs from storage on service worker startup
- * 
- * This ensures site configs are available immediately for proactive sending
- * without waiting for the WebSocket connection to be established.
+ * 🆕 Load site configs directly from extension JSON files
+ *
+ * Mirrors content.js getSiteConfigDirect() - loads index file then individual configs.
+ * This ensures configs are available without waiting for WebSocket server.
  */
-async function loadSiteConfigsFromStorage() {
+async function loadSiteConfigsFromFiles() {
     try {
-        const result = await chrome.storage.local.get(['siteConfigs']);
-        siteConfigs = result.siteConfigs || {};
-        console.log(`[SW] 📋 Loaded ${Object.keys(siteConfigs).length} site configs from storage on startup`);
+        // Step 1: Load index file (domain → config file path mapping)
+        const indexUrl = chrome.runtime.getURL('site_configs.json');
+        const indexResponse = await fetch(indexUrl);
+        if (!indexResponse.ok) {
+            console.warn("[SW] ⚠️ site_configs.json not found");
+            siteConfigs = {};
+            return;
+        }
+        const index = await indexResponse.json();
+
+        // Step 2: Load each unique config file
+        const loadedConfigs = {};
+        const configPaths = new Set(Object.values(index));
+
+        for (const configPath of configPaths) {
+            try {
+                const configUrl = chrome.runtime.getURL(configPath);
+                const configResponse = await fetch(configUrl);
+                if (configResponse.ok) {
+                    const config = await configResponse.json();
+                    // Find all domains that use this config path
+                    for (const [domain, path] of Object.entries(index)) {
+                        if (path === configPath) {
+                            loadedConfigs[domain] = config;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.warn(`[SW] ⚠️ Failed to load ${configPath}:`, e.message);
+            }
+        }
+
+        siteConfigs = loadedConfigs;
+        console.log(`[SW] 📋 Loaded ${Object.keys(siteConfigs).length} site configs from files`);
 
         // Log available domains for debugging
         if (Object.keys(siteConfigs).length > 0) {
-            const domains = Object.keys(siteConfigs).filter(domain => domain !== 'default');
-            console.log(`[SW] 🎯 Available site configs for domains:`, domains);
+            const domains = Object.keys(siteConfigs).filter(d => d !== 'default');
+            console.log(`[SW] 🎯 Available site configs for domains:`, domains.slice(0, 10));
         }
 
     } catch (error) {
-        console.error("[SW] ❌ Failed to load site configs from storage on startup:", error);
+        console.error("[SW] ❌ Failed to load site configs from files:", error);
         siteConfigs = {};
     }
 }
@@ -489,16 +520,31 @@ async function findATElementByDefinition(tabId, role, name) {
 
         // Find node matching role + name
         const nodes = result.nodes || [];
+        let fallbackMatch = null; // For role-only match when name is empty
+
         for (const node of nodes) {
             if (node.ignored) continue;
 
             const nodeRole = node.role?.value;
-            const nodeName = node.name?.value;
+            const nodeName = node.name?.value || '';
 
+            // Exact role+name match
             if (nodeRole === role && nodeName === name) {
                 console.log(`[SW] 🌳 Found element: ${role} "${name}" → backendNodeId: ${node.backendDOMNodeId}`);
                 return node.backendDOMNodeId;
             }
+
+            // 🌳 Empty name handling: if searching for empty name, match first element with that role
+            if (!name && nodeRole === role && !fallbackMatch) {
+                fallbackMatch = node.backendDOMNodeId;
+                console.log(`[SW] 🌳 Fallback match (role only): ${role} → backendNodeId: ${node.backendDOMNodeId}`);
+            }
+        }
+
+        // Return fallback if no exact match
+        if (fallbackMatch) {
+            console.log(`[SW] 🌳 Using fallback match for ${role}`);
+            return fallbackMatch;
         }
 
         console.log(`[SW] 🌳 Element not found: ${role} "${name}"`);
@@ -564,7 +610,8 @@ async function executeATClick(tabId, backendNodeId) {
 }
 
 /**
- * Execute AT setValue using CDP backendNodeId
+ * Execute AT setValue using CDP - resolves backendNodeId to DOM element, then
+ * sets value directly via JavaScript with proper event dispatch for all frameworks.
  * @param {number} tabId - Tab ID
  * @param {number} backendNodeId - CDP backendDOMNodeId
  * @param {string} value - Value to set
@@ -580,27 +627,133 @@ async function executeATSetValue(tabId, backendNodeId, value) {
             });
         });
 
-        // Enable DOM
+        // Enable required domains
         await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'DOM.enable', {}, resolve));
+        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Runtime.enable', {}, resolve));
 
-        // Focus the element
-        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'DOM.focus', { backendNodeId }, resolve));
+        // 🎯 RESOLVE: Convert backendNodeId to RemoteObjectId for JS access
+        const resolveResult = await new Promise((resolve, reject) => {
+            chrome.debugger.sendCommand(debuggee, 'DOM.resolveNode', { backendNodeId }, (result) => {
+                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+                else resolve(result);
+            });
+        });
 
-        // Select all (Ctrl+A) then type new value
-        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.dispatchKeyEvent', {
-            type: 'keyDown', modifiers: 2, key: 'a', code: 'KeyA'
-        }, resolve));
+        if (!resolveResult?.object?.objectId) {
+            throw new Error('Failed to resolve backendNodeId to RemoteObject');
+        }
 
-        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.dispatchKeyEvent', {
-            type: 'keyUp', modifiers: 2, key: 'a', code: 'KeyA'
-        }, resolve));
+        const objectId = resolveResult.object.objectId;
 
-        // Type the new value
-        await new Promise(resolve => chrome.debugger.sendCommand(debuggee, 'Input.insertText', {
-            text: value
-        }, resolve));
+        // 🎯 ATOMIC SET VALUE + EVENT DISPATCH: All in one JS call on the resolved element
+        // This bypasses Input.insertText flakiness and works for all element types/frameworks
+        const result = await new Promise((resolve, reject) => {
+            chrome.debugger.sendCommand(debuggee, 'Runtime.callFunctionOn', {
+                objectId,
+                functionDeclaration: `
+                    function(newValue) {
+                        const el = this;
+                        const tag = el.tagName.toLowerCase();
+                        const type = (el.type || '').toLowerCase();
+                        const isContentEditable = el.isContentEditable;
+                        let elementType = 'unknown';
+                        let prevValue = '';
 
-        console.log(`[SW] 🌳 AT SET VALUE: "${value}"`);
+                        // 🎯 FOCUS: Ensure element is focused
+                        el.focus();
+
+                        // 🎯 SET VALUE: Handle different element types
+                        const textTypes = ['text', 'search', 'email', 'password', 'url', 'tel', 'number', 'date', 'time', 'datetime-local', 'month', 'week', ''];
+
+                        if (tag === 'textarea' || (tag === 'input' && textTypes.includes(type))) {
+                            prevValue = el.value;
+                            // React compatibility: use native setter
+                            const nativeSetter = Object.getOwnPropertyDescriptor(
+                                tag === 'textarea' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
+                                'value'
+                            )?.set;
+                            if (nativeSetter) {
+                                nativeSetter.call(el, newValue);
+                            } else {
+                                el.value = newValue;
+                            }
+                            elementType = 'text_input';
+                        } else if (tag === 'select') {
+                            prevValue = el.value;
+                            // Find option by value or text
+                            const option = Array.from(el.options).find(o => o.value === newValue || o.text === newValue);
+                            if (option) {
+                                el.value = option.value;
+                                elementType = 'select';
+                            } else {
+                                return { ok: false, reason: 'option_not_found', value: newValue };
+                            }
+                        } else if (tag === 'input' && ['checkbox', 'radio'].includes(type)) {
+                            prevValue = el.checked;
+                            el.checked = newValue === 'true' || newValue === true || newValue === '1';
+                            elementType = 'checkbox_radio';
+                        } else if (tag === 'input' && type === 'range') {
+                            prevValue = el.value;
+                            el.value = newValue;
+                            elementType = 'range';
+                        } else if (tag === 'input' && type === 'color') {
+                            prevValue = el.value;
+                            el.value = newValue;
+                            elementType = 'color';
+                        } else if (isContentEditable || el.closest('[contenteditable="true"]')) {
+                            // 🔧 ProseMirror/Lexical/contenteditable: find actual editable element
+                            // AT may point to child (e.g. <p data-placeholder>) not the editable itself
+                            const editableEl = el.isContentEditable ? el : el.closest('[contenteditable="true"]');
+                            if (!editableEl) {
+                                return { ok: false, reason: 'no_editable_found' };
+                            }
+                            prevValue = editableEl.textContent;
+                            editableEl.focus();
+                            document.execCommand('selectAll', false);
+                            document.execCommand('delete', false);
+                            document.execCommand('insertText', false, newValue);
+                            elementType = 'contenteditable';
+                        } else {
+                            // Fallback: try value property
+                            prevValue = el.value;
+                            el.value = newValue;
+                            elementType = 'fallback';
+                        }
+
+                        // 🎯 DISPATCH EVENTS: Framework-agnostic event triggering
+                        if (elementType === 'text_input' || elementType === 'range' || elementType === 'color' || elementType === 'fallback') {
+                            el.dispatchEvent(new InputEvent('input', { bubbles: true, cancelable: true, inputType: 'insertText', data: newValue }));
+                            el.dispatchEvent(new Event('change', { bubbles: true }));
+                        } else if (elementType === 'select') {
+                            el.dispatchEvent(new Event('change', { bubbles: true }));
+                        } else if (elementType === 'checkbox_radio') {
+                            el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+                            el.dispatchEvent(new Event('change', { bubbles: true }));
+                        } else if (elementType === 'contenteditable') {
+                            el.dispatchEvent(new InputEvent('input', { bubbles: true, cancelable: true, inputType: 'insertText' }));
+                        }
+
+                        // 🎯 BLUR/FOCUS: Trigger validation and framework updates
+                        el.dispatchEvent(new FocusEvent('blur', { bubbles: true }));
+                        el.focus();
+
+                        return { ok: true, elementType, tag, type: type || null, prevValue, newValue };
+                    }
+                `,
+                arguments: [{ value: value }],
+                returnByValue: true
+            }, (res) => {
+                if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+                else resolve(res);
+            });
+        });
+
+        const outcome = result?.result?.value;
+        console.log(`[SW] 🌳 AT SET VALUE: "${value}" → ${JSON.stringify(outcome)}`);
+
+        if (!outcome?.ok) {
+            throw new Error(outcome?.reason || 'setValue failed');
+        }
 
     } finally {
         await new Promise(resolve => chrome.debugger.detach(debuggee, resolve));
@@ -619,6 +772,12 @@ async function executeATScan(tabId, url, trigger) {
     const startTime = performance.now();
 
     try {
+        // 📋 Ensure site configs are loaded for AT capability injection
+        if (Object.keys(siteConfigs).length === 0) {
+            console.log(`[SW] 🌳 Loading site configs for AT...`);
+            await loadSiteConfigsFromFiles();
+        }
+
         // ATScanner is loaded via importScripts('at_scanner.js')
         const atResult = await ATScanner.getAccessibilityTree(tabId);
         const scanTime = Math.round(performance.now() - startTime);
@@ -627,9 +786,14 @@ async function executeATScan(tabId, url, trigger) {
 
         // Format as markdown for output (returns {markdown, registry})
         // Pass config with viewport for position-aware filtering
+        // Include domain capabilities so they appear in AT output
+        const domain = new URL(url).hostname.replace(/^www\./, '');
+        const domainConfig = siteConfigs[domain] || siteConfigs['default'];
+        console.log(`[SW] 🌳 AT Config lookup: domain="${domain}", hasConfig=${!!domainConfig}, capabilities=${domainConfig?.capabilities ? Object.keys(domainConfig.capabilities).join(',') : 'none'}`);
         const configWithViewport = {
             ...(atResult.config || {}),
-            viewport: atResult.viewport || {}
+            viewport: atResult.viewport || {},
+            capabilities: domainConfig?.capabilities || null
         };
         const formatted = ATScanner.formatTreeAsMarkdown(atResult.nodes, {
             title: atResult.title,
@@ -3105,7 +3269,14 @@ async function handleExecuteLLMAction(message, sendResponse) {
                 console.log("[SW] 🌳 AT element definition:", role, name);
 
                 // 🎯 QUERY AT TREE: Find element by role+name directly
-                const freshNodeId = await findATElementByDefinition(activeTab.id, role, name);
+                let freshNodeId = await findATElementByDefinition(activeTab.id, role, name);
+
+                // 🔧 ENRICHED NAME FALLBACK: If name was enriched (e.g. from data-placeholder),
+                // Chrome's AT still has empty name - try searching with empty name
+                if (!freshNodeId && name && element?.backendNodeId) {
+                    console.log("[SW] 🌳 Name search failed, trying empty name fallback");
+                    freshNodeId = await findATElementByDefinition(activeTab.id, role, '');
+                }
 
                 if (!freshNodeId) {
                     actionInProgress = false;
@@ -3118,10 +3289,43 @@ async function handleExecuteLLMAction(message, sendResponse) {
                 if (actionType === 'click' || !actionType) {
                     await executeATClick(activeTab.id, freshNodeId);
                     actionInProgress = false;
-                    sendResponse({ ok: true, result: { action: 'click', role: element.role, name: element.name } });
+                    sendResponse({ ok: true, result: { action: 'click', role: role, name: name } });
                     return;
                 } else if (actionType === 'setValue') {
                     const value = params?.value || '';
+
+                    // 🎯 CAPABILITY TEXTBOX: Use site config capability if available
+                    // This handles ProseMirror/Lexical editors (ChatGPT, etc.) via selector-based pipeline
+                    const tabUrl = activeTab.url || '';
+                    const domain = new URL(tabUrl).hostname.replace(/^www\./, '');
+                    const siteConfig = siteConfigs[domain] || siteConfigs['default'];
+                    const setInputCap = siteConfig?.capabilities?.setInput;
+                    if (role === 'textbox' && setInputCap?.selectors?.length > 0) {
+                        console.log("[SW] 🌳 Using setInput capability for textbox");
+                        try {
+                            const response = await chrome.tabs.sendMessage(activeTab.id, {
+                                type: 'execute_action_with_hints',
+                                data: {
+                                    actionId: actionId,
+                                    actionType: 'setValue',
+                                    params: { value: value, submit: params?.submit },
+                                    hints: {
+                                        label: name || '',
+                                        type: 'textbox',
+                                        selectors: setInputCap.selectors
+                                    }
+                                }
+                            });
+                            if (response?.ok) {
+                                actionInProgress = false;
+                                sendResponse({ ok: true, result: { action: 'setValue', value: value } });
+                                return;
+                            }
+                        } catch (e) {
+                            console.log("[SW] 🌳 Capability delegation failed, falling back to CDP:", e.message);
+                        }
+                    }
+
                     await executeATSetValue(activeTab.id, freshNodeId, value);
 
                     // Handle submit if requested
@@ -4221,6 +4425,7 @@ chrome.tabs.onRemoved.addListener(async (tabId) => {
  */
 chrome.runtime.onStartup.addListener(() => {
     console.log("[SW] Extension startup");
+    loadSiteConfigsFromFiles();
     connectWebSocket();
     ensureKeepAlivePort();
     scheduleHeartbeatAlarm();
@@ -4234,6 +4439,7 @@ chrome.runtime.onStartup.addListener(() => {
  */
 chrome.runtime.onInstalled.addListener(() => {
     console.log("[SW] Extension installed/updated");
+    loadSiteConfigsFromFiles();
     connectWebSocket();
     ensureKeepAlivePort();
     scheduleHeartbeatAlarm();
@@ -4252,6 +4458,7 @@ chrome.runtime.onInstalled.addListener(() => {
  */
 
 // Initialize connection when service worker loads
+loadSiteConfigsFromFiles();
 connectWebSocket();
 ensureKeepAlivePort();
 scheduleHeartbeatAlarm();

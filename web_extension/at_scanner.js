@@ -118,7 +118,7 @@ async function getATConfig(url) {
 function getDefaultConfig() {
   return {
     exclude_roles: ['none', 'presentation', 'generic', 'paragraph', 'LineBreak', 'InlineTextBox', 'StaticText'],
-    exclude_names: ['HIDE PROMPT', 'HUD', 'Scroll to top', 'Drag to scroll', 'Scroll to bottom', 'Send message', 'Ask anything...', 'Copy to clipboard'],
+    exclude_names: ['HIDE PROMPT', 'HUD', 'Scroll to top', 'Drag to scroll', 'Scroll to bottom', 'Send message', 'Ask me anything...', 'Copy to clipboard'],
     exclude_name_patterns: ['^\\+$', '^−$', '^ome-', 'Om_E'],
     max_depth: 15,
     max_nodes: 500
@@ -154,7 +154,10 @@ async function getAccessibilityTree(tabId) {
     const rawTree = await sendCommand(debuggee, 'Accessibility.getFullAXTree');
 
     // Process nodes into our format (with config-driven filtering)
-    const nodes = processATNodes(rawTree.nodes || [], config);
+    let nodes = processATNodes(rawTree.nodes || [], config);
+
+    // 🔧 Fix names for promoted textboxes using DOM data-placeholder pattern
+    nodes = await enrichPromotedTextboxNames(debuggee, nodes);
 
     // Build hierarchical structure
     const tree = buildHierarchy(nodes);
@@ -278,6 +281,68 @@ async function getPageInfo(debuggee) {
 }
 
 // ============================================================================
+// PROMOTED TEXTBOX NAME ENRICHMENT (data-placeholder pattern)
+// ============================================================================
+
+/**
+ * Enrich promoted textboxes with names from DOM data-placeholder
+ * Same pattern as DOM scanner: check child elements for data-placeholder
+ * @param {Object} debuggee - {tabId: number}
+ * @param {Array} nodes - Processed AT nodes
+ * @returns {Promise<Array>} - Nodes with enriched names
+ */
+async function enrichPromotedTextboxNames(debuggee, nodes) {
+  // Find textboxes with no name (likely promoted from contenteditable)
+  const needsEnrichment = nodes.filter(n =>
+    n.role === 'textbox' && !n.name && n.backendNodeId
+  );
+
+  if (needsEnrichment.length === 0) return nodes;
+
+  console.log(`[AT] 🔧 Enriching ${needsEnrichment.length} textboxes with empty names`);
+
+  for (const node of needsEnrichment) {
+    try {
+      // Resolve backendNodeId to objectId for DOM access
+      const resolved = await sendCommand(debuggee, 'DOM.resolveNode', {
+        backendNodeId: node.backendNodeId
+      });
+
+      if (!resolved.object?.objectId) continue;
+
+      // Query for data-placeholder on element or children
+      const nameResult = await sendCommand(debuggee, 'Runtime.callFunctionOn', {
+        objectId: resolved.object.objectId,
+        functionDeclaration: `function() {
+          // Check element itself
+          let name = this.getAttribute('placeholder')
+                  || this.getAttribute('aria-placeholder')
+                  || this.getAttribute('data-placeholder')
+                  || '';
+          // Check children for data-placeholder (ProseMirror/contenteditable pattern)
+          if (!name && this.querySelector) {
+            const child = this.querySelector('[data-placeholder]');
+            if (child) name = child.getAttribute('data-placeholder') || '';
+          }
+          return name;
+        }`,
+        returnByValue: true
+      });
+
+      if (nameResult.result?.value) {
+        node.name = nameResult.result.value;
+        console.log(`[AT] 🔧 Enriched textbox ${node.backendNodeId} → "${node.name}"`);
+      }
+
+    } catch (e) {
+      // Silent fail - not critical
+    }
+  }
+
+  return nodes;
+}
+
+// ============================================================================
 // NODE PROCESSING
 // ============================================================================
 
@@ -309,6 +374,30 @@ function processATNodes(rawNodes, config = {}) {
     return excludeRoles.has(role);
   }
 
+  // 🌳 Check if node has editable property (for contenteditable divs)
+  function isNodeEditable(node) {
+    const props = node.properties || [];
+    for (const prop of props) {
+      if (prop.name === 'editable' && prop.value?.value === true) return true;
+      if (prop.name === 'focusable' && prop.value?.value === true) {
+        // Also check if it's a generic with focusable - might be editable
+        const role = node.role?.value || 'generic';
+        if (role === 'generic' || role === 'textbox') return true;
+      }
+    }
+    return false;
+  }
+
+  // 🌳 Get effective role - promotes editable generics to textbox
+  const promoteEditableToTextbox = config.promote_editable_to_textbox !== false; // Default true
+  function getEffectiveRole(node) {
+    const rawRole = node.role?.value || 'generic';
+    if (promoteEditableToTextbox && rawRole === 'generic' && isNodeEditable(node)) {
+      return 'textbox';
+    }
+    return rawRole;
+  }
+
   // First pass: build lookup map of ALL nodes (including ones we'll skip)
   // so we can walk parent chains
   const rawNodeMap = new Map();
@@ -322,7 +411,7 @@ function processATNodes(rawNodes, config = {}) {
   // First pass: determine which nodes to keep
   for (const node of rawNodes) {
     if (node.ignored) continue;
-    const role = node.role?.value || 'generic';
+    const role = getEffectiveRole(node); // 🌳 Use effective role (promotes editable generics)
     if (shouldSkipRoleConfig(role)) continue;
 
     // Check name exclusion
@@ -352,7 +441,7 @@ function processATNodes(rawNodes, config = {}) {
     if (processed.length >= maxNodes) break;
     if (node.ignored) continue;
 
-    const role = node.role?.value || 'generic';
+    const role = getEffectiveRole(node); // 🌳 Use effective role (promotes editable generics)
     if (shouldSkipRoleConfig(role)) continue;
 
     // Extract properties
@@ -470,6 +559,12 @@ function extractStates(node) {
       case 'invalid':
         states.invalid = prop.value?.value;
         break;
+      case 'editable':
+        states.editable = prop.value?.value === true;
+        break;
+      case 'focusable':
+        states.focusable = prop.value?.value === true;
+        break;
     }
   }
 
@@ -568,6 +663,32 @@ function formatTreeAsMarkdown(tree, pageInfo, config = {}) {
   headerLines.push(`**URL:** ${pageInfo.url}`);
   headerLines.push(`**Timestamp:** ${pageInfo.timestamp}`);
   headerLines.push(`**Scan Type:** Accessibility Tree`);
+
+  // 🎯 CAPABILITIES: Show available domain capabilities with usage info
+  if (config.capabilities && Object.keys(config.capabilities).length > 0) {
+    headerLines.push('');
+    headerLines.push('**Available Capabilities:**');
+    for (const [key, cap] of Object.entries(config.capabilities)) {
+      headerLines.push('');
+      headerLines.push(`### \`${cap.action}\``);
+      if (cap.description) {
+        headerLines.push(cap.description);
+      }
+      if (cap.params && Object.keys(cap.params).length > 0) {
+        headerLines.push('**Params:**');
+        for (const [pname, ptype] of Object.entries(cap.params)) {
+          headerLines.push(`- \`${pname}\`: ${ptype}`);
+        }
+      }
+      if (cap.usage) {
+        headerLines.push('**Usage:**');
+        headerLines.push('```json');
+        headerLines.push(cap.usage);
+        headerLines.push('```');
+      }
+    }
+  }
+
   headerLines.push('');
   headerLines.push('---');
   headerLines.push('');

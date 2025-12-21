@@ -1,7 +1,7 @@
 # Om_E_Web - Complete System Architecture
 
-**Version:** 1.0  
-**Last Updated:** 2025-12-14  
+**Version:** 1.1
+**Last Updated:** 2025-12-21
 **System:** Chrome Extension (MV3) + Python WebSocket Server + LLM Intelligence Pipeline
 
 ---
@@ -247,6 +247,294 @@ React handlers execute → Form submits
 - LinkedIn job search input
 - LinkedIn global search (feed page)
 - Any React app where synthetic events don't work
+
+### 7. Accessibility Tree (AT) Execution via CDP
+
+**Overview:** Alternative to DOM-based scanning that uses Chrome's Accessibility Tree for element identification and CDP (Chrome DevTools Protocol) for execution. Same pattern as Claude's browser extension.
+
+**Scan Modes:**
+- `dom` - Traditional DOM TreeWalker scanning with CSS selectors (default for legacy)
+- `at` - Accessibility Tree scanning with role+name identification
+
+**Config Persistence:**
+
+The scan mode is persisted in `data/llm_config.json`:
+```json
+{
+  "extension": {
+    "scan_mode": "at"
+  }
+}
+```
+
+**State Locations:**
+- Server: `CURRENT_SCAN_MODE` global variable (loaded from config on startup)
+- Extension: `orbState.scanMode` (synced via `chrome.storage.local.omeScanMode`)
+
+**AT Scan Output Format (`@site_structures/AT_text.md`):**
+```markdown
+# YouTube
+
+**URL:** https://www.youtube.com/...
+**Scan Type:** Accessibility Tree
+
+---
+
+RootWebArea: "YouTube" (focused)
+  banner
+    search
+      [0] button: "Search" → {"act":0}
+      [1] combobox: "Search" → {"act":1,"value":"...","submit":true}
+  main
+    [6] link: "Video Title 10 minutes" → {"act":6}
+```
+
+Elements are identified by `[N] role: "name"` format with action metadata.
+
+**Execution Flow:**
+
+```
+1. LLM reads AT output: [6] link: "Video Title"
+2. LLM sends command with role+name:
+   {
+     type: "llm_instruction",
+     data: {
+       actionId: "6",
+       actionType: "click",
+       params: { role: "link", name: "Video Title" }
+     }
+   }
+
+3. ws_server.py receives message:
+   - Checks CURRENT_SCAN_MODE == 'at'
+   - Skips hint resolution (DOM-only)
+   - Forwards as execute_llm_action with params
+
+4. sw.js handleExecuteLLMAction():
+   - Checks orbState.scanMode === 'at'
+   - Extracts role+name from params
+   - Calls findATElementByDefinition(tabId, role, name)
+     → Queries LIVE AT tree via CDP Accessibility.getFullAXTree
+     → Finds node matching role+name
+     → Returns fresh backendNodeId
+
+5. executeATClick(tabId, backendNodeId):
+   - chrome.debugger.attach(tabId)
+   - DOM.getBoxModel(backendNodeId) → get x,y coordinates
+   - Input.dispatchMouseEvent(mousePressed, x, y)
+   - Input.dispatchMouseEvent(mouseReleased, x, y)
+   - chrome.debugger.detach()
+```
+
+**Key Principle:** No cached element references. Fresh AT tree query at execution time using role+name. Elements are identified by their accessibility properties, not DOM attributes.
+
+**Key Files & Functions:**
+
+| File | Function | Purpose |
+|------|----------|---------|
+| `ws_server.py:140` | `CURRENT_SCAN_MODE` | Global scan mode state |
+| `ws_server.py:8567-8593` | `main()` | Loads scan_mode from config on startup |
+| `ws_server.py:6188-6199` | `llm_instruction` handler | Routes to AT path when mode='at' |
+| `sw.js:65` | `orbState.scanMode` | Extension scan mode state |
+| `sw.js:471-513` | `findATElementByDefinition()` | Queries AT tree by role+name |
+| `sw.js:517-564` | `executeATClick()` | CDP click via coordinates |
+| `sw.js:573-670` | `executeATSetValue()` | CDP focus + type text |
+| `sw.js:3159-3260` | `handleExecuteLLMAction()` | Routes click/setValue based on scan mode |
+| `at_scanner.js` | `scanAccessibilityTree()` | Scans AT and generates output |
+
+**Changing Scan Mode:**
+
+```bash
+# Via WebSocket message
+python3 -c "
+import asyncio, websockets, json
+async def set_mode():
+    async with websockets.connect('ws://localhost:17892') as ws:
+        await ws.send(json.dumps({'type': 'set_scan_mode', 'mode': 'at'}))
+        print(await ws.recv())
+asyncio.run(set_mode())
+"
+
+# Or via extension popup toggle
+```
+
+Mode changes:
+1. Persist to `llm_config.json`
+2. Update `CURRENT_SCAN_MODE` on server
+3. Send to extension → updates `orbState.scanMode`
+4. Save to `chrome.storage.local.omeScanMode`
+
+**Testing AT Execution:**
+
+```bash
+# Click element by role+name
+python3 om_e_web_ws/test_navigation.py \
+  --action-id 6 \
+  --action-type click \
+  --params '{"role": "link", "name": "Video Title"}'
+
+# Set value with submit
+python3 om_e_web_ws/test_navigation.py \
+  --action-id 1 \
+  --action-type setValue \
+  --value "search query" \
+  --submit \
+  --params '{"role": "combobox", "name": "Search"}'
+```
+
+**AT vs DOM Comparison:**
+
+| Aspect | DOM Mode | AT Mode |
+|--------|----------|---------|
+| Scan method | TreeWalker + CSS selectors | CDP Accessibility.getFullAXTree |
+| Element ID | CSS selector hints | role + name |
+| Execution | querySelector → element.click() | CDP backendNodeId → Input events |
+| Stale elements | Re-query via selectors | Re-query AT tree by role+name |
+| Output file | `text.md` with selectors | `AT_text.md` with role+name |
+| Best for | Complex DOM, SPAs | Screen reader compatible sites |
+
+**Same Pattern as Claude Extension:** This implementation mirrors how Claude's browser extension works - scan AT tree, identify by role+name, fresh lookup at execution time, CDP events for interaction.
+
+### 8. AT Capability Pipeline (Hybrid AT + Selector Execution)
+
+**Problem:** Some web elements (ProseMirror, Lexical contenteditables like ChatGPT, Facebook Messenger) don't work reliably with pure CDP setValue. The AT tree identifies them correctly, but CDP text input fails because these frameworks intercept and manage text input internally.
+
+**Solution:** AT mode checks for domain-specific capabilities defined in `site_configs/*.json`. When a capability exists for the domain, it's:
+1. Included in the AT scan output (`AT_text.md`) with full usage documentation
+2. Routed through the content.js selector pipeline for execution (same as DOM mode)
+
+**How It Works:**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    AT Capability Pipeline Flow                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. SCAN PHASE (sw.js executeATScan):
+   - Load site configs from JSON files (loadSiteConfigsFromFiles)
+   - Lookup domain config: siteConfigs['chatgpt.com']
+   - Pass capabilities to AT formatter
+
+2. OUTPUT PHASE (at_scanner.js formatTreeAsMarkdown):
+   - Include **Available Capabilities:** section in AT_text.md
+   - Show action name, description, params, and usage example
+
+3. EXECUTION PHASE:
+   LLM reads AT_text.md:
+   ┌──────────────────────────────────────────────────────────┐
+   │ **Available Capabilities:**                              │
+   │                                                          │
+   │ ### `SetInputValue`                                      │
+   │ Type into the ChatGPT prompt input (ProseMirror)...      │
+   │ **Params:**                                              │
+   │ - `value`: string (the text to type)                     │
+   │ - `submit`: boolean (optional)                           │
+   │ **Usage:**                                               │
+   │ ```json                                                  │
+   │ {"type": "execute_capability", "action": "SetInputValue",│
+   │  "params": {"value": "Hello", "submit": true}}           │
+   │ ```                                                      │
+   └──────────────────────────────────────────────────────────┘
+
+   LLM sends execute_capability command
+        ↓
+   ws_server.py forwards to extension
+        ↓
+   sw.js routes to content.js (execute_action_with_hints)
+        ↓
+   content.js finds element via CSS selectors from capability config
+        ↓
+   content.js executes setValue using DOM methods (works on ProseMirror!)
+```
+
+**Site Config Capability Format:**
+
+```json
+// site_configs/chatgpt.json
+{
+  "framework": "chatgpt",
+  "capabilities": {
+    "setInput": {
+      "action": "SetInputValue",
+      "label": "Set ChatGPT prompt text",
+      "description": "Type into the ChatGPT prompt input (ProseMirror contenteditable). Use this capability instead of direct AT textbox setValue.",
+      "url_pattern": "chatgpt.com",
+      "params": {
+        "value": "string (the text to type)",
+        "submit": "boolean (optional, send message after typing)"
+      },
+      "usage": "{\"type\": \"execute_capability\", \"action\": \"SetInputValue\", \"params\": {\"value\": \"Hello\", \"submit\": true}}",
+      "selectors": [
+        "#prompt-textarea",
+        "div.ProseMirror[contenteditable='true']",
+        "div[contenteditable='true'][data-placeholder]"
+      ],
+      "submitMethod": "enter",
+      "autoSubmit": true
+    }
+  }
+}
+```
+
+**Key Fields:**
+- `action`: Capability action name (used in execute_capability command)
+- `description`: LLM-readable explanation of what it does
+- `params`: Parameter documentation for the LLM
+- `usage`: JSON example the LLM can copy/modify
+- `selectors`: CSS selectors used by content.js to find the element
+- `submitMethod`: How to submit ("enter", "click", "enter_then_click")
+
+**Testing AT Capabilities:**
+
+```bash
+# Execute capability (routes through selector pipeline)
+python3 om_e_web_ws/test_navigation.py \
+  --command capability \
+  --capability SetInputValue \
+  --params '{"value": "Hello from capability", "submit": true}'
+
+# Response shows selector-based execution:
+# {"ok": true, "result": {"elementFound": "#prompt-textarea", "matchedBy": "selector"}}
+```
+
+**When to Use:**
+- ChatGPT (ProseMirror contenteditable)
+- Facebook Messenger (Lexical contenteditable)
+- Any site where CDP setValue fails but DOM methods work
+- Sites with complex input frameworks that ignore synthetic events
+
+**Key Files:**
+
+| File | Function | Purpose |
+|------|----------|---------|
+| `sw.js:311-358` | `loadSiteConfigsFromFiles()` | Load site configs from JSON files |
+| `sw.js:775-778` | AT scan capability check | Ensure configs loaded before scan |
+| `sw.js:790-796` | `configWithViewport` | Pass capabilities to AT formatter |
+| `at_scanner.js:667-690` | Capability output | Format capabilities in markdown |
+| `site_configs/*.json` | Capability definitions | Per-domain capability configs |
+| `content.js` | Selector execution | Execute via hints pipeline |
+
+**AT Mode Decision Tree:**
+
+```
+AT Scan Complete
+      ↓
+Does domain have capabilities in site config?
+      ├── YES → Include in AT_text.md with usage docs
+      │         LLM can use execute_capability for complex inputs
+      │
+      └── NO → Standard AT elements only
+               LLM uses llm_instruction with role+name
+
+Execution Request
+      ↓
+Is it execute_capability?
+      ├── YES → Route through content.js selector pipeline
+      │         (Works for ProseMirror, Lexical, etc.)
+      │
+      └── NO → Standard AT execution via CDP
+               (Works for native inputs, buttons, links)
+```
 
 ---
 
