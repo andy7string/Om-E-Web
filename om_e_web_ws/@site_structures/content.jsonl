@@ -1,35 +1,35 @@
 {
-  "timestamp": 1766305896.448286,
+  "timestamp": 1766357253.299826,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1138054800,
-      "url": "https://www.youtube.com/watch?v=SpB6vjMO4Ac",
-      "title": "(1) My thoughts on editing playing videos - YouTube",
-      "status": "complete"
+      "id": 1138055138,
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138054800,
-        "url": "https://www.youtube.com/watch?v=SpB6vjMO4Ac",
-        "title": "(1) My thoughts on editing playing videos - YouTube",
-        "active": true,
-        "status": "complete"
-      },
-      {
-        "id": 1138054806,
+        "id": 1138055112,
         "url": "chrome://extensions/",
         "title": "Extensions",
         "active": false,
         "status": "complete"
+      },
+      {
+        "id": 1138055138,
+        "url": "https://chatgpt.com/",
+        "title": "ChatGPT",
+        "active": true,
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 31460.052963958,
+    "last_tabs_update": 5358.027756041,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/watch?v=SpB6vjMO4Ac",
-    "title": "(1) My thoughts on editing playing videos - YouTube",
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT",
     "is_active_tab": true
   },
   "content_structure": {},

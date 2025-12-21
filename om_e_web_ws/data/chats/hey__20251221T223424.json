@@ -1,0 +1,159 @@
+{
+  "chat_id": "hey__20251221T223424",
+  "project_id": "default",
+  "created_at": "2025-12-21T22:34:24.865979Z",
+  "updated_at": "2025-12-21T22:36:51.257109Z",
+  "title": "24_34_22_21_12_2025_hey",
+  "default_title": "24_34_22_21_12_2025_hey",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey",
+      "timestamp": "2025-12-21T22:34:24.866015Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey there! What's cooking? Ready to chat or pull a little digital prank? 😉",
+      "timestamp": "2025-12-21T22:34:26.737220Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "can you open google please",
+      "timestamp": "2025-12-21T22:35:15.722515Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-21T22:35:17.217179Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "what other search sites are there",
+      "timestamp": "2025-12-21T22:35:40.876978Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Besides Google, there are plenty of other search engines like Bing, Yahoo, DuckDuckGo, Baidu, and Startpage. Want me to open one for you? Maybe DuckDuckGo for some sneaky private searches? 😉",
+      "timestamp": "2025-12-21T22:35:43.946201Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "whats the best one",
+      "timestamp": "2025-12-21T22:35:55.085088Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Ah, the \"best\" search engine depends on what you value! Google is king for sheer power and features, DuckDuckGo is great for privacy, Bing has some neat visuals, and Startpage offers Google results without tracking. Want me to pick one for your secret missions? 😉",
+      "timestamp": "2025-12-21T22:35:57.520757Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "whats at the bottom of this page",
+      "timestamp": "2025-12-21T22:36:08.284283Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing ScrollBottom...",
+      "timestamp": "2025-12-21T22:36:10.545947Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "more",
+      "timestamp": "2025-12-21T22:36:13.941441Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Executing ScrollDown...",
+      "timestamp": "2025-12-21T22:36:14.879156Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "more",
+      "timestamp": "2025-12-21T22:36:16.279321Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Executing ScrollDown...",
+      "timestamp": "2025-12-21T22:36:18.023011Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "na scroll to bottom",
+      "timestamp": "2025-12-21T22:36:24.855633Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Executing ScrollBottom...",
+      "timestamp": "2025-12-21T22:36:26.622185Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "all the way back to teh top please",
+      "timestamp": "2025-12-21T22:36:33.150305Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Executing ScrollTop...",
+      "timestamp": "2025-12-21T22:36:34.369634Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "hud view",
+      "timestamp": "2025-12-21T22:36:37.963571Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-21T22:36:38.673798Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "see chats",
+      "timestamp": "2025-12-21T22:36:41.457849Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-21T22:36:42.448171Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "go to the chat d",
+      "timestamp": "2025-12-21T22:36:50.176428Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-21T22:36:51.257109Z"
+    }
+  ]
+}
