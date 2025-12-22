@@ -837,6 +837,7 @@ The 64 messages of context? Not in the prompt. Om-E is blind to the conversation
 
 **The Fix:**
 - [ ] Load last 8-10 messages from current chat file
+- [ ] If message is large (>500 chars), use its summary instead of full content
 - [ ] Include in prompt (~150-200 tokens budget)
 - [ ] Format: `[Recent conversation:] User: ... Om-E: ...`
 - [ ] Hook into orchestrator's `_call_unified()`
