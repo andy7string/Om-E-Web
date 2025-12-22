@@ -1491,6 +1491,27 @@ def execute_internal_capability(action: str, params: dict, offered_caps: list[di
             return {"max_tokens": tokens_val}
         return {"error": "Failed to save config"}
 
+    elif action == "SetCapScoreThreshold":
+        # Set RAG confidence threshold for capabilities
+        threshold = params.get("threshold")
+        if threshold is None:
+            return {"error": "Missing threshold parameter"}
+
+        try:
+            thresh_val = float(threshold)
+            if thresh_val < 0 or thresh_val > 1:
+                return {"error": "threshold must be between 0 and 1"}
+        except ValueError:
+            return {"error": "threshold must be a number"}
+
+        config = load_llm_config()
+        if "settings" not in config:
+            config["settings"] = {}
+        config["settings"]["cap_score_threshold"] = thresh_val
+        if save_llm_config(config):
+            return {"cap_score_threshold": thresh_val}
+        return {"error": "Failed to save config"}
+
     elif action == "GetScanMode":
         # Get current scan mode from config
         config = load_llm_config()

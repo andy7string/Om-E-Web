@@ -970,6 +970,206 @@ elif cap_action == "MyCapability":
 
 ---
 
+## Claude Code Testing via Chrome MCP (Feedback Loop)
+
+**Overview:** Claude Code (this AI assistant) can directly test Om_E_Web functionality using Chrome MCP tools. This creates a complete feedback loop where Claude can:
+1. Send messages to the HUD chat input
+2. Wait for LLM processing
+3. Read the debug output file (`llm_unified.md`)
+4. Verify the system behavior
+5. Iterate on fixes
+
+### Available MCP Tools
+
+| Tool | Purpose |
+|------|---------|
+| `tabs_context_mcp` | Get current tab IDs and URLs |
+| `read_page` | Read accessibility tree (find input refs) |
+| `computer` | Click, type, screenshot, wait |
+| `form_input` | Set form values by ref |
+
+### Testing Workflow
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    Claude Code MCP Testing Loop                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. GET CONTEXT
+   mcp__claude-in-chrome__tabs_context_mcp
+   → Returns: tabId for Om-E Web (http://127.0.0.1:8080/)
+
+2. SCREENSHOT (verify state)
+   mcp__claude-in-chrome__computer action=screenshot tabId=XXX
+   → Visual confirmation of HUD state
+
+3. CLICK INPUT
+   mcp__claude-in-chrome__computer action=left_click coordinate=[470,711] tabId=XXX
+   → Focus the "Ask me anything..." input
+
+4. TYPE MESSAGE
+   mcp__claude-in-chrome__computer action=type text="test message" tabId=XXX
+   → Type test input
+
+5. SUBMIT
+   mcp__claude-in-chrome__computer action=key text=Return tabId=XXX
+   → Send message to Om-E
+
+6. WAIT
+   mcp__claude-in-chrome__computer action=wait duration=3 tabId=XXX
+   → Allow LLM processing time
+
+7. READ FEEDBACK
+   Read /Users/andy7string/Projects/Om_E_Web/om_e_web_ws/llm_unified.md
+   → Contains:
+      - User Message (what was sent)
+      - Messages count
+      - Capabilities injected
+      - Token counts (system, messages, total)
+      - LLM processing time
+      - Full system prompt
+      - All messages sent to LLM
+      - LLM response JSON
+
+8. VERIFY & ITERATE
+   - Check if expected context was injected
+   - Verify token counts
+   - Confirm capabilities matched
+   - Test edge cases
+   - Fix code → restart server → repeat
+```
+
+### Example: Testing Large Payload Handling
+
+```python
+# 1. Send large message (>500 chars)
+mcp__claude-in-chrome__computer action=type text="Here is a really long message..."
+
+# 2. Submit
+mcp__claude-in-chrome__computer action=key text=Return
+
+# 3. Wait for processing
+mcp__claude-in-chrome__computer action=wait duration=5
+
+# 4. Check feedback file
+Read llm_unified.md
+
+# Expected output shows:
+# **User Message:** [User sent 516 chars, stored as vector:XXX] <summary>
+# **Tokens:** ~1027 (reduced from ~1500)
+#
+# And in the prompt section:
+# [Relevant stored content:]
+# - <summary of stored payload>
+```
+
+### Debug Output File Structure (`llm_unified.md`)
+
+```markdown
+# Unified LLM Call Debug
+
+**Generated:** 2025-12-23 00:20:37
+**User Message:** <what user typed or processed version>
+**Messages:** <count of messages in history>
+**Capabilities:** <count injected>
+**Tokens:** ~XXX (system: XXX, messages: XXX)
+**LLM Time:** XXXms
+
+## System Prompt
+```
+<full system prompt with personality, rules, output format>
+```
+
+## Messages (sent to LLM)
+
+### 1. USER
+```
+<first message or rolling history>
+```
+
+### 2. USER
+```
+ENVIRONMENT (current state)
+Page: <title> (<url>)
+Tabs (currently open):
+  1. Tab name ← ACTIVE
+  2. Other tabs
+
+Capabilities:
+- CapName: Description
+  params: key: description
+
+[Relevant stored content:]    ← PAYLOAD CONTEXT (if any)
+- Summary of stored large content
+
+USER: <the actual user message>
+```
+
+## Response
+```json
+{"type":"reply","text":"Om-E's response"}
+```
+```
+
+### Key Sections to Verify
+
+| Section | What to Check |
+|---------|---------------|
+| **User Message** | Large payloads show `[User sent XXX chars, stored as vector:ID] summary` |
+| **Tokens** | Compare before/after changes (e.g., payload handling saves ~500 tokens) |
+| **Capabilities** | Correct caps injected based on cap_score_threshold |
+| **[Relevant stored content:]** | Payload context retrieved via RAG |
+| **Response** | LLM understood context and responded appropriately |
+
+### Testing Config Changes
+
+Config lives in `data/llm_config.json`:
+
+```json
+{
+  "settings": {
+    "cap_score_threshold": 0.45  // Tune RAG confidence
+  },
+  "context": {
+    "payload_context_lines": 5,    // Max lines of payload context
+    "large_payload_threshold": 500, // Chars to trigger summarization
+    "payload_summary_budget": 50    // Target tokens for summary
+  }
+}
+```
+
+**Workflow:**
+1. Edit config
+2. Restart ws_server.py
+3. Test via MCP
+4. Check llm_unified.md
+5. Iterate
+
+### Common Test Scenarios
+
+| Scenario | What to Send | What to Verify |
+|----------|--------------|----------------|
+| Chat only | "how are you" | No caps injected if score < threshold |
+| Action | "google cats" | GoogleIt cap executed |
+| Large payload | 600+ char message | Summarized, stored in vector |
+| Payload retrieval | "what did I say about X" | `[Relevant stored content:]` appears |
+| Search escape | Ambiguous request | LLM uses `{"type":"search","query":"..."}` |
+
+### Server Restart Required
+
+Code changes require server restart:
+```bash
+# Kill existing
+pkill -f ws_server.py
+
+# Restart
+python om_e_web_ws/ws_server.py
+```
+
+Config changes in `llm_config.json` also need restart (server caches on load).
+
+---
+
 ## Related Documentation
 
 - `/Users/andy7string/Projects/Om_E_Web/CLAUDE.md` - Project overview, coding philosophy

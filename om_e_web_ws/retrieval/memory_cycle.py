@@ -30,9 +30,25 @@ Usage:
 
 import json
 import time
+from pathlib import Path
 from typing import Dict, List, Optional
 
 from .chat_context import classify_message, estimate_tokens
+
+# Config path
+CONFIG_PATH = Path(__file__).parent.parent / "data" / "llm_config.json"
+
+
+def _get_context_config() -> Dict:
+    """Load context settings from config."""
+    try:
+        if CONFIG_PATH.exists():
+            with open(CONFIG_PATH) as f:
+                config = json.load(f)
+            return config.get("context", {})
+    except Exception:
+        pass
+    return {}
 
 
 # ============================================================================
@@ -49,6 +65,16 @@ CONTEXT_BUDGET = {
 
 BATCH_THRESHOLD = 500     # Summarize every 500 tokens of content
 MAX_ACTIONS = 5           # Rolling action count
+
+# Large payload handling (defaults - overridden by config)
+def _get_payload_threshold() -> int:
+    return _get_context_config().get("large_payload_threshold", 500)
+
+def _get_summary_budget() -> int:
+    return _get_context_config().get("payload_summary_budget", 50)
+
+def _get_payload_context_lines() -> int:
+    return _get_context_config().get("payload_context_lines", 5)
 
 
 # ============================================================================
@@ -319,3 +345,133 @@ def get_context_state(chat_dict: Dict) -> Dict:
     Returns empty dict if not initialized.
     """
     return chat_dict.get('context_state', {})
+
+
+# ============================================================================
+# LARGE PAYLOAD HANDLING
+# ============================================================================
+
+async def summarize_large_payload(content: str) -> str:
+    """
+    Summarize a large user message to fit within token budget.
+    Returns condensed version preserving intent.
+
+    @param content: The large content to summarize
+    @return: Summarized version (~50 tokens)
+    """
+    from llm.client import LLMClient
+
+    client = LLMClient()
+    try:
+        prompt = f"""Extract the KEY CONTENT from this message in 1-2 sentences.
+Focus on specific details, names, terms, and entities - NOT meta-description of what the user is doing.
+
+BAD: "User is testing the system by pasting text"
+GOOD: "Contains 'quick brown fox jumps over lazy dog' and lorem ipsum text about code infrastructure"
+
+User message:
+{content[:2000]}
+
+Key content:"""
+
+        response = await client.chat(
+            system_prompt="You are a summarizer. Be concise.",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.1,
+            max_tokens=100
+        )
+        return response.strip()
+    except Exception as e:
+        print(f"[MemoryCycle] Summarization error: {e}")
+        # Fallback: truncate with indicator
+        return content[:200] + f"... [{len(content)} chars total]"
+    finally:
+        await client.close()
+
+
+def check_large_payload(content: str) -> bool:
+    """Check if content exceeds the large payload threshold."""
+    return len(content) > _get_payload_threshold()
+
+
+async def process_large_payload(content: str, chat_id: Optional[str] = None) -> str:
+    """
+    Process a large payload - summarize for prompt, store full in vector.
+
+    @param content: The large content
+    @param chat_id: Optional chat ID for storage linking
+    @return: Summarized content to use in prompt
+    """
+    if not check_large_payload(content):
+        return content
+
+    char_count = len(content)
+    print(f"[MemoryCycle] Large payload detected: {char_count} chars, summarizing...")
+
+    # Summarize for prompt
+    summary = await summarize_large_payload(content)
+
+    # Store full content in vector for RAG retrieval
+    payload_id = f"{chat_id or 'anon'}_{int(time.time())}"
+    try:
+        from .vector_store import VectorStore
+
+        # Use dedicated payload vector store
+        payload_store = VectorStore('payloads')
+        payload_store.load()  # Load existing or start fresh
+
+        # Add full content with metadata
+        payload_store.add(
+            texts=[content],
+            metadata_list=[{
+                'payload_id': payload_id,
+                'chat_id': chat_id,
+                'summary': summary,
+                'char_count': char_count,
+                'timestamp': time.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                'type': 'large_payload'
+            }]
+        )
+        payload_store.save()
+        print(f"[MemoryCycle] Stored in vector: {payload_id}")
+    except Exception as e:
+        print(f"[MemoryCycle] Vector store error: {e}")
+
+    return f"[User sent {char_count} chars, stored as vector:{payload_id}] {summary}"
+
+
+def get_payload_context(query: str, chat_id: Optional[str] = None) -> str:
+    """
+    Retrieve relevant payload context for the prompt.
+    Returns formatted string with up to N lines of context (from config).
+
+    @param query: The user's current message to match against
+    @param chat_id: Optional chat ID to filter results
+    @return: Formatted context string or empty string
+    """
+    max_lines = _get_payload_context_lines()
+    if max_lines <= 0:
+        return ""
+
+    try:
+        from .vector_store import VectorStore
+
+        store = VectorStore('payloads')
+        if not store.load():
+            return ""
+
+        results = store.search(query, k=max_lines, threshold=0.4)
+        if not results:
+            return ""
+
+        # Format results as context lines
+        lines = ["[Relevant stored content:]"]
+        for r in results:
+            summary = r.metadata.get('summary', r.text[:100])
+            lines.append(f"- {summary}")
+
+        return '\n'.join(lines)
+
+    except Exception as e:
+        print(f"[MemoryCycle] Payload context error: {e}")
+        return ""

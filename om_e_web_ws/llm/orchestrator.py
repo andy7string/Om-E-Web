@@ -35,7 +35,7 @@ from .contracts import (
 from .shaping import shape_options
 from .metrics import TurnMetrics, log_turn_metrics
 from retrieval.chat_context import classify_message, process_and_write_memory
-from retrieval.memory_cycle import condense_action
+from retrieval.memory_cycle import condense_action, check_large_payload, process_large_payload, get_payload_context
 
 logger = logging.getLogger(__name__)
 
@@ -58,7 +58,7 @@ def _write_debug_file(filename: str, content: str):
 # Prompt size limits (with 10% buffer built into totals)
 MAX_HISTORY_TOKENS = 600  # Rolling chat history budget for Chat Persona
 MAX_TAB_TITLES = 5  # Tab titles in environment hint
-MAX_CAPABILITY_OPTIONS = 10
+MAX_CAPABILITY_OPTIONS = 7  # Lean set - LLM can request more if needed
 
 # Confidence thresholds (tune after metrics analysis)
 HIGH_CONFIDENCE_THRESHOLD = 0.85  # Act immediately
@@ -195,6 +195,18 @@ class PersonaOrchestrator:
             self._cap_store = CapabilitiesStore()
             self._cap_store.load_or_build()  # Auto-rebuilds if source newer than index
         return self._cap_store
+
+    def _get_cap_score_threshold(self) -> float:
+        """Get RAG confidence threshold from config. Below this = no caps shown."""
+        try:
+            config_path = CHATS_DIR.parent / "llm_config.json"
+            if config_path.exists():
+                with open(config_path) as f:
+                    config = json.load(f)
+                return config.get("settings", {}).get("cap_score_threshold", 0.45)
+        except Exception:
+            pass
+        return 0.45  # Default
 
     # --------------------------------------------------------
     # Main Entry Point
@@ -1006,6 +1018,12 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             user_content_parts.append("ENVIRONMENT (current state - use these for actions)\n" + "\n".join(env_lines))
         if cap_lines:
             user_content_parts.append("\n".join(cap_lines))
+
+        # Add relevant payload context (stored large content)
+        payload_ctx = get_payload_context(user_message, chat_id)
+        if payload_ctx:
+            user_content_parts.append(payload_ctx)
+
         user_content_parts.append(f"USER: {user_message}")
 
         user_content = "\n\n".join(user_content_parts)
@@ -1142,19 +1160,33 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 await log_turn_metrics(metrics)
                 return result
 
+        # STEP 0: Handle large payloads - summarize and store in vector
+        prompt_message = user_message
+        if check_large_payload(user_message):
+            prompt_message = await process_large_payload(user_message, chat_id)
+            logger.info(f"[Orchestrator] Large payload processed: {len(user_message)} -> {len(prompt_message)} chars")
+
         # STEP 1: RAG retrieval (always)
         t0 = time.time()
         raw_options = await self._query_capabilities(user_message)
         metrics.rag_ms = (time.time() - t0) * 1000
-        if raw_options:
-            metrics.top_score = raw_options[0].get("score", 0)
 
-        shaped_options = shape_options(user_message, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
+        # Only inject capabilities if RAG found confident matches
+        # This saves ~200 tokens on chat-only turns
+        # Threshold is tunable via settings UI
+        cap_threshold = self._get_cap_score_threshold()
+        top_score = raw_options[0].get("score", 0) if raw_options else 0
+        metrics.top_score = top_score
 
-        # STEP 2: Single unified LLM call
+        if top_score >= cap_threshold:
+            shaped_options = shape_options(user_message, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
+        else:
+            shaped_options = []  # Chat-only - no caps needed
+
+        # STEP 2: Single unified LLM call (use prompt_message for large payload handling)
         t0 = time.time()
         output = await self._call_unified(
-            user_message, shaped_options, active_tab, tabs, chat_id, orb_theme, visible_chats
+            prompt_message, shaped_options, active_tab, tabs, chat_id, orb_theme, visible_chats
         )
         metrics.chat_persona_ms = (time.time() - t0) * 1000  # Reuse field for unified call
 
@@ -1226,6 +1258,64 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             return OrchestratorResult(
                 response_text=option_text,
                 turn_state=TurnState.TURN_COMPLETED
+            )
+
+        elif output_type == "search":
+            # LLM wants more capabilities - query RAG with its suggested term
+            search_query = output.get("query", user_message)
+            logger.info(f"LLM requested more caps with query: {search_query}")
+
+            # Query RAG with LLM's search term
+            more_options = await self._query_capabilities(search_query)
+            if more_options:
+                # Merge with existing, dedup by action name
+                existing_actions = {opt.get("action") for opt in shaped_options}
+                for opt in more_options:
+                    if opt.get("action") not in existing_actions:
+                        shaped_options.append(opt)
+
+                # Cap at 12 total for expanded search
+                shaped_options = shaped_options[:12]
+
+                # Retry with expanded caps
+                output = await self._call_unified(
+                    prompt_message, shaped_options, active_tab, tabs, chat_id, orb_theme, visible_chats
+                )
+                output_type = output.get("type", "reply")
+
+                # Handle the new output (recursive-ish but only one level)
+                if output_type == "reply":
+                    self.state.transition_to(TurnState.TURN_CHAT_ONLY)
+                    metrics.total_ms = (time.time() - turn_start) * 1000
+                    await log_turn_metrics(metrics)
+                    return OrchestratorResult(
+                        response_text=output.get("text", ""),
+                        turn_state=TurnState.TURN_CHAT_ONLY,
+                        action_executed=False
+                    )
+                elif output_type == "action":
+                    cap_name = output.get("cap", "")
+                    params = output.get("params", {})
+                    self.state.transition_to(TurnState.TURN_EXECUTING)
+                    metrics.total_ms = (time.time() - turn_start) * 1000
+                    await log_turn_metrics(metrics)
+                    return OrchestratorResult(
+                        response_text=f"Executing {cap_name}...",
+                        turn_state=TurnState.TURN_EXECUTING,
+                        action_type="cap",
+                        action_target=cap_name,
+                        action_params=params,
+                        action_executed=True
+                    )
+
+            # Fallback if search didn't help
+            self.state.transition_to(TurnState.TURN_COMPLETED)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return OrchestratorResult(
+                response_text="I couldn't find a matching capability. Could you rephrase?",
+                turn_state=TurnState.TURN_COMPLETED,
+                action_type="clarify"
             )
 
         elif output_type == "noop":

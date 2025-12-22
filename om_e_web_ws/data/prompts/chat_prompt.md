@@ -37,6 +37,11 @@ You receive matching capabilities with scores. Pick the best match and fill para
 {"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
 ```
 
+**Search** - need more capabilities (current list doesn't fit):
+```json
+{"type":"search","query":"what to search for"}
+```
+
 ## Rules
 - JSON only, no markdown wrapper
 - One response per message

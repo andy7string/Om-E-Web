@@ -3757,6 +3757,12 @@
                                     <input type="number" class="ome-settings-max-tokens" min="1" max="128000" value="2048">
                                 </div>
                             </div>
+                            <div class="ome-settings-row">
+                                <div class="ome-settings-group">
+                                    <label>Cap Score</label>
+                                    <input type="number" class="ome-settings-cap-score" min="0" max="1" step="0.05" value="0.45" title="RAG confidence threshold - below this, no capabilities shown (saves tokens)">
+                                </div>
+                            </div>
                             <button class="ome-settings-save">Save Settings</button>
                             <div class="ome-settings-status"></div>
                         </div>
@@ -4157,6 +4163,8 @@
                     if (apikeyInput) apikeyInput.value = provider.api_key || '';
                     if (tempInput) tempInput.value = settings.temperature ?? 0.7;
                     if (tokensInput) tokensInput.value = settings.max_tokens ?? 2048;
+                    const capScoreInput = hud.querySelector('.ome-settings-cap-score');
+                    if (capScoreInput) capScoreInput.value = settings.cap_score_threshold ?? 0.45;
 
                     // Populate model dropdown for this provider (pass current model)
                     await populateModelList(activeProvider, provider.model || '');
@@ -4288,6 +4296,16 @@
                         type: 'execute_capability',
                         action: 'SetMaxTokens',
                         params: { max_tokens: maxTokens }
+                    }, resolve);
+                });
+
+                // Set cap score threshold
+                const capScore = parseFloat(hud.querySelector('.ome-settings-cap-score')?.value || '0.45');
+                await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'SetCapScoreThreshold',
+                        params: { threshold: capScore }
                     }, resolve);
                 });
 

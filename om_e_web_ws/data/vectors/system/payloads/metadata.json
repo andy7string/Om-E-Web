@@ -1,0 +1,24 @@
+{
+  "texts": [
+    "Testing large payload handling with over 500 characters. This message should trigger the summarization flow where the system detects a large payload, creates a concise 2 sentence summary for the LLM prompt, and stores the full original content in a vector store for later RAG retrieval if needed. The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor. This infrastructure handles code dumps documents or any large content users paste into the chat.",
+    "IMPORTANT DATA TO STORE: The quick brown fox named Gerald jumped over the lazy dog named Buster near the old oak tree in Springfield park by the river. My cat Whiskers is 7 years old and loves eating tuna flavored treats every morning. The Eiffel Tower in Paris France stands at exactly 330 meters tall and was completed in the year 1889 for the World Fair exhibition. Mount Everest reaches 8849 meters making it the tallest mountain on planet Earth and is located in Nepal near Tibet. Australia capital city is Canberra with population around 450000 people not Sydney. My favorite pizza has pepperoni mushrooms and extra cheese toppings. The secret password is blueberry42 remember that."
+  ],
+  "metadata": [
+    {
+      "payload_id": "20251222133854_576ace_1766410735",
+      "chat_id": "20251222133854_576ace",
+      "summary": "User is testing the system's ability to handle large text inputs by submitting a lengthy message to trigger summarization and storage for later retrieval. They describe the infrastructure managing large content like code or documents in chat.",
+      "char_count": 516,
+      "timestamp": "2025-12-23T00:08:55Z",
+      "type": "large_payload"
+    },
+    {
+      "payload_id": "20251222135527_b1554a_1766411897",
+      "chat_id": "20251222135527_b1554a",
+      "summary": "Gerald the fox jumped over Buster the dog near the old oak tree in Springfield park by the river; cat Whiskers is 7 years old and eats tuna treats. The Eiffel Tower in Paris is 330 meters tall, completed in 1889; Mount Everest is 8849 meters tall, located in Nepal near Tibet. Australia's capital is Canberra with about 450,000 people. The secret password is blueberry42.",
+      "char_count": 688,
+      "timestamp": "2025-12-23T00:28:17Z",
+      "type": "large_payload"
+    }
+  ]
+}
