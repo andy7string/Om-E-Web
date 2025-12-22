@@ -350,8 +350,8 @@ ACTION_PATTERNS = {
     "close": re.compile(r"close|dismiss|exit|hide", re.I),
     # Chat operations (must come before "search" to catch SearchChats, ShowChats, etc.)
     "chat": re.compile(r"chats?$|^show|^hide|^set.*chat|^rename.*chat|^delete.*chat|^load.*chat", re.I),
-    # Web search engines (GoogleSearch, YouTubeSearch - external searches)
-    "websearch": re.compile(r"^google|^youtube|^bing", re.I),
+    # Web lookups (GoogleIt, YouTubeIt - external sites)
+    "weblookup": re.compile(r"^google|^youtube|^bing", re.I),
     # View/HUD operations
     "view": re.compile(r"view|hud|sidebar|toggle", re.I),
 }

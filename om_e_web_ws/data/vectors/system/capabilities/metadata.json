@@ -41,20 +41,20 @@
     "navigate to",
     "visit site",
     "go to url",
-    "GoogleSearch: Search Google for something. Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
-    "search google",
+    "GoogleIt: Google something on the web. Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
     "google it",
-    "look up",
+    "look up online",
     "find on internet",
-    "search the web",
-    "web search",
-    "YouTubeSearch: Search YouTube for videos. Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
-    "search youtube",
-    "find videos",
+    "google that",
+    "web lookup",
+    "ask google",
+    "YouTubeIt: Find videos on YouTube. Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
     "youtube it",
+    "find videos",
     "look for videos",
-    "video search",
-    "find on youtube",
+    "watch videos about",
+    "video lookup",
+    "show me videos",
     "CloseTab: Close a tab. Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
     "shut tab",
     "kill tab",
@@ -717,200 +717,197 @@
       }
     },
     {
-      "name": "GoogleSearch",
+      "name": "GoogleIt",
       "type": "primary",
       "group": "browser",
-      "label": "Search Google for something",
-      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
-      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "label": "Google something on the web",
+      "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
+      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
       "synonyms": [
-        "search google",
         "google it",
-        "look up",
+        "look up online",
         "find on internet",
-        "search the web",
-        "web search",
-        "search online",
-        "google search"
+        "google that",
+        "web lookup",
+        "ask google"
       ],
       "params": {
-        "query": "Required - what to search for"
+        "query": "Required - what to google"
       }
     },
     {
-      "name": "GoogleSearch",
-      "type": "synonym",
-      "synonym_text": "search google",
-      "synonym_index": 0,
-      "group": "browser",
-      "label": "Search Google for something",
-      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
-      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
-      "params": {
-        "query": "Required - what to search for"
-      }
-    },
-    {
-      "name": "GoogleSearch",
+      "name": "GoogleIt",
       "type": "synonym",
       "synonym_text": "google it",
-      "synonym_index": 1,
-      "group": "browser",
-      "label": "Search Google for something",
-      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
-      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
-      "params": {
-        "query": "Required - what to search for"
-      }
-    },
-    {
-      "name": "GoogleSearch",
-      "type": "synonym",
-      "synonym_text": "look up",
-      "synonym_index": 2,
-      "group": "browser",
-      "label": "Search Google for something",
-      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
-      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
-      "params": {
-        "query": "Required - what to search for"
-      }
-    },
-    {
-      "name": "GoogleSearch",
-      "type": "synonym",
-      "synonym_text": "find on internet",
-      "synonym_index": 3,
-      "group": "browser",
-      "label": "Search Google for something",
-      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
-      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
-      "params": {
-        "query": "Required - what to search for"
-      }
-    },
-    {
-      "name": "GoogleSearch",
-      "type": "synonym",
-      "synonym_text": "search the web",
-      "synonym_index": 4,
-      "group": "browser",
-      "label": "Search Google for something",
-      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
-      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
-      "params": {
-        "query": "Required - what to search for"
-      }
-    },
-    {
-      "name": "GoogleSearch",
-      "type": "synonym",
-      "synonym_text": "web search",
-      "synonym_index": 5,
-      "group": "browser",
-      "label": "Search Google for something",
-      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
-      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
-      "params": {
-        "query": "Required - what to search for"
-      }
-    },
-    {
-      "name": "YouTubeSearch",
-      "type": "primary",
-      "group": "browser",
-      "label": "Search YouTube for videos",
-      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
-      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
-      "synonyms": [
-        "search youtube",
-        "find videos",
-        "youtube it",
-        "look for videos",
-        "video search",
-        "find on youtube",
-        "watch videos about"
-      ],
-      "params": {
-        "query": "Required - what to search for on YouTube"
-      }
-    },
-    {
-      "name": "YouTubeSearch",
-      "type": "synonym",
-      "synonym_text": "search youtube",
       "synonym_index": 0,
       "group": "browser",
-      "label": "Search YouTube for videos",
-      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
-      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "label": "Google something on the web",
+      "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
+      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
       "params": {
-        "query": "Required - what to search for on YouTube"
+        "query": "Required - what to google"
       }
     },
     {
-      "name": "YouTubeSearch",
+      "name": "GoogleIt",
+      "type": "synonym",
+      "synonym_text": "look up online",
+      "synonym_index": 1,
+      "group": "browser",
+      "label": "Google something on the web",
+      "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
+      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to google"
+      }
+    },
+    {
+      "name": "GoogleIt",
+      "type": "synonym",
+      "synonym_text": "find on internet",
+      "synonym_index": 2,
+      "group": "browser",
+      "label": "Google something on the web",
+      "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
+      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to google"
+      }
+    },
+    {
+      "name": "GoogleIt",
+      "type": "synonym",
+      "synonym_text": "google that",
+      "synonym_index": 3,
+      "group": "browser",
+      "label": "Google something on the web",
+      "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
+      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to google"
+      }
+    },
+    {
+      "name": "GoogleIt",
+      "type": "synonym",
+      "synonym_text": "web lookup",
+      "synonym_index": 4,
+      "group": "browser",
+      "label": "Google something on the web",
+      "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
+      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to google"
+      }
+    },
+    {
+      "name": "GoogleIt",
+      "type": "synonym",
+      "synonym_text": "ask google",
+      "synonym_index": 5,
+      "group": "browser",
+      "label": "Google something on the web",
+      "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
+      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to google"
+      }
+    },
+    {
+      "name": "YouTubeIt",
+      "type": "primary",
+      "group": "browser",
+      "label": "Find videos on YouTube",
+      "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
+      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "synonyms": [
+        "youtube it",
+        "find videos",
+        "look for videos",
+        "watch videos about",
+        "video lookup",
+        "show me videos"
+      ],
+      "params": {
+        "query": "Required - what to find on YouTube"
+      }
+    },
+    {
+      "name": "YouTubeIt",
+      "type": "synonym",
+      "synonym_text": "youtube it",
+      "synonym_index": 0,
+      "group": "browser",
+      "label": "Find videos on YouTube",
+      "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
+      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "params": {
+        "query": "Required - what to find on YouTube"
+      }
+    },
+    {
+      "name": "YouTubeIt",
       "type": "synonym",
       "synonym_text": "find videos",
       "synonym_index": 1,
       "group": "browser",
-      "label": "Search YouTube for videos",
-      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
-      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "label": "Find videos on YouTube",
+      "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
+      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
       "params": {
-        "query": "Required - what to search for on YouTube"
+        "query": "Required - what to find on YouTube"
       }
     },
     {
-      "name": "YouTubeSearch",
-      "type": "synonym",
-      "synonym_text": "youtube it",
-      "synonym_index": 2,
-      "group": "browser",
-      "label": "Search YouTube for videos",
-      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
-      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
-      "params": {
-        "query": "Required - what to search for on YouTube"
-      }
-    },
-    {
-      "name": "YouTubeSearch",
+      "name": "YouTubeIt",
       "type": "synonym",
       "synonym_text": "look for videos",
+      "synonym_index": 2,
+      "group": "browser",
+      "label": "Find videos on YouTube",
+      "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
+      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "params": {
+        "query": "Required - what to find on YouTube"
+      }
+    },
+    {
+      "name": "YouTubeIt",
+      "type": "synonym",
+      "synonym_text": "watch videos about",
       "synonym_index": 3,
       "group": "browser",
-      "label": "Search YouTube for videos",
-      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
-      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "label": "Find videos on YouTube",
+      "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
+      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
       "params": {
-        "query": "Required - what to search for on YouTube"
+        "query": "Required - what to find on YouTube"
       }
     },
     {
-      "name": "YouTubeSearch",
+      "name": "YouTubeIt",
       "type": "synonym",
-      "synonym_text": "video search",
+      "synonym_text": "video lookup",
       "synonym_index": 4,
       "group": "browser",
-      "label": "Search YouTube for videos",
-      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
-      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "label": "Find videos on YouTube",
+      "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
+      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
       "params": {
-        "query": "Required - what to search for on YouTube"
+        "query": "Required - what to find on YouTube"
       }
     },
     {
-      "name": "YouTubeSearch",
+      "name": "YouTubeIt",
       "type": "synonym",
-      "synonym_text": "find on youtube",
+      "synonym_text": "show me videos",
       "synonym_index": 5,
       "group": "browser",
-      "label": "Search YouTube for videos",
-      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
-      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "label": "Find videos on YouTube",
+      "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
+      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
       "params": {
-        "query": "Required - what to search for on YouTube"
+        "query": "Required - what to find on YouTube"
       }
     },
     {

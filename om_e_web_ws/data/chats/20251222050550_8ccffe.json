@@ -2,7 +2,7 @@
   "chat_id": "20251222050550_8ccffe",
   "project_id": "default",
   "created_at": "2025-12-22T05:05:50.466187Z",
-  "updated_at": "2025-12-22T05:07:42.630649Z",
+  "updated_at": "2025-12-22T05:19:34.898025Z",
   "title": "50_05_05_22_12_2025_can",
   "default_title": "50_05_05_22_12_2025_can",
   "meta": {
@@ -208,6 +208,30 @@
       "role": "assistant",
       "content": "Executing HideChats...",
       "timestamp": "2025-12-22T05:07:42.630649Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "user",
+      "content": "thats cool lets delete the past",
+      "timestamp": "2025-12-22T05:19:18.813772Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "assistant",
+      "content": "Executing DeleteChat...",
+      "timestamp": "2025-12-22T05:19:19.775930Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "user",
+      "content": "awe now i need a new chat called the future",
+      "timestamp": "2025-12-22T05:19:33.740801Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "assistant",
+      "content": "Executing CreateChat...",
+      "timestamp": "2025-12-22T05:19:34.898025Z"
     }
   ]
 }

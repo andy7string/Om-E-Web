@@ -5698,13 +5698,13 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                             cap_result = {"ok": True}
                                             print(f"🎭 Sent {final_action}")
 
-                                    elif cap_action == "GoogleSearch" and EXTENSION_WS:
-                                        # 🔍 Google Search: construct URL and open in new tab
+                                    elif cap_action == "GoogleIt" and EXTENSION_WS:
+                                        # 🔍 GoogleIt: construct URL and open in new tab
                                         import urllib.parse
                                         query = cap_params.get("query", "")
                                         if query:
                                             search_url = f"https://www.google.com/search?q={urllib.parse.quote_plus(query)}"
-                                            print(f"🔍 GoogleSearch: '{query}' → {search_url}")
+                                            print(f"🔍 GoogleIt: '{query}' → {search_url}")
 
                                             # Check if Google search tab already exists - switch to it
                                             existing_tab = find_matching_tab("google.com/search")
@@ -5716,7 +5716,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                                     "action": "UpdateTabURL",
                                                     "params": {"tabId": existing_tab["id"], "url": search_url}
                                                 }))
-                                                print(f"🔍 GoogleSearch: Updated existing tab {existing_tab['stable_num']}")
+                                                print(f"🔍 GoogleIt: Updated existing tab {existing_tab['stable_num']}")
                                             else:
                                                 # Open new tab with search
                                                 await EXTENSION_WS.send(json.dumps({
@@ -5725,18 +5725,18 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                                     "action": "OpenTab",
                                                     "params": {"url": search_url}
                                                 }))
-                                                print(f"🔍 GoogleSearch: Opened new tab")
+                                                print(f"🔍 GoogleIt: Opened new tab")
                                             cap_result = {"ok": True, "url": search_url}
                                         else:
-                                            cap_result = {"ok": False, "error": "No search query provided"}
+                                            cap_result = {"ok": False, "error": "No query provided"}
 
-                                    elif cap_action == "YouTubeSearch" and EXTENSION_WS:
-                                        # 🎬 YouTube Search: construct URL and open in new tab
+                                    elif cap_action == "YouTubeIt" and EXTENSION_WS:
+                                        # 🎬 YouTubeIt: construct URL and open in new tab
                                         import urllib.parse
                                         query = cap_params.get("query", "")
                                         if query:
                                             search_url = f"https://www.youtube.com/results?search_query={urllib.parse.quote_plus(query)}"
-                                            print(f"🎬 YouTubeSearch: '{query}' → {search_url}")
+                                            print(f"🎬 YouTubeIt: '{query}' → {search_url}")
 
                                             # Check if YouTube search tab already exists - switch to it
                                             existing_tab = find_matching_tab("youtube.com/results")
@@ -5748,7 +5748,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                                     "action": "UpdateTabURL",
                                                     "params": {"tabId": existing_tab["id"], "url": search_url}
                                                 }))
-                                                print(f"🎬 YouTubeSearch: Updated existing tab {existing_tab['stable_num']}")
+                                                print(f"🎬 YouTubeIt: Updated existing tab {existing_tab['stable_num']}")
                                             else:
                                                 # Open new tab with search
                                                 await EXTENSION_WS.send(json.dumps({
@@ -5757,10 +5757,10 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                                     "action": "OpenTab",
                                                     "params": {"url": search_url}
                                                 }))
-                                                print(f"🎬 YouTubeSearch: Opened new tab")
+                                                print(f"🎬 YouTubeIt: Opened new tab")
                                             cap_result = {"ok": True, "url": search_url}
                                         else:
-                                            cap_result = {"ok": False, "error": "No search query provided"}
+                                            cap_result = {"ok": False, "error": "No query provided"}
 
                                     elif cap_action in nav_actions and EXTENSION_WS:
                                         await EXTENSION_WS.send(json.dumps({

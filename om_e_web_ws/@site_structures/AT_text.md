@@ -1,110 +1,110 @@
-# (3) dogs - YouTube
+# cats - Google Search
 
-**URL:** https://www.youtube.com/results?search_query=dogs
-**Timestamp:** 2025-12-22 15:43:08
+**URL:** https://www.google.com/search?q=cats
+**Timestamp:** 2025-12-22 15:49:51
 **Scan Type:** Accessibility Tree
 
 ---
 
-RootWebArea: "(3) dogs - YouTube" (focused)
-  navigation
-    [0] link: "Home" → {"act":0}
-    [1] link: "Shorts" → {"act":1}
-    [2] link: "Subscriptions" → {"act":2}
-    [3] link: "You" → {"act":3}
-  banner
-    search
-      [4] button: "Search" → {"act":4}
-      [5] button: "Clear search query" → {"act":5}
-      [6] YouTube Video Search: "Search" → {"act":6,"value":"...","submit":true,"expanded":true} (expanded)
-    [7] link: "YouTube Premium Home" → {"act":7}
-    [8] button: "Create" → {"act":8}
-    [9] button: "Account menu" → {"act":9}
-    [10] button: "Notifications" → {"act":10}
+RootWebArea: "cats - Google Search" (focused)
+  heading: "Accessibility links"
+  Canvas
+  [0] link: "Skip to main content" → {"act":0}
+  [1] link: "Accessibility help" → {"act":1}
+  [2] link: "Accessibility feedback" → {"act":2}
+  search
+    [3] link: "Go to Google Home" → {"act":3}
+    [4] SEARCH GOOGLE: "Search" → {"act":4,"value":"...","submit":true,"expanded":false} (collapsed)
+    [5] button: "Clear" → {"act":5}
+    [6] button: "Search by voice" → {"act":6}
+    [7] button: "Search by image" → {"act":7}
+    [8] button: "Search" → {"act":8}
+  contentinfo
+    heading: "Footer links"
+    [9] link: "Try without personalisation" → {"act":9}
+    [10] link: "Help" → {"act":10}
+    [11] link: "Send feedback" → {"act":11}
+    [12] link: "Privacy" → {"act":12}
+    [13] link: "Terms" → {"act":13}
+    [14] button: "Teringie, South Australia  - Based on your places (Home)" → {"act":14}
+    [15] button: "Update location" → {"act":15}
+  [16] button: "Google Account: Andrew Orsmond (andreworsmond21175@gmail.com)" → {"act":16,"expanded":false} (collapsed)
+  heading: "Search Results"
   main
-    [11] button: "Search filters" → {"act":11}
-    tablist
-      [12] tab: "All" → {"act":12} (selected)
-      [13] tab: "Videos" → {"act":13}
-      [14] tab: "Unwatched" → {"act":14}
-      [15] tab: "Recently uploaded" → {"act":15}
-      [16] tab: "Talking" → {"act":16}
-      [17] tab: "Barking" → {"act":17}
-      [18] tab: "Howling" → {"act":18}
-      [19] tab: "Crying" → {"act":19}
-      [20] tab: "Videos dogs can see" → {"act":20}
-    heading: "Shorts"
-    heading: "Shorts"
-    heading: "Recently uploaded Shorts"
-    heading: "Shorts"
-    heading: "From related searches"
-    [21] link: "Police Dogs Never Forget" → {"act":21}
-    [22] link: "World’s Smartest Dog" → {"act":22}
-    [23] link: "Dogs Feeling Different After Stealing Edible || ViralHog" → {"act":23}
-    [24] link: "Whats the difference between a reactive dog and a aggressive dog?" → {"act":24}
-    [25] link: "Adorable dog attempts flip off of trampoline #dogsofyoutube #goldenretriever #funnyanimals" → {"act":25}
-    [26] link: "What it’s like living with a Pomeranian 🙈 #pomeranian #dog #relatable" → {"act":26}
-    [27] link: "Cutest panda dog 🐼" → {"act":27}
-    [28] link: "The greatest surprise at a red light ❤️" → {"act":28}
-    [29] link: "This dog is so smart ❤️🥹 #shorts" → {"act":29}
-    [30] link: "Can you find the real dog? #shorts" → {"act":30}
-    [31] link: "Corgi walks perfect until... #corgi #funny #dogs #puppy" → {"act":31}
-    [32] link: "The FUNNIEST Dog Videos Of 2025!" → {"act":32}
-    [33] link: "Joy You Can’t Buy!#dogs#puppy#cutedogs#pets#funnydog#doghumor#puppylove#gigithedog#dog" → {"act":33}
-    [34] link: "Dachshund Races Car to Home" → {"act":34}
-    [35] link: "Meet the Genius Dog That Masters Fetch Without You!" → {"act":35}
-    [36] link: "The only dog ​​I have is myself, the clown’s, the cute pet’s debut plan, the dog’s" → {"act":36}
-    [37] link: "What having a puppy is like" → {"act":37}
-    [38] link: "Super Corgi Fails!" → {"act":38}
-    [39] link: "Life with a clingy dog!" → {"act":39}
-    [40] link: "Baby frenchie from 1 to 10 days Growth stages! #shorts #puppygrowth" → {"act":40}
-    [41] link: "Going going gone! Super fast Labrador Retriever Gundog Training Working Dog" → {"act":41}
-    [42] link: "The temperature is rising again, let’s cook! Cute pet debut plan Labrador Oh my god it smells so g" → {"act":42}
-    [43] link: "Sassy Dog Gets An Attitude w/ Hooman #sassydog #funnydogs #funnydogvideos" → {"act":43}
+    navigation
+    navigation
+      heading: "Page navigation"
+      [17] link: "Page 2" → {"act":17}
+      [18] link: "Page 3" → {"act":18}
+      [19] link: "Page 4" → {"act":19}
+      [20] link: "Page 5" → {"act":20}
+      [21] link: "Page 6" → {"act":21}
+      [22] link: "Page 7" → {"act":22}
+      [23] link: "Page 8" → {"act":23}
+      [24] link: "Page 9" → {"act":24}
+      [25] link: "Page 10" → {"act":25}
+      heading: [26] link: "Next" → {"act":26}
+    group
+      [27] button: "Feedback" → {"act":27}
+    region: "Ads"
+      heading: "Ads"
     heading: "People also search for"
-    heading: [44] link: "FUNNIEST Viral Dogs EVER!! 1 hour, 1 minute" → {"act":44}
-    heading: [45] link: "I dare you not to LAUGH at these FUNNY DOGS 😁🦮 - Best Funny Animals Videos 2025 #95 20 minutes" → {"act":45}
-    heading: [46] link: "A 3D rug that fools the dogs… 39 seconds" → {"act":46}
-    heading: [47] link: "🐶 If Your Dog Stretches When They See You… This Is What It Really Means 8 minutes, 2 seconds" → {"act":47}
-    heading: [48] link: "Walk, Run, Crawl, RL Fun | Boston Dynamics | Atlas 1 minute, 8 seconds" → {"act":48}
-    heading: [49] link: "Unexpected Laugh with these Funny Dogs - Best Funniest Dog Videos of The Year 20 minutes" → {"act":49}
-    heading: [50] link: "Dogs 17 minutes" → {"act":50}
-    heading: [51] link: "Funny ANIMALS videos 😂 | Funniest Cats and Dogs 2025 🐶😼 20 minutes" → {"act":51}
-    heading: [52] link: "99.9% Can’t stop laughing at these dog 😂 Funny Dog Videos 2025 10 minutes, 6 seconds" → {"act":52}
-    heading: [53] link: "Jimmy Page Asks To Play Guitar With Me and Shocks The Street 10 minutes, 35 seconds" → {"act":53}
-    heading: [54] link: "Crazy Funny Dogs That Will Make You Laugh Nonstop 🐶🤣 8 minutes, 33 seconds" → {"act":54}
-    heading: [55] link: "Funniest Golden Retrievers of All Time 🤣 Dogs That Make You Laugh 11 minutes, 18 seconds" → {"act":55}
-    heading: [56] link: "Laugh until you cry with these hilarious animals 😂 20 minutes" → {"act":56}
-    heading: [57] link: "DOGS & PUPPIES in 4K | 2 Hours | Relaxing Ambient Music Strings Cute Pets 2 hours" → {"act":57}
-    heading: [58] link: "Try Not to Laugh! Hilarious Dogs & The Cutest Puppies Videos of the Year 😂🐕 31 minutes" → {"act":58}
-    [59] link: "Cat" → {"act":59}
-    [60] link: "German Shepherd" → {"act":60}
-    [61] link: "Hamster" → {"act":61}
-    [62] link: "Elephant" → {"act":62}
-    [63] link: "Lion" → {"act":63}
-    [64] link: "Bulldog" → {"act":64}
-    [65] link: "Poodle" → {"act":65}
-    [66] link: "Birds" → {"act":66}
-    [67] link: "Labrador Retriever" → {"act":67}
-    [68] link: "Chicken" → {"act":68}
-    [69] button: "Introducción (don't miss the vet-approved science! ) | 1. The foot licker | 2. The bathroom bodyguard | 3. The head tilt | 4. The deep sigh | 5. The welcome stretch | 6. The sock thief | 7. The back turn | 8. The toy gift | 9. The protective sleep | 10. The doorway blocker" → {"act":69}
-    [70] button: "This video showcases a compilation of funny dog moments guaranteed to make you laugh. The clips feature various breeds in different, humorous situations. Prepare for a delightful dose of canine antics!" → {"act":70}
-    [71] button: "This compilation showcases a variety of amusing animal antics. Expect playful pets interacting with toys and their surroundings. Get ready for laugh-out-loud moments featuring cats and dogs in unexpected situations." → {"act":71}
-    [72] button: "This Petflix Show compilation showcases Golden Retrievers' hilarious antics. From playful zoomies to mischievous food thefts, each clip captures their unique personalities. Prepare for adorable chaos and heartwarming moments!" → {"act":72}
-    [73] button: "Prepare for a laugh riot! Ginger Cat presents hilarious dogs and adorable puppies in a series of unexpectedly funny clips. Witness their unique talents, from napping champs to determined explorers. Enjoy the cutest canine antics of the year." → {"act":73}
-    [74] link: "The Pet Collective" → {"act":74}
-    [75] link: "THe’s BUDDY TV" → {"act":75}
-    [76] link: "SLUMS" → {"act":76}
-    [77] link: "The Dog Bond" → {"act":77}
-    [78] link: "Boston Dynamics" → {"act":78}
-    [79] link: "Cute Pets TV" → {"act":79}
-    [80] link: "Pink Floyd" → {"act":80}
-    [81] link: "Kite Lover" → {"act":81}
-    [82] link: "Cute Pets TV" → {"act":82}
-    [83] link: "DØVYDAS" → {"act":83}
-    [84] link: "Deep Soul Stories" → {"act":84}
-    [85] link: "Petflix Show" → {"act":85}
-    [86] link: "Animaux Drôles" → {"act":86}
-    [87] link: "REST EASY FILMS" → {"act":87}
+    [28] link: "Cats the musical Adelaide" → {"act":28}
+    [29] link: "Cats for sale" → {"act":29}
+    [30] link: "Cats movie" → {"act":30}
+    [31] link: "Cats play" → {"act":31}
+    [32] link: "Cats show" → {"act":32}
+    [33] link: "Cats Australia" → {"act":33}
+    [34] link: "Cats the Musical where to watch" → {"act":34}
+    [35] link: "Cats musical songs" → {"act":35}
+    [36] link: "Cat Wikipedia https://en.wikipedia.org › wiki › Cat" → {"act":36}
+      heading: "Cat"
+    list
+      listitem
+        [37] link: "List of cat breeds" → {"act":37}
+      listitem
+        [38] link: "Human interaction with cats" → {"act":38}
+      listitem
+        [39] link: "Aging in cats" → {"act":39}
+      listitem
+        [40] link: "Cancer in cats" → {"act":40}
+    [41] link: "CATS the Musical | Australia | 2025 CATS the Musical | Australia https://catsthemusical.com.au" → {"act":41}
+      heading: "CATS the Musical | Australia | 2025"
+    list
+      listitem
+        [42] link: "Melbourne" → {"act":42}
+      listitem
+        [43] link: "Brisbane" → {"act":43}
+      listitem
+        [44] link: "Cast" → {"act":44}
+      listitem
+        [45] link: "Gallery" → {"act":45}
+    [46] link: "Safe and Happy Cats: Home Safe and Happy Cats https://safeandhappycats.com.au" → {"act":46}
+      heading: "Safe and Happy Cats: Home"
+    [47] link: "Cat | Breeds, Origins, History, Body Types, Senses ... Britannica https://www.britannica.com › ... › Cats & the Feline Family" → {"act":47}
+      heading: "Cat | Breeds, Origins, History, Body Types, Senses ..."
+    heading: "People also ask"
+    [48] link: "Caring for Cats and Kittens RSPCA New South Wales https://www.rspcansw.org.au › ... › Caring for Animals" → {"act":48}
+      heading: "Caring for Cats and Kittens"
+    heading: "Videos"
+    [49] link: "Cats (musical) Wikipedia https://en.wikipedia.org › wiki › Cats_(musical)" → {"act":49}
+      heading: "Cats (musical)"
+    [50] link: "Cats in Australia Invasive Species Council https://invasives.org.au › ... › Feral animals in Australia" → {"act":50}
+      heading: "Cats in Australia"
+    [51] link: "Cats (2019) IMDb https://www.imdb.com › title" → {"act":51}
+      heading: "Cats (2019)"
+    list
+      listitem
+        [52] link: "Cats" → {"act":52}
+      listitem
+        [53] link: "Full cast & crew" → {"act":53}
+      listitem
+        [54] link: "User reviews" → {"act":54}
+      listitem
+        [55] link: "Tom Hooper" → {"act":55}
+    [56] link: "Cats | Animal Welfare Victoria | Livestock and animals Agriculture Victoria https://agriculture.vic.gov.au › livestock-and-animals › cats" → {"act":56}
+      heading: "Cats | Animal Welfare Victoria | Livestock and animals"
+    emphasis
+    [57] link: "Read more" → {"act":57}
 
-... [14 lines below viewport] ...
+... [113 lines below viewport] ...

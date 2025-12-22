@@ -1,11 +1,11 @@
 # Unified LLM Call Debug
 
-**Generated:** 2025-12-22 15:43:09
-**User Message:** yes
-**Messages:** 26
-**Capabilities:** 9
-**Tokens:** ~1023 (system: 361, messages: 662)
-**LLM Time:** 760ms
+**Generated:** 2025-12-22 15:49:52
+**User Message:** this chat just rename it
+**Messages:** 4
+**Capabilities:** 8
+**Tokens:** ~999 (system: 361, messages: 638)
+**LLM Time:** 780ms
 
 ## System Prompt
 ```
@@ -69,195 +69,65 @@ Example phrases:
 ### 1. USER
 
 ```
-can we see my conversations please
+can we call it the future
 ```
 
 ### 2. ASSISTANT
 
 ```
-Executing ShowChats...
+Could you clarify what you'd like to call "the future"? Are you referring to a project, a concept, or something else?
 ```
 
 ### 3. USER
 
 ```
-wow how many do we have
+this chat just rename it
 ```
 
-### 4. ASSISTANT
-
-```
-You have 2 conversations saved so far.
-```
-
-### 5. USER
-
-```
-list htem
-```
-
-### 6. ASSISTANT
-
-```
-Here are your conversations:
-1. 54_09_05_22_12_2025_can (2 messages) from 22/Dec
-2. 50_05_05_22_12_2025_can (33 messages) from 22/Dec
-```
-
-### 7. USER
-
-```
-can we move to the second one plese
-```
-
-### 8. ASSISTANT
-
-```
-Executing OpenTab...
-```
-
-### 9. USER
-
-```
-can we open the second chat
-```
-
-### 10. ASSISTANT
-
-```
-Executing SetCurrentChat...
-```
-
-### 11. USER
-
-```
-can we move to the second one please
-```
-
-### 12. ASSISTANT
-
-```
-Executing SetCurrentChat...
-```
-
-### 13. USER
-
-```
-close the side nav
-```
-
-### 14. ASSISTANT
-
-```
-Executing HideChats...
-```
-
-### 15. USER
-
-```
-search chats for orange
-```
-
-### 16. ASSISTANT
-
-```
-Executing SearchChats...
-```
-
-### 17. USER
-
-```
-search google for cats
-```
-
-### 18. ASSISTANT
-
-```
-Executing GoogleSearch...
-```
-
-### 19. USER
-
-```
-search youtube for dogs
-```
-
-### 20. ASSISTANT
-
-```
-Executing YouTubeSearch...
-```
-
-### 21. USER
-
-```
-switch to googel
-```
-
-### 22. ASSISTANT
-
-```
-Executing GoogleSearch...
-```
-
-### 23. USER
-
-```
-na tabs dude
-```
-
-### 24. ASSISTANT
-
-```
-You want to switch to the Google tab? I'll switch to the 'cats - Google Search' tab for you.
-```
-
-### 25. USER
-
-```
-yes
-```
-
-### 26. USER
+### 4. USER
 
 ```
 ENVIRONMENT (current state - use these for actions)
-Page: (3) dogs - YouTube (https://www.youtube.com/results?search_query=dogs)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
 
 Tabs (currently open):
   1. OM-E Web (127.0.0.1:8080)
-  3. cats - Google Search (www.google.com)
-  4. (3) dogs - YouTube (www.youtube.com) ← ACTIVE
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. 34_19_05_22_12_2025_the (0 msgs) [22/Dec] ← CURRENT
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (37 msgs) [22/Dec]
 
 Capabilities:
-- GoogleSearch: Searches Google for the given query. Opens a new tab with the search results. Use this when user wan
-  ex: {"cap": "GoogleSearch", "params": {"query": "best restaurants nearby"}}
-  params: query: Required - what to search for
-- YouTubeSearch: Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wan
-  ex: {"cap": "YouTubeSearch", "params": {"query": "how to cook pasta"}}
-  params: query: Required - what to search for on YouTube
-- ScrollUp: Scrolls the page up by one viewport height
-  ex: {"cap": "ScrollUp"}
-- GoForward: Navigates forward in the current tab's history
-  ex: {"cap": "GoForward"}
-- ShowPrompt: Shows the text input area for typing messages
-  ex: {"cap": "ShowPrompt"}
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- RenameChat: Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y
+  ex: {"cap": "RenameChat", "params": {"title": "My New Title"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - existing chat title for fuzzy matching, title: Required - the new title
+- DeleteChat: Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.
+  ex: {"cap": "DeleteChat", "params": {"name": "my project"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - chat title for fuzzy matching
 - SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
   ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
   params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
-- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
-  ex: {"cap": "OpenTab", "params": {"url": "https://google.com"}}
-  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
 - CreateChat: Creates a new chat file and returns the chat_id
   ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
   params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
-- ScrollTop: Scrolls to the very top of the page
-  ex: {"cap": "ScrollTop"}
+- GetCurrentChat: Returns the current chat ID and chat data
+  ex: {"cap": "GetCurrentChat"}
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"cap": "ShowChats"}
 
-USER: yes
+USER: this chat just rename it
 ```
 
 ## Response
 ```json
-{"type":"action","cap":"OpenTab","params":{"url":"www.google.com"}}
+{"type":"action","cap":"RenameChat","params":{"title":"the future"}}
 ```

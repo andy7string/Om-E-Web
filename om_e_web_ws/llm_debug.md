@@ -235210,3 +235210,2132 @@ Capabilities:
 USER: yes
 
 ---
+
+
+# LLM Request #1
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 842
+**Context:** 0.8k / 1047k (0.1%)
+**Session Tokens:** 842
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (2 tokens)
+
+google cats
+
+---
+
+## USER (480 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080) ← ACTIVE
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"cap": "ShowPrompt"}
+- SetTheme: Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb)
+  ex: {"cap": "SetTheme", "params": {"theme": "kawaii"}}
+  params: theme: {'required': True, 'description': 'The character style to use', 'valid_values': ['robot', 'kawaii', 'atom'], 'value_labels': {'robot': 'Om-E (purple robot with goggles)', 'kawaii': 'Kawaii (cute fluffy cat)', 'atom': 'Atom (green science orb)'}, 'aliases': {'robot': ['ome', 'om-e', 'purple', 'default'], 'kawaii': ['kitten', 'kitty', 'cat', 'cute', 'bunny', 'bunny cat'], 'atom': ['green', 'science', 'atomic', 'nucleus']}}
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"cap": "SearchChats", "params": {"query": "dude"}}
+  params: query: Required - search query string (extract from user request)
+
+USER: google cats
+
+---
+
+
+# LLM Request #2
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 895
+**Context:** 0.9k / 1047k (0.1%)
+**Session Tokens:** 1,737
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (2 tokens)
+
+google cats
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing GoogleIt...
+
+---
+
+## USER (4 tokens)
+
+nice switch to chats
+
+---
+
+## USER (517 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"cap": "ShowChats"}
+- GetCurrentChat: Returns the current chat ID and chat data
+  ex: {"cap": "GetCurrentChat"}
+- SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
+  ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"cap": "LoadChat", "params": {"chat": 2}}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+- CreateChat: Creates a new chat file and returns the chat_id
+  ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
+  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
+
+USER: nice switch to chats
+
+---
+
+
+# LLM Request #3
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 743
+**Context:** 0.7k / 1047k (0.1%)
+**Session Tokens:** 2,480
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (2 tokens)
+
+google cats
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing GoogleIt...
+
+---
+
+## USER (4 tokens)
+
+nice switch to chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (3 tokens)
+
+search for google
+
+---
+
+## USER (349 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. 54_17_05_22_12_2025_google (4 msgs) [22/Dec] ← CURRENT
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (33 msgs) [22/Dec]
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- CloseSearch: Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode
+  ex: {"cap": "CloseSearch"}
+
+USER: search for google
+
+---
+
+
+# LLM Request #4
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,002
+**Context:** 1.0k / 1047k (0.1%)
+**Session Tokens:** 3,482
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (2 tokens)
+
+google cats
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing GoogleIt...
+
+---
+
+## USER (4 tokens)
+
+nice switch to chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (3 tokens)
+
+search for google
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing CloseSearch...
+
+---
+
+## USER (7 tokens)
+
+na dude search my chats for google
+
+---
+
+## USER (589 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. 54_17_05_22_12_2025_google (4 msgs) [22/Dec] ← CURRENT
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (33 msgs) [22/Dec]
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"cap": "SearchChats", "params": {"query": "dude"}}
+  params: query: Required - search query string (extract from user request)
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"cap": "ShowChats"}
+- SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
+  ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"cap": "LoadChat", "params": {"chat": 2}}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+
+USER: na dude search my chats for google
+
+---
+
+
+# LLM Request #5
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 913
+**Context:** 0.9k / 1047k (0.1%)
+**Session Tokens:** 4,395
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (2 tokens)
+
+google cats
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing GoogleIt...
+
+---
+
+## USER (4 tokens)
+
+nice switch to chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (3 tokens)
+
+search for google
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing CloseSearch...
+
+---
+
+## USER (7 tokens)
+
+na dude search my chats for google
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## USER (4 tokens)
+
+ok hide that search
+
+---
+
+## USER (483 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. 54_17_05_22_12_2025_google (4 msgs) [22/Dec] ← CURRENT
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (33 msgs) [22/Dec]
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- CloseSearch: Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode
+  ex: {"cap": "CloseSearch"}
+- HideChats: Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.
+  ex: {"cap": "HideChats"}
+- HidePrompt: Hides the text input area for typing messages
+  ex: {"cap": "HidePrompt"}
+- DeleteChat: Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.
+  ex: {"cap": "DeleteChat", "params": {"name": "my project"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - chat title for fuzzy matching
+
+USER: ok hide that search
+
+---
+
+
+# LLM Request #6
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,131
+**Context:** 1.1k / 1047k (0.1%)
+**Session Tokens:** 5,526
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (2 tokens)
+
+google cats
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing GoogleIt...
+
+---
+
+## USER (4 tokens)
+
+nice switch to chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (3 tokens)
+
+search for google
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing CloseSearch...
+
+---
+
+## USER (7 tokens)
+
+na dude search my chats for google
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## USER (4 tokens)
+
+ok hide that search
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing CloseSearch...
+
+---
+
+## USER (6 tokens)
+
+rename this chat to the past
+
+---
+
+## USER (683 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. 54_17_05_22_12_2025_google (4 msgs) [22/Dec] ← CURRENT
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (33 msgs) [22/Dec]
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- DeleteChat: Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.
+  ex: {"cap": "DeleteChat", "params": {"name": "my project"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - chat title for fuzzy matching
+- RenameChat: Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y
+  ex: {"cap": "RenameChat", "params": {"title": "My New Title"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - existing chat title for fuzzy matching, title: Required - the new title
+- SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
+  ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"cap": "ShowChats"}
+- CreateChat: Creates a new chat file and returns the chat_id
+  ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
+  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
+- GetCurrentChat: Returns the current chat ID and chat data
+  ex: {"cap": "GetCurrentChat"}
+
+USER: rename this chat to the past
+
+---
+
+
+# LLM Request #7
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 966
+**Context:** 1.0k / 1047k (0.1%)
+**Session Tokens:** 6,492
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (2 tokens)
+
+google cats
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing GoogleIt...
+
+---
+
+## USER (4 tokens)
+
+nice switch to chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (3 tokens)
+
+search for google
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing CloseSearch...
+
+---
+
+## USER (7 tokens)
+
+na dude search my chats for google
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## USER (4 tokens)
+
+ok hide that search
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing CloseSearch...
+
+---
+
+## USER (6 tokens)
+
+rename this chat to the past
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing RenameChat...
+
+---
+
+## USER (3 tokens)
+
+list my chats
+
+---
+
+## USER (503 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. the past (4 msgs) [22/Dec] ← CURRENT
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (33 msgs) [22/Dec]
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"cap": "ShowChats"}
+- GetCurrentChat: Returns the current chat ID and chat data
+  ex: {"cap": "GetCurrentChat"}
+- SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
+  ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"cap": "SearchChats", "params": {"query": "dude"}}
+  params: query: Required - search query string (extract from user request)
+
+USER: list my chats
+
+---
+
+
+# LLM Request #8
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,174
+**Context:** 1.2k / 1047k (0.1%)
+**Session Tokens:** 7,666
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (2 tokens)
+
+google cats
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing GoogleIt...
+
+---
+
+## USER (4 tokens)
+
+nice switch to chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (3 tokens)
+
+search for google
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing CloseSearch...
+
+---
+
+## USER (7 tokens)
+
+na dude search my chats for google
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## USER (4 tokens)
+
+ok hide that search
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing CloseSearch...
+
+---
+
+## USER (6 tokens)
+
+rename this chat to the past
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing RenameChat...
+
+---
+
+## USER (3 tokens)
+
+list my chats
+
+---
+
+## ASSISTANT (42 tokens)
+
+Your chats are:
+1. the past
+2. 54_09_05_22_12_2025_can
+3. 50_05_05_22_12_2025_can
+
+---
+
+## USER (7 tokens)
+
+can we nav to 3 please
+
+---
+
+## USER (654 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. the past (4 msgs) [22/Dec] ← CURRENT
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (33 msgs) [22/Dec]
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"cap": "OpenTab", "params": {"url": "https://google.com"}}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
+  ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- GoForward: Navigates forward in the current tab's history
+  ex: {"cap": "GoForward"}
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"cap": "ShowChats"}
+- GetLLMConfig: Returns current LLM config including providers and settings
+  ex: {"cap": "GetLLMConfig"}
+- CreateChat: Creates a new chat file and returns the chat_id
+  ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
+  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
+- ScrollUp: Scrolls the page up by one viewport height
+  ex: {"cap": "ScrollUp"}
+- GoBack: Navigates back in the current tab's history
+  ex: {"cap": "GoBack"}
+
+USER: can we nav to 3 please
+
+---
+
+
+# LLM Request #9
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,328
+**Context:** 1.3k / 1047k (0.1%)
+**Session Tokens:** 8,994
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (7 tokens)
+
+can you take me to my chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (11 tokens)
+
+wonderful, can we search my chats for can
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## USER (6 tokens)
+
+nice hide that search ma man
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing HideChats...
+
+---
+
+## USER (4 tokens)
+
+open the side nav
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ToggleChats...
+
+---
+
+## USER (3 tokens)
+
+close the search
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing HideChats...
+
+---
+
+## USER (4 tokens)
+
+open the side nav
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ToggleChats...
+
+---
+
+## USER (4 tokens)
+
+clear the search here
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## ASSISTANT (13 tokens)
+
+I need: query (Required - search query string (extract ...)
+
+---
+
+## USER (4 tokens)
+
+ok open linked in
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing OpenTab...
+
+---
+
+## USER (8 tokens)
+
+nice can we switch back to hud view
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing SwitchView...
+
+---
+
+## USER (4 tokens)
+
+ok now browser mode
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing SwitchView...
+
+---
+
+## USER (2 tokens)
+
+back again
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing GoBack...
+
+---
+
+## USER (2 tokens)
+
+to hud
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing SwitchView...
+
+---
+
+## USER (3 tokens)
+
+hide my chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing HideChats...
+
+---
+
+## USER (3 tokens)
+
+ok open chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (5 tokens)
+
+can we search for can
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## USER (4 tokens)
+
+lets hide that search
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing HideChats...
+
+---
+
+## USER (7 tokens)
+
+thats cool lets delete the past
+
+---
+
+## USER (667 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. the past (4 msgs) [22/Dec]
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (33 msgs) [22/Dec] ← CURRENT
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- DeleteChat: Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.
+  ex: {"cap": "DeleteChat", "params": {"name": "my project"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - chat title for fuzzy matching
+- GoBack: Navigates back in the current tab's history
+  ex: {"cap": "GoBack"}
+- CloseTab: Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.
+  ex: {"cap": "CloseTab", "params": {"name": "google"}}
+  params: tabId: Optional - numeric tab ID to close, name: Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')
+- RenameChat: Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y
+  ex: {"cap": "RenameChat", "params": {"title": "My New Title"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - existing chat title for fuzzy matching, title: Required - the new title
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"cap": "SearchChats", "params": {"query": "dude"}}
+  params: query: Required - search query string (extract from user request)
+- CloseSearch: Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode
+  ex: {"cap": "CloseSearch"}
+
+USER: thats cool lets delete the past
+
+---
+
+
+# LLM Request #10
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,275
+**Context:** 1.3k / 1047k (0.1%)
+**Session Tokens:** 10,269
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (7 tokens)
+
+can you take me to my chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (11 tokens)
+
+wonderful, can we search my chats for can
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## USER (6 tokens)
+
+nice hide that search ma man
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing HideChats...
+
+---
+
+## USER (4 tokens)
+
+open the side nav
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ToggleChats...
+
+---
+
+## USER (3 tokens)
+
+close the search
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing HideChats...
+
+---
+
+## USER (4 tokens)
+
+open the side nav
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ToggleChats...
+
+---
+
+## USER (4 tokens)
+
+clear the search here
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## ASSISTANT (13 tokens)
+
+I need: query (Required - search query string (extract ...)
+
+---
+
+## USER (4 tokens)
+
+ok open linked in
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing OpenTab...
+
+---
+
+## USER (8 tokens)
+
+nice can we switch back to hud view
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing SwitchView...
+
+---
+
+## USER (4 tokens)
+
+ok now browser mode
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing SwitchView...
+
+---
+
+## USER (2 tokens)
+
+back again
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing GoBack...
+
+---
+
+## USER (2 tokens)
+
+to hud
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing SwitchView...
+
+---
+
+## USER (3 tokens)
+
+hide my chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing HideChats...
+
+---
+
+## USER (3 tokens)
+
+ok open chats
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing ShowChats...
+
+---
+
+## USER (5 tokens)
+
+can we search for can
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing SearchChats...
+
+---
+
+## USER (4 tokens)
+
+lets hide that search
+
+---
+
+## ASSISTANT (5 tokens)
+
+Executing HideChats...
+
+---
+
+## USER (7 tokens)
+
+thats cool lets delete the past
+
+---
+
+## ASSISTANT (4 tokens)
+
+Executing DeleteChat...
+
+---
+
+## USER (10 tokens)
+
+awe now i need a new chat called the future
+
+---
+
+## USER (592 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  2. 50_05_05_22_12_2025_can (35 msgs) [22/Dec] ← CURRENT
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- CreateChat: Creates a new chat file and returns the chat_id
+  ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
+  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
+- SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
+  ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"cap": "ShowChats"}
+- GetCurrentChat: Returns the current chat ID and chat data
+  ex: {"cap": "GetCurrentChat"}
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"cap": "LoadChat", "params": {"chat": 2}}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+
+USER: awe now i need a new chat called the future
+
+---
+
+
+# LLM Request #11
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 927
+**Context:** 0.9k / 1047k (0.1%)
+**Session Tokens:** 11,196
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (6 tokens)
+
+can we call it the future
+
+---
+
+## USER (561 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. 34_19_05_22_12_2025_the (0 msgs) [22/Dec] ← CURRENT
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (37 msgs) [22/Dec]
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- GoForward: Navigates forward in the current tab's history
+  ex: {"cap": "GoForward"}
+- RenameChat: Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y
+  ex: {"cap": "RenameChat", "params": {"title": "My New Title"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - existing chat title for fuzzy matching, title: Required - the new title
+- Refresh: Reloads the current page
+  ex: {"cap": "Refresh"}
+- CreateChat: Creates a new chat file and returns the chat_id
+  ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
+  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
+- SetTemperature: Adjusts LLM temperature (0.0-2.0)
+  ex: {"cap": "SetTemperature", "params": {"temperature": 0.7}}
+  params: temperature: Required - temperature value
+
+USER: can we call it the future
+
+---
+
+
+# LLM Request #12
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,088
+**Context:** 1.1k / 1047k (0.1%)
+**Session Tokens:** 12,284
+
+---
+
+## SYSTEM (348 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- PRIMARY action is at START: "search chats for settings" → SearchChats with query="settings"
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only)
+
+**Reply** - no action needed:
+```json
+{"type":"reply","text":"response here"}
+```
+
+**Action** - execute capability:
+```json
+{"type":"action","cap":"CapName","params":{"key":"value"}}
+```
+
+**Clarify** - missing required param:
+```json
+{"type":"clarify","text":"Which tab?"}
+```
+
+**Options** - multiple matches:
+```json
+{"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
+```
+
+## Rules
+- JSON only, no markdown wrapper
+- One response per message
+- Keep replies concise
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (6 tokens)
+
+can we call it the future
+
+---
+
+## ASSISTANT (27 tokens)
+
+Could you clarify what you'd like to call "the future"? Are you referring to a project, a concept, or something else?
+
+---
+
+## USER (5 tokens)
+
+this chat just rename it
+
+---
+
+## USER (682 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: cats - Google Search (https://www.google.com/search?q=cats)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. 34_19_05_22_12_2025_the (0 msgs) [22/Dec] ← CURRENT
+  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
+  3. 50_05_05_22_12_2025_can (37 msgs) [22/Dec]
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"cap": "GoogleIt", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to google
+- YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
+  ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to find on YouTube
+- RenameChat: Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y
+  ex: {"cap": "RenameChat", "params": {"title": "My New Title"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - existing chat title for fuzzy matching, title: Required - the new title
+- DeleteChat: Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.
+  ex: {"cap": "DeleteChat", "params": {"name": "my project"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - chat title for fuzzy matching
+- SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
+  ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- CreateChat: Creates a new chat file and returns the chat_id
+  ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
+  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
+- GetCurrentChat: Returns the current chat ID and chat data
+  ex: {"cap": "GetCurrentChat"}
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"cap": "ShowChats"}
+
+USER: this chat just rename it
+
+---

@@ -1,12 +1,12 @@
 {
-  "timestamp": 1766380390.326164,
+  "timestamp": 1766380676.705023,
   "browser_state": {
     "total_tabs": 3,
     "active_tab": {
-      "id": 1138055899,
+      "id": 1138055910,
       "url": "https://www.google.com/search?q=cats",
       "title": "cats - Google Search",
-      "status": "complete"
+      "status": "loading"
     },
     "all_tabs": [
       {
@@ -17,21 +17,21 @@
         "status": "complete"
       },
       {
-        "id": 1138055899,
-        "url": "https://www.google.com/search?q=cats",
-        "title": "cats - Google Search",
-        "active": true,
+        "id": 1138055907,
+        "url": "http://127.0.0.1:8080/",
+        "title": "OM-E Web",
+        "active": false,
         "status": "complete"
       },
       {
-        "id": 1138055902,
-        "url": "https://www.youtube.com/results?search_query=dogs",
-        "title": "(3) dogs - YouTube",
-        "active": false,
-        "status": "complete"
+        "id": 1138055910,
+        "url": "https://www.google.com/search?q=cats",
+        "title": "cats - Google Search",
+        "active": true,
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 28494.701097541,
+    "last_tabs_update": 28780.870903916,
     "extension_connected": true
   },
   "current_page": {

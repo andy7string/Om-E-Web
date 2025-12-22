@@ -74,27 +74,27 @@
         "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
       }
     },
-    "GoogleSearch": {
+    "GoogleIt": {
       "group": "browser",
-      "action": "GoogleSearch",
-      "label": "Search Google for something",
-      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
-      "synonyms": ["search google", "google it", "look up", "find on internet", "search the web", "web search", "search online", "google search"],
-      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "action": "GoogleIt",
+      "label": "Google something on the web",
+      "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
+      "synonyms": ["google it", "look up online", "find on internet", "google that", "web lookup", "ask google"],
+      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
       "params": {
-        "query": "Required - what to search for"
+        "query": "Required - what to google"
       },
       "always_include": true
     },
-    "YouTubeSearch": {
+    "YouTubeIt": {
       "group": "browser",
-      "action": "YouTubeSearch",
-      "label": "Search YouTube for videos",
-      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
-      "synonyms": ["search youtube", "find videos", "youtube it", "look for videos", "video search", "find on youtube", "watch videos about"],
-      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "action": "YouTubeIt",
+      "label": "Find videos on YouTube",
+      "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
+      "synonyms": ["youtube it", "find videos", "look for videos", "watch videos about", "video lookup", "show me videos"],
+      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
       "params": {
-        "query": "Required - what to search for on YouTube"
+        "query": "Required - what to find on YouTube"
       },
       "always_include": true
     },
