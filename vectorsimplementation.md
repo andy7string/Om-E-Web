@@ -803,10 +803,270 @@ def _get_rolling_history(self, chat_id, max_tokens=400):
 - [ ] `query_project_memory()` - semantic search
 
 **Phase 4: Query Integration**
-- [ ] `get_context_for_prompt()` - combines all sources
-- [ ] Replace `_get_rolling_history()` in orchestrator
-- [ ] Test end-to-end cycle
+- [x] `get_context_for_prompt()` - combines all sources
+- [x] Replace `_get_rolling_history()` in orchestrator
+- [x] Test end-to-end cycle
 
-**Phase 5: Project Structure**
+**Phase 5: Large Payload Handling** ✅
+- [x] Detect large payloads (>500 chars)
+- [x] Summarize with entity extraction (not meta-description)
+- [x] Store full content in vector for RAG retrieval
+- [x] Config-driven thresholds in `llm_config.json`
+
+**Phase 6: Persistence Intent & Rolling Summarization**
+- [ ] Message count threshold (7-8 messages) for rolling summary
+- [x] Persistence intent detection patterns
+- [x] Fact extraction when intent detected
+- [x] Permanent fact storage in vector
+- [x] Integration with prompt retrieval
+
+**Phase 7: Project Structure**
 - [ ] Migrate to `projects/{id}/` structure
 - [ ] Vector stores per project
+
+---
+
+## Phase 6: Persistence Intent & Rolling Summarization
+
+**Problem:** Normal conversation facts ("my name is Andy", "I like dark mode") don't get stored. Only large payloads (>500 chars) trigger memory storage. User's important preferences and facts vanish when chat history rolls.
+
+**Solution:** Two-part system:
+1. Rolling summarization after 7-8 messages (compress old, keep recent full)
+2. Persistence intent detection → extract fact → store permanently
+
+### Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        MESSAGE PROCESSING                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  User message arrives                                                        │
+│         ↓                                                                    │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
+│  │ PERSISTENCE INTENT CHECK                                              │   │
+│  │                                                                       │   │
+│  │ Patterns: "remember", "don't forget", "my name is", "I like/prefer", │   │
+│  │           "important", "always", "never", "call me"                  │   │
+│  │                                                                       │   │
+│  │ Match? → Extract fact → Store in FACTS vector (permanent)            │   │
+│  │                                                                       │   │
+│  └──────────────────────────────────────────────────────────────────────┘   │
+│         ↓                                                                    │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
+│  │ ROLLING SUMMARIZATION                                                 │   │
+│  │                                                                       │   │
+│  │ Message count > 8?                                                    │   │
+│  │   ├── NO → Keep all messages                                          │   │
+│  │   └── YES → Summarize oldest 4 → Keep summary + recent 4              │   │
+│  │                                                                       │   │
+│  └──────────────────────────────────────────────────────────────────────┘   │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         PROMPT BUILDING                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Building prompt for LLM:                                                    │
+│                                                                              │
+│  1. FACTS (from vector)           ~50 tok                                   │
+│     - "User's name is Andy"                                                 │
+│     - "User prefers dark mode"                                              │
+│     - "User calls Om-E 'ome'"                                               │
+│                                                                              │
+│  2. ROLLING SUMMARY               ~50 tok                                   │
+│     - Compressed older conversation                                         │
+│                                                                              │
+│  3. RECENT MESSAGES (7-8)         ~200 tok                                  │
+│     - Full fidelity recent exchange                                         │
+│                                                                              │
+│  4. ACTIONS (last 5)              ~75 tok                                   │
+│     - "SetTheme: atom"                                                      │
+│     - "YouTubeIt: teddy swims"                                              │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Persistence Intent Detection
+
+**Trigger patterns (case-insensitive):**
+
+```python
+PERSISTENCE_PATTERNS = [
+    # Explicit memory requests
+    r'\bremember\b',           # "remember my name"
+    r"\bdon'?t forget\b",      # "don't forget I like..."
+    r'\bkeep in mind\b',       # "keep in mind that..."
+
+    # Identity statements
+    r'\bmy name is\b',         # "my name is Andy"
+    r'\bcall me\b',            # "call me Andy"
+    r'\bi am\b',               # "i am a developer"
+    r'\bi\'?m\b',              # "i'm from Australia"
+
+    # Preferences
+    r'\bi like\b',             # "i like dark mode"
+    r'\bi prefer\b',           # "i prefer minimal responses"
+    r'\bi hate\b',             # "i hate verbose answers"
+    r'\bi always\b',           # "i always use vim"
+    r'\bi never\b',            # "i never use tabs"
+
+    # Importance markers
+    r'\bimportant\b',          # "this is important"
+    r'\balways\b',             # "always use this format"
+    r'\bnever\b',              # "never suggest that"
+]
+```
+
+### Fact Extraction
+
+When persistence intent detected, LLM extracts the fact:
+
+```python
+FACT_EXTRACTION_PROMPT = """
+Extract the KEY FACT the user wants remembered. Return ONLY the fact, no explanation.
+
+Examples:
+- "hey remember my name is Andy ok" → "User's name is Andy"
+- "i prefer dark mode always" → "User prefers dark mode"
+- "call me ome sometimes" → "User calls the assistant 'ome'"
+- "don't forget i hate verbose answers" → "User dislikes verbose answers"
+
+User message:
+{message}
+
+Fact:"""
+```
+
+### Rolling Summarization
+
+**When:** Message count exceeds 8 (content messages, not actions)
+
+**How:**
+1. Take oldest 4 content messages
+2. Summarize to ~50 tokens
+3. Replace those 4 with summary
+4. Keep recent 4 full fidelity
+
+```python
+ROLLING_SUMMARY_PROMPT = """
+Summarize this conversation segment in 1-2 sentences. Focus on topics discussed, not actions taken.
+
+Messages:
+{messages}
+
+Summary:"""
+```
+
+### Data Structures
+
+**Facts Vector Store** (`data/vectors/system/facts/`):
+```json
+{
+    "text": "User's name is Andy",
+    "metadata": {
+        "type": "fact",
+        "category": "identity",      // identity, preference, instruction
+        "source_message": "remember my name is Andy ok",
+        "chat_id": "abc123",
+        "created_at": "2025-12-23T10:00:00Z"
+    }
+}
+```
+
+**Chat State** (enhanced):
+```json
+{
+    "context_state": {
+        "token_counter": 0,
+        "last_summarized_idx": 0,
+        "recent_actions": [...],
+        "rolling_summary": "Discussed theme changes and YouTube searches",
+        "content_message_count": 6
+    }
+}
+```
+
+### Implementation
+
+**File:** `retrieval/memory_cycle.py` (extend existing)
+
+```python
+# New constants
+PERSISTENCE_PATTERNS = [...]  # As above
+MESSAGE_COUNT_THRESHOLD = 8   # Summarize after this many content messages
+FACT_BUDGET = 50              # Tokens for facts in prompt
+
+# New functions
+def detect_persistence_intent(content: str) -> bool:
+    """Check if message has persistence intent."""
+
+async def extract_fact(content: str) -> str:
+    """LLM call to extract the fact to store."""
+
+async def process_persistence_intent(content: str, chat_id: str) -> Optional[str]:
+    """Full pipeline: detect → extract → store → return confirmation."""
+
+def check_rolling_summary_needed(chat_dict: Dict) -> bool:
+    """Check if we need to summarize older messages."""
+
+async def create_rolling_summary(chat_dict: Dict) -> str:
+    """Summarize oldest content messages."""
+
+def get_facts_for_prompt(query: str, max_facts: int = 3) -> str:
+    """Retrieve relevant facts from vector store."""
+```
+
+### Integration Points
+
+**1. `on_message_saved()` - Add persistence check:**
+```python
+def on_message_saved(chat_dict: Dict, message: Dict) -> bool:
+    # Existing action/content classification...
+
+    # NEW: Check persistence intent for user messages
+    if message.get('role') == 'user':
+        content = message.get('content', '')
+        if detect_persistence_intent(content):
+            asyncio.create_task(process_persistence_intent(content, chat_dict['chat_id']))
+
+    # NEW: Check rolling summary threshold
+    if check_rolling_summary_needed(chat_dict):
+        asyncio.create_task(create_rolling_summary(chat_dict))
+```
+
+**2. `orchestrator.py` - Add facts to prompt:**
+```python
+# In _call_unified() user content building
+facts_ctx = get_facts_for_prompt(user_message)
+if facts_ctx:
+    user_content_parts.append(facts_ctx)
+```
+
+### Test Cases
+
+| User Says | Should Store |
+|-----------|--------------|
+| "remember my name is Andy" | "User's name is Andy" |
+| "hey ome whats up" | Nothing (no intent) |
+| "i prefer dark mode" | "User prefers dark mode" |
+| "search for cats" | Nothing (no intent) |
+| "don't forget i like concise answers" | "User likes concise answers" |
+| "call me bro" | "User wants to be called 'bro'" |
+
+### Config
+
+```json
+// llm_config.json - context section
+{
+    "context": {
+        "payload_context_lines": 5,
+        "large_payload_threshold": 500,
+        "payload_summary_budget": 50,
+        "message_count_threshold": 8,
+        "max_facts_in_prompt": 3,
+        "fact_token_budget": 50
+    }
+}
+```

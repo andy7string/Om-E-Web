@@ -29,6 +29,7 @@ Usage:
 """
 
 import json
+import re
 import time
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -75,6 +76,42 @@ def _get_summary_budget() -> int:
 
 def _get_payload_context_lines() -> int:
     return _get_context_config().get("payload_context_lines", 5)
+
+def _get_message_count_threshold() -> int:
+    return _get_context_config().get("message_count_threshold", 8)
+
+def _get_max_facts_in_prompt() -> int:
+    return _get_context_config().get("max_facts_in_prompt", 3)
+
+def _get_fact_token_budget() -> int:
+    return _get_context_config().get("fact_token_budget", 50)
+
+
+# ============================================================================
+# PERSISTENCE INTENT PATTERNS
+# ============================================================================
+
+# Patterns that indicate user wants something remembered
+PERSISTENCE_PATTERNS = [
+    # Explicit memory requests
+    r'\bremember\b',           # "remember my name"
+    r"\bdon'?t forget\b",      # "don't forget I like..."
+    r'\bkeep in mind\b',       # "keep in mind that..."
+
+    # Identity statements
+    r'\bmy name is\b',         # "my name is Andy"
+    r'\bcall me\b',            # "call me Andy"
+
+    # Preferences
+    r'\bi like\b',             # "i like dark mode"
+    r'\bi prefer\b',           # "i prefer minimal responses"
+    r'\bi hate\b',             # "i hate verbose answers"
+    r'\bi always\b',           # "i always use vim"
+    r'\bi never\b',            # "i never use tabs"
+]
+
+# Compiled patterns for efficiency
+_COMPILED_PATTERNS = [re.compile(p, re.IGNORECASE) for p in PERSISTENCE_PATTERNS]
 
 
 # ============================================================================
@@ -248,20 +285,36 @@ def _format_cap_with_params(cap: str, params: Dict, self_describing: set) -> str
 # MESSAGE HOOKS
 # ============================================================================
 
-def on_message_saved(chat_dict: Dict, message: Dict) -> bool:
+def on_message_saved(chat_dict: Dict, message: Dict) -> Dict:
     """
     Called after each message is saved to update context state.
 
     - Classifies message as ACTION or CONTENT
     - ACTION: Condenses with previous user context and adds to rolling list
     - CONTENT: Adds tokens to counter, checks threshold
+    - USER: Checks for persistence intent and queues fact extraction
 
     @param chat_dict: The chat dictionary (will be modified)
     @param message: The message that was just saved
-    @return: True if summarization threshold was reached
+    @return: Dict with 'threshold_reached' and 'persistence_intent' flags
     """
+    result = {
+        'threshold_reached': False,
+        'persistence_intent': False,
+        'content': None
+    }
+
     # Ensure context_state exists
     state = init_context_state(chat_dict)
+
+    # Check for persistence intent on user messages FIRST
+    role = message.get('role', '')
+    content = message.get('content', '')
+
+    if role == 'user' and detect_persistence_intent(content):
+        result['persistence_intent'] = True
+        result['content'] = content
+        # Note: actual fact extraction happens async in orchestrator
 
     # Classify the message
     msg_type = classify_message(message)
@@ -289,7 +342,6 @@ def on_message_saved(chat_dict: Dict, message: Dict) -> bool:
             print(f"[MemoryCycle] Action: {condensed}")
     else:
         # Content message - count tokens
-        content = message.get('content', '')
         tokens = estimate_tokens(content)
         state['token_counter'] += tokens
         print(f"[MemoryCycle] Content +{tokens} tok (total: {state['token_counter']})")
@@ -297,10 +349,10 @@ def on_message_saved(chat_dict: Dict, message: Dict) -> bool:
         # Check threshold for summarization
         if state['token_counter'] >= BATCH_THRESHOLD:
             print(f"[MemoryCycle] Threshold reached ({state['token_counter']} >= {BATCH_THRESHOLD})")
+            result['threshold_reached'] = True
             # TODO Phase 2: trigger_summarization(chat_dict)
-            return True
 
-    return False
+    return result
 
 
 # ============================================================================
@@ -474,4 +526,152 @@ def get_payload_context(query: str, chat_id: Optional[str] = None) -> str:
 
     except Exception as e:
         print(f"[MemoryCycle] Payload context error: {e}")
+        return ""
+
+
+# ============================================================================
+# PERSISTENCE INTENT DETECTION
+# ============================================================================
+
+def detect_persistence_intent(content: str) -> bool:
+    """
+    Check if user message contains persistence intent.
+    Uses compiled regex patterns for efficiency.
+
+    @param content: User message content
+    @return: True if persistence intent detected
+    """
+    if not content or len(content) < 5:
+        return False
+
+    for pattern in _COMPILED_PATTERNS:
+        if pattern.search(content):
+            print(f"[MemoryCycle] Persistence intent detected: {pattern.pattern}")
+            return True
+
+    return False
+
+
+async def extract_fact(content: str) -> Optional[str]:
+    """
+    Use LLM to extract the key fact from a message with persistence intent.
+
+    @param content: User message with persistence intent
+    @return: Extracted fact string, or None if extraction failed
+    """
+    from llm.client import LLMClient
+
+    client = LLMClient()
+    try:
+        prompt = f"""Extract the KEY FACT the user wants remembered. Return ONLY the fact, no explanation.
+
+Examples:
+- "hey remember my name is Andy ok" → "User's name is Andy"
+- "i prefer dark mode always" → "User prefers dark mode"
+- "call me ome sometimes" → "User calls the assistant 'ome'"
+- "don't forget i hate verbose answers" → "User dislikes verbose answers"
+- "i always use python" → "User always uses Python"
+- "my cat is named Whiskers" → "User's cat is named Whiskers"
+
+User message:
+{content[:500]}
+
+Fact:"""
+
+        response = await client.chat(
+            system_prompt="You extract facts. Return only the fact, nothing else.",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.1,
+            max_tokens=50
+        )
+        fact = response.strip()
+
+        # Basic validation - should be a reasonable fact
+        if len(fact) < 5 or len(fact) > 100:
+            print(f"[MemoryCycle] Fact extraction returned invalid length: {len(fact)}")
+            return None
+
+        return fact
+
+    except Exception as e:
+        print(f"[MemoryCycle] Fact extraction error: {e}")
+        return None
+    finally:
+        await client.close()
+
+
+async def process_persistence_intent(content: str, chat_id: Optional[str] = None) -> Optional[str]:
+    """
+    Full pipeline: detect intent → extract fact → store in vector.
+
+    @param content: User message content
+    @param chat_id: Optional chat ID for metadata
+    @return: The stored fact, or None if nothing stored
+    """
+    # Extract the fact using LLM
+    fact = await extract_fact(content)
+    if not fact:
+        print(f"[MemoryCycle] No fact extracted from: {content[:50]}...")
+        return None
+
+    # Store in facts vector store
+    try:
+        from .vector_store import VectorStore
+
+        facts_store = VectorStore('facts')
+        facts_store.load()  # Load existing or start fresh
+
+        facts_store.add(
+            texts=[fact],
+            metadata_list=[{
+                'type': 'fact',
+                'source_message': content[:200],
+                'chat_id': chat_id,
+                'timestamp': time.strftime('%Y-%m-%dT%H:%M:%SZ')
+            }]
+        )
+        facts_store.save()
+        print(f"[MemoryCycle] Stored fact: {fact}")
+        return fact
+
+    except Exception as e:
+        print(f"[MemoryCycle] Fact storage error: {e}")
+        return None
+
+
+def get_facts_for_prompt(query: str, max_facts: Optional[int] = None) -> str:
+    """
+    Retrieve relevant facts from vector store for prompt inclusion.
+
+    @param query: User message to match against
+    @param max_facts: Max facts to return (defaults to config)
+    @return: Formatted facts string or empty string
+    """
+    if max_facts is None:
+        max_facts = _get_max_facts_in_prompt()
+
+    if max_facts <= 0:
+        return ""
+
+    try:
+        from .vector_store import VectorStore
+
+        store = VectorStore('facts')
+        if not store.load():
+            return ""
+
+        # Search with lower threshold - facts should be easily retrievable
+        results = store.search(query, k=max_facts, threshold=0.3)
+        if not results:
+            return ""
+
+        # Format as context
+        lines = ["[User facts:]"]
+        for r in results:
+            lines.append(f"- {r.text}")
+
+        return '\n'.join(lines)
+
+    except Exception as e:
+        print(f"[MemoryCycle] Facts retrieval error: {e}")
         return ""

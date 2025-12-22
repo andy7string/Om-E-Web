@@ -35,7 +35,15 @@ from .contracts import (
 from .shaping import shape_options
 from .metrics import TurnMetrics, log_turn_metrics
 from retrieval.chat_context import classify_message, process_and_write_memory
-from retrieval.memory_cycle import condense_action, check_large_payload, process_large_payload, get_payload_context
+from retrieval.memory_cycle import (
+    condense_action,
+    check_large_payload,
+    process_large_payload,
+    get_payload_context,
+    detect_persistence_intent,
+    process_persistence_intent,
+    get_facts_for_prompt,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -1024,6 +1032,11 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         if payload_ctx:
             user_content_parts.append(payload_ctx)
 
+        # Add relevant user facts (persistent memory)
+        facts_ctx = get_facts_for_prompt(user_message)
+        if facts_ctx:
+            user_content_parts.append(facts_ctx)
+
         user_content_parts.append(f"USER: {user_message}")
 
         user_content = "\n\n".join(user_content_parts)
@@ -1165,6 +1178,12 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         if check_large_payload(user_message):
             prompt_message = await process_large_payload(user_message, chat_id)
             logger.info(f"[Orchestrator] Large payload processed: {len(user_message)} -> {len(prompt_message)} chars")
+
+        # STEP 0.5: Check for persistence intent - store facts for long-term memory
+        if detect_persistence_intent(user_message):
+            stored_fact = await process_persistence_intent(user_message, chat_id)
+            if stored_fact:
+                logger.info(f"[Orchestrator] Stored fact: {stored_fact}")
 
         # STEP 1: RAG retrieval (always)
         t0 = time.time()
