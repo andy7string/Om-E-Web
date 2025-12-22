@@ -53,6 +53,7 @@ from llm.orchestrator import PersonaOrchestrator
 # RAG - eager load model and capabilities at startup
 from retrieval.vector_store import get_model
 from retrieval.query import rebuild_capabilities_store, rebuild_chat_memory_store, get_chat_memory_store
+from retrieval.memory_cycle import on_message_saved, init_context_state, get_default_context_state
 
 
 
@@ -7105,6 +7106,10 @@ def load_chat(chat_id: str) -> Optional[Dict[str, Any]]:
         with open(filepath, 'r', encoding='utf-8') as f:
             chat_dict = json.load(f)
         print(f"📂 Loaded chat: {chat_id} ({len(chat_dict.get('messages', []))} messages)")
+
+        # Memory cycle: ensure context_state exists (Phase 1)
+        init_context_state(chat_dict)
+
         return chat_dict
     except Exception as e:
         print(f"❌ Error loading chat {chat_id}: {e}")
@@ -7299,7 +7304,9 @@ def create_new_chat(chat_id: str, title: str, meta: Dict[str, Any]) -> Dict[str,
             "page_url": meta.get("page_url"),
             "page_title": meta.get("page_title")
         },
-        "messages": []
+        "messages": [],
+        # Memory cycle: context state for rolling memory
+        "context_state": get_default_context_state()
     }
 
 
@@ -7351,6 +7358,9 @@ def append_user_message(chat_dict: Dict[str, Any], prompt: str) -> Dict[str, Any
     # Queue for memory summarisation
     _queue_message_for_memory(chat_dict, new_message)
 
+    # Memory cycle: update context state (Phase 1)
+    on_message_saved(chat_dict, new_message)
+
     return new_message
 
 
@@ -7386,6 +7396,9 @@ def append_assistant_message(chat_dict: Dict[str, Any], content: str) -> Dict[st
 
     # Queue for memory summarisation
     _queue_message_for_memory(chat_dict, new_message)
+
+    # Memory cycle: update context state (Phase 1)
+    on_message_saved(chat_dict, new_message)
 
     return new_message
 

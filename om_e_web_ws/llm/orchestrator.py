@@ -35,6 +35,7 @@ from .contracts import (
 from .shaping import shape_options
 from .metrics import TurnMetrics, log_turn_metrics
 from retrieval.chat_context import classify_message, process_and_write_memory
+from retrieval.memory_cycle import condense_action
 
 logger = logging.getLogger(__name__)
 
@@ -672,11 +673,21 @@ USER MESSAGE
             if recent_actions:
                 action_lines = []
                 for msg in recent_actions:
-                    msg_content = msg.get("content", "").strip()
-                    # Condense action to short form
-                    if len(msg_content) > 60:
-                        msg_content = msg_content[:57] + "..."
-                    action_lines.append(f"- {msg_content}")
+                    # Find previous user message for context
+                    prev_user_content = None
+                    try:
+                        msg_idx = messages.index(msg)
+                        for j in range(msg_idx - 1, -1, -1):
+                            if messages[j].get('role') == 'user':
+                                prev_user_content = messages[j].get('content', '')
+                                break
+                    except ValueError:
+                        pass
+
+                    # Use memory_cycle's smart condensing
+                    condensed = condense_action(msg, prev_user_content)
+                    if condensed:
+                        action_lines.append(f"- {condensed}")
 
                 actions_text = "[Recent actions:\n" + "\n".join(action_lines) + "]"
                 action_tokens = estimate_tokens(actions_text)
