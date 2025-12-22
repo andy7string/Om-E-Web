@@ -373,87 +373,162 @@ Messages are indexed incrementally during runtime:
 
 ---
 
-## Memory Hierarchy (Future Architecture)
+## Multi-User Project Architecture
 
-Three-tier memory system for scalable knowledge management:
+Four-tier system: Users → Projects → Chats → Memory
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                     GLOBAL MEMORY                            │
-│  User preferences, permanent memories, cross-project facts   │
-│  "Remember I prefer dark mode", "My timezone is AEST"        │
-│  Vector: global_memory (one per user)                        │
-└─────────────────────────────────────────────────────────────┘
-                              │
-         ┌────────────────────┼────────────────────┐
-         ▼                    ▼                    ▼
-┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
-│ PROJECT MEMORY  │  │ PROJECT MEMORY  │  │ PROJECT MEMORY  │
-│ "Om_E_Web"      │  │ "Client Site"   │  │ "Personal"      │
-│ Codebase facts, │  │ Domain-specific │  │ General tasks,  │
-│ architecture    │  │ knowledge       │  │ notes           │
-│ Vector: per-    │  │ Vector: per-    │  │ Vector: per-    │
-│ project         │  │ project         │  │ project         │
-└────────┬────────┘  └────────┬────────┘  └────────┬────────┘
-         │                    │                    │
-    ┌────┴────┐          ┌────┴────┐          ┌────┴────┐
-    ▼         ▼          ▼         ▼          ▼         ▼
-┌───────┐ ┌───────┐  ┌───────┐ ┌───────┐  ┌───────┐ ┌───────┐
-│ Chat  │ │ Chat  │  │ Chat  │ │ Chat  │  │ Chat  │ │ Chat  │
-│ HUD   │ │ Vector│  │ API   │ │ Bug   │  │ Todo  │ │ Notes │
-│ work  │ │ impl  │  │ work  │ │ fix   │  │ list  │ │       │
-└───────┘ └───────┘  └───────┘ └───────┘  └───────┘ └───────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              SYSTEM                                          │
+│  data/                                                                       │
+│  ├── users/                        # Multi-user support                      │
+│  │   └── {user_id}/                                                          │
+│  │       ├── profile.json          # Preferences, timezone, theme            │
+│  │       └── vectors/                                                        │
+│  │           └── memory/           # User-level permanent memory             │
+│  │               ├── index.faiss                                             │
+│  │               └── metadata.json                                           │
+│  │                                                                           │
+│  └── projects/                                                               │
+│      └── {project_id}/             # Each project is self-contained          │
+│          ├── project.json          # Metadata: owner, name, created          │
+│          │                                                                   │
+│          ├── chats/                # Raw conversation JSONs                  │
+│          │   └── {chat_id}.json                                              │
+│          │                                                                   │
+│          ├── memory/               # Processed memory per chat               │
+│          │   └── {chat_id}.json    # Actions, content, summary               │
+│          │                                                                   │
+│          ├── prompts/              # Custom prompts for this project         │
+│          │   ├── system.md         # Custom system prompt                    │
+│          │   ├── moderation.md     # Moderation rules                        │
+│          │   └── {custom}.md       # User-created prompts                    │
+│          │                                                                   │
+│          └── vectors/                                                        │
+│              ├── memory/           # Chat summaries searchable               │
+│              │   ├── index.faiss                                             │
+│              │   └── metadata.json                                           │
+│              │                                                               │
+│              └── rag/              # Harvested content (user-curated)        │
+│                  ├── index.faiss   # Docs, code, research                    │
+│                  └── metadata.json                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Memory Types
+### Hierarchy
 
-| Level | Scope | Trigger | Examples |
-|-------|-------|---------|----------|
-| **Global** | Cross-project | Explicit: "remember permanently" | Preferences, timezone, name |
-| **Project** | Within project | Explicit: "remember for this project" | Codebase patterns, domain facts |
-| **Chat** | Within chat | Automatic (summarised) | Conversation intent/topics |
+```
+User (andy)
+  ├── profile.json                    # "I prefer dark mode", "AEST timezone"
+  ├── vectors/memory/                 # Permanent cross-project memory
+  │
+  └── owns projects:
+      │
+      ├── om_e_web/                   # This project
+      │   ├── chats/                  # HUD work, vector impl, etc.
+      │   ├── memory/                 # Processed chat context
+      │   ├── prompts/                # Custom prompts
+      │   └── vectors/
+      │       ├── memory/             # "What did we discuss about HUD?"
+      │       └── rag/                # Codebase docs, architecture notes
+      │
+      ├── client_site/                # Another project
+      │   └── ...
+      │
+      └── general/                    # Default/catch-all project
+          └── ...
+```
+
+### Memory Levels
+
+| Level | Scope | Storage | Trigger |
+|-------|-------|---------|---------|
+| **User** | Cross-project | `users/{id}/vectors/memory/` | "Remember permanently" |
+| **Project** | Within project | `projects/{id}/vectors/memory/` | "Remember for this project" |
+| **Chat** | Single conversation | `projects/{id}/memory/{chat}.json` | Automatic (rolling) |
 
 ### Search Priority
 
-When querying memory, search in order:
-1. **Chat memory** - immediate context from current conversation
-2. **Project memory** - relevant project-specific knowledge
-3. **Global memory** - user preferences and permanent facts
+```
+User asks: "What theme do I prefer?"
 
-### Data Model
-
-```python
-# Global memory
-data/memory/global.faiss         # User preferences, permanent facts
-data/memory/global_metadata.json
-
-# Project memory (one per project)
-data/projects/{project_id}/memory.faiss
-data/projects/{project_id}/memory_metadata.json
-data/projects/{project_id}/chats/  # Chat files belong to project
-
-# Chat memory (current implementation)
-data/memory/chat_memory.faiss    # Summarised conversations
-data/memory/chat_memory_metadata.json
+1. Chat memory     → Recent discussion context
+2. Project memory  → Project-specific knowledge
+3. User memory     → Preferences, permanent facts
 ```
 
-### Commit to Memory
+### Project JSON Schema
 
-User can explicitly commit to different levels:
-
+```json
+// projects/{project_id}/project.json
+{
+  "project_id": "om_e_web",
+  "name": "Om-E Web",
+  "owner_id": "andy",
+  "created_at": "2025-12-01T00:00:00Z",
+  "updated_at": "2025-12-22T19:00:00Z",
+  "settings": {
+    "default_prompt": "system.md",
+    "auto_summarise": true
+  }
+}
 ```
-"Remember this permanently"           → Global memory
-"Remember this for this project"      → Project memory
-(Automatic summarisation)             → Chat memory
+
+### Chat Memory JSON Schema
+
+```json
+// projects/{project_id}/memory/{chat_id}.json
+{
+  "chat_id": "20251222050550_8ccffe",
+  "chat_title": "Vector Implementation",
+  "last_processed": "2025-12-22T19:30:00Z",
+  "message_count": 79,
+  "tokens": 497,
+
+  "summary": "Discussed chat context window, action/content separation",
+
+  "recent_actions": [
+    {"type": "cap", "target": "SetTheme", "text": "Changed theme to atom"},
+    {"type": "cap", "target": "YouTubeIt", "text": "Searched bamboo labs"}
+  ],
+
+  "recent_content": [
+    {"role": "user", "content": "how did you figure that out"},
+    {"role": "assistant", "content": "I use context and capabilities..."}
+  ]
+}
+```
+
+### Custom Prompts
+
+```markdown
+// projects/{project_id}/prompts/system.md
+You are Om-E, helping with the {{project_name}} project.
+
+Project context:
+{{project_summary}}
+
+// projects/{project_id}/prompts/moderation.md
+Rules for this project:
+- No external API calls without confirmation
+- Always explain code changes before making them
 ```
 
 ### Implementation Order
 
-1. ✅ Chat memory (done - current implementation)
-2. ⏳ Project structure (add project_id to chats)
-3. ⏳ Project memory (per-project vector stores)
-4. ⏳ Global memory (user preferences, permanent facts)
-5. ⏳ Explicit commit commands ("remember this...")
+1. ✅ Chat memory filtering (action/content separation)
+2. ✅ Chat context processing (memory/{chat}.json)
+3. ⏳ Project structure migration
+   - Create `projects/general/` as default
+   - Move `data/chats/` → `projects/general/chats/`
+   - Update paths in ws_server.py
+4. ⏳ User structure
+   - Create `users/{user_id}/`
+   - Migrate preferences
+5. ⏳ Project vectors (memory + rag)
+6. ⏳ User vectors (permanent memory)
+7. ⏳ Custom prompts per project
+8. ⏳ Multi-user auth (future)
 
 ---
 

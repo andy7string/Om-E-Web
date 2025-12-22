@@ -22,7 +22,7 @@ Architecture:
 import os
 import json
 import re
-from datetime import datetime
+import time
 from typing import List, Dict, Optional, Tuple
 from dataclasses import dataclass
 
@@ -75,21 +75,36 @@ ACTION_PATTERNS = [
 
 # User nav commands (actions, not content)
 USER_NAV_PATTERNS = [
+    # Site navigation
     r'^open\s+(youtube|google|facebook|twitter|linkedin|reddit)',
     r'^go\s+to\s+',
     r'^close\s+(tab|youtube|google)',
+    r'^take\s+me\s+to',
+    # Scroll/nav
     r'^scroll\s+(down|up|to)',
     r'^go\s+(back|forward)',
     r'^refresh$',
     r'^reload$',
+    r'^back\s+again',
+    # Tabs
     r'^new\s+tab',
     r'^switch\s+tab',
     r'^next\s+tab',
     r'^previous\s+tab',
-    r'^hide\s+(prompt|chat|sidebar)',
+    # UI controls
+    r'^hide\s+(prompt|chat|sidebar|that)',
     r'^show\s+(prompt|chat|sidebar)',
     r'^toggle\s+',
-    r'^back\s+again',
+    r'^open\s+(chats|side)',
+    r'^close\s+(chats|side)',
+    # Short confirmations/commands
+    r'^(yes|no|ok|done|cancel|nevermind)$',
+    r'^do\s+it',
+    r'^lets\s+do\s+it',
+    # Theme/view
+    r'^(be|become|change\s+to|switch\s+to)\s+\w+$',
+    r'^make\s+(it\s+)?brand\s+new',
+    r'^make\s+(it\s+)?active',
 ]
 
 # Compiled patterns for performance
@@ -469,6 +484,114 @@ def format_chat_context_for_prompt(chat_id: str) -> str:
 
     Returns empty string if no context available.
     """
+    context = get_chat_context(chat_id)
+    if context:
+        return context.formatted
+    return ""
+
+
+# ============================================================================
+# FILE-BASED MEMORY BANK
+# ============================================================================
+
+MEMORY_FILE = os.path.join(os.path.dirname(__file__), '..', 'chat_memory.md')
+
+
+def process_and_write_memory(chat_id: str) -> str:
+    """
+    Process chat into clean memory structure and write to file.
+
+    Creates chat_memory.md with:
+    - Chat summary (rolling)
+    - Recent actions (condensed, last 10)
+    - Recent content (substantive messages)
+
+    This file is inspectable and can be included in prompts.
+
+    Returns:
+        Formatted memory content
+    """
+    context = get_chat_context(chat_id)
+    if not context:
+        return ""
+
+    timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+
+    lines = [
+        f"# Chat Memory Bank",
+        f"",
+        f"**Chat:** {context.chat_title}",
+        f"**ID:** {context.chat_id}",
+        f"**Generated:** {timestamp}",
+        f"**Tokens:** ~{context.total_tokens}",
+        f"",
+        "---",
+        "",
+    ]
+
+    # Summary section
+    if context.summary:
+        lines.extend([
+            "## Summary",
+            "",
+            context.summary,
+            "",
+        ])
+
+    # Actions section (condensed)
+    if context.actions:
+        lines.extend([
+            "## Recent Actions (last 10)",
+            "",
+        ])
+        for msg in context.actions[-10:]:
+            action_summary = _summarise_action(msg)
+            if action_summary:
+                lines.append(f"- {action_summary}")
+        lines.append("")
+
+    # Content section (full messages)
+    if context.content:
+        lines.extend([
+            "## Recent Discussion",
+            "",
+        ])
+        for msg in context.content:
+            role_label = "**User:**" if msg.get('role') == 'user' else "**Om-E:**"
+            content = msg.get('content', '').strip()
+            # Truncate very long messages
+            if len(content) > 300:
+                content = content[:297] + "..."
+            lines.append(f"{role_label} {content}")
+            lines.append("")
+
+    memory_content = '\n'.join(lines)
+
+    # Write to file
+    try:
+        with open(MEMORY_FILE, 'w', encoding='utf-8') as f:
+            f.write(memory_content)
+        print(f"[ChatContext] Written memory bank to {MEMORY_FILE}")
+    except Exception as e:
+        print(f"[ChatContext] Error writing memory file: {e}")
+
+    return memory_content
+
+
+def get_memory_for_prompt(chat_id: str, write_file: bool = True) -> str:
+    """
+    Get processed memory content for LLM prompt.
+
+    Args:
+        chat_id: Chat to process
+        write_file: Also write to chat_memory.md for inspection
+
+    Returns:
+        Clean memory content ready for prompt injection
+    """
+    if write_file:
+        return process_and_write_memory(chat_id)
+
     context = get_chat_context(chat_id)
     if context:
         return context.formatted

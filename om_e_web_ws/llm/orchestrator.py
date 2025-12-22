@@ -34,6 +34,7 @@ from .contracts import (
 )
 from .shaping import shape_options
 from .metrics import TurnMetrics, log_turn_metrics
+from retrieval.chat_context import classify_message, process_and_write_memory
 
 logger = logging.getLogger(__name__)
 
@@ -620,6 +621,11 @@ USER MESSAGE
         """
         Get rolling chat history from JSON file within token budget.
 
+        Uses action/content separation:
+        - Summary: ~25% budget (rolling summary of older content)
+        - Actions: ~25% budget (last 10 actions, condensed format)
+        - Content: ~50% budget (recent substantive messages)
+
         Source of truth is data/chats/{chat_id}.json
         """
         if not chat_id:
@@ -636,38 +642,68 @@ USER MESSAGE
             messages = chat_data.get("messages", [])
             summaries = chat_data.get("summaries", {})
 
+            # Split messages into actions and content
+            actions = []
+            content = []
+            for msg in messages:
+                if classify_message(msg) == 'action':
+                    actions.append(msg)
+                else:
+                    content.append(msg)
+
             # Build history within token budget
             history = []
             used_tokens = 0
 
-            # 1. Include rolling summary if available (~200t)
+            # 1. Include rolling summary if available (~25% budget)
             rolling_summary = summaries.get("rolling")
             if rolling_summary:
                 summary_tokens = estimate_tokens(rolling_summary)
-                if summary_tokens < max_tokens * 0.4:  # Max 40% for summary
+                if summary_tokens < max_tokens * 0.25:
                     history.append({
                         "role": "system",
-                        "content": f"[Chat history - for context only, names/values may be outdated: {rolling_summary}]"
+                        "content": f"[Chat summary: {rolling_summary}]"
                     })
                     used_tokens += summary_tokens
 
-            # 2. Add recent messages (newest first, then reverse)
-            recent_messages = []
+            # 2. Add recent actions in condensed format (~25% budget, last 10)
+            action_budget = int(max_tokens * 0.25)
+            recent_actions = actions[-10:]  # Last 10 actions
+            if recent_actions:
+                action_lines = []
+                for msg in recent_actions:
+                    msg_content = msg.get("content", "").strip()
+                    # Condense action to short form
+                    if len(msg_content) > 60:
+                        msg_content = msg_content[:57] + "..."
+                    action_lines.append(f"- {msg_content}")
 
-            for msg in reversed(messages):
+                actions_text = "[Recent actions:\n" + "\n".join(action_lines) + "]"
+                action_tokens = estimate_tokens(actions_text)
+                if action_tokens <= action_budget:
+                    history.append({
+                        "role": "system",
+                        "content": actions_text
+                    })
+                    used_tokens += action_tokens
+
+            # 3. Add recent content within remaining budget (~50%)
+            recent_content = []
+
+            for msg in reversed(content):
                 msg_content = msg.get("content", "")
                 msg_tokens = estimate_tokens(msg_content)
                 if used_tokens + msg_tokens > max_tokens:
                     break
-                recent_messages.append({
+                recent_content.append({
                     "role": msg.get("role", "user"),
                     "content": msg_content
                 })
                 used_tokens += msg_tokens
 
             # Reverse to chronological order
-            recent_messages.reverse()
-            history.extend(recent_messages)
+            recent_content.reverse()
+            history.extend(recent_content)
 
             return history
 
