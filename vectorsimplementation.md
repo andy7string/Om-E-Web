@@ -836,10 +836,11 @@ The 64 messages of context? Not in the prompt. Om-E is blind to the conversation
 - ❌ **Recent chat messages** ← MISSING
 
 **The Fix:**
-- [ ] Load last 3-4 messages from current chat file
-- [ ] Include in prompt (~150 tokens budget)
+- [ ] Load last 8-10 messages from current chat file
+- [ ] Include in prompt (~150-200 tokens budget)
 - [ ] Format: `[Recent conversation:] User: ... Om-E: ...`
 - [ ] Hook into orchestrator's `_call_unified()`
+- [ ] Config: `recent_messages_count: 10` in llm_config.json
 
 **Phase 6: Persistence Intent & Rolling Summarization**
 - [ ] Message count threshold (7-8 messages) for rolling summary
