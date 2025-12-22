@@ -813,6 +813,12 @@ def _get_rolling_history(self, chat_id, max_tokens=400):
 - [x] Store full content in vector for RAG retrieval
 - [x] Config-driven thresholds in `llm_config.json`
 
+**🚨 PRIORITY FIX: Recent Chat History Missing**
+- [ ] Include last ~150 tokens of current chat messages in prompt
+- [ ] User says "how do i feel about ma boy" → Om-E has NO context of previous messages
+- [ ] Budget: 150 tokens for recent exchanges (per our plan)
+- [ ] Hook: Load last 3-4 messages from current chat into prompt
+
 **Phase 6: Persistence Intent & Rolling Summarization**
 - [ ] Message count threshold (7-8 messages) for rolling summary
 - [x] Persistence intent detection patterns
