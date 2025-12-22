@@ -1,0 +1,75 @@
+{
+  "chat_id": "20251222060404_b1733a",
+  "project_id": "default",
+  "created_at": "2025-12-22T06:04:04.194570Z",
+  "updated_at": "2025-12-22T06:04:45.748026Z",
+  "title": "hud view",
+  "default_title": "04_04_06_22_12_2025_hud",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hud view",
+      "timestamp": "2025-12-22T06:04:04.194679Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-22T06:04:05.201409Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "show me my chats",
+      "timestamp": "2025-12-22T06:04:10.164669Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-22T06:04:11.354050Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "new chat",
+      "timestamp": "2025-12-22T06:04:14.039425Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing CreateChat...",
+      "timestamp": "2025-12-22T06:04:14.777828Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "orb view",
+      "timestamp": "2025-12-22T06:04:41.972078Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-22T06:04:43.063423Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "new chat",
+      "timestamp": "2025-12-22T06:04:44.856472Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing CreateChat...",
+      "timestamp": "2025-12-22T06:04:45.748026Z"
+    }
+  ]
+}

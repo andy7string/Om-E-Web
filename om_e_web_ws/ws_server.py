@@ -801,11 +801,18 @@ def execute_internal_capability(action: str, params: dict, offered_caps: list[di
 
     elif action == "CreateChat":
         # Create a new chat file
-        title = params.get("title", "New Chat")
+        title = params.get("title", "")
         page_url = params.get("page_url", "")
         page_title = params.get("page_title", "")
 
-        # Generate chat_id from title
+        # If no title provided, show HUD naming UI instead of creating immediately
+        if not title or title.strip() in ("", "New Chat"):
+            return {
+                "_hud_action": {"type": "start_new_chat"},
+                "message": "Opening new chat dialog..."
+            }
+
+        # Title provided - create the chat
         now = datetime.utcnow()
         chat_id = generate_chat_id_from_prompt(title, now)
 

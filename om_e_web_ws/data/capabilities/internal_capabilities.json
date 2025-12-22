@@ -151,7 +151,7 @@
       "action": "SetTheme",
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
-      "synonyms": ["switch persona", "different orb", "robot mode", "cute mode", "atom mode", "change character"],
+      "synonyms": ["switch persona", "different orb", "robot mode", "cute mode", "atom mode", "change character", "be ome", "be om-e", "be robot", "be kawaii", "be atom", "become ome", "become kawaii", "become atom"],
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "params": {
         "theme": {

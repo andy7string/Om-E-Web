@@ -1,7 +1,7 @@
 # OM-E Web
 
 **URL:** http://127.0.0.1:8080/
-**Timestamp:** 2025-12-22 16:06:08
+**Timestamp:** 2025-12-22 16:51:50
 **Scan Type:** Accessibility Tree
 
 ---
@@ -23,21 +23,6 @@ RootWebArea: "OM-E Web" (focused)
   heading: "DEVELOPER"
   [8] button: "Extension Settings" → {"act":8}
   [9] button: "ORB" → {"act":9}
-  list
-    listitem
-      ListMarker: "1. "
-    listitem
-      ListMarker: "2. "
-    listitem
-      ListMarker: "3. "
-    listitem
-      ListMarker: "4. "
-    listitem
-      ListMarker: "5. "
-    listitem
-      ListMarker: "6. "
-    listitem
-      ListMarker: "7. "
   [10] button: "Rename" → {"act":10}
   [11] button: "Delete" → {"act":11}
   [12] button: "Rename" → {"act":12}
@@ -52,20 +37,15 @@ RootWebArea: "OM-E Web" (focused)
   [21] button: "Delete" → {"act":21}
   [22] button: "Rename" → {"act":22}
   [23] button: "Delete" → {"act":23}
-  list
-    listitem
-      ListMarker: "1. "
-    listitem
-      ListMarker: "2. "
-    listitem
-      ListMarker: "3. "
-    listitem
-      ListMarker: "4. "
-    listitem
-      ListMarker: "5. "
-    listitem
-      ListMarker: "6. "
-    listitem
-      ListMarker: "7. "
-  [24] button: "Clear prompt" → {"act":24}
-  [25] button: "Send" → {"act":25}
+  [24] button: "Rename" → {"act":24}
+  [25] button: "Delete" → {"act":25}
+  [26] button: "Rename" → {"act":26}
+  [27] button: "Delete" → {"act":27}
+  [28] button: "Rename" → {"act":28}
+  [29] button: "Delete" → {"act":29}
+  [30] button: "Rename" → {"act":30}
+  [31] button: "Delete" → {"act":31}
+  [32] button: "Rename" → {"act":32}
+  [33] button: "Delete" → {"act":33}
+  [34] button: "Clear prompt" → {"act":34}
+  [35] button: "Send" → {"act":35}

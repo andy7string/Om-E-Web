@@ -2,8 +2,8 @@
   "chat_id": "20251222052121_b068ca",
   "project_id": "default",
   "created_at": "2025-12-22T05:21:21.059106Z",
-  "updated_at": "2025-12-22T05:29:52.001469Z",
-  "title": "21_21_05_22_12_2025_the",
+  "updated_at": "2025-12-22T05:52:21.145458Z",
+  "title": "kawaii",
   "default_title": "21_21_05_22_12_2025_the",
   "meta": {
     "source": "ome-web",
@@ -46,6 +46,18 @@
       "role": "assistant",
       "content": "Executing YouTubeIt...",
       "timestamp": "2025-12-22T05:29:52.001469Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "na lets create a new chat",
+      "timestamp": "2025-12-22T05:52:20.133725Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing CreateChat...",
+      "timestamp": "2025-12-22T05:52:21.145458Z"
     }
   ]
 }
