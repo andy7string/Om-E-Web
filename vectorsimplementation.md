@@ -824,6 +824,14 @@ def _get_rolling_history(self, chat_id, max_tokens=400):
 - [ ] Migrate to `projects/{id}/` structure
 - [ ] Vector stores per project
 
+**Phase 8: Global Session Context & Project-Wide Memory**
+- [ ] Global session state (persists across chat switches)
+- [ ] Session action history (last 10 actions GLOBALLY)
+- [ ] Chat flow tracking (trail of chats visited)
+- [ ] Project-wide memory index (all chats searchable)
+- [ ] On-load chat context injection
+- [ ] Cross-chat RAG queries ("what was the song about")
+
 ---
 
 ## Phase 6: Persistence Intent & Rolling Summarization
@@ -1067,6 +1075,456 @@ if facts_ctx:
         "message_count_threshold": 8,
         "max_facts_in_prompt": 3,
         "fact_token_budget": 50
+    }
+}
+```
+
+---
+
+## Phase 8: Global Session Context & Project-Wide Memory
+
+**Problem:** When user switches chats, ALL context is lost. The action history, conversation flow, and cross-chat knowledge vanish. User asks "what was the song about" but Om-E has no idea because the 64 messages in that chat aren't accessible.
+
+**Solution:** Two-layer context system:
+1. **Global Session State** - persists across ALL chat switches within a session
+2. **Project-Wide Memory** - all chats indexed and searchable as a unified knowledge base
+
+### Architecture
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     GLOBAL SESSION STATE                                      ║
+║                (In-memory, persists across chat switches)                     ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  session_state = {                                                            ║
+║      "session_id": "sess_20251223_001",                                       ║
+║      "started_at": "2025-12-23T01:00:00Z",                                    ║
+║                                                                               ║
+║      # GLOBAL ACTION HISTORY (last 10, spans ALL chats)                       ║
+║      "actions": [                                                             ║
+║          {"action": "YouTubeIt", "query": "teddy swims", "chat": "song_chat"},║
+║          {"action": "SwitchChat", "from": "song_chat", "to": "facts_chat"},   ║
+║          {"action": "SetTheme", "theme": "atom", "chat": "facts_chat"},       ║
+║          {"action": "SwitchChat", "from": "facts_chat", "to": "song_chat"},   ║
+║          ...                                                                  ║
+║      ],                                                                       ║
+║                                                                               ║
+║      # CHAT FLOW (trail of chats visited this session)                        ║
+║      "chat_flow": [                                                           ║
+║          {"chat_id": "abc123", "title": "Song Chat", "entered": "01:05:00"},  ║
+║          {"chat_id": "def456", "title": "Facts Chat", "entered": "01:10:00"}, ║
+║          {"chat_id": "abc123", "title": "Song Chat", "entered": "01:15:00"},  ║
+║      ],                                                                       ║
+║                                                                               ║
+║      # CURRENT CONTEXT                                                        ║
+║      "current_chat_id": "abc123",                                             ║
+║      "previous_chat_id": "def456",                                            ║
+║  }                                                                            ║
+║                                                                               ║
+║  Benefits:                                                                    ║
+║  - "go back to what we were doing" → knows previous chat                      ║
+║  - "what did I just search" → knows last YouTubeIt even if in different chat  ║
+║  - Context carries across switches                                            ║
+║                                                                               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     PROJECT-WIDE MEMORY                                       ║
+║              (All chats indexed, searchable as one knowledge base)            ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  PROJECT: Om-E Web                                                            ║
+║  ├── Chat 1: "remember my name"      → indexed ────┐                          ║
+║  ├── Chat 2: "random facts"          → indexed ────┤                          ║
+║  ├── Chat 3: "I'm only human song"   → indexed ────┼──→ PROJECT MEMORY VECTOR ║
+║  ├── Chat 4: "testing payloads"      → indexed ────┤    (FAISS index)         ║
+║  └── Chat 5: "vector implementation" → indexed ────┘                          ║
+║                                                                               ║
+║  Index contains:                                                              ║
+║  - Actual message content (not just summaries)                                ║
+║  - Song lyrics, topics discussed, facts shared                                ║
+║  - User questions and Om-E responses                                          ║
+║  - Metadata: chat_id, chat_title, timestamp, role                             ║
+║                                                                               ║
+║  Query flow:                                                                  ║
+║  User: "what was the song about"                                              ║
+║      ↓                                                                        ║
+║  RAG search across ALL chats in project                                       ║
+║      ↓                                                                        ║
+║  Finds: "I'm Only Human After All - lyrics about vulnerability..."            ║
+║      ↓                                                                        ║
+║  Injects into prompt as context                                               ║
+║      ↓                                                                        ║
+║  Om-E can answer even though user is in different chat                        ║
+║                                                                               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     CURRENT CHAT CONTEXT                                      ║
+║                  (Loaded when chat becomes active)                            ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  On chat switch/load:                                                         ║
+║  1. Load recent messages from chat file (last 8-10)                           ║
+║  2. Add to prompt as immediate context                                        ║
+║  3. RAG query project memory for relevant cross-chat info                     ║
+║                                                                               ║
+║  Result: Om-E knows both:                                                     ║
+║  - What's in THIS chat (recent messages)                                      ║
+║  - What's relevant from OTHER chats (project memory)                          ║
+║                                                                               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+```
+
+### Data Structures
+
+**Global Session State** (in-memory singleton):
+```python
+# retrieval/session_state.py
+
+class SessionState:
+    """Global session state that persists across chat switches."""
+
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance._init_state()
+        return cls._instance
+
+    def _init_state(self):
+        self.session_id = f"sess_{int(time.time())}"
+        self.started_at = datetime.now(timezone.utc).isoformat()
+        self.actions = []           # Last 10 global actions
+        self.chat_flow = []         # Trail of chats visited
+        self.current_chat_id = None
+        self.previous_chat_id = None
+
+    def add_action(self, action: str, params: dict, chat_id: str):
+        """Add action to global history (max 10)."""
+        self.actions.append({
+            "action": action,
+            "params": params,
+            "chat_id": chat_id,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        })
+        self.actions = self.actions[-10:]  # Keep last 10
+
+    def switch_chat(self, new_chat_id: str, chat_title: str):
+        """Record chat switch in flow and actions."""
+        old_chat_id = self.current_chat_id
+
+        # Record in chat flow
+        self.chat_flow.append({
+            "chat_id": new_chat_id,
+            "title": chat_title,
+            "entered": datetime.now(timezone.utc).isoformat()
+        })
+
+        # Record as action
+        if old_chat_id and old_chat_id != new_chat_id:
+            self.add_action("SwitchChat", {
+                "from": old_chat_id,
+                "to": new_chat_id
+            }, new_chat_id)
+
+        self.previous_chat_id = old_chat_id
+        self.current_chat_id = new_chat_id
+
+    def get_recent_actions(self, count: int = 10) -> List[dict]:
+        """Get last N global actions."""
+        return self.actions[-count:]
+
+    def get_previous_chat(self) -> Optional[str]:
+        """Get the chat we were in before current."""
+        return self.previous_chat_id
+
+    def format_for_prompt(self) -> str:
+        """Format session state for prompt injection."""
+        lines = ["[Session Context:]"]
+
+        # Recent actions
+        if self.actions:
+            lines.append("Recent actions:")
+            for a in self.actions[-5:]:
+                lines.append(f"  - {a['action']}: {a.get('params', {})}")
+
+        # Chat flow
+        if len(self.chat_flow) > 1:
+            lines.append(f"Chat flow: {' → '.join(c['title'] for c in self.chat_flow[-3:])}")
+
+        return '\n'.join(lines)
+
+
+# Singleton accessor
+def get_session_state() -> SessionState:
+    return SessionState()
+```
+
+**Project Memory Vector** (enhanced):
+```python
+# retrieval/project_memory.py
+
+class ProjectMemoryStore(VectorStore):
+    """
+    Project-wide memory - indexes ALL chat messages for cross-chat RAG.
+    Unlike chat_memory (summaries only), this indexes actual content.
+    """
+
+    def __init__(self, project_id: str = "default"):
+        super().__init__(f'project_{project_id}_memory')
+        self.project_id = project_id
+
+    def build_from_all_chats(self):
+        """Index all chats in project."""
+        self.clear()
+
+        chat_files = glob.glob(os.path.join(CHATS_DIR, '*.json'))
+        print(f"[ProjectMemory] Indexing {len(chat_files)} chats...")
+
+        texts = []
+        metadata = []
+
+        for chat_file in chat_files:
+            try:
+                with open(chat_file) as f:
+                    chat = json.load(f)
+
+                chat_id = chat.get('chat_id', '')
+                chat_title = chat.get('title', 'Untitled')
+
+                for i, msg in enumerate(chat.get('messages', [])):
+                    content = msg.get('content', '').strip()
+                    role = msg.get('role', '')
+
+                    # Skip short/action messages
+                    if len(content) < 20:
+                        continue
+                    if content.startswith('{') and '"cap"' in content:
+                        continue
+                    if 'Executing ' in content and '...' in content:
+                        continue
+
+                    # Index the message
+                    texts.append(content)
+                    metadata.append({
+                        'chat_id': chat_id,
+                        'chat_title': chat_title,
+                        'role': role,
+                        'message_index': i,
+                        'content_preview': content[:100]
+                    })
+
+            except Exception as e:
+                print(f"[ProjectMemory] Error processing {chat_file}: {e}")
+                continue
+
+        if texts:
+            self.add(texts, metadata)
+            self.save()
+            print(f"[ProjectMemory] Indexed {len(texts)} messages from {len(chat_files)} chats")
+
+    def add_message(self, chat_id: str, chat_title: str, message: dict):
+        """Add single message to index (incremental update)."""
+        content = message.get('content', '').strip()
+        role = message.get('role', '')
+
+        # Skip unworthy content
+        if len(content) < 20:
+            return
+        if content.startswith('{') and '"cap"' in content:
+            return
+        if 'Executing ' in content and '...' in content:
+            return
+
+        self.add([content], [{
+            'chat_id': chat_id,
+            'chat_title': chat_title,
+            'role': role,
+            'content_preview': content[:100]
+        }])
+        # Note: save() called periodically, not per-message
+
+    def search_project(self, query: str, k: int = 5, threshold: float = 0.4) -> List[dict]:
+        """Search across all project chats."""
+        results = self.search(query, k=k, threshold=threshold)
+
+        formatted = []
+        for r in results:
+            formatted.append({
+                'content': r.text,
+                'chat_id': r.metadata.get('chat_id'),
+                'chat_title': r.metadata.get('chat_title'),
+                'role': r.metadata.get('role'),
+                'score': r.score
+            })
+
+        return formatted
+
+
+# Singleton
+_project_memory = None
+
+def get_project_memory() -> ProjectMemoryStore:
+    global _project_memory
+    if _project_memory is None:
+        _project_memory = ProjectMemoryStore()
+        if not _project_memory.load():
+            _project_memory.build_from_all_chats()
+    return _project_memory
+```
+
+### Integration Points
+
+**1. ws_server.py - Chat Switch Hook:**
+```python
+# When SetCurrentChat or chat load happens
+
+from retrieval.session_state import get_session_state
+from retrieval.project_memory import get_project_memory
+
+async def on_chat_switched(chat_id: str, chat_title: str):
+    """Called when user switches to a different chat."""
+    session = get_session_state()
+    session.switch_chat(chat_id, chat_title)
+
+    # Log the switch
+    print(f"[Session] Switched: {session.previous_chat_id} → {chat_id}")
+```
+
+**2. ws_server.py - Action Recording:**
+```python
+# After any capability execution
+
+def record_action(cap_name: str, params: dict, chat_id: str):
+    """Record action in global session state."""
+    session = get_session_state()
+    session.add_action(cap_name, params, chat_id)
+```
+
+**3. ws_server.py - Message Indexing:**
+```python
+# After append_user_message or append_assistant_message
+
+def index_message_to_project(chat_id: str, chat_title: str, message: dict):
+    """Add message to project-wide memory index."""
+    memory = get_project_memory()
+    memory.add_message(chat_id, chat_title, message)
+```
+
+**4. orchestrator.py - Prompt Building:**
+```python
+# In _call_unified() - add session context and project memory
+
+from retrieval.session_state import get_session_state
+from retrieval.project_memory import get_project_memory
+
+# Get global session context
+session = get_session_state()
+session_ctx = session.format_for_prompt()
+if session_ctx:
+    user_content_parts.append(session_ctx)
+
+# Search project-wide memory for relevant content
+project_memory = get_project_memory()
+project_results = project_memory.search_project(user_message, k=3, threshold=0.4)
+if project_results:
+    project_ctx = "[Relevant from other chats:]\n"
+    for r in project_results:
+        project_ctx += f"- [{r['chat_title']}] {r['content'][:150]}...\n"
+    user_content_parts.append(project_ctx)
+```
+
+### Prompt Structure (with new context)
+
+```
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+Tabs: [...]
+
+Capabilities:
+- GoogleIt: ...
+- YouTubeIt: ...
+
+[Session Context:]
+Recent actions:
+  - YouTubeIt: {'query': 'teddy swims'}
+  - SwitchChat: {'from': 'song_chat', 'to': 'facts_chat'}
+  - SetTheme: {'theme': 'atom'}
+Chat flow: Song Chat → Facts Chat → Song Chat
+
+[Relevant from other chats:]
+- [I'm Only Human Song] The song is about vulnerability and showing emotion...
+- [I'm Only Human Song] Lyrics: "I'm only human after all, don't put your blame on me"
+
+[User facts:]
+- User's name is Andy
+- User likes optimism
+
+[Relevant stored content:]
+- Gerald the fox jumped over Buster...
+
+USER: whats the song about
+```
+
+### Implementation Checklist
+
+**Phase 8a: Global Session State**
+- [ ] Create `retrieval/session_state.py` with SessionState singleton
+- [ ] `add_action()` - record actions globally (max 10)
+- [ ] `switch_chat()` - track chat flow
+- [ ] `format_for_prompt()` - format for injection
+- [ ] Hook into ws_server.py for action recording
+- [ ] Hook into SetCurrentChat for chat switch tracking
+
+**Phase 8b: Project-Wide Memory**
+- [ ] Create `retrieval/project_memory.py` with ProjectMemoryStore
+- [ ] `build_from_all_chats()` - full index of all chat messages
+- [ ] `add_message()` - incremental update on new messages
+- [ ] `search_project()` - cross-chat RAG query
+- [ ] Hook into message append for incremental indexing
+- [ ] Periodic save (not per-message)
+
+**Phase 8c: Orchestrator Integration**
+- [ ] Add session context to prompt
+- [ ] Add project memory search to prompt
+- [ ] Test cross-chat queries ("what was the song about")
+- [ ] Test session continuity ("go back to what we were doing")
+
+### Test Cases
+
+| Scenario | Expected Behavior |
+|----------|-------------------|
+| User in Chat A, asks about Chat B content | RAG finds content from Chat B, answers correctly |
+| User switches Chat A → B → A | Session knows flow, "go back" knows previous was B |
+| User does action in Chat A, switches to B | Action still in global history, visible in B |
+| User asks "what did I just search" after switch | Knows last search even though in different chat |
+| User asks "what was the song about" | Finds lyrics/discussion from song chat |
+| Server restart | Session state resets (expected), project memory persists |
+
+### Token Budget Impact
+
+| Context Type | Tokens | Notes |
+|--------------|--------|-------|
+| Session Context | ~50-75 | Last 5 actions + chat flow |
+| Project Memory | ~100-150 | Top 3 relevant cross-chat results |
+| User Facts | ~50 | Existing |
+| Payload Context | ~50-100 | Existing |
+| Recent Messages | ~150-200 | Current chat context |
+| **Total** | **~400-575** | Within budget |
+
+### Config
+
+```json
+// llm_config.json - session section
+{
+    "session": {
+        "max_global_actions": 10,
+        "max_chat_flow_display": 3,
+        "project_memory_results": 3,
+        "project_memory_threshold": 0.4
     }
 }
 ```
