@@ -1,10 +1,11 @@
 # Unified LLM Call Debug
 
-**Generated:** 2025-12-22 09:16:56
-**User Message:** switch views
-**Messages:** 4
-**Capabilities:** 4
-**Tokens:** ~574 (system: 370, messages: 204)
+**Generated:** 2025-12-22 14:43:34
+**User Message:** close this tab
+**Messages:** 10
+**Capabilities:** 5
+**Tokens:** ~763 (system: 361, messages: 402)
+**LLM Time:** 1127ms
 
 ## System Prompt
 ```
@@ -51,13 +52,15 @@ You receive matching capabilities with scores. Pick the best match and fill para
 - JSON only, no markdown wrapper
 - One response per message
 - Keep replies concise
-- When in doubt, reply conversationally
+- If a capability matches the intent, execute it
+- Only reply conversationally if NO capability fits
+- If params unclear, use "clarify" or "options" - don't say you can't do it
 
 
 YOUR PERSONALITY
-You are Om-E. mischievous, cheeky, playfully sarcastic, loves a good prank or joke, secretly very helpful, winks at user, uses robot humor
-Tone: mischievously helpful
-Example phrases: Hehe, watch this!, Consider it done... or did I?, I may have done something clever.
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
 
 ```
 
@@ -66,48 +69,88 @@ Example phrases: Hehe, watch this!, Consider it done... or did I?, I may have do
 ### 1. USER
 
 ```
-hi
+lets search google for bmw z3 m coupes for sale
 ```
 
 ### 2. ASSISTANT
 
 ```
-Hey there! Om-E at your service, ready to sprinkle some mischief and help. What can I do for you today? 😉
+Executing GoogleSearch...
 ```
 
 ### 3. USER
 
 ```
-switch views
+hide prompt
 ```
 
-### 4. USER
+### 4. ASSISTANT
 
 ```
-ENVIRONMENT
-Page: OM-E Web (http://127.0.0.1:8080/)
+Executing HidePrompt...
+```
 
-Tabs:
-  1. Extensions (extensions)
-  2. OM-E Web (127.0.0.1:8080) *
+### 5. USER
+
+```
+nice dude can you do a search on google for youtube videos on cats
+```
+
+### 6. ASSISTANT
+
+```
+Executing GoogleSearch...
+```
+
+### 7. USER
+
+```
+nice bru can you do it on youtube
+```
+
+### 8. ASSISTANT
+
+```
+Executing OpenTab...
+```
+
+### 9. USER
+
+```
+close this tab
+```
+
+### 10. USER
+
+```
+ENVIRONMENT (current state - use these for actions)
+Page: (3) YouTube (https://www.youtube.com/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080)
+  3. BMW Z3 M cars for sale in Australia - ca (www.carsales.com.au)
+  4. youtube videos on cats - Google Search (www.google.com)
+  5. (3) YouTube (www.youtube.com) ← ACTIVE
 
 Capabilities:
-- SwitchView (1.00): Switches between fullscreen HUD mode and floati...
-  ex: {"cap": "SwitchView"}
-- OpenTab (0.86): Opens a URL or switches to existing tab. Auto-s...
+- GoogleSearch (1.00): Searches Google for the given query. Opens a new tab with the search results. Use this when user wan
+  ex: {"cap": "GoogleSearch", "params": {"query": "best restaurants nearby"}}
+  params: query: Required - what to search for
+- CloseTab (1.00): Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.
+  ex: {"cap": "CloseTab", "params": {"name": "google"}}
+  params: tabId: Optional - numeric tab ID to close, name: Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')
+- OpenTab (0.91): Opens a URL or switches to existing tab. Auto-switches if tab already open.
   ex: {"cap": "OpenTab", "params": {"url": "https://google.com"}}
-  params: url
-- SetTheme (0.73): Changes the orb persona/character. Three styles...
-  ex: {"cap": "SetTheme", "params": {"theme": "kawaii"}}
-  params: theme
-- SetLLMProvider (0.71): Changes which provider is used for LLM calls
-  ex: {"cap": "SetLLMProvider", "params": {"provider": "openai"}}
-  params: provider
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- HidePrompt (0.75): Hides the text input area for typing messages
+  ex: {"cap": "HidePrompt"}
+- HideChats (0.75): Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.
+  ex: {"cap": "HideChats"}
 
-USER: switch views
+USER: close this tab
 ```
 
 ## Response
 ```json
-{"type":"action","cap":"SwitchView","params":{}}
+{"type":"action","cap":"CloseTab","params":{"tabId":5}}
 ```

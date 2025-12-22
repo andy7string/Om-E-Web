@@ -1,0 +1,75 @@
+{
+  "chat_id": "20251222041147_bdb9a0",
+  "project_id": "default",
+  "created_at": "2025-12-22T04:11:47.965895Z",
+  "updated_at": "2025-12-22T04:13:34.162965Z",
+  "title": "47_11_04_22_12_2025_lets",
+  "default_title": "47_11_04_22_12_2025_lets",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "lets search google for bmw z3 m coupes for sale",
+      "timestamp": "2025-12-22T04:11:47.965950Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Executing GoogleSearch...",
+      "timestamp": "2025-12-22T04:11:49.189961Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "hide prompt",
+      "timestamp": "2025-12-22T04:11:54.173446Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing HidePrompt...",
+      "timestamp": "2025-12-22T04:11:55.305724Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "nice dude can you do a search on google for youtube videos on cats",
+      "timestamp": "2025-12-22T04:13:08.367937Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing GoogleSearch...",
+      "timestamp": "2025-12-22T04:13:09.716654Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "nice bru can you do it on youtube",
+      "timestamp": "2025-12-22T04:13:22.414953Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-22T04:13:23.533468Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "close this tab",
+      "timestamp": "2025-12-22T04:13:32.764831Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing CloseTab...",
+      "timestamp": "2025-12-22T04:13:34.162965Z"
+    }
+  ]
+}

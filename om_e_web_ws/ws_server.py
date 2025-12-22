@@ -389,7 +389,8 @@ def find_matching_tab(url_or_name: str) -> Optional[dict]:
     🔍 Smart tab matching - finds an existing tab by URL or name.
 
     Checks:
-    1. URL contains the search term (e.g. "google" matches "https://www.google.com")
+    1. URL HOSTNAME contains the search term (e.g. "youtube.com" matches YouTube tab,
+       NOT a Google search with "youtube.com" in the query string)
     2. Title contains the search term (case-insensitive)
 
     @param url_or_name: URL fragment or tab name to search for
@@ -408,32 +409,37 @@ def find_matching_tab(url_or_name: str) -> Optional[dict]:
     if search.startswith("www."):
         search = search[4:]
 
-    # Remove trailing slashes
-    search = search.rstrip("/")
+    # Extract just the domain part (before any path/query)
+    search = search.split("/")[0].rstrip("/")
 
     for tab in CURRENT_TABS_INFO:
-        tab_url = (tab.get("url") or "").lower()
+        tab_url = tab.get("url") or ""
         tab_title = (tab.get("title") or "").lower()
 
-        # Clean URL for comparison
-        clean_url = tab_url
-        if clean_url.startswith("http://"):
-            clean_url = clean_url[7:]
-        elif clean_url.startswith("https://"):
-            clean_url = clean_url[8:]
-        if clean_url.startswith("www."):
-            clean_url = clean_url[4:]
-        clean_url = clean_url.rstrip("/")
+        # Extract hostname from tab URL using urlparse (avoids matching query strings)
+        try:
+            parsed = urlparse(tab_url)
+            tab_hostname = parsed.netloc.lower()
+            if tab_hostname.startswith("www."):
+                tab_hostname = tab_hostname[4:]
+        except Exception:
+            tab_hostname = ""
 
-        # Check for match
-        if search in clean_url or search in tab_title:
+        # Check for hostname match (search must be in hostname, NOT full URL)
+        hostname_match = search in tab_hostname
+
+        # Also check title (keep existing behavior)
+        title_match = search in tab_title
+
+        if hostname_match or title_match:
             # Get stable number
             tab_id = tab.get('id')
             stable_num = get_stable_tab_number(tab_id)
             if stable_num:
                 tab_copy = dict(tab)
                 tab_copy["stable_num"] = stable_num
-                print(f"🔍 [SMART-TAB] Found match for '{url_or_name}': Tab {stable_num} - {tab.get('title')}")
+                match_type = "hostname" if hostname_match else "title"
+                print(f"🔍 [SMART-TAB] Found {match_type} match for '{url_or_name}': Tab {stable_num} - {tab.get('title')}")
                 return tab_copy
 
     return None
@@ -589,16 +595,143 @@ def save_llm_config(config: dict) -> bool:
         return False
 
 
-def execute_internal_capability(action: str, params: dict) -> dict:
+def validate_capability(action: str, params: dict, offered_caps: list[dict] | None = None) -> tuple[dict | None, dict]:
+    """
+    Validate capability exists, has required params, and param values are valid.
+    Also resolves aliases to canonical values.
+
+    @param action: The capability action name
+    @param params: Parameters provided
+    @param offered_caps: Optional list of capabilities that were offered to the LLM
+                        (includes site capabilities). If provided, these are also valid.
+    @return: (error_dict or None, resolved_params)
+             - error_dict: None if valid, or error dict with clarification needed
+             - resolved_params: params with aliases resolved to canonical values
+    """
+    internal_caps = load_internal_capabilities()
+    resolved_params = dict(params)  # Copy to avoid mutation
+
+    # Build set of valid capability names (internal + offered site caps)
+    valid_cap_names = set(internal_caps.keys())
+    offered_cap_defs = {}  # Store offered cap definitions for param validation
+    if offered_caps:
+        for cap in offered_caps:
+            cap_name = cap.get("label") or cap.get("name") or cap.get("action")
+            if cap_name:
+                valid_cap_names.add(cap_name)
+                offered_cap_defs[cap_name] = cap
+
+    # Check if capability exists (in internal OR offered list)
+    if action not in valid_cap_names:
+        return {
+            "error": "unknown_capability",
+            "action": action,
+            "message": f"I don't have a capability called '{action}'. What would you like me to do?"
+        }, resolved_params
+
+    # Get capability definition - prefer internal, fallback to offered
+    if action in internal_caps:
+        cap_def = internal_caps[action]
+    else:
+        cap_def = offered_cap_defs.get(action, {})
+
+    # Get params definition - empty dict means no params required
+    cap_params = cap_def.get("params", {})
+
+    # If no params defined, skip param validation entirely
+    if not cap_params:
+        return None, resolved_params
+
+    # Process each param definition
+    for param_name, param_def in cap_params.items():
+        # Handle structured param definition (dict with valid_values, aliases, etc.)
+        if isinstance(param_def, dict):
+            is_required = param_def.get("required", False)
+            valid_values = param_def.get("valid_values", [])
+            aliases = param_def.get("aliases", {})
+            value_labels = param_def.get("value_labels", {})
+            param_desc = param_def.get("description", param_name)
+
+            # Check if required param is missing
+            if is_required and (param_name not in params or not params[param_name]):
+                return {
+                    "error": "missing_required_params",
+                    "action": action,
+                    "missing_params": [{"name": param_name, "description": param_desc}],
+                    "message": f"I need the {param_name} for {action}"
+                }, resolved_params
+
+            # Validate param value if provided and valid_values defined
+            if param_name in params and params[param_name] and valid_values:
+                value = str(params[param_name]).lower().strip()
+
+                # Check if it's a valid canonical value
+                if value in valid_values:
+                    resolved_params[param_name] = value
+                    continue
+
+                # Check if it's an alias - resolve to canonical value
+                resolved = None
+                for canonical, alias_list in aliases.items():
+                    if value in [a.lower() for a in alias_list]:
+                        resolved = canonical
+                        break
+
+                if resolved:
+                    resolved_params[param_name] = resolved
+                    continue
+
+                # Invalid value - return error with options
+                valid_options = []
+                for v in valid_values:
+                    label = value_labels.get(v, v)
+                    valid_options.append({"value": v, "label": label})
+
+                return {
+                    "error": "invalid_param",
+                    "action": action,
+                    "param": param_name,
+                    "invalid_value": params[param_name],
+                    "valid_options": valid_options,
+                    "message": f"'{params[param_name]}' isn't a valid {param_name}. Which would you like?"
+                }, resolved_params
+
+        # Handle simple string param definition (legacy format)
+        else:
+            param_desc = str(param_def)
+            if "required" in param_desc.lower():
+                if param_name not in params or not params[param_name]:
+                    return {
+                        "error": "missing_required_params",
+                        "action": action,
+                        "missing_params": [{"name": param_name, "description": param_desc}],
+                        "message": f"I need more info for {action}: {param_name}"
+                    }, resolved_params
+
+    return None, resolved_params  # Valid
+
+
+def execute_internal_capability(action: str, params: dict, offered_caps: list[dict] | None = None) -> dict:
     """
     Execute an internal (server-side) capability.
 
     @param action: The capability action name (e.g., 'GetChatList')
     @param params: Parameters for the capability
+    @param offered_caps: Optional list of capabilities that were offered to the LLM
+                        (includes site capabilities). Used for validation.
     @return: Result dictionary
     """
     global CURRENT_CHAT_ID
     print(f"🔧 Executing internal capability: {action} with params: {params}")
+
+    # 🛡️ Validate capability and resolve aliases to canonical values
+    validation_error, resolved_params = validate_capability(action, params, offered_caps)
+    if validation_error:
+        print(f"⚠️ Capability validation failed: {validation_error.get('error')}")
+        return validation_error
+
+    # Use resolved params (aliases mapped to canonical values)
+    params = resolved_params
 
     if action == "GetChatList":
         # Pass project_id filter if provided (use "default" for sidebar unassigned chats)
@@ -985,8 +1118,7 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         if not content:
             return {"error": "Missing content parameter"}
 
-        # Use current chat or create new one
-        now = datetime.utcnow()
+        # Must have an existing chat - assistant can't start a conversation
         chat_dict = None
 
         # Try to load existing chat
@@ -996,13 +1128,10 @@ def execute_internal_capability(action: str, params: dict) -> dict:
                 # Current chat was deleted
                 CURRENT_CHAT_ID = None
 
-        # Create new chat if needed
+        # No chat? Don't create one for assistant message
         if chat_dict is None:
-            chat_id = generate_chat_id_from_prompt("assistant-response", now)
-            meta = {}
-            chat_dict = create_new_chat(chat_id, "Chat", meta)
-            CURRENT_CHAT_ID = chat_id
-            print(f"💬 Created new chat for assistant: {chat_id}")
+            print("⚠️ AppendAssistantMessage: No active chat, skipping")
+            return {"error": "No active chat for assistant message"}
 
         # Append assistant message
         new_message = append_assistant_message(chat_dict, content)
@@ -1195,6 +1324,14 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             "_hud_action": {"type": "search_results", "query": query, "results": results}
         }
 
+    elif action == "CloseSearch":
+        # Close/clear the chat search and show all chats
+        clear_search_context()
+        return {
+            "message": "Search closed",
+            "_hud_action": {"type": "close_search"}
+        }
+
     # 🎛️ UI CONTROL CAPABILITIES
     elif action == "SwitchView" or action == "ToggleHUD":
         # Clear search context on view switch
@@ -1219,14 +1356,8 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         return {"_hud_action": {"type": "hide_prompt"}}
 
     elif action == "SetTheme":
-        theme = params.get("theme", "robot").lower()
-        # Map common names to actual theme values
-        theme_map = {
-            "om-e": "robot", "ome": "robot", "robot": "robot", "purple": "robot", "default": "robot",
-            "kawaii": "kawaii", "cat": "kawaii", "cute": "kawaii", "bunny": "kawaii", "kitten": "kawaii", "kitty": "kawaii",
-            "atom": "atom", "atomic": "atom", "science": "atom", "nucleus": "atom", "green": "atom",
-        }
-        theme = theme_map.get(theme, theme)
+        # Aliases already resolved by validate_capability() - just use the canonical value
+        theme = params.get("theme", "robot")
         return {"_hud_action": {"type": "set_theme", "theme": theme}}
 
     # ═══════════════════════════════════════════════════════════════════════════
@@ -5539,6 +5670,13 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                                 final_params["url"] = DEFAULT_LANDING_PAGE
                                                 print(f"🏠 OpenTab: No URL provided, using default: {DEFAULT_LANDING_PAGE}")
 
+                                            # 🔗 Normalize URL: ensure protocol prefix
+                                            # Without protocol, Chrome treats it as relative to extension
+                                            if url_or_name and not url_or_name.startswith(("http://", "https://", "chrome://", "chrome-extension://")):
+                                                url_or_name = f"https://{url_or_name}"
+                                                final_params["url"] = url_or_name
+                                                print(f"🔗 OpenTab: Added https:// to URL: {url_or_name}")
+
                                             # Check if we should switch instead of open
                                             existing_tab = find_matching_tab(url_or_name)
                                             if existing_tab:
@@ -5559,6 +5697,38 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                             }))
                                             cap_result = {"ok": True}
                                             print(f"🎭 Sent {final_action}")
+
+                                    elif cap_action == "GoogleSearch" and EXTENSION_WS:
+                                        # 🔍 Google Search: construct URL and open in new tab
+                                        import urllib.parse
+                                        query = cap_params.get("query", "")
+                                        if query:
+                                            search_url = f"https://www.google.com/search?q={urllib.parse.quote_plus(query)}"
+                                            print(f"🔍 GoogleSearch: '{query}' → {search_url}")
+
+                                            # Check if Google search tab already exists - switch to it
+                                            existing_tab = find_matching_tab("google.com/search")
+                                            if existing_tab:
+                                                # Update existing Google tab with new search
+                                                await EXTENSION_WS.send(json.dumps({
+                                                    "type": "execute_capability",
+                                                    "id": f"cap_UpdateTabURL_{int(time.time() * 1000)}",
+                                                    "action": "UpdateTabURL",
+                                                    "params": {"tabId": existing_tab["id"], "url": search_url}
+                                                }))
+                                                print(f"🔍 GoogleSearch: Updated existing tab {existing_tab['stable_num']}")
+                                            else:
+                                                # Open new tab with search
+                                                await EXTENSION_WS.send(json.dumps({
+                                                    "type": "execute_capability",
+                                                    "id": f"cap_OpenTab_{int(time.time() * 1000)}",
+                                                    "action": "OpenTab",
+                                                    "params": {"url": search_url}
+                                                }))
+                                                print(f"🔍 GoogleSearch: Opened new tab")
+                                            cap_result = {"ok": True, "url": search_url}
+                                        else:
+                                            cap_result = {"ok": False, "error": "No search query provided"}
 
                                     elif cap_action in nav_actions and EXTENSION_WS:
                                         await EXTENSION_WS.send(json.dumps({
@@ -5611,6 +5781,72 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                                 }))
                                             print(f"🔄 needs_input: waiting for {cap_result.get('param')}")
                                             # Skip normal result handling
+                                            continue
+
+                                        # 🎯 Handle invalid_param: present options to user
+                                        if isinstance(cap_result, dict) and cap_result.get("error") == "invalid_param":
+                                            valid_options = cap_result.get("valid_options", [])
+                                            invalid_value = cap_result.get("invalid_value", "")
+                                            message = cap_result.get("message", "Please choose an option:")
+
+                                            # Build options response
+                                            options_msg = f"{message}\n"
+                                            for i, opt in enumerate(valid_options, 1):
+                                                options_msg += f"\n{i}. {opt.get('label', opt.get('value'))}"
+
+                                            # Store pending options for next user input
+                                            PERSONA_ORCHESTRATOR.state.pending_options = {
+                                                "capability": cap_action,
+                                                "param": cap_result.get("param"),
+                                                "options": valid_options
+                                            }
+
+                                            # Send options to user
+                                            if CURRENT_CHAT_ID:
+                                                chat_dict = load_chat(CURRENT_CHAT_ID)
+                                                if chat_dict:
+                                                    append_assistant_message(chat_dict, options_msg)
+                                                    save_chat(chat_dict)
+                                            if EXTENSION_WS:
+                                                await EXTENSION_WS.send(json.dumps({
+                                                    "type": "hud_action",
+                                                    "action": {
+                                                        "type": "append_message",
+                                                        "chat_id": CURRENT_CHAT_ID,
+                                                        "message": {"role": "assistant", "content": options_msg}
+                                                    }
+                                                }))
+                                            print(f"🎯 invalid_param: presenting {len(valid_options)} options for {cap_result.get('param')}")
+                                            continue
+
+                                        # 🛡️ Handle validation errors: unknown capability or missing params
+                                        if isinstance(cap_result, dict) and cap_result.get("error") in ("unknown_capability", "missing_required_params"):
+                                            error_type = cap_result.get("error")
+                                            clarify_msg = cap_result.get("message", "I need more information to help you.")
+
+                                            # For missing params, include what's needed
+                                            if error_type == "missing_required_params":
+                                                missing = cap_result.get("missing_params", [])
+                                                if missing:
+                                                    param_hints = ", ".join([f"{p['name']} ({p['description'][:40]}...)" if len(p.get('description', '')) > 40 else f"{p['name']} ({p.get('description', '')})" for p in missing])
+                                                    clarify_msg = f"I need: {param_hints}"
+
+                                            # Send clarification to user
+                                            if CURRENT_CHAT_ID:
+                                                chat_dict = load_chat(CURRENT_CHAT_ID)
+                                                if chat_dict:
+                                                    append_assistant_message(chat_dict, clarify_msg)
+                                                    save_chat(chat_dict)
+                                            if EXTENSION_WS:
+                                                await EXTENSION_WS.send(json.dumps({
+                                                    "type": "hud_action",
+                                                    "action": {
+                                                        "type": "append_message",
+                                                        "chat_id": CURRENT_CHAT_ID,
+                                                        "message": {"role": "assistant", "content": clarify_msg}
+                                                    }
+                                                }))
+                                            print(f"🛡️ validation error ({error_type}): {clarify_msg}")
                                             continue
 
                                         # Push HUD action to extension if capability wants to drive UI
@@ -6780,32 +7016,26 @@ def ensure_chats_dir_exists() -> str:
 
 def generate_chat_id_from_prompt(prompt: str, now: datetime) -> str:
     """
-    Generate a unique chat_id from the first three words of the prompt.
+    Generate a unique chat_id with timestamp and short hash.
 
-    Format: <three-word-slug>__<timestamp>
-    Example: check-youtube-comments__20251130T211523
+    Format: <yyyymmddhhmmss>_<hash>
+    Example: 20251222143025_a7f3c2
 
-    @param prompt: User's initial message
+    @param prompt: User's initial message (used for hash seed)
     @param now: Current datetime (UTC)
     @return: Unique chat_id string
     """
-    # Extract first three words
-    words = prompt.strip().split()[:3]
-    slug_text = " ".join(words) if words else "chat"
+    import hashlib
+    import random
 
-    # Lowercase and replace non-alphanumeric with hyphens
-    slug = slug_text.lower()
-    slug = re.sub(r"[^a-z0-9]+", "-", slug)
-    slug = re.sub(r"-{2,}", "-", slug)  # Collapse multiple hyphens
-    slug = slug.strip("-")  # Trim leading/trailing hyphens
+    # Generate timestamp: yyyymmddhhmmss
+    timestamp = now.strftime("%Y%m%d%H%M%S")
 
-    if not slug:
-        slug = "chat"
+    # Generate short hash from prompt + random salt for uniqueness
+    seed = f"{prompt}{random.random()}{now.isoformat()}"
+    hash_hex = hashlib.md5(seed.encode()).hexdigest()[:6]
 
-    # Generate timestamp: YYYYMMDDTHHMMSS
-    timestamp = now.strftime("%Y%m%dT%H%M%S")
-
-    return f"{slug}__{timestamp}"
+    return f"{timestamp}_{hash_hex}"
 
 
 def get_chat_filepath(chat_id: str) -> str:

@@ -201,10 +201,8 @@ def shape_options(
                     break
             break
 
-    # 4. Cap descriptions to 50 chars
-    for opt in deduped:
-        if len(opt.description) > 50:
-            opt.description = opt.description[:47] + "..."
+    # 4. Keep full descriptions - they contain valid param values
+    # (removed truncation that was cutting off critical info like "robot, kawaii, atom")
 
     # 5. Sort by score, take top N
     sorted_opts = sorted(deduped, key=lambda x: x.score, reverse=True)[:max_options]

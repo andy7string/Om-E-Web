@@ -1739,6 +1739,27 @@ function handleServerMessage(messageData) {
         if (message.type === "capability_result") {
             console.log("[SW] 🔧 Capability result received:", message);
 
+            // 🎛️ Extract and broadcast _hud_action if present in result
+            if (message.result && message.result._hud_action) {
+                const hudAction = message.result._hud_action;
+                console.log("[SW] 🎛️ Broadcasting _hud_action from capability result:", hudAction.type);
+                (async () => {
+                    try {
+                        const tabs = await chrome.tabs.query({});
+                        for (const tab of tabs) {
+                            if (tab.id) {
+                                chrome.tabs.sendMessage(tab.id, {
+                                    type: 'hud_action',
+                                    action: hudAction
+                                }).catch(() => {});
+                            }
+                        }
+                    } catch (error) {
+                        console.error('[SW] 🎛️ Error broadcasting _hud_action:', error);
+                    }
+                })();
+            }
+
             // Check for pending callback (content script waiting for response)
             const requestId = message.id;
             if (requestId && pendingCapabilityCallbacks[requestId]) {

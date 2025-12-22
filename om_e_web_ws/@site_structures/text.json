@@ -1,191 +1,1075 @@
 {
   "metadata": {
-    "url": "https://chatgpt.com/",
-    "title": "ChatGPT",
-    "timestamp": "2025-12-21T22:47:33Z",
-    "element_count": 16
+    "url": "https://www.google.com/search?q=youtube+videos+on+cats",
+    "title": "youtube videos on cats - Google Search",
+    "timestamp": "2025-12-22T04:13:34Z",
+    "element_count": 96
   },
   "elements": {
     "0": {
-      "label": "Skip to content",
+      "label": "Skip to main content",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='#main']",
-        "a.bg-token-main-surface-primary.fixed"
+        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ67oDCAU']",
+        "a.gyPpGe"
       ],
-      "href": "https://chatgpt.com/#main"
+      "href": null
     },
     "1": {
-      "label": "Home",
+      "label": "Accessibility help",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Home']",
-        "[aria-label='Home']",
-        "[data-sidebar-item='true']",
-        "a.text-token-text-primary.no-draggable"
+        "a[href*='/websearch/answer/181196']",
+        "a.gyPpGe"
       ],
-      "href": "https://chatgpt.com/"
+      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
     },
     "2": {
-      "label": "Close sidebar",
-      "type": "Button",
-      "tag": "button",
+      "label": "Accessibility feedback",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='Close sidebar']",
-        "[aria-label='Close sidebar']",
-        "[data-testid='close-sidebar-button']",
-        "button.text-token-text-tertiary.no-draggable"
+        "[data-async-trigger='duf3-78']",
+        "a.gyPpGe"
       ],
       "href": null
     },
     "3": {
-      "label": "New chat\n⇧\n⌘\nO",
+      "label": "Go to Google Home",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-sidebar-item='true']",
-        "a.group"
+        "a[aria-label='Go to Google Home']",
+        "[aria-label='Go to Google Home']",
+        "#logo",
+        "a[href*='/webhp']",
+        "[data-hveid='9']"
       ],
-      "href": "https://chatgpt.com/"
+      "href": "https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQPAgJ"
     },
     "4": {
-      "label": "Images\nNEW",
-      "type": "Link",
-      "tag": "a",
+      "label": "Search",
+      "type": "Select",
+      "tag": "textarea",
       "selectors": [
-        "a[href*='/images']",
-        "[data-sidebar-item='true']",
-        "a.group.gap-1\\.5"
+        "textarea[aria-label='Search']",
+        "[aria-label='Search']",
+        "#APjFqb",
+        "textarea[name='q']",
+        "[role='combobox'][aria-label='Search']",
+        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ39UDCA0']",
+        "textarea.gLFyf"
       ],
-      "href": "https://chatgpt.com/images"
+      "href": null
     },
     "5": {
-      "label": "Apps",
-      "type": "Link",
-      "tag": "a",
+      "label": "Clear",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/apps']",
-        "[data-sidebar-item='true']",
-        "a.group.gap-1\\.5"
+        "div[aria-label='Clear']",
+        "[aria-label='Clear']",
+        "[role='button'][aria-label='Clear']",
+        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ05YFCA4']",
+        "div.M2vV3.vOY7J"
       ],
-      "href": "https://chatgpt.com/apps"
+      "href": null
     },
     "6": {
-      "label": "Codex",
-      "type": "Link",
-      "tag": "a",
+      "label": "Search by voice",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/codex']",
-        "[data-sidebar-item='true']",
-        "a.group"
+        "div[aria-label='Search by voice']",
+        "[aria-label='Search by voice']",
+        "[role='button'][aria-label='Search by voice']",
+        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQvs8DCA8']",
+        "div.XDyW0e"
       ],
-      "href": "https://chatgpt.com/codex"
+      "href": null
     },
     "7": {
-      "label": "Atlas",
-      "type": "Link",
-      "tag": "a",
+      "label": "Search by image",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/atlas']",
-        "[data-sidebar-item='true']",
-        "a.group"
+        "div[aria-label='Search by image']",
+        "[aria-label='Search by image']",
+        "[role='button'][aria-label='Search by image']",
+        "[data-base-lens-url='https://lens.google.com']",
+        "div.nDcEnd"
       ],
-      "href": "https://chatgpt.com/atlas"
+      "href": null
     },
     "8": {
-      "label": "Model selector, current model is 5.2",
+      "label": "Search",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Model selector, current model is 5.2']",
-        "[aria-label='Model selector, current model is 5.2']",
-        "#radix-_R_squb33ih6kcm_",
-        "[data-state='closed']",
-        "button.group.flex"
+        "button[aria-label='Search']",
+        "[aria-label='Search']",
+        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ4dUDCBE']",
+        "button.HZVG1b.Tg7LZd"
       ],
       "href": null
     },
     "9": {
-      "label": "Start a group chat",
+      "label": "Google apps",
       "type": "Button",
-      "tag": "button",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='Start a group chat']",
-        "[aria-label='Start a group chat']",
-        "[data-state='closed']",
-        "button.text-token-text-primary.no-draggable"
+        "a[aria-label='Google apps']",
+        "[aria-label='Google apps']",
+        "[role='button'][aria-label='Google apps']",
+        "a[href*='/intl/en/about/products']",
+        "a.gb_B"
       ],
-      "href": null
+      "href": "https://www.google.com.au/intl/en/about/products?tab=wh"
     },
     "10": {
-      "label": "Turn on temporary chat",
+      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
       "type": "Button",
-      "tag": "button",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='Turn on temporary chat']",
-        "[aria-label='Turn on temporary chat']",
-        "button.text-token-text-primary.no-draggable"
+        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "a[href*='/SignOutOptions']",
+        "a.gb_B.gb_0a"
       ],
-      "href": null
+      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/search%3Fq%3Dyoutube%2Bvideos%2Bon%2Bcats&ec=futura_srp_og_si_72236_p"
     },
     "11": {
-      "label": "ome",
-      "type": "Button",
-      "tag": "button",
+      "label": "AI Mode",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button"
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ2J8OegQIEBAE']",
+        "a.XVMlrc.C6AK7c"
       ],
-      "href": null
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=50&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&aep=1&ntc=1&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ2J8OegQIEBAE"
     },
     "12": {
-      "label": "Ask anything",
-      "type": "Input",
-      "tag": "div",
+      "label": "All",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#prompt-textarea",
-        "[data-virtualkeyboard='true']",
-        "div.ProseMirror"
+        "[data-hveid='CBEQAQ']",
+        "a.C6AK7c"
       ],
       "href": null
     },
     "13": {
-      "label": "Add files and more",
-      "type": "Button",
-      "tag": "button",
+      "label": "Videos",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='Add files and more']",
-        "[aria-label='Add files and more']",
-        "#composer-plus-btn",
-        "[data-testid='composer-plus-btn']",
-        "button.composer-btn"
+        "a[href*='/search']",
+        "[data-hveid='CBUQAQ']",
+        "a.C6AK7c"
       ],
-      "href": null
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&q=youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtKgLegQIFRAB"
     },
     "14": {
-      "label": "Dictate button",
-      "type": "Button",
-      "tag": "button",
+      "label": "Images",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='Dictate button']",
-        "[aria-label='Dictate button']",
-        "button.composer-btn"
+        "a[href*='/search']",
+        "[data-hveid='CBIQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&q=youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtKgLegQIEhAB"
+    },
+    "15": {
+      "label": "Short videos",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBMQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=39&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&q=youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQs6gLegQIExAB"
+    },
+    "16": {
+      "label": "Shopping",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBYQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=28&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&q=youtube+videos+on+cats&ved=1t:220175&ictx=111"
+    },
+    "17": {
+      "label": "News",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBQQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=youtube+videos+on+cats&tbm=nws&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ0pQJegQIFBAB"
+    },
+    "18": {
+      "label": "More",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ7p0OegQIEBAG']",
+        "div.mTpL7c"
       ],
       "href": null
     },
-    "15": {
-      "label": "Send prompt",
+    "19": {
+      "label": "Tools",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='Send prompt']",
-        "[aria-label='Send prompt']",
-        "#composer-submit-button",
-        "[data-testid='send-button']",
-        "button.composer-submit-btn.composer-submit-button-color"
+        "#hdtb-tls",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ2x96BAgQEAg']",
+        "div.mOKdDc"
       ],
       "href": null
+    },
+    "20": {
+      "label": "Videos for Cats to Watch - 8 Hour Birds Bonanza - Cat TV Bird ...\n\nYouTube · Paul Dinning\n49.4M+ views · 7 years ago",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAgPEAI']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/watch?v=xbs7FT7dXYc"
+    },
+    "21": {
+      "label": "Videos for Cats to Watch - 8 Hour Birds Bonanza - Cat TV Bird ... by Paul Dinning on YouTube. Play on Google. 8:05:42",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[role='button'][aria-label='Videos for Cats to Watch - 8 Hour Birds Bonanza - Cat TV Bird ... by Paul Dinning on YouTube. Play on Google. 8:05:42']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQIDxAM']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "22": {
+      "label": "Videos For Your Cat\n\nYouTube · Videos For Your Cat\n23.9K+ followers",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/user/Videosforyourcat']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQFnoECBsQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/user/Videosforyourcat"
+    },
+    "23": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/user/Videosforyourcat']",
+        "a[href*='#:~:text=Lengthy%20HD%20videos%20of%20things,like%20birds%2C%20squirrels%2C%20and%20fish.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.youtube.com/user/Videosforyourcat#:~:text=Lengthy%20HD%20videos%20of%20things,like%20birds%2C%20squirrels%2C%20and%20fish."
+    },
+    "24": {
+      "label": "The FUNNIEST Cat Videos! by The Pet Collective on YouTube. Play on YouTube. 0:59",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='The FUNNIEST Cat Videos! by The Pet Collective on YouTube. Play on YouTube. 0:59']",
+        "[aria-label='The FUNNIEST Cat Videos! by The Pet Collective on YouTube. Play on YouTube. 0:59']",
+        "a[href*='/shorts/9AjIYRoW7W8']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/9AjIYRoW7W8"
+    },
+    "25": {
+      "label": "The FUNNIEST Cat Videos!\nYouTube · The Pet Collective",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/9AjIYRoW7W8']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/9AjIYRoW7W8"
+    },
+    "26": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "27": {
+      "label": "Cats Cats Cats! | Funny Cat Videos by The Pet Collective on YouTube. Play on YouTube. 1:05",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Cats Cats Cats! | Funny Cat Videos by The Pet Collective on YouTube. Play on YouTube. 1:05']",
+        "[aria-label='Cats Cats Cats! | Funny Cat Videos by The Pet Collective on YouTube. Play on YouTube. 1:05']",
+        "a[href*='/shorts/AG5b_t5QN3g']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/AG5b_t5QN3g"
+    },
+    "28": {
+      "label": "Cats Cats Cats! | Funny Cat Videos\nYouTube · The Pet Collective",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/AG5b_t5QN3g']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/AG5b_t5QN3g"
+    },
+    "29": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "30": {
+      "label": "The most hilarious cat I've ever met by Girl With The Dogs on YouTube. Play on Google. 1:30",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='The most hilarious cat I\\'ve ever met by Girl With The Dogs on YouTube. Play on Google. 1:30']",
+        "[aria-label='The most hilarious cat I\\'ve ever met by Girl With The Dogs on YouTube. Play on Google. 1:30']",
+        "[role='button'][aria-label='The most hilarious cat I\\'ve ever met by Girl With The Dogs on YouTube. Play on Google. 1:30']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQsZcKegQIJBAD']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "31": {
+      "label": "The most hilarious cat I've ever met\nYouTube · Girl With The Dogs",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/yp40JudEONY']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/yp40JudEONY"
+    },
+    "32": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "33": {
+      "label": "The Funniest Cat Naps! #cat #Kittens #CatNaps #catfunny by The Pet Collective on YouTube. Play on YouTube. 0:58",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/WTSGDsYFYE8']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/WTSGDsYFYE8"
+    },
+    "34": {
+      "label": "The Funniest Cat Naps! #cat #Kittens #CatNaps #catfunny\nYouTube · The Pet Collective",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/WTSGDsYFYE8']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/WTSGDsYFYE8"
+    },
+    "35": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "36": {
+      "label": "Adorable Kittens! | Hilarious Cat Videos by The Pet Collective on YouTube. Play on YouTube. 0:59",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Adorable Kittens! | Hilarious Cat Videos by The Pet Collective on YouTube. Play on YouTube. 0:59']",
+        "[aria-label='Adorable Kittens! | Hilarious Cat Videos by The Pet Collective on YouTube. Play on YouTube. 0:59']",
+        "a[href*='/shorts/YvJSy3IKO6A']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/YvJSy3IKO6A"
+    },
+    "37": {
+      "label": "Adorable Kittens! | Hilarious Cat Videos\nYouTube · The Pet Collective",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/YvJSy3IKO6A']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/YvJSy3IKO6A"
+    },
+    "38": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "39": {
+      "label": "Funny Cat Struggles to Choose Between Two Different Treats by The Pet Collective on YouTube. Play on YouTube. 0:14",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/BWunSx5KskA']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/BWunSx5KskA"
+    },
+    "40": {
+      "label": "Funny Cat Struggles to Choose Between Two Different Treats\nYouTube · The Pet Collective",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/BWunSx5KskA']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/BWunSx5KskA"
+    },
+    "41": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "42": {
+      "label": "Cat Video by Grow Together  on YouTube. Play on YouTube. 0:16",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Cat Video by Grow Together  on YouTube. Play on YouTube. 0:16']",
+        "[aria-label='Cat Video by Grow Together  on YouTube. Play on YouTube. 0:16']",
+        "a[href*='/live/nsCRlVk9lGM']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/live/nsCRlVk9lGM"
+    },
+    "43": {
+      "label": "Cat Video\nYouTube · Grow Together",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/live/nsCRlVk9lGM']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/live/nsCRlVk9lGM"
+    },
+    "44": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "45": {
+      "label": "This Cat Is Playing Life On Hard Mode by Dramecs on YouTube. Play on Google. 2:59",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='This Cat Is Playing Life On Hard Mode by Dramecs on YouTube. Play on Google. 2:59']",
+        "[aria-label='This Cat Is Playing Life On Hard Mode by Dramecs on YouTube. Play on Google. 2:59']",
+        "[role='button'][aria-label='This Cat Is Playing Life On Hard Mode by Dramecs on YouTube. Play on Google. 2:59']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQsZcKegQIHRAD']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "46": {
+      "label": "This Cat Is Playing Life On Hard Mode\nYouTube · Dramecs",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/hwSSOuBmu0s']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/shorts/hwSSOuBmu0s"
+    },
+    "47": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "48": {
+      "label": "LOL! Unforgettable Funny Cat Moments You HAVE to See by Awesome Innovations on YouTube. Play on YouTube. 0:47",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/live/BgcYoEuTHx8']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/live/BgcYoEuTHx8"
+    },
+    "49": {
+      "label": "LOL! Unforgettable Funny Cat Moments You HAVE to See\nYouTube · Awesome Innovations",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/live/BgcYoEuTHx8']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/live/BgcYoEuTHx8"
+    },
+    "50": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "51": {
+      "label": "Funny and cute cat videos | Try not to laugh by Aww Animals on YouTube. Play on Google. 0:31",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Funny and cute cat videos | Try not to laugh by Aww Animals on YouTube. Play on Google. 0:31']",
+        "[aria-label='Funny and cute cat videos | Try not to laugh by Aww Animals on YouTube. Play on Google. 0:31']",
+        "[role='button'][aria-label='Funny and cute cat videos | Try not to laugh by Aww Animals on YouTube. Play on Google. 0:31']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQsZcKegQIGhAD']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "52": {
+      "label": "Funny and cute cat videos | Try not to laugh\nYouTube · Aww Animals",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.rIRoqf"
+      ],
+      "href": "https://m.youtube.com/watch?v=SBEfxFhSQQo"
+    },
+    "53": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.mzNRm.iTPLzd"
+      ],
+      "href": null
+    },
+    "54": {
+      "label": "Next",
+      "type": "Button",
+      "tag": "g-right-button",
+      "selectors": [
+        "g-right-button[aria-label='Next']",
+        "[aria-label='Next']",
+        "[role='button'][aria-label='Next']",
+        "g-right-button.wgbRNb.VdehBf"
+      ],
+      "href": null
+    },
+    "55": {
+      "label": "More short videos",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.jRKCUd"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=39&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ3egMegQIFxAQ"
+    },
+    "56": {
+      "label": "Cat Videos\n\nYouTube · Beast\n175K+ followers",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/playlist']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQFnoECEMQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/playlist?list=PLYgB03ey6x4-8eLerAN-KjwthiB4BTf_I"
+    },
+    "57": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/playlist']",
+        "a[href*='#:~:text=Cat%20playing%20with%20hair%20tie,Beast']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.youtube.com/playlist?list=PLYgB03ey6x4-8eLerAN-KjwthiB4BTf_I#:~:text=Cat%20playing%20with%20hair%20tie,Beast"
+    },
+    "58": {
+      "label": "youtube videos on cats images from www.youtube.com",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='youtube videos on cats images from www.youtube.com']",
+        "[aria-label='youtube videos on cats images from www.youtube.com']",
+        "a[href*='/playlist']"
+      ],
+      "href": "https://www.youtube.com/playlist?list=PLYgB03ey6x4-8eLerAN-KjwthiB4BTf_I"
+    },
+    "59": {
+      "label": "The Funniest Cat Videos Ever\n\nYouTube · Daily Dose Of Internet\n26.9M+ views · 1 year ago",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAg1EAI']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/watch?v=paWE-GvDO1c"
+    },
+    "60": {
+      "label": "The Funniest Cat Videos Ever by Daily Dose Of Internet on YouTube. Play on Google. 20:11",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='The Funniest Cat Videos Ever by Daily Dose Of Internet on YouTube. Play on Google. 20:11']",
+        "[aria-label='The Funniest Cat Videos Ever by Daily Dose Of Internet on YouTube. Play on Google. 20:11']",
+        "[role='button'][aria-label='The Funniest Cat Videos Ever by Daily Dose Of Internet on YouTube. Play on Google. 20:11']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQINRAM']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "61": {
+      "label": "Funnycatsandnicefish\n\nYouTube · Funnycatsandnicefish\n548K+ followers",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/user/Funnycatsandnicefish']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQFnoECDwQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/user/Funnycatsandnicefish"
+    },
+    "62": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/user/Funnycatsandnicefish']",
+        "a[href*='#:~:text=Most%20funny%20cats%20and%20cute,and%20her%20awesome%20Kittens%20.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.youtube.com/user/Funnycatsandnicefish#:~:text=Most%20funny%20cats%20and%20cute,and%20her%20awesome%20Kittens%20."
+    },
+    "63": {
+      "label": "Cat TV for Cats to Watch Unlimited Birds Chipmunks Squirrels ...\n\nYouTube · Birder King\n17.2M+ views · 1 year ago",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAg2EAI']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/watch?v=MrSYP-cotdg"
+    },
+    "64": {
+      "label": "Cat TV for Cats to Watch Unlimited Birds Chipmunks Squirrels ... by Birder King on YouTube. Play on Google. 8:00:49",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[role='button'][aria-label='Cat TV for Cats to Watch Unlimited Birds Chipmunks Squirrels ... by Birder King on YouTube. Play on Google. 8:00:49']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQINhAM']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "65": {
+      "label": "Silly Cat Videos\n\nYouTube · MomsMinivan\n87.2K+ followers",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/playlist']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQFnoECD4QAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/playlist?list=PLv5jr-eduCZZB8svda9MOv72J7Xj_VOR-"
+    },
+    "66": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/playlist']",
+        "a[href*='#:~:text=Play%20all&text=Cat%20Toss!%20He%20loves%20being&text=Talking%20cat%20Rocky%20can%20talk,and%20answer%20questions!&text=Attack%20Cat%20Rocky%20%2D%20Funny,and%20scary!&text=How%20to%20do%20Cat%20Whiskers%2C,step%20by%20step%20Kitty%20Whiskers']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.youtube.com/playlist?list=PLv5jr-eduCZZB8svda9MOv72J7Xj_VOR-#:~:text=Play%20all&text=Cat%20Toss!%20He%20loves%20being&text=Talking%20cat%20Rocky%20can%20talk,and%20answer%20questions!&text=Attack%20Cat%20Rocky%20%2D%20Funny,and%20scary!&text=How%20to%20do%20Cat%20Whiskers%2C,step%20by%20step%20Kitty%20Whiskers"
+    },
+    "67": {
+      "label": "CAT GAMES - Catching Mice! Entertainment Video for Cats to ...\n\nYouTube · TV BINI\n148.3M+ views · 10 years ago",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAgzEAI']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/watch?v=qW-KIjHjjHM"
+    },
+    "68": {
+      "label": "CAT GAMES - Catching Mice! Entertainment Video for Cats to ... by TV BINI on YouTube. Play on Google. 6:10",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[role='button'][aria-label='CAT GAMES - Catching Mice! Entertainment Video for Cats to ... by TV BINI on YouTube. Play on Google. 6:10']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQIMxAM']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "69": {
+      "label": "Unpredictable cats sleeping Funny Cats Videos\n\nYouTube · Little Love\n229.2K+ views · 10 months ago",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAg0EAI']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/watch?v=tXbxxvdrEgI"
+    },
+    "70": {
+      "label": "Unpredictable cats sleeping Funny Cats Videos by Little Love  on YouTube. Play on Google. 10:38",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Unpredictable cats sleeping Funny Cats Videos by Little Love  on YouTube. Play on Google. 10:38']",
+        "[aria-label='Unpredictable cats sleeping Funny Cats Videos by Little Love  on YouTube. Play on Google. 10:38']",
+        "[role='button'][aria-label='Unpredictable cats sleeping Funny Cats Videos by Little Love  on YouTube. Play on Google. 10:38']",
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQINBAM']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "71": {
+      "label": "Free youtube videos on cats",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Free+youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg4EAE"
+    },
+    "72": {
+      "label": "Youtube videos on cats funny",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Youtube+videos+on+cats+funny&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAhBEAE"
+    },
+    "73": {
+      "label": "Best youtube videos on cats",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Best+youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAhCEAE"
+    },
+    "74": {
+      "label": "Videos for indoor cats to watch",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Videos+for+indoor+cats+to+watch&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg_EAE"
+    },
+    "75": {
+      "label": "Free videos for cats to watch fish",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Free+videos+for+cats+to+watch+fish&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg9EAE"
+    },
+    "76": {
+      "label": "Cat videos birds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Cat+videos+birds&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg7EAE"
+    },
+    "77": {
+      "label": "Youtube cat videos Birds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Youtube+cat+videos+Birds&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg6EAE"
+    },
+    "78": {
+      "label": "CAT Youtube videos fish",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=CAT+Youtube+videos+fish&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg5EAE"
+    },
+    "79": {
+      "label": "Page 2",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 2']",
+        "[aria-label='Page 2']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=10&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAE"
+    },
+    "80": {
+      "label": "Page 3",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 3']",
+        "[aria-label='Page 3']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=20&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAG"
+    },
+    "81": {
+      "label": "Page 4",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 4']",
+        "[aria-label='Page 4']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=30&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAI"
+    },
+    "82": {
+      "label": "Page 5",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 5']",
+        "[aria-label='Page 5']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=40&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAK"
+    },
+    "83": {
+      "label": "Page 6",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 6']",
+        "[aria-label='Page 6']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=50&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAM"
+    },
+    "84": {
+      "label": "Page 7",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 7']",
+        "[aria-label='Page 7']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=60&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAO"
+    },
+    "85": {
+      "label": "Page 8",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 8']",
+        "[aria-label='Page 8']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=70&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAQ"
+    },
+    "86": {
+      "label": "Page 9",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 9']",
+        "[aria-label='Page 9']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=80&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAS"
+    },
+    "87": {
+      "label": "Page 10",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 10']",
+        "[aria-label='Page 10']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=90&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAU"
+    },
+    "88": {
+      "label": "Next",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "#pnnext",
+        "a[href*='/search']",
+        "a.LLNLxf"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=10&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8NMDegQICRAW"
+    },
+    "89": {
+      "label": "Try without personalisation",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats&peek_pws=0&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956"
+    },
+    "90": {
+      "label": "Teringie, South Australia - Based on your places (Home)",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-biw='1080']"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats#"
+    },
+    "91": {
+      "label": "Update location",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQpLkCegQICBAH']",
+        "div.VtPCGb"
+      ],
+      "href": null
+    },
+    "92": {
+      "label": "Help",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/websearch/']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://support.google.com/websearch/?p=ws_results_help&hl=en-AU&fg=1"
+    },
+    "93": {
+      "label": "Send feedback",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "#dk2qOd",
+        "a[href*='/search']",
+        "[data-bucket='websearch']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://www.google.com/search?q=youtube+videos+on+cats#"
+    },
+    "94": {
+      "label": "Privacy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/privacy']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
+    },
+    "95": {
+      "label": "Terms",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/terms']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
     }
   }
 }

@@ -647,7 +647,7 @@ USER MESSAGE
                 if summary_tokens < max_tokens * 0.4:  # Max 40% for summary
                     history.append({
                         "role": "system",
-                        "content": f"[Previous context: {rolling_summary}]"
+                        "content": f"[Chat history - for context only, names/values may be outdated: {rolling_summary}]"
                     })
                     used_tokens += summary_tokens
 
@@ -682,6 +682,7 @@ USER MESSAGE
     async def _query_capabilities(self, intent: str) -> List[Dict]:
         """
         Query capabilities store for matching options.
+        Always includes capabilities marked with always_include: true.
 
         Returns list of dicts with: label, description, params, example, score
         """
@@ -690,18 +691,33 @@ USER MESSAGE
             results = cap_store.search(intent, k=MAX_CAPABILITY_OPTIONS, threshold=0.3)
 
             options = []
+            seen_labels = set()
+
+            # First add always_include capabilities (they come first)
+            always_caps = cap_store.get_always_include_capabilities()
+            for cap in always_caps:
+                print(f"[RAG] {cap['label']}: params={cap['params']} [ALWAYS]")
+                options.append(cap)
+                seen_labels.add(cap['label'])
+
+            # Then add search results (skip duplicates)
             for r in results:
+                label = r.metadata.get("name", "Unknown")
+                if label in seen_labels:
+                    continue  # Skip if already added as always_include
+
                 cap_data = {
-                    "label": r.metadata.get("name", "Unknown"),
+                    "label": label,
                     "description": r.metadata.get("description", ""),
                     "group": r.metadata.get("group", ""),
                     "example": r.metadata.get("example", ""),
                     "params": r.metadata.get("params", {}),
                     "score": r.score
                 }
-                # Debug: log what we're getting
                 print(f"[RAG] {cap_data['label']}: params={cap_data['params']}")
                 options.append(cap_data)
+                seen_labels.add(label)
+
             return options
 
         except Exception as e:
@@ -892,31 +908,34 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
 
         if tabs:
             env_lines.append("")
-            env_lines.append("Tabs:")
+            env_lines.append("Tabs (currently open):")
             active_id = active_tab.get("id") if active_tab else None
             for tab in tabs[:8]:
                 tab_num = tab.get("stable_num", "?")
                 tab_title = tab.get("title", "Untitled")[:40]
                 tab_domain = self._extract_domain(tab.get("url", ""))
-                marker = " *" if tab.get("id") == active_id else ""
+                marker = " ← ACTIVE" if tab.get("id") == active_id else ""
                 env_lines.append(f"  {tab_num}. {tab_title} ({tab_domain}){marker}")
 
         if visible_chats:
             env_lines.append("")
-            env_lines.append("Chats:")
+            env_lines.append(f"Chats (current names - use these, not history):")
             current_chat_id = self.state.current_chat_id
             for i, chat in enumerate(visible_chats, 1):
                 chat_title = chat.get("title", "Untitled")[:40]
-                marker = " *" if current_chat_id and chat.get("chat_id") == current_chat_id else ""
-                env_lines.append(f"  {i}. {chat_title}{marker}")
+                msg_count = chat.get("message_count", 0)
+                date_short = chat.get("date_short", "")
+                marker = " ← CURRENT" if current_chat_id and chat.get("chat_id") == current_chat_id else ""
+                date_part = f" [{date_short}]" if date_short else ""
+                env_lines.append(f"  {i}. {chat_title} ({msg_count} msgs){date_part}{marker}")
 
-        # Build capabilities section
+        # Build capabilities section - include full description for param constraints
         cap_lines = []
         if capabilities:
             cap_lines.append("Capabilities:")
             for cap in capabilities:
                 label = cap['label']
-                desc = cap['description'][:60]
+                desc = cap.get('description', '')
                 score = cap['score']
                 params = cap.get('params', {})
                 example = cap.get('example', '')
@@ -925,8 +944,9 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 if example:
                     cap_lines.append(f"  ex: {example}")
                 if params:
-                    param_str = ", ".join(f'{k}' for k in params.keys())
-                    cap_lines.append(f"  params: {param_str}")
+                    # Include full param info with valid values
+                    param_parts = [f"{k}: {v}" for k, v in params.items()]
+                    cap_lines.append(f"  params: {', '.join(param_parts)}")
 
         # Get rolling history
         chat_history = self._get_rolling_history(chat_id, MAX_HISTORY_TOKENS)
@@ -939,7 +959,7 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         # Build user content
         user_content_parts = []
         if env_lines:
-            user_content_parts.append("ENVIRONMENT\n" + "\n".join(env_lines))
+            user_content_parts.append("ENVIRONMENT (current state - use these for actions)\n" + "\n".join(env_lines))
         if cap_lines:
             user_content_parts.append("\n".join(cap_lines))
         user_content_parts.append(f"USER: {user_message}")
@@ -948,12 +968,15 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         messages.append({"role": "user", "content": user_content})
 
         try:
+            # Capture timing around LLM call
+            llm_start = time.time()
             response_text = await self._client.chat(
                 system_prompt=system_prompt,
                 messages=messages,
                 temperature=0.1,
                 max_tokens=500
             )
+            llm_elapsed_ms = (time.time() - llm_start) * 1000
 
             # Write debug file
             debug_content = self._build_unified_debug(
@@ -961,7 +984,8 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 system_prompt=system_prompt,
                 messages=messages,
                 capabilities=capabilities,
-                response_text=response_text
+                response_text=response_text,
+                llm_elapsed_ms=llm_elapsed_ms
             )
             _write_debug_file("llm_unified.md", debug_content)
 
@@ -982,7 +1006,8 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         system_prompt: str,
         messages: List[Dict],
         capabilities: List[Dict],
-        response_text: str
+        response_text: str,
+        llm_elapsed_ms: float = 0
     ) -> str:
         """Build debug markdown for unified call showing full message list."""
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -997,6 +1022,7 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             f"**Messages:** {len(messages)}",
             f"**Capabilities:** {len(capabilities)}",
             f"**Tokens:** ~{system_tokens + messages_tokens} (system: {system_tokens}, messages: {messages_tokens})",
+            f"**LLM Time:** {llm_elapsed_ms:.0f}ms",
             "",
             "## System Prompt",
             "```",

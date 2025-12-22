@@ -74,6 +74,18 @@
         "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
       }
     },
+    "GoogleSearch": {
+      "group": "browser",
+      "action": "GoogleSearch",
+      "label": "Search Google for something",
+      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
+      "synonyms": ["search google", "google it", "look up", "find on internet", "search the web", "web search", "search online", "google search"],
+      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to search for"
+      },
+      "always_include": true
+    },
     "CloseTab": {
       "group": "browser",
       "action": "CloseTab",
@@ -126,11 +138,25 @@
       "group": "hud",
       "action": "SetTheme",
       "label": "Change orb character style",
-      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
       "synonyms": ["switch persona", "different orb", "robot mode", "cute mode", "atom mode", "change character"],
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "params": {
-        "theme": "Required - robot/ome/purple, kawaii/kitten/kitty/cat/cute, or atom/green/science"
+        "theme": {
+          "required": true,
+          "description": "The character style to use",
+          "valid_values": ["robot", "kawaii", "atom"],
+          "value_labels": {
+            "robot": "Om-E (purple robot with goggles)",
+            "kawaii": "Kawaii (cute fluffy cat)",
+            "atom": "Atom (green science orb)"
+          },
+          "aliases": {
+            "robot": ["ome", "om-e", "purple", "default"],
+            "kawaii": ["kitten", "kitty", "cat", "cute", "bunny", "bunny cat"],
+            "atom": ["green", "science", "atomic", "nucleus"]
+          }
+        }
       }
     },
     "ShowPrompt": {
@@ -194,11 +220,14 @@
       "group": "chat",
       "action": "LoadChat",
       "label": "Load a chat",
-      "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
+      "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
       "synonyms": ["open conversation", "get chat", "retrieve chat", "read chat"],
       "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - chat NUMBER from visible chats list",
+        "chat_id": "Optional - direct chat ID string",
+        "tail": "Optional - only return last N messages (default: all)",
+        "offset": "Optional - skip last N messages before tail (for pagination)"
       }
     },
     "CreateChat": {
@@ -310,6 +339,15 @@
       "params": {
         "query": "Required - search query string (extract from user request)"
       }
+    },
+    "CloseSearch": {
+      "group": "chat",
+      "action": "CloseSearch",
+      "label": "Close the chat search",
+      "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
+      "synonyms": ["clear search", "cancel search", "exit search", "close search", "stop searching"],
+      "example": "{\"cap\": \"CloseSearch\"}",
+      "params": {}
     },
     "GetLLMConfig": {
       "group": "config",

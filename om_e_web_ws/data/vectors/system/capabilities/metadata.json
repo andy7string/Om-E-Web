@@ -41,6 +41,13 @@
     "navigate to",
     "visit site",
     "go to url",
+    "GoogleSearch: Search Google for something. Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
+    "search google",
+    "google it",
+    "look up",
+    "find on internet",
+    "search the web",
+    "web search",
     "CloseTab: Close a tab. Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
     "shut tab",
     "kill tab",
@@ -68,7 +75,7 @@
     "browser mode",
     "fullscreen",
     "floating orb",
-    "SetTheme: Change orb character style. Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+    "SetTheme: Change orb character style. Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
     "switch persona",
     "different orb",
     "robot mode",
@@ -101,7 +108,7 @@
     "ToggleChats: Toggle chats panel. Opens or closes the chats panel",
     "toggle sidebar",
     "chats on off",
-    "LoadChat: Load a chat. Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
+    "LoadChat: Load a chat. Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
     "open conversation",
     "get chat",
     "retrieve chat",
@@ -148,6 +155,12 @@
     "look for chat",
     "find in history",
     "search for",
+    "CloseSearch: Close the chat search. Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
+    "clear search",
+    "cancel search",
+    "exit search",
+    "close search",
+    "stop searching",
     "GetLLMConfig: Get LLM configuration. Returns current LLM config including providers and settings",
     "show config",
     "what model",
@@ -697,6 +710,105 @@
       }
     },
     {
+      "name": "GoogleSearch",
+      "type": "primary",
+      "group": "browser",
+      "label": "Search Google for something",
+      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
+      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "synonyms": [
+        "search google",
+        "google it",
+        "look up",
+        "find on internet",
+        "search the web",
+        "web search",
+        "search online",
+        "google search"
+      ],
+      "params": {
+        "query": "Required - what to search for"
+      }
+    },
+    {
+      "name": "GoogleSearch",
+      "type": "synonym",
+      "synonym_text": "search google",
+      "synonym_index": 0,
+      "group": "browser",
+      "label": "Search Google for something",
+      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
+      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to search for"
+      }
+    },
+    {
+      "name": "GoogleSearch",
+      "type": "synonym",
+      "synonym_text": "google it",
+      "synonym_index": 1,
+      "group": "browser",
+      "label": "Search Google for something",
+      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
+      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to search for"
+      }
+    },
+    {
+      "name": "GoogleSearch",
+      "type": "synonym",
+      "synonym_text": "look up",
+      "synonym_index": 2,
+      "group": "browser",
+      "label": "Search Google for something",
+      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
+      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to search for"
+      }
+    },
+    {
+      "name": "GoogleSearch",
+      "type": "synonym",
+      "synonym_text": "find on internet",
+      "synonym_index": 3,
+      "group": "browser",
+      "label": "Search Google for something",
+      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
+      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to search for"
+      }
+    },
+    {
+      "name": "GoogleSearch",
+      "type": "synonym",
+      "synonym_text": "search the web",
+      "synonym_index": 4,
+      "group": "browser",
+      "label": "Search Google for something",
+      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
+      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to search for"
+      }
+    },
+    {
+      "name": "GoogleSearch",
+      "type": "synonym",
+      "synonym_text": "web search",
+      "synonym_index": 5,
+      "group": "browser",
+      "label": "Search Google for something",
+      "description": "Searches Google for the given query. Opens a new tab with the search results. Use this when user wants to search the internet, look something up, or find information online.",
+      "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "params": {
+        "query": "Required - what to search for"
+      }
+    },
+    {
       "name": "CloseTab",
       "type": "primary",
       "group": "browser",
@@ -1035,7 +1147,7 @@
       "type": "primary",
       "group": "hud",
       "label": "Change orb character style",
-      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "synonyms": [
         "switch persona",
@@ -1046,7 +1158,42 @@
         "change character"
       ],
       "params": {
-        "theme": "Required - robot/ome/purple, kawaii/kitten/kitty/cat/cute, or atom/green/science"
+        "theme": {
+          "required": true,
+          "description": "The character style to use",
+          "valid_values": [
+            "robot",
+            "kawaii",
+            "atom"
+          ],
+          "value_labels": {
+            "robot": "Om-E (purple robot with goggles)",
+            "kawaii": "Kawaii (cute fluffy cat)",
+            "atom": "Atom (green science orb)"
+          },
+          "aliases": {
+            "robot": [
+              "ome",
+              "om-e",
+              "purple",
+              "default"
+            ],
+            "kawaii": [
+              "kitten",
+              "kitty",
+              "cat",
+              "cute",
+              "bunny",
+              "bunny cat"
+            ],
+            "atom": [
+              "green",
+              "science",
+              "atomic",
+              "nucleus"
+            ]
+          }
+        }
       }
     },
     {
@@ -1056,10 +1203,45 @@
       "synonym_index": 0,
       "group": "hud",
       "label": "Change orb character style",
-      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "params": {
-        "theme": "Required - robot/ome/purple, kawaii/kitten/kitty/cat/cute, or atom/green/science"
+        "theme": {
+          "required": true,
+          "description": "The character style to use",
+          "valid_values": [
+            "robot",
+            "kawaii",
+            "atom"
+          ],
+          "value_labels": {
+            "robot": "Om-E (purple robot with goggles)",
+            "kawaii": "Kawaii (cute fluffy cat)",
+            "atom": "Atom (green science orb)"
+          },
+          "aliases": {
+            "robot": [
+              "ome",
+              "om-e",
+              "purple",
+              "default"
+            ],
+            "kawaii": [
+              "kitten",
+              "kitty",
+              "cat",
+              "cute",
+              "bunny",
+              "bunny cat"
+            ],
+            "atom": [
+              "green",
+              "science",
+              "atomic",
+              "nucleus"
+            ]
+          }
+        }
       }
     },
     {
@@ -1069,10 +1251,45 @@
       "synonym_index": 1,
       "group": "hud",
       "label": "Change orb character style",
-      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "params": {
-        "theme": "Required - robot/ome/purple, kawaii/kitten/kitty/cat/cute, or atom/green/science"
+        "theme": {
+          "required": true,
+          "description": "The character style to use",
+          "valid_values": [
+            "robot",
+            "kawaii",
+            "atom"
+          ],
+          "value_labels": {
+            "robot": "Om-E (purple robot with goggles)",
+            "kawaii": "Kawaii (cute fluffy cat)",
+            "atom": "Atom (green science orb)"
+          },
+          "aliases": {
+            "robot": [
+              "ome",
+              "om-e",
+              "purple",
+              "default"
+            ],
+            "kawaii": [
+              "kitten",
+              "kitty",
+              "cat",
+              "cute",
+              "bunny",
+              "bunny cat"
+            ],
+            "atom": [
+              "green",
+              "science",
+              "atomic",
+              "nucleus"
+            ]
+          }
+        }
       }
     },
     {
@@ -1082,10 +1299,45 @@
       "synonym_index": 2,
       "group": "hud",
       "label": "Change orb character style",
-      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "params": {
-        "theme": "Required - robot/ome/purple, kawaii/kitten/kitty/cat/cute, or atom/green/science"
+        "theme": {
+          "required": true,
+          "description": "The character style to use",
+          "valid_values": [
+            "robot",
+            "kawaii",
+            "atom"
+          ],
+          "value_labels": {
+            "robot": "Om-E (purple robot with goggles)",
+            "kawaii": "Kawaii (cute fluffy cat)",
+            "atom": "Atom (green science orb)"
+          },
+          "aliases": {
+            "robot": [
+              "ome",
+              "om-e",
+              "purple",
+              "default"
+            ],
+            "kawaii": [
+              "kitten",
+              "kitty",
+              "cat",
+              "cute",
+              "bunny",
+              "bunny cat"
+            ],
+            "atom": [
+              "green",
+              "science",
+              "atomic",
+              "nucleus"
+            ]
+          }
+        }
       }
     },
     {
@@ -1095,10 +1347,45 @@
       "synonym_index": 3,
       "group": "hud",
       "label": "Change orb character style",
-      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "params": {
-        "theme": "Required - robot/ome/purple, kawaii/kitten/kitty/cat/cute, or atom/green/science"
+        "theme": {
+          "required": true,
+          "description": "The character style to use",
+          "valid_values": [
+            "robot",
+            "kawaii",
+            "atom"
+          ],
+          "value_labels": {
+            "robot": "Om-E (purple robot with goggles)",
+            "kawaii": "Kawaii (cute fluffy cat)",
+            "atom": "Atom (green science orb)"
+          },
+          "aliases": {
+            "robot": [
+              "ome",
+              "om-e",
+              "purple",
+              "default"
+            ],
+            "kawaii": [
+              "kitten",
+              "kitty",
+              "cat",
+              "cute",
+              "bunny",
+              "bunny cat"
+            ],
+            "atom": [
+              "green",
+              "science",
+              "atomic",
+              "nucleus"
+            ]
+          }
+        }
       }
     },
     {
@@ -1108,10 +1395,45 @@
       "synonym_index": 4,
       "group": "hud",
       "label": "Change orb character style",
-      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "params": {
-        "theme": "Required - robot/ome/purple, kawaii/kitten/kitty/cat/cute, or atom/green/science"
+        "theme": {
+          "required": true,
+          "description": "The character style to use",
+          "valid_values": [
+            "robot",
+            "kawaii",
+            "atom"
+          ],
+          "value_labels": {
+            "robot": "Om-E (purple robot with goggles)",
+            "kawaii": "Kawaii (cute fluffy cat)",
+            "atom": "Atom (green science orb)"
+          },
+          "aliases": {
+            "robot": [
+              "ome",
+              "om-e",
+              "purple",
+              "default"
+            ],
+            "kawaii": [
+              "kitten",
+              "kitty",
+              "cat",
+              "cute",
+              "bunny",
+              "bunny cat"
+            ],
+            "atom": [
+              "green",
+              "science",
+              "atomic",
+              "nucleus"
+            ]
+          }
+        }
       }
     },
     {
@@ -1121,10 +1443,45 @@
       "synonym_index": 5,
       "group": "hud",
       "label": "Change orb character style",
-      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
       "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
       "params": {
-        "theme": "Required - robot/ome/purple, kawaii/kitten/kitty/cat/cute, or atom/green/science"
+        "theme": {
+          "required": true,
+          "description": "The character style to use",
+          "valid_values": [
+            "robot",
+            "kawaii",
+            "atom"
+          ],
+          "value_labels": {
+            "robot": "Om-E (purple robot with goggles)",
+            "kawaii": "Kawaii (cute fluffy cat)",
+            "atom": "Atom (green science orb)"
+          },
+          "aliases": {
+            "robot": [
+              "ome",
+              "om-e",
+              "purple",
+              "default"
+            ],
+            "kawaii": [
+              "kitten",
+              "kitty",
+              "cat",
+              "cute",
+              "bunny",
+              "bunny cat"
+            ],
+            "atom": [
+              "green",
+              "science",
+              "atomic",
+              "nucleus"
+            ]
+          }
+        }
       }
     },
     {
@@ -1439,7 +1796,7 @@
       "type": "primary",
       "group": "chat",
       "label": "Load a chat",
-      "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
+      "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
       "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
       "synonyms": [
         "open conversation",
@@ -1448,7 +1805,10 @@
         "read chat"
       ],
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - chat NUMBER from visible chats list",
+        "chat_id": "Optional - direct chat ID string",
+        "tail": "Optional - only return last N messages (default: all)",
+        "offset": "Optional - skip last N messages before tail (for pagination)"
       }
     },
     {
@@ -1458,10 +1818,13 @@
       "synonym_index": 0,
       "group": "chat",
       "label": "Load a chat",
-      "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
+      "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
       "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - chat NUMBER from visible chats list",
+        "chat_id": "Optional - direct chat ID string",
+        "tail": "Optional - only return last N messages (default: all)",
+        "offset": "Optional - skip last N messages before tail (for pagination)"
       }
     },
     {
@@ -1471,10 +1834,13 @@
       "synonym_index": 1,
       "group": "chat",
       "label": "Load a chat",
-      "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
+      "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
       "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - chat NUMBER from visible chats list",
+        "chat_id": "Optional - direct chat ID string",
+        "tail": "Optional - only return last N messages (default: all)",
+        "offset": "Optional - skip last N messages before tail (for pagination)"
       }
     },
     {
@@ -1484,10 +1850,13 @@
       "synonym_index": 2,
       "group": "chat",
       "label": "Load a chat",
-      "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
+      "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
       "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - chat NUMBER from visible chats list",
+        "chat_id": "Optional - direct chat ID string",
+        "tail": "Optional - only return last N messages (default: all)",
+        "offset": "Optional - skip last N messages before tail (for pagination)"
       }
     },
     {
@@ -1497,10 +1866,13 @@
       "synonym_index": 3,
       "group": "chat",
       "label": "Load a chat",
-      "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
+      "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
       "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - chat NUMBER from visible chats list",
+        "chat_id": "Optional - direct chat ID string",
+        "tail": "Optional - only return last N messages (default: all)",
+        "offset": "Optional - skip last N messages before tail (for pagination)"
       }
     },
     {
@@ -2129,6 +2501,77 @@
       "params": {
         "query": "Required - search query string (extract from user request)"
       }
+    },
+    {
+      "name": "CloseSearch",
+      "type": "primary",
+      "group": "chat",
+      "label": "Close the chat search",
+      "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
+      "example": "{\"cap\": \"CloseSearch\"}",
+      "synonyms": [
+        "clear search",
+        "cancel search",
+        "exit search",
+        "close search",
+        "stop searching"
+      ],
+      "params": {}
+    },
+    {
+      "name": "CloseSearch",
+      "type": "synonym",
+      "synonym_text": "clear search",
+      "synonym_index": 0,
+      "group": "chat",
+      "label": "Close the chat search",
+      "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
+      "example": "{\"cap\": \"CloseSearch\"}",
+      "params": {}
+    },
+    {
+      "name": "CloseSearch",
+      "type": "synonym",
+      "synonym_text": "cancel search",
+      "synonym_index": 1,
+      "group": "chat",
+      "label": "Close the chat search",
+      "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
+      "example": "{\"cap\": \"CloseSearch\"}",
+      "params": {}
+    },
+    {
+      "name": "CloseSearch",
+      "type": "synonym",
+      "synonym_text": "exit search",
+      "synonym_index": 2,
+      "group": "chat",
+      "label": "Close the chat search",
+      "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
+      "example": "{\"cap\": \"CloseSearch\"}",
+      "params": {}
+    },
+    {
+      "name": "CloseSearch",
+      "type": "synonym",
+      "synonym_text": "close search",
+      "synonym_index": 3,
+      "group": "chat",
+      "label": "Close the chat search",
+      "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
+      "example": "{\"cap\": \"CloseSearch\"}",
+      "params": {}
+    },
+    {
+      "name": "CloseSearch",
+      "type": "synonym",
+      "synonym_text": "stop searching",
+      "synonym_index": 4,
+      "group": "chat",
+      "label": "Close the chat search",
+      "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
+      "example": "{\"cap\": \"CloseSearch\"}",
+      "params": {}
     },
     {
       "name": "GetLLMConfig",

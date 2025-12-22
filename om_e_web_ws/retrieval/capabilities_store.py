@@ -204,3 +204,24 @@ class CapabilitiesStore(VectorStore):
     def get_all_capabilities(self) -> Dict[str, dict]:
         """Get all capabilities."""
         return self._capabilities_cache.copy()
+
+    def get_always_include_capabilities(self) -> List[dict]:
+        """
+        Get capabilities marked with always_include: true.
+        These should always be shown to the LLM regardless of query.
+
+        Returns list of capability dicts with name, label, description, params, example.
+        """
+        always_caps = []
+        for cap_name, cap_info in self._capabilities_cache.items():
+            if cap_info.get('always_include', False):
+                always_caps.append({
+                    'label': cap_name,
+                    'description': cap_info.get('description', ''),
+                    'group': cap_info.get('group', ''),
+                    'example': cap_info.get('example', ''),
+                    'params': cap_info.get('params', {}),
+                    'score': 1.0,  # Always max relevance
+                    'always_include': True
+                })
+        return always_caps

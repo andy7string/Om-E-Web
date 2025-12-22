@@ -279,8 +279,17 @@ async def dispatch(
 
             # Check if internal capability
             if execute_internal and is_internal_capability(cap_name):
-                result = execute_internal(cap_name, cap_params)
-                result = {"ok": True, "result": result}
+                internal_result = execute_internal(cap_name, cap_params)
+                # Check for validation errors (unknown_capability, missing_required_params)
+                if isinstance(internal_result, dict) and internal_result.get("error"):
+                    result = {
+                        "ok": False,
+                        "error": internal_result.get("error"),
+                        "message": internal_result.get("message"),
+                        "result": internal_result
+                    }
+                else:
+                    result = {"ok": True, "result": internal_result}
             else:
                 result = await send_capability(cap_name, cap_params)
 

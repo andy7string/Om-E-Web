@@ -1,35 +1,42 @@
 {
-  "timestamp": 1766357253.299237,
+  "timestamp": 1766376814.740885,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 3,
     "active_tab": {
-      "id": 1138055138,
-      "url": "https://chatgpt.com/",
-      "title": "ChatGPT",
-      "status": "loading"
+      "id": 1138055824,
+      "url": "https://www.google.com/search?q=youtube+videos+on+cats",
+      "title": "youtube videos on cats - Google Search",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138055112,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
+        "id": 1138055813,
+        "url": "http://127.0.0.1:8080/",
+        "title": "OM-E Web",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138055138,
-        "url": "https://chatgpt.com/",
-        "title": "ChatGPT",
+        "id": 1138055821,
+        "url": "https://www.carsales.com.au/cars/bmw/z3-m/",
+        "title": "BMW Z3 M cars for sale in Australia - carsales.com.au",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138055824,
+        "url": "https://www.google.com/search?q=youtube+videos+on+cats",
+        "title": "youtube videos on cats - Google Search",
         "active": true,
-        "status": "loading"
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 5358.027756041,
+    "last_tabs_update": 24919.288830958,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/",
-    "title": "ChatGPT",
+    "url": "https://www.google.com/search?q=youtube+videos+on+cats",
+    "title": "youtube videos on cats - Google Search",
     "is_active_tab": true
   },
   "menu_structure": {

@@ -5807,7 +5807,8 @@
         hudState.visibleChats = chats.map(c => ({
             chat_id: c.chat_id,
             title: c.title,
-            message_count: c.message_count
+            message_count: c.message_count,
+            date_short: c.date_short || ""
         }));
 
         // Clear chat list but preserve collapsed state
@@ -6683,12 +6684,18 @@
                     break;
 
                 case 'rename_chat':
-                    // Chat renamed - update sidebar
+                    // Chat renamed - update sidebar and visibleChats
                     if (action.chat_id) {
                         const chatItem = hudState.sidebar?.querySelector(`.ome-sidebar-chat[data-chat-id="${action.chat_id}"]`);
                         if (chatItem) {
                             const titleEl = chatItem.querySelector('.ome-sidebar-chat-title');
                             if (titleEl) titleEl.textContent = action.title;
+                        }
+                        // Update visibleChats so LLM sees current names
+                        const visibleChat = hudState.visibleChats.find(c => c.chat_id === action.chat_id);
+                        if (visibleChat) {
+                            visibleChat.title = action.title;
+                            console.log('[Content] 📚 Updated visibleChats title:', action.chat_id, '→', action.title);
                         }
                     }
                     break;
@@ -6737,6 +6744,22 @@
                         } else if (searchBox) {
                             const input = searchBox.querySelector('.ome-sidebar-search-input');
                             if (input) input.value = action.query || '';
+                        }
+                    }
+                    break;
+
+                case 'close_search':
+                    // Close search UI and show all chats
+                    {
+                        const searchBtn = hudState.sidebar?.querySelector('.ome-sidebar-search');
+                        const searchBox = hudState.sidebar?.querySelector('.ome-sidebar-search-box');
+                        if (searchBtn && searchBox) {
+                            searchBox.classList.remove('expanded');
+                            searchBtn.classList.remove('active');
+                            const textSpan = searchBtn.querySelector('.text');
+                            if (textSpan) textSpan.textContent = 'Search Chats';
+                            searchBox.innerHTML = '';
+                            filterSidebarChats(''); // Reset filter to show all
                         }
                     }
                     break;
