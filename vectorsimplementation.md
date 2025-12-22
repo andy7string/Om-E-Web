@@ -814,10 +814,32 @@ def _get_rolling_history(self, chat_id, max_tokens=400):
 - [x] Config-driven thresholds in `llm_config.json`
 
 **🚨 PRIORITY FIX: Recent Chat History Missing**
-- [ ] Include last ~150 tokens of current chat messages in prompt
-- [ ] User says "how do i feel about ma boy" → Om-E has NO context of previous messages
-- [ ] Budget: 150 tokens for recent exchanges (per our plan)
-- [ ] Hook: Load last 3-4 messages from current chat into prompt
+
+**The Problem:**
+Om-E has NO memory of what was just said in the current conversation. Each message arrives in isolation.
+
+Example from `llm_unified.md`:
+```
+Chat: "Im only human after all on youtube" (64 msgs)
+User just discussed the song, feelings, lyrics...
+
+User: "how do i feel about ma boy"
+Om-E: "Could you tell me a bit more about 'ma boy'?"  ← HAS NO IDEA
+
+The 64 messages of context? Not in the prompt. Om-E is blind to the conversation.
+```
+
+**What's in prompt now:**
+- ✅ User facts ("Andy", "likes optimism")
+- ✅ Payload context (large stored content)
+- ✅ Capabilities
+- ❌ **Recent chat messages** ← MISSING
+
+**The Fix:**
+- [ ] Load last 3-4 messages from current chat file
+- [ ] Include in prompt (~150 tokens budget)
+- [ ] Format: `[Recent conversation:] User: ... Om-E: ...`
+- [ ] Hook into orchestrator's `_call_unified()`
 
 **Phase 6: Persistence Intent & Rolling Summarization**
 - [ ] Message count threshold (7-8 messages) for rolling summary
