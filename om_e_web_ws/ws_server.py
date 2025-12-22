@@ -52,7 +52,7 @@ from llm.orchestrator import PersonaOrchestrator
 
 # RAG - eager load model and capabilities at startup
 from retrieval.vector_store import get_model
-from retrieval.query import rebuild_capabilities_store, rebuild_chat_memory_store
+from retrieval.query import rebuild_capabilities_store, rebuild_chat_memory_store, get_chat_memory_store
 
 
 
@@ -7303,6 +7303,21 @@ def create_new_chat(chat_id: str, title: str, meta: Dict[str, Any]) -> Dict[str,
     }
 
 
+def _queue_message_for_memory(chat_dict: Dict[str, Any], message: Dict[str, Any]):
+    """
+    Queue a message for memory summarisation.
+    Messages are batched and summarised by the ChatMemoryStore.
+    """
+    try:
+        chat_id = chat_dict.get('chat_id', '')
+        chat_title = chat_dict.get('title', 'Untitled')
+        memory_store = get_chat_memory_store()
+        memory_store.add_messages_for_summarisation(chat_id, chat_title, [message])
+    except Exception as e:
+        # Don't fail the save if memory indexing fails
+        print(f"[Memory] Warning: Failed to queue message: {e}")
+
+
 def append_user_message(chat_dict: Dict[str, Any], prompt: str) -> Dict[str, Any]:
     """
     Append a user message to the chat. Always appends to end (never inserts).
@@ -7332,6 +7347,9 @@ def append_user_message(chat_dict: Dict[str, Any], prompt: str) -> Dict[str, Any
     chat_dict["updated_at"] = now_iso
 
     print(f"💬 Appended message {message_id} to chat {chat_dict.get('chat_id')}")
+
+    # Queue for memory summarisation
+    _queue_message_for_memory(chat_dict, new_message)
 
     return new_message
 
@@ -7365,6 +7383,9 @@ def append_assistant_message(chat_dict: Dict[str, Any], content: str) -> Dict[st
     chat_dict["updated_at"] = now_iso
 
     print(f"🤖 Appended assistant message {message_id} to chat {chat_dict.get('chat_id')}")
+
+    # Queue for memory summarisation
+    _queue_message_for_memory(chat_dict, new_message)
 
     return new_message
 

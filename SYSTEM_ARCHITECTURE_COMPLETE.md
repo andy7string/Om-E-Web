@@ -1,7 +1,7 @@
 # Om_E_Web - Complete System Architecture
 
-**Version:** 1.2
-**Last Updated:** 2025-12-21
+**Version:** 1.3
+**Last Updated:** 2025-12-22
 **System:** Chrome Extension (MV3) + Python WebSocket Server + LLM Intelligence Pipeline
 
 ---
@@ -753,6 +753,155 @@ When `orbState.scanMode === 'at'`:
 ```
 
 3. Reload extension - config auto-loads on next AT scan.
+
+### 10. Always-Include Capabilities (Config-Driven Prompt Injection)
+
+**Problem:** Some capabilities should always be available to the LLM regardless of what the user says. For example, "search google for X" should work even if the user's message doesn't semantically match the capability in RAG search.
+
+**Solution:** Capabilities in `internal_capabilities.json` can be flagged with `always_include: true`. These are injected into every LLM prompt automatically, before RAG results.
+
+**How It Works:**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    Always-Include Capability Flow                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. CONFIG (internal_capabilities.json):
+   {
+     "GoogleSearch": {
+       "group": "browser",
+       "label": "Search Google for something",
+       "description": "Searches Google for the given query",
+       "synonyms": ["search google", "google it", "look up", "web search"],
+       "params": { "query": "Required - what to search for" },
+       "always_include": true  ← THIS FLAG
+     }
+   }
+
+2. INDEXING (capabilities_store.py build()):
+   - Loads internal_capabilities.json
+   - Stores always_include flag in capability cache
+   - Creates embeddings for RAG search (separate concern)
+
+3. RETRIEVAL (capabilities_store.py get_always_include_capabilities()):
+   - Scans cache for capabilities where always_include: true
+   - Returns list with score: 1.0 (max relevance)
+
+4. PROMPT BUILDING (orchestrator.py _query_capabilities()):
+   ┌────────────────────────────────────────────────┐
+   │  # First: Add always_include capabilities      │
+   │  always_caps = cap_store.get_always_include()  │
+   │  for cap in always_caps:                       │
+   │      options.append(cap)  # score 1.0          │
+   │      seen_labels.add(cap['label'])             │
+   │                                                │
+   │  # Then: Add RAG search results (skip dupes)   │
+   │  for r in rag_results:                         │
+   │      if label not in seen_labels:              │
+   │          options.append(cap_from_rag)          │
+   └────────────────────────────────────────────────┘
+
+5. LLM PROMPT:
+   Available capabilities always include GoogleSearch,
+   plus any RAG-matched capabilities for the user's query.
+```
+
+**Config Location:**
+
+```
+om_e_web_ws/data/capabilities/internal_capabilities.json
+```
+
+**Key Fields:**
+
+| Field | Purpose |
+|-------|---------|
+| `always_include` | Boolean - if true, capability always appears in prompt |
+| `group` | Category for organization (browser, chat, system) |
+| `synonyms` | Still used for RAG matching, but not required when always_include |
+| `params` | Parameter docs shown to LLM |
+
+**Example: GoogleSearch Capability:**
+
+```json
+{
+  "GoogleSearch": {
+    "group": "browser",
+    "action": "GoogleSearch",
+    "label": "Search Google for something",
+    "description": "Searches Google for the given query. Opens a new tab or updates existing Google tab.",
+    "synonyms": ["search google", "google it", "look up", "find on internet", "search the web"],
+    "params": {
+      "query": "Required - what to search for"
+    },
+    "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best pizza near me\"}}",
+    "always_include": true
+  }
+}
+```
+
+**Execution (ws_server.py):**
+
+```python
+elif cap_action == "GoogleSearch" and EXTENSION_WS:
+    query = cap_params.get("query", "")
+    if query:
+        search_url = f"https://www.google.com/search?q={urllib.parse.quote_plus(query)}"
+
+        # Smart tab: reuse existing Google tab or open new
+        existing_tab = find_matching_tab("google.com/search")
+        if existing_tab:
+            await EXTENSION_WS.send(json.dumps({
+                "type": "update_tab_url",
+                "tabId": existing_tab["id"],
+                "url": search_url
+            }))
+        else:
+            await EXTENSION_WS.send(json.dumps({
+                "type": "open_tab",
+                "url": search_url
+            }))
+```
+
+**Key Files:**
+
+| File | Function | Purpose |
+|------|----------|---------|
+| `internal_capabilities.json` | Config | Define capability with `always_include: true` |
+| `capabilities_store.py:208-227` | `get_always_include_capabilities()` | Query cache for flagged caps |
+| `orchestrator.py:_query_capabilities()` | Prompt building | Inject always caps before RAG results |
+| `ws_server.py` | Capability handlers | Execute the capability action |
+
+**When to Use:**
+
+- Core browser actions (search, navigation)
+- Frequently used capabilities that might not match RAG
+- Default behaviors the LLM should always know about
+
+**Adding a New Always-Include Capability:**
+
+1. Add to `internal_capabilities.json`:
+```json
+{
+  "MyCapability": {
+    "group": "browser",
+    "label": "Do something important",
+    "description": "What it does",
+    "params": { "param1": "Description" },
+    "always_include": true
+  }
+}
+```
+
+2. Add handler in `ws_server.py`:
+```python
+elif cap_action == "MyCapability":
+    # Execute the capability
+    cap_result = {"ok": True, "result": "done"}
+```
+
+3. Restart server - capability index rebuilds automatically.
 
 ---
 

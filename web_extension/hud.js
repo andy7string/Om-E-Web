@@ -950,66 +950,6 @@
                 display: none;
             }
 
-            /* ═══════════════════════════════════════════════════════════════════════
-               📚 HUD OPEN CHATS HEADER - Shows chat list when sidebar is open
-               Only visible in HUD view when sidebar/chats panel is open
-               ═══════════════════════════════════════════════════════════════════════ */
-            .ome-hud-open-chats {
-                display: none;  /* Hidden by default */
-                position: absolute;
-                top: 10px;
-                left: 284px;  /* Aligned with content when sidebar open */
-                right: 50px;
-                padding: 8px 12px;
-                background: rgba(0, 0, 0, 0.3);
-                border-radius: 8px;
-                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.2);
-                z-index: 5;
-            }
-            /* 📚 Show when sidebar is open */
-            .ome-hud.sidebar-open .ome-hud-open-chats {
-                display: block;
-            }
-            .ome-hud-open-chats-label {
-                font-size: 11px;
-                font-weight: 600;
-                color: rgba(var(--theme-color, 126,200,227), 0.6);
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                margin-bottom: 6px;
-            }
-            .ome-hud-open-chats-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 6px;
-            }
-            .ome-hud-chat-chip {
-                display: inline-flex;
-                align-items: center;
-                padding: 4px 10px;
-                background: rgba(var(--theme-color, 126,200,227), 0.1);
-                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.2);
-                border-radius: 12px;
-                font-size: 12px;
-                color: rgba(var(--theme-color, 126,200,227), 0.85);
-                cursor: pointer;
-                transition: all 0.15s ease;
-            }
-            .ome-hud-chat-chip:hover {
-                background: rgba(var(--theme-color, 126,200,227), 0.2);
-                border-color: rgba(var(--theme-color, 126,200,227), 0.4);
-            }
-            .ome-hud-chat-chip.active {
-                background: rgba(var(--theme-color, 126,200,227), 0.25);
-                border-color: rgba(var(--theme-color, 126,200,227), 0.5);
-                color: rgba(var(--theme-color, 126,200,227), 1);
-            }
-            .ome-hud-chat-chip-num {
-                font-size: 10px;
-                opacity: 0.6;
-                margin-right: 4px;
-            }
-
             /* 💬 HUD Messages Area - scrollable container with scrollbar at far right */
             .ome-hud-messages-area {
                 position: absolute;
@@ -3825,11 +3765,6 @@
 
                 <!-- 🎯 Main Area - messages + input -->
                 <div class="ome-hud-main">
-                    <!-- 📚 Open Chats Header - shows visible chats as chips when sidebar is open -->
-                    <div class="ome-hud-open-chats">
-                        <div class="ome-hud-open-chats-label">OPEN CHATS</div>
-                        <div class="ome-hud-open-chats-list"></div>
-                    </div>
                     <!-- 💬 Messages Area - scrollbar at far right, content centered -->
                     <div class="ome-hud-messages-area">
                         <div class="ome-hud-messages-flex">
@@ -6645,6 +6580,35 @@
                         removeNewChatPlaceholder();
                         loadSidebarChats();
                         renderChatMessages();
+                    }
+                    break;
+
+                case 'start_new_chat':
+                    // Show new chat naming UI (user asked for "new chat" without a name)
+                    {
+                        const needsHudSwitch = !hudState.visible;
+                        const needsSidebar = !hudState.sidebarOpen;
+
+                        // Switch to HUD view if in orb mode
+                        if (needsHudSwitch) {
+                            toggleHUD();
+                        }
+
+                        // Wait for HUD to render, then open sidebar and show edit
+                        setTimeout(() => {
+                            if (needsSidebar || !hudState.sidebarOpen) {
+                                toggleSidebar(true);
+                            }
+                            // Wait for sidebar, then start new chat
+                            setTimeout(() => {
+                                startNewChat();
+                                // Wait for placeholder, then enter edit mode
+                                setTimeout(() => {
+                                    renameNewChat();
+                                    console.log('[Content] 🎛️ start_new_chat: edit mode activated');
+                                }, 150);
+                            }, 150);
+                        }, needsHudSwitch ? 300 : 50);
                     }
                     break;
 

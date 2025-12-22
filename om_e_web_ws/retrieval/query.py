@@ -272,15 +272,13 @@ def build_system_prompt(
     else:
         prompt += "**Elements:** None matched\n\n"
 
-    # Proactive memory context (relevant past conversations)
+    # Proactive memory context (summarised past conversations)
     if memory_results:
         prompt += "**Memory (past conversations):**\n"
         for mem in memory_results:
-            role_label = "User" if mem['role'] == 'user' else "Om-E"
-            content = mem['content'][:150]  # Truncate long messages
-            if len(mem['content']) > 150:
-                content += "..."
-            prompt += f"- [{mem['date']}] \"{mem['chat_title']}\": {role_label}: {content}\n"
+            summary = mem.get('summary', '')
+            if summary:
+                prompt += f"- [{mem['date']}] \"{mem['chat_title']}\": {summary}\n"
         prompt += "\n"
 
     # 📚 Visible chats (if sidebar open with chat list expanded)
