@@ -1,27 +1,27 @@
 {
   "texts": [
-    "User in '54_09_05_22_12_2025_can' (Dec 22): can we see my conversations please",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing ShowChats...",
-    "User in '54_09_05_22_12_2025_can' (Dec 22): wow how many do we have",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): You have 2 conversations saved so far.",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Here are your conversations:\n1. 54_09_05_22_12_2025_can (2 messages) from 22/Dec\n2. 50_05_05_22_12_2025_can (33 messages) from 22/Dec",
-    "User in '54_09_05_22_12_2025_can' (Dec 22): can we move to the second one plese",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing OpenTab...",
-    "User in '54_09_05_22_12_2025_can' (Dec 22): can we open the second chat",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing SetCurrentChat...",
-    "User in '54_09_05_22_12_2025_can' (Dec 22): can we move to the second one please",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing SetCurrentChat...",
-    "User in '54_09_05_22_12_2025_can' (Dec 22): close the side nav",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing HideChats...",
-    "User in '54_09_05_22_12_2025_can' (Dec 22): search chats for orange",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing SearchChats...",
-    "User in '54_09_05_22_12_2025_can' (Dec 22): search google for cats",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing GoogleSearch...",
-    "User in '54_09_05_22_12_2025_can' (Dec 22): search youtube for dogs",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing YouTubeSearch...",
-    "User in '54_09_05_22_12_2025_can' (Dec 22): switch to googel",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing GoogleSearch...",
-    "Om-E in '54_09_05_22_12_2025_can' (Dec 22): Executing OpenTab...",
+    "User in 'life' (Dec 22): can we see my conversations please",
+    "Om-E in 'life' (Dec 22): Executing ShowChats...",
+    "User in 'life' (Dec 22): wow how many do we have",
+    "Om-E in 'life' (Dec 22): You have 2 conversations saved so far.",
+    "Om-E in 'life' (Dec 22): Here are your conversations:\n1. 54_09_05_22_12_2025_can (2 messages) from 22/Dec\n2. 50_05_05_22_12_2025_can (33 messages) from 22/Dec",
+    "User in 'life' (Dec 22): can we move to the second one plese",
+    "Om-E in 'life' (Dec 22): Executing OpenTab...",
+    "User in 'life' (Dec 22): can we open the second chat",
+    "Om-E in 'life' (Dec 22): Executing SetCurrentChat...",
+    "User in 'life' (Dec 22): can we move to the second one please",
+    "Om-E in 'life' (Dec 22): Executing SetCurrentChat...",
+    "User in 'life' (Dec 22): close the side nav",
+    "Om-E in 'life' (Dec 22): Executing HideChats...",
+    "User in 'life' (Dec 22): search chats for orange",
+    "Om-E in 'life' (Dec 22): Executing SearchChats...",
+    "User in 'life' (Dec 22): search google for cats",
+    "Om-E in 'life' (Dec 22): Executing GoogleSearch...",
+    "User in 'life' (Dec 22): search youtube for dogs",
+    "Om-E in 'life' (Dec 22): Executing YouTubeSearch...",
+    "User in 'life' (Dec 22): switch to googel",
+    "Om-E in 'life' (Dec 22): Executing GoogleSearch...",
+    "Om-E in 'life' (Dec 22): Executing OpenTab...",
     "User in '50_05_05_22_12_2025_can' (Dec 22): can you take me to my chats",
     "Om-E in '50_05_05_22_12_2025_can' (Dec 22): Executing ShowChats...",
     "User in '50_05_05_22_12_2025_can' (Dec 22): wonderful, can we search my chats for can",
@@ -50,12 +50,26 @@
     "User in '50_05_05_22_12_2025_can' (Dec 22): can we search for can",
     "Om-E in '50_05_05_22_12_2025_can' (Dec 22): Executing SearchChats...",
     "User in '50_05_05_22_12_2025_can' (Dec 22): lets hide that search",
-    "Om-E in '50_05_05_22_12_2025_can' (Dec 22): Executing HideChats..."
+    "Om-E in '50_05_05_22_12_2025_can' (Dec 22): Executing HideChats...",
+    "User in '50_05_05_22_12_2025_can' (Dec 22): thats cool lets delete the past",
+    "Om-E in '50_05_05_22_12_2025_can' (Dec 22): Executing DeleteChat...",
+    "User in '50_05_05_22_12_2025_can' (Dec 22): awe now i need a new chat called the future",
+    "Om-E in '50_05_05_22_12_2025_can' (Dec 22): Executing CreateChat...",
+    "User in 'the future' (Dec 22): can we call it the future",
+    "Om-E in 'the future' (Dec 22): Could you clarify what you'd like to call \"the future\"? Are you referring to a project, a concept, or something else?",
+    "User in 'the future' (Dec 22): this chat just rename it",
+    "Om-E in 'the future' (Dec 22): Executing RenameChat...",
+    "User in '21_21_05_22_12_2025_the' (Dec 22): where is the new chat i just named",
+    "Om-E in '21_21_05_22_12_2025_the' (Dec 22): The new chat you just named should be in your chats list. If you tell me the name you gave it, I can help you find and switch to it!",
+    "User in '21_21_05_22_12_2025_the' (Dec 22): youtube graph rag for me",
+    "Om-E in '21_21_05_22_12_2025_the' (Dec 22): Could you please clarify what you mean by \"youtube graph rag\"? Are you looking for a graph related to YouTube data or something else?",
+    "User in '21_21_05_22_12_2025_the' (Dec 22): search youtube for graphrag",
+    "Om-E in '21_21_05_22_12_2025_the' (Dec 22): Executing YouTubeIt..."
   ],
   "metadata": [
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0001",
       "role": "user",
       "content": "can we see my conversations please",
@@ -64,7 +78,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0002",
       "role": "assistant",
       "content": "Executing ShowChats...",
@@ -73,7 +87,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0003",
       "role": "user",
       "content": "wow how many do we have",
@@ -82,7 +96,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0004",
       "role": "assistant",
       "content": "You have 2 conversations saved so far.",
@@ -91,7 +105,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0006",
       "role": "assistant",
       "content": "Here are your conversations:\n1. 54_09_05_22_12_2025_can (2 messages) from 22/Dec\n2. 50_05_05_22_12_2025_can (33 messages) from 22/Dec",
@@ -100,7 +114,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0007",
       "role": "user",
       "content": "can we move to the second one plese",
@@ -109,7 +123,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0008",
       "role": "assistant",
       "content": "Executing OpenTab...",
@@ -118,7 +132,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0009",
       "role": "user",
       "content": "can we open the second chat",
@@ -127,7 +141,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0010",
       "role": "assistant",
       "content": "Executing SetCurrentChat...",
@@ -136,7 +150,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0011",
       "role": "user",
       "content": "can we move to the second one please",
@@ -145,7 +159,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0012",
       "role": "assistant",
       "content": "Executing SetCurrentChat...",
@@ -154,7 +168,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0013",
       "role": "user",
       "content": "close the side nav",
@@ -163,7 +177,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0014",
       "role": "assistant",
       "content": "Executing HideChats...",
@@ -172,7 +186,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0015",
       "role": "user",
       "content": "search chats for orange",
@@ -181,7 +195,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0016",
       "role": "assistant",
       "content": "Executing SearchChats...",
@@ -190,7 +204,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0017",
       "role": "user",
       "content": "search google for cats",
@@ -199,7 +213,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0018",
       "role": "assistant",
       "content": "Executing GoogleSearch...",
@@ -208,7 +222,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0019",
       "role": "user",
       "content": "search youtube for dogs",
@@ -217,7 +231,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0020",
       "role": "assistant",
       "content": "Executing YouTubeSearch...",
@@ -226,7 +240,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0021",
       "role": "user",
       "content": "switch to googel",
@@ -235,7 +249,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0022",
       "role": "assistant",
       "content": "Executing GoogleSearch...",
@@ -244,7 +258,7 @@
     },
     {
       "chat_id": "20251222050954_8d2509",
-      "chat_title": "54_09_05_22_12_2025_can",
+      "chat_title": "life",
       "message_id": "m_0026",
       "role": "assistant",
       "content": "Executing OpenTab...",
@@ -510,6 +524,132 @@
       "role": "assistant",
       "content": "Executing HideChats...",
       "timestamp": "2025-12-22T05:07:42.630649Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222050550_8ccffe",
+      "chat_title": "50_05_05_22_12_2025_can",
+      "message_id": "m_0034",
+      "role": "user",
+      "content": "thats cool lets delete the past",
+      "timestamp": "2025-12-22T05:19:18.813772Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222050550_8ccffe",
+      "chat_title": "50_05_05_22_12_2025_can",
+      "message_id": "m_0035",
+      "role": "assistant",
+      "content": "Executing DeleteChat...",
+      "timestamp": "2025-12-22T05:19:19.775930Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222050550_8ccffe",
+      "chat_title": "50_05_05_22_12_2025_can",
+      "message_id": "m_0036",
+      "role": "user",
+      "content": "awe now i need a new chat called the future",
+      "timestamp": "2025-12-22T05:19:33.740801Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222050550_8ccffe",
+      "chat_title": "50_05_05_22_12_2025_can",
+      "message_id": "m_0037",
+      "role": "assistant",
+      "content": "Executing CreateChat...",
+      "timestamp": "2025-12-22T05:19:34.898025Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222051934_f71ad9",
+      "chat_title": "the future",
+      "message_id": "m_0001",
+      "role": "user",
+      "content": "can we call it the future",
+      "timestamp": "2025-12-22T05:19:41.127399Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222051934_f71ad9",
+      "chat_title": "the future",
+      "message_id": "m_0002",
+      "role": "assistant",
+      "content": "Could you clarify what you'd like to call \"the future\"? Are you referring to a project, a concept, or something else?",
+      "timestamp": "2025-12-22T05:19:42.317506Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222051934_f71ad9",
+      "chat_title": "the future",
+      "message_id": "m_0003",
+      "role": "user",
+      "content": "this chat just rename it",
+      "timestamp": "2025-12-22T05:19:51.142971Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222051934_f71ad9",
+      "chat_title": "the future",
+      "message_id": "m_0004",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-22T05:19:52.101669Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222052121_b068ca",
+      "chat_title": "21_21_05_22_12_2025_the",
+      "message_id": "m_0001",
+      "role": "user",
+      "content": "where is the new chat i just named",
+      "timestamp": "2025-12-22T05:21:32.877745Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222052121_b068ca",
+      "chat_title": "21_21_05_22_12_2025_the",
+      "message_id": "m_0002",
+      "role": "assistant",
+      "content": "The new chat you just named should be in your chats list. If you tell me the name you gave it, I can help you find and switch to it!",
+      "timestamp": "2025-12-22T05:21:34.126231Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222052121_b068ca",
+      "chat_title": "21_21_05_22_12_2025_the",
+      "message_id": "m_0003",
+      "role": "user",
+      "content": "youtube graph rag for me",
+      "timestamp": "2025-12-22T05:29:36.773229Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222052121_b068ca",
+      "chat_title": "21_21_05_22_12_2025_the",
+      "message_id": "m_0004",
+      "role": "assistant",
+      "content": "Could you please clarify what you mean by \"youtube graph rag\"? Are you looking for a graph related to YouTube data or something else?",
+      "timestamp": "2025-12-22T05:29:38.132567Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222052121_b068ca",
+      "chat_title": "21_21_05_22_12_2025_the",
+      "message_id": "m_0005",
+      "role": "user",
+      "content": "search youtube for graphrag",
+      "timestamp": "2025-12-22T05:29:50.700348Z",
+      "date_str": "Dec 22"
+    },
+    {
+      "chat_id": "20251222052121_b068ca",
+      "chat_title": "21_21_05_22_12_2025_the",
+      "message_id": "m_0006",
+      "role": "assistant",
+      "content": "Executing YouTubeIt...",
+      "timestamp": "2025-12-22T05:29:52.001469Z",
       "date_str": "Dec 22"
     }
   ]

@@ -1,42 +1,28 @@
 {
-  "timestamp": 1766380676.705023,
+  "timestamp": 1766381733.434489,
   "browser_state": {
-    "total_tabs": 3,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138055910,
-      "url": "https://www.google.com/search?q=cats",
-      "title": "cats - Google Search",
+      "id": 1138055918,
+      "url": "http://127.0.0.1:8080/",
+      "title": "OM-E Web",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138055890,
+        "id": 1138055918,
         "url": "http://127.0.0.1:8080/",
         "title": "OM-E Web",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138055907,
-        "url": "http://127.0.0.1:8080/",
-        "title": "OM-E Web",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138055910,
-        "url": "https://www.google.com/search?q=cats",
-        "title": "cats - Google Search",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 28780.870903916,
+    "last_tabs_update": 29790.591727416,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/search?q=cats",
-    "title": "cats - Google Search",
+    "url": "http://127.0.0.1:8080/",
+    "title": "OM-E Web",
     "is_active_tab": true
   },
   "menu_structure": {

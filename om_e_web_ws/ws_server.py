@@ -7257,30 +7257,36 @@ def save_chat(chat_dict: Dict[str, Any]) -> bool:
         return False
 
 
-def create_new_chat(chat_id: str, prompt: str, meta: Dict[str, Any]) -> Dict[str, Any]:
+def create_new_chat(chat_id: str, title: str, meta: Dict[str, Any]) -> Dict[str, Any]:
     """
     Create a new chat dictionary with initial metadata.
 
     @param chat_id: The unique chat identifier
-    @param prompt: The initial user prompt
+    @param title: The chat title (user-provided or from first message)
     @param meta: Additional metadata (page_url, page_title, etc.)
     @return: New chat dictionary
     """
     now = datetime.utcnow()
     now_iso = now.isoformat() + "Z"
 
-    # Default title: timestamp_firstword (e.g. "45_30_14_19_12_2025_hello")
-    # Format: seconds_minutes_hours_days_months_years_(first word)
-    first_word = prompt.strip().split()[0].lower() if prompt.strip() else "chat"
-    timestamp_title = now.strftime(f"%S_%M_%H_%d_%m_%Y_{first_word}")
+    # Use provided title, or fallback to timestamp format
+    if title and title.strip() and title != "New Chat":
+        display_title = title.strip()
+    else:
+        # Default title: timestamp_firstword (e.g. "45_30_14_19_12_2025_chat")
+        first_word = title.strip().split()[0].lower() if title and title.strip() else "chat"
+        display_title = now.strftime(f"%S_%M_%H_%d_%m_%Y_{first_word}")
+
+    # Default title for reset purposes
+    default_title = now.strftime(f"%S_%M_%H_%d_%m_%Y_{title.strip().split()[0].lower() if title and title.strip() else 'chat'}")
 
     return {
         "chat_id": chat_id,
         "project_id": "default",  # "default" = unassigned, otherwise user project ID
         "created_at": now_iso,
         "updated_at": now_iso,
-        "title": timestamp_title,
-        "default_title": timestamp_title,
+        "title": display_title,
+        "default_title": default_title,
         "meta": {
             "source": "ome-web",
             "page_url": meta.get("page_url"),

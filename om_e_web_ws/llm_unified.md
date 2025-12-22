@@ -1,11 +1,11 @@
 # Unified LLM Call Debug
 
-**Generated:** 2025-12-22 15:49:52
-**User Message:** this chat just rename it
-**Messages:** 4
-**Capabilities:** 8
-**Tokens:** ~999 (system: 361, messages: 638)
-**LLM Time:** 780ms
+**Generated:** 2025-12-22 16:06:09
+**User Message:** lets go look at that chat
+**Messages:** 6
+**Capabilities:** 7
+**Tokens:** ~1044 (system: 361, messages: 683)
+**LLM Time:** 1039ms
 
 ## System Prompt
 ```
@@ -69,36 +69,58 @@ Example phrases:
 ### 1. USER
 
 ```
-can we call it the future
+list my chats please
 ```
 
 ### 2. ASSISTANT
 
 ```
-Could you clarify what you'd like to call "the future"? Are you referring to a project, a concept, or something else?
+Here are your chats:
+1. brand new
+2. 06_35_05_22_12_2025_new
+3. show me my previous conversations
+4. 21_21_05_22_12_2025_the
+5. the future
+6. life
+7. 50_05_05_22_12_2025_can
+Let me know if you want to open or know more about any of them!
 ```
 
 ### 3. USER
 
 ```
-this chat just rename it
+which one is your favourite
 ```
 
-### 4. USER
+### 4. ASSISTANT
+
+```
+I don't have personal favorites, but I enjoy chats with lots of interesting questions and conversations, like "life" or "50_05_05_22_12_2025_can" since they seem to have more messages. Which one is your favorite?
+```
+
+### 5. USER
+
+```
+lets go look at that chat
+```
+
+### 6. USER
 
 ```
 ENVIRONMENT (current state - use these for actions)
-Page: cats - Google Search (https://www.google.com/search?q=cats)
+Page: OM-E Web (http://127.0.0.1:8080/)
 
 Tabs (currently open):
-  1. OM-E Web (127.0.0.1:8080)
-  2. OM-E Web (127.0.0.1:8080)
-  3. cats - Google Search (www.google.com) ← ACTIVE
+  4. OM-E Web (127.0.0.1:8080) ← ACTIVE
 
 Chats (current names - use these, not history):
-  1. 34_19_05_22_12_2025_the (0 msgs) [22/Dec] ← CURRENT
-  2. 54_09_05_22_12_2025_can (26 msgs) [22/Dec]
-  3. 50_05_05_22_12_2025_can (37 msgs) [22/Dec]
+  1. brand new (0 msgs) [22/Dec] ← CURRENT
+  2. 06_35_05_22_12_2025_new (0 msgs) [22/Dec]
+  3. show me my previous conversations (4 msgs) [22/Dec]
+  4. 21_21_05_22_12_2025_the (6 msgs) [22/Dec]
+  5. the future (4 msgs) [22/Dec]
+  6. life (26 msgs) [22/Dec]
+  7. 50_05_05_22_12_2025_can (37 msgs) [22/Dec]
 
 Capabilities:
 - GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
@@ -107,27 +129,24 @@ Capabilities:
 - YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
   ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
   params: query: Required - what to find on YouTube
-- RenameChat: Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y
-  ex: {"cap": "RenameChat", "params": {"title": "My New Title"}}
-  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - existing chat title for fuzzy matching, title: Required - the new title
-- DeleteChat: Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.
-  ex: {"cap": "DeleteChat", "params": {"name": "my project"}}
-  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - chat title for fuzzy matching
 - SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
   ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
   params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
-- CreateChat: Creates a new chat file and returns the chat_id
-  ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
-  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
-- GetCurrentChat: Returns the current chat ID and chat data
-  ex: {"cap": "GetCurrentChat"}
 - ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
   ex: {"cap": "ShowChats"}
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"cap": "LoadChat", "params": {"chat": 2}}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"cap": "SearchChats", "params": {"query": "dude"}}
+  params: query: Required - search query string (extract from user request)
+- GetCurrentChat: Returns the current chat ID and chat data
+  ex: {"cap": "GetCurrentChat"}
 
-USER: this chat just rename it
+USER: lets go look at that chat
 ```
 
 ## Response
 ```json
-{"type":"action","cap":"RenameChat","params":{"title":"the future"}}
+{"type":"action","cap":"SetCurrentChat","params":{"name":"50_05_05_22_12_2025_can"}}
 ```

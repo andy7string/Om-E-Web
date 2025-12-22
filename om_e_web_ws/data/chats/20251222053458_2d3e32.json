@@ -1,0 +1,39 @@
+{
+  "chat_id": "20251222053458_2d3e32",
+  "project_id": "default",
+  "created_at": "2025-12-22T05:34:58.138191Z",
+  "updated_at": "2025-12-22T05:35:06.046582Z",
+  "title": "show me my previous conversations",
+  "default_title": "58_34_05_22_12_2025_show",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "show me my previous conversations",
+      "timestamp": "2025-12-22T05:34:58.138237Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-22T05:34:59.560224Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "nice lets create a new chat",
+      "timestamp": "2025-12-22T05:35:05.080040Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing CreateChat...",
+      "timestamp": "2025-12-22T05:35:06.046582Z"
+    }
+  ]
+}
