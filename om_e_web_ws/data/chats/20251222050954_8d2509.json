@@ -1,0 +1,171 @@
+{
+  "chat_id": "20251222050954_8d2509",
+  "project_id": "default",
+  "created_at": "2025-12-22T05:09:54.827852Z",
+  "updated_at": "2025-12-22T05:13:09.770474Z",
+  "title": "54_09_05_22_12_2025_can",
+  "default_title": "54_09_05_22_12_2025_can",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "can we see my conversations please",
+      "timestamp": "2025-12-22T05:09:54.827902Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-22T05:09:56.064679Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "wow how many do we have",
+      "timestamp": "2025-12-22T05:10:01.554383Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "You have 2 conversations saved so far.",
+      "timestamp": "2025-12-22T05:10:02.344959Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "list htem",
+      "timestamp": "2025-12-22T05:10:04.817499Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Here are your conversations:\n1. 54_09_05_22_12_2025_can (2 messages) from 22/Dec\n2. 50_05_05_22_12_2025_can (33 messages) from 22/Dec",
+      "timestamp": "2025-12-22T05:10:05.827007Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "can we move to the second one plese",
+      "timestamp": "2025-12-22T05:10:13.099963Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-22T05:10:15.109551Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "can we open the second chat",
+      "timestamp": "2025-12-22T05:10:52.739674Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-22T05:10:53.897689Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "can we move to the second one please",
+      "timestamp": "2025-12-22T05:11:22.068490Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-22T05:11:23.056194Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "close the side nav",
+      "timestamp": "2025-12-22T05:11:39.011950Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Executing HideChats...",
+      "timestamp": "2025-12-22T05:11:39.965611Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "search chats for orange",
+      "timestamp": "2025-12-22T05:11:46.829571Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Executing SearchChats...",
+      "timestamp": "2025-12-22T05:11:47.856680Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "search google for cats",
+      "timestamp": "2025-12-22T05:12:33.538833Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Executing GoogleSearch...",
+      "timestamp": "2025-12-22T05:12:37.428136Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "search youtube for dogs",
+      "timestamp": "2025-12-22T05:12:47.800138Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Executing YouTubeSearch...",
+      "timestamp": "2025-12-22T05:12:48.607514Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "switch to googel",
+      "timestamp": "2025-12-22T05:12:56.537862Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Executing GoogleSearch...",
+      "timestamp": "2025-12-22T05:12:57.694660Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "na tabs dude",
+      "timestamp": "2025-12-22T05:13:04.676242Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "You want to switch to the Google tab? I'll switch to the 'cats - Google Search' tab for you.",
+      "timestamp": "2025-12-22T05:13:05.742614Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "yes",
+      "timestamp": "2025-12-22T05:13:08.800602Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-22T05:13:09.770474Z"
+    }
+  ]
+}

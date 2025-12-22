@@ -1,42 +1,42 @@
 {
-  "timestamp": 1766376814.740885,
+  "timestamp": 1766380390.326164,
   "browser_state": {
     "total_tabs": 3,
     "active_tab": {
-      "id": 1138055824,
-      "url": "https://www.google.com/search?q=youtube+videos+on+cats",
-      "title": "youtube videos on cats - Google Search",
+      "id": 1138055899,
+      "url": "https://www.google.com/search?q=cats",
+      "title": "cats - Google Search",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138055813,
+        "id": 1138055890,
         "url": "http://127.0.0.1:8080/",
         "title": "OM-E Web",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138055821,
-        "url": "https://www.carsales.com.au/cars/bmw/z3-m/",
-        "title": "BMW Z3 M cars for sale in Australia - carsales.com.au",
-        "active": false,
+        "id": 1138055899,
+        "url": "https://www.google.com/search?q=cats",
+        "title": "cats - Google Search",
+        "active": true,
         "status": "complete"
       },
       {
-        "id": 1138055824,
-        "url": "https://www.google.com/search?q=youtube+videos+on+cats",
-        "title": "youtube videos on cats - Google Search",
-        "active": true,
+        "id": 1138055902,
+        "url": "https://www.youtube.com/results?search_query=dogs",
+        "title": "(3) dogs - YouTube",
+        "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 24919.288830958,
+    "last_tabs_update": 28494.701097541,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/search?q=youtube+videos+on+cats",
-    "title": "youtube videos on cats - Google Search",
+    "url": "https://www.google.com/search?q=cats",
+    "title": "cats - Google Search",
     "is_active_tab": true
   },
   "menu_structure": {

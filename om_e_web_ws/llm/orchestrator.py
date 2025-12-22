@@ -696,7 +696,6 @@ USER MESSAGE
             # First add always_include capabilities (they come first)
             always_caps = cap_store.get_always_include_capabilities()
             for cap in always_caps:
-                print(f"[RAG] {cap['label']}: params={cap['params']} [ALWAYS]")
                 options.append(cap)
                 seen_labels.add(cap['label'])
 
@@ -714,7 +713,6 @@ USER MESSAGE
                     "params": r.metadata.get("params", {}),
                     "score": r.score
                 }
-                print(f"[RAG] {cap_data['label']}: params={cap_data['params']}")
                 options.append(cap_data)
                 seen_labels.add(label)
 
@@ -936,11 +934,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             for cap in capabilities:
                 label = cap['label']
                 desc = cap.get('description', '')
-                score = cap['score']
                 params = cap.get('params', {})
                 example = cap.get('example', '')
 
-                cap_lines.append(f"- {label} ({score:.2f}): {desc}")
+                cap_lines.append(f"- {label}: {desc}")
                 if example:
                     cap_lines.append(f"  ex: {example}")
                 if params:

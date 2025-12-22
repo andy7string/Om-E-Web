@@ -48,6 +48,13 @@
     "find on internet",
     "search the web",
     "web search",
+    "YouTubeSearch: Search YouTube for videos. Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
+    "search youtube",
+    "find videos",
+    "youtube it",
+    "look for videos",
+    "video search",
+    "find on youtube",
     "CloseTab: Close a tab. Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
     "shut tab",
     "kill tab",
@@ -806,6 +813,104 @@
       "example": "{\"cap\": \"GoogleSearch\", \"params\": {\"query\": \"best restaurants nearby\"}}",
       "params": {
         "query": "Required - what to search for"
+      }
+    },
+    {
+      "name": "YouTubeSearch",
+      "type": "primary",
+      "group": "browser",
+      "label": "Search YouTube for videos",
+      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
+      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "synonyms": [
+        "search youtube",
+        "find videos",
+        "youtube it",
+        "look for videos",
+        "video search",
+        "find on youtube",
+        "watch videos about"
+      ],
+      "params": {
+        "query": "Required - what to search for on YouTube"
+      }
+    },
+    {
+      "name": "YouTubeSearch",
+      "type": "synonym",
+      "synonym_text": "search youtube",
+      "synonym_index": 0,
+      "group": "browser",
+      "label": "Search YouTube for videos",
+      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
+      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "params": {
+        "query": "Required - what to search for on YouTube"
+      }
+    },
+    {
+      "name": "YouTubeSearch",
+      "type": "synonym",
+      "synonym_text": "find videos",
+      "synonym_index": 1,
+      "group": "browser",
+      "label": "Search YouTube for videos",
+      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
+      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "params": {
+        "query": "Required - what to search for on YouTube"
+      }
+    },
+    {
+      "name": "YouTubeSearch",
+      "type": "synonym",
+      "synonym_text": "youtube it",
+      "synonym_index": 2,
+      "group": "browser",
+      "label": "Search YouTube for videos",
+      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
+      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "params": {
+        "query": "Required - what to search for on YouTube"
+      }
+    },
+    {
+      "name": "YouTubeSearch",
+      "type": "synonym",
+      "synonym_text": "look for videos",
+      "synonym_index": 3,
+      "group": "browser",
+      "label": "Search YouTube for videos",
+      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
+      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "params": {
+        "query": "Required - what to search for on YouTube"
+      }
+    },
+    {
+      "name": "YouTubeSearch",
+      "type": "synonym",
+      "synonym_text": "video search",
+      "synonym_index": 4,
+      "group": "browser",
+      "label": "Search YouTube for videos",
+      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
+      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "params": {
+        "query": "Required - what to search for on YouTube"
+      }
+    },
+    {
+      "name": "YouTubeSearch",
+      "type": "synonym",
+      "synonym_text": "find on youtube",
+      "synonym_index": 5,
+      "group": "browser",
+      "label": "Search YouTube for videos",
+      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
+      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "params": {
+        "query": "Required - what to search for on YouTube"
       }
     },
     {

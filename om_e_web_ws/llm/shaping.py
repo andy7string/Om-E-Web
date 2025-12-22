@@ -207,8 +207,8 @@ def shape_options(
     # 5. Sort by score, take top N
     sorted_opts = sorted(deduped, key=lambda x: x.score, reverse=True)[:max_options]
 
-    # 6. Enforce diversity (max 2 per action type)
-    diverse = enforce_diversity(sorted_opts, max_per_type=2)
+    # 6. Enforce diversity (max 10 per action type - was 2, too restrictive with always_include caps)
+    diverse = enforce_diversity(sorted_opts, max_per_type=10)
     logger.debug(f"[Shaping] Final: {len(diverse)} options")
 
     # Convert back to dicts
@@ -339,7 +339,7 @@ def text_similarity(a: str, b: str) -> float:
 # Action Categorization
 # ============================================================
 
-# Action type patterns
+# Action type patterns - order matters, first match wins
 ACTION_PATTERNS = {
     "scroll": re.compile(r"scroll|page.?(up|down)", re.I),
     "navigate": re.compile(r"open|goto|navigate|visit|url", re.I),
@@ -348,6 +348,12 @@ ACTION_PATTERNS = {
     "tab": re.compile(r"tab|switch|window", re.I),
     "media": re.compile(r"play|pause|video|mute|volume", re.I),
     "close": re.compile(r"close|dismiss|exit|hide", re.I),
+    # Chat operations (must come before "search" to catch SearchChats, ShowChats, etc.)
+    "chat": re.compile(r"chats?$|^show|^hide|^set.*chat|^rename.*chat|^delete.*chat|^load.*chat", re.I),
+    # Web search engines (GoogleSearch, YouTubeSearch - external searches)
+    "websearch": re.compile(r"^google|^youtube|^bing", re.I),
+    # View/HUD operations
+    "view": re.compile(r"view|hud|sidebar|toggle", re.I),
 }
 
 

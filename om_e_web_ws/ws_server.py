@@ -5730,6 +5730,38 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                         else:
                                             cap_result = {"ok": False, "error": "No search query provided"}
 
+                                    elif cap_action == "YouTubeSearch" and EXTENSION_WS:
+                                        # 🎬 YouTube Search: construct URL and open in new tab
+                                        import urllib.parse
+                                        query = cap_params.get("query", "")
+                                        if query:
+                                            search_url = f"https://www.youtube.com/results?search_query={urllib.parse.quote_plus(query)}"
+                                            print(f"🎬 YouTubeSearch: '{query}' → {search_url}")
+
+                                            # Check if YouTube search tab already exists - switch to it
+                                            existing_tab = find_matching_tab("youtube.com/results")
+                                            if existing_tab:
+                                                # Update existing YouTube tab with new search
+                                                await EXTENSION_WS.send(json.dumps({
+                                                    "type": "execute_capability",
+                                                    "id": f"cap_UpdateTabURL_{int(time.time() * 1000)}",
+                                                    "action": "UpdateTabURL",
+                                                    "params": {"tabId": existing_tab["id"], "url": search_url}
+                                                }))
+                                                print(f"🎬 YouTubeSearch: Updated existing tab {existing_tab['stable_num']}")
+                                            else:
+                                                # Open new tab with search
+                                                await EXTENSION_WS.send(json.dumps({
+                                                    "type": "execute_capability",
+                                                    "id": f"cap_OpenTab_{int(time.time() * 1000)}",
+                                                    "action": "OpenTab",
+                                                    "params": {"url": search_url}
+                                                }))
+                                                print(f"🎬 YouTubeSearch: Opened new tab")
+                                            cap_result = {"ok": True, "url": search_url}
+                                        else:
+                                            cap_result = {"ok": False, "error": "No search query provided"}
+
                                     elif cap_action in nav_actions and EXTENSION_WS:
                                         await EXTENSION_WS.send(json.dumps({
                                             "type": "execute_capability",

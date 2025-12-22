@@ -1,11 +1,11 @@
 # Unified LLM Call Debug
 
-**Generated:** 2025-12-22 14:43:34
-**User Message:** close this tab
-**Messages:** 10
-**Capabilities:** 5
-**Tokens:** ~763 (system: 361, messages: 402)
-**LLM Time:** 1127ms
+**Generated:** 2025-12-22 15:43:09
+**User Message:** yes
+**Messages:** 26
+**Capabilities:** 9
+**Tokens:** ~1023 (system: 361, messages: 662)
+**LLM Time:** 760ms
 
 ## System Prompt
 ```
@@ -69,43 +69,45 @@ Example phrases:
 ### 1. USER
 
 ```
-lets search google for bmw z3 m coupes for sale
+can we see my conversations please
 ```
 
 ### 2. ASSISTANT
 
 ```
-Executing GoogleSearch...
+Executing ShowChats...
 ```
 
 ### 3. USER
 
 ```
-hide prompt
+wow how many do we have
 ```
 
 ### 4. ASSISTANT
 
 ```
-Executing HidePrompt...
+You have 2 conversations saved so far.
 ```
 
 ### 5. USER
 
 ```
-nice dude can you do a search on google for youtube videos on cats
+list htem
 ```
 
 ### 6. ASSISTANT
 
 ```
-Executing GoogleSearch...
+Here are your conversations:
+1. 54_09_05_22_12_2025_can (2 messages) from 22/Dec
+2. 50_05_05_22_12_2025_can (33 messages) from 22/Dec
 ```
 
 ### 7. USER
 
 ```
-nice bru can you do it on youtube
+can we move to the second one plese
 ```
 
 ### 8. ASSISTANT
@@ -117,40 +119,145 @@ Executing OpenTab...
 ### 9. USER
 
 ```
-close this tab
+can we open the second chat
 ```
 
-### 10. USER
+### 10. ASSISTANT
+
+```
+Executing SetCurrentChat...
+```
+
+### 11. USER
+
+```
+can we move to the second one please
+```
+
+### 12. ASSISTANT
+
+```
+Executing SetCurrentChat...
+```
+
+### 13. USER
+
+```
+close the side nav
+```
+
+### 14. ASSISTANT
+
+```
+Executing HideChats...
+```
+
+### 15. USER
+
+```
+search chats for orange
+```
+
+### 16. ASSISTANT
+
+```
+Executing SearchChats...
+```
+
+### 17. USER
+
+```
+search google for cats
+```
+
+### 18. ASSISTANT
+
+```
+Executing GoogleSearch...
+```
+
+### 19. USER
+
+```
+search youtube for dogs
+```
+
+### 20. ASSISTANT
+
+```
+Executing YouTubeSearch...
+```
+
+### 21. USER
+
+```
+switch to googel
+```
+
+### 22. ASSISTANT
+
+```
+Executing GoogleSearch...
+```
+
+### 23. USER
+
+```
+na tabs dude
+```
+
+### 24. ASSISTANT
+
+```
+You want to switch to the Google tab? I'll switch to the 'cats - Google Search' tab for you.
+```
+
+### 25. USER
+
+```
+yes
+```
+
+### 26. USER
 
 ```
 ENVIRONMENT (current state - use these for actions)
-Page: (3) YouTube (https://www.youtube.com/)
+Page: (3) dogs - YouTube (https://www.youtube.com/results?search_query=dogs)
 
 Tabs (currently open):
-  2. OM-E Web (127.0.0.1:8080)
-  3. BMW Z3 M cars for sale in Australia - ca (www.carsales.com.au)
-  4. youtube videos on cats - Google Search (www.google.com)
-  5. (3) YouTube (www.youtube.com) ← ACTIVE
+  1. OM-E Web (127.0.0.1:8080)
+  3. cats - Google Search (www.google.com)
+  4. (3) dogs - YouTube (www.youtube.com) ← ACTIVE
 
 Capabilities:
-- GoogleSearch (1.00): Searches Google for the given query. Opens a new tab with the search results. Use this when user wan
+- GoogleSearch: Searches Google for the given query. Opens a new tab with the search results. Use this when user wan
   ex: {"cap": "GoogleSearch", "params": {"query": "best restaurants nearby"}}
   params: query: Required - what to search for
-- CloseTab (1.00): Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.
-  ex: {"cap": "CloseTab", "params": {"name": "google"}}
-  params: tabId: Optional - numeric tab ID to close, name: Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')
-- OpenTab (0.91): Opens a URL or switches to existing tab. Auto-switches if tab already open.
+- YouTubeSearch: Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wan
+  ex: {"cap": "YouTubeSearch", "params": {"query": "how to cook pasta"}}
+  params: query: Required - what to search for on YouTube
+- ScrollUp: Scrolls the page up by one viewport height
+  ex: {"cap": "ScrollUp"}
+- GoForward: Navigates forward in the current tab's history
+  ex: {"cap": "GoForward"}
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"cap": "ShowPrompt"}
+- SetCurrentChat: Makes a chat active by number or name. Use number if visible, name for fuzzy match.
+  ex: {"cap": "SetCurrentChat", "params": {"name": "my project"}}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
   ex: {"cap": "OpenTab", "params": {"url": "https://google.com"}}
   params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
-- HidePrompt (0.75): Hides the text input area for typing messages
-  ex: {"cap": "HidePrompt"}
-- HideChats (0.75): Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.
-  ex: {"cap": "HideChats"}
+- CreateChat: Creates a new chat file and returns the chat_id
+  ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
+  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
+- ScrollTop: Scrolls to the very top of the page
+  ex: {"cap": "ScrollTop"}
 
-USER: close this tab
+USER: yes
 ```
 
 ## Response
 ```json
-{"type":"action","cap":"CloseTab","params":{"tabId":5}}
+{"type":"action","cap":"OpenTab","params":{"url":"www.google.com"}}
 ```

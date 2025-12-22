@@ -86,6 +86,18 @@
       },
       "always_include": true
     },
+    "YouTubeSearch": {
+      "group": "browser",
+      "action": "YouTubeSearch",
+      "label": "Search YouTube for videos",
+      "description": "Searches YouTube for videos matching the query. Opens YouTube search results. Use this when user wants to find videos, watch something, or search YouTube specifically.",
+      "synonyms": ["search youtube", "find videos", "youtube it", "look for videos", "video search", "find on youtube", "watch videos about"],
+      "example": "{\"cap\": \"YouTubeSearch\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "params": {
+        "query": "Required - what to search for on YouTube"
+      },
+      "always_include": true
+    },
     "CloseTab": {
       "group": "browser",
       "action": "CloseTab",

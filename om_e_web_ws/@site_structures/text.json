@@ -1,22 +1,35 @@
 {
   "metadata": {
-    "url": "https://www.google.com/search?q=youtube+videos+on+cats",
-    "title": "youtube videos on cats - Google Search",
-    "timestamp": "2025-12-22T04:13:34Z",
-    "element_count": 96
+    "url": "https://www.google.com/search?q=cats",
+    "title": "cats - Google Search",
+    "timestamp": "2025-12-22T05:13:10Z",
+    "element_count": 121
   },
   "elements": {
     "0": {
-      "label": "Skip to main content",
-      "type": "Link",
-      "tag": "a",
+      "label": "Share",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ67oDCAU']",
-        "a.gyPpGe"
+        "div[aria-label='Share']",
+        "[aria-label='Share']",
+        "[role='button'][aria-label='Share']",
+        "[data-sfo='21']",
+        "div.oH3Dv.d4TAJd"
       ],
       "href": null
     },
     "1": {
+      "label": "Skip to main content",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='0ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ67oDCAU']",
+        "a.gyPpGe"
+      ],
+      "href": null
+    },
+    "2": {
       "label": "Accessibility help",
       "type": "Link",
       "tag": "a",
@@ -26,7 +39,7 @@
       ],
       "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
     },
-    "2": {
+    "3": {
       "label": "Accessibility feedback",
       "type": "Link",
       "tag": "a",
@@ -36,7 +49,7 @@
       ],
       "href": null
     },
-    "3": {
+    "4": {
       "label": "Go to Google Home",
       "type": "Link",
       "tag": "a",
@@ -47,9 +60,9 @@
         "a[href*='/webhp']",
         "[data-hveid='9']"
       ],
-      "href": "https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQPAgJ"
+      "href": "https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQPAgJ"
     },
-    "4": {
+    "5": {
       "label": "Search",
       "type": "Select",
       "tag": "textarea",
@@ -59,12 +72,12 @@
         "#APjFqb",
         "textarea[name='q']",
         "[role='combobox'][aria-label='Search']",
-        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ39UDCA0']",
+        "[data-ved='0ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ39UDCA0']",
         "textarea.gLFyf"
       ],
       "href": null
     },
-    "5": {
+    "6": {
       "label": "Clear",
       "type": "Button",
       "tag": "div",
@@ -72,12 +85,12 @@
         "div[aria-label='Clear']",
         "[aria-label='Clear']",
         "[role='button'][aria-label='Clear']",
-        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ05YFCA4']",
+        "[data-ved='0ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ05YFCA4']",
         "div.M2vV3.vOY7J"
       ],
       "href": null
     },
-    "6": {
+    "7": {
       "label": "Search by voice",
       "type": "Button",
       "tag": "div",
@@ -85,12 +98,12 @@
         "div[aria-label='Search by voice']",
         "[aria-label='Search by voice']",
         "[role='button'][aria-label='Search by voice']",
-        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQvs8DCA8']",
+        "[data-ved='0ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQvs8DCA8']",
         "div.XDyW0e"
       ],
       "href": null
     },
-    "7": {
+    "8": {
       "label": "Search by image",
       "type": "Button",
       "tag": "div",
@@ -103,19 +116,19 @@
       ],
       "href": null
     },
-    "8": {
+    "9": {
       "label": "Search",
       "type": "Button",
       "tag": "button",
       "selectors": [
         "button[aria-label='Search']",
         "[aria-label='Search']",
-        "[data-ved='0ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ4dUDCBE']",
+        "[data-ved='0ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ4dUDCBE']",
         "button.HZVG1b.Tg7LZd"
       ],
       "href": null
     },
-    "9": {
+    "10": {
       "label": "Google apps",
       "type": "Button",
       "tag": "a",
@@ -128,7 +141,7 @@
       ],
       "href": "https://www.google.com.au/intl/en/about/products?tab=wh"
     },
-    "10": {
+    "11": {
       "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
       "type": "Button",
       "tag": "a",
@@ -139,39 +152,28 @@
         "a[href*='/SignOutOptions']",
         "a.gb_B.gb_0a"
       ],
-      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/search%3Fq%3Dyoutube%2Bvideos%2Bon%2Bcats&ec=futura_srp_og_si_72236_p"
+      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/search%3Fq%3Dcats&ec=futura_srp_og_si_72236_p"
     },
-    "11": {
+    "12": {
       "label": "AI Mode",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/search']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ2J8OegQIEBAE']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ2J8OegQIChAE']",
         "a.XVMlrc.C6AK7c"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=50&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&aep=1&ntc=1&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ2J8OegQIEBAE"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&udm=50&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&aep=1&ntc=1&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ2J8OegQIChAE"
     },
-    "12": {
+    "13": {
       "label": "All",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-hveid='CBEQAQ']",
+        "[data-hveid='CA0QAQ']",
         "a.C6AK7c"
       ],
       "href": null
-    },
-    "13": {
-      "label": "Videos",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "[data-hveid='CBUQAQ']",
-        "a.C6AK7c"
-      ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&q=youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtKgLegQIFRAB"
     },
     "14": {
       "label": "Images",
@@ -179,23 +181,34 @@
       "tag": "a",
       "selectors": [
         "a[href*='/search']",
-        "[data-hveid='CBIQAQ']",
+        "[data-hveid='CCcQAQ']",
         "a.C6AK7c"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&q=youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtKgLegQIEhAB"
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&q=cats&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQtKgLegQIJxAB"
     },
     "15": {
+      "label": "Videos",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CCMQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&q=cats&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQtKgLegQIIxAB"
+    },
+    "16": {
       "label": "Short videos",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/search']",
-        "[data-hveid='CBMQAQ']",
+        "[data-hveid='CCAQAQ']",
         "a.C6AK7c"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=39&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&q=youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQs6gLegQIExAB"
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&udm=39&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&q=cats&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQs6gLegQIIBAB"
     },
-    "16": {
+    "17": {
       "label": "Shopping",
       "type": "Link",
       "tag": "a",
@@ -204,206 +217,213 @@
         "[data-hveid='CBYQAQ']",
         "a.C6AK7c"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=28&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&q=youtube+videos+on+cats&ved=1t:220175&ictx=111"
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&udm=28&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&q=cats&ved=1t:220175&ictx=111"
     },
-    "17": {
+    "18": {
       "label": "News",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/search']",
-        "[data-hveid='CBQQAQ']",
+        "[data-hveid='CBIQAQ']",
         "a.C6AK7c"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=youtube+videos+on+cats&tbm=nws&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kxElMEpo90JBBY0TEXYKcN_IwOPyE5tikuTlZNNw-umcbSYzOVbX7H8x5lpvvdGB0ZnsQ4v-Wo4urgaB55Fvz7Y3EUZuAbuHg0JXkJOvSe02xQ4X3TeF0tMy3r6JHNPdOqBdhvtbooimepygmZv1SBZ-purzA&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ0pQJegQIFBAB"
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=cats&tbm=nws&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ0pQJegQIEhAB"
     },
-    "18": {
+    "19": {
       "label": "More",
       "type": "Button",
       "tag": "div",
       "selectors": [
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ7p0OegQIEBAG']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ7p0OegQIChAG']",
         "div.mTpL7c"
       ],
       "href": null
     },
-    "19": {
+    "20": {
       "label": "Tools",
       "type": "Button",
       "tag": "div",
       "selectors": [
         "#hdtb-tls",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ2x96BAgQEAg']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ2x96BAgKEAg']",
         "div.mOKdDc"
       ],
       "href": null
     },
-    "20": {
-      "label": "Videos for Cats to Watch - 8 Hour Birds Bonanza - Cat TV Bird ...\n\nYouTube · Paul Dinning\n49.4M+ views · 7 years ago",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAgPEAI']",
-        "a.zReHs"
-      ],
-      "href": "https://www.youtube.com/watch?v=xbs7FT7dXYc"
-    },
     "21": {
-      "label": "Videos for Cats to Watch - 8 Hour Birds Bonanza - Cat TV Bird ... by Paul Dinning on YouTube. Play on Google. 8:05:42",
+      "label": "About this result",
       "type": "Button",
       "tag": "div",
       "selectors": [
-        "[role='button'][aria-label='Videos for Cats to Watch - 8 Hour Birds Bonanza - Cat TV Bird ... by Paul Dinning on YouTube. Play on Google. 8:05:42']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQIDxAM']",
-        "div.rIRoqf.hXY9cf"
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.H4fljf"
       ],
       "href": null
     },
     "22": {
-      "label": "Videos For Your Cat\n\nYouTube · Videos For Your Cat\n23.9K+ followers",
+      "label": "Maine Coons",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/user/Videosforyourcat']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQFnoECBsQAQ']",
-        "a.zReHs"
+        "a[href*='/search']",
+        "[data-wiz-uids='BJWW5b_g']",
+        "a.GI370e"
       ],
-      "href": "https://www.youtube.com/user/Videosforyourcat"
+      "href": "https://www.google.com/search?q=Maine+Coons&mstk=AUtExfADUEIyuB07Gx01qDcdcC8aODDgVS6pEcdHTYuvSWbgLhrFRZgoOacRNjaXqjcOaR7M5I4GCQO4PNUPxVNQgj5llcjGoBoq0GPTWu25sBMP6NCRdBuCI2XdkAl-WRVQwpe0kCZzQN-wvG_Wa-DWhla5vow2nEpYQIp19iIgqfx4hMo&csui=3&ved=2ahUKEwig_bnOt9CRAxXAlK8BHdxtHFQQgK4QegQIARAE"
     },
     "23": {
-      "label": "Read more",
+      "label": "CATS",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/user/Videosforyourcat']",
-        "a[href*='#:~:text=Lengthy%20HD%20videos%20of%20things,like%20birds%2C%20squirrels%2C%20and%20fish.']",
-        "a.vzmbzf"
+        "a[href*='/search']",
+        "[data-wiz-uids='BJWW5b_i']",
+        "a.GI370e"
       ],
-      "href": "https://www.youtube.com/user/Videosforyourcat#:~:text=Lengthy%20HD%20videos%20of%20things,like%20birds%2C%20squirrels%2C%20and%20fish."
+      "href": "https://www.google.com/search?q=CATS&mstk=AUtExfADUEIyuB07Gx01qDcdcC8aODDgVS6pEcdHTYuvSWbgLhrFRZgoOacRNjaXqjcOaR7M5I4GCQO4PNUPxVNQgj5llcjGoBoq0GPTWu25sBMP6NCRdBuCI2XdkAl-WRVQwpe0kCZzQN-wvG_Wa-DWhla5vow2nEpYQIp19iIgqfx4hMo&csui=3&ved=2ahUKEwig_bnOt9CRAxXAlK8BHdxtHFQQgK4QegQIARAF"
     },
     "24": {
-      "label": "The FUNNIEST Cat Videos! by The Pet Collective on YouTube. Play on YouTube. 0:59",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='The FUNNIEST Cat Videos! by The Pet Collective on YouTube. Play on YouTube. 0:59']",
-        "[aria-label='The FUNNIEST Cat Videos! by The Pet Collective on YouTube. Play on YouTube. 0:59']",
-        "a[href*='/shorts/9AjIYRoW7W8']",
-        "a.rIRoqf"
-      ],
-      "href": "https://www.youtube.com/shorts/9AjIYRoW7W8"
-    },
-    "25": {
-      "label": "The FUNNIEST Cat Videos!\nYouTube · The Pet Collective",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/9AjIYRoW7W8']",
-        "a.rIRoqf"
-      ],
-      "href": "https://www.youtube.com/shorts/9AjIYRoW7W8"
-    },
-    "26": {
-      "label": "About this result",
+      "label": "View related links",
       "type": "Button",
-      "tag": "div",
+      "tag": "button",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
+        "button[aria-label='View related links']",
+        "[aria-label='View related links']",
+        "[data-amic='true']",
+        "button.rBl3me"
       ],
       "href": null
     },
-    "27": {
-      "label": "Cats Cats Cats! | Funny Cat Videos by The Pet Collective on YouTube. Play on YouTube. 1:05",
+    "25": {
+      "label": "View related links",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='View related links']",
+        "[aria-label='View related links']",
+        "[data-amic='true']",
+        "button.rBl3me"
+      ],
+      "href": null
+    },
+    "26": {
+      "label": "Ragdoll",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Cats Cats Cats! | Funny Cat Videos by The Pet Collective on YouTube. Play on YouTube. 1:05']",
-        "[aria-label='Cats Cats Cats! | Funny Cat Videos by The Pet Collective on YouTube. Play on YouTube. 1:05']",
-        "a[href*='/shorts/AG5b_t5QN3g']",
-        "a.rIRoqf"
+        "a[href*='/search']",
+        "[data-wiz-uids='BJWW5b_1s']",
+        "a.GI370e"
       ],
-      "href": "https://www.youtube.com/shorts/AG5b_t5QN3g"
+      "href": "https://www.google.com/search?q=Ragdoll&mstk=AUtExfADUEIyuB07Gx01qDcdcC8aODDgVS6pEcdHTYuvSWbgLhrFRZgoOacRNjaXqjcOaR7M5I4GCQO4PNUPxVNQgj5llcjGoBoq0GPTWu25sBMP6NCRdBuCI2XdkAl-WRVQwpe0kCZzQN-wvG_Wa-DWhla5vow2nEpYQIp19iIgqfx4hMo&csui=3&ved=2ahUKEwig_bnOt9CRAxXAlK8BHdxtHFQQgK4QegQIBRAB"
+    },
+    "27": {
+      "label": "View related links",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='View related links']",
+        "[aria-label='View related links']",
+        "[data-amic='true']",
+        "button.rBl3me"
+      ],
+      "href": null
     },
     "28": {
-      "label": "Cats Cats Cats! | Funny Cat Videos\nYouTube · The Pet Collective",
-      "type": "Link",
-      "tag": "a",
+      "label": "View related links",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/shorts/AG5b_t5QN3g']",
-        "a.rIRoqf"
+        "button[aria-label='View related links']",
+        "[aria-label='View related links']",
+        "[data-amic='true']",
+        "button.rBl3me"
       ],
-      "href": "https://www.youtube.com/shorts/AG5b_t5QN3g"
+      "href": null
     },
     "29": {
-      "label": "About this result",
+      "label": "View related links",
       "type": "Button",
-      "tag": "div",
+      "tag": "button",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
+        "button[aria-label='View related links']",
+        "[aria-label='View related links']",
+        "[data-amic='true']",
+        "button.rBl3me"
       ],
       "href": null
     },
     "30": {
-      "label": "The most hilarious cat I've ever met by Girl With The Dogs on YouTube. Play on Google. 1:30",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='The most hilarious cat I\\'ve ever met by Girl With The Dogs on YouTube. Play on Google. 1:30']",
-        "[aria-label='The most hilarious cat I\\'ve ever met by Girl With The Dogs on YouTube. Play on Google. 1:30']",
-        "[role='button'][aria-label='The most hilarious cat I\\'ve ever met by Girl With The Dogs on YouTube. Play on Google. 1:30']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQsZcKegQIJBAD']",
-        "div.rIRoqf.hXY9cf"
-      ],
-      "href": null
-    },
-    "31": {
-      "label": "The most hilarious cat I've ever met\nYouTube · Girl With The Dogs",
+      "label": "Cat - Simple English Wikipedia, the free encyclopedia",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/shorts/yp40JudEONY']",
-        "a.rIRoqf"
+        "a[aria-label='Cat - Simple English Wikipedia, the free encyclopedia']",
+        "[aria-label='Cat - Simple English Wikipedia, the free encyclopedia']",
+        "a[href*='/wiki/Cat']",
+        "a[href*='#:~:text=Cats%2C%20also%20called%20domestic%20cats,most%20notably%2C%20British%20Shorthair%20Tabby.']",
+        "[data-ved='2ahUKEwig_bnOt9CRAxXAlK8BHdxtHFQQqYcPegQIChAC']",
+        "a.NDNGvf"
       ],
-      "href": "https://www.youtube.com/shorts/yp40JudEONY"
+      "href": "https://simple.wikipedia.org/wiki/Cat#:~:text=Cats%2C%20also%20called%20domestic%20cats,most%20notably%2C%20British%20Shorthair%20Tabby."
     },
-    "32": {
+    "31": {
       "label": "About this result",
       "type": "Button",
       "tag": "div",
       "selectors": [
         "div[aria-label='About this result']",
         "[aria-label='About this result']",
+        "#snui-atr-RtNIaaDCHsCpvr0P3NvxoAU_4",
         "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
+        "[data-wiz-uids='BJWW5b_36']",
+        "div.xXnAhe"
       ],
       "href": null
     },
-    "33": {
-      "label": "The Funniest Cat Naps! #cat #Kittens #CatNaps #catfunny by The Pet Collective on YouTube. Play on YouTube. 0:58",
+    "32": {
+      "label": "CATS the Musical | Australia | 2025",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/shorts/WTSGDsYFYE8']",
-        "a.rIRoqf"
+        "a[aria-label='CATS the Musical | Australia | 2025']",
+        "[aria-label='CATS the Musical | Australia | 2025']",
+        "a[href*='#:~:text=Let%20the%20Memory%20Live%20Again,a%20whole%20new%20Jellicle%20life.']",
+        "[data-ved='2ahUKEwig_bnOt9CRAxXAlK8BHdxtHFQQqYcPegQIChAG']",
+        "a.NDNGvf"
       ],
-      "href": "https://www.youtube.com/shorts/WTSGDsYFYE8"
+      "href": "https://catsthemusical.com.au/#:~:text=Let%20the%20Memory%20Live%20Again,a%20whole%20new%20Jellicle%20life."
+    },
+    "33": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "#snui-atr-RtNIaaDCHsCpvr0P3NvxoAU_8",
+        "[role='button'][aria-label='About this result']",
+        "[data-wiz-uids='BJWW5b_3c']",
+        "div.xXnAhe"
+      ],
+      "href": null
     },
     "34": {
-      "label": "The Funniest Cat Naps! #cat #Kittens #CatNaps #catfunny\nYouTube · The Pet Collective",
+      "label": "Cat - Wikipedia",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/shorts/WTSGDsYFYE8']",
-        "a.rIRoqf"
+        "a[aria-label='Cat - Wikipedia']",
+        "[aria-label='Cat - Wikipedia']",
+        "a[href*='/wiki/Cat']",
+        "a[href*='#:~:text=The%20cat%20(Felis%20catus)%2C,%2C%20grunting%2C%20and%20body%20language.']",
+        "[data-ved='2ahUKEwig_bnOt9CRAxXAlK8BHdxtHFQQqYcPegQIChAK']",
+        "a.NDNGvf"
       ],
-      "href": "https://www.youtube.com/shorts/WTSGDsYFYE8"
+      "href": "https://en.wikipedia.org/wiki/Cat#:~:text=The%20cat%20(Felis%20catus)%2C,%2C%20grunting%2C%20and%20body%20language."
     },
     "35": {
       "label": "About this result",
@@ -412,200 +432,192 @@
       "selectors": [
         "div[aria-label='About this result']",
         "[aria-label='About this result']",
+        "#snui-atr-RtNIaaDCHsCpvr0P3NvxoAU_12",
         "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
+        "[data-wiz-uids='BJWW5b_3i']",
+        "div.xXnAhe"
       ],
       "href": null
     },
     "36": {
-      "label": "Adorable Kittens! | Hilarious Cat Videos by The Pet Collective on YouTube. Play on YouTube. 0:59",
-      "type": "Link",
-      "tag": "a",
+      "label": "Show all related links",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[aria-label='Adorable Kittens! | Hilarious Cat Videos by The Pet Collective on YouTube. Play on YouTube. 0:59']",
-        "[aria-label='Adorable Kittens! | Hilarious Cat Videos by The Pet Collective on YouTube. Play on YouTube. 0:59']",
-        "a[href*='/shorts/YvJSy3IKO6A']",
-        "a.rIRoqf"
+        "div[aria-label='Show all related links']",
+        "[aria-label='Show all related links']",
+        "[role='button'][aria-label='Show all related links']",
+        "[data-ved='2ahUKEwig_bnOt9CRAxXAlK8BHdxtHFQQt6QPegQIChAN']",
+        "div.BjvG9b"
       ],
-      "href": "https://www.youtube.com/shorts/YvJSy3IKO6A"
+      "href": null
     },
     "37": {
-      "label": "Adorable Kittens! | Hilarious Cat Videos\nYouTube · The Pet Collective",
-      "type": "Link",
-      "tag": "a",
+      "label": "Show more AI Overview",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/shorts/YvJSy3IKO6A']",
-        "a.rIRoqf"
+        "div[aria-label='Show more AI Overview']",
+        "[aria-label='Show more AI Overview']",
+        "[role='button'][aria-label='Show more AI Overview']",
+        "[data-hveid='CAIQAQ']",
+        "div.Jzkafd"
       ],
-      "href": "https://www.youtube.com/shorts/YvJSy3IKO6A"
+      "href": null
     },
     "38": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
+      "label": "Cat\n\nWikipedia\nhttps://en.wikipedia.org › wiki › Cat",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
+        "a[href*='/wiki/Cat']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQFnoECCIQAQ']",
+        "a.zReHs"
       ],
-      "href": null
+      "href": "https://en.wikipedia.org/wiki/Cat"
     },
     "39": {
-      "label": "Funny Cat Struggles to Choose Between Two Different Treats by The Pet Collective on YouTube. Play on YouTube. 0:14",
+      "label": "Read more",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/shorts/BWunSx5KskA']",
-        "a.rIRoqf"
+        "a[href*='/wiki/Cat']",
+        "a[href*='#:~:text=The%20cat%20(Felis%20catus)%2C%20also,requiring%20a%20predominantly%20meat%2Dbased%20diet.']",
+        "a.vzmbzf"
       ],
-      "href": "https://www.youtube.com/shorts/BWunSx5KskA"
+      "href": "https://en.wikipedia.org/wiki/Cat#:~:text=The%20cat%20(Felis%20catus)%2C%20also,requiring%20a%20predominantly%20meat%2Dbased%20diet."
     },
     "40": {
-      "label": "Funny Cat Struggles to Choose Between Two Different Treats\nYouTube · The Pet Collective",
+      "label": "List of cat breeds",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/shorts/BWunSx5KskA']",
-        "a.rIRoqf"
+        "a[href*='/wiki/List_of_cat_breeds']",
+        "a.dM1Yyd"
       ],
-      "href": "https://www.youtube.com/shorts/BWunSx5KskA"
+      "href": "https://en.wikipedia.org/wiki/List_of_cat_breeds"
     },
     "41": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
+      "label": "Human interaction with cats",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
+        "a[href*='/wiki/Human_interaction_with_cats']",
+        "a.dM1Yyd"
       ],
-      "href": null
+      "href": "https://en.wikipedia.org/wiki/Human_interaction_with_cats"
     },
     "42": {
-      "label": "Cat Video by Grow Together  on YouTube. Play on YouTube. 0:16",
+      "label": "Aging in cats",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Cat Video by Grow Together  on YouTube. Play on YouTube. 0:16']",
-        "[aria-label='Cat Video by Grow Together  on YouTube. Play on YouTube. 0:16']",
-        "a[href*='/live/nsCRlVk9lGM']",
-        "a.rIRoqf"
+        "a[href*='/wiki/Aging_in_cats']",
+        "a.dM1Yyd"
       ],
-      "href": "https://www.youtube.com/live/nsCRlVk9lGM"
+      "href": "https://en.wikipedia.org/wiki/Aging_in_cats"
     },
     "43": {
-      "label": "Cat Video\nYouTube · Grow Together",
+      "label": "Cancer in cats",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/live/nsCRlVk9lGM']",
-        "a.rIRoqf"
+        "a[href*='/wiki/Cancer_in_cats']",
+        "a.dM1Yyd"
       ],
-      "href": "https://www.youtube.com/live/nsCRlVk9lGM"
+      "href": "https://en.wikipedia.org/wiki/Cancer_in_cats"
     },
     "44": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
+      "label": "CATS the Musical | Australia | 2025\n\nCATS the Musical | Australia\nhttps://catsthemusical.com.au",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQFnoECCEQAQ']",
+        "a.zReHs"
       ],
-      "href": null
+      "href": "https://catsthemusical.com.au/"
     },
     "45": {
-      "label": "This Cat Is Playing Life On Hard Mode by Dramecs on YouTube. Play on Google. 2:59",
-      "type": "Button",
-      "tag": "div",
+      "label": "Melbourne",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='This Cat Is Playing Life On Hard Mode by Dramecs on YouTube. Play on Google. 2:59']",
-        "[aria-label='This Cat Is Playing Life On Hard Mode by Dramecs on YouTube. Play on Google. 2:59']",
-        "[role='button'][aria-label='This Cat Is Playing Life On Hard Mode by Dramecs on YouTube. Play on Google. 2:59']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQsZcKegQIHRAD']",
-        "div.rIRoqf.hXY9cf"
+        "a[href*='/tickets/melbourne/']",
+        "a.dM1Yyd"
       ],
-      "href": null
+      "href": "https://catsthemusical.com.au/tickets/melbourne/"
     },
     "46": {
-      "label": "This Cat Is Playing Life On Hard Mode\nYouTube · Dramecs",
+      "label": "Brisbane",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/shorts/hwSSOuBmu0s']",
-        "a.rIRoqf"
+        "a[href*='/tickets/brisbane/']",
+        "a.dM1Yyd"
       ],
-      "href": "https://www.youtube.com/shorts/hwSSOuBmu0s"
+      "href": "https://catsthemusical.com.au/tickets/brisbane/"
     },
     "47": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
+      "label": "Cast",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
+        "a[href*='/cast/']",
+        "a.dM1Yyd"
       ],
-      "href": null
+      "href": "https://catsthemusical.com.au/cast/"
     },
     "48": {
-      "label": "LOL! Unforgettable Funny Cat Moments You HAVE to See by Awesome Innovations on YouTube. Play on YouTube. 0:47",
+      "label": "Gallery",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/live/BgcYoEuTHx8']",
-        "a.rIRoqf"
+        "a[href*='/gallery/']",
+        "a.dM1Yyd"
       ],
-      "href": "https://www.youtube.com/live/BgcYoEuTHx8"
+      "href": "https://catsthemusical.com.au/gallery/"
     },
     "49": {
-      "label": "LOL! Unforgettable Funny Cat Moments You HAVE to See\nYouTube · Awesome Innovations",
+      "label": "Safe and Happy Cats: Home\n\nSafe and Happy Cats\nhttps://safeandhappycats.com.au",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/live/BgcYoEuTHx8']",
-        "a.rIRoqf"
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQFnoECBcQAQ']",
+        "a.zReHs"
       ],
-      "href": "https://www.youtube.com/live/BgcYoEuTHx8"
+      "href": "https://safeandhappycats.com.au/"
     },
     "50": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
-      ],
-      "href": null
-    },
-    "51": {
-      "label": "Funny and cute cat videos | Try not to laugh by Aww Animals on YouTube. Play on Google. 0:31",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Funny and cute cat videos | Try not to laugh by Aww Animals on YouTube. Play on Google. 0:31']",
-        "[aria-label='Funny and cute cat videos | Try not to laugh by Aww Animals on YouTube. Play on Google. 0:31']",
-        "[role='button'][aria-label='Funny and cute cat videos | Try not to laugh by Aww Animals on YouTube. Play on Google. 0:31']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQsZcKegQIGhAD']",
-        "div.rIRoqf.hXY9cf"
-      ],
-      "href": null
-    },
-    "52": {
-      "label": "Funny and cute cat videos | Try not to laugh\nYouTube · Aww Animals",
+      "label": "Read more",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/watch']",
-        "a.rIRoqf"
+        "a[href*='#:~:text=We%20know%20that%20cats%20can,home%20all%20day%2C%20every%20day.']",
+        "a.vzmbzf"
       ],
-      "href": "https://m.youtube.com/watch?v=SBEfxFhSQQo"
+      "href": "https://safeandhappycats.com.au/#:~:text=We%20know%20that%20cats%20can,home%20all%20day%2C%20every%20day."
+    },
+    "51": {
+      "label": "Cat | Breeds, Origins, History, Body Types, Senses ...\n\nBritannica\nhttps://www.britannica.com › ... › Cats & the Feline Family",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/animal/cat']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQFnoECEEQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.britannica.com/animal/cat"
+    },
+    "52": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/animal/cat']",
+        "a[href*='#:~:text=Domestic%20cats%20are%20characterized%20by,teeth%20adapted%20for%20hunting%20prey.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.britannica.com/animal/cat#:~:text=Domestic%20cats%20are%20characterized%20by,teeth%20adapted%20for%20hunting%20prey."
     },
     "53": {
       "label": "About this result",
@@ -615,282 +627,436 @@
         "div[aria-label='About this result']",
         "[aria-label='About this result']",
         "[role='button'][aria-label='About this result']",
-        "div.mzNRm.iTPLzd"
+        "div.iTPLzd.rNSxBe"
       ],
       "href": null
     },
     "54": {
-      "label": "Next",
+      "label": "What is the 3-3-3 rule for cats?",
       "type": "Button",
-      "tag": "g-right-button",
+      "tag": "div",
       "selectors": [
-        "g-right-button[aria-label='Next']",
-        "[aria-label='Next']",
-        "[role='button'][aria-label='Next']",
-        "g-right-button.wgbRNb.VdehBf"
+        "div.dnXCYb"
       ],
       "href": null
     },
     "55": {
-      "label": "More short videos",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "a.jRKCUd"
-      ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&udm=39&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ3egMegQIFxAQ"
-    },
-    "56": {
-      "label": "Cat Videos\n\nYouTube · Beast\n175K+ followers",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/playlist']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQFnoECEMQAQ']",
-        "a.zReHs"
-      ],
-      "href": "https://www.youtube.com/playlist?list=PLYgB03ey6x4-8eLerAN-KjwthiB4BTf_I"
-    },
-    "57": {
-      "label": "Read more",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/playlist']",
-        "a[href*='#:~:text=Cat%20playing%20with%20hair%20tie,Beast']",
-        "a.vzmbzf"
-      ],
-      "href": "https://www.youtube.com/playlist?list=PLYgB03ey6x4-8eLerAN-KjwthiB4BTf_I#:~:text=Cat%20playing%20with%20hair%20tie,Beast"
-    },
-    "58": {
-      "label": "youtube videos on cats images from www.youtube.com",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='youtube videos on cats images from www.youtube.com']",
-        "[aria-label='youtube videos on cats images from www.youtube.com']",
-        "a[href*='/playlist']"
-      ],
-      "href": "https://www.youtube.com/playlist?list=PLYgB03ey6x4-8eLerAN-KjwthiB4BTf_I"
-    },
-    "59": {
-      "label": "The Funniest Cat Videos Ever\n\nYouTube · Daily Dose Of Internet\n26.9M+ views · 1 year ago",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAg1EAI']",
-        "a.zReHs"
-      ],
-      "href": "https://www.youtube.com/watch?v=paWE-GvDO1c"
-    },
-    "60": {
-      "label": "The Funniest Cat Videos Ever by Daily Dose Of Internet on YouTube. Play on Google. 20:11",
+      "label": "What do cats mean in slang?",
       "type": "Button",
       "tag": "div",
       "selectors": [
-        "div[aria-label='The Funniest Cat Videos Ever by Daily Dose Of Internet on YouTube. Play on Google. 20:11']",
-        "[aria-label='The Funniest Cat Videos Ever by Daily Dose Of Internet on YouTube. Play on Google. 20:11']",
-        "[role='button'][aria-label='The Funniest Cat Videos Ever by Daily Dose Of Internet on YouTube. Play on Google. 20:11']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQINRAM']",
-        "div.rIRoqf.hXY9cf"
+        "div.dnXCYb"
       ],
       "href": null
     },
-    "61": {
-      "label": "Funnycatsandnicefish\n\nYouTube · Funnycatsandnicefish\n548K+ followers",
+    "56": {
+      "label": "What were cats originally called?",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div.dnXCYb"
+      ],
+      "href": null
+    },
+    "57": {
+      "label": "What is the calmest cat to own?",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div.dnXCYb"
+      ],
+      "href": null
+    },
+    "58": {
+      "label": "Feedback",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-dccl='false']",
+        "div.mWcf0e.nKHyTc"
+      ],
+      "href": null
+    },
+    "59": {
+      "label": "Caring for Cats and Kittens\n\nRSPCA New South Wales\nhttps://www.rspcansw.org.au › ... › Caring for Animals",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/user/Funnycatsandnicefish']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQFnoECDwQAQ']",
+        "a[href*='/information-and-advice/caring-for-animals/cats-and-kittens/']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQFnoECEIQAQ']",
         "a.zReHs"
       ],
-      "href": "https://www.youtube.com/user/Funnycatsandnicefish"
+      "href": "https://www.rspcansw.org.au/information-and-advice/caring-for-animals/cats-and-kittens/"
     },
-    "62": {
+    "60": {
       "label": "Read more",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/user/Funnycatsandnicefish']",
-        "a[href*='#:~:text=Most%20funny%20cats%20and%20cute,and%20her%20awesome%20Kittens%20.']",
+        "a[href*='/information-and-advice/caring-for-animals/cats-and-kittens/']",
+        "a[href*='#:~:text=RSPCA%20NSW%20offers%20up%2Dto%2Ddate%20expert,on%20nutrition%20and%20veterinary%20care.']",
         "a.vzmbzf"
       ],
-      "href": "https://www.youtube.com/user/Funnycatsandnicefish#:~:text=Most%20funny%20cats%20and%20cute,and%20her%20awesome%20Kittens%20."
+      "href": "https://www.rspcansw.org.au/information-and-advice/caring-for-animals/cats-and-kittens/#:~:text=RSPCA%20NSW%20offers%20up%2Dto%2Ddate%20expert,on%20nutrition%20and%20veterinary%20care."
     },
-    "63": {
-      "label": "Cat TV for Cats to Watch Unlimited Birds Chipmunks Squirrels ...\n\nYouTube · Birder King\n17.2M+ views · 1 year ago",
+    "61": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
+    },
+    "62": {
+      "label": "Hilarious Cats Can Be Friends With the Whole World Funny ...\nYouTube · Funny And Cute Cat's Life\n3 weeks ago",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/watch']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAg2EAI']",
-        "a.zReHs"
+        "a.rIRoqf"
       ],
-      "href": "https://www.youtube.com/watch?v=MrSYP-cotdg"
+      "href": "https://www.youtube.com/watch?v=5DXZAvhISA8"
     },
-    "64": {
-      "label": "Cat TV for Cats to Watch Unlimited Birds Chipmunks Squirrels ... by Birder King on YouTube. Play on Google. 8:00:49",
+    "63": {
+      "label": "About this result",
       "type": "Button",
       "tag": "div",
       "selectors": [
-        "[role='button'][aria-label='Cat TV for Cats to Watch Unlimited Birds Chipmunks Squirrels ... by Birder King on YouTube. Play on Google. 8:00:49']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQINhAM']",
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
+    },
+    "64": {
+      "label": "Hilarious Cats Can Be Friends With the Whole World Funny ... by Funny And Cute Cat's Life on YouTube. Play on Google. 10:24",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[role='button'][aria-label='Hilarious Cats Can Be Friends With the Whole World Funny ... by Funny And Cute Cat\\'s Life on YouTube. Play on Google. 10:24']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQj_EHegQIZxAD']",
         "div.rIRoqf.hXY9cf"
       ],
       "href": null
     },
     "65": {
-      "label": "Silly Cat Videos\n\nYouTube · MomsMinivan\n87.2K+ followers",
-      "type": "Link",
-      "tag": "a",
+      "label": "Cats are definitely the best companions anyone could ask for.",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/playlist']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQFnoECD4QAQ']",
-        "a.zReHs"
+        "div[aria-label='Cats are definitely the best companions anyone could ask for.']",
+        "[aria-label='Cats are definitely the best companions anyone could ask for.']",
+        "[role='button'][aria-label='Cats are definitely the best companions anyone could ask for.']",
+        "[data-hveid='CGcQBw']",
+        "div.rIRoqf.hXY9cf"
       ],
-      "href": "https://www.youtube.com/playlist?list=PLv5jr-eduCZZB8svda9MOv72J7Xj_VOR-"
+      "href": null
     },
     "66": {
-      "label": "Read more",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/playlist']",
-        "a[href*='#:~:text=Play%20all&text=Cat%20Toss!%20He%20loves%20being&text=Talking%20cat%20Rocky%20can%20talk,and%20answer%20questions!&text=Attack%20Cat%20Rocky%20%2D%20Funny,and%20scary!&text=How%20to%20do%20Cat%20Whiskers%2C,step%20by%20step%20Kitty%20Whiskers']",
-        "a.vzmbzf"
-      ],
-      "href": "https://www.youtube.com/playlist?list=PLv5jr-eduCZZB8svda9MOv72J7Xj_VOR-#:~:text=Play%20all&text=Cat%20Toss!%20He%20loves%20being&text=Talking%20cat%20Rocky%20can%20talk,and%20answer%20questions!&text=Attack%20Cat%20Rocky%20%2D%20Funny,and%20scary!&text=How%20to%20do%20Cat%20Whiskers%2C,step%20by%20step%20Kitty%20Whiskers"
-    },
-    "67": {
-      "label": "CAT GAMES - Catching Mice! Entertainment Video for Cats to ...\n\nYouTube · TV BINI\n148.3M+ views · 10 years ago",
+      "label": "Hilarious Cats Seeing Crazy Weather for the First Time NEW ...\nYouTube · Funny And Cute Cat's Life\n1 week ago",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/watch']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAgzEAI']",
-        "a.zReHs"
+        "a.rIRoqf"
       ],
-      "href": "https://www.youtube.com/watch?v=qW-KIjHjjHM"
+      "href": "https://www.youtube.com/watch?v=mPAudedpIAo"
     },
-    "68": {
-      "label": "CAT GAMES - Catching Mice! Entertainment Video for Cats to ... by TV BINI on YouTube. Play on Google. 6:10",
+    "67": {
+      "label": "About this result",
       "type": "Button",
       "tag": "div",
       "selectors": [
-        "[role='button'][aria-label='CAT GAMES - Catching Mice! Entertainment Video for Cats to ... by TV BINI on YouTube. Play on Google. 6:10']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQIMxAM']",
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
+    },
+    "68": {
+      "label": "Hilarious Cats Seeing Crazy Weather for the First Time NEW ... by Funny And Cute Cat's Life on YouTube. Play on Google. 15:41",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[role='button'][aria-label='Hilarious Cats Seeing Crazy Weather for the First Time NEW ... by Funny And Cute Cat\\'s Life on YouTube. Play on Google. 15:41']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQj_EHegQIaBAD']",
         "div.rIRoqf.hXY9cf"
       ],
       "href": null
     },
     "69": {
-      "label": "Unpredictable cats sleeping Funny Cats Videos\n\nYouTube · Little Love\n229.2K+ views · 10 months ago",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQtwJ6BAg0EAI']",
-        "a.zReHs"
-      ],
-      "href": "https://www.youtube.com/watch?v=tXbxxvdrEgI"
-    },
-    "70": {
-      "label": "Unpredictable cats sleeping Funny Cats Videos by Little Love  on YouTube. Play on Google. 10:38",
+      "label": "Seeing snow for the first time is always a magical moment for these guys when Life gives you snow. Channel your inner carefree cat and just play.",
       "type": "Button",
       "tag": "div",
       "selectors": [
-        "div[aria-label='Unpredictable cats sleeping Funny Cats Videos by Little Love  on YouTube. Play on Google. 10:38']",
-        "[aria-label='Unpredictable cats sleeping Funny Cats Videos by Little Love  on YouTube. Play on Google. 10:38']",
-        "[role='button'][aria-label='Unpredictable cats sleeping Funny Cats Videos by Little Love  on YouTube. Play on Google. 10:38']",
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ5KoOegQINBAM']",
+        "[role='button'][aria-label='Seeing snow for the first time is always a magical moment for these guys when Life gives you snow. Channel your inner carefree cat and just play.']",
+        "[data-hveid='CGgQCA']",
         "div.rIRoqf.hXY9cf"
       ],
       "href": null
     },
-    "71": {
-      "label": "Free youtube videos on cats",
+    "70": {
+      "label": "ALL THE CATS, EXPLAINED\nYouTube · MinuteEarth\n1 month ago",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/watch']",
+        "a.rIRoqf"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Free+youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg4EAE"
+      "href": "https://www.youtube.com/watch?v=UWagM1FBB4c"
+    },
+    "71": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
     },
     "72": {
-      "label": "Youtube videos on cats funny",
-      "type": "Link",
-      "tag": "a",
+      "label": "ALL THE CATS, EXPLAINED by MinuteEarth on YouTube. Play on Google. 12:42",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "div[aria-label='ALL THE CATS, EXPLAINED by MinuteEarth on YouTube. Play on Google. 12:42']",
+        "[aria-label='ALL THE CATS, EXPLAINED by MinuteEarth on YouTube. Play on Google. 12:42']",
+        "[role='button'][aria-label='ALL THE CATS, EXPLAINED by MinuteEarth on YouTube. Play on Google. 12:42']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQj_EHegQIbRAD']",
+        "div.rIRoqf.hXY9cf"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Youtube+videos+on+cats+funny&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAhBEAE"
+      "href": null
     },
     "73": {
-      "label": "Best youtube videos on cats",
-      "type": "Link",
-      "tag": "a",
+      "label": "Learn about the amazing feline family, from extinct saber-toothed tigers to domestic cats, in this informative video.",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "[role='button'][aria-label='Learn about the amazing feline family, from extinct saber-toothed tigers to domestic cats, in this informative video.']",
+        "[data-hveid='CG0QCA']",
+        "div.rIRoqf.hXY9cf"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Best+youtube+videos+on+cats&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAhCEAE"
+      "href": null
     },
     "74": {
-      "label": "Videos for indoor cats to watch",
+      "label": "View all videos",
       "type": "Link",
       "tag": "a",
       "selectors": [
+        "a[aria-label='View all videos']",
+        "[aria-label='View all videos']",
         "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a.jRKCUd"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Videos+for+indoor+cats+to+watch&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg_EAE"
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&udm=7&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=cats&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8ccDKAJ6BAhuEAQ"
     },
     "75": {
-      "label": "Free videos for cats to watch fish",
+      "label": "Cats (musical)\n\nWikipedia\nhttps://en.wikipedia.org › wiki › Cats_(musical)",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/wiki/Cats_(musical)']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQFnoECD4QAQ']",
+        "a.zReHs"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Free+videos+for+cats+to+watch+fish&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg9EAE"
+      "href": "https://en.wikipedia.org/wiki/Cats_(musical)"
     },
     "76": {
-      "label": "Cat videos birds",
+      "label": "Read more",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/wiki/Cats_(musical)']",
+        "a[href*='#:~:text=Cats%20is%20a%20sung%2Dthrough%20musical,Practical%20Cats%20by%20T.%20S.%20Eliot.']",
+        "a.vzmbzf"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Cat+videos+birds&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg7EAE"
+      "href": "https://en.wikipedia.org/wiki/Cats_(musical)#:~:text=Cats%20is%20a%20sung%2Dthrough%20musical,Practical%20Cats%20by%20T.%20S.%20Eliot."
     },
     "77": {
-      "label": "Youtube cat videos Birds",
+      "label": "Cats in Australia\n\nInvasive Species Council\nhttps://invasives.org.au › ... › Feral animals in Australia",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/our-work/feral-animals/cats-in-australia/']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQFnoECD8QAQ']",
+        "a.zReHs"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=Youtube+cat+videos+Birds&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg6EAE"
+      "href": "https://invasives.org.au/our-work/feral-animals/cats-in-australia/"
     },
     "78": {
-      "label": "CAT Youtube videos fish",
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/our-work/feral-animals/cats-in-australia/']",
+        "a[href*='#:~:text=Cats%20have%20caused%20more%20environmental,1788%20on%20the%20First%20Fleet.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://invasives.org.au/our-work/feral-animals/cats-in-australia/#:~:text=Cats%20have%20caused%20more%20environmental,1788%20on%20the%20First%20Fleet."
+    },
+    "79": {
+      "label": "Cats (2019)\n\nIMDb\nhttps://www.imdb.com › title",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt5697572/']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQFnoECEYQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.imdb.com/title/tt5697572/"
+    },
+    "80": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt5697572/']",
+        "a[href*='#:~:text=Francesca%20Hayward%2C%20Ian%20McKellen%2C%20Rebel,Watch%20the%20game']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.imdb.com/title/tt5697572/#:~:text=Francesca%20Hayward%2C%20Ian%20McKellen%2C%20Rebel,Watch%20the%20game"
+    },
+    "81": {
+      "label": "Cats",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/pt/title/tt5697572/']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.imdb.com/pt/title/tt5697572/"
+    },
+    "82": {
+      "label": "Full cast & crew",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt5697572/fullcredits/']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.imdb.com/title/tt5697572/fullcredits/"
+    },
+    "83": {
+      "label": "User reviews",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt5697572/reviews/']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.imdb.com/title/tt5697572/reviews/"
+    },
+    "84": {
+      "label": "Tom Hooper",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/name/nm0393799/']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.imdb.com/name/nm0393799/"
+    },
+    "85": {
+      "label": "Cats | Animal Welfare Victoria | Livestock and animals\n\nAgriculture Victoria\nhttps://agriculture.vic.gov.au › livestock-and-animals › cats",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/livestock-and-animals/animal-welfare-victoria/cats']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQFnoECEAQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://agriculture.vic.gov.au/livestock-and-animals/animal-welfare-victoria/cats"
+    },
+    "86": {
+      "label": "Cats Adelaide",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/search']",
         "a.ngTNl.ggLgoc"
       ],
-      "href": "https://www.google.com/search?sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&q=CAT+Youtube+videos+fish&sa=X&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ1QJ6BAg5EAE"
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Cats+Adelaide&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ1QJ6BAg8EAE"
     },
-    "79": {
+    "87": {
+      "label": "Cats for sale",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Cats+for+sale&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ1QJ6BAhWEAE"
+    },
+    "88": {
+      "label": "Cats movie",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Cats+movie&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ1QJ6BAhUEAE"
+    },
+    "89": {
+      "label": "Cats play",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Cats+play&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ1QJ6BAhNEAE"
+    },
+    "90": {
+      "label": "Cats Australia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Cats+Australia&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ1QJ6BAhHEAE"
+    },
+    "91": {
+      "label": "Cats show",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Cats+show&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ1QJ6BAhFEAE"
+    },
+    "92": {
+      "label": "Cats the Musical where to watch",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Cats+the+Musical+where+to+watch&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ1QJ6BAhEEAE"
+    },
+    "93": {
+      "label": "CATS Australia musical",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=CATS+Australia+musical&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ1QJ6BAg9EAE"
+    },
+    "94": {
       "label": "Page 2",
       "type": "Link",
       "tag": "a",
@@ -899,9 +1065,9 @@
         "[aria-label='Page 2']",
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=10&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAE"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=10&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8tMDegQICRAE"
     },
-    "80": {
+    "95": {
       "label": "Page 3",
       "type": "Link",
       "tag": "a",
@@ -910,9 +1076,9 @@
         "[aria-label='Page 3']",
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=20&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAG"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=20&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8tMDegQICRAG"
     },
-    "81": {
+    "96": {
       "label": "Page 4",
       "type": "Link",
       "tag": "a",
@@ -921,9 +1087,9 @@
         "[aria-label='Page 4']",
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=30&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAI"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=30&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8tMDegQICRAI"
     },
-    "82": {
+    "97": {
       "label": "Page 5",
       "type": "Link",
       "tag": "a",
@@ -932,9 +1098,9 @@
         "[aria-label='Page 5']",
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=40&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAK"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=40&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8tMDegQICRAK"
     },
-    "83": {
+    "98": {
       "label": "Page 6",
       "type": "Link",
       "tag": "a",
@@ -943,9 +1109,9 @@
         "[aria-label='Page 6']",
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=50&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAM"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=50&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8tMDegQICRAM"
     },
-    "84": {
+    "99": {
       "label": "Page 7",
       "type": "Link",
       "tag": "a",
@@ -954,9 +1120,9 @@
         "[aria-label='Page 7']",
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=60&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAO"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=60&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8tMDegQICRAO"
     },
-    "85": {
+    "100": {
       "label": "Page 8",
       "type": "Link",
       "tag": "a",
@@ -965,9 +1131,9 @@
         "[aria-label='Page 8']",
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=70&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAQ"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=70&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8tMDegQICRAQ"
     },
-    "86": {
+    "101": {
       "label": "Page 9",
       "type": "Link",
       "tag": "a",
@@ -976,9 +1142,9 @@
         "[aria-label='Page 9']",
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=80&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAS"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=80&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8tMDegQICRAS"
     },
-    "87": {
+    "102": {
       "label": "Page 10",
       "type": "Link",
       "tag": "a",
@@ -987,9 +1153,9 @@
         "[aria-label='Page 10']",
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=90&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8tMDegQICRAU"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=90&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8tMDegQICRAU"
     },
-    "88": {
+    "103": {
       "label": "Next",
       "type": "Link",
       "tag": "a",
@@ -998,18 +1164,129 @@
         "a[href*='/search']",
         "a.LLNLxf"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&sca_esv=d95b60ce6566ebe8&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956&ei=VcVIaZ6SOuyOseMPk8y52QU&start=10&sa=N&sstk=Af77f_frcQbMXGOVU1rGbMoAVXHAD9Y0ERFgj_eqyVUPrHczzQH6ykNnpyr-ST00Y_84N5M4y_a_q7WIr_5hNLtGjTbR_utHihlhMg&ved=2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQ8NMDegQICRAW"
+      "href": "https://www.google.com/search?q=cats&sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&ei=RtNIabTyDs7t1e8PvsSDiA4&start=10&sa=N&sstk=Af77f_ccZMmj_ic2CHsVbsMntomW2xUWshyoL6vt1J01quo43mhPRuW6e98aGj8I7RYFpwHek1lCyBC_nKqm_COsyCFN4WVsKlR6qQ&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ8NMDegQICRAW"
     },
-    "89": {
+    "104": {
+      "label": "Cat",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ_coHegQIHRAB']",
+        "a.a3glFf"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Cat&si=AMgyJEsWkE1ewZweG0l4hBDuTLQxkT_WXUlKMnsBd7DK72Z2BqaNrKQ6nbp7Ts4svQPnQN99ERrooZ49FBNBHhOpcwAnnP_B6ogGbg1ZKXLf-ftdprt4p9pYDil6Hb1WZXDeniryL4sw&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ_coHegQIHRAB&ictx=0"
+    },
+    "105": {
+      "label": "Wikipedia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Cat']",
+        "a.y171A.Q7PwXb"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Cat"
+    },
+    "106": {
+      "label": "Lifespan\n13 – 20 years\nDomestic",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ18AJegQIJBAB']",
+        "a.r1DBAc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=cat+lifespan&stick=H4sIAAAAAAAAAOPgE-LQz9U3MKwsqtDSyU620k_KzM_JT6_Uzy9KT8zLLM6NT85JLC7OTMtMTizJzM-zyslMSy0uSMxbxMoDFFGAcQH6bPZNSQAAAA&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ18AJegQIJBAB"
+    },
+    "107": {
+      "label": "Gestation period\n65 days",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ18AJegQIJhAB']",
+        "a.r1DBAc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=cat+gestation+period&stick=H4sIAAAAAAAAAOPgE-LQz9U3MKwsqtAyyU620k_KzM_JT6_Uzy9KT8zLLM6NT85JLC7OTMtMTizJzM-zSk8tLgGzFApSizLzUxaxigBlFNCFAYym0MBZAAAA&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQ18AJegQIJhAB"
+    },
+    "108": {
+      "label": "Wikimedia Foundation",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/List_of_animal_names']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQvRl6BAgaEAI']"
+      ],
+      "href": "https://en.wikipedia.org/wiki/List_of_animal_names"
+    },
+    "109": {
+      "label": "Breeds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.a-no-hover-decoration.ntBZob"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=cat+breeds&si=AMgyJEu4IfAYlL5Z9EyZcCg6dZjS7BeHTbQxWy7m5TepuoR7q3or_6oZ98GXbdK9cnPXVHJdhEgImPLYNgyKeyjTcf7W24mu-lSFQ0ueitu9idfyJmjmx7e0njeovI45m7Aw-v34xGHx&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQw_oBegQIOhAB&ictx=1"
+    },
+    "110": {
+      "label": "Siamese cat",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Siamese cat']",
+        "[aria-label='Siamese cat']",
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQxA16BAgTEAM']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Siamese+cat&stick=H4sIAAAAAAAAAONgFuLQz9U3MKwsqlACs9LjjYu0-P2L0hPzMotzQ_KdilJTUxaxcgdnJuamFqcqJCeWAADcNbVCNQAAAA&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQxA16BAgTEAM"
+    },
+    "111": {
+      "label": "British Shorthair",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='British Shorthair']",
+        "[aria-label='British Shorthair']",
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQxA16BAgTEAY']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=British+Shorthair&stick=H4sIAAAAAAAAAONgFuLQz9U3MKwsqlACs5KTjM21-P2L0hPzMotzQ_KdilJTUxaxCjoVZZZkFmcoBGfkF5VkJGYWAQArFL25OwAAAA&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQxA16BAgTEAY"
+    },
+    "112": {
+      "label": "Maine Coon",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Maine Coon']",
+        "[aria-label='Maine Coon']",
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQxA16BAgTEAk']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Maine+Coon&stick=H4sIAAAAAAAAAONgFuLQz9U3MKwsqlACs7LMDLK0-P2L0hPzMotzQ_KdilJTUxaxcvkmZualKjjn5-cBADSbVe40AAAA&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQxA16BAgTEAk"
+    },
+    "113": {
+      "label": "Persian cat",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Persian cat']",
+        "[aria-label='Persian cat']",
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQxA16BAgTEAw']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=993938920d5f800b&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249&q=Persian+cat&stick=H4sIAAAAAAAAAONgFuLQz9U3MKwsqlACs7JMzMq0-P2L0hPzMotzQ_KdilJTUxaxcgekFhVnJuYpJCeWAAAQE9udNQAAAA&sa=X&ved=2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQxA16BAgTEAw"
+    },
+    "114": {
       "label": "Try without personalisation",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/search']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats&peek_pws=0&sxsrf=AE3TifMbYqTUsZq1WlNhwmj5k0_LehCqqA:1766376789956"
+      "href": "https://www.google.com/search?q=cats&peek_pws=0&sxsrf=AE3TifP4gppjZ39jzRpACMU6oWsYRp5aUw:1766380358249"
     },
-    "90": {
+    "115": {
       "label": "Teringie, South Australia - Based on your places (Home)",
       "type": "Button",
       "tag": "a",
@@ -1017,19 +1294,19 @@
         "a[href*='/search']",
         "[data-biw='1080']"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats#"
+      "href": "https://www.google.com/search?q=cats#"
     },
-    "91": {
+    "116": {
       "label": "Update location",
       "type": "Button",
       "tag": "div",
       "selectors": [
-        "[data-ved='2ahUKEwjekOuoqtCRAxVsR2wGHRNmLlsQpLkCegQICBAH']",
+        "[data-ved='2ahUKEwi0rarOt9CRAxXOdvUHHT7iAOEQpLkCegQICBAH']",
         "div.VtPCGb"
       ],
       "href": null
     },
-    "92": {
+    "117": {
       "label": "Help",
       "type": "Link",
       "tag": "a",
@@ -1039,7 +1316,7 @@
       ],
       "href": "https://support.google.com/websearch/?p=ws_results_help&hl=en-AU&fg=1"
     },
-    "93": {
+    "118": {
       "label": "Send feedback",
       "type": "Link",
       "tag": "a",
@@ -1049,9 +1326,9 @@
         "[data-bucket='websearch']",
         "a.Fx4vi.wHYlTd"
       ],
-      "href": "https://www.google.com/search?q=youtube+videos+on+cats#"
+      "href": "https://www.google.com/search?q=cats#"
     },
-    "94": {
+    "119": {
       "label": "Privacy",
       "type": "Link",
       "tag": "a",
@@ -1061,7 +1338,7 @@
       ],
       "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
     },
-    "95": {
+    "120": {
       "label": "Terms",
       "type": "Link",
       "tag": "a",
