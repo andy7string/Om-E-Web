@@ -532,144 +532,281 @@ Rules for this project:
 
 ---
 
-## Chat Context Window (Prompt Management)
+## Memory Cycle & Context Window
 
-**Problem:** Current implementation dumps ALL chat messages into the prompt. A chat with 100 messages (including 8 YouTube transcripts) = 10k+ tokens = blown context.
+**Problem:** Current implementation dumps ALL chat messages into the prompt. No summarization, no cycling, just raw dump = blown context.
 
-**Solution:** Structured context window with separate handling for actions vs content.
+**Solution:** Rolling memory cycle with vector storage + tight context budget.
 
-### Architecture
+### Token Budget (TIGHT)
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  CHAT PROMPT STRUCTURE                                       │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │ CHAT SUMMARY (rolling)                        ~100 tok │ │
-│  │ "Searched: cats, cupra, bamboo labs.                   │ │
-│  │  Discussed URL handling. Created chat 'future'."       │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │ RECENT ACTIONS (last 5-10)                    ~100 tok │ │
-│  │ - Searched "bamboo labs" on YouTube                    │ │
-│  │ - Changed theme to Atom                                │ │
-│  │ - Opened LinkedIn                                      │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │ RECENT CONTENT (token budget: ~500 tok)                │ │
-│  │ User: how did you figure that out                      │ │
-│  │ Om-E: I use context and capabilities to understand...  │ │
-│  │ [older content → summarised or dropped]                │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                                                              │
-│  TOTAL: ~700 tokens vs 5000+ raw                            │
-└─────────────────────────────────────────────────────────────┘
+TOTAL CONTEXT: ~400 tokens
+│
+├── ACTIONS (last 5)           75 tok
+│   - Condensed one-liners
+│   - "Searched cats on YouTube"
+│
+├── RECENT EXCHANGES          150 tok
+│   - Token-budgeted (not count)
+│   - Maybe 2-3 exchanges
+│
+└── MEMORY (vector retrieved) 150 tok
+    - Semantic search on user message
+    - 1-2 relevant summaries from history
 ```
-
-### Message Classification
-
-| Type | Detection | Examples |
-|------|-----------|----------|
-| **ACTION** | Contains `{"act":`, `{"cap":`, or "Executing..." | User: "open youtube" + Om-E: "Executing OpenTab..." |
-| **CONTENT** | Everything else | Questions, explanations, transcripts, discussions |
-
-**Why separate?**
-- Actions are tiny (~10-20 tokens each)
-- Content is variable (transcript = 2000+ tokens)
-- 10 actions = ~150 tokens ✓
-- 10 transcripts = 20,000 tokens ✗
-
-### Token Budgeting
 
 ```python
-CONTEXT_BUDGETS = {
-    'summary': 150,      # Rolling chat summary
-    'actions': 150,      # Last N actions (count-based, usually fits)
-    'content': 500,      # Recent content (token-limited)
-    'total': 800         # Max for chat context
+CONTEXT_BUDGET = {
+    'actions': 75,        # Last 5, condensed
+    'recent': 150,        # Token-budgeted exchanges
+    'memory': 150,        # Vector retrieved summaries
+    'total': 400          # Hard cap for context
 }
+
+BATCH_THRESHOLD = 500     # Summarize every 500 tokens of content
+MAX_ACTIONS = 5           # Rolling action count
 ```
 
-**Content overflow handling:**
-1. Count tokens in recent content messages
-2. Include newest first until budget exhausted
-3. Older content already in rolling summary (or dropped if trivial)
+### The Memory Cycle
 
-### Rolling Summary
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     ACCUMULATION PHASE                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  Message saved to chat                                          │
+│         ↓                                                        │
+│  Classify: ACTION or CONTENT                                    │
+│         ↓                                                        │
+│  ACTION → Add to rolling actions list (max 5)                   │
+│  CONTENT → Add to token counter                                 │
+│         ↓                                                        │
+│  Token counter > 500?                                           │
+│         ├── NO → Continue                                        │
+│         └── YES ↓                                                │
+│                 LLM summarizes batch                            │
+│                 "User interested in cats, discussed URLs"       │
+│                        ↓                                         │
+│                 Store in PROJECT MEMORY VECTOR                  │
+│                        ↓                                         │
+│                 Reset counter, continue                         │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
 
-Each chat maintains a `summary` field that updates as messages age out:
+┌─────────────────────────────────────────────────────────────────┐
+│                     QUERY PHASE                                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  User sends message                                             │
+│         ↓                                                        │
+│  PARALLEL RETRIEVAL:                                            │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌───────────┐ │
+│  │ Last 5      │ │ Recent      │ │ Memory Vec  │ │ RAG Caps  │ │
+│  │ Actions     │ │ Content     │ │ Query       │ │ + Elements│ │
+│  │ (75 tok)    │ │ (150 tok)   │ │ (150 tok)   │ │           │ │
+│  └──────┬──────┘ └──────┬──────┘ └──────┬──────┘ └─────┬─────┘ │
+│         └───────────────┴───────────────┴───────────────┘       │
+│                                  ↓                               │
+│                    BUILD INFORMED PROMPT (~400 tok context)     │
+│                                  ↓                               │
+│                             LLM DECIDES                         │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
 
+### Data Structures
+
+**Chat JSON** (existing, enhanced):
 ```json
 {
   "chat_id": "abc123",
   "title": "YouTube Research",
-  "summary": "Searched for: cat videos, bamboo labs, cupra. Discussed how Om-E constructs URLs. User interested in 3D printing.",
-  "messages": [...]
+  "messages": [...],
+
+  "context_state": {
+    "token_counter": 342,
+    "last_summarized_idx": 45,
+    "recent_actions": [
+      {"text": "Searched cats on YouTube", "ts": "..."},
+      {"text": "Changed theme to Atom", "ts": "..."}
+    ]
+  }
 }
 ```
 
-**Update triggers:**
-- When content exceeds token budget
-- When chat is closed/switched
-- Periodic (every N messages)
+**Memory Vector Entry** (per summary):
+```json
+{
+  "chat_id": "abc123",
+  "chat_title": "YouTube Research",
+  "summary": "User interested in cats and 3D printing. Discussed URL construction.",
+  "message_range": [0, 45],
+  "created_at": "2025-12-22T20:00:00Z"
+}
+```
 
-### Files
+### Integration Strategy (Existing Codebase)
 
-| File | Purpose |
+**Files to modify:**
+
+| File | Changes |
 |------|---------|
-| `retrieval/chat_context.py` | Context window builder |
-| `data/prompts/chat_summary.md` | Prompt for rolling summary generation |
+| `retrieval/chat_context.py` | Already has `classify_message()`, add cycle logic |
+| `ws_server.py` | Hook into `append_user_message()` / `append_assistant_message()` |
+| `llm/orchestrator.py` | Replace `_get_rolling_history()` with new retrieval |
+| `retrieval/vector_store.py` | Use for project memory vector |
 
-### Key Functions
+**Step-by-step implementation:**
 
+### Step 1: Chat State Tracking
 ```python
-# retrieval/chat_context.py
+# In ws_server.py or chat_context.py
 
-def classify_message(msg: dict) -> str:
-    """Return 'action' or 'content'."""
+def init_context_state(chat_dict):
+    """Initialize context tracking for a chat."""
+    if 'context_state' not in chat_dict:
+        chat_dict['context_state'] = {
+            'token_counter': 0,
+            'last_summarized_idx': 0,
+            'recent_actions': []
+        }
 
-def get_chat_context(chat_id: str, token_budget: int = 800) -> ChatContext:
-    """
-    Returns structured context for prompt:
-    - summary: str (rolling summary of older content)
-    - actions: List[dict] (last N action messages)
-    - content: List[dict] (recent content within budget)
-    - total_tokens: int
-    """
+def on_message_saved(chat_dict, message):
+    """Called after each message save."""
+    state = chat_dict['context_state']
 
-def update_chat_summary(chat_id: str, new_content: List[dict]) -> str:
-    """LLM call to update rolling summary with new content."""
+    if classify_message(message) == 'action':
+        # Add to rolling actions (max 5)
+        action_text = condense_action(message)
+        state['recent_actions'].append({'text': action_text, 'ts': message['timestamp']})
+        state['recent_actions'] = state['recent_actions'][-5:]
+    else:
+        # Add to token counter
+        state['token_counter'] += estimate_tokens(message['content'])
+
+        # Check threshold
+        if state['token_counter'] >= 500:
+            trigger_summarization(chat_dict)
 ```
 
-### Prompt Integration
-
+### Step 2: Batch Summarization
 ```python
-# In agent.py or query.py
+async def trigger_summarization(chat_dict):
+    """Summarize content batch and store in vector."""
+    state = chat_dict['context_state']
+    messages = chat_dict['messages']
 
-context = get_chat_context(current_chat_id)
+    # Get messages since last summary
+    start_idx = state['last_summarized_idx']
+    content_msgs = [m for m in messages[start_idx:] if classify_message(m) == 'content']
 
-prompt = f"""
-{system_prompt}
+    if not content_msgs:
+        return
 
-**Chat Summary:** {context.summary}
+    # LLM summarization call
+    summary = await summarize_batch(content_msgs)
 
-**Recent Actions:**
-{format_actions(context.actions)}
+    # Store in project memory vector
+    store_memory_summary(
+        project_id=get_current_project(),
+        chat_id=chat_dict['chat_id'],
+        summary=summary,
+        message_range=[start_idx, len(messages)]
+    )
 
-**Recent Messages:**
-{format_content(context.content)}
-"""
+    # Reset counter
+    state['token_counter'] = 0
+    state['last_summarized_idx'] = len(messages)
 ```
 
-### Implementation Status
+### Step 3: Query-Time Retrieval
+```python
+def get_context_for_prompt(chat_id: str, user_message: str) -> dict:
+    """Build context for LLM prompt."""
+    chat_dict = load_chat(chat_id)
+    state = chat_dict.get('context_state', {})
 
-- [ ] Message classifier (action vs content)
-- [ ] Token counting utility
-- [ ] `get_chat_context()` function
-- [ ] Rolling summary prompt
-- [ ] Rolling summary generator
-- [ ] Chat JSON schema update (add `summary` field)
-- [ ] Prompt builder integration
+    # 1. Last 5 actions (from chat state)
+    actions = state.get('recent_actions', [])[-5:]
+    actions_text = format_actions(actions)  # ~75 tok
+
+    # 2. Recent content (token-budgeted)
+    recent = get_recent_content(chat_dict, budget=150)
+    recent_text = format_content(recent)
+
+    # 3. Memory vector search
+    memories = query_project_memory(
+        project_id=get_current_project(),
+        query=user_message,
+        k=2,
+        max_tokens=150
+    )
+    memory_text = format_memories(memories)
+
+    return {
+        'actions': actions_text,
+        'recent': recent_text,
+        'memory': memory_text,
+        'total_tokens': estimate_tokens(actions_text + recent_text + memory_text)
+    }
+```
+
+### Step 4: Orchestrator Integration
+```python
+# In llm/orchestrator.py
+
+def _get_rolling_history(self, chat_id, max_tokens=400):
+    """REPLACE with new context retrieval."""
+
+    context = get_context_for_prompt(chat_id, self.current_user_message)
+
+    history = []
+
+    # Add as system context
+    if context['memory']:
+        history.append({
+            'role': 'system',
+            'content': f"[Relevant memory: {context['memory']}]"
+        })
+
+    if context['actions']:
+        history.append({
+            'role': 'system',
+            'content': f"[Recent actions: {context['actions']}]"
+        })
+
+    # Add recent exchanges as actual messages
+    history.extend(context['recent'])
+
+    return history
+```
+
+### Implementation Checklist
+
+**Phase 1: Chat State & Actions**
+- [ ] Add `context_state` to chat JSON schema
+- [ ] `init_context_state()` on chat create/load
+- [ ] `on_message_saved()` hook in ws_server.py
+- [ ] `condense_action()` - convert action to one-liner
+- [ ] Rolling actions list (max 5)
+
+**Phase 2: Token Counting & Summarization**
+- [ ] Token counter per chat
+- [ ] Threshold check (500 tokens)
+- [ ] `summarize_batch()` - LLM call
+- [ ] `data/prompts/batch_summary.md` - summarization prompt
+
+**Phase 3: Vector Storage**
+- [ ] Project memory vector store setup
+- [ ] `store_memory_summary()` - add to vector
+- [ ] `query_project_memory()` - semantic search
+
+**Phase 4: Query Integration**
+- [ ] `get_context_for_prompt()` - combines all sources
+- [ ] Replace `_get_rolling_history()` in orchestrator
+- [ ] Test end-to-end cycle
+
+**Phase 5: Project Structure**
+- [ ] Migrate to `projects/{id}/` structure
+- [ ] Vector stores per project
