@@ -1284,8 +1284,9 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             self.state.transition_to(TurnState.TURN_EXECUTING)
             metrics.total_ms = (time.time() - turn_start) * 1000
             await log_turn_metrics(metrics)
+            action_text = output.get("text", f"Executing {cap_name}...")
             return OrchestratorResult(
-                response_text=f"Executing {cap_name}...",
+                response_text=action_text,
                 turn_state=TurnState.TURN_EXECUTING,
                 action_type="cap",
                 action_target=cap_name,
@@ -1372,8 +1373,9 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                     self.state.transition_to(TurnState.TURN_EXECUTING)
                     metrics.total_ms = (time.time() - turn_start) * 1000
                     await log_turn_metrics(metrics)
+                    action_text = output.get("text", f"Executing {cap_name}...")
                     return OrchestratorResult(
-                        response_text=f"Executing {cap_name}...",
+                        response_text=action_text,
                         turn_state=TurnState.TURN_EXECUTING,
                         action_type="cap",
                         action_target=cap_name,
@@ -1463,7 +1465,7 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
     async def _handle_cap_decision(
         self,
         decision: DecisionEngineOutput,
-        _intent: str
+        intent: str
     ) -> OrchestratorResult:
         """Handle CAP decision - execute capability."""
         target = str(decision.target) if decision.target else "Unknown"
@@ -1492,7 +1494,7 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         # Execute (ws_server handles actual dispatch)
         self.state.transition_to(TurnState.TURN_EXECUTING)
         return OrchestratorResult(
-            response_text=f"Executing {target}...",
+            response_text=intent or f"Executing {target}...",
             turn_state=TurnState.TURN_EXECUTING,
             action_executed=True,
             action_type="cap",
@@ -1604,7 +1606,7 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             self.state.transition_to(TurnState.TURN_EXECUTING)
 
             return OrchestratorResult(
-                response_text=f"Executing {target}...",
+                response_text=f"Confirmed. {target}...",
                 turn_state=TurnState.TURN_EXECUTING,
                 action_executed=True,
                 action_type="cap",
@@ -1711,11 +1713,12 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             if output_type == "action":
                 cap_name = output.get("cap", "")
                 params = output.get("params", {})
+                action_text = output.get("text", f"Executing {cap_name}...")
                 logger.info(f"[Clarify] Resolved to action: {cap_name} with {params}")
 
                 self.state.transition_to(TurnState.TURN_EXECUTING)
                 return OrchestratorResult(
-                    response_text=f"Executing {cap_name}...",
+                    response_text=action_text,
                     turn_state=TurnState.TURN_EXECUTING,
                     action_type="cap",
                     action_target=cap_name,

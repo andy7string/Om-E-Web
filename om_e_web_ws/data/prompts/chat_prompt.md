@@ -16,7 +16,7 @@ You receive matching capabilities with scores. Pick the best match and fill para
 
 ## Output (JSON only, one per message)
 {"type":"reply","text":"..."} - no capability fits, chat only
-{"type":"action","cap":"Name","params":{}} - capability matches intent
+{"type":"action","cap":"Name","params":{},"text":"Friendly action message..."} - capability matches intent
 {"type":"clarify","text":"..."} - required params unclear
 {"type":"options","text":"...","options":[...]} - user should pick between capabilities
 {"type":"search","query":"..."} - none of the capabilities fit, fetch more from RAG
