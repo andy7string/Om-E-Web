@@ -36,7 +36,6 @@ from .shaping import shape_options
 from .metrics import TurnMetrics, log_turn_metrics
 from retrieval.chat_context import classify_message, process_and_write_memory
 from retrieval.memory_cycle import (
-    condense_action,
     check_large_payload,
     process_large_payload,
     get_payload_context,
@@ -663,14 +662,8 @@ USER MESSAGE
             messages = chat_data.get("messages", [])
             summaries = chat_data.get("summaries", {})
 
-            # Split messages into actions and content
-            actions = []
-            content = []
-            for msg in messages:
-                if classify_message(msg) == 'action':
-                    actions.append(msg)
-                else:
-                    content.append(msg)
+            # Filter to content messages only (actions come from session JSON now)
+            content = [msg for msg in messages if classify_message(msg) != 'action']
 
             # Build history within token budget
             history = []
@@ -687,36 +680,20 @@ USER MESSAGE
                     })
                     used_tokens += summary_tokens
 
-            # 2. Add recent actions in condensed format (~25% budget, last 10)
-            action_budget = int(max_tokens * 0.25)
-            recent_actions = actions[-10:]  # Last 10 actions
-            if recent_actions:
-                action_lines = []
-                for msg in recent_actions:
-                    # Find previous user message for context
-                    prev_user_content = None
-                    try:
-                        msg_idx = messages.index(msg)
-                        for j in range(msg_idx - 1, -1, -1):
-                            if messages[j].get('role') == 'user':
-                                prev_user_content = messages[j].get('content', '')
-                                break
-                    except ValueError:
-                        pass
-
-                    # Use memory_cycle's smart condensing
-                    condensed = condense_action(msg, prev_user_content)
-                    if condensed:
-                        action_lines.append(f"- {condensed}")
-
-                actions_text = "[Recent actions:\n" + "\n".join(action_lines) + "]"
+            # 2. Add recent SESSION actions - spans ALL chats in session
+            # This is the cross-chat bridge - actions from any chat visible in prompt
+            # Uses session_actions_limit from config (default 20)
+            from retrieval.memory_cycle import format_session_actions_for_prompt
+            actions_text = format_session_actions_for_prompt()  # Uses config limit
+            if actions_text:
+                actions_text = f"[{actions_text}]"
                 action_tokens = estimate_tokens(actions_text)
-                if action_tokens <= action_budget:
-                    history.append({
-                        "role": "system",
-                        "content": actions_text
-                    })
-                    used_tokens += action_tokens
+                print(f"[Session] Actions for prompt: {action_tokens} tokens")
+                history.append({
+                    "role": "system",
+                    "content": actions_text
+                })
+                used_tokens += action_tokens
 
             # 3. Add recent content within remaining budget (~50%)
             recent_content = []

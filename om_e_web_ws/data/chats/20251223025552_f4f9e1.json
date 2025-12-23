@@ -1,0 +1,209 @@
+{
+  "chat_id": "20251223025552_f4f9e1",
+  "project_id": "default",
+  "created_at": "2025-12-23T02:55:52.592140Z",
+  "updated_at": "2025-12-23T03:02:55.796610Z",
+  "title": "hey dude",
+  "default_title": "52_55_02_23_12_2025_hey",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey dude",
+      "timestamp": "2025-12-23T02:55:52.592190Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey Andy! What's up, dude? How can I help you today?",
+      "timestamp": "2025-12-23T02:55:54.589700Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "i think this is a new session",
+      "timestamp": "2025-12-23T02:56:00.669437Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Looks like it might be a new session, Andy! Ready to pick up wherever you want or start fresh. What’s on your mind?",
+      "timestamp": "2025-12-23T02:56:02.678196Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "im doing some research on vegan banana muffins can we look taht up",
+      "timestamp": "2025-12-23T02:56:19.823818Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing GoogleIt...",
+      "timestamp": "2025-12-23T02:56:21.054527Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "wow scroll to the bottom we have something on allreceipies",
+      "timestamp": "2025-12-23T02:56:37.916571Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing ScrollBottom...",
+      "timestamp": "2025-12-23T02:56:39.099746Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "goood stuff please close this tab",
+      "timestamp": "2025-12-23T02:56:47.405280Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing CloseTab...",
+      "timestamp": "2025-12-23T02:56:48.726665Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "alright nice info there switch views",
+      "timestamp": "2025-12-23T02:57:01.673189Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-23T02:57:03.064798Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "much better now i need us to basically make our own pizza menu for veggie guys",
+      "timestamp": "2025-12-23T02:57:19.865004Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Awesome, Andy! Let's create a delicious veggie pizza menu. Do you want me to suggest some veggie pizza options, or do you have specific ingredients in mind?",
+      "timestamp": "2025-12-23T02:57:21.844416Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "lets do a youtube on vegan pizza shall we",
+      "timestamp": "2025-12-23T02:57:32.273247Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Executing YouTubeIt...",
+      "timestamp": "2025-12-23T02:57:33.547060Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "nice stuff here",
+      "timestamp": "2025-12-23T02:57:52.589933Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Glad you liked it, Andy! Want to dive deeper into vegan pizza ideas or start crafting that veggie pizza menu now?",
+      "timestamp": "2025-12-23T02:57:53.882610Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "open my chats",
+      "timestamp": "2025-12-23T02:58:59.024918Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-23T02:59:00.210863Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "go to chat1",
+      "timestamp": "2025-12-23T02:59:05.542487Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-23T02:59:07.166593Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "nice stuff",
+      "timestamp": "2025-12-23T03:00:04.750700Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Glad you think so, Andy! What would you like to do next? More research, menu creation, or something else?",
+      "timestamp": "2025-12-23T03:00:06.491211Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "go to my conversations",
+      "timestamp": "2025-12-23T03:02:46.513658Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-23T03:02:47.940289Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "lets start a new one",
+      "timestamp": "2025-12-23T03:02:54.550549Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Executing CreateChat...",
+      "timestamp": "2025-12-23T03:02:55.796610Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 232,
+    "last_summarized_idx": 0,
+    "recent_actions": [
+      {
+        "text": "YouTubeIt: lets do a youtube on vegan pizza shall we",
+        "ts": "2025-12-23T02:57:33.547060Z"
+      },
+      {
+        "text": "ShowChats",
+        "ts": "2025-12-23T02:59:00.210863Z"
+      },
+      {
+        "text": "SetCurrentChat: go to chat1",
+        "ts": "2025-12-23T02:59:07.166593Z"
+      },
+      {
+        "text": "ShowChats",
+        "ts": "2025-12-23T03:02:47.940289Z"
+      },
+      {
+        "text": "CreateChat: lets start a new one",
+        "ts": "2025-12-23T03:02:55.796610Z"
+      }
+    ]
+  }
+}

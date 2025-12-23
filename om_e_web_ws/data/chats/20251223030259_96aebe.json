@@ -1,0 +1,117 @@
+{
+  "chat_id": "20251223030259_96aebe",
+  "project_id": "default",
+  "created_at": "2025-12-23T03:02:59.771166Z",
+  "updated_at": "2025-12-23T03:10:32.678187Z",
+  "title": "happy days",
+  "default_title": "59_02_03_23_12_2025_happy",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/search?q=vegan+ice+cream",
+    "page_title": "vegan ice cream - Google Search"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "happy days",
+      "timestamp": "2025-12-23T03:02:59.771204Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Happy days indeed, Andy! What’s making your day happy today?",
+      "timestamp": "2025-12-23T03:03:01.319790Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "thats a nice name for a conversation",
+      "timestamp": "2025-12-23T03:03:08.180662Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Thanks, Andy! \"Happy days\" does sound cheerful and inviting for a chat. Want to keep it or rename it to something else fun?",
+      "timestamp": "2025-12-23T03:03:09.785569Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "can you search for z3 m coupe on youtube",
+      "timestamp": "2025-12-23T03:03:29.070978Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing YouTubeIt...",
+      "timestamp": "2025-12-23T03:03:30.208199Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "go to that tab please",
+      "timestamp": "2025-12-23T03:03:37.348733Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-23T03:03:38.719345Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "wow",
+      "timestamp": "2025-12-23T03:03:44.213780Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Glad you liked it, Andy! Anything specific about the Z3 M Coupe videos that caught your eye?",
+      "timestamp": "2025-12-23T03:03:45.416286Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "nice can we now search google for any of these cars that might be for sale",
+      "timestamp": "2025-12-23T03:10:22.507080Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Executing GoogleIt...",
+      "timestamp": "2025-12-23T03:10:24.440370Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "wow",
+      "timestamp": "2025-12-23T03:10:31.380485Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Looks like you found some interesting Z3 M Coupe listings! Want me to help you explore any specific cars or details?",
+      "timestamp": "2025-12-23T03:10:32.678187Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 136,
+    "last_summarized_idx": 0,
+    "recent_actions": [
+      {
+        "text": "YouTubeIt: can you search for z3 m coupe on youtube",
+        "ts": "2025-12-23T03:03:30.208199Z"
+      },
+      {
+        "text": "OpenTab: go to that tab please",
+        "ts": "2025-12-23T03:03:38.719345Z"
+      },
+      {
+        "text": "GoogleIt: nice can we now search google for any of these car",
+        "ts": "2025-12-23T03:10:24.440370Z"
+      }
+    ]
+  }
+}

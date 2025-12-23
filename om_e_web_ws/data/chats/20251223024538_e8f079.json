@@ -1,0 +1,269 @@
+{
+  "chat_id": "20251223024538_e8f079",
+  "project_id": "default",
+  "created_at": "2025-12-23T02:45:38.757337Z",
+  "updated_at": "2025-12-23T02:59:59.206359Z",
+  "title": "chat1",
+  "default_title": "38_45_02_23_12_2025_hey",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey how are you doing",
+      "timestamp": "2025-12-23T02:45:38.757380Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey Andy! I'm doing great, thanks for asking! How about you? Anything exciting you'd like to chat about today?",
+      "timestamp": "2025-12-23T02:45:40.591706Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "should we go google for vegan pizza",
+      "timestamp": "2025-12-23T02:45:51.902119Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing GoogleIt...",
+      "timestamp": "2025-12-23T02:45:53.900755Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "nice i love that, close this google tab as im tired of looking for pizza",
+      "timestamp": "2025-12-23T02:46:18.123474Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing CloseTab...",
+      "timestamp": "2025-12-23T02:46:19.878621Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "ok happy days lets switch views",
+      "timestamp": "2025-12-23T02:46:31.587956Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-23T02:46:33.283432Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "nice please open chats",
+      "timestamp": "2025-12-23T02:46:59.700703Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-23T02:47:00.830484Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "alright so this chat is called hey how are you doing right?",
+      "timestamp": "2025-12-23T02:47:17.933706Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Yes, that's right! This chat is called \"hey how are you doing.\" How can I assist you further, Andy?",
+      "timestamp": "2025-12-23T02:47:19.606979Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "well thats silly lets call it chat1 instead",
+      "timestamp": "2025-12-23T02:47:38.891962Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-23T02:47:40.761674Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "that didnt work ma man",
+      "timestamp": "2025-12-23T02:47:56.381317Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-23T02:47:58.378004Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "that did work, ok well done",
+      "timestamp": "2025-12-23T02:48:12.365241Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Thanks, Andy! Glad it worked out. What would you like to do next?",
+      "timestamp": "2025-12-23T02:48:13.401189Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "can we switch chats now, i want to go to the whsup one",
+      "timestamp": "2025-12-23T02:48:44.932272Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-23T02:48:45.960657Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "why was that so hard ma man",
+      "timestamp": "2025-12-23T02:50:02.329279Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Haha, sometimes switching chats can be a bit tricky, but we got there in the end! I'm here to make it easier for you, Andy. What do you want to do next?",
+      "timestamp": "2025-12-23T02:50:03.944935Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "ok but do you know that we were searching for other shit previously",
+      "timestamp": "2025-12-23T02:50:23.505184Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Yes, Andy, I remember we were searching for vegan pizza and other things before. If you want, I can help you revisit or continue any of those searches!",
+      "timestamp": "2025-12-23T02:50:25.357562Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "well lets do that again shell we",
+      "timestamp": "2025-12-23T02:50:33.192174Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Executing GoogleIt...",
+      "timestamp": "2025-12-23T02:50:34.245416Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "no on youtube",
+      "timestamp": "2025-12-23T02:50:38.067047Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Executing YouTubeIt...",
+      "timestamp": "2025-12-23T02:50:39.066957Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "go to the youtube tab please",
+      "timestamp": "2025-12-23T02:50:46.166892Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-23T02:50:47.314929Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "nice ok we done here hud view",
+      "timestamp": "2025-12-23T02:50:58.947505Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-23T02:50:59.881331Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "alright can we scroll up a bit",
+      "timestamp": "2025-12-23T02:59:21.536678Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Executing ScrollUp...",
+      "timestamp": "2025-12-23T02:59:22.505841Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "mmmkay the text is so small make it bigger",
+      "timestamp": "2025-12-23T02:59:36.771639Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "Executing ZoomIn...",
+      "timestamp": "2025-12-23T02:59:37.854308Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "user",
+      "content": "can we search google for vegan ice cream",
+      "timestamp": "2025-12-23T02:59:57.556240Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "Executing GoogleIt...",
+      "timestamp": "2025-12-23T02:59:59.206359Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 300,
+    "last_summarized_idx": 0,
+    "recent_actions": [
+      {
+        "text": "OpenTab: go to the youtube tab please",
+        "ts": "2025-12-23T02:50:47.314929Z"
+      },
+      {
+        "text": "SwitchView",
+        "ts": "2025-12-23T02:50:59.881331Z"
+      },
+      {
+        "text": "ScrollUp",
+        "ts": "2025-12-23T02:59:22.505841Z"
+      },
+      {
+        "text": "ZoomIn: mmmkay the text is so small make it bigger",
+        "ts": "2025-12-23T02:59:37.854308Z"
+      },
+      {
+        "text": "GoogleIt: can we search google for vegan ice cream",
+        "ts": "2025-12-23T02:59:59.206359Z"
+      }
+    ]
+  }
+}

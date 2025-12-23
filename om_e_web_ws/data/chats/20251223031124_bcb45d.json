@@ -1,0 +1,125 @@
+{
+  "chat_id": "20251223031124_bcb45d",
+  "project_id": "default",
+  "created_at": "2025-12-23T03:11:24.187264Z",
+  "updated_at": "2025-12-23T03:12:37.223777Z",
+  "title": "MikeHunt",
+  "default_title": "24_11_03_23_12_2025_mikehunt",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "MikeHunt",
+      "timestamp": "2025-12-23T03:11:24.187308Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hi Andy! How can I assist you with \"MikeHunt\"? Are you looking for information, a search, or something else?",
+      "timestamp": "2025-12-23T03:11:26.015970Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "tell him he is a cunt and switchview",
+      "timestamp": "2025-12-23T03:11:38.871841Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "I'm here to keep things positive and helpful! How can I assist you with switching views or anything else today?",
+      "timestamp": "2025-12-23T03:11:40.149246Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "switchview",
+      "timestamp": "2025-12-23T03:11:44.182492Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-23T03:11:45.410214Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "nice can you open my chats please",
+      "timestamp": "2025-12-23T03:11:54.584454Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-23T03:11:55.848666Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "lets search for chat1",
+      "timestamp": "2025-12-23T03:12:00.721763Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing SearchChats...",
+      "timestamp": "2025-12-23T03:12:01.996960Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "na close the search",
+      "timestamp": "2025-12-23T03:12:11.520875Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Executing CloseSearch...",
+      "timestamp": "2025-12-23T03:12:12.854535Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "all good i need a new chat now please",
+      "timestamp": "2025-12-23T03:12:35.906681Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Executing CreateChat...",
+      "timestamp": "2025-12-23T03:12:37.223777Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 93,
+    "last_summarized_idx": 0,
+    "recent_actions": [
+      {
+        "text": "SwitchView",
+        "ts": "2025-12-23T03:11:45.410214Z"
+      },
+      {
+        "text": "ShowChats",
+        "ts": "2025-12-23T03:11:55.848666Z"
+      },
+      {
+        "text": "SearchChats: lets search for chat1",
+        "ts": "2025-12-23T03:12:01.996960Z"
+      },
+      {
+        "text": "CloseSearch: na close the search",
+        "ts": "2025-12-23T03:12:12.854535Z"
+      },
+      {
+        "text": "CreateChat: all good i need a new chat now please",
+        "ts": "2025-12-23T03:12:37.223777Z"
+      }
+    ]
+  }
+}

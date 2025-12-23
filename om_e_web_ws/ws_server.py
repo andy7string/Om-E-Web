@@ -8994,6 +8994,10 @@ async def main():
     rebuild_chat_memory_store()  # Index all chat messages for memory queries
     print("🧠 RAG ready")
 
+    # 🔄 Session: Initialize new session for cross-chat action tracking
+    from retrieval.memory_cycle import init_session
+    init_session()
+
     # 🌐 Start HTTP server in background thread (port 8080)
     http_thread = threading.Thread(target=start_http_server, args=(8080,), daemon=True)
     http_thread.start()

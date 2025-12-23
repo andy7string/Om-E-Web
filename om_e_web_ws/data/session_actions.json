@@ -1,0 +1,42 @@
+{
+  "session_id": "session_1766459471",
+  "started_at": "2025-12-23T13:41:11Z",
+  "actions": [
+    {
+      "text": "SwitchView",
+      "chat_title": "MikeHunt",
+      "chat_id": "20251223031124_bcb45d",
+      "ts": "2025-12-23T13:41:45Z"
+    },
+    {
+      "text": "ShowChats",
+      "chat_title": "MikeHunt",
+      "chat_id": "20251223031124_bcb45d",
+      "ts": "2025-12-23T13:41:55Z"
+    },
+    {
+      "text": "SearchChats: lets search for chat1",
+      "chat_title": "MikeHunt",
+      "chat_id": "20251223031124_bcb45d",
+      "ts": "2025-12-23T13:42:01Z"
+    },
+    {
+      "text": "CloseSearch: na close the search",
+      "chat_title": "MikeHunt",
+      "chat_id": "20251223031124_bcb45d",
+      "ts": "2025-12-23T13:42:12Z"
+    },
+    {
+      "text": "CreateChat: all good i need a new chat now please",
+      "chat_title": "MikeHunt",
+      "chat_id": "20251223031124_bcb45d",
+      "ts": "2025-12-23T13:42:37Z"
+    },
+    {
+      "text": "GoogleIt: lets find out about it on google",
+      "chat_title": "valeria",
+      "chat_id": "20251223031247_d98d31",
+      "ts": "2025-12-23T13:43:12Z"
+    }
+  ]
+}

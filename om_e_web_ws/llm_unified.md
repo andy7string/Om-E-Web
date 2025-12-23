@@ -1,11 +1,11 @@
 # Unified LLM Call Debug
 
-**Generated:** 2025-12-23 10:58:59
-**User Message:** close prompt
-**Messages:** 26
+**Generated:** 2025-12-23 13:43:19
+**User Message:** this is interesting
+**Messages:** 8
 **Capabilities:** 7
-**Tokens:** ~1564 (system: 392, messages: 1172)
-**LLM Time:** 875ms
+**Tokens:** ~1185 (system: 392, messages: 793)
+**LLM Time:** 1124ms
 
 ## System Prompt
 ```
@@ -74,177 +74,61 @@ Example phrases:
 ### 1. SYSTEM
 
 ```
-[Recent actions:
-- GoogleIt: lets go
-- ShowChats
-- SetTheme: can you change to atom please
-- SetTheme: be the bunny
-- YouTubeIt: lets youtube it]
+[**Recent actions (this session):**
+- SwitchView [chat:MikeHunt]
+- ShowChats [chat:MikeHunt]
+- SearchChats: lets search for chat1 [chat:MikeHunt]
+- CloseSearch: na close the search [chat:MikeHunt]
+- CreateChat: all good i need a new chat now please [chat:MikeHunt]
+- GoogleIt: lets find out about it on google [chat:valeria]]
 ```
 
 ### 2. USER
 
 ```
-sure how do we do that
+valeria
 ```
 
 ### 3. ASSISTANT
 
 ```
-Great! I can start by searching for tips on how to handle builder delays and improve communication with builders. Let me find some helpful advice for you.
+Hey Valeria! How can I help you today?
 ```
 
 ### 4. USER
 
 ```
-lets go
+so where is valeria
 ```
 
-### 5. USER
+### 5. ASSISTANT
 
 ```
-very nice ma man, lets go to caht view
+Valeria is the name of one of your chat sessions here. You are currently in the 'valeria' chat. How can I assist you with Valeria?
 ```
 
 ### 6. USER
 
 ```
-can you change to atom please
+lets find out about it on google
 ```
 
 ### 7. USER
 
 ```
-hey atom how you doing
+this is interesting
 ```
 
-### 8. ASSISTANT
-
-```
-Hey Andy! I'm doing great, thanks for asking! Ready to dive into some science and help you out. What's on your mind today?
-```
-
-### 9. USER
-
-```
-whats your favourite colour
-```
-
-### 10. ASSISTANT
-
-```
-I don't have personal favorites, but if I did, I'd probably go with a bright, energetic color like green to match my science vibe as Atom! What's your favorite color again?
-```
-
-### 11. USER
-
-```
-you are green dude thats funny
-```
-
-### 12. ASSISTANT
-
-```
-Haha, yeah, green suits me perfectly! Like a little science superhero vibe. Anything else you want to chat about, Andy?
-```
-
-### 13. USER
-
-```
-i also like green its almost my favourite colour, you can keep that in the memory ok
-```
-
-### 14. ASSISTANT
-
-```
-Got it, Andy! I'll remember that green is almost your favorite color too. Green vibes all around! Anything else you'd like me to keep in mind?
-```
-
-### 15. USER
-
-```
-be the bunny
-```
-
-### 16. USER
-
-```
-hey bunny whats your name
-```
-
-### 17. ASSISTANT
-
-```
-Hey Andy! I'm Bunny, your cute and fluffy chat buddy. Ready to hop into some fun conversations with you!
-```
-
-### 18. USER
-
-```
-na you Kawaii
-```
-
-### 19. ASSISTANT
-
-```
-Aww, thanks Andy! Kawaii Bunny at your service, ready to bring some cuteness and cheer your way! 🐰💕 What shall we chat about next?
-```
-
-### 20. USER
-
-```
-well we were talking about something stressful
-```
-
-### 21. ASSISTANT
-
-```
-Yeah, Andy, builder delays can really pile on the stress. Want me to share some tips I found on handling those delays and improving communication with your builders?
-```
-
-### 22. USER
-
-```
-yes please
-```
-
-### 23. ASSISTANT
-
-```
-Here are some tips to handle builder delays and improve communication:
-
-1. Stay proactive: Regularly check in with your builder for updates.
-2. Document everything: Keep records of all communications and agreements.
-3. Set clear expectations: Agree on timelines and milestones upfront.
-4. Be clear and direct: Ask specific questions to get precise answers.
-5. Use written communication: Emails or messages help avoid misunderstandings.
-6. Be patient but firm: Understand delays can happen but hold them accountable.
-
-Would you like me to find more detailed advice or sample communication templates?
-```
-
-### 24. USER
-
-```
-lets youtube it
-```
-
-### 25. USER
-
-```
-close prompt
-```
-
-### 26. USER
+### 8. USER
 
 ```
 ENVIRONMENT (current state - use these for actions)
-Page: (3) how to handle builder delays and improve communication with builders - YouTube (https://www.youtube.com/results?search_query=how+to+handle+builder+delays+and+improve+communication+with+builders)
+Page: Valeria - Google Search (https://www.google.com/search?q=Valeria)
 
 Tabs (currently open):
-  1. how to handle builder delays and improve (www.google.com)
+  1. OM-E Web (127.0.0.1:8080)
   2. Extensions (extensions)
-  3. (3) how to handle builder delays and imp (www.youtube.com) ← ACTIVE
+  3. Valeria - Google Search (www.google.com) ← ACTIVE
 
 Capabilities:
 - GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
@@ -253,31 +137,34 @@ Capabilities:
 - YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
   ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
   params: query: Required - what to find on YouTube
-- HidePrompt: Hides the text input area for typing messages
-  ex: {"cap": "HidePrompt"}
-- CloseTab: Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.
-  ex: {"cap": "CloseTab", "params": {"name": "google"}}
-  params: tabId: Optional - numeric tab ID to close, name: Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')
-- ShowPrompt: Shows the text input area for typing messages
-  ex: {"cap": "ShowPrompt"}
-- CloseSearch: Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode
-  ex: {"cap": "CloseSearch"}
-- HideChats: Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.
-  ex: {"cap": "HideChats"}
+- SetTemperature: Adjusts LLM temperature (0.0-2.0)
+  ex: {"cap": "SetTemperature", "params": {"temperature": 0.7}}
+  params: temperature: Required - temperature value
+- ScrollUp: Scrolls the page up by one viewport height
+  ex: {"cap": "ScrollUp"}
+- RenameChat: Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y
+  ex: {"cap": "RenameChat", "params": {"title": "My New Title"}}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - existing chat title for fuzzy matching, title: Required - the new title
+- CreateChat: Creates a new chat file and returns the chat_id
+  ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
+  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
+- SetLLMModel: Changes the model for a provider
+  ex: {"cap": "SetLLMModel", "params": {"model": "gpt-4"}}
+  params: provider: Optional - provider to update (default: active), model: Required - model name/ID
 
 [Relevant stored content:]
-- User is testing the system's ability to handle large text inputs by submitting a lengthy message to trigger summarization and storage for later retrieval. They describe the infrastructure managing large content like code or documents in chat.
 - Gerald the fox jumped over Buster the dog near the old oak tree in Springfield park by the river; cat Whiskers is 7 years old and eats tuna treats. The Eiffel Tower in Paris is 330 meters tall, completed in 1889; Mount Everest is 8849 meters tall, located in Nepal near Tibet. Australia's capital is Canberra with about 450,000 people. The secret password is blueberry42.
+- User is testing the system's ability to handle large text inputs by submitting a lengthy message to trigger summarization and storage for later retrieval. They describe the infrastructure managing large content like code or documents in chat.
 
 [User facts:]
-- User wants to confirm if their stated preference was correctly understood.
-- User likes to think of the assistant as a friend
 - User's name is Andy
+- User likes to think of the assistant as a friend
+- User likes optimistic things because it helps them be happy
 
-USER: close prompt
+USER: this is interesting
 ```
 
 ## Response
 ```json
-{"type":"action","cap":"HidePrompt"}
+{"type":"reply","text":"I'm glad you find it interesting, Andy! Is there anything specific about Valeria or the search results you'd like to explore or discuss?"}
 ```

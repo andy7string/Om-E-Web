@@ -1,7 +1,7 @@
 # Om_E_Web - Complete System Architecture
 
-**Version:** 1.3
-**Last Updated:** 2025-12-22
+**Version:** 1.4
+**Last Updated:** 2025-12-23
 **System:** Chrome Extension (MV3) + Python WebSocket Server + LLM Intelligence Pipeline
 
 ---
@@ -940,12 +940,106 @@ elif cap_action == "MyCapability":
 2. Add handler in destination (content, SW, or server)
 3. Document in message table
 
-### Add New Capability
+### Add New Internal Capability (Server-Side)
 
-1. **Internal (server):** Add to execute_internal_capability()
-2. **DOM (site):** Add to site_configs.json capabilities section
-3. **Extension (browser):** Add handler to handleExecuteCapability()
-4. Test: `python3 test_navigation.py --command capability --capability MyCapability`
+**CRITICAL:** Internal capabilities require BOTH a handler AND a definition. Missing either causes routing failures.
+
+**Required Files:**
+
+| File | What to Add | Purpose |
+|------|-------------|---------|
+| `internal_capabilities.json` | Capability definition | **Routing decision** - tells ws_server.py this is internal |
+| `ws_server.py` | Handler in `execute_internal_capability()` | **Execution** - actual logic |
+| `hud.js` (optional) | UI element if user-configurable | Settings panel integration |
+
+**Routing Logic (`ws_server.py:6046`):**
+
+```python
+internal_caps = load_internal_capabilities()  # Cached at startup!
+if action in internal_caps:
+    # ✅ Route to local handler (execute_internal_capability)
+else:
+    # ❌ Route to extension → content.js → fails if no DOM config
+```
+
+**Example: Adding SetSessionActionsLimit**
+
+1. **Add to `internal_capabilities.json`:**
+```json
+{
+  "SetSessionActionsLimit": {
+    "group": "config",
+    "action": "SetSessionActionsLimit",
+    "label": "Set session actions limit",
+    "description": "Sets rolling limit for session-wide action history (5-50)",
+    "synonyms": ["session history limit", "action history size"],
+    "example": "{\"cap\": \"SetSessionActionsLimit\", \"params\": {\"limit\": 20}}",
+    "params": {
+      "limit": "Required - number of actions to keep (5-50)"
+    }
+  }
+}
+```
+
+2. **Add handler to `ws_server.py` in `execute_internal_capability()`:**
+```python
+elif action == "SetSessionActionsLimit":
+    limit = params.get("limit")
+    if limit is None:
+        return {"error": "Missing limit parameter"}
+    # ... validation and save logic
+    config["settings"]["session_actions_limit"] = limit_val
+    save_llm_config(config)
+    return {"session_actions_limit": limit_val}
+```
+
+3. **Add HUD settings input (optional):**
+```javascript
+// hud.js - in settings panel HTML
+<input type="number" class="ome-settings-session-actions" min="5" max="50">
+
+// Load handler
+sessionActionsInput.value = settings.session_actions_limit ?? 20;
+
+// Save handler
+chrome.runtime.sendMessage({
+    type: 'execute_capability',
+    action: 'SetSessionActionsLimit',
+    params: { limit: parseInt(input.value) }
+});
+```
+
+**Caching & Hot Reload:**
+
+The `INTERNAL_CAPABILITIES` cache is loaded once at server startup. Changes to `internal_capabilities.json` require:
+
+1. **Server restart** - picks up new capability definitions
+2. **ReloadLLMConfig capability** - clears cache for config values (NOT capability definitions)
+
+**Config File Locations:**
+
+```
+om_e_web_ws/
+├── data/
+│   ├── capabilities/
+│   │   └── internal_capabilities.json  ← Capability definitions (routing)
+│   └── llm_config.json                 ← Runtime config values
+```
+
+**Common Gotchas:**
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| `📤 Sent capability execution to extension` | Capability not in `internal_capabilities.json` | Add definition to JSON, restart server |
+| Handler never executes | Missing from `internal_caps` cache | Restart server to reload cache |
+| `validate_capability` fails | Capability added after server started | Restart server |
+| HUD setting doesn't save | Missing handler OR missing definition | Add both, restart server |
+
+### Add New DOM Capability (Site-Specific)
+
+1. Add to `site_configs.json` or `at_site_configs/*.json` capabilities section
+2. Add handler in `content.js` if custom execution needed
+3. Test: `python3 test_navigation.py --command capability --capability MyCapability`
 
 ### Debug Each Component
 

@@ -1,0 +1,73 @@
+{
+  "chat_id": "20251223031247_d98d31",
+  "project_id": "default",
+  "created_at": "2025-12-23T03:12:47.223162Z",
+  "updated_at": "2025-12-23T03:13:19.186856Z",
+  "title": "valeria",
+  "default_title": "47_12_03_23_12_2025_valeria",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "valeria",
+      "timestamp": "2025-12-23T03:12:47.223198Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey Valeria! How can I help you today?",
+      "timestamp": "2025-12-23T03:12:48.754061Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "so where is valeria",
+      "timestamp": "2025-12-23T03:12:59.365926Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Valeria is the name of one of your chat sessions here. You are currently in the 'valeria' chat. How can I assist you with Valeria?",
+      "timestamp": "2025-12-23T03:13:00.656884Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "lets find out about it on google",
+      "timestamp": "2025-12-23T03:13:09.719294Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Executing GoogleIt...",
+      "timestamp": "2025-12-23T03:13:12.192377Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "this is interesting",
+      "timestamp": "2025-12-23T03:13:17.843379Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "I'm glad you find it interesting, Andy! Is there anything specific about Valeria or the search results you'd like to explore or discuss?",
+      "timestamp": "2025-12-23T03:13:19.186856Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 92,
+    "last_summarized_idx": 0,
+    "recent_actions": [
+      {
+        "text": "GoogleIt: lets find out about it on google",
+        "ts": "2025-12-23T03:13:12.192377Z"
+      }
+    ]
+  }
+}

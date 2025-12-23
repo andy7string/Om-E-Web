@@ -1,106 +1,1105 @@
 {
   "metadata": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
-    "timestamp": "2025-12-23T02:26:11Z",
-    "element_count": 9
+    "url": "https://www.google.com/search?q=Valeria",
+    "title": "Valeria - Google Search",
+    "timestamp": "2025-12-23T03:13:48Z",
+    "element_count": 102
   },
   "elements": {
     "0": {
-      "label": "TOGGLE HUD OVERLAY",
-      "type": "Button",
-      "tag": "button",
+      "label": "Skip to main content",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#hudToggleBtn",
-        "button.hud-toggle-btn"
+        "[data-ved='0ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ67oDCAU']",
+        "a.gyPpGe"
       ],
       "href": null
     },
     "1": {
-      "label": "WebSocket URL",
-      "type": "Input",
-      "tag": "input",
+      "label": "Accessibility help",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#wsUrl",
-        "input[placeholder='WebSocket URL']",
-        "input[type='text'][placeholder='WebSocket URL']"
+        "a[href*='/websearch/answer/181196']",
+        "a.gyPpGe"
       ],
-      "href": null
+      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
     },
     "2": {
-      "label": "Save & Reconnect",
-      "type": "Button",
-      "tag": "button",
+      "label": "Accessibility feedback",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#saveBtn",
-        "button.primary"
+        "[data-async-trigger='duf3-78']",
+        "a.gyPpGe"
       ],
       "href": null
     },
     "3": {
-      "label": "Kawaii",
-      "type": "Button",
-      "tag": "button",
+      "label": "Go to Google Home",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#orbKawaii",
-        "[data-theme='kawaii']",
-        "button.orb-btn"
+        "a[aria-label='Go to Google Home']",
+        "[aria-label='Go to Google Home']",
+        "#logo",
+        "a[href*='/webhp']",
+        "[data-hveid='9']"
       ],
-      "href": null
+      "href": "https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQPAgJ"
     },
     "4": {
-      "label": "Om-E",
-      "type": "Button",
-      "tag": "button",
+      "label": "Search",
+      "type": "Select",
+      "tag": "textarea",
       "selectors": [
-        "#orbRobot",
-        "[data-theme='robot']",
-        "button.orb-btn"
+        "textarea[aria-label='Search']",
+        "[aria-label='Search']",
+        "#APjFqb",
+        "textarea[name='q']",
+        "[role='combobox'][aria-label='Search']",
+        "[data-ved='0ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ39UDCA0']",
+        "textarea.gLFyf"
       ],
       "href": null
     },
     "5": {
-      "label": "Atom",
+      "label": "Clear",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "#orbAtom",
-        "[data-theme='atom']",
-        "button.orb-btn"
+        "div[aria-label='Clear']",
+        "[aria-label='Clear']",
+        "[role='button'][aria-label='Clear']",
+        "[data-ved='0ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ05YFCA4']",
+        "div.M2vV3.vOY7J"
       ],
       "href": null
     },
     "6": {
-      "label": "DOM\nTreeWalker",
+      "label": "Search by voice",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "#scanModeDom",
-        "[data-mode='dom']",
-        "button.scan-btn"
+        "div[aria-label='Search by voice']",
+        "[aria-label='Search by voice']",
+        "[role='button'][aria-label='Search by voice']",
+        "[data-ved='0ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQvs8DCA8']",
+        "div.XDyW0e"
       ],
       "href": null
     },
     "7": {
-      "label": "AT\nAccessibility",
+      "label": "Search by image",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "#scanModeAt",
-        "[data-mode='at']",
-        "button.scan-btn"
+        "div[aria-label='Search by image']",
+        "[aria-label='Search by image']",
+        "[role='button'][aria-label='Search by image']",
+        "[data-base-lens-url='https://lens.google.com']",
+        "div.nDcEnd"
       ],
       "href": null
     },
     "8": {
-      "label": "Extension Settings",
+      "label": "Search",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#extPageBtn",
-        "button.ext-toggle-btn"
+        "button[aria-label='Search']",
+        "[aria-label='Search']",
+        "[data-ved='0ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ4dUDCBE']",
+        "button.HZVG1b.Tg7LZd"
       ],
       "href": null
+    },
+    "9": {
+      "label": "Google apps",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Google apps']",
+        "[aria-label='Google apps']",
+        "[role='button'][aria-label='Google apps']",
+        "a[href*='/intl/en/about/products']",
+        "a.gb_B"
+      ],
+      "href": "https://www.google.com.au/intl/en/about/products?tab=wh"
+    },
+    "10": {
+      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "a[href*='/SignOutOptions']",
+        "a.gb_B.gb_0a"
+      ],
+      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/search%3Fq%3DValeria&ec=futura_srp_og_si_72236_p"
+    },
+    "11": {
+      "label": "AI Mode",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ2J8OegQICBAE']",
+        "a.XVMlrc.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&udm=50&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhYPURIv2wPgv_w_sE_0Sc6QogS5TvEDp7UpbJYBVowPi9ym-G7Xu3tQvlcC4Gcv3U2PxWryPllwxeAtEmk6sl8WR3bzSEAgqF2ECYGoPpNlYj3ddaG5qtjRle52DAJiuvBn4p9yi96BZfKtGrw9eJV-BccU-A&aep=1&ntc=1&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ2J8OegQICBAE"
+    },
+    "12": {
+      "label": "All",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CAsQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": null
+    },
+    "13": {
+      "label": "Images",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBUQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhYPURIv2wPgv_w_sE_0Sc6QogS5TvEDp7UpbJYBVowPi9ym-G7Xu3tQvlcC4Gcv3U2PxWryPllwxeAtEmk6sl8WR3bzSEAgqF2ECYGoPpNlYj3ddaG5qtjRle52DAJiuvBn4p9yi96BZfKtGrw9eJV-BccU-A&q=Valeria&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQtKgLegQIFRAB"
+    },
+    "14": {
+      "label": "Videos",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBQQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhYPURIv2wPgv_w_sE_0Sc6QogS5TvEDp7UpbJYBVowPi9ym-G7Xu3tQvlcC4Gcv3U2PxWryPllwxeAtEmk6sl8WR3bzSEAgqF2ECYGoPpNlYj3ddaG5qtjRle52DAJiuvBn4p9yi96BZfKtGrw9eJV-BccU-A&q=Valeria&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQtKgLegQIFBAB"
+    },
+    "15": {
+      "label": "Short videos",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBIQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&udm=39&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhYPURIv2wPgv_w_sE_0Sc6QogS5TvEDp7UpbJYBVowPi9ym-G7Xu3tQvlcC4Gcv3U2PxWryPllwxeAtEmk6sl8WR3bzSEAgqF2ECYGoPpNlYj3ddaG5qtjRle52DAJiuvBn4p9yi96BZfKtGrw9eJV-BccU-A&q=Valeria&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQs6gLegQIEhAB"
+    },
+    "16": {
+      "label": "News",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CA0QAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria&tbm=nws&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhYPURIv2wPgv_w_sE_0Sc6QogS5TvEDp7UpbJYBVowPi9ym-G7Xu3tQvlcC4Gcv3U2PxWryPllwxeAtEmk6sl8WR3bzSEAgqF2ECYGoPpNlYj3ddaG5qtjRle52DAJiuvBn4p9yi96BZfKtGrw9eJV-BccU-A&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ0pQJegQIDRAB"
+    },
+    "17": {
+      "label": "Shopping",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CAwQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&udm=28&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhYPURIv2wPgv_w_sE_0Sc6QogS5TvEDp7UpbJYBVowPi9ym-G7Xu3tQvlcC4Gcv3U2PxWryPllwxeAtEmk6sl8WR3bzSEAgqF2ECYGoPpNlYj3ddaG5qtjRle52DAJiuvBn4p9yi96BZfKtGrw9eJV-BccU-A&q=Valeria&ved=1t:220175&ictx=111"
+    },
+    "18": {
+      "label": "More",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ7p0OegQICBAG']",
+        "div.mTpL7c"
+      ],
+      "href": null
+    },
+    "19": {
+      "label": "Tools",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "#hdtb-tls",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ2x96BAgIEAg']",
+        "div.mOKdDc"
+      ],
+      "href": null
+    },
+    "20": {
+      "label": "Overview",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CCQQAA']",
+        "a.NQyKp.Y8usp"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria&si=AMgyJEsS9yFPUNnJcpkaSNMRXqlEkVi-GlnAyyV4lBXgIgr_GNEkZ4RwOKM1da6DgCTrbwdRRZvCagIlbYDgKqjeHCcuM58enZRC-9Y3vPMnAWYCsXiPkeM%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQyNoBKAB6BAgkEAA&ictx=1"
+    },
+    "21": {
+      "label": "Cast",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CCYQAA']",
+        "a.NQyKp.Y8usp"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=cast+of+valeria+television+show&si=AMgyJEuDvvu1I3GTC4QlJAt_EE5-pPafvY6D-alhq80ICvZzu5PNLlyFelx5G4uRyiw3R92JV4KSsDXbCYGq3WoPPWsGOYc2GJ6pKeqfzlj8E23GxC4BBl6tMvd9WGRRTHV9zVVFl_glDx3T5SNyoeVEmZsOnKOGxWT8TPMdpJCGa1HTRpDheYg%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQyNoBKAB6BAgmEAA&ictx=1"
+    },
+    "22": {
+      "label": "Watch show",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CCgQAA']",
+        "a.NQyKp.Y8usp"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=where+to+watch+valeria+television+show&si=AMgyJEvOxnWKiJEN31Xf_p3wHK6lyBcQsmwsGfgCM_KOMgIj1ncpEwJ0p3jFqIhkAjbvPKarYM7Wzrn94faHVVI-8J5PmBoH0Zhw09G67rSDCO15F5PRomQYlv3S5Yo-ZNUozH7JcDOz1hLnNV0aZVic3mxLM4isxRNQ-yYdfZSKJ_kR6e73gr4%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQyNoBKAB6BAgoEAA&ictx=1"
+    },
+    "23": {
+      "label": "Episodes",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CC4QAA']",
+        "a.NQyKp.Y8usp"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=valeria+television+show+episodes&si=AMgyJEvn6B4R2BsihH4jpd3qR4gl7k19hPW3MYG_cyqBQF3QCBoyUgDZrcVTY0HIVdTNI3Kcd2upIDhO7FCYDO3qBQDpkVwp7tJucRT5rBwvkWJ5KacSE1giSEpsRboSMHN3e7W0JgHlsw00L7xs1mAWP2U2qIqNZQ%3D%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQyNoBKAB6BAguEAA&ictx=1"
+    },
+    "24": {
+      "label": "Reviews",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CCkQAA']",
+        "a.NQyKp.Y8usp"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=valeria+television+show+reviews&stick=H4sIAAAAAAAAAOMwe8Rowy3w8sc9YSnjSWtOXmPU5eILKMrPSk0uCUoty0wtLxaS5mJzzSvJLKkUEpTi5-LVT9c3NMxKKyg2NjbJ4FnEKl-WmJNalJmoUJKaA9RRnJmfp1CckV-uUATRDwAgDN4-YwAAAA&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQyNoBKAB6BAgpEAA&ictx=1"
+    },
+    "25": {
+      "label": "Cast\nDiana Gómez, Maxi Iglesias, Silma López, Paula Malia, Teresa Riott, Ibrahim Alshami J, Federico Aguado, Juanlu Gonzalez, José Pastor, Mima Riera, Júlia Molins, Aitor Luna, Cris Iglesias, Laura Corbacho",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-bbsl='bb-1']",
+        "div.r0r6l.MwSyyb"
+      ],
+      "href": null
+    },
+    "26": {
+      "label": "Ratings\nIMDb\n6.7/10",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-bbsl='bb-2']",
+        "div.r0r6l.MwSyyb"
+      ],
+      "href": null
+    },
+    "27": {
+      "label": "Where to watch",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-bbsl='bb-3']",
+        "div.r0r6l.MwSyyb"
+      ],
+      "href": null
+    },
+    "28": {
+      "label": "Fan reactions\n💖\nI so loved this three season romantic drama\n🤔\nValeria is the most annoying character of them all probably",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-bbtid='bb-4']",
+        "div.r0r6l.MwSyyb"
+      ],
+      "href": null
+    },
+    "29": {
+      "label": "Expand all",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-hveid='CBYQHQ']",
+        "div.IXnRV"
+      ],
+      "href": null
+    },
+    "30": {
+      "label": "Cast",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.a-no-hover-decoration.ntBZob"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=cast+of+valeria+television+show&si=AMgyJEuDvvu1I3GTC4QlJAt_EE5-pPafvY6D-alhq80ICvZzu5PNLlyFelx5G4uRyiw3R92JV4KSsDXbCYGq3WoPPWsGOYc2GJ6pKeqfzlj8E23GxC4BBl6tMvd9WGRRTHV9zVVFl_glDx3T5SNyoeVEmZsOnKOGxWT8TPMdpJCGa1HTRpDheYg%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQw_oBegQISxAB&ictx=1"
+    },
+    "31": {
+      "label": "See more Cast",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='See more Cast']",
+        "[aria-label='See more Cast']",
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ9JYCegQIGxA6']",
+        "a.brKmxb"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=cast+of+valeria+television+show&si=AMgyJEuDvvu1I3GTC4QlJAt_EE5-pPafvY6D-alhq80ICvZzu5PNLlyFelx5G4uRyiw3R92JV4KSsDXbCYGq3WoPPWsGOYc2GJ6pKeqfzlj8E23GxC4BBl6tMvd9WGRRTHV9zVVFl_glDx3T5SNyoeVEmZsOnKOGxWT8TPMdpJCGa1HTRpDheYg%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ9JYCegQIGxA6&ictx=1"
+    },
+    "32": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
+    },
+    "33": {
+      "label": "What does Valeria the name mean?",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div.dnXCYb"
+      ],
+      "href": null
+    },
+    "34": {
+      "label": "Is Valeria on Netflix worth watching?",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div.dnXCYb"
+      ],
+      "href": null
+    },
+    "35": {
+      "label": "Is Valeria a Hispanic name?",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div.dnXCYb"
+      ],
+      "href": null
+    },
+    "36": {
+      "label": "Is Valeria a German name?",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div.dnXCYb"
+      ],
+      "href": null
+    },
+    "37": {
+      "label": "Feedback",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-dccl='false']",
+        "div.mWcf0e.nKHyTc"
+      ],
+      "href": null
+    },
+    "38": {
+      "label": "Valeria (2020 TV series)\n\nWikipedia\nhttps://en.wikipedia.org › wiki › Valeria_(2020_TV_ser...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Valeria_(2020_TV_series)']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoECE0QAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Valeria_(2020_TV_series)"
+    },
+    "39": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Valeria_(2020_TV_series)']",
+        "a[href*='#:~:text=Valeria%20is%20a%20Spanish%20comedy%2Ddrama,de%20Valeria%20by%20El%C3%ADsabet%20Benavent.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Valeria_(2020_TV_series)#:~:text=Valeria%20is%20a%20Spanish%20comedy%2Ddrama,de%20Valeria%20by%20El%C3%ADsabet%20Benavent."
+    },
+    "40": {
+      "label": "Valeria (TV Series 2020–2025)\n\nIMDb\nhttps://www.imdb.com › title",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt9731288/']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoECE4QAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.imdb.com/title/tt9731288/"
+    },
+    "41": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt9731288/']",
+        "a[href*='#:~:text=Valeria%20is%20a%20writer%20who\\'s,friends%3A%20Carmen%2C%20Lola%2C%20and%20Nerea.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.imdb.com/title/tt9731288/#:~:text=Valeria%20is%20a%20writer%20who's,friends%3A%20Carmen%2C%20Lola%2C%20and%20Nerea."
+    },
+    "42": {
+      "label": "Episode list",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt9731288/episodes/']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.imdb.com/title/tt9731288/episodes/"
+    },
+    "43": {
+      "label": "User reviews",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt9731288/reviews/']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.imdb.com/title/tt9731288/reviews/"
+    },
+    "44": {
+      "label": "Valeria",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt9731288/']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://pro.imdb.com/title/tt9731288/"
+    },
+    "45": {
+      "label": "Parents guide",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt9731288/parentalguide/']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.imdb.com/title/tt9731288/parentalguide/"
+    },
+    "46": {
+      "label": "Valeria\n\nWikipedia\nhttps://en.wikipedia.org › wiki › Valeria",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Valeria']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoECE8QAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Valeria"
+    },
+    "47": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Valeria']",
+        "a[href*='#:~:text=People&text=Valeria%20(ancient%20Roman%20women)%2C%20a,women%20of%20the%20gens%20Valeria&text=Saint%20Valeria%20(disambiguation)%2C%20several%20saints&text=Valeriya%20(born%201968)%2C%20Russian%20pop,star']",
+        "a.vzmbzf"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Valeria#:~:text=People&text=Valeria%20(ancient%20Roman%20women)%2C%20a,women%20of%20the%20gens%20Valeria&text=Saint%20Valeria%20(disambiguation)%2C%20several%20saints&text=Valeriya%20(born%201968)%2C%20Russian%20pop,star"
+    },
+    "48": {
+      "label": "Watch Valeria | Netflix Official Site\n\nNetflix\nhttps://www.netflix.com › title",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/au/title/80212986']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoECEwQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.netflix.com/au/title/80212986"
+    },
+    "49": {
+      "label": "Watch Valeria | Netflix Official Site\n\nNetflix\nhttps://www.netflix.com › title",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/80212986']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoECFAQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.netflix.com/title/80212986"
+    },
+    "50": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/80212986']",
+        "a[href*='#:~:text=A%20writer%20in%20creative%20and,the%20novels%20by%20El%C3%ADsabet%20Benavent.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.netflix.com/title/80212986#:~:text=A%20writer%20in%20creative%20and,the%20novels%20by%20El%C3%ADsabet%20Benavent."
+    },
+    "51": {
+      "label": "Valeria\n\nRotten Tomatoes\nhttps://www.rottentomatoes.com › valeria",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/tv/valeria']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoECFIQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.rottentomatoes.com/tv/valeria"
+    },
+    "52": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/tv/valeria']",
+        "a[href*='#:~:text=66%25&text=Avg.%20Popcornmeter&text=While%20going%20through%20a%20marital,solace%20in%20her%20three%20friends.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.rottentomatoes.com/tv/valeria#:~:text=66%25&text=Avg.%20Popcornmeter&text=While%20going%20through%20a%20marital,solace%20in%20her%20three%20friends."
+    },
+    "53": {
+      "label": "Valeria: Season 1",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/tv/valeria/s01']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.rottentomatoes.com/tv/valeria/s01"
+    },
+    "54": {
+      "label": "Valeria: Season 4",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/tv/valeria/s04']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.rottentomatoes.com/tv/valeria/s04"
+    },
+    "55": {
+      "label": "Valeria: Season 2",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/tv/valeria/s02']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.rottentomatoes.com/tv/valeria/s02"
+    },
+    "56": {
+      "label": "Season 3",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/tv/valeria/s03']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://www.rottentomatoes.com/tv/valeria/s03"
+    },
+    "57": {
+      "label": "Valeria Lipovetsky (@valerialipovetsky)\n\nInstagram · valerialipovetsky\n2.6M+ followers",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/valerialipovetsky/']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoECFQQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.instagram.com/valerialipovetsky/?hl=en"
+    },
+    "58": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/valerialipovetsky/']",
+        "a[href*='#:~:text=Serving%20looks%20%26%20existential%20side%2Deye,%F0%9F%93%88%20Founder%3A%20%40creator.method']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.instagram.com/valerialipovetsky/?hl=en#:~:text=Serving%20looks%20%26%20existential%20side%2Deye,%F0%9F%93%88%20Founder%3A%20%40creator.method"
+    },
+    "59": {
+      "label": "Valeria - anyone else find every single character ...\n\nReddit · r/netflix\n10+ comments · 10 months ago",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/r/netflix/comments/1iw9htl/valeria_anyone_else_find_every_single_character/']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoFCIYBEAE']",
+        "a.zReHs"
+      ],
+      "href": "https://www.reddit.com/r/netflix/comments/1iw9htl/valeria_anyone_else_find_every_single_character/"
+    },
+    "60": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/r/netflix/comments/1iw9htl/valeria_anyone_else_find_every_single_character/']",
+        "a[href*='#:~:text=Thanks%20for%20this%2C%20I%20just,they%20are%20(rightfully)%20judged%20harshly.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.reddit.com/r/netflix/comments/1iw9htl/valeria_anyone_else_find_every_single_character/#:~:text=Thanks%20for%20this%2C%20I%20just,they%20are%20(rightfully)%20judged%20harshly."
+    },
+    "61": {
+      "label": "Valeria Lipovetsky\n\nYouTube · Valeria Lipovetsky\n1.8M+ followers",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@ValeriaLipovetsky']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoECFEQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/@ValeriaLipovetsky"
+    },
+    "62": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@ValeriaLipovetsky']",
+        "a[href*='#:~:text=Popular%20videos&text=PREGNANCY%20TRANSFORMATION%20%7C%20Week%20By,Week%20Progress&text=EMOTIONAL%20BIRTH%20VLOG%2C%20MEETING%20OUR,BABY%20BOY&text=How%20To%20Style%20Jeans%20And,T%2DShirt%20%7C%20Everyday%20Outfit%20Ideas']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.youtube.com/@ValeriaLipovetsky#:~:text=Popular%20videos&text=PREGNANCY%20TRANSFORMATION%20%7C%20Week%20By,Week%20Progress&text=EMOTIONAL%20BIRTH%20VLOG%2C%20MEETING%20OUR,BABY%20BOY&text=How%20To%20Style%20Jeans%20And,T%2DShirt%20%7C%20Everyday%20Outfit%20Ideas"
+    },
+    "63": {
+      "label": "“Valeria” Taught Me About Self-Love and Friendship\n\nLatinaMedia.Co\nhttps://latinamedia.co › The Latest",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/valeria/']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQFnoECFMQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://latinamedia.co/valeria/"
+    },
+    "64": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/valeria/']",
+        "a[href*='#:~:text=Valeria%20is%20a%20love%20letter,love%20in%20all%20its%20forms.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://latinamedia.co/valeria/#:~:text=Valeria%20is%20a%20love%20letter,love%20in%20all%20its%20forms."
+    },
+    "65": {
+      "label": "Valeria Wiki",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria+Wiki&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ1QJ6BAhzEAE"
+    },
+    "66": {
+      "label": "Valeria cod",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria+cod&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ1QJ6BAh5EAE"
+    },
+    "67": {
+      "label": "Valeria bg3",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria+bg3&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ1QJ6BAh6EAE"
+    },
+    "68": {
+      "label": "Valeria meaning",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria+meaning&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ1QJ6BAhyEAE"
+    },
+    "69": {
+      "label": "Valeria season 4",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria+season+4&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ1QJ6BAh2EAE"
+    },
+    "70": {
+      "label": "Valeria netflix",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria+netflix&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ1QJ6BAh3EAE"
+    },
+    "71": {
+      "label": "Valeria name",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria+name&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ1QJ6BAh4EAE"
+    },
+    "72": {
+      "label": "Valeria cast",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria+cast&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ1QJ6BAh1EAE"
+    },
+    "73": {
+      "label": "Page 2",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 2']",
+        "[aria-label='Page 2']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=10&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8tMDegQIERAE"
+    },
+    "74": {
+      "label": "Page 3",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 3']",
+        "[aria-label='Page 3']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=20&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8tMDegQIERAG"
+    },
+    "75": {
+      "label": "Page 4",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 4']",
+        "[aria-label='Page 4']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=30&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8tMDegQIERAI"
+    },
+    "76": {
+      "label": "Page 5",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 5']",
+        "[aria-label='Page 5']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=40&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8tMDegQIERAK"
+    },
+    "77": {
+      "label": "Page 6",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 6']",
+        "[aria-label='Page 6']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=50&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8tMDegQIERAM"
+    },
+    "78": {
+      "label": "Page 7",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 7']",
+        "[aria-label='Page 7']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=60&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8tMDegQIERAO"
+    },
+    "79": {
+      "label": "Page 8",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 8']",
+        "[aria-label='Page 8']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=70&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8tMDegQIERAQ"
+    },
+    "80": {
+      "label": "Page 9",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 9']",
+        "[aria-label='Page 9']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=80&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8tMDegQIERAS"
+    },
+    "81": {
+      "label": "Page 10",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 10']",
+        "[aria-label='Page 10']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=90&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8tMDegQIERAU"
+    },
+    "82": {
+      "label": "Next",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "#pnnext",
+        "a[href*='/search']",
+        "a.LLNLxf"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&ei=yAhKadXgFLObseMPkuzS4Qc&start=10&sa=N&sstk=Af77f_fgt3OyX0x5ACBhn7aMzGeMOh-Q1Rt-TReZZBa3DMBabKuJXe94c9frBzdU8wsfb6Nv6SJKDcfSEXlwugUMiOkUpsZ8fChOiA&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQ8NMDegQIERAW"
+    },
+    "83": {
+      "label": "Watch now on Netflix",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Watch now on Netflix']",
+        "[aria-label='Watch now on Netflix']",
+        "a[href*='/watch/80212986']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQlPEEegQIExAD']"
+      ],
+      "href": "https://www.netflix.com/watch/80212986?source=35"
+    },
+    "84": {
+      "label": "Already watched",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "#lbaHdc",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQhIoEKAF6BAgTEAU']",
+        "div.fOYFme.efzko"
+      ],
+      "href": null
+    },
+    "85": {
+      "label": "Want to watch",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label=' Want to watch ']",
+        "[aria-label=' Want to watch ']",
+        "#NXD9g",
+        "[role='button'][aria-label=' Want to watch ']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQuakEKAJ6BAgTEAk']",
+        "div.fOYFme.efzko"
+      ],
+      "href": null
+    },
+    "86": {
+      "label": "Elisabet Benavent",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAI']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Elisabet+Benavent&si=AMgyJEs9DArPE9xmb5yVYVjpG4jqWDEKSIpCRSjmm88XZWnGNczHs0hPFt6DCtDJHVkII0nw4ePopErYQYMkQzMGlt2gW0t5NDgny5vxVeeLypiKFOzsn2LI3yAMSuyONC1vdzWCpQ-ID0hRBUDrkvVx1kAjKiL9wbJQghDjCX7cBBVpseudJA8Og-AE-nHDn12zz2ZJn9wtZnKtR47FWkz6XF20_Swp-8u4WIl7NLxzBqfloOy4R2kGYUIM1_pCmbpfJpia8NWSu5psJQJooaxfaeA9QGGDMBjmmx-Z4EcFzKXUGyv1I34%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAI"
+    },
+    "87": {
+      "label": "María López Castaño",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAM']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Mar%C3%ADa+L%C3%B3pez+Casta%C3%B1o&si=AMgyJEuDKtOmISa9Akvtd6wQceP6KMdyloFoUI5CI2g3z4vsMWourwztJYFkijguLyHC09r9-L7G-0OeWS9UuOD1v0C3TiaMDf4eUvrozGYGXnklSRMYtCKW9oGhqrTh4t28C-n8hatTSJJvYXf3llPjJuMiv_gYYlPv-U2KlKvUlF7vNGb33Un5js8Sl6uSf-AH-NsSvPsaxgBVYvdEPktuS7N3bJ2dJDvaNeQrCJGIBHYn5DCIHBWanJpE9dwzPxL9qTYRG2P5YU97szmKzVWvRUAVzKzkd6Eok_JckNJfwgASM4Wtksw%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAM"
+    },
+    "88": {
+      "label": "Fernanda Eguiarte",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAQ']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Fernanda+Eguiarte&si=AMgyJEs9DArPE9xmb5yVYVjpG4jqWDEKSIpCRSjmm88XZWnGNYB4YG2da7DVfwr1_roKiibOjmLQG3WnvRrEnb39E8FIUEw6GALJXoNChzEZOx7lW37-g8ZqHTpJ0TWKrfww-LNspv8av1LvPK2XSWJZTL5d2yXOzMUIca4TKQi9RAVv-xwkvcksmb9IghBP7ahIoGm9E77cjk9q5qAMPrOy6A6tFhEOdBf1UDhx4NMopnNlEohUu3l4j6yqC-H5-ibq5wHwzAKmOErDTzlrD15JZeQFQEBfyGb6H4hXtisweqoPIN7BPE4%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAQ"
+    },
+    "89": {
+      "label": "Aurora Gracià",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAU']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Aurora+Gracia&si=AMgyJEs9DArPE9xmb5yVYVjpG4jqWDEKSIpCRSjmm88XZWnGNd6sCrjGEo0FDT2NvHI0EoMrUUcnkwZleoRp9ETi3X8Ukq5a_0S1fINA-I6uMfJsTJ0Din1W0I_HzAmbu-psTdc64NBB6pIaHvxMpDJ2oMr_6Mcaif5nC1xTmeodSKiLQKUVNXATSvdD6ftSX-7mr25JfQczBMc0trWmY4NagPaua7ZZ0sOJpV2xVuIHqGBR36ObB8kqkoQGIOrb1UXkR6Inmi1HYVX9ywp0WJT60wAlxzkUMA%3D%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAU"
+    },
+    "90": {
+      "label": "Almudena Ocaña",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAY']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Almudena+Oca%C3%B1a&si=AMgyJEs9DArPE9xmb5yVYVjpG4jqWDEKSIpCRSjmm88XZWnGNQAw_aU3yum41YNhIkP8qa3LmU4nDs5_i-5Ao9iLYfIuQP5w27JoV9UicP4OQLBzeJhK_Co-x_ZO9uaIP9YB0rg_yd7xkcuYhrftUVL538naKUwkVxWRZ78iKhS1ea0WcL97QQUkaiMl7XBir4r6refcoRcXVeu06__gWQm-tBH_Y_vhpH-wx8AH1-jXylWAkNiOnhv7rp85GSccl07S7dXOKFIyYQ_tnLS5mGNj7gtECqCNZ0tNzIJjv66zc7ts0I6Xtmo%3D&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgaEAY"
+    },
+    "91": {
+      "label": "Spain",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgXEAI']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Spain&si=AMgyJEvmed8FkyEkpEJ8jfGhZkakcy5kQho_c4G-QJRdklshMh2QCCDeqyBG3DEUtutO8aj97uIAogjeRPZza1gevUiB1k2PLYIizG96NZ4f1yAlMRltchGK_v1bG87S-EOvXZISQE0gilgpeVa5ndxyzTXKT5gE8FfpDgXy3eSvT_kFccXJP3uMy7egQyTFiAsPGddr3Ulf&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgXEAI"
+    },
+    "92": {
+      "label": "Spanish",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgZEAI']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=&si=AMgyJEvmed8FkyEkpEJ8jfGhZkakcy5kQho_c4G-QJRdklshMiICG3NjNoN0KXN7PtIEYaeXUhRAOqE6Il2RlSFJQfY5I0bkVn9hW2kxGmK6ouAvki5MofLWc3KlOVHc8VdhzOgwDo8CuXz-RWuv53xPAz4bxVnPUWKl7ZOma4JaAsSEpP5mExhfuRG6T-RmP45ErF-3PDlW&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQmxN6BAgZEAI"
+    },
+    "93": {
+      "label": "Feedback",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-dccl='false']",
+        "div.kkqhu.mWcf0e"
+      ],
+      "href": null
+    },
+    "94": {
+      "label": "See more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.jRKCUd"
+      ],
+      "href": "https://www.google.com/search?sca_esv=c54719d661e4c3a9&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344&q=Valeria+Television+show&stick=H4sIAAAAAAAAAONgFuLVT9c3NMxKKyg2NjbJUELlagkGZ6aklidWFvulVpQEl6QWFP9iFAtIzS_ISVVIzCnOVyhOTSxKzlBIyy9axCoelpiTWpSZqBCSmpNallmcmZ-nUJyRX36LTZJh96KOn7Pqnh87kv_qtlVqS95Ob9ucKatazwEAPB-qB4IAAAA&sa=X&ved=2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQzO0BKAR6BAgJEBQ"
+    },
+    "95": {
+      "label": "Try without personalisation",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria&peek_pws=0&sxsrf=AE3TifOaRkYfvq16PEFD_tabzcOf-mzG5A:1766459592344"
+    },
+    "96": {
+      "label": "Teringie, South Australia - Based on your places (Home)",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-biw='1080']"
+      ],
+      "href": "https://www.google.com/search?q=Valeria#"
+    },
+    "97": {
+      "label": "Update location",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-ved='2ahUKEwjV5Ivk3tKRAxWzTWwGHRK2NHwQpLkCegQIChAH']",
+        "div.VtPCGb"
+      ],
+      "href": null
+    },
+    "98": {
+      "label": "Help",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/websearch/']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://support.google.com/websearch/?p=ws_results_help&hl=en-AU&fg=1"
+    },
+    "99": {
+      "label": "Send feedback",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "#dk2qOd",
+        "a[href*='/search']",
+        "[data-bucket='websearch']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://www.google.com/search?q=Valeria#"
+    },
+    "100": {
+      "label": "Privacy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/privacy']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
+    },
+    "101": {
+      "label": "Terms",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/terms']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
     }
   }
 }

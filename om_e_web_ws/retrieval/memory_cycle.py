@@ -340,6 +340,11 @@ def on_message_saved(chat_dict: Dict, message: Dict) -> Dict:
             # Keep only last MAX_ACTIONS
             state['recent_actions'] = state['recent_actions'][-MAX_ACTIONS:]
             print(f"[MemoryCycle] Action: {condensed}")
+
+            # 🔄 SESSION: Also add to global session actions (cross-chat bridge)
+            chat_id = chat_dict.get('chat_id', 'unknown')
+            chat_title = chat_dict.get('title', 'Untitled')
+            add_session_action(condensed, chat_title, chat_id)
     else:
         # Content message - count tokens
         tokens = estimate_tokens(content)
@@ -675,3 +680,140 @@ def get_facts_for_prompt(query: str, max_facts: Optional[int] = None) -> str:
     except Exception as e:
         print(f"[MemoryCycle] Facts retrieval error: {e}")
         return ""
+
+
+# ============================================================================
+# SESSION ACTIONS - Global action log spanning ALL chats in session
+# ============================================================================
+
+# Session JSON file location
+SESSION_ACTIONS_PATH = Path(__file__).parent.parent / "data" / "session_actions.json"
+
+
+def _get_session_actions_limit() -> int:
+    """Get session actions limit from config (default 20)."""
+    try:
+        if CONFIG_PATH.exists():
+            with open(CONFIG_PATH) as f:
+                config = json.load(f)
+            return config.get("settings", {}).get("session_actions_limit", 20)
+    except Exception:
+        pass
+    return 20
+
+
+def init_session() -> Dict:
+    """
+    Initialize a new session. Called on server startup.
+    Creates/resets the session_actions.json file.
+
+    @return: The initial session state
+    """
+    session_state = {
+        'session_id': f"session_{int(time.time())}",
+        'started_at': time.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'actions': []
+    }
+
+    try:
+        SESSION_ACTIONS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(SESSION_ACTIONS_PATH, 'w') as f:
+            json.dump(session_state, f, indent=2)
+        print(f"[Session] Initialized new session: {session_state['session_id']}")
+    except Exception as e:
+        print(f"[Session] Error initializing session: {e}")
+
+    return session_state
+
+
+def _load_session() -> Dict:
+    """Load current session state from JSON file."""
+    try:
+        if SESSION_ACTIONS_PATH.exists():
+            with open(SESSION_ACTIONS_PATH) as f:
+                return json.load(f)
+    except Exception as e:
+        print(f"[Session] Error loading session: {e}")
+    # Return empty structure if file doesn't exist or error
+    return {'session_id': None, 'started_at': None, 'actions': []}
+
+
+def _save_session(session: Dict) -> bool:
+    """Save session state to JSON file."""
+    try:
+        SESSION_ACTIONS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(SESSION_ACTIONS_PATH, 'w') as f:
+            json.dump(session, f, indent=2)
+        return True
+    except Exception as e:
+        print(f"[Session] Error saving session: {e}")
+        return False
+
+
+def add_session_action(text: str, chat_title: str, chat_id: str) -> bool:
+    """
+    Add an action to the global session log.
+    Same condensed format as chat's recent_actions.
+
+    @param text: Condensed action text (from condense_action)
+    @param chat_title: Title of the chat where action occurred
+    @param chat_id: ID of the chat where action occurred
+    @return: True if saved successfully
+    """
+    session = _load_session()
+
+    # Get limit from config
+    limit = _get_session_actions_limit()
+
+    # Add new action
+    action = {
+        'text': text,
+        'chat_title': chat_title,
+        'chat_id': chat_id,
+        'ts': time.strftime('%Y-%m-%dT%H:%M:%SZ')
+    }
+    session['actions'].append(action)
+
+    # Enforce rolling limit
+    session['actions'] = session['actions'][-limit:]
+
+    if _save_session(session):
+        print(f"[Session] Action added: {text} (from {chat_title})")
+        return True
+    return False
+
+
+def get_session_actions(limit: Optional[int] = None) -> List[Dict]:
+    """
+    Get recent session actions across all chats.
+
+    @param limit: Max actions to return (defaults to config limit)
+    @return: List of action dicts [{text, chat_title, chat_id, ts}, ...]
+    """
+    if limit is None:
+        limit = _get_session_actions_limit()
+
+    session = _load_session()
+    return session.get('actions', [])[-limit:]
+
+
+def format_session_actions_for_prompt(limit: Optional[int] = None) -> str:
+    """
+    Format session actions for prompt inclusion.
+    Shows actions from across ALL chats in the session.
+
+    @param limit: Max actions to include (defaults to config limit)
+    @return: Formatted actions string
+    """
+    actions = get_session_actions(limit)
+
+    if not actions:
+        return ""
+
+    lines = ["**Recent actions (this session):**"]
+    for action in actions:
+        # Include chat context with clear label so LLM knows these are chat names
+        chat_hint = f" [chat:{action.get('chat_title', 'unknown')}]" if action.get('chat_title') else ""
+        lines.append(f"- {action['text']}{chat_hint}")
+
+    return '\n'.join(lines)
