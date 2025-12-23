@@ -129,6 +129,7 @@ async function connectWebSocket() {
         ws.onopen = () => {
             console.log("[SW] WS open");
             isConnected = true;
+            extLog.info('sw', 'WebSocket connected to server');
 
             // Wait for WebSocket to be fully ready before sending messages
             setTimeout(() => {
@@ -377,6 +378,35 @@ function sendToServer(data) {
         pendingMessages.push(data);
     }
 }
+
+/**
+ * 📋 Send log entry to server for Claude Code access
+ * Logs written to data/logs/extension.log
+ * ADDED: 2025-12-23 for Claude Code integration
+ *
+ * @param {string} level - Log level: info, warn, error, debug
+ * @param {string} source - Source: sw (service worker), content, hud
+ * @param {string} message - Log message
+ */
+function sendLog(level, source, message) {
+    sendToServer({
+        type: 'extension_log',
+        entry: {
+            level: level,
+            source: source,
+            message: message,
+            timestamp: new Date().toISOString()
+        }
+    });
+}
+
+// Convenience wrappers for logging
+const extLog = {
+    info: (source, msg) => sendLog('info', source, msg),
+    warn: (source, msg) => sendLog('warn', source, msg),
+    error: (source, msg) => sendLog('error', source, msg),
+    debug: (source, msg) => sendLog('debug', source, msg)
+};
 
 /**
  * 🚀 Flush pending messages when WebSocket becomes ready
@@ -1669,6 +1699,7 @@ function handleServerMessage(messageData) {
         // 🎯 PREMIUM: Handle capability execution messages
         if (message.type === "execute_capability") {
             console.log("[SW] 🎯 Processing capability execution:", message);
+            extLog.info('sw', `Executing capability: ${message.action} params=${JSON.stringify(message.params || {})}`);
             handleExecuteCapability(message);
             return;
         }
@@ -1738,6 +1769,7 @@ function handleServerMessage(messageData) {
         // 🔧 INTERNAL CAPABILITIES: Handle capability results from server
         if (message.type === "capability_result") {
             console.log("[SW] 🔧 Capability result received:", message);
+            extLog.info('sw', `Capability result: ${message.action} ok=${message.ok}`);
 
             // 🎛️ Extract and broadcast _hud_action if present in result
             if (message.result && message.result._hud_action) {

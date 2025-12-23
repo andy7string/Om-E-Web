@@ -5071,6 +5071,28 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                 print(f"💓 Pong received from {msg.get('source', 'client')}")
                 continue
 
+            # 📋 EXTENSION LOG - Stream logs from extension for Claude Code access
+            # Logs written to data/logs/extension.log for monitoring
+            # ADDED: 2025-12-23 for Claude Code integration
+            if msg.get("type") == "extension_log":
+                log_entry = msg.get("entry", {})
+                level = log_entry.get("level", "info")
+                source = log_entry.get("source", "extension")
+                message = log_entry.get("message", "")
+                timestamp = log_entry.get("timestamp", time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
+
+                # Format: [timestamp] [LEVEL] [source] message
+                log_line = f"[{timestamp}] [{level.upper()}] [{source}] {message}\n"
+
+                # Append to log file
+                log_path = os.path.join(os.path.dirname(__file__), "data", "logs", "extension.log")
+                try:
+                    with open(log_path, "a", encoding="utf-8") as f:
+                        f.write(log_line)
+                except Exception as e:
+                    print(f"❌ Failed to write extension log: {e}")
+                continue
+
             # ⚙️ GET LLM CONFIG - Return FULL LLM settings (all providers)
             if msg.get("type") == "get_llm_config":
                 print("⚙️ Get LLM config request")
