@@ -1,0 +1,37 @@
+{
+  "chat_id": "20251223105939_dc851c",
+  "project_id": "default",
+  "created_at": "2025-12-23T10:59:39.653238Z",
+  "updated_at": "2025-12-23T10:59:41.675242Z",
+  "title": "take me to google",
+  "default_title": "39_59_10_23_12_2025_take",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "",
+    "page_title": ""
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "take me to google",
+      "timestamp": "2025-12-23T10:59:39.653477Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-23T10:59:41.675242Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 0,
+    "last_summarized_idx": 0,
+    "recent_actions": [
+      {
+        "text": "OpenTab: take me to google",
+        "ts": "2025-12-23T10:59:41.675242Z"
+      }
+    ]
+  }
+}

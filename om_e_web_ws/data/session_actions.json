@@ -1,5 +1,12 @@
 {
-  "session_id": "session_1766483282",
-  "started_at": "2025-12-23T20:18:02Z",
-  "actions": []
+  "session_id": "session_1766487564",
+  "started_at": "2025-12-23T21:29:24Z",
+  "actions": [
+    {
+      "text": "OpenTab: take me to google",
+      "chat_title": "take me to google",
+      "chat_id": "20251223105939_dc851c",
+      "ts": "2025-12-23T21:29:41Z"
+    }
+  ]
 }

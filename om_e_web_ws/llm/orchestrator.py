@@ -38,10 +38,8 @@ from retrieval.chat_context import classify_message, process_and_write_memory
 from retrieval.memory_cycle import (
     check_large_payload,
     process_large_payload,
-    get_payload_context,
     detect_persistence_intent,
     process_persistence_intent,
-    get_facts_for_prompt,
 )
 
 logger = logging.getLogger(__name__)
@@ -809,7 +807,8 @@ USER MESSAGE
         """
         try:
             cap_store = self._get_cap_store()
-            results = cap_store.search(intent, k=MAX_CAPABILITY_OPTIONS, threshold=0.3)
+            cap_threshold = self._get_cap_score_threshold()
+            results = cap_store.search(intent, k=MAX_CAPABILITY_OPTIONS, threshold=cap_threshold)
 
             options = []
             seen_labels = set()
@@ -1081,16 +1080,6 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         if cap_lines:
             user_content_parts.append("\n".join(cap_lines))
 
-        # Add relevant payload context (stored large content)
-        payload_ctx = get_payload_context(user_message, chat_id)
-        if payload_ctx:
-            user_content_parts.append(payload_ctx)
-
-        # Add relevant user facts (persistent memory)
-        facts_ctx = get_facts_for_prompt(user_message)
-        if facts_ctx:
-            user_content_parts.append(facts_ctx)
-
         # Add session context (cross-chat content from this session)
         from retrieval.session_content_store import get_session_context
         session_ctx = get_session_context(user_message, current_chat_id=chat_id)
@@ -1245,22 +1234,14 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             if stored_fact:
                 logger.info(f"[Orchestrator] Stored fact: {stored_fact}")
 
-        # STEP 1: RAG retrieval (always)
+        # STEP 1: RAG retrieval (each cap must pass threshold from config)
         t0 = time.time()
         raw_options = await self._query_capabilities(user_message)
         metrics.rag_ms = (time.time() - t0) * 1000
+        metrics.top_score = raw_options[0].get("score", 0) if raw_options else 0
 
-        # Only inject capabilities if RAG found confident matches
-        # This saves ~200 tokens on chat-only turns
-        # Threshold is tunable via settings UI
-        cap_threshold = self._get_cap_score_threshold()
-        top_score = raw_options[0].get("score", 0) if raw_options else 0
-        metrics.top_score = top_score
-
-        if top_score >= cap_threshold:
-            shaped_options = shape_options(user_message, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
-        else:
-            shaped_options = []  # Chat-only - no caps needed
+        # Shape whatever RAG returned (already filtered by threshold)
+        shaped_options = shape_options(user_message, raw_options, max_options=MAX_CAPABILITY_OPTIONS) if raw_options else []
 
         # STEP 2: Single unified LLM call (use prompt_message for large payload handling)
         t0 = time.time()

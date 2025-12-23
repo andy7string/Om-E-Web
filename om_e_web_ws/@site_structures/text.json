@@ -1,104 +1,716 @@
 {
   "metadata": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
-    "timestamp": "2025-12-23T09:51:48Z",
-    "element_count": 9
+    "url": "https://www.google.com/",
+    "title": "Google",
+    "timestamp": "2025-12-23T11:00:34Z",
+    "element_count": 64
   },
   "elements": {
     "0": {
-      "label": "TOGGLE HUD OVERLAY",
-      "type": "Button",
-      "tag": "button",
+      "label": "About",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#hudToggleBtn",
-        "button.hud-toggle-btn"
+        "a.MV3Tnb"
       ],
-      "href": null
+      "href": "https://about.google/?fg=1&utm_source=google-AU&utm_medium=referral&utm_campaign=hp-header"
     },
     "1": {
-      "label": "WebSocket URL",
-      "type": "Input",
-      "tag": "input",
+      "label": "Store",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#wsUrl",
-        "input[placeholder='WebSocket URL']",
-        "input[type='text'][placeholder='WebSocket URL']"
+        "a[href*='/AU']",
+        "a.MV3Tnb"
       ],
-      "href": null
+      "href": "https://store.google.com/AU?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-AU"
     },
     "2": {
-      "label": "Save & Reconnect",
-      "type": "Button",
-      "tag": "button",
+      "label": "Gmail",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#saveBtn",
-        "button.primary"
+        "a[aria-label='Gmail ']",
+        "[aria-label='Gmail ']",
+        "a[href*='/mail/']",
+        "[data-pid='23']",
+        "a.gb_Z"
       ],
-      "href": null
+      "href": "https://mail.google.com/mail/?authuser=0&ogbl"
     },
     "3": {
-      "label": "Kawaii",
-      "type": "Button",
-      "tag": "button",
+      "label": "Search for Images",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#orbKawaii",
-        "[data-theme='kawaii']",
-        "button.orb-btn"
+        "a[aria-label='Search for Images ']",
+        "[aria-label='Search for Images ']",
+        "a[href*='/imghp']",
+        "[data-pid='2']",
+        "a.gb_Z"
       ],
-      "href": null
+      "href": "https://www.google.com/imghp?hl=en&authuser=0&ogbl"
     },
     "4": {
-      "label": "Om-E",
+      "label": "Google apps",
       "type": "Button",
-      "tag": "button",
+      "tag": "a",
       "selectors": [
-        "#orbRobot",
-        "[data-theme='robot']",
-        "button.orb-btn"
+        "a[aria-label='Google apps']",
+        "[aria-label='Google apps']",
+        "[role='button'][aria-label='Google apps']",
+        "a[href*='/intl/en/about/products']",
+        "a.gb_B"
       ],
-      "href": null
+      "href": "https://www.google.com.au/intl/en/about/products"
     },
     "5": {
-      "label": "Atom",
+      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
       "type": "Button",
-      "tag": "button",
+      "tag": "a",
       "selectors": [
-        "#orbAtom",
-        "[data-theme='atom']",
-        "button.orb-btn"
+        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "a[href*='/SignOutOptions']",
+        "a.gb_B.gb_0a"
       ],
-      "href": null
+      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/&ec=futura_exp_og_si_72776762_e"
     },
     "6": {
-      "label": "DOM\nTreeWalker",
+      "label": "Upload files or images",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#scanModeDom",
-        "[data-mode='dom']",
-        "button.scan-btn"
+        "button[aria-label='Upload files or images']",
+        "[aria-label='Upload files or images']",
+        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ0J0RCA8']",
+        "button.sF3Vod"
       ],
       "href": null
     },
     "7": {
-      "label": "AT\nAccessibility",
-      "type": "Button",
-      "tag": "button",
+      "label": "Search",
+      "type": "Select",
+      "tag": "textarea",
       "selectors": [
-        "#scanModeAt",
-        "[data-mode='at']",
-        "button.scan-btn"
+        "textarea[aria-label='Search']",
+        "[aria-label='Search']",
+        "#APjFqb",
+        "textarea[name='q']",
+        "[role='combobox'][aria-label='Search']",
+        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ39UDCBQ']",
+        "textarea.gLFyf"
       ],
       "href": null
     },
     "8": {
-      "label": "Extension Settings",
+      "label": "Search by voice",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Search by voice']",
+        "[aria-label='Search by voice']",
+        "[role='button'][aria-label='Search by voice']",
+        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQvs8DCBY']",
+        "div.XDyW0e"
+      ],
+      "href": null
+    },
+    "9": {
+      "label": "Search by image",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Search by image']",
+        "[aria-label='Search by image']",
+        "[role='button'][aria-label='Search by image']",
+        "[data-base-lens-url='https://lens.google.com']",
+        "div.nDcEnd"
+      ],
+      "href": null
+    },
+    "10": {
+      "label": "AI Mode",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#extPageBtn",
-        "button.ext-toggle-btn"
+        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQteYPCBg']",
+        "button.plR5qb.Y5MKCd"
+      ],
+      "href": null
+    },
+    "11": {
+      "label": "Google Search",
+      "type": "Button",
+      "tag": "input",
+      "selectors": [
+        "input[aria-label='Google Search']",
+        "[aria-label='Google Search']",
+        "input[name='btnK']",
+        "[role='button'][aria-label='Google Search']",
+        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ4dUDCCU']",
+        "input[type='submit'][name='btnK']",
+        "input.gNO89b"
+      ],
+      "href": null
+    },
+    "12": {
+      "label": "I'm Feeling Lucky",
+      "type": "Button",
+      "tag": "input",
+      "selectors": [
+        "input[aria-label='I\\'m Feeling Lucky']",
+        "[aria-label='I\\'m Feeling Lucky']",
+        "input[name='btnI']",
+        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ19QECCY']",
+        "input[type='submit'][name='btnI']",
+        "input.RNmpXc"
+      ],
+      "href": null
+    },
+    "13": {
+      "label": "Skip to Discover feed",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ67oDCCg']",
+        "a.JMWBtb"
+      ],
+      "href": "https://www.google.com/#"
+    },
+    "14": {
+      "label": "Skip to sidebar",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ67oDCCk']",
+        "a.JMWBtb"
+      ],
+      "href": "https://www.google.com/#"
+    },
+    "15": {
+      "label": "Skip to footer",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ67oDCCo']",
+        "a.JMWBtb"
+      ],
+      "href": "https://www.google.com/#"
+    },
+    "16": {
+      "label": "Accessibility help",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/websearch/answer/181196']",
+        "a.JMWBtb"
+      ],
+      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
+    },
+    "17": {
+      "label": "Accessibility feedback",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-async-trigger='duf3-78']",
+        "a.JMWBtb"
+      ],
+      "href": "https://www.google.com/#"
+    },
+    "18": {
+      "label": "RBA board losing confidence interest rates are slowing economy\nThe Reserve Bank of Australia said it has less confidence in its previous assessment that monetary policy is restricting the economy, and that interest rate...\nAFR\n · \n7h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/economy/rba-board-losing-confidence-interest-rates-are-slowing-economy-20251223-p5npoc']",
+        "[data-hveid='CBkQAQ']"
+      ],
+      "href": "https://www.afr.com/policy/economy/rba-board-losing-confidence-interest-rates-are-slowing-economy-20251223-p5npoc"
+    },
+    "19": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQAw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "20": {
+      "label": "CarExpert's top five light/small SUV reviews of 2025\nCarExpert published an immensely broad range of reviews in 2025. Here are the light and small SUVs that attracted the most eyeballs.\nCarExpert\n · \n14h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/car-news/carexperts-top-five-light-small-suv-reviews-of-2025']",
+        "[data-hveid='CEAQAQ']"
+      ],
+      "href": "https://www.carexpert.com.au/car-news/carexperts-top-five-light-small-suv-reviews-of-2025"
+    },
+    "21": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQBQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "22": {
+      "label": "Chevrolet Corvette ZR1 2026: Over 800 HP Performance, Bold Design & Engineering Beyond Expectations\nChevrolet Corvette ZR1 2026 delivers over 800 HP performance, aggressive aerodynamic design, track-focused engineering, and advanced driving technology.\nCherry Design Group -\n · \n20h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/2026-corvette-zr1-first-look/']",
+        "[data-hveid='CGcQAQ']"
+      ],
+      "href": "https://cherrydesigngroup.com/2026-corvette-zr1-first-look/"
+    },
+    "23": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQBw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "24": {
+      "label": "As the Solar System orbits the Milky Way at ~220 km/s, it encounters a \"wind\" of dark matter particles from the galactic halo. The Sun's gravity deflects these particles (assumed non-interacting except gravitationally), focusing them downstream—like a lens concentrating light—creating a region of slightly higher dark matter density behind the Sun relative to the direction of motion.This gravitational focusing enhances the local dark matter phase-space distribution, forming a subtle \"wake\" or directional stream. As Earth orbits the Sun, it periodically moves into and out of this focused region, inducing a small annual variation in the expected dark matter interaction rate at detectors.A landmark 2014 study (Lee et al., Physical Review Letters) showed this effect shifts the phase of the annual modulation signal from the naive expectation (peak June 1) by days to weeks, depending on particle mass and velocity—most pronounced for lower-mass (10 GeV) or slower dark matter. The modulation am\nkonstructivizm\nX\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/konstructivizm/status/2002912723881877935']",
+        "[data-hveid='CHgQAQ']"
+      ],
+      "href": "https://x.com/konstructivizm/status/2002912723881877935"
+    },
+    "25": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQCQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "26": {
+      "label": "Oversonic Robotics signs humanoid robots supply agreement with STMicroelectronics – Company Announcement\n22, 2025 /PRNewswire/ -- Oversonic Robotics, an Italian company specialized in cognitive humanoid robotics, announces the signing of an agreement with...\nFinancial Times\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/data/announce/detail']",
+        "[data-hveid='CJ8BEAE']"
+      ],
+      "href": "https://markets.ft.com/data/announce/detail?dockey=600-202512220330PR_NEWS_USPRX____LN52198-1"
+    },
+    "27": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQCw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "28": {
+      "label": "Geologists discover a super-giant gold deposit in China with an estimated value of around $85,215,780\nThe discovery of a super-giant gold mine in China is dazzling, but the deeper it is, the greater the economic and environmental cost.\nECOticias.com\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CMYBEAE']"
+      ],
+      "href": "https://www.ecoticias.com/en/geologists-discover-a-super-giant-gold-deposit-in-china-with-an-estimated-value-of-around-85215780/24726/"
+    },
+    "29": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQDQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "30": {
+      "label": "The Best Time to Eat Dinner for Better Digestion and Sleep\nWhen you eat matters in addition to what you eat. The optimal timing of your meals is tied to your circadian rhythm. Learn why it is best to eat dinner...\nVerywell Health\n · \n16h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/best-time-to-eat-dinner-11852427']",
+        "[data-hveid='CO0BEAE']"
+      ],
+      "href": "https://www.verywellhealth.com/best-time-to-eat-dinner-11852427"
+    },
+    "31": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQDw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "32": {
+      "label": "Joshua and Paul provide sorry spectacle and the worst is there’s more to come\nThe bout in Miami was a bleak and blood-flecked affair but both combatants will find more opponents willing to take the money.\nThe Guardian\n · \n20h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/sport/2025/dec/22/anthony-joshua-jake-paul-heavyweight-boxing']",
+        "[data-hveid='CJYCEAE']"
+      ],
+      "href": "https://www.theguardian.com/sport/2025/dec/22/anthony-joshua-jake-paul-heavyweight-boxing"
+    },
+    "33": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQEQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "34": {
+      "label": "Australian Dollar advances as US Dollar declines ahead of Q3 GDP Annualized\nThe Australian Dollar (AUD) gains ground against the US Dollar (USD) on Tuesday, following the release of the Reserve Bank of Australia (RBA) Minutes of its...\nFXStreet\n · \n5h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news/australian-dollar-advances-following-rba-meeting-minutes-202512230144']",
+        "[data-hveid='CL8CEAE']"
+      ],
+      "href": "https://www.fxstreet.com/news/australian-dollar-advances-following-rba-meeting-minutes-202512230144"
+    },
+    "35": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQEw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "36": {
+      "label": "How AI Is Changing The Nature Of Work And The Human Experience\nThere is a lot of hype about AI, including plenty of opinions about how AI will destroy us, save us or surprise us. But reality is less extreme and more...\nForbes\n · \n22h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/sites/tracybrower/2025/12/22/how-ai-is-changing-work-and-the-human-experience/']",
+        "[data-hveid='COYCEAE']"
+      ],
+      "href": "https://www.forbes.com/sites/tracybrower/2025/12/22/how-ai-is-changing-work-and-the-human-experience/"
+    },
+    "37": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQFQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "38": {
+      "label": "13:49\nGoogle's New T5, Anthropic's New BLOOM, NVIDIA Nemotron 3 and More Intense AI News\nAI Revolution\nYouTube\n · \n12h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "[data-hveid='CBgQAQ']"
+      ],
+      "href": "https://www.youtube.com/watch?v=ya-nk9RLXm8"
+    },
+    "39": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQFw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "40": {
+      "label": "China’s rare earth magnet exports to US decline in November\nChina's exports of rare earth magnets to the US fell 11% in November from a month earlier, with no immediate rebound seen after a trade truce between the...\nMining.com\n · \n2d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/web/chinas-rare-earth-magnet-exports-to-us-decline-in-november/']",
+        "[data-hveid='CD8QAQ']"
+      ],
+      "href": "https://www.mining.com/web/chinas-rare-earth-magnet-exports-to-us-decline-in-november/"
+    },
+    "41": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQGQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "42": {
+      "label": "Scientists reduce the time for quantum learning tasks from 20 million years to 15 minutes\nEntangled light lets researchers learn complex quantum systems millions of times faster than classical methods.\nThe Brighter Side of News\n · \n2d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/post/scientists-reduce-the-time-for-quantum-learning-tasks-from-20-million-years-to-15-minutes/']",
+        "[data-hveid='CGYQAQ']"
+      ],
+      "href": "https://www.thebrighterside.news/post/scientists-reduce-the-time-for-quantum-learning-tasks-from-20-million-years-to-15-minutes/"
+    },
+    "43": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQGw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "44": {
+      "label": "Activist group says it has scraped 86m music files from Spotify\nPlatform with 700m users says it is investigating after Anna's Archive claims to have scraped tracks and metadata.\nThe Guardian\n · \n16h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/technology/2025/dec/22/activist-group-says-it-has-scraped-86m-music-files-from-spotify']",
+        "[data-hveid='CI0BEAE']"
+      ],
+      "href": "https://www.theguardian.com/technology/2025/dec/22/activist-group-says-it-has-scraped-86m-music-files-from-spotify"
+    },
+    "45": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQHQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "46": {
+      "label": "Samsung is putting Gemini on a fridge, and it'll debut at CES 2026\nGemini will show up on a home appliance for the first time.\nAndroid Central\n · \n50m",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/phones/samsung-galaxy/samsung-gemini-fridge-ces-2026']",
+        "[data-hveid='CLQBEAE']"
+      ],
+      "href": "https://www.androidcentral.com/phones/samsung-galaxy/samsung-gemini-fridge-ces-2026"
+    },
+    "47": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQHw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "48": {
+      "label": "Billionaire investor walks back on Bondi blame\nOne of Australia's best-known investors has described the term anti-Semitism as a “useless word”, claiming that it has been “debased” by people who fail to...\nThe Australian\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CNsBEAE']"
+      ],
+      "href": "https://www.theaustralian.com.au/business/billionaire-investor-kerr-neilson-suggests-israels-actions-to-blame-for-bondi-massacre/news-story/1acf22326dc9f494876f0aabf3fca713"
+    },
+    "49": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQIQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "50": {
+      "label": "Brain Gear Is the Hot New Wearable\nSmartwatches are cool and all, but have you considered wearable neurotech?\nWIRED\n · \n23h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/story/expired-tired-wired-wearables/']",
+        "[data-hveid='CIICEAE']"
+      ],
+      "href": "https://www.wired.com/story/expired-tired-wired-wearables/"
+    },
+    "51": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQIw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "52": {
+      "label": "Western intelligence suspects Russia is developing new weapon to target Elon Musk's Starlink satellites\nTwo Nato-nation intelligence services suspect Russia is developing a new anti-satellite weapon to target Elon Musk's Starlink constellation with destructive...\nStuff\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CKkCEAE']"
+      ],
+      "href": "https://www.stuff.co.nz/world-news/360917944/western-intelligence-suspects-russia-developing-new-weapon-target-elon-musks-starlink-satellites"
+    },
+    "53": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQJQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "54": {
+      "label": "Adelaide Hills wine makes Qantas International Business Class List from 1,400+ Bottles\nThe Qantas Wine Program includes a blind tasting of more than 1400 bottles across 19 categories to choose the winning drops.\nGlam Adelaide\n · \n16h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/adelaide-hills-wine-makes-qantas-international-business-class-list-from-1400-bottles/']",
+        "[data-hveid='CNACEAE']"
+      ],
+      "href": "https://glamadelaide.com.au/adelaide-hills-wine-makes-qantas-international-business-class-list-from-1400-bottles/"
+    },
+    "55": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQJw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "56": {
+      "label": "Economy flights for MPs’ families as Albanese cracks down on travel\nIn response to controversies engulfing senior ministers, Australia-wide travel for family members will be removed, and partner travel will be limited.\nAFR\n · \n6h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CPcCEAE']"
+      ],
+      "href": "https://www.afr.com/politics/federal/economy-flights-for-mps-families-as-albanese-cracks-down-on-travel-20251223-p5npqp"
+    },
+    "57": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQKQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "58": {
+      "label": "Advertising",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/intl/en_au/ads/']",
+        "a.pHiOh"
+      ],
+      "href": "https://www.google.com/intl/en_au/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1"
+    },
+    "59": {
+      "label": "Business",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/services/']",
+        "a.pHiOh"
+      ],
+      "href": "https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1"
+    },
+    "60": {
+      "label": "How Search works",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search/howsearchworks/']",
+        "a.pHiOh"
+      ],
+      "href": "https://google.com/search/howsearchworks/?fg=1"
+    },
+    "61": {
+      "label": "Privacy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/privacy']",
+        "a.pHiOh"
+      ],
+      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
+    },
+    "62": {
+      "label": "Terms",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/terms']",
+        "a.pHiOh"
+      ],
+      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
+    },
+    "63": {
+      "label": "Settings",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div.CcNe6e"
       ],
       "href": null
     }

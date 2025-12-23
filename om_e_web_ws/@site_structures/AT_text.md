@@ -1,7 +1,7 @@
 # OM-E Web
 
 **URL:** http://127.0.0.1:8080/
-**Timestamp:** 2025-12-23 20:23:39
+**Timestamp:** 2025-12-23 21:29:39
 **Scan Type:** Accessibility Tree
 
 ---
@@ -22,8 +22,3 @@ RootWebArea: "OM-E Web" (focused)
   [7] button: "AT Accessibility" → {"act":7}
   heading: "DEVELOPER"
   [8] button: "Extension Settings" → {"act":8}
-  [9] button: "ORB" → {"act":9}
-  [10] button: "Clear prompt" → {"act":10}
-  [11] button: "Send" → {"act":11}
-  [12] button: "Rename" → {"act":12}
-  [13] button: "Delete" → {"act":13}

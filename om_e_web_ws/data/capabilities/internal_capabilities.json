@@ -83,8 +83,7 @@
       "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
       "params": {
         "query": "Required - what to google"
-      },
-      "always_include": true
+      }
     },
     "YouTubeIt": {
       "group": "browser",
@@ -95,8 +94,7 @@
       "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
       "params": {
         "query": "Required - what to find on YouTube"
-      },
-      "always_include": true
+      }
     },
     "CloseTab": {
       "group": "browser",

@@ -963,3 +963,406 @@ window.omeLLMChat("what was I stressed about earlier")
 - `ws_server.py` core - Action execution, capability dispatch
 - `llm/client.py` - LLM API calls
 - `context_state.recent_actions` - Working fine, leave as-is
+
+---
+
+# Phase 9: Prompt Modes System
+
+**Status:** PLANNED
+**Purpose:** Config-driven prompt modes that shape LLM behavior per context (chat, research, focus, execution).
+
+## Overview
+
+A single `active_mode` flag in `llm_config.json` controls:
+- **Prompt template** — Different system prompt per mode
+- **Personality/tone** — Helpful vs concise vs silent
+- **Capabilities** — Which caps are available in each mode
+- **Thresholds** — Cap score threshold per mode
+- **Temperature** — Creativity/randomness per mode
+- **Output format** — JSON-only vs natural language vs hybrid
+
+## Phase 9a: Mode Configuration
+
+### Config Structure (llm_config.json)
+
+```json
+{
+  "active_mode": "chat",
+  "modes": {
+    "chat": {
+      "name": "Chat Mode",
+      "description": "Conversational assistant with full capabilities",
+      "prompt_file": "prompts/chat.md",
+      "personality": "helpful, enthusiastic, encouraging, playful",
+      "tone": "helpful",
+      "capabilities": "all",
+      "cap_score_threshold": 0.45,
+      "temperature": 0.7,
+      "max_tokens": 2048,
+      "output_format": "natural"
+    },
+    "research": {
+      "name": "Research Mode",
+      "description": "Deep research with web search focus",
+      "prompt_file": "prompts/research.md",
+      "personality": "thorough, analytical, citation-focused",
+      "tone": "professional",
+      "capabilities": ["GoogleIt", "WebSearch", "ReadPage"],
+      "cap_score_threshold": 0.35,
+      "temperature": 0.3,
+      "max_tokens": 4096,
+      "output_format": "markdown"
+    },
+    "focus": {
+      "name": "Focus Mode",
+      "description": "Minimal distractions, task-oriented",
+      "prompt_file": "prompts/focus.md",
+      "personality": "concise, direct, no-fluff",
+      "tone": "minimal",
+      "capabilities": ["none"],
+      "cap_score_threshold": 0.9,
+      "temperature": 0.5,
+      "max_tokens": 1024,
+      "output_format": "natural"
+    },
+    "execute": {
+      "name": "Execute Mode",
+      "description": "Pure action execution, JSON output only",
+      "prompt_file": "prompts/execute.md",
+      "personality": "silent, action-focused",
+      "tone": "silent",
+      "capabilities": "all",
+      "cap_score_threshold": 0.3,
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "output_format": "json"
+    }
+  }
+}
+```
+
+### Mode Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `prompt_file` | string | Path to mode's system prompt template |
+| `personality` | string | Injected into prompt as personality traits |
+| `tone` | string | Short tone descriptor for prompt |
+| `capabilities` | string\|array | "all", "none", or array of cap names |
+| `cap_score_threshold` | float | Min score to match capability |
+| `temperature` | float | LLM temperature for this mode |
+| `max_tokens` | int | Max response tokens |
+| `output_format` | string | "natural", "json", "markdown" |
+
+### Implementation Steps
+
+- [ ] Add `active_mode` and `modes` to llm_config.json
+- [ ] Create `prompts/` folder with mode templates
+- [ ] Create `chat.md`, `research.md`, `focus.md`, `execute.md`
+- [ ] Update config loader to validate mode structure
+
+---
+
+## Phase 9b: Orchestrator Mode Integration
+
+### Mode Resolution
+
+```python
+# llm/orchestrator.py
+
+def get_active_mode(self) -> Dict:
+    """Get active mode config, fallback to chat."""
+    mode_name = self.config.get('active_mode', 'chat')
+    modes = self.config.get('modes', {})
+    return modes.get(mode_name, modes.get('chat', {}))
+
+def get_mode_prompt(self) -> str:
+    """Load prompt template for active mode."""
+    mode = self.get_active_mode()
+    prompt_file = mode.get('prompt_file', 'prompts/chat.md')
+    # Load and return prompt content
+```
+
+### Capability Filtering
+
+```python
+def filter_capabilities_for_mode(self, caps: List[Dict]) -> List[Dict]:
+    """Filter capabilities based on active mode."""
+    mode = self.get_active_mode()
+    allowed = mode.get('capabilities', 'all')
+
+    if allowed == 'all':
+        return caps
+    if allowed == 'none' or allowed == ['none']:
+        return []
+
+    # Filter to allowed list
+    return [c for c in caps if c['name'] in allowed]
+```
+
+### Temperature/Threshold Override
+
+```python
+def get_llm_params(self) -> Dict:
+    """Get LLM params from active mode."""
+    mode = self.get_active_mode()
+    return {
+        'temperature': mode.get('temperature', 0.7),
+        'max_tokens': mode.get('max_tokens', 2048),
+        'cap_threshold': mode.get('cap_score_threshold', 0.45)
+    }
+```
+
+### Implementation Steps
+
+- [ ] Add `get_active_mode()` to orchestrator
+- [ ] Add `get_mode_prompt()` for template loading
+- [ ] Add `filter_capabilities_for_mode()` for cap filtering
+- [ ] Update `_create_system_prompt()` to inject personality/tone
+- [ ] Update capability matching to use mode threshold
+- [ ] Update LLM call to use mode temperature/max_tokens
+
+---
+
+## Phase 9c: Prompt Templates
+
+### Base Template Structure
+
+```markdown
+# prompts/chat.md
+
+# {{MODE_NAME}}
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Personality
+{{PERSONALITY}}
+Tone: {{TONE}}
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+{{CAPABILITIES}}
+
+## Output Format
+{{OUTPUT_FORMAT_INSTRUCTIONS}}
+
+## Rules
+{{MODE_SPECIFIC_RULES}}
+```
+
+### Template Variables
+
+| Variable | Source |
+|----------|--------|
+| `{{MODE_NAME}}` | `mode.name` |
+| `{{PERSONALITY}}` | `mode.personality` |
+| `{{TONE}}` | `mode.tone` |
+| `{{CAPABILITIES}}` | Filtered caps list |
+| `{{OUTPUT_FORMAT_INSTRUCTIONS}}` | Based on `output_format` |
+| `{{MODE_SPECIFIC_RULES}}` | From template file |
+
+### Implementation Steps
+
+- [ ] Create `prompts/` directory
+- [ ] Create template loader with variable substitution
+- [ ] Create `chat.md` (current behavior)
+- [ ] Create `research.md` (citation-focused)
+- [ ] Create `focus.md` (minimal, no caps)
+- [ ] Create `execute.md` (JSON-only)
+
+---
+
+## Phase 9d: SetMode Capability
+
+### Capability Definition
+
+```json
+{
+  "name": "SetMode",
+  "description": "Switch assistant mode",
+  "examples": ["switch to focus mode", "go into research mode", "back to chat"],
+  "params": {
+    "mode": {
+      "type": "string",
+      "required": true,
+      "enum": ["chat", "research", "focus", "execute"],
+      "description": "Mode to switch to"
+    }
+  }
+}
+```
+
+### Mode Switching Logic
+
+```python
+# capabilities/mode_handler.py
+
+async def handle_set_mode(params: Dict) -> Dict:
+    """Switch active mode."""
+    mode = params.get('mode', 'chat')
+    config = load_config()
+
+    if mode not in config.get('modes', {}):
+        return {'success': False, 'error': f'Unknown mode: {mode}'}
+
+    config['active_mode'] = mode
+    save_config(config)
+
+    mode_config = config['modes'][mode]
+    return {
+        'success': True,
+        'mode': mode,
+        'name': mode_config.get('name'),
+        'message': f"Switched to {mode_config.get('name')}"
+    }
+```
+
+### Implementation Steps
+
+- [ ] Add SetMode to capabilities registry
+- [ ] Create mode_handler.py
+- [ ] Add mode validation
+- [ ] Persist mode change to llm_config.json
+- [ ] Return confirmation with mode name
+
+---
+
+## Phase 9e: Mode Indicators
+
+### UI Feedback
+
+```javascript
+// Extension popup or status indicator
+function updateModeIndicator(mode) {
+    const indicator = document.getElementById('mode-indicator');
+    const colors = {
+        chat: '#4CAF50',      // Green
+        research: '#2196F3',   // Blue
+        focus: '#FF9800',      // Orange
+        execute: '#9C27B0'     // Purple
+    };
+    indicator.style.backgroundColor = colors[mode] || '#757575';
+    indicator.textContent = mode.toUpperCase();
+}
+```
+
+### Prompt Injection
+
+```
+[Mode: Research | Tone: professional]
+```
+
+### Implementation Steps
+
+- [ ] Add mode indicator to extension popup
+- [ ] Add mode to environment block in prompt
+- [ ] Color-code mode in UI
+- [ ] Show mode change confirmation in chat
+
+---
+
+## Phase 9f: Mode Presets & Shortcuts
+
+### Quick Mode Switching
+
+```javascript
+// Keyboard shortcuts
+Ctrl+Shift+C → Chat mode
+Ctrl+Shift+R → Research mode
+Ctrl+Shift+F → Focus mode
+Ctrl+Shift+E → Execute mode
+```
+
+### Natural Language Triggers
+
+```
+"let's focus" → SetMode(focus)
+"research this" → SetMode(research) + execute query
+"just chat" → SetMode(chat)
+"execute only" → SetMode(execute)
+```
+
+### Implementation Steps
+
+- [ ] Add keyboard shortcuts in extension
+- [ ] Add natural language triggers in cap matching
+- [ ] Add mode aliases (e.g., "concentrate" → focus)
+
+---
+
+## Testing
+
+### Mode Switching Tests
+
+```javascript
+// 1. Switch to focus mode
+window.omeLLMChat("switch to focus mode")
+// Check llm_config.json: active_mode should be "focus"
+// Check: Capabilities should be filtered out
+
+// 2. Switch to research mode
+window.omeLLMChat("go into research mode")
+// Check: Temperature should be 0.3
+// Check: Only research caps available
+
+// 3. Test mode persistence
+// Restart server
+// Check: Mode should persist from config
+```
+
+### Capability Filtering Tests
+
+| Mode | Capability Test | Expected |
+|------|-----------------|----------|
+| chat | "google cats" | GoogleIt executes |
+| focus | "google cats" | Reply only, no cap |
+| research | "scroll down" | No ScrollDown available |
+| execute | "what's the weather" | JSON output only |
+
+### Temperature/Threshold Tests
+
+| Mode | Test | Expected Behavior |
+|------|------|-------------------|
+| chat (0.7) | Creative question | Varied responses |
+| execute (0.0) | Same question 3x | Identical responses |
+| research (0.3) | Same question 3x | Minor variation |
+
+---
+
+## Files to Create/Modify
+
+| File | Action | Purpose |
+|------|--------|---------|
+| `llm_config.json` | MODIFY | Add active_mode, modes section |
+| `prompts/chat.md` | CREATE | Chat mode template |
+| `prompts/research.md` | CREATE | Research mode template |
+| `prompts/focus.md` | CREATE | Focus mode template |
+| `prompts/execute.md` | CREATE | Execute mode template |
+| `llm/orchestrator.py` | MODIFY | Mode resolution, filtering |
+| `llm/prompt_loader.py` | CREATE | Template loading with variables |
+| `capabilities/mode_handler.py` | CREATE | SetMode capability |
+| `capabilities/registry.py` | MODIFY | Add SetMode |
+| `web_extension/popup.html` | MODIFY | Mode indicator |
+| `web_extension/popup.js` | MODIFY | Mode switching UI |
+
+---
+
+## Dependencies
+
+- Phase 8 complete (session context working)
+- Config loader supports nested objects
+- Capability registry supports dynamic caps
+
+---
+
+## Future Extensions
+
+- **Auto-mode detection**: Detect research vs chat from query intent
+- **Mode chains**: "research then summarize" → research mode, then chat mode
+- **Per-tab modes**: Different mode per browser tab
+- **Mode memory**: Remember last mode per chat
+- **Custom modes**: User-defined mode configurations
