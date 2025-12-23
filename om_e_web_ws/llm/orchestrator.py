@@ -1294,6 +1294,15 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             )
 
         elif output_type == "clarify":
+            # Store context for follow-up (Phase 10: Clarify Context Threading)
+            self.state.pending_param_input = {
+                "capability": output.get("cap"),      # Which cap needs params
+                "missing_param": output.get("param"), # What param is missing
+                "original_intent": user_message,       # User's original request
+                "clarify_text": output.get("text"),   # What we asked them
+                "shaped_options": shaped_options       # Keep the capabilities for re-use
+            }
+            logger.info(f"[Clarify] Stored context: intent='{user_message}', caps={len(shaped_options)}")
             self.state.transition_to(TurnState.TURN_COMPLETED)
             metrics.total_ms = (time.time() - turn_start) * 1000
             await log_turn_metrics(metrics)
@@ -1310,10 +1319,14 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             metrics.total_ms = (time.time() - turn_start) * 1000
             await log_turn_metrics(metrics)
 
-            # Format options for display
+            # Format options for display (handle both dict and string options)
             option_text = output.get("text", "Which one?")
             for i, opt in enumerate(options_list, 1):
-                option_text += f"\n{i}. {opt.get('label', opt.get('cap', 'Option'))}"
+                if isinstance(opt, dict):
+                    label = opt.get('label', opt.get('cap', 'Option'))
+                else:
+                    label = str(opt)
+                option_text += f"\n{i}. {label}"
 
             return OrchestratorResult(
                 response_text=option_text,
@@ -1636,7 +1649,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
     ) -> Optional[OrchestratorResult]:
         """
         Handle user providing a missing parameter value.
-        Called when a capability returned needs_input asking for a required param.
+        Called when a capability returned needs_input OR clarify asking for info.
+
+        Phase 10: Enhanced to handle clarify follow-ups by combining original
+        intent with new answer and re-calling LLM with preserved capabilities.
         """
         pending = self.state.pending_param_input
         if not pending:
@@ -1644,11 +1660,13 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
 
         capability = pending.get("capability", "")
         param_name = pending.get("param", "")
+        original_intent = pending.get("original_intent", "")
+        shaped_options = pending.get("shaped_options", [])
 
-        # User's message IS the param value
+        # User's message IS the param value or follow-up answer
         param_value = user_message.strip()
 
-        # Clear pending state
+        # Clear pending state before processing
         self.state.pending_param_input = None
 
         if not param_value:
@@ -1659,14 +1677,85 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 action_executed=False
             )
 
-        # Execute capability with the filled-in param
-        params = {param_name: param_value}
-        decision = DecisionEngineOutput(
-            decision=DecisionType.CAP,
-            target=capability,
-            params=params
-        )
-        return await self._handle_cap_decision(decision, f"{capability} with {param_name}={param_value}")
+        # Check for cancellation phrases
+        cancel_phrases = ["never mind", "forget it", "cancel", "nevermind", "nvm"]
+        if param_value.lower() in cancel_phrases:
+            self.state.reset_turn()
+            return OrchestratorResult(
+                response_text="OK, cancelled.",
+                turn_state=TurnState.TURN_COMPLETED,
+                action_executed=False
+            )
+
+        # If we have original_intent, this is a clarify follow-up (Phase 10)
+        # Combine original intent with the new answer for better context
+        if original_intent and shaped_options:
+            # Combine: "rename the google chat to X" + "christmas future" → full context
+            combined_message = f"{original_intent} (answer: {param_value})"
+            logger.info(f"[Clarify] Combined context: {combined_message}")
+
+            # Re-call LLM with combined context and preserved capabilities
+            # The shaped_options from the original clarify should include the relevant cap
+            output = await self._call_unified(
+                combined_message,
+                shaped_options,
+                active_tab=None,  # Will be fetched in _call_unified if needed
+                tabs=[],
+                chat_id=self.state.current_chat_id,
+                orb_theme=None,
+                visible_chats=None
+            )
+
+            output_type = output.get("type", "reply")
+
+            if output_type == "action":
+                cap_name = output.get("cap", "")
+                params = output.get("params", {})
+                logger.info(f"[Clarify] Resolved to action: {cap_name} with {params}")
+
+                self.state.transition_to(TurnState.TURN_EXECUTING)
+                return OrchestratorResult(
+                    response_text=f"Executing {cap_name}...",
+                    turn_state=TurnState.TURN_EXECUTING,
+                    action_type="cap",
+                    action_target=cap_name,
+                    action_params=params,
+                    action_executed=True
+                )
+            elif output_type == "clarify":
+                # Still need more info - store context again
+                self.state.pending_param_input = {
+                    "capability": output.get("cap"),
+                    "missing_param": output.get("param"),
+                    "original_intent": combined_message,  # Use combined for next round
+                    "clarify_text": output.get("text"),
+                    "shaped_options": shaped_options
+                }
+                return OrchestratorResult(
+                    response_text=output.get("text", "Could you clarify?"),
+                    turn_state=TurnState.TURN_COMPLETED,
+                    action_type="clarify"
+                )
+            else:
+                # Reply or other - just return it
+                return OrchestratorResult(
+                    response_text=output.get("text", ""),
+                    turn_state=TurnState.TURN_COMPLETED
+                )
+
+        # Simple case: capability and param known, user's message is the value
+        if capability and param_name:
+            params = {param_name: param_value}
+            decision = DecisionEngineOutput(
+                decision=DecisionType.CAP,
+                target=capability,
+                params=params
+            )
+            return await self._handle_cap_decision(decision, f"{capability} with {param_name}={param_value}")
+
+        # Fallback: reset and process normally
+        self.state.reset_turn()
+        return None
 
     async def _handle_option_selection(
         self,

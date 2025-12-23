@@ -1366,3 +1366,136 @@ window.omeLLMChat("go into research mode")
 - **Per-tab modes**: Different mode per browser tab
 - **Mode memory**: Remember last mode per chat
 - **Custom modes**: User-defined mode configurations
+
+---
+
+# Phase 10: Clarify Context Threading
+
+**Status:** IN PROGRESS
+**Purpose:** Fix broken conversational flow when LLM asks for clarification.
+
+## Problem
+
+When LLM returns `{"type":"clarify","text":"Which chat?"}`, the orchestrator:
+1. Transitions to `TURN_COMPLETED`
+2. Stores **nothing** about what was being clarified
+3. Next user message is treated as brand new query
+4. RAG finds unrelated capabilities
+5. Conversational thread is broken
+
+**Example failure:**
+```
+User: "rename the other chat to christmas future"
+LLM: "I need: title (Required - the new title)"  ← clarify response
+User: "that would be christmas future"  ← follow-up answer
+LLM: [treats as new query, RAG returns GoForward, SetTemperature, etc.]
+```
+
+## Solution
+
+Store clarify context so follow-up messages can complete the original intent.
+
+### Phase 10a: Store Clarify Context
+
+When `output_type == "clarify"`, store the pending context:
+
+```python
+elif output_type == "clarify":
+    # Store context for follow-up
+    self.state.pending_param_input = {
+        "capability": output.get("cap"),      # Which cap needs params
+        "missing_param": output.get("param"), # What param is missing (if specified)
+        "original_intent": user_message,       # User's original request
+        "clarify_text": output.get("text")    # What we asked them
+    }
+    self.state.transition_to(TurnState.TURN_COMPLETED)
+    # ... rest unchanged
+```
+
+### Phase 10b: Handle Clarify Follow-up
+
+Update `_handle_param_input()` to process clarify responses:
+
+```python
+async def _handle_param_input(self, user_message: str) -> Optional[OrchestratorResult]:
+    pending = self.state.pending_param_input
+    if not pending:
+        return None
+
+    cap_name = pending.get("capability")
+    original_intent = pending.get("original_intent")
+
+    # Combine original intent with new input for param extraction
+    combined_context = f"{original_intent} → {user_message}"
+
+    # Re-query with the capability pre-selected
+    # OR directly execute with extracted params
+
+    # Clear pending state
+    self.state.pending_param_input = None
+
+    # Execute the capability with combined context
+    ...
+```
+
+### Phase 10c: Include Pending Capability in RAG
+
+When `pending_param_input` exists, ensure that capability is included:
+
+```python
+# In _query_capabilities or _create_unified_prompt
+if self.state.pending_param_input:
+    pending_cap = self.state.pending_param_input.get("capability")
+    # Ensure pending_cap is in the capabilities list
+    # Add context about what param is being provided
+```
+
+## Implementation Steps
+
+- [x] Add `pending_param_input` field to OrchestratorState (already exists)
+- [ ] Update clarify handler to store context
+- [ ] Update `_handle_param_input()` to handle clarify follow-ups
+- [ ] Include pending capability in RAG results
+- [ ] Add clarify context to prompt when awaiting param
+- [ ] Test with rename chat flow
+
+## Test Cases
+
+### Test 1: Rename Chat Clarify Flow
+
+```
+1. User: "rename the google chat to christmas future"
+2. LLM: clarify → "Which chat? (google tab, google search, etc.)"
+3. User: "the one called take me to google"
+4. Expected: RenameChat executes with name="take me to google", title="christmas future"
+```
+
+### Test 2: Multi-param Clarify
+
+```
+1. User: "open that thing"
+2. LLM: clarify → "What would you like to open?"
+3. User: "youtube"
+4. Expected: OpenTab or YouTubeIt executes with appropriate params
+```
+
+### Test 3: Clarify Timeout
+
+```
+1. User: "rename chat"
+2. LLM: clarify → "Which chat and what name?"
+3. User: [sends completely unrelated message]
+4. Expected: Clear pending state, process new message normally
+```
+
+## Files to Modify
+
+| File | Change |
+|------|--------|
+| `llm/orchestrator.py` | Store clarify context, update _handle_param_input |
+
+## Notes
+
+- State is per-orchestrator instance, cleared on new session
+- If user sends unrelated message, detect and clear pending state
+- Consider adding "cancel" detection ("never mind", "forget it")
