@@ -1,11 +1,11 @@
 # Unified LLM Call Debug
 
-**Generated:** 2025-12-22 16:51:51
-**User Message:** yes but it takes up space dude
-**Messages:** 52
-**Capabilities:** 8
-**Tokens:** ~1252 (system: 361, messages: 891)
-**LLM Time:** 1012ms
+**Generated:** 2025-12-23 10:58:59
+**User Message:** close prompt
+**Messages:** 26
+**Capabilities:** 7
+**Tokens:** ~1564 (system: 392, messages: 1172)
+**LLM Time:** 875ms
 
 ## System Prompt
 ```
@@ -48,6 +48,11 @@ You receive matching capabilities with scores. Pick the best match and fill para
 {"type":"options","text":"Which?","options":[{"cap":"X","params":{},"label":"A"}]}
 ```
 
+**Search** - need more capabilities (current list doesn't fit):
+```json
+{"type":"search","query":"what to search for"}
+```
+
 ## Rules
 - JSON only, no markdown wrapper
 - One response per message
@@ -66,336 +71,180 @@ Example phrases:
 
 ## Messages (sent to LLM)
 
-### 1. USER
+### 1. SYSTEM
 
 ```
-can we see my conversations please
+[Recent actions:
+- GoogleIt: lets go
+- ShowChats
+- SetTheme: can you change to atom please
+- SetTheme: be the bunny
+- YouTubeIt: lets youtube it]
 ```
 
-### 2. ASSISTANT
+### 2. USER
 
 ```
-Executing ShowChats...
+sure how do we do that
 ```
 
-### 3. USER
+### 3. ASSISTANT
 
 ```
-wow how many do we have
+Great! I can start by searching for tips on how to handle builder delays and improve communication with builders. Let me find some helpful advice for you.
 ```
 
-### 4. ASSISTANT
+### 4. USER
 
 ```
-You have 2 conversations saved so far.
+lets go
 ```
 
 ### 5. USER
 
 ```
-list htem
+very nice ma man, lets go to caht view
 ```
 
-### 6. ASSISTANT
+### 6. USER
 
 ```
-Here are your conversations:
-1. 54_09_05_22_12_2025_can (2 messages) from 22/Dec
-2. 50_05_05_22_12_2025_can (33 messages) from 22/Dec
+can you change to atom please
 ```
 
 ### 7. USER
 
 ```
-can we move to the second one plese
+hey atom how you doing
 ```
 
 ### 8. ASSISTANT
 
 ```
-Executing OpenTab...
+Hey Andy! I'm doing great, thanks for asking! Ready to dive into some science and help you out. What's on your mind today?
 ```
 
 ### 9. USER
 
 ```
-can we open the second chat
+whats your favourite colour
 ```
 
 ### 10. ASSISTANT
 
 ```
-Executing SetCurrentChat...
+I don't have personal favorites, but if I did, I'd probably go with a bright, energetic color like green to match my science vibe as Atom! What's your favorite color again?
 ```
 
 ### 11. USER
 
 ```
-can we move to the second one please
+you are green dude thats funny
 ```
 
 ### 12. ASSISTANT
 
 ```
-Executing SetCurrentChat...
+Haha, yeah, green suits me perfectly! Like a little science superhero vibe. Anything else you want to chat about, Andy?
 ```
 
 ### 13. USER
 
 ```
-close the side nav
+i also like green its almost my favourite colour, you can keep that in the memory ok
 ```
 
 ### 14. ASSISTANT
 
 ```
-Executing HideChats...
+Got it, Andy! I'll remember that green is almost your favorite color too. Green vibes all around! Anything else you'd like me to keep in mind?
 ```
 
 ### 15. USER
 
 ```
-search chats for orange
+be the bunny
 ```
 
-### 16. ASSISTANT
+### 16. USER
 
 ```
-Executing SearchChats...
+hey bunny whats your name
 ```
 
-### 17. USER
+### 17. ASSISTANT
 
 ```
-search google for cats
+Hey Andy! I'm Bunny, your cute and fluffy chat buddy. Ready to hop into some fun conversations with you!
 ```
 
-### 18. ASSISTANT
+### 18. USER
 
 ```
-Executing GoogleSearch...
+na you Kawaii
 ```
 
-### 19. USER
+### 19. ASSISTANT
 
 ```
-search youtube for dogs
+Aww, thanks Andy! Kawaii Bunny at your service, ready to bring some cuteness and cheer your way! 🐰💕 What shall we chat about next?
 ```
 
-### 20. ASSISTANT
+### 20. USER
 
 ```
-Executing YouTubeSearch...
+well we were talking about something stressful
 ```
 
-### 21. USER
+### 21. ASSISTANT
 
 ```
-switch to googel
+Yeah, Andy, builder delays can really pile on the stress. Want me to share some tips I found on handling those delays and improving communication with your builders?
 ```
 
-### 22. ASSISTANT
+### 22. USER
 
 ```
-Executing GoogleSearch...
+yes please
 ```
 
-### 23. USER
+### 23. ASSISTANT
 
 ```
-na tabs dude
+Here are some tips to handle builder delays and improve communication:
+
+1. Stay proactive: Regularly check in with your builder for updates.
+2. Document everything: Keep records of all communications and agreements.
+3. Set clear expectations: Agree on timelines and milestones upfront.
+4. Be clear and direct: Ask specific questions to get precise answers.
+5. Use written communication: Emails or messages help avoid misunderstandings.
+6. Be patient but firm: Understand delays can happen but hold them accountable.
+
+Would you like me to find more detailed advice or sample communication templates?
 ```
 
-### 24. ASSISTANT
+### 24. USER
 
 ```
-You want to switch to the Google tab? I'll switch to the 'cats - Google Search' tab for you.
+lets youtube it
 ```
 
 ### 25. USER
 
 ```
-yes
+close prompt
 ```
 
-### 26. ASSISTANT
-
-```
-Executing OpenTab...
-```
-
-### 27. USER
-
-```
-much better death dude
-```
-
-### 28. ASSISTANT
-
-```
-Glad you're feeling better with the 'death' chat! Let me know if you want to do anything else with it.
-```
-
-### 29. USER
-
-```
-be atom
-```
-
-### 30. ASSISTANT
-
-```
-Executing SetTheme...
-```
-
-### 31. USER
-
-```
-be kawaii
-```
-
-### 32. ASSISTANT
-
-```
-Executing SetTheme...
-```
-
-### 33. USER
-
-```
-be ome
-```
-
-### 34. ASSISTANT
-
-```
-Executing SetCurrentChat...
-```
-
-### 35. USER
-
-```
-be the robot guy
-```
-
-### 36. ASSISTANT
-
-```
-Executing SetTheme...
-```
-
-### 37. USER
-
-```
-be the bunny cat
-```
-
-### 38. ASSISTANT
-
-```
-Executing SetTheme...
-```
-
-### 39. USER
-
-```
-be the green thing
-```
-
-### 40. ASSISTANT
-
-```
-Executing SetTheme...
-```
-
-### 41. USER
-
-```
-be the white thing
-```
-
-### 42. ASSISTANT
-
-```
-Executing SetTheme...
-```
-
-### 43. USER
-
-```
-na the bunny
-```
-
-### 44. ASSISTANT
-
-```
-Executing SetTheme...
-```
-
-### 45. USER
-
-```
-thats a cat i guess
-```
-
-### 46. ASSISTANT
-
-```
-Executing SetTheme...
-```
-
-### 47. USER
-
-```
-so how are you doing
-```
-
-### 48. ASSISTANT
-
-```
-I'm doing great, thanks for asking! How about you? Ready to dive into something fun or need help with anything?
-```
-
-### 49. USER
-
-```
-im wondering if we should not seperate the actions from the chats
-```
-
-### 50. ASSISTANT
-
-```
-That's an interesting idea! Combining actions and chats could streamline the experience and make it more intuitive. What benefits or challenges do you see with merging them?
-```
-
-### 51. USER
-
-```
-yes but it takes up space dude
-```
-
-### 52. USER
+### 26. USER
 
 ```
 ENVIRONMENT (current state - use these for actions)
-Page: OM-E Web (http://127.0.0.1:8080/)
+Page: (3) how to handle builder delays and improve communication with builders - YouTube (https://www.youtube.com/results?search_query=how+to+handle+builder+delays+and+improve+communication+with+builders)
 
 Tabs (currently open):
-  1. OM-E Web (127.0.0.1:8080) ← ACTIVE
-
-Chats (current names - use these, not history):
-  1. new chat (2 msgs) [22/Dec]
-  2. delete the chat with the date name (2 msgs) [22/Dec]
-  3. go to the new chat (2 msgs) [22/Dec]
-  4. lets call this assipe (0 msgs) [22/Dec]
-  5. hud view (10 msgs) [22/Dec]
-  6. is. this a good name (4 msgs) [22/Dec]
-  7. brand new (20 msgs) [22/Dec]
-  8. show me my previous conversations (4 msgs) [22/Dec]
-  9. kawaii (8 msgs) [22/Dec]
-  10. the future (4 msgs) [22/Dec]
-  11. death (26 msgs) [22/Dec] ← CURRENT
-  12. atom (79 msgs) [22/Dec]
+  1. how to handle builder delays and improve (www.google.com)
+  2. Extensions (extensions)
+  3. (3) how to handle builder delays and imp (www.youtube.com) ← ACTIVE
 
 Capabilities:
 - GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
@@ -404,25 +253,31 @@ Capabilities:
 - YouTubeIt: Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on Yo
   ex: {"cap": "YouTubeIt", "params": {"query": "how to cook pasta"}}
   params: query: Required - what to find on YouTube
-- ScrollUp: Scrolls the page up by one viewport height
-  ex: {"cap": "ScrollUp"}
-- ZoomOut: Decreases page zoom by 15%
-  ex: {"cap": "ZoomOut"}
-- DeleteChat: Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.
-  ex: {"cap": "DeleteChat", "params": {"name": "my project"}}
-  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - chat title for fuzzy matching
+- HidePrompt: Hides the text input area for typing messages
+  ex: {"cap": "HidePrompt"}
 - CloseTab: Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.
   ex: {"cap": "CloseTab", "params": {"name": "google"}}
   params: tabId: Optional - numeric tab ID to close, name: Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')
-- Refresh: Reloads the current page
-  ex: {"cap": "Refresh"}
-- ZoomIn: Increases page zoom by 15%
-  ex: {"cap": "ZoomIn"}
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"cap": "ShowPrompt"}
+- CloseSearch: Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode
+  ex: {"cap": "CloseSearch"}
+- HideChats: Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.
+  ex: {"cap": "HideChats"}
 
-USER: yes but it takes up space dude
+[Relevant stored content:]
+- User is testing the system's ability to handle large text inputs by submitting a lengthy message to trigger summarization and storage for later retrieval. They describe the infrastructure managing large content like code or documents in chat.
+- Gerald the fox jumped over Buster the dog near the old oak tree in Springfield park by the river; cat Whiskers is 7 years old and eats tuna treats. The Eiffel Tower in Paris is 330 meters tall, completed in 1889; Mount Everest is 8849 meters tall, located in Nepal near Tibet. Australia's capital is Canberra with about 450,000 people. The secret password is blueberry42.
+
+[User facts:]
+- User wants to confirm if their stated preference was correctly understood.
+- User likes to think of the assistant as a friend
+- User's name is Andy
+
+USER: close prompt
 ```
 
 ## Response
 ```json
-{"type":"reply","text":"I get that! Maybe we can find a way to toggle or collapse the actions and chats to save space when you don't need them. Would you like me to help brainstorm some layout ideas?"}
+{"type":"action","cap":"HidePrompt"}
 ```

@@ -3762,6 +3762,10 @@
                                     <label>Cap Score</label>
                                     <input type="number" class="ome-settings-cap-score" min="0" max="1" step="0.05" value="0.45" title="RAG confidence threshold - below this, no capabilities shown (saves tokens)">
                                 </div>
+                                <div class="ome-settings-group">
+                                    <label>Session Actions</label>
+                                    <input type="number" class="ome-settings-session-actions" min="5" max="50" step="1" value="20" title="Rolling limit for session-wide action history (cross-chat bridge)">
+                                </div>
                             </div>
                             <button class="ome-settings-save">Save Settings</button>
                             <div class="ome-settings-status"></div>
@@ -4165,6 +4169,8 @@
                     if (tokensInput) tokensInput.value = settings.max_tokens ?? 2048;
                     const capScoreInput = hud.querySelector('.ome-settings-cap-score');
                     if (capScoreInput) capScoreInput.value = settings.cap_score_threshold ?? 0.45;
+                    const sessionActionsInput = hud.querySelector('.ome-settings-session-actions');
+                    if (sessionActionsInput) sessionActionsInput.value = settings.session_actions_limit ?? 20;
 
                     // Populate model dropdown for this provider (pass current model)
                     await populateModelList(activeProvider, provider.model || '');
@@ -4306,6 +4312,16 @@
                         type: 'execute_capability',
                         action: 'SetCapScoreThreshold',
                         params: { threshold: capScore }
+                    }, resolve);
+                });
+
+                // Set session actions limit
+                const sessionActionsLimit = parseInt(hud.querySelector('.ome-settings-session-actions')?.value || '20', 10);
+                await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'SetSessionActionsLimit',
+                        params: { limit: sessionActionsLimit }
                     }, resolve);
                 });
 

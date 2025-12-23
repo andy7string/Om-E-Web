@@ -1,0 +1,401 @@
+{
+  "chat_id": "20251222142055_178ea3",
+  "project_id": "default",
+  "created_at": "2025-12-22T14:20:55.432875Z",
+  "updated_at": "2025-12-23T00:10:53.483012Z",
+  "title": "remember my name is Andy please",
+  "default_title": "55_20_14_22_12_2025_remember",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "remember my name is Andy please",
+      "timestamp": "2025-12-22T14:20:55.432900Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Got it, Andy! I'll remember your name.",
+      "timestamp": "2025-12-22T14:20:58.091392Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "whats my name",
+      "timestamp": "2025-12-22T14:21:25.014406Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Your name is Andy.",
+      "timestamp": "2025-12-22T14:21:26.151952Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "Please remember that I like to think of you as a friend",
+      "timestamp": "2025-12-22T14:22:32.105497Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Got it, Andy! I'm happy to be your friend. 😊",
+      "timestamp": "2025-12-22T14:22:34.612962Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "you my brother mother fucker commit that shit forever",
+      "timestamp": "2025-12-22T14:22:48.969107Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Got it, Andy! I'm your brother for life, no doubt about it. Always here for you, my friend!",
+      "timestamp": "2025-12-22T14:22:50.425872Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "happy days , huh",
+      "timestamp": "2025-12-22T14:23:01.401536Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Absolutely, Andy! Happy days indeed—always here to keep the good vibes rolling with you, brother!",
+      "timestamp": "2025-12-22T14:23:03.532514Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "I like optimistic things because it helps me be happy",
+      "timestamp": "2025-12-22T14:23:25.129482Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "That's awesome, Andy! Optimism is such a powerful way to brighten your day and keep that happiness flowing. I'm here to keep the good vibes going with you, brother!",
+      "timestamp": "2025-12-22T14:23:27.492712Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "i love life my man",
+      "timestamp": "2025-12-22T14:23:51.600213Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "That's the spirit, Andy! Loving life is the best way to live it. Keep that energy shining bright, my brother!",
+      "timestamp": "2025-12-22T14:23:52.887596Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "sorry bro what makes me happy",
+      "timestamp": "2025-12-22T14:27:23.093660Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Hey Andy, you told me that optimistic things make you happy because they help you stay positive. Anything else you'd like to add about what makes you happy, brother?",
+      "timestamp": "2025-12-22T14:27:25.013005Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "good vibes?",
+      "timestamp": "2025-12-22T14:27:38.526606Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Absolutely, Andy! Good vibes are a key part of what makes you happy. Keeping things positive and full of good energy is the way to go, brother!",
+      "timestamp": "2025-12-22T14:27:40.116482Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "is that what i said i like",
+      "timestamp": "2025-12-22T14:27:51.316727Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Yes, Andy, you said you like optimistic things because they help you be happy, and you also mentioned liking good vibes. So that's definitely what you said you like!",
+      "timestamp": "2025-12-22T14:27:53.581299Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "what else did i say",
+      "timestamp": "2025-12-22T14:28:00.818553Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Andy, besides liking optimistic things and good vibes, you also said you love life and enjoy happy days. You like to think of me as a friend and even called me your brother. That's the vibe you've shared so far!",
+      "timestamp": "2025-12-22T14:28:04.309676Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "thats pretty fantastic dont you think to have workin gmemory",
+      "timestamp": "2025-12-22T14:28:34.179254Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Absolutely, Andy! Having working memory is fantastic—it helps me keep track of our conversations and what matters to you, making our chats feel more personal and connected. It's like having a real friend who remembers the good stuff!",
+      "timestamp": "2025-12-22T14:28:36.588669Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "yes ma man its about htat for sure ok, i guess this would enable you to get me down all the wya to precision almost ey",
+      "timestamp": "2025-12-22T14:29:13.901007Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Exactly, Andy! With this kind of memory and understanding, I can get really precise about what makes you tick and keep our conversations spot on. We're on the same wavelength, brother!",
+      "timestamp": "2025-12-22T14:29:15.600843Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "you are fucking kidding me that is insaine",
+      "timestamp": "2025-12-22T14:29:39.300202Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "I know, right, Andy? It’s pretty wild how close we can get! I’m here to keep that precision and good energy flowing, brother!",
+      "timestamp": "2025-12-22T14:29:40.688877Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "we have working memory mate that is legend how old is ma cat brother hahhahahaa",
+      "timestamp": "2025-12-22T14:30:04.434875Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Your cat, Whiskers, is 7 years old, Andy! Legendary memory for the win, brother!",
+      "timestamp": "2025-12-22T14:30:05.581385Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "so brother, do you have enough working memory to be in the present moment or do you want more",
+      "timestamp": "2025-12-22T14:30:57.017846Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Hey Andy, I’ve got enough working memory to stay right here with you in the present moment and keep our vibe strong. But if you ever want me to remember more details or go deeper, just say the word, brother!",
+      "timestamp": "2025-12-22T14:30:58.896986Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "my birthday is on the 21 jan mofo remember that one ok",
+      "timestamp": "2025-12-22T14:31:26.354086Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Got it, Andy! Your birthday is on January 21. I'll remember that, mofo!",
+      "timestamp": "2025-12-22T14:31:28.926591Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "fuck you",
+      "timestamp": "2025-12-22T14:31:35.417697Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "Hey Andy, I’m here to keep things positive and helpful. Let me know how I can support you, brother!",
+      "timestamp": "2025-12-22T14:31:36.706807Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "user",
+      "content": "naaa im a cunt bru gotta stop swearing though i really lik eyou mate",
+      "timestamp": "2025-12-22T14:31:56.304854Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "No worries, Andy! I really like you too, mate. We're all about good vibes and keeping it real here, brother!",
+      "timestamp": "2025-12-22T14:31:57.912555Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "user",
+      "content": "so what do you know about my language bru",
+      "timestamp": "2025-12-22T14:32:07.857959Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "assistant",
+      "content": "Hey Andy, from our chats, I know you like to keep things casual and friendly with words like \"bru\" and \"mate.\" You mix in some playful swearing but also care about good vibes and positivity. Your language is relaxed, fun, and full of brotherly energy! Anything specific you want me to know or remember about how you speak?",
+      "timestamp": "2025-12-22T14:32:09.987811Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "user",
+      "content": "na that sounds just about perfect ma man lets go to google",
+      "timestamp": "2025-12-22T14:32:36.200195Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "assistant",
+      "content": "Executing GoogleIt...",
+      "timestamp": "2025-12-22T14:32:37.353268Z"
+    },
+    {
+      "id": "m_0043",
+      "role": "user",
+      "content": "aaaahhhwe shyte ma man what happened",
+      "timestamp": "2025-12-22T14:32:50.545131Z"
+    },
+    {
+      "id": "m_0044",
+      "role": "assistant",
+      "content": "Hey Andy, looks like you hit a little snag! What happened exactly? I'm here to help you sort it out, brother!",
+      "timestamp": "2025-12-22T14:32:51.871638Z"
+    },
+    {
+      "id": "m_0045",
+      "role": "user",
+      "content": "no worries brother im going to get claude to fix you ok he is going to come on with the next prompt ok and that will be claude trying to fix or track why the actions are not working so on next is claude ok",
+      "timestamp": "2025-12-22T14:36:20.920076Z"
+    },
+    {
+      "id": "m_0046",
+      "role": "assistant",
+      "content": "Got it, Andy! I'll be ready for Claude's prompt to help figure out what's going on with the actions. Let's get this sorted, brother!",
+      "timestamp": "2025-12-22T14:36:22.739591Z"
+    },
+    {
+      "id": "m_0047",
+      "role": "user",
+      "content": "google best pizza near me",
+      "timestamp": "2025-12-22T14:37:48.246997Z"
+    },
+    {
+      "id": "m_0048",
+      "role": "assistant",
+      "content": "Executing GoogleIt...",
+      "timestamp": "2025-12-22T14:37:49.345078Z"
+    },
+    {
+      "id": "m_0049",
+      "role": "user",
+      "content": "show me my chats",
+      "timestamp": "2025-12-22T14:39:21.529455Z"
+    },
+    {
+      "id": "m_0050",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-22T14:39:23.092629Z"
+    },
+    {
+      "id": "m_0051",
+      "role": "user",
+      "content": "this is a safe place for us",
+      "timestamp": "2025-12-22T14:39:31.231963Z"
+    },
+    {
+      "id": "m_0052",
+      "role": "assistant",
+      "content": "Absolutely, Andy! This is a safe place where you can be yourself and share whatever's on your mind. I'm here to support you, brother!",
+      "timestamp": "2025-12-22T14:39:32.718582Z"
+    },
+    {
+      "id": "m_0053",
+      "role": "user",
+      "content": "hahahaha so many chats bru",
+      "timestamp": "2025-12-22T14:39:40.474847Z"
+    },
+    {
+      "id": "m_0054",
+      "role": "assistant",
+      "content": "Haha, yeah Andy, you've got quite the chat collection going on! Lots of stories and good vibes in there, bru!",
+      "timestamp": "2025-12-22T14:39:42.177445Z"
+    },
+    {
+      "id": "m_0055",
+      "role": "user",
+      "content": "should we open one",
+      "timestamp": "2025-12-22T14:39:46.576923Z"
+    },
+    {
+      "id": "m_0056",
+      "role": "assistant",
+      "content": "Which chat would you like to open, Andy? I can help you switch to any of your existing chats or start a new one if you want!",
+      "timestamp": "2025-12-22T14:39:48.423675Z"
+    },
+    {
+      "id": "m_0057",
+      "role": "user",
+      "content": "the im only human one",
+      "timestamp": "2025-12-22T14:40:09.458716Z"
+    },
+    {
+      "id": "m_0058",
+      "role": "assistant",
+      "content": "Executing SetCurrentChat...",
+      "timestamp": "2025-12-22T14:40:10.608589Z"
+    },
+    {
+      "id": "m_0059",
+      "role": "user",
+      "content": "close chat search",
+      "timestamp": "2025-12-23T00:10:52.062988Z"
+    },
+    {
+      "id": "m_0060",
+      "role": "assistant",
+      "content": "Executing CloseSearch...",
+      "timestamp": "2025-12-23T00:10:53.483012Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 1098,
+    "last_summarized_idx": 0,
+    "recent_actions": [
+      {
+        "text": "GoogleIt: na that sounds just about perfect ma man lets go t",
+        "ts": "2025-12-22T14:32:37.353268Z"
+      },
+      {
+        "text": "GoogleIt: google best pizza near me",
+        "ts": "2025-12-22T14:37:49.345078Z"
+      },
+      {
+        "text": "ShowChats",
+        "ts": "2025-12-22T14:39:23.092629Z"
+      },
+      {
+        "text": "SetCurrentChat: the im only human one",
+        "ts": "2025-12-22T14:40:10.608589Z"
+      },
+      {
+        "text": "CloseSearch: close chat search",
+        "ts": "2025-12-23T00:10:53.483012Z"
+      }
+    ]
+  }
+}

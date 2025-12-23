@@ -1,0 +1,32 @@
+{
+  "chat_id": "20251222133854_576ace",
+  "project_id": "default",
+  "created_at": "2025-12-22T13:38:54.569649Z",
+  "updated_at": "2025-12-22T13:38:57.305906Z",
+  "title": "Testing large payload handling with over 500 characters. This message should trigger the summarization flow where the system detects a large payload, creates a concise 2 sentence summary for the LLM prompt, and stores the full original content in a vector store for later RAG retrieval if needed. The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor. This infrastructure handles code dumps documents or any large content users paste into the chat.",
+  "default_title": "54_38_13_22_12_2025_testing",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "Testing large payload handling with over 500 characters. This message should trigger the summarization flow where the system detects a large payload, creates a concise 2 sentence summary for the LLM prompt, and stores the full original content in a vector store for later RAG retrieval if needed. The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor. This infrastructure handles code dumps documents or any large content users paste into the chat.",
+      "timestamp": "2025-12-22T13:38:54.569684Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Got it! Your large message has been summarized and stored for efficient retrieval. Feel free to ask if you want to reference or expand on any part of it.",
+      "timestamp": "2025-12-22T13:38:57.305906Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 167,
+    "last_summarized_idx": 0,
+    "recent_actions": []
+  }
+}

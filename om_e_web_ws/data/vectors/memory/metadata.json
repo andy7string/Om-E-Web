@@ -1,0 +1,51 @@
+{
+  "texts": [
+    "The user discusses managing large text summaries by dumping them to files and integrating them into vectors for knowledge consumption, expressing challenges in maintaining clarity amid detailed information, while the assistant offers support in summarization and gaining perspective.",
+    "The user engaged in a casual conversation about memory and movies, expressing curiosity about movie preferences and exploring movie information online, while the assistant offered support and shared enthusiasm for films.",
+    "The user inquired about chat mode capabilities and then shared information about Odeon Star Cinemas, while the assistant clarified chat functionalities and expressed willingness to help with movie-related queries.",
+    "The user expressed skepticism about the term \"cisgender,\" associating it with negative intent, while the assistant emphasized respectful, honest communication. The conversation then shifted abruptly to unrelated queries about closing tabs and Lady Gaga having a baby.",
+    "The user requested lyrics to Lady Gaga songs, received \"Poker Face,\" then asked for the hymn \"Amazing Grace,\" which the assistant provided, indicating interest in song lyrics from both pop and traditional genres."
+  ],
+  "metadata": [
+    {
+      "chat_id": "20251222120437_d0164a",
+      "chat_title": "Im only human after all on youtube please",
+      "from_idx": 19,
+      "to_idx": 28,
+      "type": "summary",
+      "ts": "2025-12-22T22:58:33Z"
+    },
+    {
+      "chat_id": "20251222120437_d0164a",
+      "chat_title": "Im only human after all on youtube please",
+      "from_idx": 28,
+      "to_idx": 49,
+      "type": "summary",
+      "ts": "2025-12-22T23:01:26Z"
+    },
+    {
+      "chat_id": "20251222120437_d0164a",
+      "chat_title": "Im only human after all on youtube please",
+      "from_idx": 49,
+      "to_idx": 53,
+      "type": "summary",
+      "ts": "2025-12-22T23:04:22Z"
+    },
+    {
+      "chat_id": "20251222112850_0fcad1",
+      "chat_title": "lady gaga",
+      "from_idx": 0,
+      "to_idx": 57,
+      "type": "summary",
+      "ts": "2025-12-22T23:11:59Z"
+    },
+    {
+      "chat_id": "20251222124452_4a4b07",
+      "chat_title": "test message to check history",
+      "from_idx": 0,
+      "to_idx": 16,
+      "type": "summary",
+      "ts": "2025-12-22T23:19:05Z"
+    }
+  ]
+}

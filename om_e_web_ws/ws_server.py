@@ -1512,6 +1512,28 @@ def execute_internal_capability(action: str, params: dict, offered_caps: list[di
             return {"cap_score_threshold": thresh_val}
         return {"error": "Failed to save config"}
 
+    elif action == "SetSessionActionsLimit":
+        # Set rolling limit for session-wide action history
+        limit = params.get("limit")
+        if limit is None:
+            return {"error": "Missing limit parameter"}
+
+        try:
+            limit_val = int(limit)
+            if limit_val < 5 or limit_val > 50:
+                return {"error": "limit must be between 5 and 50"}
+        except ValueError:
+            return {"error": "limit must be a number"}
+
+        config = load_llm_config()
+        if "settings" not in config:
+            config["settings"] = {}
+        config["settings"]["session_actions_limit"] = limit_val
+        if save_llm_config(config):
+            print(f"⚙️ Session actions limit set to: {limit_val}")
+            return {"session_actions_limit": limit_val}
+        return {"error": "Failed to save config"}
+
     elif action == "GetScanMode":
         # Get current scan mode from config
         config = load_llm_config()
@@ -1586,13 +1608,18 @@ def execute_internal_capability(action: str, params: dict, offered_caps: list[di
 
     elif action == "ReloadLLMConfig":
         # Reload LLM config - the orchestrator will use fresh config on next request
-        global PERSONA_ORCHESTRATOR
+        global PERSONA_ORCHESTRATOR, INTERNAL_CAPABILITIES
+
+        # Clear internal capabilities cache so new caps are picked up
+        INTERNAL_CAPABILITIES = None
+        print("📦 Internal capabilities cache cleared")
+
         if PERSONA_ORCHESTRATOR:
             # Close current orchestrator so next request creates fresh instance
             PERSONA_ORCHESTRATOR = None
             print("🎭 Orchestrator reset - next request will use new config")
-            return {"reloaded": True, "message": "Orchestrator will reload on next request"}
-        return {"reloaded": True, "message": "No active orchestrator to reload"}
+            return {"reloaded": True, "message": "Orchestrator and capabilities reloaded"}
+        return {"reloaded": True, "message": "Capabilities cache cleared, no active orchestrator"}
 
     elif action == "ReloadSiteConfigs":
         # Reload cached site configs (used by is_site_config_capability / prompt capabilities)

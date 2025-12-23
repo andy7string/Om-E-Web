@@ -4,7 +4,9 @@
     "User likes to think of the assistant as a friend",
     "User likes optimistic things because it helps them be happy",
     "User wants to confirm if their stated preference was correctly understood.",
-    "User's birthday is on January 21"
+    "User's birthday is on January 21",
+    "User has not provided any information about themselves or the fox.",
+    "User's favorite color is blue"
   ],
   "metadata": [
     {
@@ -36,6 +38,18 @@
       "source_message": "my birthday is on the 21 jan mofo remember that one ok",
       "chat_id": "20251222142055_178ea3",
       "timestamp": "2025-12-23T01:01:27Z"
+    },
+    {
+      "type": "fact",
+      "source_message": "tell me what you remember about me and what I told you about the fox",
+      "chat_id": "20251223000348_551891",
+      "timestamp": "2025-12-23T10:35:49Z"
+    },
+    {
+      "type": "fact",
+      "source_message": "remember that my favorite color is blue",
+      "chat_id": "20251223000348_551891",
+      "timestamp": "2025-12-23T10:36:11Z"
     }
   ]
 }

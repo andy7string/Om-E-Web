@@ -207,6 +207,8 @@ Multi-layer RAG and memory system for Om-E. Reduces prompt tokens, enables cross
 |-----------|--------|-------|
 | **Base VectorStore** | ✅ Done | FAISS wrapper with save/load |
 | **CapabilitiesStore** | ✅ Done | Indexes internal capabilities |
+| **Session Actions** | 🔴 PRIORITY | Phase 8a - Track meaningful actions across chats |
+| **Session Content Store** | 🔴 PRIORITY | Phase 8b - Cross-chat content retrieval |
 | **ElementsStore** | ❌ Not hooked | Code exists, parses text.md (should use text.json), not wired to ws_server |
 | **Facts Store** | ⚠️ Partial | Works but has chat_id, needs migration to User Profile |
 | **Payload Store** | ✅ Done | Large message summarization |
@@ -629,20 +631,206 @@ Every request includes user context:
 - [ ] Cherry-pick flags for messages (future)
 - [ ] Project context toggle (future)
 
+### Phase 8: Global Session Context & Project-Wide Memory ← PRIORITY FIX
+**Problem:** When switching chats, Om-E loses context. No bridge between chats.
+
+**Solution:** Session-level context that spans ALL chats in the current session.
+
+#### 8a. Session Actions JSON (global action log)
+
+**The Problem with Per-Chat Actions:**
+Currently, each chat has its own `context_state.recent_actions` in its JSON file.
+When you switch chats, you lose visibility of actions from other chats.
+The prompt pulls from chat JSON's recent_actions - so it's chat-scoped, not session-scoped.
+
+**The Solution - Session Actions JSON:**
+A global JSON file that logs ALL actions across ALL chats in the session.
+Same format as chat's recent_actions. Fed from the SAME `condense_action` output.
+Prompt reads from session JSON INSTEAD OF chat JSON for the [Recent actions:] section.
+
+**Location:** `data/session_actions.json`
+
+**Architecture:**
+```
+ACTION HAPPENS (in any chat)
+         ↓
+   condense_action() (existing - adds intent)
+         ↓
+    ┌────┴────┐
+    ↓         ↓
+CHAT JSON   SESSION JSON
+(per-chat)   (global)
+    │              │
+    │              ↓
+    │      PROMPT ASSEMBLY
+    │      (reads [Recent actions:] from session JSON)
+    ↓
+(kept for chat-specific history if needed later)
+```
+
+**No Additional Filtering:**
+Use exactly what `condense_action` already returns. The existing filtering is smart enough.
+If it's good enough for chat JSON, it's good enough for session JSON.
+
+**Format:** Same as chat's `context_state.recent_actions` but with chat context
+```json
+{
+  "session_id": "20251223_abc123",
+  "started_at": "2025-12-23T10:00:00Z",
+  "actions": [
+    {"text": "GoogleIt: builder delays", "chat": "whats happening", "chat_id": "abc123", "ts": "2025-12-23T10:05:00Z"},
+    {"text": "YouTubeIt: how to communicate with builders", "chat": "whats happening", "chat_id": "abc123", "ts": "2025-12-23T10:06:00Z"},
+    {"text": "SetTheme: atom", "chat": "whats happening", "chat_id": "abc123", "ts": "2025-12-23T10:07:00Z"},
+    {"text": "ShowChats", "chat": "whats happening", "chat_id": "abc123", "ts": "2025-12-23T10:08:00Z"},
+    {"text": "SetCurrentChat: memory planning", "chat": null, "chat_id": null, "ts": "2025-12-23T10:09:00Z"},
+    {"text": "CreateChat: test ideas", "chat": "memory planning", "chat_id": "def456", "ts": "2025-12-23T10:10:00Z"}
+  ]
+}
+```
+
+**Prompt Injection (replaces per-chat [Recent actions:]):**
+```
+[Recent actions (session-wide):]
+- GoogleIt: builder delays (in "whats happening")
+- YouTubeIt: how to communicate with builders
+- SetTheme: atom
+- ShowChats
+- SetCurrentChat: memory planning
+- CreateChat: test ideas (in "memory planning")
+```
+
+**Key Points:**
+- Rolling limit: Configurable via HUD settings (default 20)
+- Clears on server restart (new session)
+- Includes `chat` field so we know WHERE action happened
+- Prompt uses this INSTEAD of chat JSON's recent_actions
+- Chat JSON still has its own recent_actions for chat-specific queries if needed later
+
+**Configuration (HUD Settings Panel):**
+Added as configurable parameter alongside Cap Score:
+```
+┌─────────────────────────────────────┐
+│  CAP SCORE        SESSION ACTIONS   │
+│  ┌─────────┐     ┌─────────┐        │
+│  │  0.45   │     │   20    │        │
+│  └─────────┘     └─────────┘        │
+└─────────────────────────────────────┘
+```
+
+- **Field:** `session_actions_limit` in llm_config.json
+- **Default:** 20
+- **Range:** 5-50
+- **Capability:** `SetSessionActionsLimit` with `limit` param
+- **Pattern:** Same as Cap Score (hud.js → ws_server.py → llm_config.json)
+
+**Result:**
+- Bounce between 3 chats, do 4 actions each = session JSON has all 12
+- Prompt always shows session-wide actions regardless of current chat
+- Om-E knows what you've been doing across the whole session
+
+#### 8b. Session Content Vector (semantic search)
+Index substantive content from ALL chats in session. Enables cross-chat queries like "what was that song about".
+
+**Location:** In-memory vector store (clears on server restart)
+
+**What to index:**
+- Substantive user messages (not "ok", "yes", "scroll down")
+- Assistant replies with content (not action confirmations)
+- Summarized topics from conversations
+
+**NOT to index:**
+- Action messages ("Executing ScrollDown...")
+- Short responses ("ok", "got it", "yes")
+- Duplicate content
+
+**Metadata:**
+```json
+{
+    "text": "Discussed builder delays and communication issues with contractors",
+    "chat_id": "abc123",
+    "chat_title": "whats happening",
+    "timestamp": "2025-12-23T00:30:00Z",
+    "type": "topic"  // or "message", "summary"
+}
+```
+
+**Retrieval:** Semantic search on user message, inject top 3-5 results with source attribution
+
+**Prompt injection:**
+```
+[Session Context (relevant from other chats):]
+- [whats happening] Discussed builder delays and communication issues
+- [memory planning] Decided on 4-layer memory architecture
+```
+
+#### 8c. Implementation Steps (testable with Claude for Chrome)
+
+**Step 1: Add config parameter to HUD settings**
+- [ ] Add `session_actions_limit` field to llm_config.json (default: 20)
+- [ ] Add input field in `hud.js` settings panel (after Cap Score row)
+- [ ] Add load handler to populate from `settings.session_actions_limit ?? 20`
+- [ ] Add save handler to call `SetSessionActionsLimit` capability
+- [ ] Add `SetSessionActionsLimit` capability in `ws_server.py`
+- [ ] Test: Open settings, change value, save, verify llm_config.json updates
+
+**Step 2: Create Session Actions JSON infrastructure**
+- [ ] Create `data/session_actions.json` schema
+- [ ] Add helper functions in `retrieval/memory_cycle.py`:
+  - `init_session()` - Create new session on server start
+  - `add_session_action(text, chat_title, chat_id)` - Append to session JSON
+  - `get_session_actions(limit)` - Read recent actions (uses config limit)
+  - `format_session_actions_for_prompt()` - Format for prompt injection
+- [ ] Test: Call `add_session_action()` directly, verify JSON file updates
+
+**Step 3: Hook into condense_action flow**
+- [ ] In `on_message_saved()`, after `state['recent_actions'].append(...)`:
+  - Also call `add_session_action(condensed, chat_title, chat_id)`
+- [ ] Pass chat_title and chat_id to `on_message_saved()` (may need to thread through)
+- [ ] Test: `omeLLMChat("google cats")` → check `data/session_actions.json` has entry
+
+**Step 4: Update prompt assembly to use session JSON**
+- [ ] In `orchestrator.py` `_get_rolling_history()`:
+  - Replace chat JSON's recent_actions read with `get_session_actions()`
+  - Format with `format_session_actions_for_prompt()`
+- [ ] Test: Execute actions in Chat A, switch to Chat B, send message
+  - Check `llm_unified.md` shows actions from Chat A in [Recent actions:]
+
+**Step 5: Add Session Content Vector**
+- [ ] Create `SessionContentStore` class (in-memory FAISS)
+- [ ] Hook into where vectors are pushed (facts, payloads, substantive content)
+- [ ] Add to session vector when content is indexed anywhere
+- [ ] Test: Store fact, verify session vector has entry
+
+**Step 6: Query Session Content in prompts**
+- [ ] Add `get_session_context(query, current_chat_id)` function
+- [ ] Filter out current chat (avoid circular context)
+- [ ] Inject in `_call_unified()` as [Session Context:]
+- [ ] Test: Switch chats, ask about previous chat topic, verify context appears
+
+**Step 7: Session lifecycle**
+- [ ] Clear session JSON on server restart (new session_id)
+- [ ] Clear SessionContentStore on server restart
+- [ ] (Optional) Persist session to disk for recovery
+
 ---
 
 ## Files to Create/Modify
 
 | File | Purpose | Status |
 |------|---------|--------|
+| `web_extension/hud.js` | Add session_actions_limit input to settings panel | Modify (Phase 8a Step 1) |
+| `om_e_web_ws/data/llm_config.json` | Add session_actions_limit field (default: 20) | Modify (Phase 8a Step 1) |
+| `ws_server.py` | Add SetSessionActionsLimit capability, init session on startup | Modify (Phase 8a) |
+| `data/session_actions.json` | Global session actions log | New (Phase 8a Step 2) |
+| `retrieval/memory_cycle.py` | Add session action helpers (init, add, get, format) | Modify (Phase 8a) |
+| `llm/orchestrator.py` | Read from session JSON instead of chat JSON for actions | Modify (Phase 8a Step 4) |
+| `retrieval/session_content_store.py` | SessionContentStore (in-memory FAISS) | New (Phase 8b) |
 | `retrieval/user_context.py` | Manages current user/project/chat | New |
 | `retrieval/user_profile_store.py` | User profile vector | New |
 | `retrieval/session_intent_store.py` | Session intent vector | New |
 | `retrieval/project_memory_store.py` | Project-wide memory | New |
 | `retrieval/classifier.py` | User profile vs content classification | New |
 | `retrieval/elements_store.py` | Fix to use text.json | Modify |
-| `llm/orchestrator.py` | Wire all memory layers into prompt | Modify |
-| `ws_server.py` | User context, element rebuild hook | Modify |
 
 ---
 
@@ -673,6 +861,46 @@ Every request includes user context:
 |----------|----------|
 | In Chat B, ask "what was the song about" | Finds content from Chat A about the song |
 | In Chat A, ask "what did we decide" | Finds decisions from Chat A (filtered) |
+
+### Session Context (Phase 8) ← PRIORITY
+
+**Session Actions Testing:**
+```javascript
+// 1. Execute meaningful action
+window.omeLLMChat("google best pizza in sydney")
+// Check ws_server console: SESSION_ACTIONS should have GoogleIt entry
+
+// 2. Execute noise action (should NOT be tracked)
+window.omeLLMChat("scroll down")
+// Check: SESSION_ACTIONS should NOT have ScrollDown
+
+// 3. Verify prompt injection
+window.omeLLMChat("what did we just search for")
+// Check llm_unified.md: Should show [Session Actions:] with GoogleIt entry
+```
+
+**Session Content Testing:**
+```javascript
+// 1. Have substantive conversation in Chat A
+window.omeLLMChat("I'm stressed about builder delays and getting no answers")
+// Check: SessionContentStore should index this
+
+// 2. Switch to Chat B
+window.omeLLMChat("create a new chat called test chat")
+window.omeLLMChat("switch to test chat")
+
+// 3. Ask about Chat A topic
+window.omeLLMChat("what was I stressed about earlier")
+// Check llm_unified.md: Should show [Session Context:] with builder stress content
+```
+
+**Cross-Chat Bridge Testing:**
+| Scenario | Expected |
+|----------|----------|
+| Execute GoogleIt in Chat A, switch to Chat B, ask "what did we search" | Session Actions shows GoogleIt |
+| Discuss topic in Chat A, switch to Chat B, ask about topic | Session Context retrieves from Chat A |
+| Execute ScrollDown 10 times, check Session Actions | NOT in Session Actions (filtered) |
+| Switch chats 3 times, Session Actions maintains history | All meaningful actions preserved |
 
 ---
 

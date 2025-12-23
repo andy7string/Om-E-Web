@@ -1,0 +1,449 @@
+{
+  "chat_id": "20251222131318_336cff",
+  "project_id": "default",
+  "created_at": "2025-12-22T13:13:18.297846Z",
+  "updated_at": "2025-12-22T13:36:50.278816Z",
+  "title": "whsup",
+  "default_title": "18_13_13_22_12_2025_whsup",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "whsup",
+      "timestamp": "2025-12-22T13:13:18.297884Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey there! I'm here and ready to help. What can I do for you today?",
+      "timestamp": "2025-12-22T13:13:19.867679Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "very curious my friend are you",
+      "timestamp": "2025-12-22T13:13:34.081590Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Hey there! I'm always curious and ready to explore whatever you want to dive into. What are you curious about today?",
+      "timestamp": "2025-12-22T13:13:35.746459Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "are you curious about your themes",
+      "timestamp": "2025-12-22T13:13:48.695750Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "That's an interesting thought! I don't have personal feelings, but I am definitely curious about themes and how they shape conversations and experiences. Are you curious about any particular themes or topics?",
+      "timestamp": "2025-12-22T13:13:50.518363Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "lets see atom",
+      "timestamp": "2025-12-22T13:13:57.939017Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing SetTheme...",
+      "timestamp": "2025-12-22T13:13:59.384592Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "now that was a great user experience",
+      "timestamp": "2025-12-22T13:14:09.196881Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "I'm glad you enjoyed it! If you want to explore more themes or anything else, just let me know. I'm here to make your experience awesome!",
+      "timestamp": "2025-12-22T13:14:10.922196Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "lets zoom out a bit",
+      "timestamp": "2025-12-22T13:14:51.714616Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-22T13:14:52.707869Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "a bit more please",
+      "timestamp": "2025-12-22T13:14:57.832196Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-22T13:14:59.384254Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "god thats to much in please",
+      "timestamp": "2025-12-22T13:15:09.216605Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-22T13:15:10.642965Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "wrong way dude",
+      "timestamp": "2025-12-22T13:15:14.430324Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Oops! Let's fix that. Do you want me to zoom in instead of zooming out? Just let me know how much!",
+      "timestamp": "2025-12-22T13:15:15.484717Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "zoom out",
+      "timestamp": "2025-12-22T13:15:21.127836Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-22T13:15:22.413568Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "reset",
+      "timestamp": "2025-12-22T13:15:26.185284Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Executing ZoomReset...",
+      "timestamp": "2025-12-22T13:15:27.089269Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "ok what is zoom in",
+      "timestamp": "2025-12-22T13:15:34.124315Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Zoom in means to make the content on the page appear larger, so you can see details more clearly. It's like bringing things closer to your eyes. If you want, I can zoom in for you now!",
+      "timestamp": "2025-12-22T13:15:35.559807Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "lets try it",
+      "timestamp": "2025-12-22T13:15:41.027223Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Executing ZoomIn...",
+      "timestamp": "2025-12-22T13:15:42.044222Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "happy now what is zoom out",
+      "timestamp": "2025-12-22T13:15:50.369532Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Zoom out means to make the content on the page appear smaller, so you can see more of the page at once. It's like moving away from what you're looking at. Want me to zoom out for you now?",
+      "timestamp": "2025-12-22T13:15:52.248105Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "try it",
+      "timestamp": "2025-12-22T13:15:54.947573Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Executing ZoomIn...",
+      "timestamp": "2025-12-22T13:15:56.516998Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "na dude zoom out",
+      "timestamp": "2025-12-22T13:16:03.081341Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-22T13:16:04.012261Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "again",
+      "timestamp": "2025-12-22T13:16:06.412482Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-22T13:16:07.291096Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "again",
+      "timestamp": "2025-12-22T13:16:09.148704Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "Executing ScrollDown...",
+      "timestamp": "2025-12-22T13:16:10.752070Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "user",
+      "content": "bru you can check my actions and everything and the contexgt of the entire sessioon but you go to scroll down when everything we talking about is zoom why do that",
+      "timestamp": "2025-12-22T13:17:37.149453Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "Sorry about that mix-up! I see we've been focusing on zooming, so I'll stick to zoom actions from now on. Thanks for pointing it out!",
+      "timestamp": "2025-12-22T13:17:39.002823Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "user",
+      "content": "lets see go big",
+      "timestamp": "2025-12-22T13:17:53.042330Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "assistant",
+      "content": "Executing ZoomIn...",
+      "timestamp": "2025-12-22T13:17:54.081865Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "user",
+      "content": "go small",
+      "timestamp": "2025-12-22T13:17:56.997038Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "assistant",
+      "content": "Executing ZoomOut...",
+      "timestamp": "2025-12-22T13:17:57.929080Z"
+    },
+    {
+      "id": "m_0043",
+      "role": "user",
+      "content": "go ome",
+      "timestamp": "2025-12-22T13:18:00.765184Z"
+    },
+    {
+      "id": "m_0044",
+      "role": "assistant",
+      "content": "I think you meant \"go home\"? Let me know if you want me to take you to the home page or do something else!",
+      "timestamp": "2025-12-22T13:18:02.606374Z"
+    },
+    {
+      "id": "m_0045",
+      "role": "user",
+      "content": "be ome",
+      "timestamp": "2025-12-22T13:18:05.437275Z"
+    },
+    {
+      "id": "m_0046",
+      "role": "assistant",
+      "content": "I think you meant \"go home\" or \"be ome\"—could you please clarify what you'd like me to do?",
+      "timestamp": "2025-12-22T13:18:06.402435Z"
+    },
+    {
+      "id": "m_0047",
+      "role": "user",
+      "content": "Om-E",
+      "timestamp": "2025-12-22T13:18:14.462506Z"
+    },
+    {
+      "id": "m_0048",
+      "role": "assistant",
+      "content": "Executing SetTheme...",
+      "timestamp": "2025-12-22T13:18:15.548266Z"
+    },
+    {
+      "id": "m_0049",
+      "role": "user",
+      "content": "thats what i mean ok can you remember that",
+      "timestamp": "2025-12-22T13:18:26.436397Z"
+    },
+    {
+      "id": "m_0050",
+      "role": "assistant",
+      "content": "Got it! \"Om-E\" it is. I'll remember that as your special term. Just let me know whenever you want to use it!",
+      "timestamp": "2025-12-22T13:18:27.598307Z"
+    },
+    {
+      "id": "m_0051",
+      "role": "user",
+      "content": "lets be bunny",
+      "timestamp": "2025-12-22T13:18:37.331418Z"
+    },
+    {
+      "id": "m_0052",
+      "role": "assistant",
+      "content": "Executing SetTheme...",
+      "timestamp": "2025-12-22T13:18:38.829396Z"
+    },
+    {
+      "id": "m_0053",
+      "role": "user",
+      "content": "lets be kitty",
+      "timestamp": "2025-12-22T13:18:43.753003Z"
+    },
+    {
+      "id": "m_0054",
+      "role": "assistant",
+      "content": "Executing SetTheme...",
+      "timestamp": "2025-12-22T13:18:45.035383Z"
+    },
+    {
+      "id": "m_0055",
+      "role": "user",
+      "content": "lets be science guy",
+      "timestamp": "2025-12-22T13:18:51.202023Z"
+    },
+    {
+      "id": "m_0056",
+      "role": "assistant",
+      "content": "Executing SetTheme...",
+      "timestamp": "2025-12-22T13:18:52.197082Z"
+    },
+    {
+      "id": "m_0057",
+      "role": "user",
+      "content": "hahaha how did you know it was atom that was smart",
+      "timestamp": "2025-12-22T13:19:00.514581Z"
+    },
+    {
+      "id": "m_0058",
+      "role": "assistant",
+      "content": "I picked up on your vibe and the word \"atom\" you mentioned earlier! Plus, science themes are always a fun guess. Ready to explore more with the Atom theme or something else?",
+      "timestamp": "2025-12-22T13:19:01.997259Z"
+    },
+    {
+      "id": "m_0059",
+      "role": "user",
+      "content": "whats up dude how are you today",
+      "timestamp": "2025-12-22T13:21:34.035913Z"
+    },
+    {
+      "id": "m_0060",
+      "role": "assistant",
+      "content": "Hey dude! I'm doing great and ready to help you out. How about you? What's up today?",
+      "timestamp": "2025-12-22T13:21:35.282503Z"
+    },
+    {
+      "id": "m_0061",
+      "role": "user",
+      "content": "google cats for me please",
+      "timestamp": "2025-12-22T13:22:13.763355Z"
+    },
+    {
+      "id": "m_0062",
+      "role": "assistant",
+      "content": "Executing GoogleIt...",
+      "timestamp": "2025-12-22T13:22:15.589566Z"
+    },
+    {
+      "id": "m_0063",
+      "role": "user",
+      "content": "tell me about yourself in one sentence",
+      "timestamp": "2025-12-22T13:30:59.899191Z"
+    },
+    {
+      "id": "m_0064",
+      "role": "assistant",
+      "content": "I'm Om-E, your enthusiastic and playful assistant here to help you explore, learn, and have fun with whatever you need!",
+      "timestamp": "2025-12-22T13:31:01.769697Z"
+    },
+    {
+      "id": "m_0065",
+      "role": "user",
+      "content": "Here is a really long message that I'm pasting to test how the system handles large payloads. This is simulating when a user might paste in some code or a long document. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog again. And again the quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. This should be over 500 characters now and will help us see how the token count increases dramatically when users paste large content.",
+      "timestamp": "2025-12-22T13:31:41.447538Z"
+    },
+    {
+      "id": "m_0066",
+      "role": "assistant",
+      "content": "Thanks for testing with that long message! Everything looks good on my end, and I'm ready to handle large inputs whenever you need.",
+      "timestamp": "2025-12-22T13:31:43.344382Z"
+    },
+    {
+      "id": "m_0067",
+      "role": "user",
+      "content": "Here is another big chunk of text to test the new large payload handling. This message should be over 500 characters so it triggers the summarization flow. The system should now detect this as a large payload, create a 2 sentence summary for the prompt, and store the full original content in a vector store for later retrieval if needed. The quick brown fox jumps over the lazy dog multiple times just to pad this out. Lorem ipsum dolor sit amet consectetur adipiscing elit. This is testing infrastructure for handling code dumps, documents, or any large content users might paste.",
+      "timestamp": "2025-12-22T13:36:47.881272Z"
+    },
+    {
+      "id": "m_0068",
+      "role": "assistant",
+      "content": "You've shared a large text chunk to test the system's handling of big inputs, aiming for summarization and storage for later retrieval. The content includes repeated phrases and filler text to simulate a substantial payload.",
+      "timestamp": "2025-12-22T13:36:50.278816Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 994,
+    "last_summarized_idx": 0,
+    "recent_actions": [
+      {
+        "text": "SetTheme: Om-E",
+        "ts": "2025-12-22T13:18:15.548266Z"
+      },
+      {
+        "text": "SetTheme: lets be bunny",
+        "ts": "2025-12-22T13:18:38.829396Z"
+      },
+      {
+        "text": "SetTheme: lets be kitty",
+        "ts": "2025-12-22T13:18:45.035383Z"
+      },
+      {
+        "text": "SetTheme: lets be science guy",
+        "ts": "2025-12-22T13:18:52.197082Z"
+      },
+      {
+        "text": "GoogleIt: google cats for me please",
+        "ts": "2025-12-22T13:22:15.589566Z"
+      }
+    ]
+  }
+}

@@ -439,6 +439,28 @@
         "max_tokens": "Required - max tokens"
       }
     },
+    "SetCapScoreThreshold": {
+      "group": "config",
+      "action": "SetCapScoreThreshold",
+      "label": "Set cap score threshold",
+      "description": "Sets RAG confidence threshold for capabilities (0.0-1.0)",
+      "synonyms": ["cap threshold", "confidence threshold", "rag threshold"],
+      "example": "{\"cap\": \"SetCapScoreThreshold\", \"params\": {\"threshold\": 0.45}}",
+      "params": {
+        "threshold": "Required - threshold value (0.0-1.0)"
+      }
+    },
+    "SetSessionActionsLimit": {
+      "group": "config",
+      "action": "SetSessionActionsLimit",
+      "label": "Set session actions limit",
+      "description": "Sets rolling limit for session-wide action history (5-50)",
+      "synonyms": ["session history limit", "action history size", "session actions count"],
+      "example": "{\"cap\": \"SetSessionActionsLimit\", \"params\": {\"limit\": 20}}",
+      "params": {
+        "limit": "Required - number of actions to keep (5-50)"
+      }
+    },
     "ReloadLLMConfig": {
       "group": "config",
       "action": "ReloadLLMConfig",
