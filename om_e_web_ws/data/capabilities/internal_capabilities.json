@@ -297,8 +297,8 @@
       "group": "chat",
       "action": "RenameChat",
       "label": "Rename a chat",
-      "description": "Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y'.",
-      "synonyms": ["change title", "update name", "rename it", "new title"],
+      "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
+      "synonyms": ["change title", "update name", "rename it", "new title", "call it", "name it", "rename this chat", "rename chat to"],
       "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
@@ -330,9 +330,9 @@
     "SetCurrentChat": {
       "group": "chat",
       "action": "SetCurrentChat",
-      "label": "Activate a chat",
-      "description": "Makes a chat active by number or name. Use number if visible, name for fuzzy match.",
-      "synonyms": ["go to chat", "open chat", "load chat", "activate chat"],
+      "label": "Switch to a chat",
+      "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
+      "synonyms": ["go to chat", "open chat", "load chat", "switch to chat", "switch chat"],
       "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
