@@ -7315,7 +7315,21 @@
                     }
 
                     console.log('[Content] 🤖 LLMChat success:', response.result);
-                    resolve(response.result);
+
+                    // Store chat_id if new chat was created
+                    const result = response.result;
+                    if (result?.chat_id && !chatState.currentChatId) {
+                        chatState.currentChatId = result.chat_id;
+                        chatState.pendingTitle = null;
+                        chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: result.chat_id });
+                        console.log('[Content] 🤖 New chat created:', result.chat_id);
+
+                        // Remove placeholder and refresh sidebar
+                        removeNewChatPlaceholder();
+                        loadSidebarChats();
+                    }
+
+                    resolve(result);
                 }
             );
         });

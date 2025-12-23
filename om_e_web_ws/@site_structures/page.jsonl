@@ -1,11 +1,11 @@
 {
-  "timestamp": 1766487634.107009,
+  "timestamp": 1766488607.676196,
   "browser_state": {
     "total_tabs": 3,
     "active_tab": {
-      "id": 1138056758,
-      "url": "https://www.google.com/",
-      "title": "Google",
+      "id": 1138056762,
+      "url": "https://www.google.com/search?q=cats",
+      "title": "cats - Google Search",
       "status": "loading"
     },
     "all_tabs": [
@@ -24,19 +24,19 @@
         "status": "complete"
       },
       {
-        "id": 1138056758,
-        "url": "https://www.google.com/",
-        "title": "Google",
+        "id": 1138056762,
+        "url": "https://www.google.com/search?q=cats",
+        "title": "cats - Google Search",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 48952.965396166,
+    "last_tabs_update": 49977.840109,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/",
-    "title": "Google",
+    "url": "https://www.google.com/search?q=cats",
+    "title": "cats - Google Search",
     "is_active_tab": true
   },
   "menu_structure": {

@@ -1,95 +1,68 @@
 {
   "metadata": {
-    "url": "https://www.google.com/",
-    "title": "Google",
-    "timestamp": "2025-12-23T11:00:34Z",
-    "element_count": 64
+    "url": "https://www.google.com/search?q=cats",
+    "title": "cats - Google Search",
+    "timestamp": "2025-12-23T11:16:47Z",
+    "element_count": 99
   },
   "elements": {
     "0": {
-      "label": "About",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a.MV3Tnb"
-      ],
-      "href": "https://about.google/?fg=1&utm_source=google-AU&utm_medium=referral&utm_campaign=hp-header"
-    },
-    "1": {
-      "label": "Store",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/AU']",
-        "a.MV3Tnb"
-      ],
-      "href": "https://store.google.com/AU?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-AU"
-    },
-    "2": {
-      "label": "Gmail",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Gmail ']",
-        "[aria-label='Gmail ']",
-        "a[href*='/mail/']",
-        "[data-pid='23']",
-        "a.gb_Z"
-      ],
-      "href": "https://mail.google.com/mail/?authuser=0&ogbl"
-    },
-    "3": {
-      "label": "Search for Images",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Search for Images ']",
-        "[aria-label='Search for Images ']",
-        "a[href*='/imghp']",
-        "[data-pid='2']",
-        "a.gb_Z"
-      ],
-      "href": "https://www.google.com/imghp?hl=en&authuser=0&ogbl"
-    },
-    "4": {
-      "label": "Google apps",
+      "label": "Share",
       "type": "Button",
-      "tag": "a",
+      "tag": "div",
       "selectors": [
-        "a[aria-label='Google apps']",
-        "[aria-label='Google apps']",
-        "[role='button'][aria-label='Google apps']",
-        "a[href*='/intl/en/about/products']",
-        "a.gb_B"
-      ],
-      "href": "https://www.google.com.au/intl/en/about/products"
-    },
-    "5": {
-      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
-      "type": "Button",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "a[href*='/SignOutOptions']",
-        "a.gb_B.gb_0a"
-      ],
-      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/&ec=futura_exp_og_si_72776762_e"
-    },
-    "6": {
-      "label": "Upload files or images",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Upload files or images']",
-        "[aria-label='Upload files or images']",
-        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ0J0RCA8']",
-        "button.sF3Vod"
+        "div[aria-label='Share']",
+        "[aria-label='Share']",
+        "[role='button'][aria-label='Share']",
+        "[data-sfo='21']",
+        "div.oH3Dv.d4TAJd"
       ],
       "href": null
     },
-    "7": {
+    "1": {
+      "label": "Skip to main content",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='0ahUKEwj7353vytORAxVsiKgCHakzAUUQ67oDCAU']",
+        "a.gyPpGe"
+      ],
+      "href": null
+    },
+    "2": {
+      "label": "Accessibility help",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/websearch/answer/181196']",
+        "a.gyPpGe"
+      ],
+      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
+    },
+    "3": {
+      "label": "Accessibility feedback",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-async-trigger='duf3-78']",
+        "a.gyPpGe"
+      ],
+      "href": null
+    },
+    "4": {
+      "label": "Go to Google Home",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Go to Google Home']",
+        "[aria-label='Go to Google Home']",
+        "#logo",
+        "a[href*='/webhp']",
+        "[data-hveid='9']"
+      ],
+      "href": "https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj7353vytORAxVsiKgCHakzAUUQPAgJ"
+    },
+    "5": {
       "label": "Search",
       "type": "Select",
       "tag": "textarea",
@@ -99,12 +72,25 @@
         "#APjFqb",
         "textarea[name='q']",
         "[role='combobox'][aria-label='Search']",
-        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ39UDCBQ']",
+        "[data-ved='0ahUKEwj7353vytORAxVsiKgCHakzAUUQ39UDCA0']",
         "textarea.gLFyf"
       ],
       "href": null
     },
-    "8": {
+    "6": {
+      "label": "Clear",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Clear']",
+        "[aria-label='Clear']",
+        "[role='button'][aria-label='Clear']",
+        "[data-ved='0ahUKEwj7353vytORAxVsiKgCHakzAUUQ05YFCA4']",
+        "div.M2vV3.vOY7J"
+      ],
+      "href": null
+    },
+    "7": {
       "label": "Search by voice",
       "type": "Button",
       "tag": "div",
@@ -112,12 +98,12 @@
         "div[aria-label='Search by voice']",
         "[aria-label='Search by voice']",
         "[role='button'][aria-label='Search by voice']",
-        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQvs8DCBY']",
+        "[data-ved='0ahUKEwj7353vytORAxVsiKgCHakzAUUQvs8DCA8']",
         "div.XDyW0e"
       ],
       "href": null
     },
-    "9": {
+    "8": {
       "label": "Search by image",
       "type": "Button",
       "tag": "div",
@@ -130,589 +116,972 @@
       ],
       "href": null
     },
-    "10": {
-      "label": "AI Mode",
+    "9": {
+      "label": "Search",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQteYPCBg']",
-        "button.plR5qb.Y5MKCd"
+        "button[aria-label='Search']",
+        "[aria-label='Search']",
+        "[data-ved='0ahUKEwj7353vytORAxVsiKgCHakzAUUQ4dUDCBE']",
+        "button.HZVG1b.Tg7LZd"
       ],
       "href": null
+    },
+    "10": {
+      "label": "Google apps",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Google apps']",
+        "[aria-label='Google apps']",
+        "[role='button'][aria-label='Google apps']",
+        "a[href*='/intl/en/about/products']",
+        "a.gb_B"
+      ],
+      "href": "https://www.google.com.au/intl/en/about/products?tab=wh"
     },
     "11": {
-      "label": "Google Search",
+      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
       "type": "Button",
-      "tag": "input",
+      "tag": "a",
       "selectors": [
-        "input[aria-label='Google Search']",
-        "[aria-label='Google Search']",
-        "input[name='btnK']",
-        "[role='button'][aria-label='Google Search']",
-        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ4dUDCCU']",
-        "input[type='submit'][name='btnK']",
-        "input.gNO89b"
+        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "a[href*='/SignOutOptions']",
+        "a.gb_B.gb_0a"
       ],
-      "href": null
+      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/search%3Fq%3Dcats&ec=futura_srp_og_si_72236_p"
     },
     "12": {
-      "label": "I'm Feeling Lucky",
-      "type": "Button",
-      "tag": "input",
+      "label": "AI Mode",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "input[aria-label='I\\'m Feeling Lucky']",
-        "[aria-label='I\\'m Feeling Lucky']",
-        "input[name='btnI']",
-        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ19QECCY']",
-        "input[type='submit'][name='btnI']",
-        "input.RNmpXc"
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQ2J8OegQIBxAE']",
+        "a.XVMlrc.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&udm=50&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&aep=1&ntc=1&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ2J8OegQIBxAE"
+    },
+    "13": {
+      "label": "All",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CAsQAQ']",
+        "a.C6AK7c"
       ],
       "href": null
     },
-    "13": {
-      "label": "Skip to Discover feed",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ67oDCCg']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/#"
-    },
     "14": {
-      "label": "Skip to sidebar",
+      "label": "Images",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ67oDCCk']",
-        "a.JMWBtb"
+        "a[href*='/search']",
+        "[data-hveid='CBwQAQ']",
+        "a.C6AK7c"
       ],
-      "href": "https://www.google.com/#"
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&q=cats&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQtKgLegQIHBAB"
     },
     "15": {
-      "label": "Skip to footer",
+      "label": "Videos",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-ved='0ahUKEwiyjcKGx9ORAxUoSmwGHZKwPRIQ67oDCCo']",
-        "a.JMWBtb"
+        "a[href*='/search']",
+        "[data-hveid='CBoQAQ']",
+        "a.C6AK7c"
       ],
-      "href": "https://www.google.com/#"
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&q=cats&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQtKgLegQIGhAB"
     },
     "16": {
-      "label": "Accessibility help",
+      "label": "Short videos",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/websearch/answer/181196']",
-        "a.JMWBtb"
+        "a[href*='/search']",
+        "[data-hveid='CBgQAQ']",
+        "a.C6AK7c"
       ],
-      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&udm=39&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&q=cats&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQs6gLegQIGBAB"
     },
     "17": {
-      "label": "Accessibility feedback",
+      "label": "Shopping",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-async-trigger='duf3-78']",
-        "a.JMWBtb"
+        "a[href*='/search']",
+        "[data-hveid='CBQQAQ']",
+        "a.C6AK7c"
       ],
-      "href": "https://www.google.com/#"
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&udm=28&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&q=cats&ved=1t:220175&ictx=111"
     },
     "18": {
-      "label": "RBA board losing confidence interest rates are slowing economy\nThe Reserve Bank of Australia said it has less confidence in its previous assessment that monetary policy is restricting the economy, and that interest rate...\nAFR\n · \n7h",
+      "label": "News",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/policy/economy/rba-board-losing-confidence-interest-rates-are-slowing-economy-20251223-p5npoc']",
-        "[data-hveid='CBkQAQ']"
+        "a[href*='/search']",
+        "[data-hveid='CBAQAQ']",
+        "a.C6AK7c"
       ],
-      "href": "https://www.afr.com/policy/economy/rba-board-losing-confidence-interest-rates-are-slowing-economy-20251223-p5npoc"
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=cats&tbm=nws&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZVmrJB8DQUK5IzxA2fZbQFrCfZ7DsBw9Vv9Qkv56j2AGVu_DjhVwRX9d8zm7PgfypLdoEosBfQudLdozIUQPiIyRhZKn-Fza1oXKnrO-YEA-NmnwQRPEuXBreFLzjhPnaS2hONxu7iU0sqxzuEH9JHtFPiAA&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ0pQJegQIEBAB"
     },
     "19": {
-      "label": "More options",
+      "label": "More",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQAw']",
-        "button.hiEo0c"
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQ7p0OegQIBxAG']",
+        "div.mTpL7c"
       ],
       "href": null
     },
     "20": {
-      "label": "CarExpert's top five light/small SUV reviews of 2025\nCarExpert published an immensely broad range of reviews in 2025. Here are the light and small SUVs that attracted the most eyeballs.\nCarExpert\n · \n14h",
-      "type": "Link",
-      "tag": "a",
+      "label": "Tools",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/car-news/carexperts-top-five-light-small-suv-reviews-of-2025']",
-        "[data-hveid='CEAQAQ']"
+        "#hdtb-tls",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQ2x96BAgHEAg']",
+        "div.mOKdDc"
       ],
-      "href": "https://www.carexpert.com.au/car-news/carexperts-top-five-light-small-suv-reviews-of-2025"
+      "href": null
     },
     "21": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
+      "label": "Cat\n\nWikipedia\nhttps://en.wikipedia.org › wiki › Cat",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQBQ']",
-        "button.hiEo0c"
+        "a[href*='/wiki/Cat']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQFnoECC4QAQ']",
+        "a.zReHs"
       ],
-      "href": null
+      "href": "https://en.wikipedia.org/wiki/Cat"
     },
     "22": {
-      "label": "Chevrolet Corvette ZR1 2026: Over 800 HP Performance, Bold Design & Engineering Beyond Expectations\nChevrolet Corvette ZR1 2026 delivers over 800 HP performance, aggressive aerodynamic design, track-focused engineering, and advanced driving technology.\nCherry Design Group -\n · \n20h",
+      "label": "Read more",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/2026-corvette-zr1-first-look/']",
-        "[data-hveid='CGcQAQ']"
+        "a[href*='/wiki/Cat']",
+        "a[href*='#:~:text=The%20cat%20(Felis%20catus)%2C%20also,requiring%20a%20predominantly%20meat%2Dbased%20diet.']",
+        "a.vzmbzf"
       ],
-      "href": "https://cherrydesigngroup.com/2026-corvette-zr1-first-look/"
+      "href": "https://en.wikipedia.org/wiki/Cat#:~:text=The%20cat%20(Felis%20catus)%2C%20also,requiring%20a%20predominantly%20meat%2Dbased%20diet."
     },
     "23": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
+      "label": "List of cat breeds",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQBw']",
-        "button.hiEo0c"
+        "a[href*='/wiki/List_of_cat_breeds']",
+        "a.dM1Yyd"
       ],
-      "href": null
+      "href": "https://en.wikipedia.org/wiki/List_of_cat_breeds"
     },
     "24": {
-      "label": "As the Solar System orbits the Milky Way at ~220 km/s, it encounters a \"wind\" of dark matter particles from the galactic halo. The Sun's gravity deflects these particles (assumed non-interacting except gravitationally), focusing them downstream—like a lens concentrating light—creating a region of slightly higher dark matter density behind the Sun relative to the direction of motion.This gravitational focusing enhances the local dark matter phase-space distribution, forming a subtle \"wake\" or directional stream. As Earth orbits the Sun, it periodically moves into and out of this focused region, inducing a small annual variation in the expected dark matter interaction rate at detectors.A landmark 2014 study (Lee et al., Physical Review Letters) showed this effect shifts the phase of the annual modulation signal from the naive expectation (peak June 1) by days to weeks, depending on particle mass and velocity—most pronounced for lower-mass (10 GeV) or slower dark matter. The modulation am\nkonstructivizm\nX\n · \n1d",
+      "label": "Aging in cats",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/konstructivizm/status/2002912723881877935']",
-        "[data-hveid='CHgQAQ']"
+        "a[href*='/wiki/Aging_in_cats']",
+        "a.dM1Yyd"
       ],
-      "href": "https://x.com/konstructivizm/status/2002912723881877935"
+      "href": "https://en.wikipedia.org/wiki/Aging_in_cats"
     },
     "25": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
+      "label": "Cancer in cats",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQCQ']",
-        "button.hiEo0c"
+        "a[href*='/wiki/Cancer_in_cats']",
+        "a.dM1Yyd"
       ],
-      "href": null
+      "href": "https://en.wikipedia.org/wiki/Cancer_in_cats"
     },
     "26": {
-      "label": "Oversonic Robotics signs humanoid robots supply agreement with STMicroelectronics – Company Announcement\n22, 2025 /PRNewswire/ -- Oversonic Robotics, an Italian company specialized in cognitive humanoid robotics, announces the signing of an agreement with...\nFinancial Times\n · \n1d",
+      "label": "Human interaction with cats",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/data/announce/detail']",
-        "[data-hveid='CJ8BEAE']"
+        "a[href*='/wiki/Human_interaction_with_cats']",
+        "a.dM1Yyd"
       ],
-      "href": "https://markets.ft.com/data/announce/detail?dockey=600-202512220330PR_NEWS_USPRX____LN52198-1"
+      "href": "https://en.wikipedia.org/wiki/Human_interaction_with_cats"
     },
     "27": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
+      "label": "CATS the Musical | Australia | 2025\n\nCATS the Musical | Australia\nhttps://catsthemusical.com.au",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQCw']",
-        "button.hiEo0c"
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQFnoECC0QAQ']",
+        "a.zReHs"
       ],
-      "href": null
+      "href": "https://catsthemusical.com.au/"
     },
     "28": {
-      "label": "Geologists discover a super-giant gold deposit in China with an estimated value of around $85,215,780\nThe discovery of a super-giant gold mine in China is dazzling, but the deeper it is, the greater the economic and environmental cost.\nECOticias.com\n · \n1d",
+      "label": "Melbourne",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-hveid='CMYBEAE']"
+        "a[href*='/tickets/melbourne/']",
+        "a.dM1Yyd"
       ],
-      "href": "https://www.ecoticias.com/en/geologists-discover-a-super-giant-gold-deposit-in-china-with-an-estimated-value-of-around-85215780/24726/"
+      "href": "https://catsthemusical.com.au/tickets/melbourne/"
     },
     "29": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
+      "label": "Brisbane",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQDQ']",
-        "button.hiEo0c"
+        "a[href*='/tickets/brisbane/']",
+        "a.dM1Yyd"
       ],
-      "href": null
+      "href": "https://catsthemusical.com.au/tickets/brisbane/"
     },
     "30": {
-      "label": "The Best Time to Eat Dinner for Better Digestion and Sleep\nWhen you eat matters in addition to what you eat. The optimal timing of your meals is tied to your circadian rhythm. Learn why it is best to eat dinner...\nVerywell Health\n · \n16h",
+      "label": "Cast",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/best-time-to-eat-dinner-11852427']",
-        "[data-hveid='CO0BEAE']"
+        "a[href*='/cast/']",
+        "a.dM1Yyd"
       ],
-      "href": "https://www.verywellhealth.com/best-time-to-eat-dinner-11852427"
+      "href": "https://catsthemusical.com.au/cast/"
     },
     "31": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
+      "label": "Gallery",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQDw']",
-        "button.hiEo0c"
+        "a[href*='/gallery/']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://catsthemusical.com.au/gallery/"
+    },
+    "32": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
       ],
       "href": null
     },
-    "32": {
-      "label": "Joshua and Paul provide sorry spectacle and the worst is there’s more to come\nThe bout in Miami was a bleak and blood-flecked affair but both combatants will find more opponents willing to take the money.\nThe Guardian\n · \n20h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/sport/2025/dec/22/anthony-joshua-jake-paul-heavyweight-boxing']",
-        "[data-hveid='CJYCEAE']"
-      ],
-      "href": "https://www.theguardian.com/sport/2025/dec/22/anthony-joshua-jake-paul-heavyweight-boxing"
-    },
     "33": {
-      "label": "More options",
+      "label": "What is the 3-3-3 rule for cats?",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQEQ']",
-        "button.hiEo0c"
+        "div.dnXCYb"
       ],
       "href": null
     },
     "34": {
-      "label": "Australian Dollar advances as US Dollar declines ahead of Q3 GDP Annualized\nThe Australian Dollar (AUD) gains ground against the US Dollar (USD) on Tuesday, following the release of the Reserve Bank of Australia (RBA) Minutes of its...\nFXStreet\n · \n5h",
-      "type": "Link",
-      "tag": "a",
+      "label": "What are 10 facts about cats?",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/news/australian-dollar-advances-following-rba-meeting-minutes-202512230144']",
-        "[data-hveid='CL8CEAE']"
+        "div.dnXCYb"
       ],
-      "href": "https://www.fxstreet.com/news/australian-dollar-advances-following-rba-meeting-minutes-202512230144"
+      "href": null
     },
     "35": {
-      "label": "More options",
+      "label": "How often should cats be bathed?",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQEw']",
-        "button.hiEo0c"
+        "div.dnXCYb"
       ],
       "href": null
     },
     "36": {
-      "label": "How AI Is Changing The Nature Of Work And The Human Experience\nThere is a lot of hype about AI, including plenty of opinions about how AI will destroy us, save us or surprise us. But reality is less extreme and more...\nForbes\n · \n22h",
-      "type": "Link",
-      "tag": "a",
+      "label": "How many cats are left?",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/sites/tracybrower/2025/12/22/how-ai-is-changing-work-and-the-human-experience/']",
-        "[data-hveid='COYCEAE']"
+        "div.dnXCYb"
       ],
-      "href": "https://www.forbes.com/sites/tracybrower/2025/12/22/how-ai-is-changing-work-and-the-human-experience/"
+      "href": null
     },
     "37": {
-      "label": "More options",
+      "label": "Feedback",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQFQ']",
-        "button.hiEo0c"
+        "[data-dccl='false']",
+        "div.mWcf0e.nKHyTc"
       ],
       "href": null
     },
     "38": {
-      "label": "13:49\nGoogle's New T5, Anthropic's New BLOOM, NVIDIA Nemotron 3 and More Intense AI News\nAI Revolution\nYouTube\n · \n12h",
+      "label": "Safe and Happy Cats: Home\n\nSafe and Happy Cats\nhttps://safeandhappycats.com.au",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQFnoECCcQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://safeandhappycats.com.au/"
+    },
+    "39": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='#:~:text=We%20know%20that%20cats%20can,home%20all%20day%2C%20every%20day.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://safeandhappycats.com.au/#:~:text=We%20know%20that%20cats%20can,home%20all%20day%2C%20every%20day."
+    },
+    "40": {
+      "label": "Cats (2019)\n\nIMDb\nhttps://www.imdb.com › title",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt5697572/']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQFnoECGwQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.imdb.com/title/tt5697572/"
+    },
+    "41": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/title/tt5697572/']",
+        "a[href*='#:~:text=A%20tribe%20of%20cats%20called,to%20a%20new%20Jellicle%20life.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.imdb.com/title/tt5697572/#:~:text=A%20tribe%20of%20cats%20called,to%20a%20new%20Jellicle%20life."
+    },
+    "42": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
+    },
+    "43": {
+      "label": "Dramatic Cats Acting Like ONE Human Is Their Entire World\nYouTube · Little Love\n4 days ago",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/watch']",
-        "[data-hveid='CBgQAQ']"
+        "a.rIRoqf"
       ],
-      "href": "https://www.youtube.com/watch?v=ya-nk9RLXm8"
-    },
-    "39": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQFw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "40": {
-      "label": "China’s rare earth magnet exports to US decline in November\nChina's exports of rare earth magnets to the US fell 11% in November from a month earlier, with no immediate rebound seen after a trade truce between the...\nMining.com\n · \n2d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/web/chinas-rare-earth-magnet-exports-to-us-decline-in-november/']",
-        "[data-hveid='CD8QAQ']"
-      ],
-      "href": "https://www.mining.com/web/chinas-rare-earth-magnet-exports-to-us-decline-in-november/"
-    },
-    "41": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQGQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "42": {
-      "label": "Scientists reduce the time for quantum learning tasks from 20 million years to 15 minutes\nEntangled light lets researchers learn complex quantum systems millions of times faster than classical methods.\nThe Brighter Side of News\n · \n2d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/post/scientists-reduce-the-time-for-quantum-learning-tasks-from-20-million-years-to-15-minutes/']",
-        "[data-hveid='CGYQAQ']"
-      ],
-      "href": "https://www.thebrighterside.news/post/scientists-reduce-the-time-for-quantum-learning-tasks-from-20-million-years-to-15-minutes/"
-    },
-    "43": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQGw']",
-        "button.hiEo0c"
-      ],
-      "href": null
+      "href": "https://www.youtube.com/watch?v=WuO1SQNPoPE&vl=en"
     },
     "44": {
-      "label": "Activist group says it has scraped 86m music files from Spotify\nPlatform with 700m users says it is investigating after Anna's Archive claims to have scraped tracks and metadata.\nThe Guardian\n · \n16h",
-      "type": "Link",
-      "tag": "a",
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/technology/2025/dec/22/activist-group-says-it-has-scraped-86m-music-files-from-spotify']",
-        "[data-hveid='CI0BEAE']"
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
       ],
-      "href": "https://www.theguardian.com/technology/2025/dec/22/activist-group-says-it-has-scraped-86m-music-files-from-spotify"
+      "href": null
     },
     "45": {
-      "label": "More options",
+      "label": "Dramatic Cats Acting Like ONE Human Is Their Entire World by Little Love  on YouTube. Play on Google. 10:48",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQHQ']",
-        "button.hiEo0c"
+        "[role='button'][aria-label='Dramatic Cats Acting Like ONE Human Is Their Entire World by Little Love  on YouTube. Play on Google. 10:48']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQj_EHegQIeBAD']",
+        "div.rIRoqf.hXY9cf"
       ],
       "href": null
     },
     "46": {
-      "label": "Samsung is putting Gemini on a fridge, and it'll debut at CES 2026\nGemini will show up on a home appliance for the first time.\nAndroid Central\n · \n50m",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/phones/samsung-galaxy/samsung-gemini-fridge-ces-2026']",
-        "[data-hveid='CLQBEAE']"
-      ],
-      "href": "https://www.androidcentral.com/phones/samsung-galaxy/samsung-gemini-fridge-ces-2026"
-    },
-    "47": {
-      "label": "More options",
+      "label": "A cat can't possibly look more sincere than when it meets its beloved human no matter what you're doing.",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQHw']",
-        "button.hiEo0c"
+        "[role='button'][aria-label='A cat can\\'t possibly look more sincere than when it meets its beloved human no matter what you\\'re doing.']",
+        "[data-hveid='CHgQCA']",
+        "div.rIRoqf.hXY9cf"
       ],
       "href": null
     },
-    "48": {
-      "label": "Billionaire investor walks back on Bondi blame\nOne of Australia's best-known investors has described the term anti-Semitism as a “useless word”, claiming that it has been “debased” by people who fail to...\nThe Australian\n · \n1d",
+    "47": {
+      "label": "Hilarious Cats Can Be Friends With the Whole World Funny ...\nYouTube · Funny And Cute Cat's Life\n3 weeks ago",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-hveid='CNsBEAE']"
+        "a[href*='/watch']",
+        "a.rIRoqf"
       ],
-      "href": "https://www.theaustralian.com.au/business/billionaire-investor-kerr-neilson-suggests-israels-actions-to-blame-for-bondi-massacre/news-story/1acf22326dc9f494876f0aabf3fca713"
+      "href": "https://www.youtube.com/watch?v=5DXZAvhISA8"
+    },
+    "48": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
     },
     "49": {
-      "label": "More options",
+      "label": "Hilarious Cats Can Be Friends With the Whole World Funny ... by Funny And Cute Cat's Life on YouTube. Play on Google. 10:24",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQIQ']",
-        "button.hiEo0c"
+        "[role='button'][aria-label='Hilarious Cats Can Be Friends With the Whole World Funny ... by Funny And Cute Cat\\'s Life on YouTube. Play on Google. 10:24']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQj_EHegQIeRAD']",
+        "div.rIRoqf.hXY9cf"
       ],
       "href": null
     },
     "50": {
-      "label": "Brain Gear Is the Hot New Wearable\nSmartwatches are cool and all, but have you considered wearable neurotech?\nWIRED\n · \n23h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/story/expired-tired-wired-wearables/']",
-        "[data-hveid='CIICEAE']"
-      ],
-      "href": "https://www.wired.com/story/expired-tired-wired-wearables/"
-    },
-    "51": {
-      "label": "More options",
+      "label": "Cats are definitely the best companions anyone could ask for.",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQIw']",
-        "button.hiEo0c"
+        "div[aria-label='Cats are definitely the best companions anyone could ask for.']",
+        "[aria-label='Cats are definitely the best companions anyone could ask for.']",
+        "[role='button'][aria-label='Cats are definitely the best companions anyone could ask for.']",
+        "[data-hveid='CHkQBw']",
+        "div.rIRoqf.hXY9cf"
       ],
       "href": null
     },
-    "52": {
-      "label": "Western intelligence suspects Russia is developing new weapon to target Elon Musk's Starlink satellites\nTwo Nato-nation intelligence services suspect Russia is developing a new anti-satellite weapon to target Elon Musk's Starlink constellation with destructive...\nStuff\n · \n1d",
+    "51": {
+      "label": "Cats Who Totally Break a Man's Heart at First Sight Cute Cat ...\nYouTube · Little Love\n1 Oct 2025",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-hveid='CKkCEAE']"
+        "a[href*='/watch']",
+        "a.rIRoqf"
       ],
-      "href": "https://www.stuff.co.nz/world-news/360917944/western-intelligence-suspects-russia-developing-new-weapon-target-elon-musks-starlink-satellites"
+      "href": "https://www.youtube.com/watch?v=blk8GUN_3sI"
+    },
+    "52": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
     },
     "53": {
-      "label": "More options",
+      "label": "Cats Who Totally Break a Man's Heart at First Sight Cute Cat ... by Little Love  on YouTube. Play on Google. 11:00",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQJQ']",
-        "button.hiEo0c"
+        "[role='button'][aria-label='Cats Who Totally Break a Man\\'s Heart at First Sight Cute Cat ... by Little Love  on YouTube. Play on Google. 11:00']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQj_EHegQIehAD']",
+        "div.rIRoqf.hXY9cf"
       ],
       "href": null
     },
     "54": {
-      "label": "Adelaide Hills wine makes Qantas International Business Class List from 1,400+ Bottles\nThe Qantas Wine Program includes a blind tasting of more than 1400 bottles across 19 categories to choose the winning drops.\nGlam Adelaide\n · \n16h",
-      "type": "Link",
-      "tag": "a",
+      "label": "A random meeting brought them together love made sure they never left however the first impression is okay that's enough action speaks louder than bios.",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[href*='/adelaide-hills-wine-makes-qantas-international-business-class-list-from-1400-bottles/']",
-        "[data-hveid='CNACEAE']"
+        "[role='button'][aria-label='A random meeting brought them together love made sure they never left however the first impression is okay that\\'s enough action speaks louder than bios.']",
+        "[data-hveid='CHoQCA']",
+        "div.rIRoqf.hXY9cf"
       ],
-      "href": "https://glamadelaide.com.au/adelaide-hills-wine-makes-qantas-international-business-class-list-from-1400-bottles/"
+      "href": null
     },
     "55": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
+      "label": "View all videos",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQJw']",
-        "button.hiEo0c"
+        "a[aria-label='View all videos']",
+        "[aria-label='View all videos']",
+        "a[href*='/search']",
+        "a.jRKCUd"
       ],
-      "href": null
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&udm=7&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=cats&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8ccDKAJ6BAh7EAQ"
     },
     "56": {
-      "label": "Economy flights for MPs’ families as Albanese cracks down on travel\nIn response to controversies engulfing senior ministers, Australia-wide travel for family members will be removed, and partner travel will be limited.\nAFR\n · \n6h",
+      "label": "Cat | Breeds, Origins, History, Body Types ... - Britannica\n\nBritannica\nhttps://www.britannica.com › ... › Cats & the Feline Family",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-hveid='CPcCEAE']"
+        "a[href*='/animal/cat']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQFnoECGsQAQ']",
+        "a.zReHs"
       ],
-      "href": "https://www.afr.com/politics/federal/economy-flights-for-mps-families-as-albanese-cracks-down-on-travel-20251223-p5npqp"
+      "href": "https://www.britannica.com/animal/cat"
     },
     "57": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwj4j7qHx9ORAxUAAAAAHQAAAAAQKQ']",
-        "button.hiEo0c"
+        "a[href*='/animal/cat']",
+        "a[href*='#:~:text=Domestic%20cats%20are%20characterized%20by,teeth%20adapted%20for%20hunting%20prey.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://www.britannica.com/animal/cat#:~:text=Domestic%20cats%20are%20characterized%20by,teeth%20adapted%20for%20hunting%20prey."
+    },
+    "58": {
+      "label": "Cats in Australia\n\nInvasive Species Council\nhttps://invasives.org.au › ... › Feral animals in Australia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/our-work/feral-animals/cats-in-australia/']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQFnoECG0QAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://invasives.org.au/our-work/feral-animals/cats-in-australia/"
+    },
+    "59": {
+      "label": "Read more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/our-work/feral-animals/cats-in-australia/']",
+        "a[href*='#:~:text=Cats%20have%20caused%20more%20environmental,1788%20on%20the%20First%20Fleet.']",
+        "a.vzmbzf"
+      ],
+      "href": "https://invasives.org.au/our-work/feral-animals/cats-in-australia/#:~:text=Cats%20have%20caused%20more%20environmental,1788%20on%20the%20First%20Fleet."
+    },
+    "60": {
+      "label": "Cats | Animal Welfare Victoria | Livestock and animals\n\nAgriculture Victoria\nhttps://agriculture.vic.gov.au › livestock-and-animals › cats",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/livestock-and-animals/animal-welfare-victoria/cats']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQFnoECG4QAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://agriculture.vic.gov.au/livestock-and-animals/animal-welfare-victoria/cats"
+    },
+    "61": {
+      "label": "CATS\n\nArts Centre Melbourne\nhttps://www.artscentremelbourne.com.au › musical › cats",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/whats-on/2025/musical/cats']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQFnoECF8QAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.artscentremelbourne.com.au/whats-on/2025/musical/cats"
+    },
+    "62": {
+      "label": "ALL THE CATS, EXPLAINED\n\nYouTube · MinuteEarth\n925.5K+ views · 1 month ago",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQtwJ6BAhcEAI']",
+        "a.zReHs"
+      ],
+      "href": "https://www.youtube.com/watch?v=UWagM1FBB4c"
+    },
+    "63": {
+      "label": "ALL THE CATS, EXPLAINED by MinuteEarth on YouTube. Play on Google. 12:42",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='ALL THE CATS, EXPLAINED by MinuteEarth on YouTube. Play on Google. 12:42']",
+        "[aria-label='ALL THE CATS, EXPLAINED by MinuteEarth on YouTube. Play on Google. 12:42']",
+        "[role='button'][aria-label='ALL THE CATS, EXPLAINED by MinuteEarth on YouTube. Play on Google. 12:42']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQ5KoOegQIXBAM']",
+        "div.rIRoqf.hXY9cf"
       ],
       "href": null
     },
-    "58": {
-      "label": "Advertising",
+    "64": {
+      "label": "Cats Adelaide",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/intl/en_au/ads/']",
-        "a.pHiOh"
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
       ],
-      "href": "https://www.google.com/intl/en_au/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1"
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Cats+Adelaide&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ1QJ6BAhaEAE"
     },
-    "59": {
-      "label": "Business",
+    "65": {
+      "label": "Cats for sale",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/services/']",
-        "a.pHiOh"
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
       ],
-      "href": "https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1"
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Cats+for+sale&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ1QJ6BAhqEAE"
     },
-    "60": {
-      "label": "How Search works",
+    "66": {
+      "label": "Cats Photos",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search/howsearchworks/']",
-        "a.pHiOh"
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
       ],
-      "href": "https://google.com/search/howsearchworks/?fg=1"
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Cats+Photos&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ1QJ6BAhoEAE"
     },
-    "61": {
+    "67": {
+      "label": "Cats movie",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Cats+movie&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ1QJ6BAhmEAE"
+    },
+    "68": {
+      "label": "Cats Australia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Cats+Australia&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ1QJ6BAhhEAE"
+    },
+    "69": {
+      "label": "C a t s game",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=C+a+t+s+game&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ1QJ6BAhgEAE"
+    },
+    "70": {
+      "label": "Cats play",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Cats+play&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ1QJ6BAheEAE"
+    },
+    "71": {
+      "label": "Cats show",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Cats+show&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ1QJ6BAhdEAE"
+    },
+    "72": {
+      "label": "Page 2",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 2']",
+        "[aria-label='Page 2']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=10&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8tMDegQIGRAE"
+    },
+    "73": {
+      "label": "Page 3",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 3']",
+        "[aria-label='Page 3']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=20&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8tMDegQIGRAG"
+    },
+    "74": {
+      "label": "Page 4",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 4']",
+        "[aria-label='Page 4']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=30&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8tMDegQIGRAI"
+    },
+    "75": {
+      "label": "Page 5",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 5']",
+        "[aria-label='Page 5']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=40&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8tMDegQIGRAK"
+    },
+    "76": {
+      "label": "Page 6",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 6']",
+        "[aria-label='Page 6']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=50&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8tMDegQIGRAM"
+    },
+    "77": {
+      "label": "Page 7",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 7']",
+        "[aria-label='Page 7']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=60&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8tMDegQIGRAO"
+    },
+    "78": {
+      "label": "Page 8",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 8']",
+        "[aria-label='Page 8']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=70&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8tMDegQIGRAQ"
+    },
+    "79": {
+      "label": "Page 9",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 9']",
+        "[aria-label='Page 9']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=80&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8tMDegQIGRAS"
+    },
+    "80": {
+      "label": "Page 10",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 10']",
+        "[aria-label='Page 10']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=90&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8tMDegQIGRAU"
+    },
+    "81": {
+      "label": "Next",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "#pnnext",
+        "a[href*='/search']",
+        "a.LLNLxf"
+      ],
+      "href": "https://www.google.com/search?q=cats&sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&ei=HnpKafvYLOyQosUPqeeEqAQ&start=10&sa=N&sstk=Af77f_eyeOSfMXCOK2bnGUvtDRHzSBiJqMA77Bo_IksRHH_hi1d3ffHmOP68p7DHIQTuDG6AM0xIU7cVHALYRxpUgrQmvZtaLkOMKg&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ8NMDegQIGRAW"
+    },
+    "82": {
+      "label": "Cat",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQ_coHegQIDRAB']",
+        "a.a3glFf"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Cat&si=AMgyJEsWkE1ewZweG0l4hBDuTLQxkT_WXUlKMnsBd7DK72Z2BqaNrKQ6nbp7Ts4svQPnQN99ERrooZ49FBNBHhOpcwAnnP_B6ogGbg1ZKXLf-ftdprt4p9pYDil6Hb1WZXDeniryL4sw&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ_coHegQIDRAB&ictx=0"
+    },
+    "83": {
+      "label": "Wikipedia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Cat']",
+        "a.y171A.Q7PwXb"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Cat"
+    },
+    "84": {
+      "label": "Lifespan\n13 – 20 years\nDomestic",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQ18AJegQIFRAB']",
+        "a.r1DBAc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=cat+lifespan&stick=H4sIAAAAAAAAAOPgE-LQz9U3MKwsqtDSyU620k_KzM_JT6_Uzy9KT8zLLM6NT85JLC7OTMtMTizJzM-zyslMSy0uSMxbxMoDFFGAcQH6bPZNSQAAAA&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ18AJegQIFRAB"
+    },
+    "85": {
+      "label": "Gestation period\n65 days",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQ18AJegQIFxAB']",
+        "a.r1DBAc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=cat+gestation+period&stick=H4sIAAAAAAAAAOPgE-LQz9U3MKwsqtAyyU620k_KzM_JT6_Uzy9KT8zLLM6NT85JLC7OTMtMTizJzM-zSk8tLgGzFApSizLzUxaxigBlFNCFAYym0MBZAAAA&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQ18AJegQIFxAB"
+    },
+    "86": {
+      "label": "Wikimedia Foundation",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/List_of_animal_names']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQvRl6BAgPEAI']"
+      ],
+      "href": "https://en.wikipedia.org/wiki/List_of_animal_names"
+    },
+    "87": {
+      "label": "Breeds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.a-no-hover-decoration.ntBZob"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=cat+breeds&si=AMgyJEu4IfAYlL5Z9EyZcCg6dZjS7BeHTbQxWy7m5TepuoR7q3or_6oZ98GXbdK9cnPXVHJdhEgImPLYNgyKeyjTcf7W24mu-lSFQ0ueitu9idfyJmjmx7e0njeovI45m7Aw-v34xGHx&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQw_oBegQIRhAB&ictx=1"
+    },
+    "88": {
+      "label": "Siamese cat",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Siamese cat']",
+        "[aria-label='Siamese cat']",
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQxA16BAgMEAM']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Siamese+cat&stick=H4sIAAAAAAAAAONgFuLQz9U3MKwsqlACs9LjjYu0-P2L0hPzMotzQ_KdilJTUxaxcgdnJuamFqcqJCeWAADcNbVCNQAAAA&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQxA16BAgMEAM"
+    },
+    "89": {
+      "label": "British Shorthair",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='British Shorthair']",
+        "[aria-label='British Shorthair']",
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQxA16BAgMEAY']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=British+Shorthair&stick=H4sIAAAAAAAAAONgFuLQz9U3MKwsqlACs5KTjM21-P2L0hPzMotzQ_KdilJTUxaxCjoVZZZkFmcoBGfkF5VkJGYWAQArFL25OwAAAA&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQxA16BAgMEAY"
+    },
+    "90": {
+      "label": "Maine Coon",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Maine Coon']",
+        "[aria-label='Maine Coon']",
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQxA16BAgMEAk']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Maine+Coon&stick=H4sIAAAAAAAAAONgFuLQz9U3MKwsqlACs7LMDLK0-P2L0hPzMotzQ_KdilJTUxaxcvkmZualKjjn5-cBADSbVe40AAAA&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQxA16BAgMEAk"
+    },
+    "91": {
+      "label": "Persian cat",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Persian cat']",
+        "[aria-label='Persian cat']",
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQxA16BAgMEAw']"
+      ],
+      "href": "https://www.google.com/search?sca_esv=50ea77102f6ce127&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736&q=Persian+cat&stick=H4sIAAAAAAAAAONgFuLQz9U3MKwsqlACs7JMzMq0-P2L0hPzMotzQ_KdilJTUxaxcgekFhVnJuYpJCeWAAAQE9udNQAAAA&sa=X&ved=2ahUKEwj7353vytORAxVsiKgCHakzAUUQxA16BAgMEAw"
+    },
+    "92": {
+      "label": "Try without personalisation",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=cats&peek_pws=0&sxsrf=AE3TifM1WcTs4iWPy-eLIl4LSCPwqxTc4g:1766488606736"
+    },
+    "93": {
+      "label": "Teringie, South Australia - Based on your places (Home)",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-biw='1080']"
+      ],
+      "href": "https://www.google.com/search?q=cats#"
+    },
+    "94": {
+      "label": "Update location",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-ved='2ahUKEwj7353vytORAxVsiKgCHakzAUUQpLkCegQICRAH']",
+        "div.VtPCGb"
+      ],
+      "href": null
+    },
+    "95": {
+      "label": "Help",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/websearch/']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://support.google.com/websearch/?p=ws_results_help&hl=en-AU&fg=1"
+    },
+    "96": {
+      "label": "Send feedback",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "#dk2qOd",
+        "a[href*='/search']",
+        "[data-bucket='websearch']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://www.google.com/search?q=cats#"
+    },
+    "97": {
       "label": "Privacy",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/privacy']",
-        "a.pHiOh"
+        "a.Fx4vi.wHYlTd"
       ],
       "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
     },
-    "62": {
+    "98": {
       "label": "Terms",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/terms']",
-        "a.pHiOh"
+        "a.Fx4vi.wHYlTd"
       ],
       "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
-    },
-    "63": {
-      "label": "Settings",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.CcNe6e"
-      ],
-      "href": null
     }
   }
 }
