@@ -1,19 +1,19 @@
 {
-  "timestamp": 1766459628.620904,
+  "timestamp": 1766483508.205214,
   "browser_state": {
-    "total_tabs": 3,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138056711,
-      "url": "https://www.google.com/search?q=Valeria",
-      "title": "Valeria - Google Search",
-      "status": "loading"
+      "id": 1138056676,
+      "url": "http://127.0.0.1:8080/",
+      "title": "OM-E Web",
+      "status": "complete"
     },
     "all_tabs": [
       {
         "id": 1138056676,
         "url": "http://127.0.0.1:8080/",
         "title": "OM-E Web",
-        "active": false,
+        "active": true,
         "status": "complete"
       },
       {
@@ -22,21 +22,14 @@
         "title": "Extensions",
         "active": false,
         "status": "complete"
-      },
-      {
-        "id": 1138056711,
-        "url": "https://www.google.com/search?q=Valeria",
-        "title": "Valeria - Google Search",
-        "active": true,
-        "status": "loading"
       }
     ],
-    "last_tabs_update": 20964.165406791,
+    "last_tabs_update": 44654.274581875,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/search?q=Valeria",
-    "title": "Valeria - Google Search",
+    "url": "http://127.0.0.1:8080/",
+    "title": "OM-E Web",
     "is_active_tab": true
   },
   "menu_structure": {

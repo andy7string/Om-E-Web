@@ -712,7 +712,7 @@ def validate_capability(action: str, params: dict, offered_caps: list[dict] | No
     return None, resolved_params  # Valid
 
 
-def execute_internal_capability(action: str, params: dict, offered_caps: list[dict] | None = None) -> dict:
+async def execute_internal_capability(action: str, params: dict, offered_caps: list[dict] | None = None) -> dict:
     """
     Execute an internal (server-side) capability.
 
@@ -834,6 +834,7 @@ def execute_internal_capability(action: str, params: dict, offered_caps: list[di
     elif action == "AppendMessage":
         # Append message to chat (creates chat if needed)
         # Also updates CURRENT_CHAT_ID so LLM responses go to same chat
+        # Runs through ingestion pipeline to detect/summarize large content
         chat_id = params.get("chat_id")
         role = params.get("role", "user")
         content = params.get("content", "")
@@ -861,11 +862,26 @@ def execute_internal_capability(action: str, params: dict, offered_caps: list[di
         CURRENT_CHAT_ID = chat_id
         print(f"💬 CURRENT_CHAT_ID set to: {chat_id}")
 
-        # Append message
+        # Run through ingestion to detect large content and summarize
+        # This handles: dedup, large payload detection, summarization, session vector indexing
+        try:
+            ingest_result = await preprocess_message(chat_id, content)
+
+            # Use processed content (stub if large, original otherwise)
+            processed_content = ingest_result.get("content", content)
+            is_large = ingest_result.get("is_large", False)
+
+            if is_large:
+                print(f"📦 Large content detected in AppendMessage ({len(content)} chars) -> using stub")
+        except Exception as e:
+            print(f"⚠️ Ingestion failed for AppendMessage: {e}, using raw content")
+            processed_content = content
+
+        # Append message with processed content
         if role == "user":
-            new_message = append_user_message(chat_dict, content)
+            new_message = append_user_message(chat_dict, processed_content)
         else:
-            new_message = append_assistant_message(chat_dict, content)
+            new_message = append_assistant_message(chat_dict, processed_content)
 
         # Save
         if save_chat(chat_dict):
@@ -1082,6 +1098,7 @@ def execute_internal_capability(action: str, params: dict, offered_caps: list[di
 
     elif action == "AppendUserMessage":
         # Append a user message (convenience wrapper for AppendMessage)
+        # Runs through ingestion pipeline to detect/summarize large content
         content = params.get("content", "")
         if not content:
             return {"error": "Missing content parameter"}
@@ -1107,8 +1124,23 @@ def execute_internal_capability(action: str, params: dict, offered_caps: list[di
             CURRENT_CHAT_ID = chat_id
             print(f"💬 Created new chat: {chat_id}")
 
-        # Append user message
-        new_message = append_user_message(chat_dict, content)
+        # Run through ingestion to detect large content and summarize
+        # This handles: dedup, large payload detection, summarization, session vector indexing
+        try:
+            ingest_result = await preprocess_message(CURRENT_CHAT_ID or "default", content)
+
+            # Use processed content (stub if large, original otherwise)
+            processed_content = ingest_result.get("content", content)
+            is_large = ingest_result.get("is_large", False)
+
+            if is_large:
+                print(f"📦 Large content detected in AppendUserMessage ({len(content)} chars) -> using stub")
+        except Exception as e:
+            print(f"⚠️ Ingestion failed for AppendUserMessage: {e}, using raw content")
+            processed_content = content
+
+        # Append user message with processed content
+        new_message = append_user_message(chat_dict, processed_content)
 
         if save_chat(chat_dict):
             return {
@@ -1533,6 +1565,38 @@ def execute_internal_capability(action: str, params: dict, offered_caps: list[di
             print(f"⚙️ Session actions limit set to: {limit_val}")
             return {"session_actions_limit": limit_val}
         return {"error": "Failed to save config"}
+
+    elif action == "SetLargePayloadThreshold":
+        # Set large content detection threshold (chars)
+        threshold = params.get("threshold")
+        if threshold is None:
+            return {"error": "Missing threshold parameter"}
+
+        try:
+            thresh_val = int(threshold)
+            if thresh_val < 100 or thresh_val > 5000:
+                return {"error": "threshold must be between 100 and 5000"}
+        except ValueError:
+            return {"error": "threshold must be an integer"}
+
+        config = load_llm_config()
+        if "context" not in config:
+            config["context"] = {}
+        config["context"]["large_payload_threshold"] = thresh_val
+        if save_llm_config(config):
+            print(f"⚙️ Large payload threshold set to: {thresh_val}")
+            return {"large_payload_threshold": thresh_val}
+        return {"error": "Failed to save config"}
+
+    elif action == "ClearSessionContent":
+        # Clear session content vector store
+        try:
+            from retrieval.session_content_store import clear_session_content_store
+            clear_session_content_store()
+            print("🧹 Session content cleared")
+            return {"cleared": True, "message": "Session content cleared"}
+        except Exception as e:
+            return {"error": f"Failed to clear session content: {e}"}
 
     elif action == "GetScanMode":
         # Get current scan mode from config
@@ -5631,11 +5695,37 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                             }))
                             continue
 
+                        # Get processed content (stub if large, original otherwise)
+                        processed_content = message
                         if ingestion_result.get("is_large"):
                             print(f"🧹 Ingestion: Large payload detected, using summary")
                             print(f"   Summary: {ingestion_result.get('summary', '')[:100]}...")
-                            # Use summary reference instead of raw content
-                            message = ingestion_result.get("content", message)
+                            processed_content = ingestion_result.get("content", message)
+                            message = processed_content  # Use stub for LLM
+
+                        # 💾 Save user message via AppendMessage capability (handles chat creation + HUD push)
+                        append_result = await execute_internal_capability(
+                            "AppendMessage",
+                            {
+                                "chat_id": CURRENT_CHAT_ID,
+                                "role": "user",
+                                "content": processed_content,
+                                "title": message[:100] if message else None
+                            }
+                        )
+
+                        # Update CURRENT_CHAT_ID if new chat was created
+                        if append_result.get("chat_id"):
+                            CURRENT_CHAT_ID = append_result["chat_id"]
+
+                        # Push HUD action if present
+                        hud_action = append_result.get("_hud_action")
+                        if hud_action and EXTENSION_WS:
+                            await EXTENSION_WS.send(json.dumps({
+                                "type": "hud_action",
+                                "action": hud_action
+                            }))
+                            print(f"💬 LLMChat: Pushed user message to HUD")
 
                         # 🎭 ORCHESTRATOR: Two-role LLM architecture (Role A + Role B)
                         if USE_ORCHESTRATOR:
@@ -5862,7 +5952,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
 
                                     else:
                                         # Internal capability
-                                        cap_result = execute_internal_capability(cap_action, cap_params)
+                                        cap_result = await execute_internal_capability(cap_action, cap_params)
 
                                         # 🔄 Handle needs_input: capability asking for missing param
                                         if isinstance(cap_result, dict) and cap_result.get("needs_input"):
@@ -6045,7 +6135,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                     internal_caps = load_internal_capabilities()
                     if action in internal_caps:
                         print(f"🔧 Routing internal capability: {action}")
-                        result = execute_internal_capability(action, params)
+                        result = await execute_internal_capability(action, params)
                         # Check if result contains an error
                         has_error = isinstance(result, dict) and "error" in result
 
@@ -7550,7 +7640,7 @@ async def send_capability_action(action: str, params: dict, timeout: float = 10.
     internal_caps = load_internal_capabilities()
     if action in internal_caps:
         print(f"🔧 send_capability_action: routing internal cap {action}")
-        result = execute_internal_capability(action, params)
+        result = await execute_internal_capability(action, params)
         has_error = isinstance(result, dict) and "error" in result
 
         # 🎛️ Push HUD action to extension if capability wants to drive UI

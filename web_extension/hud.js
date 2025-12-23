@@ -3235,24 +3235,19 @@
                     // 📬 Immediately display user message in chat
                     addChatMessage('user', text);
 
-                    // Send through chat pipeline
+                    // Send through chat pipeline (LLMChat now saves user message + gets response)
                     try {
-                        // 1. Save user message to chat (backend)
-                        const t1 = performance.now();
-                        const result = await sendChatMessage(text);
-                        const t2 = performance.now();
-                        console.log(`[Content] ⏱️ AppendMessage: ${Math.round(t2 - t1)}ms`);
-
                         // 🧪 EXPERIMENT: Trigger scan before LLM submission
+                        const t1 = performance.now();
                         const scanResult = await triggerScanAndWait();
-                        const t3 = performance.now();
-                        console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t3 - t2)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
+                        const t2 = performance.now();
+                        console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t2 - t1)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
-                        // 2. Send to LLM for response
+                        // Send to LLM (saves user msg + processes + saves response)
                         const llmResult = await sendLLMChat(text);
-                        const t4 = performance.now();
-                        console.log(`[Content] ⏱️ LLMChat: ${Math.round(t4 - t3)}ms`);
-                        console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t4 - t0)}ms`);
+                        const t3 = performance.now();
+                        console.log(`[Content] ⏱️ LLMChat: ${Math.round(t3 - t2)}ms`);
+                        console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t3 - t0)}ms`);
 
                         // 📬 Display assistant response
                         if (llmResult?.response) {
@@ -3767,6 +3762,15 @@
                                     <input type="number" class="ome-settings-session-actions" min="5" max="50" step="1" value="20" title="Rolling limit for session-wide action history (cross-chat bridge)">
                                 </div>
                             </div>
+                            <div class="ome-settings-row">
+                                <div class="ome-settings-group">
+                                    <label>Large Payload</label>
+                                    <input type="number" class="ome-settings-large-payload" min="100" max="5000" step="50" value="500" title="Char threshold for large content - above this is summarised and indexed to session vector">
+                                </div>
+                                <div class="ome-settings-group">
+                                    <button class="ome-clear-session" title="Clear session content vector (large content summaries)">Clear Session</button>
+                                </div>
+                            </div>
                             <button class="ome-settings-save">Save Settings</button>
                             <div class="ome-settings-status"></div>
                         </div>
@@ -4172,6 +4176,11 @@
                     const sessionActionsInput = hud.querySelector('.ome-settings-session-actions');
                     if (sessionActionsInput) sessionActionsInput.value = settings.session_actions_limit ?? 20;
 
+                    // Context settings
+                    const context = config.context || {};
+                    const largePayloadInput = hud.querySelector('.ome-settings-large-payload');
+                    if (largePayloadInput) largePayloadInput.value = context.large_payload_threshold ?? 500;
+
                     // Populate model dropdown for this provider (pass current model)
                     await populateModelList(activeProvider, provider.model || '');
                     syncTemperatureAvailability();
@@ -4230,6 +4239,30 @@
         // Custom model typing should also update temperature availability
         hud.querySelector('.ome-settings-model-custom')?.addEventListener('input', () => {
             syncTemperatureAvailability();
+        });
+
+        // Clear Session button
+        hud.querySelector('.ome-clear-session')?.addEventListener('click', async () => {
+            const statusEl = hud.querySelector('.ome-settings-status');
+            if (statusEl) statusEl.textContent = 'Clearing session...';
+
+            try {
+                await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'ClearSessionContent',
+                        params: {}
+                    }, resolve);
+                });
+
+                if (statusEl) {
+                    statusEl.textContent = '✓ Session cleared!';
+                    setTimeout(() => { statusEl.textContent = ''; }, 2000);
+                }
+            } catch (err) {
+                console.error('[HUD] Failed to clear session:', err);
+                if (statusEl) statusEl.textContent = '✗ Failed to clear session';
+            }
         });
 
         // Save Settings button
@@ -4322,6 +4355,16 @@
                         type: 'execute_capability',
                         action: 'SetSessionActionsLimit',
                         params: { limit: sessionActionsLimit }
+                    }, resolve);
+                });
+
+                // Set large payload threshold
+                const largePayloadThreshold = parseInt(hud.querySelector('.ome-settings-large-payload')?.value || '500', 10);
+                await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'SetLargePayloadThreshold',
+                        params: { threshold: largePayloadThreshold }
                     }, resolve);
                 });
 
@@ -4446,24 +4489,19 @@
             // 📬 Immediately display user message in chat
             addChatMessage('user', text);
 
-            // Send through chat pipeline
+            // Send through chat pipeline (LLMChat now saves user message + gets response)
             try {
-                // 1. Save user message to chat (backend)
-                const t1 = performance.now();
-                const result = await sendChatMessage(text);
-                const t2 = performance.now();
-                console.log(`[Content] ⏱️ AppendMessage: ${Math.round(t2 - t1)}ms`);
-
                 // 🧪 EXPERIMENT: Trigger scan before LLM submission
+                const t1 = performance.now();
                 const scanResult = await triggerScanAndWait();
-                const t3 = performance.now();
-                console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t3 - t2)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
+                const t2 = performance.now();
+                console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t2 - t1)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
-                // 2. Send to LLM for response
+                // Send to LLM (saves user msg + processes + saves response)
                 const llmResult = await sendLLMChat(text);
-                const t4 = performance.now();
-                console.log(`[Content] ⏱️ LLMChat: ${Math.round(t4 - t3)}ms`);
-                console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t4 - t0)}ms`);
+                const t3 = performance.now();
+                console.log(`[Content] ⏱️ LLMChat: ${Math.round(t3 - t2)}ms`);
+                console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t3 - t0)}ms`);
 
                 // 📬 Display assistant response
                 if (llmResult?.response) {
@@ -7173,6 +7211,11 @@
 
                     const result = response.result;
                     console.log('[Content] 💬 AppendMessage success:', result);
+
+                    // 🎨 Update UI with the saved message
+                    if (result?.message) {
+                        addChatMessage('user', prompt, { id: result.message.id });
+                    }
 
                     // Store chat_id if new chat was created
                     if (result?.chat_id && !chatState.currentChatId) {

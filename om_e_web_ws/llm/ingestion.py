@@ -19,10 +19,28 @@ logger = logging.getLogger(__name__)
 # Configuration
 # ============================================================
 
-LARGE_MSG_CHARS = 2000      # Chars threshold for "large" content
-LARGE_MSG_LINES = 50        # Line count threshold
 DEDUP_WINDOW_MS = 2000      # Ignore duplicate within this window
 CODE_BLOCK_PATTERN = re.compile(r'```[\s\S]*?```')
+
+# Default thresholds (overridden by config)
+DEFAULT_LARGE_THRESHOLD_CHARS = 500  # Tight default - triggers quickly
+
+
+def _get_large_threshold() -> int:
+    """
+    Get large content threshold from config.
+    Uses context.large_payload_threshold (in chars/tokens).
+    Falls back to DEFAULT_LARGE_THRESHOLD_CHARS.
+    """
+    try:
+        config_path = DATA_DIR / "llm_config.json"
+        if config_path.exists():
+            config = json.loads(config_path.read_text())
+            threshold = config.get("context", {}).get("large_payload_threshold", DEFAULT_LARGE_THRESHOLD_CHARS)
+            return int(threshold)
+    except Exception:
+        pass
+    return DEFAULT_LARGE_THRESHOLD_CHARS
 
 # In-memory dedup cache: chat_id → {hash: timestamp}
 recent_hashes: Dict[str, Dict[str, float]] = {}
@@ -30,6 +48,19 @@ recent_hashes: Dict[str, Dict[str, float]] = {}
 # Data directories
 DATA_DIR = Path(__file__).parent.parent / "data"
 LARGE_PAYLOADS_DIR = DATA_DIR / "large_payloads"
+CHATS_DIR = DATA_DIR / "chats"
+
+
+def _get_chat_title(chat_id: str) -> str:
+    """Get chat title from file, or return chat_id as fallback."""
+    try:
+        chat_path = CHATS_DIR / f"{chat_id}.json"
+        if chat_path.exists():
+            chat = json.loads(chat_path.read_text())
+            return chat.get("title", chat_id)
+    except Exception:
+        pass
+    return chat_id
 
 
 # ============================================================
@@ -68,12 +99,15 @@ async def preprocess_message(chat_id: str, content: str) -> Dict[str, Any]:
     chat_hashes = {k: v for k, v in chat_hashes.items() if now - v < 10}
     recent_hashes[chat_id] = chat_hashes
 
-    # 2. Large payload detection
+    # 2. Large payload detection - triggers as soon as content exceeds config threshold
+    threshold = _get_large_threshold()
     is_large = (
-        len(content) > LARGE_MSG_CHARS or
-        content.count('\n') > LARGE_MSG_LINES or
-        bool(CODE_BLOCK_PATTERN.search(content))
+        len(content) > threshold or
+        bool(CODE_BLOCK_PATTERN.search(content))  # Code blocks always trigger
     )
+
+    if is_large:
+        logger.info(f"[Ingestion] Large content: {len(content)} chars > {threshold} threshold")
 
     if not is_large:
         return {"is_dup": False, "is_large": False, "content": content}
@@ -98,6 +132,26 @@ async def preprocess_message(chat_id: str, content: str) -> Dict[str, Any]:
             embedded_count += 1
 
     prompt_ref = f"[Large content: {summary['sentence'][:100]}; ref={h}]"
+
+    # 7. 🔄 SESSION CONTENT: Index FULL content chunked for cross-chat search
+    # Index all chunks so full content is semantically searchable
+    try:
+        from retrieval.session_content_store import get_session_content_store
+
+        chat_title = _get_chat_title(chat_id)
+        timestamp = time.strftime('%Y-%m-%dT%H:%M:%SZ')
+        store = get_session_content_store()
+
+        # Index each chunk of the full content (not just summary)
+        chunk_count = 0
+        for chunk in chunks:
+            if not is_noise(chunk) and len(chunk.strip()) > 20:
+                store.add(chunk, chat_id, chat_title, "user", timestamp)
+                chunk_count += 1
+
+        logger.info(f"[Ingestion] Large content: {chunk_count} chunks indexed to session store")
+    except Exception as e:
+        logger.warning(f"[Ingestion] Failed to index to session store: {e}")
 
     return {
         "is_dup": False,
@@ -248,22 +302,37 @@ Format response as JSON: {{"sentence": "...", "facts": ["...", "..."]}}"""
             max_tokens=max_output_tokens
         )
 
-        # Parse JSON from response
-        result = json.loads(response.strip())
+        # Parse JSON from response (handle markdown wrapper)
+        clean_response = response.strip()
+        # Strip markdown code blocks if present
+        if clean_response.startswith('```'):
+            lines = clean_response.split('\n')
+            clean_response = '\n'.join(lines[1:-1] if lines[-1].strip() == '```' else lines[1:])
+        # Find JSON object in response
+        start = clean_response.find('{')
+        end = clean_response.rfind('}') + 1
+        if start >= 0 and end > start:
+            clean_response = clean_response[start:end]
+
+        result = json.loads(clean_response)
         return {
             "sentence": result.get("sentence", f"Large {category} content"),
             "facts": result.get("facts", [])[:5]
         }
     except json.JSONDecodeError as e:
         logger.warning(f"[Ingestion] Failed to parse summary JSON: {e}")
+        # Fallback: use first ~200 chars of content as searchable summary
+        combined = " ".join(chunks)[:200].replace('\n', ' ').strip()
         return {
-            "sentence": f"Large {category} content ({sum(len(c) for c in chunks)} chars)",
+            "sentence": combined if combined else f"Large {category} content",
             "facts": []
         }
     except Exception as e:
         logger.warning(f"[Ingestion] Failed to summarize large content: {e}")
+        # Fallback: use first ~200 chars of content as searchable summary
+        combined = " ".join(chunks)[:200].replace('\n', ' ').strip()
         return {
-            "sentence": f"Large {category} content ({sum(len(c) for c in chunks)} chars)",
+            "sentence": combined if combined else f"Large {category} content",
             "facts": []
         }
 

@@ -461,6 +461,26 @@
         "limit": "Required - number of actions to keep (5-50)"
       }
     },
+    "SetLargePayloadThreshold": {
+      "group": "config",
+      "action": "SetLargePayloadThreshold",
+      "label": "Set large payload threshold",
+      "description": "Sets char threshold for large content detection (100-5000)",
+      "synonyms": ["large content threshold", "payload size limit", "content size threshold"],
+      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "params": {
+        "threshold": "Required - char threshold (100-5000)"
+      }
+    },
+    "ClearSessionContent": {
+      "group": "config",
+      "action": "ClearSessionContent",
+      "label": "Clear session content",
+      "description": "Clears all session content from the in-memory vector store",
+      "synonyms": ["clear session", "reset session memory", "clear session vector"],
+      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "params": {}
+    },
     "ReloadLLMConfig": {
       "group": "config",
       "action": "ReloadLLMConfig",

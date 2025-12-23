@@ -215,7 +215,7 @@ async def dispatch(
     action: dict,
     send_instruction: Callable[[str, str, dict], Awaitable[dict]],
     send_capability: Callable[[str, dict], Awaitable[dict]],
-    execute_internal: Optional[Callable[[str, dict], dict]] = None
+    execute_internal: Optional[Callable[[str, dict], Awaitable[dict]]] = None
 ) -> dict:
     """
     Dispatch a parsed LLM action through the appropriate pipeline.
@@ -226,8 +226,8 @@ async def dispatch(
                          async def(action_id, action_type, params) -> result
         send_capability: Callback for capability actions → extension
                         async def(action_name, params) -> result
-        execute_internal: Optional callback for internal capabilities
-                         def(action_name, params) -> result
+        execute_internal: Optional async callback for internal capabilities
+                         async def(action_name, params) -> result
 
     Returns:
         Result dict with ok, result/error, and optional msg
@@ -279,7 +279,7 @@ async def dispatch(
 
             # Check if internal capability
             if execute_internal and is_internal_capability(cap_name):
-                internal_result = execute_internal(cap_name, cap_params)
+                internal_result = await execute_internal(cap_name, cap_params)
                 # Check for validation errors (unknown_capability, missing_required_params)
                 if isinstance(internal_result, dict) and internal_result.get("error"):
                     result = {
@@ -300,8 +300,8 @@ async def dispatch(
 
             # Route through capability system (creates chat + displays in HUD)
             if execute_internal and is_internal_capability("AppendAssistantMessage"):
-                result = execute_internal("AppendAssistantMessage", {"content": msg_content})
-                result = {"ok": True, "result": result}
+                internal_result = await execute_internal("AppendAssistantMessage", {"content": msg_content})
+                result = {"ok": True, "result": internal_result}
             else:
                 # Fallback: send as capability to extension
                 result = await send_capability("AppendAssistantMessage", {"content": msg_content})

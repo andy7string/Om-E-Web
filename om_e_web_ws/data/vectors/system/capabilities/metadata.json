@@ -209,6 +209,14 @@
     "session history limit",
     "action history size",
     "session actions count",
+    "SetLargePayloadThreshold: Set large payload threshold. Sets char threshold for large content detection (100-5000)",
+    "large content threshold",
+    "payload size limit",
+    "content size threshold",
+    "ClearSessionContent: Clear session content. Clears all session content from the in-memory vector store",
+    "clear session",
+    "reset session memory",
+    "clear session vector",
     "ReloadLLMConfig: Reload LLM config. Reloads the server-side LLM agent config from disk",
     "refresh config",
     "reload settings",
@@ -3258,6 +3266,108 @@
       "params": {
         "limit": "Required - number of actions to keep (5-50)"
       }
+    },
+    {
+      "name": "SetLargePayloadThreshold",
+      "type": "primary",
+      "group": "config",
+      "label": "Set large payload threshold",
+      "description": "Sets char threshold for large content detection (100-5000)",
+      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "synonyms": [
+        "large content threshold",
+        "payload size limit",
+        "content size threshold"
+      ],
+      "params": {
+        "threshold": "Required - char threshold (100-5000)"
+      }
+    },
+    {
+      "name": "SetLargePayloadThreshold",
+      "type": "synonym",
+      "synonym_text": "large content threshold",
+      "synonym_index": 0,
+      "group": "config",
+      "label": "Set large payload threshold",
+      "description": "Sets char threshold for large content detection (100-5000)",
+      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "params": {
+        "threshold": "Required - char threshold (100-5000)"
+      }
+    },
+    {
+      "name": "SetLargePayloadThreshold",
+      "type": "synonym",
+      "synonym_text": "payload size limit",
+      "synonym_index": 1,
+      "group": "config",
+      "label": "Set large payload threshold",
+      "description": "Sets char threshold for large content detection (100-5000)",
+      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "params": {
+        "threshold": "Required - char threshold (100-5000)"
+      }
+    },
+    {
+      "name": "SetLargePayloadThreshold",
+      "type": "synonym",
+      "synonym_text": "content size threshold",
+      "synonym_index": 2,
+      "group": "config",
+      "label": "Set large payload threshold",
+      "description": "Sets char threshold for large content detection (100-5000)",
+      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "params": {
+        "threshold": "Required - char threshold (100-5000)"
+      }
+    },
+    {
+      "name": "ClearSessionContent",
+      "type": "primary",
+      "group": "config",
+      "label": "Clear session content",
+      "description": "Clears all session content from the in-memory vector store",
+      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "synonyms": [
+        "clear session",
+        "reset session memory",
+        "clear session vector"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ClearSessionContent",
+      "type": "synonym",
+      "synonym_text": "clear session",
+      "synonym_index": 0,
+      "group": "config",
+      "label": "Clear session content",
+      "description": "Clears all session content from the in-memory vector store",
+      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "params": {}
+    },
+    {
+      "name": "ClearSessionContent",
+      "type": "synonym",
+      "synonym_text": "reset session memory",
+      "synonym_index": 1,
+      "group": "config",
+      "label": "Clear session content",
+      "description": "Clears all session content from the in-memory vector store",
+      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "params": {}
+    },
+    {
+      "name": "ClearSessionContent",
+      "type": "synonym",
+      "synonym_text": "clear session vector",
+      "synonym_index": 2,
+      "group": "config",
+      "label": "Clear session content",
+      "description": "Clears all session content from the in-memory vector store",
+      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "params": {}
     },
     {
       "name": "ReloadLLMConfig",

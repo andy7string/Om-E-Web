@@ -1558,3 +1558,224 @@ USER: whats the song about
     }
 }
 ```
+
+---
+
+## CLAUDE CODE: How to Send Messages to OM-E Extension
+
+**READ THIS FIRST when you need to test the chat/message pipeline.**
+
+### Quick Reference (Do This)
+
+**Step 1:** Load the MCP tool
+```
+MCPSearch: select:mcp__claude-in-chrome__javascript_tool
+```
+
+**Step 2:** Get tab context
+```
+mcp__claude-in-chrome__tabs_context_mcp
+```
+This returns `tabId` for the OM-E Web tab (usually `http://127.0.0.1:8080/`)
+
+**Step 3:** Send a message using `omeSendChat`
+```javascript
+// mcp__claude-in-chrome__javascript_tool
+// action: "javascript_exec"
+// tabId: {the tabId from step 2}
+// text:
+window.omeSendChat('Your test message here').then(r => console.log('Done:', r));
+'Message sent'
+```
+
+**Step 4:** Verify via console
+```
+mcp__claude-in-chrome__read_console_messages with tabId and pattern "Result"
+```
+
+**Step 5:** Check chat file created
+```bash
+ls -la /Users/andy7string/Projects/Om_E_Web/om_e_web_ws/data/chats/
+```
+
+### Testing Large Payloads (>500 chars)
+
+```javascript
+// action: "javascript_exec", tabId: {tabId}
+// text:
+const largeContent = `Sharks are a group of elasmobranch fish characterized by a cartilaginous skeleton, five to seven gill slits on the sides of the head, and pectoral fins that are not fused to the head. They have been around for more than 400 million years, predating dinosaurs. There are over 500 species of sharks, ranging from the small dwarf lanternshark at just 17 centimeters to the massive whale shark reaching up to 12 meters. Sharks play a crucial role as apex predators in maintaining healthy ocean ecosystems. Great white sharks can detect a single drop of blood in 25 gallons of water. Many shark species are now endangered due to overfishing.`;
+window.omeSendChat(largeContent).then(r => console.log('Done:', r));
+'Large payload sent'
+```
+
+Then check:
+- `data/chats/*.json` - should have stub `[Large content: ...; ref=hash]`
+- `data/large_payloads/` - should have full content file
+
+### DO NOT USE
+
+- `window.postMessage({type: 'ome_send_chat_test', ...})` - may not work on dashboard page
+- `window.omeLLMChat()` - doesn't save user message to chat file
+
+### Key Files to Monitor
+
+| File | What to Check |
+|------|---------------|
+| `data/chats/*.json` | Message saved with correct content |
+| `data/large_payloads/` | Full content for large payloads |
+| `llm_unified.md` | LLM prompt debug output |
+| Server terminal | `[SessionContent] Added:` logs for vector indexing |
+
+---
+
+## Testing: Sending Messages via Extension (Detailed)
+
+**How to test the chat/message pipeline programmatically from browser console or automation tools.**
+
+### Available Functions
+
+The extension exposes these global functions on any page where the HUD is loaded:
+
+| Function | Purpose | Returns |
+|----------|---------|---------|
+| `window.omeSendChat(content)` | Send message via AppendMessage capability (saves to chat) | Promise with result |
+| `window.omeLLMChat(content)` | Send message to LLM (processes but doesn't save user msg) | Promise with result |
+
+### Testing AppendMessage (Saves to Chat)
+
+```javascript
+// From browser console or automation tool:
+window.omeSendChat('Test message - checking AppendMessage works')
+    .then(r => console.log('Result:', r))
+    .catch(e => console.error('Error:', e));
+```
+
+**What happens:**
+1. Message sent to WebSocket server
+2. `execute_internal_capability("AppendMessage", {...})` called
+3. Ingestion pipeline runs (dedup, large payload detection, summarization)
+4. Message saved to chat file (stub if large, full if normal)
+5. Session vector updated (if large content)
+6. Result returned
+
+### Testing LLM Chat (No Chat Save)
+
+```javascript
+// For testing LLM processing without saving to chat:
+window.omeLLMChat('What can you do?')
+    .then(r => console.log('LLM Response:', r))
+    .catch(e => console.error('Error:', e));
+```
+
+**What happens:**
+1. Message sent through LLM orchestrator
+2. Ingestion runs for LLM prompt preparation
+3. LLM responds
+4. User message NOT saved to chat file (use `omeSendChat` for that)
+
+### Testing Large Payloads
+
+```javascript
+// Large content test (>500 chars triggers summarization)
+const largeContent = `
+Sharks are a group of elasmobranch fish characterized by a cartilaginous skeleton,
+five to seven gill slits on the sides of the head, and pectoral fins that are not
+fused to the head. They have been around for more than 400 million years, predating
+dinosaurs. There are over 500 species of sharks, ranging from the small dwarf
+lanternshark at just 17 centimeters to the massive whale shark reaching up to 12
+meters. Sharks play a crucial role as apex predators in maintaining healthy ocean
+ecosystems. Great white sharks can detect a single drop of blood in 25 gallons of
+water. Many shark species are now endangered due to overfishing.
+`;
+
+window.omeSendChat(largeContent)
+    .then(r => console.log('Large payload result:', r))
+    .catch(e => console.error('Error:', e));
+```
+
+**Expected behavior:**
+1. Full content saved to `data/large_payloads/{chat_id}_{hash}.txt`
+2. Chat file gets stub: `[Large content: summary...; ref={hash}]`
+3. Full content chunked and indexed to session vector
+4. LLM sees stub, not full content
+
+### Verifying Results
+
+**Check chat file created:**
+```bash
+ls -la om_e_web_ws/data/chats/
+cat om_e_web_ws/data/chats/{latest}.json | jq '.messages[-1]'
+```
+
+**Check large payloads:**
+```bash
+ls -la om_e_web_ws/data/large_payloads/
+```
+
+**Check LLM debug output:**
+```bash
+cat om_e_web_ws/llm_unified.md
+```
+
+**Check session vector (via server logs):**
+Look for: `[SessionContent] Added: ...`
+
+### Using Chrome MCP Tools (Claude Code)
+
+When using Claude Code with the chrome-in-chrome MCP tools:
+
+```javascript
+// Via mcp__claude-in-chrome__javascript_tool
+// action: "javascript_exec"
+// text:
+window.omeSendChat('Test from Claude Code').then(r => console.log('Done:', r));
+'Message sent'
+```
+
+### Message Flow Diagram
+
+```
+Browser Console / MCP Tool
+        ↓
+window.omeSendChat(content)
+        ↓
+postMessage → HUD content script
+        ↓
+chrome.runtime.sendMessage → Service Worker
+        ↓
+WebSocket → ws_server.py
+        ↓
+execute_internal_capability("AppendMessage", {content, ...})
+        ↓
+preprocess_message() → ingestion pipeline
+        ├── Dedup check
+        ├── Large payload detection (>500 chars)
+        ├── Summarization (if large)
+        └── Session vector indexing (if large)
+        ↓
+append_user_message(chat_dict, processed_content)
+        ↓
+save_chat() → data/chats/{id}.json
+        ↓
+Result returned to browser
+```
+
+### Common Issues
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| "Message not received" | HUD not loaded on page | Open a regular webpage, not chrome:// |
+| Functions undefined | Extension not injected | Reload extension, check console for errors |
+| Chat not created | WebSocket disconnected | Check server running, reconnect |
+| Large content not summarized | Threshold not reached | Default is 500 chars, check `llm_config.json` |
+| Server frozen | Async/await issue in capability | Check server logs for stack trace |
+
+### Test Checklist
+
+- [ ] Normal message saves to chat file with full content
+- [ ] Large message (>500 chars) creates stub in chat
+- [ ] Large message creates file in `large_payloads/`
+- [ ] Large message appears in session vector (check server logs)
+- [ ] `llm_unified.md` updates with new LLM call
+- [ ] Chat title uses first words of content
+- [ ] Subsequent messages append to same chat
