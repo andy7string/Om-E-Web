@@ -207,11 +207,11 @@ Multi-layer RAG and memory system for Om-E. Reduces prompt tokens, enables cross
 |-----------|--------|-------|
 | **Base VectorStore** | ✅ Done | FAISS wrapper with save/load |
 | **CapabilitiesStore** | ✅ Done | Indexes internal capabilities |
-| **Session Actions** | 🔴 PRIORITY | Phase 8a - Track meaningful actions across chats |
-| **Session Content Store** | 🔴 PRIORITY | Phase 8b - Cross-chat content retrieval |
+| **Session Actions** | ✅ Done | Phase 8a - Global JSON log with config limit |
+| **Session Content Store** | ✅ Done | Phase 8b - In-memory FAISS with chunking, RAG retrieval, summarize-on-rollout |
 | **ElementsStore** | ❌ Not hooked | Code exists, parses text.md (should use text.json), not wired to ws_server |
 | **Facts Store** | ⚠️ Partial | Works but has chat_id, needs migration to User Profile |
-| **Payload Store** | ✅ Done | Large message summarization |
+| **Payload Store** | ✅ Done | Large message summarization, indexed in session vector |
 | **Chat Memory Store** | ⚠️ Exists | Has data, unclear if used in prompts |
 | **User Profile Store** | ❌ Not started | New - permanent user facts |
 | **Session Intent Store** | ❌ Not started | New - session-scoped intents |
@@ -631,10 +631,16 @@ Every request includes user context:
 - [ ] Cherry-pick flags for messages (future)
 - [ ] Project context toggle (future)
 
-### Phase 8: Global Session Context & Project-Wide Memory ← PRIORITY FIX
+### Phase 8: Global Session Context & Project-Wide Memory ✅ COMPLETE
 **Problem:** When switching chats, Om-E loses context. No bridge between chats.
 
 **Solution:** Session-level context that spans ALL chats in the current session.
+
+**Completed 2025-12-23:**
+- Phase 8a: Session Actions JSON - global action log with configurable limit
+- Phase 8b: Session Content Vector - in-memory FAISS with semantic chunking and RAG retrieval
+- Summarize-on-rollout: Messages outside rolling window indexed for later retrieval
+- Config-driven limits: Uses `session_actions_limit` from settings (default 10) for both actions AND messages
 
 #### 8a. Session Actions JSON (global action log)
 
@@ -728,20 +734,29 @@ Added as configurable parameter alongside Cap Score:
 - Prompt always shows session-wide actions regardless of current chat
 - Om-E knows what you've been doing across the whole session
 
-#### 8b. Session Content Vector (semantic search)
+#### 8b. Session Content Vector (semantic search) ✅ COMPLETE
+
 Index substantive content from ALL chats in session. Enables cross-chat queries like "what was that song about".
 
-**Location:** In-memory vector store (clears on server restart)
+**Location:** `retrieval/session_content_store.py` - In-memory FAISS vector store (clears on server restart)
 
 **What to index:**
 - Substantive user messages (not "ok", "yes", "scroll down")
 - Assistant replies with content (not action confirmations)
-- Summarized topics from conversations
+- Large payloads (summarized and full content indexed as chunks)
+- Messages that roll out of the context window (summarize-on-rollout)
 
 **NOT to index:**
 - Action messages ("Executing ScrollDown...")
-- Short responses ("ok", "got it", "yes")
-- Duplicate content
+- Short responses ("ok", "got it", "yes", < 15 chars)
+- Duplicate content (same chunk + chat_id)
+- JSON capability messages
+
+**Chunking (Standard RAG Practice):**
+- All content chunked at INDEX time (512 chars ≈ 128 tokens)
+- Semantic chunking respects paragraph/sentence boundaries
+- FULL chunks returned at retrieval time (no truncation)
+- Token budget controlled by chunk size and k results (k=3 ≈ 384 tokens max)
 
 **Metadata:**
 ```json
@@ -749,68 +764,82 @@ Index substantive content from ALL chats in session. Enables cross-chat queries 
     "text": "Discussed builder delays and communication issues with contractors",
     "chat_id": "abc123",
     "chat_title": "whats happening",
-    "timestamp": "2025-12-23T00:30:00Z",
-    "type": "topic"  // or "message", "summary"
+    "role": "user",
+    "timestamp": "2025-12-23T00:30:00Z"
 }
 ```
 
-**Retrieval:** Semantic search on user message, inject top 3-5 results with source attribution
+**Retrieval:** Semantic search on user message, inject top 3 results with scores
 
 **Prompt injection:**
 ```
-[Session Context (relevant from other chats):]
-- [whats happening] Discussed builder delays and communication issues
-- [memory planning] Decided on 4-layer memory architecture
+[RAG Session Context - 3 matches:]
+- [1] (score:0.78) Full chunk content here...
+- [2] (score:0.65) Another relevant chunk...
+- [3] (score:0.52) Third match...
 ```
+
+**Summarize-on-Rollout:**
+- Rolling message window uses `session_actions_limit` from config (default 10)
+- When messages exit the window, they're indexed in the session vector
+- Tracked via `context_state.summarized_up_to_index` in chat JSON
+- Ensures old content remains searchable even when out of prompt
 
 #### 8c. Implementation Steps (testable with Claude for Chrome)
 
-**Step 1: Add config parameter to HUD settings**
-- [ ] Add `session_actions_limit` field to llm_config.json (default: 20)
-- [ ] Add input field in `hud.js` settings panel (after Cap Score row)
-- [ ] Add load handler to populate from `settings.session_actions_limit ?? 20`
-- [ ] Add save handler to call `SetSessionActionsLimit` capability
-- [ ] Add `SetSessionActionsLimit` capability in `ws_server.py`
-- [ ] Test: Open settings, change value, save, verify llm_config.json updates
+**Step 1: Add config parameter to HUD settings** ✅ COMPLETE
+- [x] Add `session_actions_limit` field to llm_config.json (default: 10)
+- [x] Add input field in `hud.js` settings panel (after Cap Score row)
+- [x] Add load handler to populate from `settings.session_actions_limit ?? 10`
+- [x] Add save handler to call `SetSessionActionsLimit` capability
+- [x] Add `SetSessionActionsLimit` capability in `ws_server.py`
+- [x] Test: Open settings, change value, save, verify llm_config.json updates
 
-**Step 2: Create Session Actions JSON infrastructure**
-- [ ] Create `data/session_actions.json` schema
-- [ ] Add helper functions in `retrieval/memory_cycle.py`:
+**Step 2: Create Session Actions JSON infrastructure** ✅ COMPLETE
+- [x] Create `data/session_actions.json` schema
+- [x] Add helper functions in `retrieval/memory_cycle.py`:
   - `init_session()` - Create new session on server start
   - `add_session_action(text, chat_title, chat_id)` - Append to session JSON
   - `get_session_actions(limit)` - Read recent actions (uses config limit)
   - `format_session_actions_for_prompt()` - Format for prompt injection
-- [ ] Test: Call `add_session_action()` directly, verify JSON file updates
+- [x] Test: Call `add_session_action()` directly, verify JSON file updates
 
-**Step 3: Hook into condense_action flow**
-- [ ] In `on_message_saved()`, after `state['recent_actions'].append(...)`:
+**Step 3: Hook into condense_action flow** ✅ COMPLETE
+- [x] In `on_message_saved()`, after `state['recent_actions'].append(...)`:
   - Also call `add_session_action(condensed, chat_title, chat_id)`
-- [ ] Pass chat_title and chat_id to `on_message_saved()` (may need to thread through)
-- [ ] Test: `omeLLMChat("google cats")` → check `data/session_actions.json` has entry
+- [x] Pass chat_title and chat_id to `on_message_saved()` (may need to thread through)
+- [x] Test: `omeLLMChat("google cats")` → check `data/session_actions.json` has entry
 
-**Step 4: Update prompt assembly to use session JSON**
-- [ ] In `orchestrator.py` `_get_rolling_history()`:
+**Step 4: Update prompt assembly to use session JSON** ✅ COMPLETE
+- [x] In `orchestrator.py` `_get_rolling_history()`:
   - Replace chat JSON's recent_actions read with `get_session_actions()`
   - Format with `format_session_actions_for_prompt()`
-- [ ] Test: Execute actions in Chat A, switch to Chat B, send message
+- [x] Test: Execute actions in Chat A, switch to Chat B, send message
   - Check `llm_unified.md` shows actions from Chat A in [Recent actions:]
 
-**Step 5: Add Session Content Vector**
-- [ ] Create `SessionContentStore` class (in-memory FAISS)
-- [ ] Hook into where vectors are pushed (facts, payloads, substantive content)
-- [ ] Add to session vector when content is indexed anywhere
-- [ ] Test: Store fact, verify session vector has entry
+**Step 5: Add Session Content Vector** ✅ COMPLETE
+- [x] Create `SessionContentStore` class (in-memory FAISS) - `retrieval/session_content_store.py`
+- [x] Add semantic chunking (512 chars, respects sentence boundaries)
+- [x] Hook into where vectors are pushed (facts, payloads, substantive content)
+- [x] Add to session vector when content is indexed anywhere
+- [x] Test: Store fact, verify session vector has entry
 
-**Step 6: Query Session Content in prompts**
-- [ ] Add `get_session_context(query, current_chat_id)` function
-- [ ] Filter out current chat (avoid circular context)
-- [ ] Inject in `_call_unified()` as [Session Context:]
-- [ ] Test: Switch chats, ask about previous chat topic, verify context appears
+**Step 6: Query Session Content in prompts** ✅ COMPLETE
+- [x] Add `get_session_context(query, current_chat_id)` function
+- [x] Return FULL chunks with RAG scores (standard RAG practice)
+- [x] Inject in `_call_unified()` as [RAG Session Context:]
+- [x] Test: Switch chats, ask about previous chat topic, verify context appears
 
-**Step 7: Session lifecycle**
-- [ ] Clear session JSON on server restart (new session_id)
-- [ ] Clear SessionContentStore on server restart
-- [ ] (Optional) Persist session to disk for recovery
+**Step 7: Session lifecycle** ✅ COMPLETE
+- [x] Clear session JSON on server restart (new session_id)
+- [x] Clear SessionContentStore on server restart (in-memory)
+- [x] SessionContentStore is singleton, clears automatically on restart
+
+**Step 8: Summarize-on-Rollout** ✅ COMPLETE
+- [x] Rolling message window uses `session_actions_limit` from config (NOT tokens)
+- [x] When messages exit window, index them in session vector
+- [x] Track `summarized_up_to_index` in chat JSON to avoid re-indexing
+- [x] `_summarize_and_index_old_messages()` in orchestrator.py
 
 ---
 
@@ -818,19 +847,19 @@ Index substantive content from ALL chats in session. Enables cross-chat queries 
 
 | File | Purpose | Status |
 |------|---------|--------|
-| `web_extension/hud.js` | Add session_actions_limit input to settings panel | Modify (Phase 8a Step 1) |
-| `om_e_web_ws/data/llm_config.json` | Add session_actions_limit field (default: 20) | Modify (Phase 8a Step 1) |
-| `ws_server.py` | Add SetSessionActionsLimit capability, init session on startup | Modify (Phase 8a) |
-| `data/session_actions.json` | Global session actions log | New (Phase 8a Step 2) |
-| `retrieval/memory_cycle.py` | Add session action helpers (init, add, get, format) | Modify (Phase 8a) |
-| `llm/orchestrator.py` | Read from session JSON instead of chat JSON for actions | Modify (Phase 8a Step 4) |
-| `retrieval/session_content_store.py` | SessionContentStore (in-memory FAISS) | New (Phase 8b) |
-| `retrieval/user_context.py` | Manages current user/project/chat | New |
-| `retrieval/user_profile_store.py` | User profile vector | New |
-| `retrieval/session_intent_store.py` | Session intent vector | New |
-| `retrieval/project_memory_store.py` | Project-wide memory | New |
-| `retrieval/classifier.py` | User profile vs content classification | New |
-| `retrieval/elements_store.py` | Fix to use text.json | Modify |
+| `web_extension/hud.js` | Add session_actions_limit input to settings panel | ✅ Done |
+| `om_e_web_ws/data/llm_config.json` | Add session_actions_limit field (default: 10) | ✅ Done |
+| `ws_server.py` | Add SetSessionActionsLimit capability, init session on startup | ✅ Done |
+| `data/session_actions.json` | Global session actions log | ✅ Done |
+| `retrieval/memory_cycle.py` | Add session action helpers (init, add, get, format) | ✅ Done |
+| `llm/orchestrator.py` | Read from session JSON, summarize-on-rollout, config-driven limits | ✅ Done |
+| `retrieval/session_content_store.py` | SessionContentStore (in-memory FAISS) with semantic chunking | ✅ Done |
+| `retrieval/user_context.py` | Manages current user/project/chat | Not started |
+| `retrieval/user_profile_store.py` | User profile vector | Not started |
+| `retrieval/session_intent_store.py` | Session intent vector | Not started |
+| `retrieval/project_memory_store.py` | Project-wide memory | Not started |
+| `retrieval/classifier.py` | User profile vs content classification | Not started |
+| `retrieval/elements_store.py` | Fix to use text.json | Not started |
 
 ---
 

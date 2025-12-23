@@ -351,6 +351,18 @@ def on_message_saved(chat_dict: Dict, message: Dict) -> Dict:
         state['token_counter'] += tokens
         print(f"[MemoryCycle] Content +{tokens} tok (total: {state['token_counter']})")
 
+        # 🔄 SESSION CONTENT: Index substantive content for cross-chat search
+        # Skip if this is a large content stub (already indexed by ingestion.py)
+        if not content.startswith('[Large content:'):
+            from .session_content_store import get_session_content_store
+            chat_id = chat_dict.get('chat_id', 'unknown')
+            chat_title = chat_dict.get('title', 'Untitled')
+            timestamp = message.get('timestamp', time.strftime('%Y-%m-%dT%H:%M:%SZ'))
+            store = get_session_content_store()
+            store.add(content, chat_id, chat_title, role, timestamp)
+        else:
+            print(f"[MemoryCycle] Skipping session index - large content already indexed")
+
         # Check threshold for summarization
         if state['token_counter'] >= BATCH_THRESHOLD:
             print(f"[MemoryCycle] Threshold reached ({state['token_counter']} >= {BATCH_THRESHOLD})")
@@ -705,10 +717,14 @@ def _get_session_actions_limit() -> int:
 def init_session() -> Dict:
     """
     Initialize a new session. Called on server startup.
-    Creates/resets the session_actions.json file.
+    Creates/resets the session_actions.json file and clears session content store.
 
     @return: The initial session state
     """
+    # Clear session content vector store (new session = fresh start)
+    from .session_content_store import clear_session_content_store
+    clear_session_content_store()
+
     session_state = {
         'session_id': f"session_{int(time.time())}",
         'started_at': time.strftime('%Y-%m-%dT%H:%M:%SZ'),

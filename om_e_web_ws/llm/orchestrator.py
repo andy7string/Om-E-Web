@@ -445,8 +445,8 @@ class PersonaOrchestrator:
         # Build environment hint (includes visible chats when sidebar open)
         env_hint = self._build_environment_hint(active_tab, tabs, visible_chats, chat_id)
 
-        # Get rolling history from JSON file
-        chat_history = self._get_rolling_history(chat_id, MAX_HISTORY_TOKENS)
+        # Get rolling history from JSON file (also triggers summarize-on-rollout)
+        chat_history = await self._get_rolling_history(chat_id)
 
         # Build messages
         system_prompt = self._prompt_cache.get("chat_persona", "")
@@ -633,23 +633,37 @@ USER MESSAGE
 
         return None
 
-    def _get_rolling_history(
+    async def _get_rolling_history(
         self,
         chat_id: Optional[str],
-        max_tokens: int = 600
+        max_messages: int = 0
     ) -> List[Dict]:
         """
-        Get rolling chat history from JSON file within token budget.
+        Get rolling chat history from JSON file within message limit.
 
         Uses action/content separation:
-        - Summary: ~25% budget (rolling summary of older content)
-        - Actions: ~25% budget (last 10 actions, condensed format)
-        - Content: ~50% budget (recent substantive messages)
+        - Summary: rolling summary of older content (if available)
+        - Actions: from session JSON (cross-chat)
+        - Content: last N messages (configurable via rolling_messages_limit)
+        - Rollout: Messages outside limit are indexed in session vector
 
         Source of truth is data/chats/{chat_id}.json
         """
         if not chat_id:
             return []
+
+        # Get message limit from config - uses session_actions_limit for both actions AND messages
+        if max_messages <= 0:
+            try:
+                config_path = CHATS_DIR.parent / "llm_config.json"
+                if config_path.exists():
+                    with open(config_path) as f:
+                        config = json.load(f)
+                    max_messages = config.get("settings", {}).get("session_actions_limit", 10)
+                else:
+                    max_messages = 10
+            except Exception:
+                max_messages = 10
 
         chat_path = CHATS_DIR / f"{chat_id}.json"
         if not chat_path.exists():
@@ -665,20 +679,16 @@ USER MESSAGE
             # Filter to content messages only (actions come from session JSON now)
             content = [msg for msg in messages if classify_message(msg) != 'action']
 
-            # Build history within token budget
+            # Build history
             history = []
-            used_tokens = 0
 
-            # 1. Include rolling summary if available (~25% budget)
+            # 1. Include rolling summary if available
             rolling_summary = summaries.get("rolling")
             if rolling_summary:
-                summary_tokens = estimate_tokens(rolling_summary)
-                if summary_tokens < max_tokens * 0.25:
-                    history.append({
-                        "role": "system",
-                        "content": f"[Chat summary: {rolling_summary}]"
-                    })
-                    used_tokens += summary_tokens
+                history.append({
+                    "role": "system",
+                    "content": f"[Chat summary: {rolling_summary}]"
+                })
 
             # 2. Add recent SESSION actions - spans ALL chats in session
             # This is the cross-chat bridge - actions from any chat visible in prompt
@@ -687,37 +697,104 @@ USER MESSAGE
             actions_text = format_session_actions_for_prompt()  # Uses config limit
             if actions_text:
                 actions_text = f"[{actions_text}]"
-                action_tokens = estimate_tokens(actions_text)
-                print(f"[Session] Actions for prompt: {action_tokens} tokens")
+                print(f"[Session] Actions for prompt")
                 history.append({
                     "role": "system",
                     "content": actions_text
                 })
-                used_tokens += action_tokens
 
-            # 3. Add recent content within remaining budget (~50%)
-            recent_content = []
-
-            for msg in reversed(content):
-                msg_content = msg.get("content", "")
-                msg_tokens = estimate_tokens(msg_content)
-                if used_tokens + msg_tokens > max_tokens:
-                    break
-                recent_content.append({
+            # 3. Add recent content (last N messages from config)
+            recent_content = content[-max_messages:] if len(content) > max_messages else content
+            for msg in recent_content:
+                history.append({
                     "role": msg.get("role", "user"),
-                    "content": msg_content
+                    "content": msg.get("content", "")
                 })
-                used_tokens += msg_tokens
 
-            # Reverse to chronological order
-            recent_content.reverse()
-            history.extend(recent_content)
+            # Messages included in rolling window
+            included_count = len(recent_content)
+
+            # 4. SUMMARIZE-ON-ROLLOUT: Index old messages that didn't make the budget
+            # These messages are outside the rolling window - summarize and index them
+            included_count = len(recent_content)
+            total_content = len(content)
+            if total_content > included_count:
+                old_messages = content[:total_content - included_count]
+                await self._summarize_and_index_old_messages(
+                    chat_id, chat_data, old_messages
+                )
 
             return history
 
         except Exception as e:
             logger.warning(f"Failed to load chat history: {e}")
             return []
+
+    async def _summarize_and_index_old_messages(
+        self,
+        chat_id: str,
+        chat_data: Dict,
+        old_messages: List[Dict]
+    ) -> None:
+        """
+        Summarize messages that rolled out of the context window and index them.
+
+        @param chat_id: Current chat ID
+        @param chat_data: Full chat data dict
+        @param old_messages: Messages outside the rolling window
+        """
+        from retrieval.session_content_store import get_session_content_store
+
+        # Get tracking state - which messages have we already summarized?
+        context_state = chat_data.get("context_state", {})
+        summarized_up_to = context_state.get("summarized_up_to_index", 0)
+
+        # Find messages that haven't been summarized yet
+        all_messages = chat_data.get("messages", [])
+        unsummarized = []
+
+        for i, msg in enumerate(old_messages):
+            # Find this message's index in the full message list
+            try:
+                msg_index = all_messages.index(msg)
+                if msg_index >= summarized_up_to:
+                    unsummarized.append((msg_index, msg))
+            except ValueError:
+                continue
+
+        if not unsummarized:
+            return
+
+        # Index each unsummarized message in session vector
+        store = get_session_content_store()
+        chat_title = chat_data.get("title", "Untitled")
+        indexed_count = 0
+
+        for msg_index, msg in unsummarized:
+            content = msg.get("content", "")
+            role = msg.get("role", "user")
+            timestamp = msg.get("timestamp", "")
+
+            # Skip short/noise content
+            if len(content) < 20:
+                continue
+
+            # Index in session vector (will be chunked automatically)
+            store.add(content, chat_id, chat_title, role, timestamp)
+            indexed_count += 1
+
+        # Update tracking - mark these as summarized
+        if unsummarized:
+            max_summarized_index = max(idx for idx, _ in unsummarized) + 1
+            context_state["summarized_up_to_index"] = max_summarized_index
+            chat_data["context_state"] = context_state
+
+            # Save updated chat data
+            chat_path = CHATS_DIR / f"{chat_id}.json"
+            with open(chat_path, 'w') as f:
+                json.dump(chat_data, f, indent=2)
+
+            logger.info(f"[RAG Rollout] Indexed {indexed_count} old messages from chat {chat_id}")
 
     # --------------------------------------------------------
     # RAG Retrieval
@@ -989,8 +1066,8 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                     param_parts = [f"{k}: {v}" for k, v in params.items()]
                     cap_lines.append(f"  params: {', '.join(param_parts)}")
 
-        # Get rolling history
-        chat_history = self._get_rolling_history(chat_id, MAX_HISTORY_TOKENS)
+        # Get rolling history (also triggers summarize-on-rollout)
+        chat_history = await self._get_rolling_history(chat_id)
 
         # Build messages
         messages = []
@@ -1013,6 +1090,12 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         facts_ctx = get_facts_for_prompt(user_message)
         if facts_ctx:
             user_content_parts.append(facts_ctx)
+
+        # Add session context (cross-chat content from this session)
+        from retrieval.session_content_store import get_session_context
+        session_ctx = get_session_context(user_message, current_chat_id=chat_id)
+        if session_ctx:
+            user_content_parts.append(session_ctx)
 
         user_content_parts.append(f"USER: {user_message}")
 
