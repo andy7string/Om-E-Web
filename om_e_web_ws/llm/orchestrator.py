@@ -280,6 +280,14 @@ class PersonaOrchestrator:
                 await log_turn_metrics(metrics)
                 return result
 
+        # ⚡ PRE-FLIGHT BYPASS: Exact synonym match skips Role A entirely
+        # If user message is an exact capability synonym (score >= 0.99), execute directly
+        preflight_result = await self._try_preflight_bypass(user_message, metrics)
+        if preflight_result:
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return preflight_result
+
         # 🎨 THEME SHORTCUT: Catch short theme phrases that Role A might miss
         theme_intent = self._detect_theme_shortcut(user_message)
         if theme_intent:
@@ -842,6 +850,70 @@ USER MESSAGE
             logger.warning(f"Capabilities query error: {e}")
             return []
 
+    async def _try_preflight_bypass(
+        self,
+        user_message: str,
+        metrics: TurnMetrics
+    ) -> Optional['OrchestratorResult']:
+        """
+        Pre-flight check: if user message is an exact capability synonym,
+        bypass Role A entirely and execute directly.
+
+        This catches cases like "show chats" where Role A might interpret
+        it as conversational instead of an action intent.
+
+        Returns OrchestratorResult if exact match found, None otherwise.
+        """
+        # Query capabilities with the raw user message
+        t0 = time.time()
+        options = await self._query_capabilities(user_message)
+        metrics.rag_ms = (time.time() - t0) * 1000
+
+        if not options:
+            return None
+
+        top = options[0]
+        top_score = top.get("score", 0)
+        metrics.top_score = top_score
+
+        # Must be essentially 1.00 (exact synonym match)
+        if top_score < 0.99:
+            return None
+
+        # Check if capability has required params
+        top_params = top.get("params", {})
+        has_required_params = any(
+            p.get("required", False) for p in top_params.values()
+        ) if isinstance(top_params, dict) else False
+
+        if has_required_params:
+            # Has required params - need Role B to extract them
+            return None
+
+        # Perfect match with no required params - execute directly!
+        target = top.get("label", "")
+        description = top.get("description", "")
+        logger.info(f"[PreflightBypass] Exact synonym match: {target} (score={top_score:.2f})")
+
+        # Generate friendly action message from first sentence of description
+        action_text = description.split('.')[0] + '.' if description else f"Executing {target}..."
+
+        # Build decision and execute
+        decision = DecisionEngineOutput(
+            decision=DecisionType.CAP,
+            target=target,
+            params={}
+        )
+
+        metrics.decision_engine_ms = 0
+        metrics.decision_type = decision.decision.value
+        metrics.handoff = True  # Count as handoff for metrics
+
+        self.state.transition_to(TurnState.TURN_HANDOFF_PENDING)
+        self.state.last_intent = action_text  # Use friendly text, not raw command
+
+        return await self._apply_confidence_gating(decision, action_text, options)
+
     def _check_perfect_match(self, options: List[Dict]) -> Optional[DecisionEngineOutput]:
         """
         Check if top option is a perfect match (score >= 0.99).
@@ -1224,6 +1296,13 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 metrics.total_ms = (time.time() - turn_start) * 1000
                 await log_turn_metrics(metrics)
                 return result
+
+        # ⚡ PRE-FLIGHT BYPASS: Exact synonym match skips LLM entirely
+        preflight_result = await self._try_preflight_bypass(user_message, metrics)
+        if preflight_result:
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return preflight_result
 
         # STEP 0: Handle large payloads - summarize and store in vector
         prompt_message = user_message
