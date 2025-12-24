@@ -980,10 +980,49 @@ Response to User + Action Execution (if applicable)
 | Tier | Scope | Storage | Trigger | Persistence |
 |------|-------|---------|---------|-------------|
 | **Session Actions** | Cross-chat within session | In-memory + `session_actions.json` | Every action executed | Until server restart |
-| **Session Content** | Cross-chat within session | `vectors/memory/` | Messages rolled out of window | Until server restart |
+| **Session Content** | Cross-chat within session | `vectors/memory/` | Content messages (not actions) | Until server restart |
+| **Rolling Summaries** | Per-chat intent history | `chats/{id}.json` → `summaries.rolling` | Every 5 interactions | Permanent |
 | **Chat History** | Single chat | `chats/{id}.json` | Every message | Permanent |
 | **Facts** | Global user knowledge | `vectors/system/facts/` | "remember X" intent | Permanent |
 | **Large Payloads** | Referenced content | `large_payloads/` + vector | >550 char messages | Permanent |
+
+### Action Filtering (Flag-Based)
+
+**Problem:** Action requests/confirmations pollute session vector, degrading RAG quality.
+
+**Solution:** Use `action_executed` flag from `OrchestratorResult` (authoritative) instead of text heuristics.
+
+```
+LLM returns: {"type": "action", "cap": "ScrollDown", ...}
+                    ↓
+OrchestratorResult.action_executed = True
+                    ↓
+append_assistant_message(chat_dict, response, action_executed=True)
+                    ↓
+on_message_saved() sees flag → SKIP session vector indexing
+```
+
+**Result:** Session vector contains only content (conversations), not action confirmations like "Scrolling down for you."
+
+### Rolling Intent Summarization
+
+**Trigger:** Every 5 total interactions (chat + action turns)
+
+**Storage:** `chat.json` → `summaries.rolling` (keeps last 3)
+
+**Format:**
+```json
+{
+  "summaries": {
+    "rolling": [
+      {"text": "User discussed ML and transformers...", "from_idx": 0, "to_idx": 10, "ts": "..."},
+      {"text": "User requested navigation actions...", "from_idx": 10, "to_idx": 20, "ts": "..."}
+    ]
+  }
+}
+```
+
+**Prompt Injection:** Summaries appear as `[Chat summary: [...]]` in conversation context, providing historical intent without full message replay.
 
 ### RAG Components
 

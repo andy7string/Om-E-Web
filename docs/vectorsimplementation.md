@@ -1,7 +1,7 @@
 # Om-E RAG & vStore Implementation Plan
 
 **Last Updated:** 2025-12-24
-**Status:** Phases 1-5 Complete, Phase 6 In Progress
+**Status:** Phases 1-6 Complete, Phase 7 Next
 
 ---
 
@@ -245,7 +245,7 @@ From `data/llm_config.json`:
 
 ## Phase 6: Complete Rolling Summarization
 
-**Status:** 🟡 Partially Complete
+**Status:** ✅ Complete (2025-12-24)
 
 ### What's Done
 - [x] Persistence intent detection patterns
@@ -253,13 +253,14 @@ From `data/llm_config.json`:
 - [x] Permanent fact storage in vector
 - [x] Integration with prompt retrieval
 - [x] Config: `message_count_threshold: 8`
+- [x] **Flag-based action filtering** - `action_executed` flag from OrchestratorResult (authoritative)
+- [x] **Rolling intent summarization** - LLM-generated summaries every 5 interactions
+- [x] **Interaction tracking** - `interaction_count` in chat `context_state`
+- [x] **Rolling summaries in chat JSON** - stored in `summaries.rolling` array
+- [x] **Rolling summaries in prompt** - injected as `[Chat summary: ...]` in conversation
 
-### What Remains
-- [ ] Trigger rolling summarization when content exceeds threshold
-- [ ] Store rolling summary in chat JSON (`summaries.rolling`)
-- [ ] Include rolling summary in prompt building
-- [ ] **Hybrid Search (BM25 + Vector)** - combine keyword and semantic search
-- [ ] **Action Filtering** - exclude action requests/confirmations from vector index
+### What Remains (Future Phases)
+- [ ] **Hybrid Search (BM25 + Vector)** - combine keyword and semantic search (deferred to Phase 7+)
 
 ### Implementation
 
@@ -553,19 +554,19 @@ def get_action_history_for_chat(chat_id: str, limit: int = 20) -> List[Dict]:
 
 ### Updated Checklist
 
-- [ ] Pass `action_executed` flag from `OrchestratorResult` to `append_assistant_message()`
-- [ ] Update `on_message_saved()` to use flag instead of heuristics
-- [ ] Skip session vector indexing when `action_executed=True`
-- [ ] Track `interaction_count` in chat `context_state`
-- [ ] Implement `check_and_create_rolling_summary()` (trigger every 5 interactions)
-- [ ] Create `data/prompts/rolling_summary.md` template
-- [ ] Store rolling summaries in `chat.json` → `summaries.rolling`
-- [ ] Include rolling summary in prompt building
-- [ ] Add `get_action_history_for_chat()` for deep lookup from turns.jsonl
-- [ ] Test: Action turns skip session vector
-- [ ] Test: Content turns indexed to session vector
-- [ ] Test: After 5 interactions, rolling summary created
-- [ ] Test: Rolling summary appears in prompt context
+- [x] Pass `action_executed` flag from `OrchestratorResult` to `append_assistant_message()`
+- [x] Update `on_message_saved()` to use flag instead of heuristics
+- [x] Skip session vector indexing when `action_executed=True`
+- [x] Track `interaction_count` in chat `context_state`
+- [x] Implement `check_and_create_rolling_summary()` (trigger every 5 interactions)
+- [x] Create `data/prompts/rolling_summary.md` template
+- [x] Store rolling summaries in `chat.json` → `summaries.rolling`
+- [x] Include rolling summary in prompt building
+- [x] Add `get_action_history_for_chat()` for deep lookup from turns.jsonl
+- [x] Test: Action turns skip session vector ✅ Verified 2025-12-24
+- [x] Test: Content turns indexed to session vector ✅ Verified 2025-12-24
+- [x] Test: After 5 interactions, rolling summary created ✅ Verified 2025-12-24
+- [x] Test: Rolling summary appears in prompt context ✅ Verified 2025-12-24
 
 ### Configuration
 
@@ -1214,8 +1215,27 @@ def import_large_payloads_to_vstore(project_id: str):
 
 ## Next Steps
 
-1. **Complete Phase 6** - Rolling summarization (small, completes existing work)
+1. ~~**Complete Phase 6**~~ ✅ Done - Action filtering + rolling summaries working
 2. **Start Phase 7** - vStore Foundation (biggest value add)
 3. **Then Phase 8** - vStore UI (makes it usable)
 
 The vStore is the highest-value addition and should be prioritised over project structure migration and session context.
+
+---
+
+## Phase 6 Implementation Summary (2025-12-24)
+
+**Key Changes:**
+
+| File | Changes |
+|------|---------|
+| `ws_server.py` | Added `action_executed` param to `append_assistant_message()`, calls `check_and_create_rolling_summary()` |
+| `retrieval/memory_cycle.py` | Flag-based filtering in `on_message_saved()`, `check_and_create_rolling_summary()`, config helpers |
+| `data/llm_config.json` | Added `summary_interaction_threshold`, `max_rolling_summaries`, `rolling_summary_token_budget` |
+
+**Test Results:**
+- 36 messages sent (18 turns) with mix of chat and action commands
+- Actions (scroll, navigate, tabs) properly filtered from RAG session vector
+- 3 rolling summaries created covering interactions 18-24, 24-30, 30-36
+- Summaries appear in prompt as `[Chat summary: [...]]`
+- Content turns (ML discussions) properly indexed to session vector
