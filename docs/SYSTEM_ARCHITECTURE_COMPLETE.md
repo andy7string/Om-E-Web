@@ -1,7 +1,7 @@
 # Om_E_Web - Complete System Architecture
 
-**Version:** 1.4
-**Last Updated:** 2025-12-23
+**Version:** 1.5
+**Last Updated:** 2025-12-24
 **System:** Chrome Extension (MV3) + Python WebSocket Server + LLM Intelligence Pipeline
 
 ---
@@ -902,6 +902,228 @@ elif cap_action == "MyCapability":
 ```
 
 3. Restart server - capability index rebuilds automatically.
+
+---
+
+## LLM Pipeline & RAG System
+
+**Updated:** 2025-12-24
+
+### Unified Orchestrator (Single LLM Call)
+
+The system uses a **unified single-call architecture**. One LLM call handles both conversation and action selection.
+
+**File:** `llm/orchestrator.py` → `process_message_unified()`
+
+```
+User Message
+      ↓
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ INGESTION PHASE                                                              │
+│                                                                              │
+│ 1. Large Payload Check (>550 chars)                                         │
+│    → Summarize with entity extraction                                        │
+│    → Store full content in large_payloads/                                   │
+│    → Index summary in session vector                                         │
+│    → Replace message with stub: [Large content: ...; ref=hash]               │
+│                                                                              │
+│ 2. Persistence Intent Check ("remember X", "note that Y")                    │
+│    → Extract fact via LLM                                                    │
+│    → Store in vectors/system/facts/                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+      ↓
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ RAG RETRIEVAL                                                                │
+│                                                                              │
+│ 1. Query CapabilitiesStore (semantic search)                                 │
+│    → Returns capabilities matching user intent                               │
+│    → Filtered by cap_score_threshold (default 0.55)                          │
+│                                                                              │
+│ 2. Get Always-Include Capabilities                                           │
+│    → Capabilities with always_include: true                                  │
+│    → Prepended to results (score 1.0)                                        │
+│                                                                              │
+│ 3. Shape Options (dedup, diversity, max 7)                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+      ↓
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROMPT BUILDING                                                              │
+│                                                                              │
+│ Components injected:                                                         │
+│   - System prompt (chat_prompt.md + orb personality)                         │
+│   - Rolling chat history (last N messages from chat JSON)                    │
+│   - Session actions (cross-chat, last 10)                                    │
+│   - Environment (active tab, tabs list, visible chats)                       │
+│   - Capabilities (from RAG)                                                  │
+│   - Session context (RAG on session_content_store)                           │
+│   - Payload context (if large content was stored)                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+      ↓
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SINGLE LLM CALL                                                              │
+│                                                                              │
+│ Output types:                                                                │
+│   - reply: Chat response only                                                │
+│   - action: Execute capability {cap, params}                                 │
+│   - clarify: Missing param, ask user                                         │
+│   - options: Multiple matches, present choices                               │
+│   - search: Request more capabilities from RAG                               │
+│   - noop: Already done / no action needed                                    │
+│   - cannot: Unable to help                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+      ↓
+Response to User + Action Execution (if applicable)
+```
+
+### Memory Tier Architecture
+
+| Tier | Scope | Storage | Trigger | Persistence |
+|------|-------|---------|---------|-------------|
+| **Session Actions** | Cross-chat within session | In-memory + `session_actions.json` | Every action executed | Until server restart |
+| **Session Content** | Cross-chat within session | `vectors/memory/` | Messages rolled out of window | Until server restart |
+| **Chat History** | Single chat | `chats/{id}.json` | Every message | Permanent |
+| **Facts** | Global user knowledge | `vectors/system/facts/` | "remember X" intent | Permanent |
+| **Large Payloads** | Referenced content | `large_payloads/` + vector | >550 char messages | Permanent |
+
+### RAG Components
+
+**Directory:** `retrieval/`
+
+| File | Class | Purpose | Index Path |
+|------|-------|---------|------------|
+| `vector_store.py` | `VectorStore` | Base FAISS wrapper | - |
+| `capabilities_store.py` | `CapabilitiesStore` | Indexes internal_capabilities.json | `vectors/system/capabilities/` |
+| `session_content_store.py` | `SessionContentStore` | Cross-chat session memory | `vectors/memory/` |
+| `chat_memory_store.py` | `ChatMemoryStore` | Chat summaries (deprecated) | `vectors/system/chat_memory/` |
+| `memory_cycle.py` | - | Large payload + persistence handlers | - |
+| `chat_context.py` | - | Action/content classification | - |
+| `query.py` | `get_session_context()` | Combined RAG query | - |
+
+### Retrieval Flow
+
+```python
+# retrieval/capabilities_store.py
+class CapabilitiesStore(VectorStore):
+    def search(self, query: str, k: int = 7, threshold: float = 0.55):
+        """Semantic search on capability descriptions."""
+        # 1. Embed query
+        # 2. FAISS similarity search
+        # 3. Filter by threshold
+        # 4. Return top-k with scores
+
+    def get_always_include_capabilities(self):
+        """Return caps with always_include: true."""
+        # Score set to 1.0 (max relevance)
+```
+
+```python
+# retrieval/session_content_store.py
+def get_session_context(user_message: str, current_chat_id: str = None) -> str:
+    """Query session vector for relevant content from other chats."""
+    # 1. Embed user message
+    # 2. Search session vectors
+    # 3. Exclude current chat (avoid duplication)
+    # 4. Format as "[Session Context:] ..."
+```
+
+### Large Payload Handling
+
+**Threshold:** 550 characters (configurable in `llm_config.json`)
+
+```python
+# retrieval/memory_cycle.py
+
+def check_large_payload(message: str) -> bool:
+    """Check if message exceeds threshold."""
+    threshold = config.get("context", {}).get("large_payload_threshold", 550)
+    return len(message) > threshold
+
+async def process_large_payload(message: str, chat_id: str) -> str:
+    """Summarize and store large content."""
+    # 1. Extract entities with LLM
+    summary = await extract_summary(message)  # ~50 tokens
+
+    # 2. Hash for deduplication
+    content_hash = hashlib.sha256(message.encode()).hexdigest()[:12]
+
+    # 3. Store full content
+    save_to_large_payloads(content_hash, message)
+
+    # 4. Index in session vector
+    session_store.add(summary, metadata={"hash": content_hash, "chat_id": chat_id})
+
+    # 5. Return stub for chat history
+    return f"[Large content: {summary[:50]}...; ref={content_hash}]"
+```
+
+### Persistence Intent
+
+**Patterns:** "remember X", "note that Y", "keep in mind", "don't forget"
+
+```python
+# retrieval/memory_cycle.py
+
+def detect_persistence_intent(message: str) -> bool:
+    """Check for explicit memory storage request."""
+    patterns = [
+        r"\bremember\b", r"\bnote that\b", r"\bkeep in mind\b",
+        r"\bdon't forget\b", r"\bsave this\b"
+    ]
+    return any(re.search(p, message.lower()) for p in patterns)
+
+async def process_persistence_intent(message: str, chat_id: str) -> str:
+    """Extract and store fact."""
+    # 1. Extract fact with LLM
+    fact = await extract_fact(message)
+
+    # 2. Store in facts vector
+    facts_store.add(fact, metadata={"chat_id": chat_id, "original": message})
+
+    return fact
+```
+
+### Configuration
+
+**File:** `data/llm_config.json`
+
+```json
+{
+  "settings": {
+    "cap_score_threshold": 0.55,
+    "session_actions_limit": 10
+  },
+  "context": {
+    "payload_context_lines": 5,
+    "large_payload_threshold": 550,
+    "payload_summary_budget": 50,
+    "message_count_threshold": 8,
+    "max_facts_in_prompt": 3,
+    "fact_token_budget": 50
+  }
+}
+```
+
+| Setting | Purpose |
+|---------|---------|
+| `cap_score_threshold` | Minimum similarity score for capability to be included |
+| `session_actions_limit` | How many cross-chat actions to show in prompt |
+| `large_payload_threshold` | Character count to trigger summarization |
+| `payload_summary_budget` | Target tokens for payload summary |
+| `message_count_threshold` | Trigger rolling summary after N messages |
+| `max_facts_in_prompt` | How many stored facts to inject |
+
+### Key Files
+
+| File | Purpose |
+|------|---------|
+| `llm/orchestrator.py` | Main orchestrator with unified flow |
+| `llm/ingestion.py` | Message preprocessing |
+| `llm/shaping.py` | Capability option shaping |
+| `llm/contracts.py` | Output types and validation |
+| `retrieval/capabilities_store.py` | Capability RAG |
+| `retrieval/session_content_store.py` | Session memory RAG |
+| `retrieval/memory_cycle.py` | Large payload + facts |
+| `data/prompts/chat_prompt.md` | System prompt template |
 
 ---
 

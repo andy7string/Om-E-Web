@@ -250,6 +250,8 @@ class LLMClient:
         Returns:
             Assistant's response text
         """
+        # Reload config to pick up any provider changes (e.g. SetLLMProvider)
+        self.reload_config()
         provider = self.get_active_provider()
         settings = self.get_settings()
 

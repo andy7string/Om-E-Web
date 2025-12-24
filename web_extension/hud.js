@@ -7335,31 +7335,17 @@
         });
     }
 
-    // Expose functions globally for console testing
+    // Expose sendLLMChat globally for console testing
     // Content scripts run in isolated world, so we use postMessage bridge
-    window.omeSendChat = sendChatMessage;
-    window.omeLLMChat = sendLLMChat;
+    window.omeSendChat = sendLLMChat;
 
     // Listen for page-context test calls via postMessage
     // ADDED: 2025-12-23 - Bridge for Claude Code integration testing
     // Handles messages from chat_test_helper.js (MAIN world) to content script (isolated world)
-    // Can be removed if no longer needed for automated testing
     window.addEventListener('message', (event) => {
         if (event.source !== window) return;
 
-        // AppendMessage - just saves to chat (omeSendChat)
-        if (event.data?.type === 'ome_send_chat_test') {
-            const { prompt, chatId, meta } = event.data;
-            sendChatMessage(prompt, chatId, meta)
-                .then(result => {
-                    window.postMessage({ type: 'ome_send_chat_result', result }, '*');
-                })
-                .catch(error => {
-                    window.postMessage({ type: 'ome_send_chat_result', error: error.message }, '*');
-                });
-        }
-
-        // LLMChat - triggers orchestrator (updates llm_unified.md) (omeLLMChat)
+        // LLMChat - triggers orchestrator (sends to LLM, updates llm_unified.md)
         if (event.data?.type === 'ome_llm_chat_test') {
             const { message, clearHistory } = event.data;
             sendLLMChat(message, clearHistory)

@@ -1,0 +1,667 @@
+<!-- signature: z8-0INxN_Hg:656:5453a6601c69cf7db1ca32b337f4093a16d64d29ba17c0e40d98c63840031206 -->
+# RAG: The $40B AI Technique 80% of Enterpises Use—Finally Explained
+
+**Video URL:** https://www.youtube.com/watch?v=z8-0INxN_Hg
+**Video ID:** z8-0INxN_Hg
+**Language:** en
+**Collected At:** 1766541163185
+**Segments:** 656
+
+---
+
+- [0:00] What if Chad GPT had perfect memory and
+- [0:03] never hallucinated? That is the $40
+- [0:05] billion promise that Rag is making to
+- [0:08] the industry. Rag is retrieval augmented
+- [0:11] generation. In this video, you're going
+- [0:13] to get a one-stop shop that unpacks all
+- [0:15] the current debates, all the current
+- [0:17] best practices on Rag, how companies are
+- [0:20] implementing RAG, a few success stories,
+- [0:22] and not to be left out, a few places
+- [0:24] where you should not use Rag. because
+- [0:27] yes, there are companies that have
+- [0:28] absolutely overinvested in rag and
+- [0:31] profoundly regret it. So, let's dive in.
+- [0:34] The problem is fundamentally that LLM
+- [0:37] are brilliant but jagged. I've talked
+- [0:38] about this before. They have fatal
+- [0:40] flaws. They have knowledge cutoff dates,
+- [0:43] so their knowledge is frozen in time.
+- [0:44] They have hallucinations or confident
+- [0:46] lies and they obviously can't access
+- [0:48] your company's data, which in most cases
+- [0:51] companies do not mind. So the solution
+- [0:53] preview is basically rag plus an LLM or
+- [0:57] large language model will give your AI a
+- [1:00] realtime research assistant flavor. So
+- [1:02] what you're going to learn is how to
+- [1:04] build your rag system, how to scale from
+- [1:07] a prototype up to true scale like
+- [1:09] millions of queries and how to avoid the
+- [1:11] pitfalls that kill so many rag projects.
+- [1:14] This is all based on actual deep dives
+- [1:16] I've done on rag. Lots of research I've
+- [1:19] done. It's very comprehensive. So,
+- [1:21] bookmark this one and watch it in
+- [1:22] chunks. First, why Rag changes
+- [1:25] everything. We're going to actually get
+- [1:26] into the stakes and then we're going to
+- [1:28] get into how it actually works. Rag is
+- [1:30] currently a roughly $2 billion market,
+- [1:33] although that's exploding so fast it's
+- [1:34] hard to measure. It is on track for $40
+- [1:37] billion plus by 2035. So many
+- [1:39] enterprises use rag. The loose running
+- [1:41] number is around 80%. And they use it
+- [1:44] over fine-tuning because they perceive
+- [1:45] it as easier. So, fine-tuning a model is
+- [1:47] perceived as more difficult, at least
+- [1:49] right now. And those that are engaging
+- [1:51] with AI, 73% of them say that they need
+- [1:55] real- time data access. By the way, if
+- [1:57] you're wondering where am I making up
+- [1:58] these statistics from, I have a list of
+- [2:01] links in my Substack that you can go and
+- [2:04] follow up to find all of the actual
+- [2:07] stories that underly this. So, as an
+- [2:09] example of a success story, LinkedIn had
+- [2:12] a significant reduction in support
+- [2:14] ticket resolution time because of rag.
+- [2:18] because RAG enabled them to know their
+- [2:20] business. So, it's like an LLM having an
+- [2:23] openbook exam instead of a closed book
+- [2:25] exam. And yes, that story is public. So,
+- [2:27] how does it work? What's the magic?
+- [2:29] Retrieval is searching the knowledge
+- [2:30] base for relevant info. Augmentation is
+- [2:32] combining the query with retrieved
+- [2:34] facts. And generation is an LLM creating
+- [2:37] an answer grounded in real data. So, how
+- [2:40] does rag really work? Number one,
+- [2:42] embeddings. So text is embedded as
+- [2:46] numbers in dimensional space,
+- [2:48] highdimensional space. For example, the
+- [2:50] phrase refund policy might be embedded
+- [2:53] as a series of numbers or vectors. And
+- [2:55] the key insight is that similar meanings
+- [2:57] will cluster together mathematically. If
+- [3:00] you've watched previous videos of mine
+- [3:01] talking about how large language models
+- [3:03] work, it's the same darn thing. You're
+- [3:05] taking the words and you're encoding
+- [3:07] them as numbers in highdimensional
+- [3:09] vector space. And if you want to know
+- [3:12] how many dimensions, one of the best
+- [3:14] practices right now is 1,536
+- [3:16] dimensions. That's a lot of dimensions.
+- [3:18] So if you have the dimensions, you might
+- [3:21] wonder, is that enough? Can we just feed
+- [3:22] the text raw? The answer is no. You want
+- [3:24] to chunk. And by chunking, we mean that
+- [3:27] you want to break the large blocks of
+- [3:30] text that you're giving to the system
+- [3:32] into pieces in ways that help the LLM
+- [3:35] understand relationships and semantic
+- [3:37] meaning. Bad chunking ruins. so many rag
+- [3:41] projects. So pay attention. You have
+- [3:42] four different strategies here. You can
+- [3:44] have fixed size chunks that can be
+- [3:46] dangerous. It can cut off mid-sentence.
+- [3:48] You can have sentencebased chunks that
+- [3:51] will respect boundaries. And you have
+- [3:52] semantic chunks that group by topic. And
+- [3:55] you have recursive chunks that group by
+- [3:56] hierarchical structure. The key is
+- [3:59] making sure you understand what you want
+- [4:00] to get from a business perspective and
+- [4:02] driving your chunking strategy off of
+- [4:05] that. You should plan to have overlap
+- [4:07] between chunks. You don't want to have
+- [4:09] just a 0 0 cut off because if you do
+- [4:12] then you don't have the chance for the
+- [4:14] LLM to find something in a similar chunk
+- [4:18] that it might have run across in the
+- [4:20] original chunk. And that basically if
+- [4:22] you give it a little overlap, you
+- [4:24] maximize the odds of the AI finding what
+- [4:26] it needs in a really complicated
+- [4:28] haststack. So when we're looking at
+- [4:30] things in vector space, we are not
+- [4:33] keyword matching. That's often a
+- [4:34] misunderstanding. People will say, "Oh,
+- [4:36] the LLM is looking for a keyword match."
+- [4:38] No, it's not. It's looking to match
+- [4:40] meaning. And so, it's actually looking
+- [4:42] for what's called cosign similarity and
+- [4:45] finding the nearest neighbors in vector
+- [4:46] space. As an example, how do I get my
+- [4:49] money back? Might be a query that a
+- [4:50] customer types in. That would find, say,
+- [4:53] refund processing 0.95 similarity,
+- [4:56] return policy 93 similarity, and
+- [4:59] shipping info 38 similarity not
+- [5:01] retrieved. That one's not a fit. Now, if
+- [5:03] you want to like think about how you
+- [5:05] handle retrieval, you can actually
+- [5:07] rerank based on how you get actual
+- [5:10] queries back and you can boost accuracy
+- [5:12] for business purposes significantly if
+- [5:15] you do re-ranking. It's an advanced
+- [5:16] technique, but in this situation, if you
+- [5:19] want the system to retrieve shipping
+- [5:21] info with how do I get my money back
+- [5:22] because maybe they need to ship their
+- [5:23] item back, then you can rerank and you
+- [5:26] can get to that in what we'll call postp
+- [5:29] production, for lack of a better term.
+- [5:30] Okay, so how do you build a rag? Very
+- [5:33] simply, I would recommend like go to
+- [5:35] Llama index. You're going to load up
+- [5:37] your documents, which Llama gives you a
+- [5:39] way to do from the command line. Create
+- [5:40] an index and query. And it's easy to get
+- [5:44] a stack for this. This is not expensive.
+- [5:46] This is not hard as simple. Rag is
+- [5:47] quick. Uh you can use lang chain. It's a
+- [5:50] Swiss Army knife. It's going to do
+- [5:51] everything. You can use llama index.
+- [5:53] It's optimized specifically for rag.
+- [5:55] other vector DBs, Pine Cone, Chroma,
+- [5:58] Cudrant, they all work. And if you want
+- [6:01] something as simple as what's the
+- [6:02] warranty period on a manual or handbook,
+- [6:05] you're going to be able to get 2 years
+- [6:06] for EU purchases or a similar answer
+- [6:08] that's correct very, very quickly. Like
+- [6:10] this is something where in 2025 it's not
+- [6:12] hard to build a simple rag. The
+- [6:14] challenge is most people don't just want
+- [6:17] a simple rag. So if you want a level one
+- [6:20] basic Q&A, you can get that one done in
+- [6:23] like a week or so, right? even at a
+- [6:24] company. Simple vector search, single
+- [6:26] source, couple of seconds of latency,
+- [6:29] internal FAQs only, super fast. It's
+- [6:31] basically a slightly fancier custom GPT.
+- [6:34] Level two, hybrid search, where you're
+- [6:36] combining both a keyword match and
+- [6:38] semantic meaning match. That's a little
+- [6:39] bit more complicated. You definitely get
+- [6:41] better accuracy. It can be faster in
+- [6:44] some cases because you're handling
+- [6:45] keywords directly. Uh, and it can be
+- [6:49] helpful for handling edge cases. It's
+- [6:51] much more complicated to implement
+- [6:52] though. But it gets more complicated
+- [6:54] from there. All right, level three.
+- [6:56] Let's say you want to search text and
+- [6:57] images and video and audio. Modal rag.
+- [7:00] It can be quite accurate. You can get it
+- [7:03] to be quick. Uh but you are going to
+- [7:05] have to put a ton of work in on the data
+- [7:07] side and the chunking side. You think
+- [7:08] chunking is complex complex with text?
+- [7:11] Wait till you're trying to come up with
+- [7:12] a chunking strategy for text and images
+- [7:15] and video and audio. One example would
+- [7:17] be uh Vimeo's video search with
+- [7:20] timestamps. That's an interesting one,
+- [7:22] right? So, level four, agentic rag.
+- [7:24] That's where you actually have the agent
+- [7:26] go in and do multi-step reasoning and
+- [7:28] self-improve on what it finds. It's
+- [7:30] going to be a longer wait. You can get a
+- [7:32] more accurate response. You not only
+- [7:34] have to build a full rag, you have to
+- [7:36] build an agent over the top. And then
+- [7:37] finally, if you want enterprise
+- [7:39] production, there's a lot of security.
+- [7:41] There's a lot of compliance. There's a
+- [7:42] lot of monitoring. You have performance
+- [7:44] expectations around how fast this thing
+- [7:46] needs to respond and how it handles load
+- [7:48] when there's multiple queries and all of
+- [7:50] that additional software engineering
+- [7:52] that goes into putting something on a
+- [7:54] million boxes. That does not go away.
+- [7:56] That is still complicated. No AI will
+- [7:58] magically put software that lives on a
+- [8:00] million or 10 million or 100 million
+- [8:02] boxes easily. Okay. So, we've talked a
+- [8:05] fair bit about data. Let's do a little
+- [8:06] bit more of a deep dive there because
+- [8:08] data is the key to a good rag system. So
+- [8:11] when you are looking at documents for a
+- [8:14] rag, there's a few things that you want
+- [8:16] to keep in mind as like trusty tool tips
+- [8:19] that will help you to go farther. Number
+- [8:22] one, PDFs often have terrible header and
+- [8:25] footer pollution. Like they have stuff
+- [8:26] where like, have you ever copied and
+- [8:27] pasted a PDF? Like that's how that's how
+- [8:30] the system sees it and it will read
+- [8:32] those little footers and get confused.
+- [8:33] It'll read the weird header and get
+- [8:34] confused. OCR for scan documents. Are
+- [8:37] you sure the optical character
+- [8:39] recognition is correct? This is why
+- [8:41] Mistl released a special OCR tool just
+- [8:44] for scanning documents. It's difficult
+- [8:45] to get a good rag if you don't have good
+- [8:47] clean text that's digital. Tables are
+- [8:49] going to need special handling because
+- [8:50] you have to encode spatial
+- [8:52] relationships. You need to get to clean
+- [8:54] boilerplate in documents before thinking
+- [8:57] about chunking. Do not try to chunk a
+- [8:59] PDF. Get to clean boilerplate first. Get
+- [9:02] to clean markdown first. Okay. metadata
+- [9:05] can be a dramatically impactful choice
+- [9:08] as far as how you handle accuracy. So if
+- [9:10] you add source, section, and date to
+- [9:12] each chunk, retrieval is going to be
+- [9:14] vastly improved. For example, policy
+- [9:16] updated March 20, now the system knows
+- [9:18] that it's a 2024 update. And if it finds
+- [9:20] a 2025 update, it's going to probably
+- [9:23] choose the 2025 update if it understands
+- [9:25] you're looking for a recency based
+- [9:27] retrieval. So what does this look like?
+- [9:29] 10 steps. Convert to text with the
+- [9:31] appropriate parser. You got to split it
+- [9:33] into sections. You have to remove the
+- [9:36] boiler plate that's like crappy headers
+- [9:38] and footers. You have to normalize all
+- [9:39] the white space. You have to extract the
+- [9:41] section titles. You have to add the
+- [9:43] metadata. You have to chunk with the
+- [9:44] overlap. You have to embed the chunks.
+- [9:47] You have to verify samples. And then you
+- [9:48] have to iterate. That's how much work it
+- [9:50] is. And that is for frankly a fairly
+- [9:52] simple exercise. And this is why I say
+- [9:54] like rag can get complicated. But we're
+- [9:56] going to get even more advanced because
+- [9:58] this is one of those videos. Let's talk
+- [10:00] about graph rag. So traditional rag is
+- [10:03] just isolated text chunks. Graph rag
+- [10:06] preserves entity relationships as it
+- [10:09] encodes in a rag. And so LinkedIn saw
+- [10:12] significantly better retrieval with
+- [10:13] knowledge graphs from graph rag. Another
+- [10:15] hybrid approach that's interesting is
+- [10:18] search deep dive. And so can you catch
+- [10:20] exact matches or error codes with a
+- [10:23] hybrid search that not only looks at
+- [10:25] like the vector space but also looks at
+- [10:28] for example error codes. So the best
+- [10:30] document often ranks in different
+- [10:32] searches at different positions and it's
+- [10:34] sort of like rank choice voting where
+- [10:36] it's looking for like what is the
+- [10:37] retrieval answer that is highest across
+- [10:39] these different search methods in our
+- [10:41] hybrid search approach. And then maybe
+- [10:42] that's the number one, right? So maybe
+- [10:44] the error code that we're looking for
+- [10:46] ranks really highly in our keyword
+- [10:48] search and it ranks not as highly in the
+- [10:50] semantic meaning search, but it's still
+- [10:52] there because we've used correct
+- [10:53] metadata when we chunked it. And so it
+- [10:55] all sort of comes out in the wash and it
+- [10:57] comes out as number one combined and
+- [10:58] that improves the accuracy. Multimodal,
+- [11:01] you want to be thoughtful about how you
+- [11:03] handle especially the relationship
+- [11:05] between image, table, and text. Invoices
+- [11:08] are a good example of this. They will
+- [11:09] often have tables. They'll definitely
+- [11:11] have text. They may have images as well.
+- [11:13] You want to use something like uh a tool
+- [11:15] like clip for image embeddings. You want
+- [11:17] to unify an index across all your
+- [11:18] modalities. So unified index for text
+- [11:20] and images and tables. And you should
+- [11:22] be, if you do it right, able to send a
+- [11:25] query that says something like, "Show me
+- [11:26] the revenue table from Q3." And it
+- [11:28] should retrieve both the image and the
+- [11:30] data because the index is common across
+- [11:33] both modalities. Okay, this is where I
+- [11:35] mention MCP. MCP is helpful because it
+- [11:38] ends up being like the USB port for AI.
+- [11:41] It's a universal protocol to enable AI
+- [11:43] data connectivity. and it is super super
+- [11:45] helpful to enable systems to plug into
+- [11:50] and access data that they would not
+- [11:52] otherwise be able to get. And so a good
+- [11:54] system that has rag for internal company
+- [11:56] data can also extend that search
+- [11:58] relatively easily using MCP to other
+- [12:01] data sources as well. Let's get to
+- [12:04] memory management. So if you think about
+- [12:06] memory, part of the whole reason we got
+- [12:08] here is memory and why memory is a
+- [12:10] problem for AI. We have to get the
+- [12:12] memory right. Context windows are
+- [12:15] working memory. It's what every AI ships
+- [12:17] with. Often it's 100,000, 200,000,
+- [12:20] 400,000, maybe even a million tokens.
+- [12:22] Vector stores long-term memory. We've
+- [12:24] talked about embeddings. Long-term
+- [12:26] memory, effectively unlimited that we
+- [12:28] have get compressed and summarized. And
+- [12:31] so, if you think about how all of this
+- [12:34] relates together, you can be in a
+- [12:36] position where you can compress old
+- [12:37] terms of conversation and summarize them
+- [12:39] in memory. You can retrieve previous
+- [12:42] conversation with a rag on the
+- [12:44] conversation itself. You can have
+- [12:46] multiple abstraction levels. And one
+- [12:48] good example is making sure that you can
+- [12:52] encode enough of a previous longrunning
+- [12:54] conversation to not forget key facts. So
+- [12:58] as an example, let's say you're ordering
+- [13:00] French fries, right? And you're talking
+- [13:01] with an AI bot about ordering French
+- [13:04] fries. It is 2025. That could happen.
+- [13:05] Maybe you're on Door Dash. I don't know
+- [13:07] what happens if you mention that the
+- [13:11] order you're working on doesn't have
+- [13:12] enough fries in it and you want extra
+- [13:14] fries and that's on the second chat that
+- [13:16] you send and then 20 or 30 chats later
+- [13:18] cuz you're having a great conversation
+- [13:20] with Door Dash uh as we all do um it
+- [13:23] forgets it forgets that you have French
+- [13:26] fries. That kind of visceral moment
+- [13:27] where it forgets the previous
+- [13:29] conversation is something almost
+- [13:30] everyone has experienced with AI and you
+- [13:33] don't have to experience it with a rag
+- [13:35] system because the rag system can
+- [13:36] effectively be used as an advanced
+- [13:38] memory manager to re reduce that sense
+- [13:40] that the me memory is just going to
+- [13:42] disappear as the context window moves
+- [13:44] along. A lot of the fancy work that
+- [13:47] companies do to keep context windows
+- [13:49] open a long time basically revolves down
+- [13:52] to this fancy memory management. This is
+- [13:54] one of the reasons why OpenAI feels like
+- [13:57] it has a larger context window even
+- [13:59] though it doesn't. They don't exactly
+- [14:01] reveal what they do, but basically they
+- [14:02] do some fancy work with memory
+- [14:04] management to keep the conversation
+- [14:05] flowing longer. Whereas Claude has a
+- [14:08] pretty hard memory cap and they aren't
+- [14:10] keeping the conversation longer with a
+- [14:11] technique like this right now at least.
+- [14:13] And so you'll run into the you've run
+- [14:15] out of memory on Claude really fast. And
+- [14:18] what's fascinating is people think that
+- [14:20] means that Claude has shorter context
+- [14:22] windows and shorter memory. But that's
+- [14:24] not true. OpenAI is fooling you with
+- [14:26] fancier memory management. Okay, let's
+- [14:28] get to evals in testing. Four things
+- [14:30] that I want to call out. Relevance, are
+- [14:32] we retrieving the right chunks?
+- [14:34] Faithfulness, is the answer based on
+- [14:36] actual sources? Quality, would a human
+- [14:38] rate it as correct? And latency, is this
+- [14:41] fast enough? And you'll have to set that
+- [14:42] bar, but oftentimes it's like sub a
+- [14:44] couple of seconds. And so you need to
+- [14:46] start this by building a eval set, a
+- [14:49] question set for this rag that you will
+- [14:52] consider gold standard. Include edge
+- [14:53] cases, include things that are tricky.
+- [14:55] Don't make it easy. You want to measure
+- [14:57] both retrieval and generation. So can it
+- [14:59] get it and can it write it well? And you
+- [15:01] want to AB test improvements in your rag
+- [15:03] system. If you're going to move to
+- [15:04] hybrid search, take it seriously. One
+- [15:07] example, uh, Notion worked on AB testing
+- [15:10] their rag system when they moved and
+- [15:12] they could prove the improved value of
+- [15:15] search over time and so they were able
+- [15:18] to analyze their failures, fix their
+- [15:19] data and problems. That's another
+- [15:20] publicly available story. Okay, I've
+- [15:22] given you some examples of how to do
+- [15:24] rag. Let's talk about how rag goes
+- [15:26] wrong. We've talked about chunking going
+- [15:28] wrong, breaking context midsentence.
+- [15:30] We've talked about LLM's missing info in
+- [15:33] big chunks and how things get lost in
+- [15:35] memory. Well, it's possible if you set
+- [15:37] up a bad rag that you can actually get
+- [15:39] lost in the middle because the LM can't
+- [15:40] retrieve the info. So, that's a way that
+- [15:42] rag can actually make the memory problem
+- [15:44] worse if you implement it badly. You
+- [15:46] have hallucination horror stories where
+- [15:47] the rag will make up facts despite the
+- [15:50] context being available. That can happen
+- [15:52] with poorly labeled context. It can
+- [15:54] happen for a variety of reasons. Number
+- [15:56] four, you can have frankly an incorrect
+- [15:58] vector DB setup. It can be very
+- [16:00] expensive. Number five, you can have
+- [16:02] stale data or bad data inside it. So
+- [16:05] there's no update pipeline and the data
+- [16:06] gets out of date and then it's useless.
+- [16:08] Number six, security leaks, PII
+- [16:11] exposure, compliance failures. It's just
+- [16:13] not fun. And number seven, mismatching
+- [16:15] on embeddings. Different models for
+- [16:17] index versus query can lead to complete
+- [16:19] garbledegook. So as you would expect,
+- [16:22] the prevention strategies make a lot of
+- [16:23] sense here. Always overlap your chunks.
+- [16:26] Test with production-like data. Let it
+- [16:28] be okay to have I don't know responses.
+- [16:30] That really helps with hallucinations.
+- [16:32] Start with open- source or cheap
+- [16:33] options. That prevents you from having
+- [16:35] the wrong vector database. You can just
+- [16:37] before you pour the concrete, just check
+- [16:39] it, right? Build update pipelines on day
+- [16:41] one. Don't build them later. Have a
+- [16:43] security review before you start on the
+- [16:45] architecture. Track embedding versions
+- [16:48] so you don't have different embedding
+- [16:49] versions that screw you over between
+- [16:51] index and query. Okay. Now, let's get
+- [16:54] into some of the challenges that occur
+- [16:55] especially when you have very large
+- [16:57] systems like enterprise and scale
+- [16:59] systems scaling to 10 million queries,
+- [17:01] right? You have to start to shard your
+- [17:03] vector DB and replicate it. You have to
+- [17:05] cache popular queries. You have to
+- [17:07] figure out how to cascade models. You
+- [17:09] may want to expand a prompt and then
+- [17:10] have a different model handle the prompt
+- [17:12] from there. Cost optimization will save
+- [17:15] you millions of dollars because it's so
+- [17:17] expensive to run these things. And so
+- [17:18] this is where like you'll be shaving
+- [17:20] models and figuring out what is the
+- [17:21] absolute smallest model you can use and
+- [17:23] how do you trade off different models in
+- [17:25] a system depending on the query. You're
+- [17:27] going to have a security deep deep dive
+- [17:28] like no other. access control filtering,
+- [17:31] PII scrubbing, audit trails, compliance,
+- [17:33] HIPPA, GDPR, SOCK 2, you name it. Add an
+- [17:36] acronym, right? There's going to be a
+- [17:37] lot. Plan for it to take months, but
+- [17:39] it's worth it, right? Like another
+- [17:41] example is RBC banking. They built a rag
+- [17:44] for support agents, another publicly
+- [17:46] available story. It indexes policies, it
+- [17:49] indexes past tickets, faster resolution,
+- [17:51] better consistency, and they rolled it
+- [17:53] out internally at first and then to
+- [17:55] customers. It is possible to do ragged
+- [17:57] scale. Let's do just a little bit of a
+- [18:01] look at rag versus agentic search as we
+- [18:04] come toward the end of this long
+- [18:06] introduction. Thank you for staying with
+- [18:07] me to rag. So rag versus agentic search
+- [18:10] is a huge question. Fundamentally rag is
+- [18:13] a single retrieval answer modality
+- [18:15] whereas agents are thinking and planning
+- [18:17] in multi-step and they can be more
+- [18:18] accuracy but they're much slower and
+- [18:19] more expensive. So you want to use rag
+- [18:21] for simple Q&A for documentation. You
+- [18:24] want to use rag and agents for complex
+- [18:26] reasoning, multissource, etc. And I
+- [18:28] would be remiss even in a video that's
+- [18:31] all about rag if I did not say when not
+- [18:34] to use rag. I know of companies that
+- [18:36] have they have regretted their rag
+- [18:39] implementations. Because what they used
+- [18:41] rag for was not company data, not
+- [18:44] something that the LLM could not get any
+- [18:48] other way. What they used it for was
+- [18:51] essentially a way to make the LLM
+- [18:52] temporarily smarter. And what they found
+- [18:55] after a very expensive halfmillion
+- [18:56] dollar million dollar implementation is,
+- [18:58] oh no, we implemented a rag and the next
+- [19:01] general purpose model was smart enough
+- [19:03] it didn't matter. It had a big enough
+- [19:04] context window it didn't matter. We
+- [19:06] still need rag. It just needs to be
+- [19:08] intelligent. It needs to be smart. It
+- [19:10] needs to follow some of the best
+- [19:11] practices I've outlined here around how
+- [19:12] you handle data, how you chunk data, why
+- [19:14] you use it, how you set it up. So here's
+- [19:16] some examples that are kind of when not
+- [19:19] to use rag. Things you can do to avoid
+- [19:21] making those kinds of mistakes. Number
+- [19:22] one, check if the base model knows it or
+- [19:25] almost knows it. I mentioned that
+- [19:27] already. Number two, this is more for a
+- [19:29] personal rag system, but if it's for
+- [19:30] stories or poems or creative writing,
+- [19:32] rag just generally doesn't work well
+- [19:34] because the semantic meaning doesn't
+- [19:36] work the same way. Number three, if you
+- [19:38] need it to be super super fast, like
+- [19:40] gaming system fast, don't bother with a
+- [19:43] rag. It's not going to work ever. uh
+- [19:44] because you just have to go and get the
+- [19:46] data and it takes time. If you have
+- [19:47] highly volatile data like stock market
+- [19:49] tickers, don't use a rag. It's not going
+- [19:52] to ever work. If you have a high
+- [19:54] maintenance cost and you don't have a
+- [19:55] really clear benefit, like if it's a
+- [19:57] small data set, don't use a rag. If you
+- [20:00] have relatively simple transformations,
+- [20:02] like basic calculations, basic
+- [20:03] formatting, there's not a lot to do,
+- [20:06] don't use a rag. It's not worth it. If
+- [20:07] it's privacy critical, you have to
+- [20:10] ensure you can't store user data. And if
+- [20:11] you do, you're in trouble. Now if we
+- [20:13] look to the future and what's going to
+- [20:14] happen, I think there's some clear
+- [20:16] writing on the wall. One, the models are
+- [20:18] going to get more agentic and smarter.
+- [20:19] That means rag is going to become more
+- [20:21] and more agentic search rag, more and
+- [20:23] more agentic search plus MCP rag, and
+- [20:25] they are going to make active progress
+- [20:28] on the memory side, which leads you to
+- [20:30] ask me, well, heck, if they're going to
+- [20:32] get the memory figured out, why are we
+- [20:33] using rag? And my answer to you is rag
+- [20:36] is a way of talking with data that has a
+- [20:39] little bit of stability, a widespread
+- [20:42] good topic diffusion, and that you can
+- [20:44] actually query against that data in a
+- [20:47] way that enriches current conversations.
+- [20:49] You actually would not want to populate
+- [20:52] a magical 10 million token working
+- [20:54] memory with your entire wiki of your
+- [20:56] company anyway because it would just
+- [20:57] make your answers dirty. What you want
+- [20:59] is retrieval augmented generation
+- [21:01] sometime because it gives you a precise
+- [21:03] picture of a larger data set that is
+- [21:05] relevant to your query. So rag will have
+- [21:08] its place even as memory improves but
+- [21:10] only if you use it smartly. So expect
+- [21:13] more context windows million plus
+- [21:15] context windows are going to be typical.
+- [21:17] Expect a rapid spread of model context
+- [21:19] protocol and MCP. expect huge market
+- [21:22] growth as companies start to use rag as
+- [21:24] a way of bridging the world of their
+- [21:26] data with AI models and expect a much
+- [21:29] more sophisticated relationship between
+- [21:31] model fine-tuning and rag. I would
+- [21:34] expect that fine-tuning becomes much
+- [21:36] more democratized in 2026 just as rag is
+- [21:40] really common now in 2025. Okay, so
+- [21:43] we've walked through a lot of this.
+- [21:44] We've walked through how to set up a
+- [21:45] rag. We've walked through some of the
+- [21:46] pitfalls with rags, how rag works, how
+- [21:48] data works, how chunking works. I want
+- [21:50] to leave you with this. Rag is a way to
+- [21:53] solve some of AI's biggest problems.
+- [21:54] Hallucination, stale knowledge, lack of
+- [21:57] memory. It can be started as simple as a
+- [21:59] few lines of code. And it does scale up
+- [22:01] to the enterprise scale, although not
+- [22:03] with 15 lines of code. This is why so
+- [22:05] many enterprises and businesses are
+- [22:07] thinking about Ragen moving toward
+- [22:09] Brack. It solves problems that are real
+- [22:11] if implemented well. The tools do exist
+- [22:13] today. I've mentioned some of them on
+- [22:15] this video. You have no excuses not to
+- [22:17] start if you have a problem that fits in
+- [22:20] the fairly wide rag problem space. Most
+- [22:22] of us have run across hallucination
+- [22:23] stale a stale knowledge and memory
+- [22:25] issues. But if you're going to do it,
+- [22:27] pick a small use case. Build just a
+- [22:30] prototype to start. Don't pour the
+- [22:31] concrete. Measure the impact and eval
+- [22:34] it. Evaluate it and then learn and
+- [22:37] iterate. The companies that win are not
+- [22:39] going to be the companies that just have
+- [22:41] the magical biggest models. The size
+- [22:44] doesn't matter, right? the smartness of
+- [22:46] the model is not going to be the magic
+- [22:47] thing. It's going to be their ability to
+- [22:49] take AI integrate it into their company
+- [22:51] data and knowledge maybe with rag and in
+- [22:54] ultimately enable AI to drive their
+- [22:57] workflows forward. That's what I would
+- [22:59] suggest you think about for rag in your
+- [23:01] situation. What problems are ragshaped
+- [23:04] for you? And critically, what problems
+- [23:07] do you want to avoid using rag on?
+- [23:09] Because if you've watched this video
+- [23:11] this far, you know I'm not trying to
+- [23:13] tell you rag is the solution for
+- [23:14] everything. I just want you to
+- [23:15] understand what it is so you're not
+- [23:17] surprised the next time someone talks to
+- [23:19] you about it. Cheers. I hope you've
+- [23:21] enjoyed this introduction to Rack.

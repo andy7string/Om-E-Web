@@ -1,0 +1,27 @@
+{
+  "texts": [
+    "User is frustrated that the assistant did not remember their previous conversation.",
+    "User likes cats",
+    "User prefers the green one"
+  ],
+  "metadata": [
+    {
+      "type": "fact",
+      "source_message": "just like htat but you didnt remember our conversation so we lost something ome",
+      "chat_id": "20251223105939_dc851c",
+      "timestamp": "2025-12-23T21:57:32Z"
+    },
+    {
+      "type": "fact",
+      "source_message": "i like cats",
+      "chat_id": "20251223123354_566545",
+      "timestamp": "2025-12-23T23:04:45Z"
+    },
+    {
+      "type": "fact",
+      "source_message": "i like the green one more",
+      "chat_id": "20251223123048_da95a3",
+      "timestamp": "2025-12-24T12:18:44Z"
+    }
+  ]
+}

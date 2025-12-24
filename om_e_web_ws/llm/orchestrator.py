@@ -1153,22 +1153,25 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             system_prompt,
             "```",
             "",
-            "## Messages (sent to LLM)",
-            "",
+            "## Conversation",
         ]
 
-        # Show all messages sent to LLM
-        for i, msg in enumerate(messages):
+        # Compact format: ROLE: content (one line per message, multiline indented)
+        for msg in messages:
             role = msg.get("role", "unknown").upper()
             content = msg.get("content", "")
-            lines.append(f"### {i+1}. {role}")
-            lines.append("")
-            lines.append("```")
-            lines.append(content)
-            lines.append("```")
-            lines.append("")
+            # Indent multiline content for readability
+            if "\n" in content:
+                # First line with role, rest indented
+                content_lines = content.split("\n")
+                lines.append(f"**{role}:** {content_lines[0]}")
+                for cl in content_lines[1:]:
+                    lines.append(f"  {cl}")
+            else:
+                lines.append(f"**{role}:** {content}")
 
         lines.extend([
+            "",
             "## Response",
             "```json",
             response_text,
@@ -1925,27 +1928,24 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             "",
             "---",
             "",
-            "## Messages (sent to LLM)",
-            "",
+            "## Conversation",
         ]
 
-        for i, msg in enumerate(messages):
+        # Compact format: ROLE: content
+        for msg in messages:
             role = msg.get("role", "unknown").upper()
             content = msg.get("content", "")
-            lines.append(f"### {i+1}. {role}")
-            lines.append("")
-            lines.append("```")
-            lines.append(content)
-            lines.append("```")
-            lines.append("")
+            if "\n" in content:
+                content_lines = content.split("\n")
+                lines.append(f"**{role}:** {content_lines[0]}")
+                for cl in content_lines[1:]:
+                    lines.append(f"  {cl}")
+            else:
+                lines.append(f"**{role}:** {content}")
 
         lines.extend([
-            "---",
             "",
-            "## LLM Response",
-            "",
-            f"**Response Tokens:** {response_tokens}",
-            "",
+            f"## Response ({response_tokens} tokens)",
             "```json",
             response_text,
             "```",

@@ -1,0 +1,396 @@
+<!-- signature: tLMViADvSNE:385:a21223f4a39f4103c7880ecf148f009fef7f00f50f9321e57fa1833514f52427 -->
+# Every RAG Strategy Explained in 13 Minutes (No Fluff)
+
+**Video URL:** https://www.youtube.com/watch?v=tLMViADvSNE
+**Video ID:** tLMViADvSNE
+**Language:** en
+**Collected At:** 1766539232621
+**Segments:** 385
+
+---
+
+- [0:00] Retrieval augmented generation is the
+- [0:02] way to give your AI agents the ability
+- [0:04] to search and leverage your knowledge
+- [0:07] and documents, but it feels like there
+- [0:09] are a million strategies for RAG out
+- [0:11] there. How do you know which is best for
+- [0:14] your use case? What even are all the RAG
+- [0:17] strategies that we can pick from? And
+- [0:19] should we be combining some together? It
+- [0:21] gets overwhelming pretty fast when you
+- [0:23] try to optimize a rag system for your
+- [0:25] use case. But don't worry because I've
+- [0:28] got you covered in this video answering
+- [0:30] all of those questions for you. Now,
+- [0:32] beware. This is a veryformationally
+- [0:35] dense video. I want to try a new format
+- [0:37] where I have shorter content that's
+- [0:39] super valuepacked for you. And so,
+- [0:41] please let me know in the comments as
+- [0:43] I'm going through any of these rag
+- [0:44] strategies if there's one that you want
+- [0:46] me to make a dedicated video for. And if
+- [0:48] I already have that, I'll link to the
+- [0:50] video when I'm covering that strategy
+- [0:52] specifically. So the goal that I have
+- [0:54] for you right now is just to get you
+- [0:56] started thinking about the strategies
+- [0:58] that will apply to your use cases and
+- [1:01] how you can combine them together
+- [1:02] because usually the optimal solution is
+- [1:05] going to combine around three to five
+- [1:07] rag strategies. So hopefully going into
+- [1:09] this you understand rag at least at a
+- [1:11] high level. We have our data preparation
+- [1:13] phase and the actual retrieval augmented
+- [1:16] generation phase. And so for data
+- [1:18] preparation, we take our documents, we
+- [1:20] chunk them up into bite-sized pieces of
+- [1:22] information for our LLM. We embed them
+- [1:24] to then put in our vector database or
+- [1:27] potentially a knowledge graph, which
+- [1:29] I'll talk about later as well. And then
+- [1:31] for our query process, this is where we
+- [1:33] take a question from a user like what
+- [1:35] are the action items from a meeting for
+- [1:37] example, very common rag use case. We
+- [1:40] embed that query and then we search our
+- [1:42] vector database to find similar chunks
+- [1:44] that we then pass into the large
+- [1:46] language model. So it's able to leverage
+- [1:48] that as extra context to augment its
+- [1:50] answer. That's why it's called retrieval
+- [1:52] augmented generation. And so for example
+- [1:54] the action items and the meaning are
+- [1:56] XYZ. So that's rag at a high level but
+- [1:59] there are so many different ways for us
+- [2:00] to one do the data preparation different
+- [2:03] chunking strategies and then also the
+- [2:05] way that we search the vector database.
+- [2:07] There are a million ways to do that.
+- [2:08] even storing information in alternate
+- [2:10] formats like a knowledge graph. And so
+- [2:12] that is what I'm going to cover with you
+- [2:14] here. Starting with our number one
+- [2:17] re-ranking. This is the first strategy
+- [2:19] that I use for almost every rag
+- [2:21] implementation. And also as a resource
+- [2:23] to go along with all of these
+- [2:25] strategies, I have a GitHub repo that
+- [2:26] I'll link to below that has a readme
+- [2:29] that dives deeper into all of the 11
+- [2:31] strategies that we have today. So, some
+- [2:34] research in the docs folder, some pseudo
+- [2:36] code examples for you to reference, and
+- [2:38] then also I have a full implementation
+- [2:40] that's not production ready because it's
+- [2:42] not ideal to try to combine as many as
+- [2:45] possible, but I'm doing this just as a
+- [2:47] reference for you. Feel free to give it
+- [2:48] to an AI coding assistant to use as a
+- [2:50] starting point as well. And so, with
+- [2:52] that, reranking. So, with this strategy,
+- [2:54] we have a twostep retrieval. First,
+- [2:57] we're going to pull a large number of
+- [2:59] chunks from our vector database. But
+- [3:01] then we're going to use this specialized
+- [3:03] reranker model often a cross encoder to
+- [3:05] find the ones that are actually relevant
+- [3:07] to our query and then just return some
+- [3:09] of those. And so in the end, the large
+- [3:11] language model only gets a few of the
+- [3:12] chunks, but it's the ones that are the
+- [3:14] most relevant. And this is so important
+- [3:16] because if we were to go to our LLM and
+- [3:18] just give it 20, 50 or more chunks right
+- [3:20] away, we're going to completely
+- [3:21] overwhelm it. And so by having this
+- [3:23] specialized model pull in more context
+- [3:26] but then reduce it for the LLM, we're
+- [3:28] able to consider more knowledge without
+- [3:30] overwhelming it. And it is going to be
+- [3:31] slightly more expensive because we have
+- [3:33] the second model, but it's not that much
+- [3:35] more. I love using re-ranking in most of
+- [3:37] my rag implementations. And I've got a
+- [3:40] code example you can pause and take a
+- [3:41] look at right here if you are
+- [3:42] interested. I'll have this for each of
+- [3:44] the strategies that I cover. Next up, we
+- [3:47] have a gentic rag. I've covered this a
+- [3:48] ton on my channel before. Link to a
+- [3:50] video right here. It's all about giving
+- [3:52] our agent the ability to choose how it
+- [3:54] searches our knowledge base. Like maybe
+- [3:56] it can do a classic semantic search, but
+- [3:58] also if it wants to, it can read the
+- [4:00] entire text of a single document. And
+- [4:02] I'll show you this right now in a live
+- [4:04] project. So I'm here in my Neon
+- [4:06] dashboard, which is quickly becoming my
+- [4:08] go-to for Postgress. And I love using
+- [4:10] Postgress with PG Vector for most of my
+- [4:13] rag AI agents. And so I have one table
+- [4:15] here for our chunks and then another
+- [4:17] table that stores the higher level
+- [4:19] information each individual document and
+- [4:21] my agent can pick and choose where it
+- [4:24] searches based on the question. And so
+- [4:26] this makes rag very flexible but it is
+- [4:29] going to be less predictable as well. So
+- [4:31] you want to incorporate a gentic rag
+- [4:33] when you have very clear instructions
+- [4:35] for when you want to search the
+- [4:36] knowledge in the different ways that you
+- [4:38] give it. And then also here is a code
+- [4:40] example if you want to pause and take a
+- [4:41] look at that. Next up, we have knowledge
+- [4:44] graphs. Another thing that I've covered
+- [4:45] a lot in my content. Link to a video
+- [4:47] right here. We're combining traditional
+- [4:49] vector search, which is what I showed in
+- [4:51] this diagram with a new type of
+- [4:53] database, a graph database that stores
+- [4:55] entity relationships. So, our agent can
+- [4:57] not just do similarity search, but it
+- [5:00] can also search through relationships
+- [5:02] that we have in all of the entities in
+- [5:04] our knowledge. And so you generally end
+- [5:06] up with a graph that looks like this
+- [5:08] that you're usually using a large
+- [5:09] language model to build extracting the
+- [5:12] entities and relationships from the raw
+- [5:14] text that you feed in. And so knowledge
+- [5:16] graphs are fantastic for interconnected
+- [5:18] data. But just keep in mind since we're
+- [5:19] usually using an LLM to extract from
+- [5:21] documents. It's going to be a lot slower
+- [5:23] and more expensive to create our
+- [5:25] knowledge graphs. And so take a look at
+- [5:27] this. This is the pseudo code if you
+- [5:28] want to see an example using graffiti
+- [5:30] which is my favorite library for working
+- [5:32] with knowledge graphs. Next, we have
+- [5:34] contextual retrieval, which is something
+- [5:35] that Anthropic has done a lot of
+- [5:37] research on. They have some very
+- [5:39] enticing statistics for how much it
+- [5:41] helps with the general retrieval
+- [5:43] process. And so, what we're doing is
+- [5:45] we're using a large language model to
+- [5:47] enrich each chunk with information that
+- [5:49] we put at the start that describes how
+- [5:51] the chunk fits with the rest of the
+- [5:53] document. So, back in my Neon dashboard,
+- [5:55] I'll show you what this looks like in a
+- [5:57] real database. And so, for all of the
+- [5:58] chunks that I have stored here, if I
+- [6:00] click into any one of them, take a look
+- [6:02] at this. we have this text that is
+- [6:03] prepended that describes how this
+- [6:06] specific chunk fits with the document.
+- [6:08] And then we have the triple dash and
+- [6:10] then the content of the actual chunk.
+- [6:12] And so this is embedded along with the
+- [6:14] rest of the information for every chunk
+- [6:16] that we have. So there's just more
+- [6:18] context with everything that we store.
+- [6:20] But we're using a large language model
+- [6:22] to create every chunk now. And so it's
+- [6:23] going to be a lot slower and more
+- [6:24] expensive like knowledge graphs. Next is
+- [6:27] query expansion. This is one of the
+- [6:29] simplest. All we're doing here is taking
+- [6:31] the user query and before we send it
+- [6:33] into the search, we are using a large
+- [6:35] language model to expand the query to
+- [6:38] make it more specific in ways that we
+- [6:40] know are going to lead to pulling more
+- [6:42] relevant chunks from the knowledge base.
+- [6:43] And so we define the instructions for
+- [6:45] how to improve the precision by adding
+- [6:48] more relevant details. Obviously, the
+- [6:50] trade-off here is that it's going to be
+- [6:51] slower because we have an extra-l large
+- [6:53] language model call for every single
+- [6:55] search that we perform. And another
+- [6:57] simple and kind of similar rag strategy
+- [7:00] is multi-query rag. So instead of using
+- [7:02] a large language model to expand upon
+- [7:04] one query, we're using an LLM to
+- [7:06] generate multiple different variants and
+- [7:08] then sending them into our search in
+- [7:11] parallel. And so it gives us more
+- [7:13] comprehensive coverage obviously at the
+- [7:15] cost of having an LLM call before each
+- [7:17] search again and then more database
+- [7:19] queries overall. And so here is a quick
+- [7:21] code example. Now on to contextaware
+- [7:24] chunking. This one's a little bit
+- [7:25] different because up until this point,
+- [7:27] we've only been talking about strategies
+- [7:28] for the query process, but it's also
+- [7:30] important to have solid strategies for
+- [7:33] data preparation. And so, this is
+- [7:35] speaking to how we split up our
+- [7:37] documents to put in our knowledge base
+- [7:39] because we definitely need to. If we
+- [7:41] don't split our documents into
+- [7:42] bite-sized pieces of information, then
+- [7:44] our embeddings are inaccurate and our
+- [7:46] agents are pulling way too much
+- [7:47] information. But when we split, we want
+- [7:49] to make sure that we maintain the
+- [7:51] document structure. And so what we're
+- [7:52] doing here is we're using an embedding
+- [7:54] model to find the natural boundaries in
+- [7:57] our document so that we can split and
+- [7:59] it's going to be free and fast and we
+- [8:00] will maintain our document structure.
+- [8:02] It's obviously more complex than if
+- [8:05] we're just doing like a split every
+- [8:06] 1,000 characters or something like that,
+- [8:08] but I find this to be very very worth
+- [8:10] it. And dockling is a library that I use
+- [8:13] in Python that makes it very easy to
+- [8:15] implement hybrid chunking, which is a
+- [8:16] form of contextaware chunking. I got a
+- [8:19] video on that right here. Now, for
+- [8:21] another chunking strategy, we have late
+- [8:23] chunking. Full disclosure, this is the
+- [8:25] only one that I haven't used myself.
+- [8:27] It's also definitely the most
+- [8:28] complicated, but I wanted to include it
+- [8:30] here because I think that it is
+- [8:31] fascinating. The idea here is that we
+- [8:34] apply the embedding model onto the
+- [8:35] document before we chunk it, unlike most
+- [8:38] chunking strategies. And then we're
+- [8:40] going to chunk up the token embeddings.
+- [8:42] And so, what we get out of this is that
+- [8:43] each of the chunks still maintain the
+- [8:45] context of the rest of the document. So,
+- [8:48] this obviously leads to maintaining full
+- [8:50] document context better and it's
+- [8:52] leveraging longer context embedding
+- [8:54] models. Of course, the trade-off here is
+- [8:56] it is a lot more complex. In fact, you
+- [8:57] might even be thinking to yourself,
+- [8:59] Cole, who wa this is insane. Like, what
+- [9:01] are you even talking about here? Well,
+- [9:02] just let me know if you want me to make
+- [9:03] a video on late chunking specifically,
+- [9:06] like I said, for any of these
+- [9:07] strategies. Next, we have hierarchical
+- [9:10] rag. And the idea here is that we have
+- [9:11] different layers of our knowledge stored
+- [9:14] in our database. We can have these
+- [9:16] parent child chunk relationships and
+- [9:18] generally we store these relationships
+- [9:20] as metadata for all of our chunks. And
+- [9:22] so we can search small to be very
+- [9:24] precise, right? Like searching
+- [9:26] individual paragraphs, but then we can
+- [9:28] pull the entire document for a specific
+- [9:30] chunk that we find. So we're balancing
+- [9:32] precision, you know, searching small
+- [9:34] with context, returning big. And you
+- [9:36] could argue that hierarchical rag is
+- [9:38] sort of a subset of a gentic rag. This
+- [9:40] sounds very similar to what I was
+- [9:42] showing you in Neon earlier. And going
+- [9:44] back to neon really quick, I'll actually
+- [9:46] show you this. Let's say that our search
+- [9:47] finds this chunk right here. We can look
+- [9:49] at the metadata and we can see that this
+- [9:52] chunk came from this specific file. So
+- [9:54] then we could go to the document
+- [9:56] metadata table and pull the content of
+- [9:58] that entire file. So for a system where
+- [10:00] you wanted to do precise search, but
+- [10:02] then look at larger sets of context,
+- [10:04] like assuming your documents aren't too
+- [10:05] big to read the whole thing, then this
+- [10:07] is an awesome approach. which obviously
+- [10:09] adds more complexibility and a little
+- [10:10] bit of unpredictability like a gentic
+- [10:12] rag, but this is a very powerful
+- [10:14] strategy as well. Next is
+- [10:16] self-reflective rag. After the last
+- [10:18] couple, I just want to show you another
+- [10:19] simple one again cuz all we have here is
+- [10:21] a self-correcting search loop. So we
+- [10:23] perform our initial search and then we
+- [10:25] call upon a large language model given
+- [10:27] the chunks and the question to produce
+- [10:29] some kind of grade like maybe on a 1
+- [10:31] through five scale and if it's less than
+- [10:32] three for example then we're going to
+- [10:34] call the rag tool again with a refined
+- [10:36] search to try to get more relevant
+- [10:38] chunks and so it's self-correcting just
+- [10:40] at the cost of more LLM calls because
+- [10:43] obviously after every search now we need
+- [10:45] to call into a secondary LLM before
+- [10:47] we're returning chunks to our agent and
+- [10:49] then potentially retrying. Last but not
+- [10:51] least, we have fine-tune embeddings. And
+- [10:54] this applies to both embedding during
+- [10:56] the query process and in the indexing
+- [10:58] process. Because what you can do with
+- [10:59] embedding models, just like large
+- [11:01] language models, is fine-tune them on a
+- [11:03] domain specific data set like for legal
+- [11:05] or for medical. And from my research, 5
+- [11:08] to 10% accuracy gains, you can make it
+- [11:10] so smaller embedding models, even open
+- [11:12] source ones, can outperform a larger,
+- [11:14] more generic ones on your specific use
+- [11:16] case. Now this requires a lot of data to
+- [11:19] train and infrastructure ongoing
+- [11:22] maintenance since it is your embedding
+- [11:23] model. Now but this is a very powerful
+- [11:26] use case when you have a data set that
+- [11:28] you can use to train a model. For
+- [11:30] example, you might have a use case where
+- [11:31] you want the similarity to be based more
+- [11:33] on the sentiment versus the semantic
+- [11:36] similarity of the text. So for a
+- [11:37] pre-trained embedding model, my order
+- [11:39] was late is going to be similar to
+- [11:41] shipping was fast, right? Because that's
+- [11:42] both about the order itself versus the
+- [11:45] individual items. But you can fine-tune
+- [11:47] the embedding model to make it so that
+- [11:49] my order was late is going to be most
+- [11:52] like items are always sold out because
+- [11:53] now it's based more on sentiment. You
+- [11:55] can have a sentiment-based training set
+- [11:57] to make your embedding model operate
+- [11:59] like this instead. So there you go. That
+- [12:02] is the rundown I have for you on all the
+- [12:04] main rag strategies and their pros and
+- [12:05] cons. And if you want to dive deeper
+- [12:07] into any of them, again, check out this
+- [12:08] repository. I've got all these examples
+- [12:11] with pseudo code focusing on using
+- [12:13] Postgress with PG vector because
+- [12:15] especially with Neon that is my go-to
+- [12:16] right now for my rag agents. And last
+- [12:20] golden nugget that I'm going to leave
+- [12:21] you with. If you want to focus on three
+- [12:23] rag strategies to start because remember
+- [12:25] I recommend combining three to five for
+- [12:27] the most accurate use cases. I would
+- [12:29] look at reranking agentic rag and
+- [12:32] contextaware chunking. Like specifically
+- [12:34] hybrid rag with dockling has been
+- [12:36] killing it for me. That's my like super
+- [12:37] tactical recommendation for you to end
+- [12:40] things off. So with that, if you
+- [12:42] appreciated this video, you're looking
+- [12:43] forward to more things on AI agents and
+- [12:45] rag, I'd really appreciate a like and a
+- [12:47] subscribe. And with that, I will see you
+- [12:49] in the next video.

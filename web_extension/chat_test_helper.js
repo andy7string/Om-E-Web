@@ -7,53 +7,23 @@
  * so we use postMessage to bridge between MAIN world and content script.
  *
  * USAGE:
- *   omeSendChat("hello") - Saves message to chat (AppendMessage capability)
- *   omeLLMChat("scroll down") - Triggers LLM orchestrator (updates llm_unified.md)
+ *   omeSendChat("scroll down") - Sends message to LLM and returns response
+ *   omeSendChat("hello", true) - Clears history first, then sends
  *
  * ADDED: 2025-12-23 for Claude Code integration testing
- * Can be removed if no longer needed for automated testing
  */
-
-/**
- * Save a message to chat storage (does NOT trigger LLM)
- * Uses AppendMessage capability - just persists the message
- */
-window.omeSendChat = function(prompt, chatId = null, meta = {}) {
-    console.log('[OME Test] Sending chat message:', prompt);
-    window.postMessage({
-        type: 'ome_send_chat_test',
-        prompt,
-        chatId,
-        meta
-    }, '*');
-
-    return new Promise((resolve) => {
-        const handler = (e) => {
-            if (e.data?.type === 'ome_send_chat_result') {
-                window.removeEventListener('message', handler);
-                console.log('[OME Test] Result:', e.data);
-                resolve(e.data.result || e.data.error);
-            }
-        };
-        window.addEventListener('message', handler);
-
-        // Timeout after 10s
-        setTimeout(() => {
-            window.removeEventListener('message', handler);
-            resolve({ error: 'Timeout waiting for response' });
-        }, 10000);
-    });
-};
 
 /**
  * Send message to LLM orchestrator and get response
- * This triggers the full LLM pipeline and updates llm_unified.md
+ * This is the single entry point for chat - triggers full LLM pipeline
  * Uses LLMChat capability - goes through RAG, prompt assembly, LLM call
  *
- * ADDED: 2025-12-23 for Claude Code integration testing
+ * @param {string} message - The user's message text
+ * @param {boolean} clearHistory - Reset agent conversation history (default: false)
+ * @returns {Promise<Object>} - LLM response with chat_id, response, etc.
  */
-window.omeLLMChat = function(message, clearHistory = false) {
-    console.log('[OME Test] Sending LLM message:', message);
+window.omeSendChat = function(message, clearHistory = false) {
+    console.log('[OME Test] Sending message:', message);
     window.postMessage({
         type: 'ome_llm_chat_test',
         message,
@@ -64,7 +34,7 @@ window.omeLLMChat = function(message, clearHistory = false) {
         const handler = (e) => {
             if (e.data?.type === 'ome_llm_chat_result') {
                 window.removeEventListener('message', handler);
-                console.log('[OME Test] LLM Result:', e.data);
+                console.log('[OME Test] Result:', e.data);
                 resolve(e.data.result || e.data.error);
             }
         };
@@ -78,4 +48,4 @@ window.omeLLMChat = function(message, clearHistory = false) {
     });
 };
 
-console.log('[OME] window.omeSendChat and window.omeLLMChat ready for testing');
+console.log('[OME] window.omeSendChat ready for testing');
