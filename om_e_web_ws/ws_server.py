@@ -1229,7 +1229,7 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
         # Set the active chat - supports chat number, chat_id, name, or fuzzy title lookup
         chat_num = params.get("chat")  # Number from visible list (1-indexed)
         chat_id = params.get("chat_id")
-        chat_name = params.get("name")  # Fuzzy title lookup
+        chat_name = params.get("name") or params.get("chatName")  # Fuzzy title lookup (accept LLM variants)
         original_text = params.get("original_text", "")
 
         # 🔍 Parse chat name from original text if not provided

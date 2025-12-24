@@ -213,6 +213,70 @@ class PersonaOrchestrator:
             pass
         return 0.45  # Default
 
+    def _detect_chat_nav_collision(
+        self,
+        intent: str,
+        visible_chats: Optional[List[Dict]]
+    ) -> Optional[Dict]:
+        """
+        Detect collision between chat names and navigation actions.
+
+        If a chat name starts with action words (open, close, search, etc.)
+        and user's intent contains that chat name, we can't know if they
+        want the chat or the action. Ask them.
+
+        Returns collision info dict if ambiguous, None if clear intent.
+        """
+        if not visible_chats:
+            return None
+
+        intent_lower = intent.lower().strip()
+
+        # Only "open X" style names create real ambiguity (chat vs website)
+        # "google cats" or "search dogs" clearly mean the chat, not an action
+        ACTION_PREFIXES = ["open ", "go to ", "navigate to ", "visit "]
+
+        # Check if intent contains any chat name that starts with action words
+        matching_chat = None
+        site_name = None
+        for chat in visible_chats:
+            chat_title = chat.get("title", "").lower().strip()
+            if not chat_title or len(chat_title) < 4:
+                continue
+
+            # Does chat name start with an action word?
+            starts_with_action = any(chat_title.startswith(prefix) for prefix in ACTION_PREFIXES)
+            if not starts_with_action:
+                continue
+
+            # Is this chat name in the user's intent?
+            if chat_title in intent_lower:
+                matching_chat = chat
+                # Extract the "target" part (e.g., "open facebook" -> "facebook")
+                for prefix in ACTION_PREFIXES:
+                    if chat_title.startswith(prefix):
+                        site_name = chat_title[len(prefix):].strip()
+                        break
+                break
+
+        if not matching_chat or not site_name:
+            return None
+
+        chat_title = matching_chat.get("title", "")
+        logger.info(f"[Collision] Detected: chat='{chat_title}', extracted='{site_name}'")
+
+        return {
+            "chat": matching_chat,
+            "chat_title": chat_title,
+            "site_name": site_name,
+            "options": [
+                {"label": f"Switch to '{chat_title}' chat", "type": "cap",
+                 "target": "SetCurrentChat", "params": {"name": chat_title}},
+                {"label": f"Open {site_name}.com", "type": "cap",
+                 "target": "OpenTab", "params": {"url": f"https://{site_name}.com"}}
+            ]
+        }
+
     # --------------------------------------------------------
     # Main Entry Point
     # --------------------------------------------------------
@@ -303,7 +367,7 @@ class PersonaOrchestrator:
             if raw_options:
                 metrics.top_score = raw_options[0].get("score", 0)
 
-            shaped_options = shape_options(theme_intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
+            shaped_options = shape_options(theme_intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS, visible_chats=visible_chats)
 
             # Perfect match bypass for theme shortcuts too
             perfect_match = self._check_perfect_match(shaped_options)
@@ -343,7 +407,7 @@ class PersonaOrchestrator:
             if raw_options:
                 metrics.top_score = raw_options[0].get("score", 0)
 
-            shaped_options = shape_options(view_intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
+            shaped_options = shape_options(view_intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS, visible_chats=visible_chats)
 
             # Perfect match bypass for view shortcuts too
             perfect_match = self._check_perfect_match(shaped_options)
@@ -402,7 +466,7 @@ class PersonaOrchestrator:
             metrics.top_score = raw_options[0].get("score", 0)
 
         # STEP 3: Shape options (dedup, boost, diversity)
-        shaped_options = shape_options(intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
+        shaped_options = shape_options(intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS, visible_chats=visible_chats)
 
         # STEP 3.5: Perfect match bypass - skip Role B if top score is 1.00
         perfect_match = self._check_perfect_match(shaped_options)
@@ -1326,7 +1390,25 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         metrics.top_score = raw_options[0].get("score", 0) if raw_options else 0
 
         # Shape whatever RAG returned (already filtered by threshold)
-        shaped_options = shape_options(user_message, raw_options, max_options=MAX_CAPABILITY_OPTIONS) if raw_options else []
+        # Pass visible_chats so shaping can boost SetCurrentChat when intent contains a chat name
+        shaped_options = shape_options(user_message, raw_options, max_options=MAX_CAPABILITY_OPTIONS, visible_chats=visible_chats) if raw_options else []
+
+        # STEP 1.5: Collision detection - bypass LLM if chat name collides with nav action
+        # e.g., "switch to open facebook" when there's a chat named "open facebook"
+        collision = self._detect_chat_nav_collision(user_message, visible_chats)
+        if collision:
+            # Present options to user instead of letting LLM guess wrong
+            self.state.pending_options = collision["options"]
+            self.state.transition_to(TurnState.TURN_COMPLETED)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            metrics.decision_type = "collision_options"
+            await log_turn_metrics(metrics)
+
+            option_text = f"Did you mean:\n1. {collision['options'][0]['label']}\n2. {collision['options'][1]['label']}"
+            return OrchestratorResult(
+                response_text=option_text,
+                turn_state=TurnState.TURN_COMPLETED
+            )
 
         # STEP 2: Single unified LLM call (use prompt_message for large payload handling)
         t0 = time.time()

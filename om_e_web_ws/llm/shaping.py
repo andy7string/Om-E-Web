@@ -47,7 +47,8 @@ class CapabilityOption:
 def shape_options(
     intent: str,
     raw_options: List[Dict],
-    max_options: int = 7
+    max_options: int = 7,
+    visible_chats: Optional[List[Dict]] = None
 ) -> List[Dict]:
     """
     Shape options to keep Role B prompt small and deterministic.
@@ -200,6 +201,21 @@ def shape_options(
                     opt.score = min(1.0, opt.score + 0.3)  # Strong boost for explicit match
                     break
             break
+
+    # 🔄 CHAT NAME MATCHING - Boost SetCurrentChat when intent contains a known chat name
+    # This prevents "switch to open facebook" (a chat name) being interpreted as OpenTab
+    if visible_chats and not theme_matched:
+        for chat_info in visible_chats:
+            chat_title = chat_info.get("title", "").lower().strip()
+            if chat_title and len(chat_title) > 2 and chat_title in intent_lower:
+                # Intent contains a known chat name - strongly boost SetCurrentChat
+                logger.info(f"[Shaping] Chat name detected in intent: '{chat_title}'")
+                for opt in deduped:
+                    if opt.name == "SetCurrentChat":
+                        opt.score = min(1.0, opt.score + 0.5)  # Very strong boost
+                    elif opt.name == "OpenTab":
+                        opt.score = max(0.0, opt.score - 0.4)  # Suppress OpenTab
+                break  # Stop after first match
 
     # 4. Keep full descriptions - they contain valid param values
     # (removed truncation that was cutting off critical info like "robot, kawaii, atom")
