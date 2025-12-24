@@ -86,6 +86,18 @@ def _get_max_facts_in_prompt() -> int:
 def _get_fact_token_budget() -> int:
     return _get_context_config().get("fact_token_budget", 50)
 
+def _get_summary_interaction_threshold() -> int:
+    """Get interaction count threshold for rolling summary (default 5)."""
+    return _get_context_config().get("summary_interaction_threshold", 5)
+
+def _get_max_rolling_summaries() -> int:
+    """Get max rolling summaries to keep per chat (default 3)."""
+    return _get_context_config().get("max_rolling_summaries", 3)
+
+def _get_rolling_summary_token_budget() -> int:
+    """Get token budget for each rolling summary (default 100)."""
+    return _get_context_config().get("rolling_summary_token_budget", 100)
+
 
 # ============================================================================
 # PERSISTENCE INTENT PATTERNS
@@ -285,17 +297,18 @@ def _format_cap_with_params(cap: str, params: Dict, self_describing: set) -> str
 # MESSAGE HOOKS
 # ============================================================================
 
-def on_message_saved(chat_dict: Dict, message: Dict) -> Dict:
+def on_message_saved(chat_dict: Dict, message: Dict, action_executed: bool = False) -> Dict:
     """
     Called after each message is saved to update context state.
 
-    - Classifies message as ACTION or CONTENT
-    - ACTION: Condenses with previous user context and adds to rolling list
-    - CONTENT: Adds tokens to counter, checks threshold
+    - Uses action_executed flag (authoritative) to determine if turn was an action
+    - ACTION: Condenses with previous user context, adds to session_actions.json, SKIPS session vector
+    - CONTENT: Indexes to session vector, counts tokens, checks threshold
     - USER: Checks for persistence intent and queues fact extraction
 
     @param chat_dict: The chat dictionary (will be modified)
     @param message: The message that was just saved
+    @param action_executed: True if this turn executed an action (from OrchestratorResult) - skip session vector
     @return: Dict with 'threshold_reached' and 'persistence_intent' flags
     """
     result = {
@@ -316,10 +329,15 @@ def on_message_saved(chat_dict: Dict, message: Dict) -> Dict:
         result['content'] = content
         # Note: actual fact extraction happens async in orchestrator
 
-    # Classify the message
-    msg_type = classify_message(message)
+    # 🎯 PRIMARY: Use action_executed flag if provided (authoritative from orchestrator)
+    # 🔄 FALLBACK: Use heuristic classify_message() for backward compatibility
+    is_action_turn = action_executed or classify_message(message) == 'action'
 
-    if msg_type == 'action':
+    # 📊 Track total interaction count (for rolling summary trigger)
+    state['interaction_count'] = state.get('interaction_count', 0) + 1
+    interaction_num = state['interaction_count']
+
+    if is_action_turn:
         # Find previous user message for context
         prev_user_content = None
         messages = chat_dict.get('messages', [])
@@ -339,7 +357,11 @@ def on_message_saved(chat_dict: Dict, message: Dict) -> Dict:
             })
             # Keep only last MAX_ACTIONS
             state['recent_actions'] = state['recent_actions'][-MAX_ACTIONS:]
-            print(f"[MemoryCycle] Action: {condensed}")
+
+            # Log action source (flag vs heuristic)
+            source = "flag" if action_executed else "heuristic"
+            print(f"[MemoryCycle] 🎯 ACTION ({source}) #{interaction_num}: {condensed}")
+            print(f"[MemoryCycle] ⏭️  Skipping session vector - action turn")
 
             # 🔄 SESSION: Also add to global session actions (cross-chat bridge)
             chat_id = chat_dict.get('chat_id', 'unknown')
@@ -349,7 +371,7 @@ def on_message_saved(chat_dict: Dict, message: Dict) -> Dict:
         # Content message - count tokens
         tokens = estimate_tokens(content)
         state['token_counter'] += tokens
-        print(f"[MemoryCycle] Content +{tokens} tok (total: {state['token_counter']})")
+        print(f"[MemoryCycle] 💬 CONTENT #{interaction_num} +{tokens} tok (total: {state['token_counter']})")
 
         # 🔄 SESSION CONTENT: Index substantive content for cross-chat search
         # Skip if this is a large content stub (already indexed by ingestion.py)
@@ -360,8 +382,9 @@ def on_message_saved(chat_dict: Dict, message: Dict) -> Dict:
             timestamp = message.get('timestamp', time.strftime('%Y-%m-%dT%H:%M:%SZ'))
             store = get_session_content_store()
             store.add(content, chat_id, chat_title, role, timestamp)
+            print(f"[MemoryCycle] ✅ Indexed to session vector")
         else:
-            print(f"[MemoryCycle] Skipping session index - large content already indexed")
+            print(f"[MemoryCycle] ⏭️  Skipping session index - large content already indexed")
 
         # Check threshold for summarization
         if state['token_counter'] >= BATCH_THRESHOLD:
@@ -414,6 +437,128 @@ def get_context_state(chat_dict: Dict) -> Dict:
     Returns empty dict if not initialized.
     """
     return chat_dict.get('context_state', {})
+
+
+# ============================================================================
+# ROLLING INTENT SUMMARIZATION
+# ============================================================================
+
+async def check_and_create_rolling_summary(chat_dict: Dict) -> Optional[str]:
+    """
+    Check if we've hit the interaction threshold and need to create a rolling summary.
+
+    Triggers every N total interactions (from config, default 5).
+    Summarizes recent messages into an intent statement.
+
+    @param chat_dict: Chat dictionary (will be modified to add summary)
+    @return: Summary text if created, None otherwise
+    """
+    state = chat_dict.get('context_state', {})
+    interaction_count = state.get('interaction_count', 0)
+    threshold = _get_summary_interaction_threshold()
+
+    # Not enough interactions yet
+    if interaction_count < threshold:
+        return None
+
+    # Get messages since last summary
+    last_summarized_idx = state.get('last_summarized_idx', 0)
+    messages = chat_dict.get('messages', [])
+
+    # Calculate range: last_summarized_idx to current (threshold * 2 for user+assistant pairs)
+    to_summarize = messages[last_summarized_idx:last_summarized_idx + threshold * 2]
+
+    if not to_summarize:
+        return None
+
+    print(f"[MemoryCycle] 📝 Creating rolling summary (interactions: {interaction_count}, threshold: {threshold})")
+
+    # Create summary via LLM
+    summary = await _extract_intent_summary(to_summarize)
+
+    if summary:
+        # Ensure summaries structure exists
+        if 'summaries' not in chat_dict:
+            chat_dict['summaries'] = {}
+
+        # Append to rolling summaries (keep last N)
+        rolling = chat_dict['summaries'].get('rolling', [])
+        rolling.append({
+            'text': summary,
+            'from_idx': last_summarized_idx,
+            'to_idx': last_summarized_idx + len(to_summarize),
+            'ts': time.strftime('%Y-%m-%dT%H:%M:%SZ')
+        })
+
+        max_summaries = _get_max_rolling_summaries()
+        chat_dict['summaries']['rolling'] = rolling[-max_summaries:]
+
+        # Update state
+        state['last_summarized_idx'] = last_summarized_idx + len(to_summarize)
+        state['interaction_count'] = 0  # Reset counter
+
+        print(f"[MemoryCycle] ✅ Rolling summary created: {summary[:80]}...")
+
+    return summary
+
+
+async def _extract_intent_summary(messages: List[Dict]) -> Optional[str]:
+    """
+    LLM call to extract intent/topic summary from messages.
+
+    @param messages: List of message dicts to summarize
+    @return: Condensed intent summary (50-100 tokens) or None on failure
+    """
+    from llm.client import LLMClient
+
+    # Format messages for prompt
+    formatted = []
+    for msg in messages:
+        role = msg.get('role', 'unknown')
+        content = msg.get('content', '')[:200]  # Truncate long messages
+        formatted.append(f"{role.upper()}: {content}")
+
+    messages_text = '\n'.join(formatted)
+
+    system_prompt = """You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only."""
+
+    user_prompt = f"""Summarize this conversation exchange:
+
+{messages_text}
+
+Intent summary:"""
+
+    client = LLMClient()
+    try:
+        response = await client.chat(
+            system_prompt=system_prompt,
+            messages=[{"role": "user", "content": user_prompt}],
+            max_tokens=_get_rolling_summary_token_budget()
+        )
+        return response.strip() if response else None
+    except Exception as e:
+        print(f"[MemoryCycle] ⚠️ Rolling summary failed: {e}")
+        return None
+
+
+def format_rolling_summaries_for_prompt(chat_dict: Dict) -> str:
+    """
+    Format rolling summaries for inclusion in prompt.
+
+    @param chat_dict: Chat dictionary with summaries
+    @return: Formatted summaries string
+    """
+    summaries = chat_dict.get('summaries', {}).get('rolling', [])
+
+    if not summaries:
+        return ""
+
+    lines = ["**Earlier in this chat:**"]
+    for summary in summaries:
+        lines.append(f"- {summary['text']}")
+
+    return '\n'.join(lines)
 
 
 # ============================================================================
@@ -833,3 +978,94 @@ def format_session_actions_for_prompt(limit: Optional[int] = None) -> str:
         lines.append(f"- {action['text']}{chat_hint}")
 
     return '\n'.join(lines)
+
+
+# ============================================================================
+# TURNS.JSONL DEEP LOOKUP
+# ============================================================================
+
+# Path to turns metrics file
+TURNS_PATH = Path(__file__).parent.parent / "data" / "metrics" / "turns.jsonl"
+
+
+def get_action_history_for_chat(chat_id: str, limit: int = 20) -> List[Dict]:
+    """
+    Query turns.jsonl for action history for a specific chat.
+    This provides deep lookup with rich metrics (decision_type, execution_success, timing).
+
+    @param chat_id: The chat ID to query
+    @param limit: Maximum number of actions to return (default 20)
+    @return: List of action dicts with metrics
+    """
+    actions = []
+
+    try:
+        if not TURNS_PATH.exists():
+            return []
+
+        with open(TURNS_PATH) as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    turn = json.loads(line)
+                    # Filter by chat_id and handoff=True (action turns)
+                    if turn.get('chat_id') == chat_id and turn.get('handoff'):
+                        actions.append({
+                            'decision_type': turn.get('decision_type'),
+                            'timestamp': turn.get('timestamp'),
+                            'execution_success': turn.get('execution_success'),
+                            'top_score': turn.get('top_score'),
+                            'total_ms': turn.get('total_ms')
+                        })
+                except json.JSONDecodeError:
+                    continue
+
+    except Exception as e:
+        print(f"[MemoryCycle] Error reading turns.jsonl: {e}")
+        return []
+
+    # Return last N actions
+    return actions[-limit:]
+
+
+def get_all_action_history(limit: int = 50) -> List[Dict]:
+    """
+    Query turns.jsonl for all action history across all chats.
+
+    @param limit: Maximum number of actions to return (default 50)
+    @return: List of action dicts with metrics and chat_id
+    """
+    actions = []
+
+    try:
+        if not TURNS_PATH.exists():
+            return []
+
+        with open(TURNS_PATH) as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    turn = json.loads(line)
+                    # Only include action turns (handoff=True)
+                    if turn.get('handoff'):
+                        actions.append({
+                            'chat_id': turn.get('chat_id'),
+                            'decision_type': turn.get('decision_type'),
+                            'timestamp': turn.get('timestamp'),
+                            'execution_success': turn.get('execution_success'),
+                            'top_score': turn.get('top_score'),
+                            'total_ms': turn.get('total_ms')
+                        })
+                except json.JSONDecodeError:
+                    continue
+
+    except Exception as e:
+        print(f"[MemoryCycle] Error reading turns.jsonl: {e}")
+        return []
+
+    # Return last N actions
+    return actions[-limit:]

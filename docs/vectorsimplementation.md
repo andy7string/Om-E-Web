@@ -365,40 +365,220 @@ class VectorStore:
 
 **Dependency:** `pip install rank-bm25`
 
-### Action Filtering
+### Action Filtering (Flag-Based, Not Heuristic)
 
-**Problem:** Action requests and confirmations pollute vector index.
+**Problem:** Action requests and confirmations pollute session vector index, degrading RAG quality.
 
-**Solution:** Detect action turns and skip indexing both user request and LLM response.
+**Current State:** `is_action_message()` in `session_content_store.py` uses text pattern matching (heuristics) which misses cases and creates false positives.
 
-**File:** `retrieval/session_content_store.py`
+**Solution:** Use the authoritative `action_executed` flag from `OrchestratorResult` instead of guessing from text patterns.
+
+#### Architecture: Two-Layer Action History
+
+| Layer | Storage | Purpose | Retention |
+|-------|---------|---------|-----------|
+| **Quick Access** | `session_actions.json` | Cross-chat action history for prompt injection | Rolling (session_actions_limit) |
+| **Deep Lookup** | `turns.jsonl` | Full metrics for analysis and lookup | Append-only (permanent) |
+
+#### Implementation Steps
+
+**Step 1: Pass `action_executed` through message save flow**
+
+**File:** `ws_server.py` - Update message append functions
 
 ```python
-def is_action_turn(user_msg: str, assistant_msg: str, turn_state: str) -> bool:
-    """Check if this turn was an action execution (not content)."""
-    # Check turn_state from LLM response
-    if turn_state in ('turn_executing', 'turn_action'):
-        return True
+# Current signature:
+def append_assistant_message(chat: dict, content: str) -> dict:
 
-    # Check for action patterns in user message
-    action_patterns = [
-        r'^(go to|open|close|scroll|zoom|search|google|youtube)',
-        r'^(switch|navigate|refresh|back|forward)',
-        r'^(create|rename|delete)\s+(chat|tab)',
-    ]
-    for pattern in action_patterns:
-        if re.match(pattern, user_msg.lower()):
-            return True
-
-    return False
+# New signature - add action_executed flag:
+def append_assistant_message(chat: dict, content: str, action_executed: bool = False) -> dict:
+    """
+    @param action_executed: True if this was an action turn (from OrchestratorResult)
+    """
+    message = {...}
+    # Pass flag to memory cycle
+    on_message_saved(chat, message, action_executed=action_executed)
 ```
 
-**Hook in `memory_cycle.py`:**
+**Step 2: Update `on_message_saved()` to use flag**
+
+**File:** `retrieval/memory_cycle.py`
+
 ```python
-# Skip indexing if this was an action turn
-if not is_action_turn(user_msg, assistant_msg, turn_state):
-    session_store.add(user_msg, chat_id, ...)
-    session_store.add(assistant_msg, chat_id, ...)
+def on_message_saved(chat_dict: Dict, message: Dict, action_executed: bool = False) -> Dict:
+    """
+    @param action_executed: True if this turn executed an action (skip session vector)
+    """
+    # ... existing code ...
+
+    if action_executed:
+        # ACTION TURN: Log to session_actions.json only, skip vector
+        condensed = condense_action(message, prev_user_content)
+        if condensed:
+            add_session_action(condensed, chat_title, chat_id)
+        print(f"[MemoryCycle] Action turn - skipping session vector")
+    else:
+        # CONTENT TURN: Index to session vector
+        if not content.startswith('[Large content:'):
+            store = get_session_content_store()
+            store.add(content, chat_id, chat_title, role, timestamp)
+
+        # Track interaction count for rolling summary
+        state['interaction_count'] = state.get('interaction_count', 0) + 1
+```
+
+**Step 3: Remove heuristic filtering from session_content_store.py**
+
+The `is_action_message()` function becomes a fallback only - primary filtering happens via flag.
+
+```python
+def add(self, content: str, chat_id: str, ..., action_turn: bool = False):
+    """
+    @param action_turn: If True, skip indexing (authoritative flag from orchestrator)
+    """
+    # Primary filter: flag-based
+    if action_turn:
+        return
+
+    # Fallback filter: heuristic (for edge cases)
+    if not is_substantive(content):
+        return
+
+    # ... rest of indexing logic
+```
+
+### Rolling Intent Summarization
+
+**Trigger:** Every 5 total interactions (chat + action turns)
+
+**Storage:** `chat.json` → `summaries.rolling`
+
+**File:** `retrieval/memory_cycle.py`
+
+```python
+SUMMARY_INTERACTION_THRESHOLD = 5  # Configurable
+
+async def check_and_create_rolling_summary(chat_dict: Dict) -> Optional[str]:
+    """
+    Check if we've hit 5 interactions and need to summarize.
+    Returns summary text if created, None otherwise.
+    """
+    state = chat_dict.get('context_state', {})
+    count = state.get('interaction_count', 0)
+
+    if count < SUMMARY_INTERACTION_THRESHOLD:
+        return None
+
+    # Get messages since last summary
+    last_summarized = state.get('last_summarized_idx', 0)
+    messages = chat_dict.get('messages', [])
+    to_summarize = messages[last_summarized:last_summarized + SUMMARY_INTERACTION_THRESHOLD * 2]
+
+    if not to_summarize:
+        return None
+
+    # LLM call to extract intent
+    summary = await extract_intent_summary(to_summarize)
+
+    # Store in chat JSON
+    if 'summaries' not in chat_dict:
+        chat_dict['summaries'] = {}
+
+    # Append to rolling summary (keep last 3 summaries)
+    rolling = chat_dict['summaries'].get('rolling', [])
+    rolling.append({
+        'text': summary,
+        'from_idx': last_summarized,
+        'to_idx': last_summarized + len(to_summarize),
+        'ts': time.strftime('%Y-%m-%dT%H:%M:%SZ')
+    })
+    chat_dict['summaries']['rolling'] = rolling[-3:]  # Keep last 3
+
+    # Update state
+    state['last_summarized_idx'] = last_summarized + len(to_summarize)
+    state['interaction_count'] = 0  # Reset counter
+
+    return summary
+
+async def extract_intent_summary(messages: List[Dict]) -> str:
+    """LLM call to extract intent/topic from messages."""
+    # Use rolling_summary.md prompt template
+    # Return condensed intent (50-100 tokens)
+```
+
+**Prompt Template:** `data/prompts/rolling_summary.md`
+
+```markdown
+Summarize the following conversation exchange into a brief intent statement.
+Focus on: what the user wanted, what actions were taken, key topics discussed.
+Output 1-2 sentences max.
+
+Messages:
+{messages}
+
+Intent summary:
+```
+
+### Hybrid Action Lookup
+
+**Quick Access (session_actions.json):**
+- Used in prompt: `format_session_actions_for_prompt()`
+- Rolling window: last N actions (session_actions_limit)
+- Format: `[{"text": "GoogleIt: cats", "chat_id": "...", "ts": "..."}]`
+
+**Deep Lookup (turns.jsonl):**
+- Append-only metrics log
+- Rich data: `turn_state`, `decision_type`, `execution_success`, `total_ms`
+- Query by chat_id for action history analysis
+
+```python
+def get_action_history_for_chat(chat_id: str, limit: int = 20) -> List[Dict]:
+    """Query turns.jsonl for action history."""
+    turns_path = Path("data/metrics/turns.jsonl")
+    actions = []
+
+    with open(turns_path) as f:
+        for line in f:
+            turn = json.loads(line)
+            if turn.get('chat_id') == chat_id and turn.get('handoff'):
+                actions.append({
+                    'decision_type': turn.get('decision_type'),
+                    'timestamp': turn.get('timestamp'),
+                    'execution_success': turn.get('execution_success'),
+                    'top_score': turn.get('top_score')
+                })
+
+    return actions[-limit:]
+```
+
+### Updated Checklist
+
+- [ ] Pass `action_executed` flag from `OrchestratorResult` to `append_assistant_message()`
+- [ ] Update `on_message_saved()` to use flag instead of heuristics
+- [ ] Skip session vector indexing when `action_executed=True`
+- [ ] Track `interaction_count` in chat `context_state`
+- [ ] Implement `check_and_create_rolling_summary()` (trigger every 5 interactions)
+- [ ] Create `data/prompts/rolling_summary.md` template
+- [ ] Store rolling summaries in `chat.json` → `summaries.rolling`
+- [ ] Include rolling summary in prompt building
+- [ ] Add `get_action_history_for_chat()` for deep lookup from turns.jsonl
+- [ ] Test: Action turns skip session vector
+- [ ] Test: Content turns indexed to session vector
+- [ ] Test: After 5 interactions, rolling summary created
+- [ ] Test: Rolling summary appears in prompt context
+
+### Configuration
+
+Add to `llm_config.json`:
+
+```json
+{
+  "context": {
+    "summary_interaction_threshold": 5,
+    "max_rolling_summaries": 3,
+    "rolling_summary_token_budget": 100
+  }
+}
 ```
 
 ---

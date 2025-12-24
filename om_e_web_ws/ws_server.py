@@ -53,7 +53,7 @@ from llm.orchestrator import PersonaOrchestrator
 # RAG - eager load model and capabilities at startup
 from retrieval.vector_store import get_model
 from retrieval.query import rebuild_capabilities_store, rebuild_chat_memory_store, get_chat_memory_store
-from retrieval.memory_cycle import on_message_saved, init_context_state, get_default_context_state
+from retrieval.memory_cycle import on_message_saved, init_context_state, get_default_context_state, check_and_create_rolling_summary
 
 
 
@@ -5789,13 +5789,22 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 capability_results = []
 
                                 # Save response to chat history
+                                # Pass action_executed flag to control session vector indexing
                                 new_message = None
                                 if CURRENT_CHAT_ID:
                                     chat_dict = load_chat(CURRENT_CHAT_ID)
                                     if chat_dict:
-                                        new_message = append_assistant_message(chat_dict, response_text)
+                                        new_message = append_assistant_message(
+                                            chat_dict, response_text,
+                                            action_executed=orch_result.action_executed
+                                        )
                                         save_chat(chat_dict)
                                         print(f"🎭 Orchestrator: Saved to chat {CURRENT_CHAT_ID}")
+
+                                        # Check if rolling summary is needed (saves if created)
+                                        summary = await check_and_create_rolling_summary(chat_dict)
+                                        if summary:
+                                            save_chat(chat_dict)
 
                                 # Push response to HUD
                                 if new_message and EXTENSION_WS:
@@ -7551,12 +7560,13 @@ def append_user_message(chat_dict: Dict[str, Any], prompt: str) -> Dict[str, Any
     return new_message
 
 
-def append_assistant_message(chat_dict: Dict[str, Any], content: str) -> Dict[str, Any]:
+def append_assistant_message(chat_dict: Dict[str, Any], content: str, action_executed: bool = False) -> Dict[str, Any]:
     """
     Append an assistant (LLM) message to the chat. Always appends to end (never inserts).
 
     @param chat_dict: The chat dictionary to modify
     @param content: The assistant's response content
+    @param action_executed: True if this turn executed an action (skip session vector indexing)
     @return: The newly created message object
     """
     messages = chat_dict.get("messages", [])
@@ -7585,7 +7595,8 @@ def append_assistant_message(chat_dict: Dict[str, Any], content: str) -> Dict[st
     _queue_message_for_memory(chat_dict, new_message)
 
     # Memory cycle: update context state (Phase 1)
-    on_message_saved(chat_dict, new_message)
+    # Pass action_executed flag to control session vector indexing
+    on_message_saved(chat_dict, new_message, action_executed=action_executed)
 
     return new_message
 
