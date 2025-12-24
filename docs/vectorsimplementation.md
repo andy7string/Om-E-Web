@@ -1,7 +1,7 @@
 # Om-E RAG & vStore Implementation Plan
 
 **Last Updated:** 2025-12-24
-**Status:** Phases 1-6 Complete, Phase 7 Next
+**Status:** Phases 1-6 Complete, Phase 6.5 Next (Session History & URL Tracking)
 
 ---
 
@@ -11,13 +11,14 @@
 2. [Architecture Overview](#architecture-overview)
 3. [Implementation Status](#implementation-status)
 4. [Phase 6: Complete Rolling Summarization](#phase-6-complete-rolling-summarization)
-5. [Phase 7: vStore Foundation](#phase-7-vstore-foundation)
-6. [Phase 8: vStore UI Integration](#phase-8-vstore-ui-integration)
-7. [Phase 9: vStore RAG Integration](#phase-9-vstore-rag-integration)
-8. [Phase 10: Project Structure Migration](#phase-10-project-structure-migration)
-9. [Phase 11: vStore File Upload](#phase-11-vstore-file-upload)
-10. [Phase 12: Global Session Context](#phase-12-global-session-context)
-11. [Appendices](#appendices)
+5. [Phase 6.5: Session History & URL Tracking](#phase-65-session-history--url-tracking)
+6. [Phase 7: vStore Foundation](#phase-7-vstore-foundation)
+7. [Phase 8: vStore UI Integration](#phase-8-vstore-ui-integration)
+8. [Phase 9: vStore RAG Integration](#phase-9-vstore-rag-integration)
+9. [Phase 10: Project Structure Migration](#phase-10-project-structure-migration)
+10. [Phase 11: vStore File Upload](#phase-11-vstore-file-upload)
+11. [Phase 12: Global Session Context](#phase-12-global-session-context)
+12. [Appendices](#appendices)
 
 ---
 
@@ -581,6 +582,199 @@ Add to `llm_config.json`:
   }
 }
 ```
+
+---
+
+## Phase 6.5: Session History & URL Tracking
+
+**Status:** 🔲 Not Started
+
+### Goal
+
+Enable users to view session history (visited URLs, actions taken) through the HUD, with natural language search and filtering capabilities.
+
+### User Requirements
+
+1. HUD displays chats (existing ✅)
+2. When chat selected → show **session info** underneath
+3. Session info can be selected → populate chat view pane with **rolling URL list**
+4. Natural language search across all URLs and actions
+5. Filter by dates, URLs, searches, action types
+
+### Architecture Overview
+
+```
+Sidebar                          │  Main View Pane
+─────────────────────────────────┼────────────────────────────
+🔍 Search Chats                  │
+                                 │  [Chat Messages - default]
+📁 Your Chats                    │       OR
+  ├─ Machine Learning Chat  ◀───│  [Session History View]
+  │   └─ 📊 Session Info    ◀───│       - Rolling URL list
+  │       └─ 3 URLs, 12 actions │       - Actions timeline
+  ├─ Project Planning           │       - Searchable/filterable
+  └─ ...                        │
+```
+
+### Data Model
+
+#### New File: `om_e_web_ws/data/url_history.jsonl`
+
+Append-only log of all URL visits:
+
+```jsonl
+{"url":"https://youtube.com/watch?v=abc","title":"Video Title","chat_id":"20251224...","ts":"2025-12-24T07:00:00Z","action_type":"navigation"}
+{"url":"https://google.com/search?q=ml","title":"ml - Google","chat_id":"20251224...","ts":"2025-12-24T07:01:00Z","action_type":"search"}
+```
+
+#### Enhanced: `om_e_web_ws/data/session_actions.json`
+
+Add `url` and `action_type` fields:
+
+```json
+{
+  "actions": [
+    {"text":"Navigated to YouTube","chat_id":"...","ts":"...","action_type":"navigation","url":"https://youtube.com"},
+    {"text":"Scrolled down","chat_id":"...","ts":"...","action_type":"scroll"},
+    {"text":"Searched for ML tutorials","chat_id":"...","ts":"...","action_type":"search","url":"https://google.com/search?q=..."}
+  ]
+}
+```
+
+#### Action Types
+
+| Type | Description |
+|------|-------------|
+| `navigation` | URL change/visit |
+| `search` | Search query (Google, YouTube, etc.) |
+| `scroll` | Page scroll |
+| `click` | Element click |
+| `input` | Form input |
+| `tab` | Tab operations (open, close, switch) |
+
+### Implementation Phases
+
+#### Step 1: URL History Storage (Backend)
+
+**Files:** `ws_server.py`, `memory_cycle.py`
+
+- Create `url_history.jsonl` on first write
+- Hook into `intelligence_update` messages (already receive URL/title)
+- Append URL entry when page changes
+- Add `action_type` classification to session_actions
+
+#### Step 2: Session Info API (Backend)
+
+**Files:** `ws_server.py`
+
+New capabilities:
+
+```python
+# GetSessionInfo - returns URLs + actions for a chat
+{"cap": "GetSessionInfo", "params": {"chat_id": "..."}}
+# Returns: {urls: [...], actions: [...], stats: {url_count, action_count, duration}}
+
+# SearchHistory - natural language search across URLs/actions
+{"cap": "SearchHistory", "params": {"query": "youtube videos yesterday"}}
+# Returns: {results: [{type, text, url, chat_id, ts, score}...]}
+```
+
+#### Step 3: HUD Session Info Toggle (Frontend)
+
+**Files:** `hud.js`
+
+- Add collapsible "Session Info" section under each chat item in sidebar
+- Shows: URL count, action count, time range
+- Click to expand → shows mini URL list
+- Click URL list → switches main pane to Session History View
+
+#### Step 4: Session History View (Frontend)
+
+**Files:** `hud.js`
+
+New view mode for main pane (alternative to chat messages):
+- Rolling list of URLs with timestamps
+- Action timeline interleaved
+- Filter bar: date range, action type, URL domain
+- Search box with natural language support
+
+#### Step 5: Search Integration
+
+**Files:** `hud.js`, `ws_server.py`
+
+- Extend sidebar search to query `SearchHistory` capability
+- Show results grouped by: Chats, URLs, Actions
+- Click result → load relevant chat or session view
+
+### UI Mockups
+
+#### Session Info in Sidebar
+
+```
+┌─────────────────────────────┐
+│ 🔍 Search...                │
+├─────────────────────────────┤
+│ 📁 Your Chats               │
+│                             │
+│ ▼ Machine Learning Chat     │  ← Click chat to load
+│   ├─ Dec 24 • 42 messages   │
+│   └─ 📊 Session Info ▼      │  ← NEW: Expandable
+│       ├─ 5 URLs visited     │
+│       ├─ 18 actions         │
+│       └─ [View History →]   │  ← Opens Session View
+│                             │
+│ ▶ Project Planning          │  ← Collapsed
+│ ▶ Daily Notes               │
+└─────────────────────────────┘
+```
+
+#### Session History View (Main Pane)
+
+```
+┌────────────────────────────────────────────┐
+│ ← Back to Chat    Session History          │
+├────────────────────────────────────────────┤
+│ 🔍 Search URLs & actions...                │
+│ Filter: [All Types ▼] [Today ▼] [All ▼]    │
+├────────────────────────────────────────────┤
+│ 📍 Dec 24, 7:00 AM                         │
+│ ├─ 🌐 youtube.com/watch?v=abc              │
+│ │   "Machine Learning Tutorial"            │
+│ ├─ 📜 Scrolled down                        │
+│ ├─ 🔍 Searched: "neural networks"          │
+│ └─ 🌐 google.com/search?q=neural+networks  │
+│                                            │
+│ 📍 Dec 24, 7:15 AM                         │
+│ ├─ 🌐 arxiv.org/abs/2312.xxxxx             │
+│ │   "Attention Is All You Need"            │
+│ └─ 📜 Scrolled to top                      │
+└────────────────────────────────────────────┘
+```
+
+### File Changes Summary
+
+| File | Changes |
+|------|---------|
+| `ws_server.py` | Add `GetSessionInfo`, `SearchHistory` caps; URL logging |
+| `memory_cycle.py` | Add URL history append; action_type classification |
+| `hud.js` | Session info toggle; Session History View; enhanced search |
+| `data/url_history.jsonl` | New file (auto-created) |
+
+### Checklist
+
+- [ ] Create `url_history.jsonl` logging in `memory_cycle.py`
+- [ ] Hook into `intelligence_update` for URL tracking
+- [ ] Add `action_type` field to session_actions
+- [ ] Implement `GetSessionInfo` capability
+- [ ] Implement `SearchHistory` capability
+- [ ] Add Session Info toggle under chat items in HUD sidebar
+- [ ] Create Session History View component in HUD main pane
+- [ ] Add filter bar (date, action type, domain)
+- [ ] Add natural language search box
+- [ ] Extend sidebar search to include URL/action results
+- [ ] Test: Navigate pages, verify URLs logged
+- [ ] Test: Switch to Session History View, verify display
+- [ ] Test: Search "youtube" returns relevant URLs
 
 ---
 
@@ -1216,10 +1410,11 @@ def import_large_payloads_to_vstore(project_id: str):
 ## Next Steps
 
 1. ~~**Complete Phase 6**~~ ✅ Done - Action filtering + rolling summaries working
-2. **Start Phase 7** - vStore Foundation (biggest value add)
-3. **Then Phase 8** - vStore UI (makes it usable)
+2. **Start Phase 6.5** - Session History & URL Tracking (HUD integration)
+3. **Then Phase 7** - vStore Foundation (biggest value add)
+4. **Then Phase 8** - vStore UI (makes it usable)
 
-The vStore is the highest-value addition and should be prioritised over project structure migration and session context.
+Phase 6.5 provides immediate user value by exposing session history in the HUD. The vStore phases follow to add curated knowledge management.
 
 ---
 

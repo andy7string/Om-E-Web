@@ -1487,7 +1487,29 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 action_type="noop"
             )
 
-        else:  # cannot or unknown
+        else:
+            # 🔧 FIX: Check if type is actually a capability name (LLM format error)
+            # e.g. {"type": "OpenTab", "params": {...}} instead of {"type": "action", "cap": "OpenTab"}
+            known_caps = {opt.get("action") for opt in shaped_options}
+            if output_type in known_caps:
+                logger.info(f"[Orchestrator] LLM used cap as type - treating as action: {output_type}")
+                metrics.handoff = True
+                cap_name = output_type
+                params = output.get("params", {})
+                self.state.transition_to(TurnState.TURN_EXECUTING)
+                metrics.total_ms = (time.time() - turn_start) * 1000
+                await log_turn_metrics(metrics)
+                action_text = output.get("text", f"Executing {cap_name}...")
+                return OrchestratorResult(
+                    response_text=action_text,
+                    turn_state=TurnState.TURN_EXECUTING,
+                    action_type="cap",
+                    action_target=cap_name,
+                    action_params=params,
+                    action_executed=True
+                )
+
+            # Unknown type - fallback
             metrics.total_ms = (time.time() - turn_start) * 1000
             await log_turn_metrics(metrics)
             return OrchestratorResult(
@@ -1773,6 +1795,22 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 turn_state=TurnState.TURN_COMPLETED,
                 action_executed=False
             )
+
+        # 🔧 FIX: Detect if user is giving a NEW command, not answering the clarify
+        # If message looks like a fresh intent, break out and do fresh RAG
+        new_command_indicators = [
+            "open ", "go to ", "navigate ", "search ", "google ", "youtube ",
+            "scroll ", "click ", "close ", "switch ", "create ", "delete ",
+            "show ", "hide ", "list ", "what ", "how ", "why ", "can you ",
+        ]
+        param_lower = param_value.lower()
+        is_new_command = any(param_lower.startswith(ind) for ind in new_command_indicators)
+
+        if is_new_command:
+            logger.info(f"[Clarify] Detected new command, breaking out of clarify loop: {param_value[:50]}")
+            self.state.reset_turn()
+            # Return None to fall through to fresh RAG processing
+            return None
 
         # If we have original_intent, this is a clarify follow-up (Phase 10)
         # Combine original intent with the new answer for better context
