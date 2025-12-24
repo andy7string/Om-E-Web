@@ -881,9 +881,12 @@ USER MESSAGE
             return None
 
         # Check if capability has required params
+        # Params can be dicts with "required" key OR strings like "Required - description"
         top_params = top.get("params", {})
         has_required_params = any(
-            p.get("required", False) for p in top_params.values()
+            (isinstance(p, dict) and p.get("required", False)) or
+            (isinstance(p, str) and p.lower().startswith("required"))
+            for p in top_params.values()
         ) if isinstance(top_params, dict) else False
 
         if has_required_params:

@@ -68,7 +68,7 @@
       "action": "OpenTab",
       "label": "Go to tab or open URL",
       "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
-      "synonyms": ["new tab", "open website", "navigate to", "visit site", "go to url"],
+      "synonyms": ["new tab", "open new tab", "open tab", "open website", "navigate to", "visit site", "go to url"],
       "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
       "params": {
         "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
@@ -174,7 +174,7 @@
       "action": "ShowPrompt",
       "label": "Show the chat prompt",
       "description": "Shows the text input area for typing messages",
-      "synonyms": ["open prompt", "text field", "input box", "type here"],
+      "synonyms": ["show prompt", "open prompt", "text field", "input box", "type here"],
       "example": "{\"cap\": \"ShowPrompt\"}",
       "params": {}
     },
@@ -245,7 +245,7 @@
       "action": "CreateChat",
       "label": "Create a new chat",
       "description": "Creates a new chat file and returns the chat_id",
-      "synonyms": ["new conversation", "start chat", "fresh chat", "begin chat"],
+      "synonyms": ["new chat", "new conversation", "start chat", "fresh chat", "begin chat", "create chat"],
       "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
       "params": {
         "title": "Optional - title for the chat",
@@ -298,7 +298,7 @@
       "action": "RenameChat",
       "label": "Rename a chat",
       "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
-      "synonyms": ["change title", "update name", "rename it", "new title", "call it", "name it", "rename this chat", "rename chat to"],
+      "synonyms": ["rename chat", "change title", "update name", "rename it", "new title", "call it", "name it", "rename this chat", "rename chat to", "change chat name"],
       "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
@@ -332,7 +332,7 @@
       "action": "SetCurrentChat",
       "label": "Switch to a chat",
       "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
-      "synonyms": ["go to chat", "open chat", "load chat", "switch to chat", "switch chat"],
+      "synonyms": ["switch chat", "go to chat", "open chat", "load chat", "switch to chat", "change chat", "select chat", "use chat"],
       "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
@@ -487,6 +487,17 @@
       "synonyms": ["refresh config", "reload settings", "apply config changes"],
       "example": "{\"cap\": \"ReloadLLMConfig\"}",
       "params": {}
+    },
+    "SetNewTabURL": {
+      "group": "config",
+      "action": "SetNewTabURL",
+      "label": "Set default new tab URL",
+      "description": "Sets the default URL for new tabs when no URL is specified",
+      "synonyms": ["default tab url", "new tab page", "homepage", "set landing page"],
+      "example": "{\"cap\": \"SetNewTabURL\", \"params\": {\"url\": \"https://google.com\"}}",
+      "params": {
+        "url": "Required - URL to open for new tabs"
+      }
     },
     "AddLLMProvider": {
       "group": "config",

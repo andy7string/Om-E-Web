@@ -101,8 +101,15 @@ PERSONA_ORCHESTRATOR = None        # PersonaOrchestrator instance (created on fi
 VISIBLE_CHATS = []                 # [{chat_id, title, message_count}, ...]
 
 # 🏠 Default landing page for OpenTab when no URL provided
-# TODO: Make this configurable via settings
-DEFAULT_LANDING_PAGE = "http://127.0.0.1:8080/"
+def get_default_landing_page() -> str:
+    """Get default new tab URL from config, fallback to localhost."""
+    try:
+        config_path = os.path.join(os.path.dirname(__file__), "data", "llm_config.json")
+        with open(config_path, "r") as f:
+            config = json.load(f)
+        return config.get("defaults", {}).get("new_tab_url", "http://127.0.0.1:8080/")
+    except Exception:
+        return "http://127.0.0.1:8080/"
 
 
 def resolve_chat_number(chat_num: int) -> str | None:
@@ -1597,6 +1604,25 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
             return {"cleared": True, "message": "Session content cleared"}
         except Exception as e:
             return {"error": f"Failed to clear session content: {e}"}
+
+    elif action == "SetNewTabURL":
+        # Set default URL for new tabs
+        url = params.get("url")
+        if not url:
+            return {"error": "Missing url parameter"}
+
+        # Ensure URL has protocol
+        if not url.startswith(("http://", "https://")):
+            url = f"https://{url}"
+
+        config = load_llm_config()
+        if "defaults" not in config:
+            config["defaults"] = {}
+        config["defaults"]["new_tab_url"] = url
+        if save_llm_config(config):
+            print(f"🏠 New tab URL set to: {url}")
+            return {"new_tab_url": url}
+        return {"error": "Failed to save config"}
 
     elif action == "GetScanMode":
         # Get current scan mode from config
@@ -5834,9 +5860,10 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                             url_or_name = cap_params.get("url") or cap_params.get("name", "")
                                             if not url_or_name:
                                                 # No URL - use default landing page (never open blank tabs)
-                                                url_or_name = DEFAULT_LANDING_PAGE
-                                                final_params["url"] = DEFAULT_LANDING_PAGE
-                                                print(f"🏠 OpenTab: No URL provided, using default: {DEFAULT_LANDING_PAGE}")
+                                                default_url = get_default_landing_page()
+                                                url_or_name = default_url
+                                                final_params["url"] = default_url
+                                                print(f"🏠 OpenTab: No URL provided, using default: {default_url}")
 
                                             # 🔗 Normalize URL: ensure protocol prefix
                                             # Without protocol, Chrome treats it as relative to extension

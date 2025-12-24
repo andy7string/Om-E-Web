@@ -3771,6 +3771,10 @@
                                     <button class="ome-clear-session" title="Clear session content vector (large content summaries)">Clear Session</button>
                                 </div>
                             </div>
+                            <div class="ome-settings-group">
+                                <label>New Tab URL</label>
+                                <input type="text" class="ome-settings-new-tab-url" placeholder="http://127.0.0.1:8080/" title="Default URL when opening new tabs without specifying a URL">
+                            </div>
                             <button class="ome-settings-save">Save Settings</button>
                             <div class="ome-settings-status"></div>
                         </div>
@@ -4181,6 +4185,11 @@
                     const largePayloadInput = hud.querySelector('.ome-settings-large-payload');
                     if (largePayloadInput) largePayloadInput.value = context.large_payload_threshold ?? 500;
 
+                    // Defaults settings
+                    const defaults = config.defaults || {};
+                    const newTabUrlInput = hud.querySelector('.ome-settings-new-tab-url');
+                    if (newTabUrlInput) newTabUrlInput.value = defaults.new_tab_url ?? 'http://127.0.0.1:8080/';
+
                     // Populate model dropdown for this provider (pass current model)
                     await populateModelList(activeProvider, provider.model || '');
                     syncTemperatureAvailability();
@@ -4367,6 +4376,18 @@
                         params: { threshold: largePayloadThreshold }
                     }, resolve);
                 });
+
+                // Set new tab URL
+                const newTabUrl = hud.querySelector('.ome-settings-new-tab-url')?.value?.trim();
+                if (newTabUrl) {
+                    await new Promise((resolve) => {
+                        chrome.runtime.sendMessage({
+                            type: 'execute_capability',
+                            action: 'SetNewTabURL',
+                            params: { url: newTabUrl }
+                        }, resolve);
+                    });
+                }
 
                 // Reload LLM config in the agent (no server restart needed)
                 await new Promise((resolve) => {
@@ -6630,6 +6651,9 @@
 
             switch (action?.type) {
                 case 'load_chat':
+                    // 📚 Reuse show_sidebar pattern first
+                    if (!hudState.visible) toggleHUD();
+                    if (!hudState.sidebarOpen) toggleSidebar(true);
                     // Load and display a chat
                     if (action.chat_id && action.chat) {
                         chatState.currentChatId = action.chat_id;
@@ -6645,6 +6669,9 @@
                     break;
 
                 case 'create_chat':
+                    // 📚 Reuse show_sidebar pattern first
+                    if (!hudState.visible) toggleHUD();
+                    if (!hudState.sidebarOpen) toggleSidebar(true);
                     // New chat created - load it and refresh sidebar
                     if (action.chat_id && action.chat) {
                         chatState.currentChatId = action.chat_id;
@@ -6656,32 +6683,14 @@
                     break;
 
                 case 'start_new_chat':
-                    // Show new chat naming UI (user asked for "new chat" without a name)
-                    {
-                        const needsHudSwitch = !hudState.visible;
-                        const needsSidebar = !hudState.sidebarOpen;
-
-                        // Switch to HUD view if in orb mode
-                        if (needsHudSwitch) {
-                            toggleHUD();
-                        }
-
-                        // Wait for HUD to render, then open sidebar and show edit
-                        setTimeout(() => {
-                            if (needsSidebar || !hudState.sidebarOpen) {
-                                toggleSidebar(true);
-                            }
-                            // Wait for sidebar, then start new chat
-                            setTimeout(() => {
-                                startNewChat();
-                                // Wait for placeholder, then enter edit mode
-                                setTimeout(() => {
-                                    renameNewChat();
-                                    console.log('[Content] 🎛️ start_new_chat: edit mode activated');
-                                }, 150);
-                            }, 150);
-                        }, needsHudSwitch ? 300 : 50);
+                    // 📚 Reuse show_sidebar pattern - switch to HUD + open sidebar first
+                    if (!hudState.visible) {
+                        toggleHUD();
                     }
+                    if (!hudState.sidebarOpen) toggleSidebar(true);
+                    // Start new chat and enter rename mode
+                    startNewChat();
+                    setTimeout(() => renameNewChat(), 100);
                     break;
 
                 case 'append_message':
@@ -6720,6 +6729,9 @@
                     break;
 
                 case 'rename_chat':
+                    // 📚 Reuse show_sidebar pattern first
+                    if (!hudState.visible) toggleHUD();
+                    if (!hudState.sidebarOpen) toggleSidebar(true);
                     // Chat renamed - update sidebar and visibleChats
                     if (action.chat_id) {
                         const chatItem = hudState.sidebar?.querySelector(`.ome-sidebar-chat[data-chat-id="${action.chat_id}"]`);
@@ -6737,6 +6749,9 @@
                     break;
 
                 case 'delete_chat':
+                    // 📚 Reuse show_sidebar pattern first
+                    if (!hudState.visible) toggleHUD();
+                    if (!hudState.sidebarOpen) toggleSidebar(true);
                     // Chat deleted - clear if active, refresh sidebar
                     if (action.chat_id === chatState.currentChatId) {
                         chatState.currentChatId = null;
@@ -6747,6 +6762,9 @@
                     break;
 
                 case 'search_results':
+                    // 📚 Reuse show_sidebar pattern first
+                    if (!hudState.visible) toggleHUD();
+                    if (!hudState.sidebarOpen) toggleSidebar(true);
                     // Search results from LLM - filter sidebar to show matches
                     if (action.results) {
                         const matchingIds = action.results.map(r => r.chat_id);
