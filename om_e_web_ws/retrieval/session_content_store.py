@@ -113,20 +113,58 @@ NOISE_PATTERNS = {
     'wow', 'hm', 'hmm', 'ah', 'oh', 'um', 'uh', 'yea', 'yeah', 'nah'
 }
 
-# Action confirmations to skip
-ACTION_CONFIRMATIONS = [
+# LLM action confirmations - assistant starting to do something
+LLM_ACTION_STARTS = [
     'executing', 'scrolling', 'scrolled', 'opening', 'opened', 'closing',
-    'closed', 'switching', 'switched', 'navigating', 'loading'
+    'closed', 'switching', 'switched', 'navigating', 'loading', 'zooming',
+    'zoomed', 'clicking', 'clicked', 'playing', 'pausing', 'paused',
+    "i'll ", "i will ", "let me ", "i'm going to ", "going to ",
+    "i'm opening", "i'm scrolling", "i'm clicking", "i'm navigating"
 ]
+
+# User action request patterns - user asking to do something
+USER_ACTION_VERBS = [
+    'scroll', 'click', 'open', 'close', 'go to', 'navigate', 'switch',
+    'zoom', 'play', 'pause', 'stop', 'find', 'search', 'show', 'hide',
+    'refresh', 'reload', 'back', 'forward', 'minimize', 'maximize'
+]
+
+
+def is_action_message(content: str) -> bool:
+    """
+    Detect if content is an action request/confirmation (not worth vectorizing).
+    Actions are transient - "scroll down" or "I scrolled" are not semantic content.
+
+    @param content: Message content to check
+    @return: True if action message, False if content worth indexing
+    """
+    normalized = content.lower().strip()
+
+    # LLM action confirmation - starts with action phrase
+    for pattern in LLM_ACTION_STARTS:
+        if normalized.startswith(pattern):
+            return True
+
+    # Short user commands (< 50 chars) starting with action verb
+    if len(normalized) < 50:
+        for verb in USER_ACTION_VERBS:
+            if normalized.startswith(verb):
+                return True
+
+    # JSON action payloads (capability executions)
+    if normalized.startswith('{') and ('"cap"' in normalized or '"action"' in normalized):
+        return True
+
+    return False
 
 
 def is_substantive(content: str) -> bool:
     """
     Check if content is substantive (worth indexing).
-    Filters out noise and action confirmations.
+    Filters out noise, action requests, and action confirmations.
 
     @param content: Message content to check
-    @return: True if substantive, False if noise
+    @return: True if substantive, False if noise/action
     """
     if not content:
         return False
@@ -142,13 +180,8 @@ def is_substantive(content: str) -> bool:
     if normalized in NOISE_PATTERNS:
         return False
 
-    # Starts with action confirmation
-    for pattern in ACTION_CONFIRMATIONS:
-        if normalized.startswith(pattern):
-            return False
-
-    # JSON action messages
-    if normalized.startswith('{') and '"cap"' in normalized:
+    # Action message (request or confirmation)
+    if is_action_message(content):
         return False
 
     return True

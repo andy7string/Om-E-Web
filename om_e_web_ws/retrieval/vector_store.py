@@ -1,16 +1,19 @@
 """
 Base VectorStore class for FAISS-based semantic search.
 Uses bge-base-en-v1.5 for embeddings (768 dims).
+Supports hybrid BM25 + vector search with RRF fusion.
 """
 
 import os
+import re
 import json
 import time
 import faiss
 import numpy as np
 from numpy import ndarray
 from sentence_transformers import SentenceTransformer
-from typing import List, Optional, Any, cast
+from rank_bm25 import BM25Okapi
+from typing import List, Optional, Any, cast, Dict
 from dataclasses import dataclass
 
 # Singleton model instance (loaded once, shared across stores)
@@ -28,6 +31,11 @@ def get_model() -> SentenceTransformer:
         _model_load_time = time.time() - t0
         print(f"[FAISS] Model loaded in {_model_load_time*1000:.0f}ms")
     return _model
+
+
+def tokenize(text: str) -> List[str]:
+    """Simple tokenizer for BM25 - lowercase and split on non-alphanumeric."""
+    return re.findall(r'\w+', text.lower())
 
 
 @dataclass
@@ -127,6 +135,83 @@ class VectorStore:
                     score=float(score)
                 ))
         print(f"[{self.store_name}] search(): model={t1-t0:.0f}ms encode={t2-t1:.0f}ms faiss={t3-t2:.0f}ms total={t3-t0:.0f}ms")
+        return results
+
+    def hybrid_search(
+        self,
+        query: str,
+        k: int = 5,
+        threshold: float = 0.3,
+        vector_weight: float = 0.6,
+        bm25_weight: float = 0.4
+    ) -> List[SearchResult]:
+        """
+        Hybrid search combining BM25 (keyword) + vector (semantic).
+        Uses Reciprocal Rank Fusion (RRF) to merge rankings.
+
+        Args:
+            query: Search query string
+            k: Number of results to return
+            threshold: Minimum combined score (0-1)
+            vector_weight: Weight for vector scores (default 0.6)
+            bm25_weight: Weight for BM25 scores (default 0.4)
+
+        Returns:
+            List of SearchResult objects, sorted by combined score descending
+        """
+        if not self.texts:
+            return []
+
+        t0 = time.time()
+
+        # BM25 scoring
+        tokenized_corpus = [tokenize(t) for t in self.texts]
+        bm25 = BM25Okapi(tokenized_corpus)
+        query_tokens = tokenize(query)
+        bm25_scores = bm25.get_scores(query_tokens)
+        t1 = time.time()
+
+        # Normalize BM25 scores to 0-1 range
+        max_bm25 = max(bm25_scores) if max(bm25_scores) > 0 else 1.0
+        bm25_scores_norm = [s / max_bm25 for s in bm25_scores]
+
+        # Vector search (get all for fusion)
+        vector_results = self.search(query, k=len(self.texts), threshold=0.0)
+        t2 = time.time()
+
+        # Build vector score lookup
+        vector_scores: Dict[int, float] = {}
+        for result in vector_results:
+            # Find index of this text in self.texts
+            try:
+                idx = self.texts.index(result.text)
+                vector_scores[idx] = result.score
+            except ValueError:
+                pass
+
+        # Combine scores using weighted average
+        combined_scores: List[tuple[int, float]] = []
+        for idx in range(len(self.texts)):
+            v_score = vector_scores.get(idx, 0.0)
+            b_score = bm25_scores_norm[idx]
+            combined = (vector_weight * v_score) + (bm25_weight * b_score)
+            combined_scores.append((idx, combined))
+
+        # Sort by combined score descending
+        combined_scores.sort(key=lambda x: x[1], reverse=True)
+        t3 = time.time()
+
+        # Build results
+        results = []
+        for idx, score in combined_scores[:k]:
+            if score >= threshold:
+                results.append(SearchResult(
+                    text=self.texts[idx],
+                    metadata=self.metadata[idx],
+                    score=score
+                ))
+
+        print(f"[{self.store_name}] hybrid_search(): bm25={t1-t0:.0f}ms vector={t2-t1:.0f}ms fusion={t3-t2:.0f}ms total={t3-t0:.0f}ms")
         return results
 
     def clear(self):
