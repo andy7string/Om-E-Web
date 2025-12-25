@@ -6,7 +6,7 @@
       "label": "Scroll down the page",
       "description": "Scrolls the page down by one viewport height",
       "synonyms": ["page down", "move down", "lower", "down more"],
-      "example": "{\"cap\": \"ScrollDown\"}",
+      "example": "{\"action\": \"ScrollDown\"}",
       "params": {}
     },
     "ScrollUp": {
@@ -15,7 +15,7 @@
       "label": "Scroll up the page",
       "description": "Scrolls the page up by one viewport height",
       "synonyms": ["page up", "move up", "higher", "up more"],
-      "example": "{\"cap\": \"ScrollUp\"}",
+      "example": "{\"action\": \"ScrollUp\"}",
       "params": {}
     },
     "ScrollTop": {
@@ -24,7 +24,7 @@
       "label": "Go to top of page",
       "description": "Scrolls to the very top of the page",
       "synonyms": ["beginning", "start of page", "jump to top", "back to top"],
-      "example": "{\"cap\": \"ScrollTop\"}",
+      "example": "{\"action\": \"ScrollTop\"}",
       "params": {}
     },
     "ScrollBottom": {
@@ -33,7 +33,7 @@
       "label": "Go to bottom of page",
       "description": "Scrolls to the very bottom of the page",
       "synonyms": ["end of page", "page end", "jump to bottom", "all the way down"],
-      "example": "{\"cap\": \"ScrollBottom\"}",
+      "example": "{\"action\": \"ScrollBottom\"}",
       "params": {}
     },
     "ZoomIn": {
@@ -42,7 +42,7 @@
       "label": "Zoom in / make bigger",
       "description": "Increases page zoom by 15%",
       "synonyms": ["enlarge", "magnify", "bigger", "increase size"],
-      "example": "{\"cap\": \"ZoomIn\"}",
+      "example": "{\"action\": \"ZoomIn\"}",
       "params": {}
     },
     "ZoomOut": {
@@ -51,7 +51,7 @@
       "label": "Zoom out / make smaller",
       "description": "Decreases page zoom by 15%",
       "synonyms": ["shrink", "reduce size", "smaller", "minimize"],
-      "example": "{\"cap\": \"ZoomOut\"}",
+      "example": "{\"action\": \"ZoomOut\"}",
       "params": {}
     },
     "ZoomReset": {
@@ -60,7 +60,7 @@
       "label": "Reset zoom to 100%",
       "description": "Resets page zoom to default 100%",
       "synonyms": ["normal zoom", "default zoom", "original size", "actual size"],
-      "example": "{\"cap\": \"ZoomReset\"}",
+      "example": "{\"action\": \"ZoomReset\"}",
       "params": {}
     },
     "OpenTab": {
@@ -69,7 +69,7 @@
       "label": "Go to tab or open URL",
       "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
       "synonyms": ["new tab", "open new tab", "open tab", "open website", "navigate to", "visit site", "go to url"],
-      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "example": "{\"action\": \"OpenTab\", \"url\": \"https://google.com\"}",
       "params": {
         "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
       }
@@ -80,7 +80,7 @@
       "label": "Google something on the web",
       "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
       "synonyms": ["google it", "look up online", "find on internet", "google that", "web lookup", "ask google"],
-      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "example": "{\"action\": \"GoogleIt\", \"query\": \"best restaurants nearby\"}",
       "params": {
         "query": "Required - what to google"
       }
@@ -91,7 +91,7 @@
       "label": "Find videos on YouTube",
       "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
       "synonyms": ["youtube it", "find videos", "look for videos", "watch videos about", "video lookup", "show me videos"],
-      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "example": "{\"action\": \"YouTubeIt\", \"query\": \"how to cook pasta\"}",
       "params": {
         "query": "Required - what to find on YouTube"
       }
@@ -102,7 +102,7 @@
       "label": "Close a tab",
       "description": "Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
       "synonyms": ["shut tab", "kill tab", "close window", "close it"],
-      "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
+      "example": "{\"action\": \"CloseTab\", \"name\": \"google\"}",
       "params": {
         "tabId": "Optional - numeric tab ID to close",
         "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
@@ -114,7 +114,7 @@
       "label": "Go back in history",
       "description": "Navigates back in the current tab's history",
       "synonyms": ["back", "previous page", "back button", "last page"],
-      "example": "{\"cap\": \"GoBack\"}",
+      "example": "{\"action\": \"GoBack\"}",
       "params": {}
     },
     "GoForward": {
@@ -123,7 +123,7 @@
       "label": "Go forward in history",
       "description": "Navigates forward in the current tab's history",
       "synonyms": ["forward", "next page", "forward button", "ahead"],
-      "example": "{\"cap\": \"GoForward\"}",
+      "example": "{\"action\": \"GoForward\"}",
       "params": {}
     },
     "Refresh": {
@@ -132,7 +132,7 @@
       "label": "Refresh / reload the page",
       "description": "Reloads the current page",
       "synonyms": ["reload", "update page", "refresh it", "reload it"],
-      "example": "{\"cap\": \"Refresh\"}",
+      "example": "{\"action\": \"Refresh\"}",
       "params": {}
     },
     "SwitchView": {
@@ -141,7 +141,7 @@
       "label": "Switch between HUD and orb view",
       "description": "Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floating orb.",
       "synonyms": ["toggle view", "hud mode", "orb mode", "browser mode", "fullscreen", "floating orb"],
-      "example": "{\"cap\": \"SwitchView\"}",
+      "example": "{\"action\": \"SwitchView\"}",
       "params": {}
     },
     "SetTheme": {
@@ -150,7 +150,7 @@
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
       "synonyms": ["switch persona", "different orb", "robot mode", "cute mode", "atom mode", "change character", "be ome", "be om-e", "be robot", "be kawaii", "be atom", "become ome", "become kawaii", "become atom"],
-      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "example": "{\"action\": \"SetTheme\", \"theme\": \"kawaii\"}",
       "params": {
         "theme": {
           "required": true,
@@ -175,7 +175,7 @@
       "label": "Show the chat prompt",
       "description": "Shows the text input area for typing messages",
       "synonyms": ["show prompt", "open prompt", "text field", "input box", "type here"],
-      "example": "{\"cap\": \"ShowPrompt\"}",
+      "example": "{\"action\": \"ShowPrompt\"}",
       "params": {}
     },
     "HidePrompt": {
@@ -184,7 +184,7 @@
       "label": "Hide the chat prompt",
       "description": "Hides the text input area for typing messages",
       "synonyms": ["close prompt", "dismiss prompt", "hide input", "close input"],
-      "example": "{\"cap\": \"HidePrompt\"}",
+      "example": "{\"action\": \"HidePrompt\"}",
       "params": {}
     },
     "ShowChats": {
@@ -193,7 +193,7 @@
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
       "synonyms": ["show chats", "see chats", "my chats", "go to chats", "view chats", "chat list"],
-      "example": "{\"cap\": \"ShowChats\"}",
+      "example": "{\"action\": \"ShowChats\"}",
       "params": {}
     },
     "HideChats": {
@@ -202,7 +202,7 @@
       "label": "Hide chats panel",
       "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
       "synonyms": ["close chats", "hide chats", "close sidebar", "dismiss sidebar", "hide sidebar"],
-      "example": "{\"cap\": \"HideChats\"}",
+      "example": "{\"action\": \"HideChats\"}",
       "params": {}
     },
     "ToggleChats": {
@@ -211,7 +211,7 @@
       "label": "Toggle chats panel",
       "description": "Opens or closes the chats panel",
       "synonyms": ["toggle sidebar", "chats on off"],
-      "example": "{\"cap\": \"ToggleChats\"}",
+      "example": "{\"action\": \"ToggleChats\"}",
       "params": {}
     },
     "GetChatList": {
@@ -221,7 +221,7 @@
       "label": "Get chat list data (internal)",
       "description": "Returns JSON array of chats with id, title, date_short, message_count. Internal/programmatic use - for UI display use ShowChats instead.",
       "synonyms": ["fetch chats", "retrieve chat list", "chat list data"],
-      "example": "{\"cap\": \"GetChatList\"}",
+      "example": "{\"action\": \"GetChatList\"}",
       "params": {
         "project_id": "Optional - filter by project (use 'default' for unassigned)"
       }
@@ -232,7 +232,7 @@
       "label": "Load a chat",
       "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
       "synonyms": ["open conversation", "get chat", "retrieve chat", "read chat"],
-      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
+      "example": "{\"action\": \"LoadChat\", \"chat\": 2}",
       "params": {
         "chat": "Optional - chat NUMBER from visible chats list",
         "chat_id": "Optional - direct chat ID string",
@@ -246,7 +246,7 @@
       "label": "Create a new chat",
       "description": "Creates a new chat file and returns the chat_id",
       "synonyms": ["new chat", "new conversation", "start chat", "fresh chat", "begin chat", "create chat"],
-      "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
+      "example": "{\"action\": \"CreateChat\", \"title\": \"My Chat\"}",
       "params": {
         "title": "Optional - title for the chat",
         "page_url": "Optional - page URL for metadata",
@@ -259,7 +259,7 @@
       "label": "Append a message to a chat",
       "description": "Appends a user or assistant message to a chat. Creates chat if chat_id is null.",
       "synonyms": ["add message", "save message", "append to chat"],
-      "example": "{\"cap\": \"AppendMessage\", \"params\": {\"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}}",
+      "example": "{\"action\": \"AppendMessage\", \"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}",
       "params": {
         "chat_id": "Chat ID (null to create new chat)",
         "role": "Message role: user or assistant",
@@ -275,7 +275,7 @@
       "label": "Append a user message to current chat",
       "description": "Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.",
       "synonyms": ["add user message", "save my message", "record user input"],
-      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"Hello there\"}}",
+      "example": "{\"action\": \"AppendUserMessage\", \"content\": \"Hello there\"}",
       "params": {
         "content": "Required - message content",
         "page_url": "Optional - page URL for new chat metadata",
@@ -288,7 +288,7 @@
       "label": "Append an assistant message to current chat",
       "description": "Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.",
       "synonyms": ["add assistant message", "save response", "record assistant reply"],
-      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"Hi, how can I help?\"}}",
+      "example": "{\"action\": \"AppendAssistantMessage\", \"content\": \"Hi, how can I help?\"}",
       "params": {
         "content": "Required - message content"
       }
@@ -299,7 +299,7 @@
       "label": "Rename a chat",
       "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
       "synonyms": ["rename chat", "change title", "update name", "rename it", "new title", "call it", "name it", "rename this chat", "rename chat to", "change chat name"],
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
+      "example": "{\"action\": \"RenameChat\", \"title\": \"My New Title\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - existing chat title for fuzzy matching",
@@ -312,7 +312,7 @@
       "label": "Delete a chat",
       "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
       "synonyms": ["remove chat", "erase chat", "delete it", "trash chat"],
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"DeleteChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - chat title for fuzzy matching"
@@ -324,7 +324,7 @@
       "label": "Get the current active chat",
       "description": "Returns the current chat ID and chat data",
       "synonyms": ["active chat", "which chat", "what chat am i in", "current conversation"],
-      "example": "{\"cap\": \"GetCurrentChat\"}",
+      "example": "{\"action\": \"GetCurrentChat\"}",
       "params": {}
     },
     "SetCurrentChat": {
@@ -333,7 +333,7 @@
       "label": "Switch to a chat",
       "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
       "synonyms": ["switch chat", "go to chat", "open chat", "load chat", "switch to chat", "change chat", "select chat", "use chat"],
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"SetCurrentChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
         "name": "Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')"
@@ -345,7 +345,7 @@
       "label": "Search chats by title or content",
       "description": "Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
       "synonyms": ["find chat", "look for chat", "find in history", "search for"],
-      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"dude\"}}",
+      "example": "{\"action\": \"SearchChats\", \"query\": \"dude\"}",
       "params": {
         "query": "Required - search query string (extract from user request)"
       }
@@ -356,7 +356,7 @@
       "label": "Close the chat search",
       "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
       "synonyms": ["clear search", "cancel search", "exit search", "close search", "stop searching"],
-      "example": "{\"cap\": \"CloseSearch\"}",
+      "example": "{\"action\": \"CloseSearch\"}",
       "params": {}
     },
     "GetLLMConfig": {
@@ -365,7 +365,7 @@
       "label": "Get LLM configuration",
       "description": "Returns current LLM config including providers and settings",
       "synonyms": ["show config", "what model", "current settings", "which ai"],
-      "example": "{\"cap\": \"GetLLMConfig\"}",
+      "example": "{\"action\": \"GetLLMConfig\"}",
       "params": {}
     },
     "SetLLMProvider": {
@@ -374,7 +374,7 @@
       "label": "Switch active LLM provider",
       "description": "Changes which provider is used for LLM calls",
       "synonyms": ["change provider", "switch to openai", "switch to anthropic", "use different ai"],
-      "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
+      "example": "{\"action\": \"SetLLMProvider\", \"provider\": \"openai\"}",
       "params": {
         "provider": "Required - provider key (openai, anthropic, lm_studio)"
       }
@@ -385,7 +385,7 @@
       "label": "Set LLM endpoint URL",
       "description": "Updates the API endpoint for a provider",
       "synonyms": ["change endpoint", "set api url", "update endpoint"],
-      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}}",
+      "example": "{\"action\": \"SetLLMEndpoint\", \"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}",
       "params": {
         "provider": "Required - provider to update",
         "endpoint": "Required - full endpoint URL"
@@ -397,7 +397,7 @@
       "label": "Set LLM model",
       "description": "Changes the model for a provider",
       "synonyms": ["change model", "switch model", "use gpt4", "different model"],
-      "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
+      "example": "{\"action\": \"SetLLMModel\", \"model\": \"gpt-4\"}",
       "params": {
         "provider": "Optional - provider to update (default: active)",
         "model": "Required - model name/ID"
@@ -409,7 +409,7 @@
       "label": "Set API key",
       "description": "Sets the API key for a provider",
       "synonyms": ["set key", "update api key", "change api key"],
-      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"openai\", \"api_key\": \"sk-...\"}}",
+      "example": "{\"action\": \"SetLLMAPIKey\", \"provider\": \"openai\", \"api_key\": \"sk-...\"}",
       "params": {
         "provider": "Required - provider to update",
         "api_key": "Required - API key or $ENV_VAR reference"
@@ -421,7 +421,7 @@
       "label": "Set temperature",
       "description": "Adjusts LLM temperature (0.0-2.0)",
       "synonyms": ["change temperature", "more creative", "less creative", "randomness"],
-      "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
+      "example": "{\"action\": \"SetTemperature\", \"temperature\": 0.7}",
       "params": {
         "temperature": "Required - temperature value"
       }
@@ -432,7 +432,7 @@
       "label": "Set max tokens",
       "description": "Sets maximum response tokens",
       "synonyms": ["response length", "max length", "longer responses", "shorter responses"],
-      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 2000}}",
+      "example": "{\"action\": \"SetMaxTokens\", \"max_tokens\": 2000}",
       "params": {
         "max_tokens": "Required - max tokens"
       }
@@ -443,7 +443,7 @@
       "label": "Set cap score threshold",
       "description": "Sets RAG confidence threshold for capabilities (0.0-1.0)",
       "synonyms": ["cap threshold", "confidence threshold", "rag threshold"],
-      "example": "{\"cap\": \"SetCapScoreThreshold\", \"params\": {\"threshold\": 0.45}}",
+      "example": "{\"action\": \"SetCapScoreThreshold\", \"threshold\": 0.45}",
       "params": {
         "threshold": "Required - threshold value (0.0-1.0)"
       }
@@ -454,7 +454,7 @@
       "label": "Set session actions limit",
       "description": "Sets rolling limit for session-wide action history (5-50)",
       "synonyms": ["session history limit", "action history size", "session actions count"],
-      "example": "{\"cap\": \"SetSessionActionsLimit\", \"params\": {\"limit\": 20}}",
+      "example": "{\"action\": \"SetSessionActionsLimit\", \"limit\": 20}",
       "params": {
         "limit": "Required - number of actions to keep (5-50)"
       }
@@ -465,7 +465,7 @@
       "label": "Set large payload threshold",
       "description": "Sets char threshold for large content detection (100-5000)",
       "synonyms": ["large content threshold", "payload size limit", "content size threshold"],
-      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "example": "{\"action\": \"SetLargePayloadThreshold\", \"threshold\": 500}",
       "params": {
         "threshold": "Required - char threshold (100-5000)"
       }
@@ -476,7 +476,7 @@
       "label": "Clear session content",
       "description": "Clears all session content from the in-memory vector store",
       "synonyms": ["clear session", "reset session memory", "clear session vector"],
-      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "example": "{\"action\": \"ClearSessionContent\"}",
       "params": {}
     },
     "ReloadLLMConfig": {
@@ -485,7 +485,7 @@
       "label": "Reload LLM config",
       "description": "Reloads the server-side LLM agent config from disk",
       "synonyms": ["refresh config", "reload settings", "apply config changes"],
-      "example": "{\"cap\": \"ReloadLLMConfig\"}",
+      "example": "{\"action\": \"ReloadLLMConfig\"}",
       "params": {}
     },
     "SetNewTabURL": {
@@ -494,7 +494,7 @@
       "label": "Set default new tab URL",
       "description": "Sets the default URL for new tabs when no URL is specified",
       "synonyms": ["default tab url", "new tab page", "homepage", "set landing page"],
-      "example": "{\"cap\": \"SetNewTabURL\", \"params\": {\"url\": \"https://google.com\"}}",
+      "example": "{\"action\": \"SetNewTabURL\", \"url\": \"https://google.com\"}",
       "params": {
         "url": "Required - URL to open for new tabs"
       }
@@ -505,7 +505,7 @@
       "label": "Add new LLM provider",
       "description": "Adds a new provider configuration",
       "synonyms": ["new provider", "add ai provider", "configure new llm"],
-      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}}",
+      "example": "{\"action\": \"AddLLMProvider\", \"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}",
       "params": {
         "key": "Required - unique provider key",
         "name": "Required - display name",
@@ -521,7 +521,7 @@
       "label": "Remove LLM provider",
       "description": "Removes a provider from config",
       "synonyms": ["delete provider", "remove ai provider", "uninstall provider"],
-      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"custom\"}}",
+      "example": "{\"action\": \"RemoveLLMProvider\", \"provider\": \"custom\"}",
       "params": {
         "provider": "Required - provider key to remove"
       }
@@ -532,7 +532,7 @@
       "label": "Send message to LLM",
       "description": "Send a chat message to the configured LLM and get a response",
       "synonyms": ["chat with ai", "ask llm", "send to ai", "get ai response"],
-      "example": "{\"cap\": \"LLMChat\", \"params\": {\"message\": \"What is the weather?\"}}",
+      "example": "{\"action\": \"LLMChat\", \"message\": \"What is the weather?\"}",
       "params": {
         "message": "Required - the message to send",
         "chat_id": "Optional - chat ID to associate response with",

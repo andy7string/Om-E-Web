@@ -51,12 +51,13 @@ def format_capabilities_for_prompt() -> str:
         label = cap_info.get("label", cap_name)
         params = cap_info.get("params", {})
 
-        # Build example JSON
+        # Build example JSON - new flat format
         if params:
-            param_examples = {k: "..." for k in params.keys()}
-            example = f'{{"cap": "{cap_name}", "params": {json.dumps(param_examples)}}}'
+            # Flatten params into the action object
+            param_parts = ', '.join(f'"{k}": "..."' for k in params.keys())
+            example = f'{{"action": "{cap_name}", {param_parts}}}'
         else:
-            example = f'{{"cap": "{cap_name}"}}'
+            example = f'{{"action": "{cap_name}"}}'
 
         lines.append(f"- **{cap_name}** - {label}")
         lines.append(f"  `{example}`")

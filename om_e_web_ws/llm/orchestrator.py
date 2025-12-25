@@ -1048,13 +1048,20 @@ USER MESSAGE
             params = cap.get('params', {})
             example = cap.get('example', '')
 
+            # Auto-generate example if missing (e.g. site config capabilities)
+            if not example:
+                if params:
+                    param_str = ', '.join(f'"{k}": "..."' for k in params.keys())
+                    example = f'{{"action": "{label}", {param_str}}}'
+                else:
+                    example = f'{{"action": "{label}"}}'
+
             # Format: Name [group] (score): description
             group_tag = f"[{group}]" if group else ""
             lines.append(f"- {label} {group_tag} ({score:.2f}): {desc}")
 
             # Always show example for format reference
-            if example:
-                lines.append(f"  example: {example}")
+            lines.append(f"  example: {example}")
 
             # Show params if any
             if params:
@@ -1196,9 +1203,16 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 params = cap.get('params', {})
                 example = cap.get('example', '')
 
+                # Auto-generate example if missing (e.g. site config capabilities)
+                if not example:
+                    if params:
+                        param_str = ', '.join(f'"{k}": "..."' for k in params.keys())
+                        example = f'{{"action": "{label}", {param_str}}}'
+                    else:
+                        example = f'{{"action": "{label}"}}'
+
                 cap_lines.append(f"- {label}: {desc}")
-                if example:
-                    cap_lines.append(f"  ex: {example}")
+                cap_lines.append(f"  ex: {example}")
                 if params:
                     # Include full param info with valid values
                     param_parts = [f"{k}: {v}" for k, v in params.items()]
@@ -1417,18 +1431,22 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
         )
         metrics.chat_persona_ms = (time.time() - t0) * 1000  # Reuse field for unified call
 
-        # STEP 3: Handle output type
-        output_type = output.get("type", "reply")
-
-        # 🔄 LLM format fallback: If type is not a known response type but looks like
-        # a capability name (e.g. "OpenTab" instead of "action"), normalize it
-        known_response_types = {"reply", "action", "clarify", "options", "search"}
-        if output_type not in known_response_types and output.get("params") is not None:
-            # LLM put capability name in 'type' instead of using 'type': 'action', 'cap': '...'
-            logger.info(f"🔄 Normalizing LLM output: type='{output_type}' → action with cap='{output_type}'")
-            output["cap"] = output_type
-            output["type"] = "action"
+        # STEP 3: Detect output type from new flat format
+        # New format uses keys: reply, action, clarify, options, search
+        # Old format used: type: "reply"|"action"|"clarify"|"options"|"search"
+        if "action" in output:
             output_type = "action"
+        elif "reply" in output:
+            output_type = "reply"
+        elif "clarify" in output:
+            output_type = "clarify"
+        elif "options" in output:
+            output_type = "options"
+        elif "search" in output:
+            output_type = "search"
+        else:
+            # Fallback: check old format for backwards compat
+            output_type = output.get("type", "reply")
 
         metrics.decision_type = output_type
 
@@ -1437,16 +1455,25 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             metrics.handoff = False
             metrics.total_ms = (time.time() - turn_start) * 1000
             await log_turn_metrics(metrics)
+            # New format: {"reply": "text"} or old: {"type": "reply", "text": "..."}
+            reply_text = output.get("reply") or output.get("text", "")
             return OrchestratorResult(
-                response_text=output.get("text", ""),
+                response_text=reply_text,
                 turn_state=TurnState.TURN_CHAT_ONLY,
                 action_executed=False
             )
 
         elif output_type == "action":
             metrics.handoff = True
-            cap_name = output.get("cap", "")
-            params = output.get("params", {})
+            # New format: {"action": "OpenTab", "url": "...", "text": "..."}
+            # Old format: {"type": "action", "cap": "OpenTab", "params": {"url": "..."}}
+            cap_name = output.get("action") or output.get("cap", "")
+            # Extract params: new format has flat params, old has nested
+            if "params" in output:
+                params = output.get("params", {})
+            else:
+                # Flat format - extract all keys except action, text, type, cap
+                params = {k: v for k, v in output.items() if k not in ("action", "text", "type", "cap")}
 
             # Check if LLM made up a capability not in retrieved options
             known_caps = {opt.get("action") for opt in shaped_options}
@@ -1473,12 +1500,14 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             )
 
         elif output_type == "clarify":
+            # New format: {"clarify": "message"} or old: {"type": "clarify", "text": "..."}
+            clarify_text = output.get("clarify") or output.get("text", "Could you clarify?")
             # Store context for follow-up (Phase 10: Clarify Context Threading)
             self.state.pending_param_input = {
                 "capability": output.get("cap"),      # Which cap needs params
                 "missing_param": output.get("param"), # What param is missing
                 "original_intent": user_message,       # User's original request
-                "clarify_text": output.get("text"),   # What we asked them
+                "clarify_text": clarify_text,          # What we asked them
                 "shaped_options": shaped_options       # Keep the capabilities for re-use
             }
             logger.info(f"[Clarify] Stored context: intent='{user_message}', caps={len(shaped_options)}")
@@ -1486,20 +1515,23 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             metrics.total_ms = (time.time() - turn_start) * 1000
             await log_turn_metrics(metrics)
             return OrchestratorResult(
-                response_text=output.get("text", "Could you clarify?"),
+                response_text=clarify_text,
                 turn_state=TurnState.TURN_COMPLETED,
                 action_type="clarify"
             )
 
         elif output_type == "options":
-            options_list = output.get("options", [])
+            # New format: {"options": "Which one?", "list": [...]}
+            # Old format: {"type": "options", "text": "...", "options": [...]}
+            options_list = output.get("list") or output.get("options", [])
             self.state.pending_options = options_list
             self.state.transition_to(TurnState.TURN_COMPLETED)
             metrics.total_ms = (time.time() - turn_start) * 1000
             await log_turn_metrics(metrics)
 
             # Format options for display (handle both dict and string options)
-            option_text = output.get("text", "Which one?")
+            options_val = output.get("options")
+            option_text: str = options_val if isinstance(options_val, str) else (output.get("text") or "Which one?")
             for i, opt in enumerate(options_list, 1):
                 if isinstance(opt, dict):
                     label = opt.get('label', opt.get('cap', 'Option'))
@@ -1513,8 +1545,8 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             )
 
         elif output_type == "search":
-            # LLM wants more capabilities - query RAG with its suggested term
-            search_query = output.get("query", user_message)
+            # New format: {"search": "query"} or old: {"type": "search", "query": "..."}
+            search_query = output.get("search") or output.get("query", user_message)
             logger.info(f"LLM requested more caps with query: {search_query}")
 
             # Query RAG with LLM's search term
@@ -1533,28 +1565,33 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 output = await self._call_unified(
                     prompt_message, shaped_options, active_tab, tabs, chat_id, orb_theme, visible_chats
                 )
-                output_type = output.get("type", "reply")
 
-                # 🔄 LLM format fallback (same as above)
-                if output_type not in known_response_types and output.get("params") is not None:
-                    logger.info(f"🔄 Normalizing LLM output (search retry): type='{output_type}' → action")
-                    output["cap"] = output_type
-                    output["type"] = "action"
+                # Re-detect type for retry response
+                if "action" in output:
                     output_type = "action"
+                elif "reply" in output:
+                    output_type = "reply"
+                else:
+                    output_type = output.get("type", "reply")
 
                 # Handle the new output (recursive-ish but only one level)
                 if output_type == "reply":
                     self.state.transition_to(TurnState.TURN_CHAT_ONLY)
                     metrics.total_ms = (time.time() - turn_start) * 1000
                     await log_turn_metrics(metrics)
+                    reply_text = output.get("reply") or output.get("text", "")
                     return OrchestratorResult(
-                        response_text=output.get("text", ""),
+                        response_text=reply_text,
                         turn_state=TurnState.TURN_CHAT_ONLY,
                         action_executed=False
                     )
                 elif output_type == "action":
-                    cap_name = output.get("cap", "")
-                    params = output.get("params", {})
+                    cap_name = output.get("action") or output.get("cap", "")
+                    # Extract params: new format has flat params, old has nested
+                    if "params" in output:
+                        params = output.get("params", {})
+                    else:
+                        params = {k: v for k, v in output.items() if k not in ("action", "text", "type", "cap")}
                     self.state.transition_to(TurnState.TURN_EXECUTING)
                     metrics.total_ms = (time.time() - turn_start) * 1000
                     await log_turn_metrics(metrics)
@@ -1588,32 +1625,12 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             )
 
         else:
-            # 🔧 FIX: Check if type is actually a capability name (LLM format error)
-            # e.g. {"type": "OpenTab", "params": {...}} instead of {"type": "action", "cap": "OpenTab"}
-            known_caps = {opt.get("action") for opt in shaped_options}
-            if output_type in known_caps:
-                logger.info(f"[Orchestrator] LLM used cap as type - treating as action: {output_type}")
-                metrics.handoff = True
-                cap_name = output_type
-                params = output.get("params", {})
-                self.state.transition_to(TurnState.TURN_EXECUTING)
-                metrics.total_ms = (time.time() - turn_start) * 1000
-                await log_turn_metrics(metrics)
-                action_text = output.get("text", f"Executing {cap_name}...")
-                return OrchestratorResult(
-                    response_text=action_text,
-                    turn_state=TurnState.TURN_EXECUTING,
-                    action_type="cap",
-                    action_target=cap_name,
-                    action_params=params,
-                    action_executed=True
-                )
-
-            # Unknown type - fallback
+            # Unknown output format - fallback
             metrics.total_ms = (time.time() - turn_start) * 1000
             await log_turn_metrics(metrics)
+            fallback_text = output.get("text") or output.get("reply", "I can't do that.")
             return OrchestratorResult(
-                response_text=output.get("text", "I can't do that."),
+                response_text=fallback_text,
                 turn_state=TurnState.TURN_COMPLETED
             )
 

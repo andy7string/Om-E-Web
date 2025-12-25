@@ -33,7 +33,7 @@ class CapabilityOption:
     """
     name: str           # e.g., "ScrollDown"
     description: str    # e.g., "Scroll the page down"
-    example: str        # e.g., '{"cap": "ScrollDown", "params": {...}}'
+    example: str        # e.g., '{"action": "ScrollDown"}' (flat format)
     score: float        # Similarity score from RAG (0.0-1.0)
     group: str = ""     # e.g., "browser", "hud", "chat"
     params: Optional[Dict] = None  # e.g., {"url": "Required - the URL to open"}
