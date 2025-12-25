@@ -94,6 +94,26 @@ def set_current_chat_id(chat_id):
 CHAT_INDEX_CACHE = {}              # Populated on startup, updated on save/delete
 CHAT_INDEX_LOADED = False          # Flag to track initial load
 
+def get_next_chat_number() -> int:
+    """
+    Find the next available "Chat N" number by scanning existing chat titles.
+    Looks for patterns like "Chat 1", "Chat 2", "Chat 10" etc.
+    Returns the next number in sequence.
+    """
+    import re
+    max_num = 0
+    pattern = re.compile(r'^Chat\s+(\d+)$', re.IGNORECASE)
+
+    for chat_info in CHAT_INDEX_CACHE.values():
+        title = chat_info.get("title", "")
+        match = pattern.match(title.strip())
+        if match:
+            num = int(match.group(1))
+            if num > max_num:
+                max_num = num
+
+    return max_num + 1
+
 # 🎭 Persona Orchestrator - Two-role LLM architecture (Role A + Role B)
 # Role A: Chat Persona (intent extraction, conversational responses)
 # Role B: Decision Engine (capability selection, action execution)
@@ -850,14 +870,13 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
         page_url = params.get("page_url", "")
         page_title = params.get("page_title", "")
 
-        # If no title provided, show HUD naming UI instead of creating immediately
+        # If no title provided, auto-generate "Chat N" name
         if not title or title.strip() in ("", "New Chat"):
-            return {
-                "_hud_action": {"type": "start_new_chat"},
-                "message": "Opening new chat dialog..."
-            }
+            next_num = get_next_chat_number()
+            title = f"Chat {next_num}"
+            print(f"📚 Auto-generating chat title: {title}")
 
-        # Title provided - create the chat
+        # Title provided (or auto-generated) - create the chat
         now = datetime.utcnow()
         chat_id = generate_chat_id_from_prompt(title, now)
 
