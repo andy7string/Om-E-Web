@@ -616,6 +616,14 @@ def validate_capability(action: str, params: dict, offered_caps: list[dict] | No
              - error_dict: None if valid, or error dict with clarification needed
              - resolved_params: params with aliases resolved to canonical values
     """
+    # 🔄 Capability alias mapping - LLM sometimes hallucinates similar names
+    CAPABILITY_ALIASES = {
+        "SwitchChat": "SetCurrentChat",  # Common LLM hallucination
+    }
+
+    # Normalize action name via alias mapping
+    action = CAPABILITY_ALIASES.get(action, action)
+
     internal_caps = load_internal_capabilities()
     resolved_params = dict(params)  # Copy to avoid mutation
 
@@ -730,6 +738,13 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
     @return: Result dictionary
     """
     global CURRENT_CHAT_ID
+
+    # 🔄 Capability alias mapping - LLM sometimes hallucinates similar names
+    CAPABILITY_ALIASES = {
+        "SwitchChat": "SetCurrentChat",  # Common LLM hallucination
+    }
+    action = CAPABILITY_ALIASES.get(action, action)
+
     print(f"🔧 Executing internal capability: {action} with params: {params}")
 
     # 🛡️ Validate capability and resolve aliases to canonical values
@@ -1225,8 +1240,9 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
             "title": chat_dict.get("title", "Untitled")
         }
 
-    elif action == "SetCurrentChat":
+    elif action == "SetCurrentChat" or action == "SwitchChat":
         # Set the active chat - supports chat number, chat_id, name, or fuzzy title lookup
+        # Note: SwitchChat is an LLM hallucination alias that routes to SetCurrentChat
         chat_num = params.get("chat")  # Number from visible list (1-indexed)
         chat_id = params.get("chat_id")
         chat_name = params.get("name") or params.get("chatName")  # Fuzzy title lookup (accept LLM variants)

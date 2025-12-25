@@ -1419,6 +1419,17 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
 
         # STEP 3: Handle output type
         output_type = output.get("type", "reply")
+
+        # 🔄 LLM format fallback: If type is not a known response type but looks like
+        # a capability name (e.g. "OpenTab" instead of "action"), normalize it
+        known_response_types = {"reply", "action", "clarify", "options", "search"}
+        if output_type not in known_response_types and output.get("params") is not None:
+            # LLM put capability name in 'type' instead of using 'type': 'action', 'cap': '...'
+            logger.info(f"🔄 Normalizing LLM output: type='{output_type}' → action with cap='{output_type}'")
+            output["cap"] = output_type
+            output["type"] = "action"
+            output_type = "action"
+
         metrics.decision_type = output_type
 
         if output_type == "reply":
@@ -1523,6 +1534,13 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                     prompt_message, shaped_options, active_tab, tabs, chat_id, orb_theme, visible_chats
                 )
                 output_type = output.get("type", "reply")
+
+                # 🔄 LLM format fallback (same as above)
+                if output_type not in known_response_types and output.get("params") is not None:
+                    logger.info(f"🔄 Normalizing LLM output (search retry): type='{output_type}' → action")
+                    output["cap"] = output_type
+                    output["type"] = "action"
+                    output_type = "action"
 
                 # Handle the new output (recursive-ish but only one level)
                 if output_type == "reply":

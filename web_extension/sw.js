@@ -2393,6 +2393,9 @@ async function handleSwitchTabCommand(message) {
         await chrome.tabs.update(parseInt(tabId), { active: true });
         console.log("[SW] 🗂️ Switched to tab:", tabId);
 
+        // 🌐 Auto-switch TARGET tab to orb view (so user can see the page)
+        await switchToOrbViewIfNeeded(parseInt(tabId));
+
         // 🚀 IMMEDIATE: Send tabs update to server right away (don't wait for onActivated event)
         await sendActiveTabInfo();
         await sendTabsInfo();
@@ -2437,6 +2440,10 @@ async function handleOpenTabCommand(message) {
 
         const newTab = await chrome.tabs.create(createOptions);
         console.log(`[SW] 🗂️ Opened new tab: ${newTab.id} in ${Date.now() - _start}ms`);
+
+        // 🌐 Auto-switch NEW tab to orb view after content script loads
+        // Wait for tab to be ready, then send switch_to_orb (fire-and-forget)
+        waitForTabReadyThenSwitchToOrb(newTab.id);
 
         // 🚀 IMMEDIATE: Send tabs update to server right away (don't wait for onCreated event)
         const _t1 = Date.now();
@@ -3826,6 +3833,58 @@ async function handleToggleHUD(message) {
 }
 
 /**
+ * 🌐 Switch to orb view if currently in HUD
+ *
+ * Sends a switch_to_orb HUD action to the active tab's content script.
+ * Used before navigation actions so user can see the resulting web page.
+ * If already in orb view, this is a no-op on the content script side.
+ *
+ * @param {number} tabId - Tab ID to send the action to
+ * @returns {Promise<void>}
+ */
+async function switchToOrbViewIfNeeded(tabId) {
+    try {
+        console.log("[SW] 🌐 Sending switch_to_orb to tab:", tabId);
+        await chrome.tabs.sendMessage(tabId, {
+            type: 'hud_action',
+            action: { type: 'switch_to_orb' }
+        });
+    } catch (error) {
+        // Ignore errors - tab might not have content script loaded
+        console.log("[SW] 🌐 switch_to_orb send failed (probably no content script):", error.message);
+    }
+}
+
+/**
+ * 🌐 Wait for a new tab to be ready, then switch to orb view
+ *
+ * For newly created tabs, the content script needs time to load.
+ * This function waits for the tab to reach 'complete' status, then
+ * sends the switch_to_orb action. Fire-and-forget (doesn't block).
+ *
+ * @param {number} tabId - Tab ID to wait for and switch
+ */
+function waitForTabReadyThenSwitchToOrb(tabId) {
+    // Listen for tab status changes
+    const listener = (updatedTabId, changeInfo) => {
+        if (updatedTabId === tabId && changeInfo.status === 'complete') {
+            // Tab is ready - remove listener and send switch_to_orb
+            chrome.tabs.onUpdated.removeListener(listener);
+            console.log("[SW] 🌐 New tab ready, sending switch_to_orb:", tabId);
+            switchToOrbViewIfNeeded(tabId);
+        }
+    };
+
+    // Add listener
+    chrome.tabs.onUpdated.addListener(listener);
+
+    // Safety timeout - remove listener after 10s to prevent memory leak
+    setTimeout(() => {
+        chrome.tabs.onUpdated.removeListener(listener);
+    }, 10000);
+}
+
+/**
  * 🎨 Handle set orb theme command
  *
  * Forwards set_orb_theme message to the active tab's content script.
@@ -3934,6 +3993,12 @@ async function handleGetOrbThemes(message) {
  */
 async function handleTabCapability(action, params, requestId) {
     console.log("[SW] 🗂️ Handling tab capability:", action, "params:", params, "requestId:", requestId);
+
+    // 🌐 Auto-switch to orb view before navigation (so user can see the page)
+    const activeTab = await findActiveTab();
+    if (activeTab) {
+        await switchToOrbViewIfNeeded(activeTab.id);
+    }
 
     // Create a message in the format expected by tab handlers
     // Use the passed requestId so responses can be matched by the server
@@ -4165,6 +4230,9 @@ async function handleNavCapability(action, params, requestId) {
             sendErrorResponse(requestId, "NO_ACTIVE_TAB", "No active tab found for navigation");
             return;
         }
+
+        // 🌐 Auto-switch to orb view before navigation (so user can see the page)
+        await switchToOrbViewIfNeeded(activeTab.id);
 
         switch (action) {
             case 'GoBack':

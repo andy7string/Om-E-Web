@@ -6823,6 +6823,15 @@
                     toggleHUD();
                     break;
 
+                case 'switch_to_orb':
+                    // 🌐 Smart switch - only toggle if currently in HUD view
+                    // Used before navigation actions so user can see the web page
+                    if (hudState.visible) {
+                        toggleHUD();  // Switch to orb view
+                        console.log('[Content] 🌐 Auto-switched to orb view for navigation');
+                    }
+                    break;
+
                 case 'show_sidebar':
                     // 📚 Smart show - if in orb view, switch to HUD first
                     if (!hudState.visible) {
