@@ -84,6 +84,11 @@ SITE_CONFIGS = {}                  # Loaded site configurations with capabilitie
 # 💬 Current chat state for LLM conversations
 CURRENT_CHAT_ID = None             # Active chat ID (auto-created on first message)
 
+def set_current_chat_id(chat_id):
+    """Helper to set CURRENT_CHAT_ID from within async handlers."""
+    global CURRENT_CHAT_ID
+    CURRENT_CHAT_ID = chat_id
+
 # 📋 Chat index cache - avoids reading all chat files for list operations
 # Structure: { "chat_id": {"title": "...", "date_short": "...", "message_count": N, "project_id": "..."} }
 CHAT_INDEX_CACHE = {}              # Populated on startup, updated on save/delete
@@ -417,24 +422,41 @@ def find_matching_tab(url_or_name: str) -> Optional[dict]:
     if search.startswith("www."):
         search = search[4:]
 
-    # Extract just the domain part (before any path/query)
-    search = search.split("/")[0].rstrip("/")
+    # Check if search includes a path (e.g., "facebook.com/marketplace")
+    # If so, we need to match the full path, not just hostname
+    has_path = "/" in search and not search.endswith("/")
+
+    # Extract domain and path separately
+    if "/" in search:
+        search_domain = search.split("/")[0].rstrip("/")
+        search_path = "/" + "/".join(search.split("/")[1:])  # Keep path with leading /
+    else:
+        search_domain = search.rstrip("/")
+        search_path = ""
 
     for tab in CURRENT_TABS_INFO:
         tab_url = tab.get("url") or ""
         tab_title = (tab.get("title") or "").lower()
 
-        # Extract hostname from tab URL using urlparse (avoids matching query strings)
+        # Extract hostname and path from tab URL using urlparse
         try:
             parsed = urlparse(tab_url)
             tab_hostname = parsed.netloc.lower()
             if tab_hostname.startswith("www."):
                 tab_hostname = tab_hostname[4:]
+            tab_path = parsed.path.lower()  # e.g., "/marketplace"
         except Exception:
             tab_hostname = ""
+            tab_path = ""
 
-        # Check for hostname match (search must be in hostname, NOT full URL)
-        hostname_match = search in tab_hostname
+        # Check for hostname match
+        hostname_match = search_domain in tab_hostname
+
+        # If search has a path, also check path matches (allows different paths on same domain)
+        if has_path and hostname_match:
+            # Only match if paths are the same (or tab path starts with search path)
+            path_match = tab_path.startswith(search_path) or search_path in tab_path
+            hostname_match = hostname_match and path_match
 
         # Also check title (keep existing behavior)
         title_match = search in tab_title
@@ -446,7 +468,7 @@ def find_matching_tab(url_or_name: str) -> Optional[dict]:
             if stable_num:
                 tab_copy = dict(tab)
                 tab_copy["stable_num"] = stable_num
-                match_type = "hostname" if hostname_match else "title"
+                match_type = "hostname+path" if (hostname_match and has_path) else ("hostname" if hostname_match else "title")
                 print(f"🔍 [SMART-TAB] Found {match_type} match for '{url_or_name}': Tab {stable_num} - {tab.get('title')}")
                 return tab_copy
 
@@ -6359,6 +6381,12 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                 if msg.get("_requestId"):
                     response["_requestId"] = msg["_requestId"]
                 await ws.send(json.dumps(response))
+
+            # 💬 Set active chat ID (sync from extension)
+            if msg.get("type") == "set_active_chat":
+                incoming_chat_id = msg.get("chat_id")  # Can be None to clear
+                print(f"💬 Set active chat: {CURRENT_CHAT_ID} → {incoming_chat_id}")
+                set_current_chat_id(incoming_chat_id)
 
             # 🎛️ HUD: Toggle overlay interface
             if msg.get("type") == "toggle_hud":

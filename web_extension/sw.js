@@ -2112,6 +2112,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     // Persist to storage for browser restart
                     chrome.storage.local.set({ activeChatId: message.activeChatId });
                     console.log('[SW] 💬 Saved activeChatId to storage');
+                    // 🔄 Notify server so CURRENT_CHAT_ID stays in sync
+                    sendToServer({ type: 'set_active_chat', chat_id: message.activeChatId });
                 }
                 console.log('[SW] 🐰 Updated orb state:', orbState);
 
