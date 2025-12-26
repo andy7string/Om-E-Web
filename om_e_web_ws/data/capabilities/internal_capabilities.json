@@ -470,6 +470,18 @@
         "threshold": "Required - char threshold (100-5000)"
       }
     },
+    "SetHybridSearch": {
+      "group": "config",
+      "action": "SetHybridSearch",
+      "label": "Set hybrid search settings",
+      "description": "Configures BM25 + vector hybrid search. Enable for better exact keyword matching.",
+      "synonyms": ["bm25", "hybrid search", "keyword search", "search mode"],
+      "example": "{\"action\": \"SetHybridSearch\", \"enabled\": true, \"bm25_weight\": 0.4}",
+      "params": {
+        "enabled": "Optional - enable/disable hybrid search (boolean)",
+        "bm25_weight": "Optional - BM25 weight 0.0-1.0 (higher = more keyword matching)"
+      }
+    },
     "ClearSessionContent": {
       "group": "config",
       "action": "ClearSessionContent",

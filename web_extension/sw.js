@@ -2040,7 +2040,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     console.error('[SW] Error in handleExecuteCapabilityFromContent:', error);
                     sendResponse({ ok: false, error: error.message });
                 });
-                break;
+                return true; // Keep channel open for async server response
             case 'ping':
                 // Simple ping response for context validation
                 sendResponse({ ok: true, pong: true });
