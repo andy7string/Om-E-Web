@@ -2721,20 +2721,32 @@
             /* Settings panel styles - matches new chat input styling */
             .ome-settings-panel {
                 display: none;
-                position: absolute;
-                bottom: 50px;
-                left: 8px;
-                right: 8px;
-                background: rgb(32, 33, 36);
-                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.2);
-                border-radius: 10px;
-                padding: 14px;
-                z-index: 100;
-                max-height: 400px;
-                overflow-y: auto;
+                position: fixed;
+                bottom: 80px;
+                left: 10px;
+                width: 420px;
+                background: rgb(28, 29, 32);
+                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.25);
+                border-radius: 12px;
+                padding: 18px;
+                z-index: 10000;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.3);
             }
 
             .ome-settings-panel.open {
+                display: block;
+            }
+
+            /* Backdrop when settings open - blocks sidebar interaction */
+            .ome-settings-backdrop {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.4);
+                z-index: 9999;
+            }
+
+            .ome-settings-backdrop.open {
                 display: block;
             }
 
@@ -2867,6 +2879,65 @@
                 font-size: 11px;
                 text-align: center;
                 color: rgba(100, 200, 100, 0.6);
+            }
+
+            /* 🎛️ Tabbed Settings */
+            .ome-settings-tabs {
+                display: flex;
+                gap: 4px;
+                margin-bottom: 14px;
+                border-bottom: 1px solid rgba(var(--theme-color, 126,200,227), 0.15);
+                padding-bottom: 10px;
+            }
+
+            .ome-settings-tab {
+                padding: 6px 12px;
+                background: transparent;
+                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.2);
+                border-bottom: none;
+                border-radius: 6px 6px 0 0;
+                color: rgba(var(--theme-color, 126,200,227), 0.45);
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+            .ome-settings-tab:hover {
+                color: rgba(var(--theme-color, 126,200,227), 0.7);
+                border-color: rgba(var(--theme-color, 126,200,227), 0.35);
+            }
+
+            .ome-settings-tab.active {
+                color: rgba(var(--theme-color, 126,200,227), 0.9);
+                border-color: rgba(var(--theme-color, 126,200,227), 0.4);
+                background: rgba(var(--theme-color, 126,200,227), 0.08);
+            }
+
+            .ome-settings-tab-content {
+                display: none;
+                height: 400px;
+                overflow-y: auto;
+            }
+
+            .ome-settings-tab-content.active {
+                display: block;
+                animation: ome-settings-fade-in 0.2s ease;
+            }
+
+            @keyframes ome-settings-fade-in {
+                from { opacity: 0; transform: translateY(-5px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .ome-settings-range-info {
+                display: flex;
+                justify-content: space-between;
+                font-size: 9px;
+                color: rgba(255, 255, 255, 0.2);
+                margin-top: 3px;
+                padding: 0 2px;
             }
         `;
         shadow.appendChild(style);
@@ -3714,67 +3785,108 @@
                                 </svg>
                             </div>
                         </div>
+                        <!-- Settings Backdrop (blocks interaction when settings open) -->
+                        <div class="ome-settings-backdrop"></div>
                         <!-- Settings Panel -->
                         <div class="ome-settings-panel">
-                            <h3>LLM Settings</h3>
-                            <div class="ome-settings-group">
-                                <label>Provider</label>
-                                <select class="ome-settings-provider">
-                                    <option value="lm_studio">LM Studio (Local)</option>
-                                    <option value="openai">OpenAI</option>
-                                    <option value="anthropic">Anthropic</option>
-                                </select>
+                            <!-- Tab Bar -->
+                            <div class="ome-settings-tabs">
+                                <button class="ome-settings-tab active" data-tab="llm">LLM</button>
+                                <button class="ome-settings-tab" data-tab="vectors">Vectors</button>
+                                <button class="ome-settings-tab" data-tab="context">Context</button>
+                                <button class="ome-settings-tab" data-tab="ui">UI</button>
                             </div>
-                            <div class="ome-settings-group">
-                                <label>Endpoint</label>
-                                <input type="text" class="ome-settings-endpoint" placeholder="http://localhost:1234/v1/chat/completions">
-                            </div>
-                            <div class="ome-settings-group">
-                                <label>Model</label>
-                                <div class="ome-settings-model-wrapper">
-                                    <select class="ome-settings-model-select">
-                                        <option value="">Select a model...</option>
+
+                            <!-- LLM Tab Content -->
+                            <div class="ome-settings-tab-content active" data-tab="llm">
+                                <div class="ome-settings-group">
+                                    <label>Provider</label>
+                                    <select class="ome-settings-provider">
+                                        <option value="lm_studio">LM Studio (Local)</option>
+                                        <option value="openai">OpenAI</option>
+                                        <option value="anthropic">Anthropic</option>
                                     </select>
-                                    <input type="text" class="ome-settings-model-custom" placeholder="Custom model ID..." style="display: none;">
-                                </div>
-                            </div>
-                            <div class="ome-settings-group">
-                                <label>API Key</label>
-                                <input type="password" class="ome-settings-apikey" placeholder="sk-... or $ENV_VAR">
-                            </div>
-                            <div class="ome-settings-row">
-                                <div class="ome-settings-group">
-                                    <label>Temperature</label>
-                                    <input type="number" class="ome-settings-temperature" min="0" max="2" step="0.1" value="0.7">
                                 </div>
                                 <div class="ome-settings-group">
-                                    <label>Max Tokens</label>
-                                    <input type="number" class="ome-settings-max-tokens" min="1" max="128000" value="2048">
+                                    <label>Endpoint</label>
+                                    <input type="text" class="ome-settings-endpoint" placeholder="http://localhost:1234/v1/chat/completions">
+                                </div>
+                                <div class="ome-settings-group">
+                                    <label>Model</label>
+                                    <div class="ome-settings-model-wrapper">
+                                        <select class="ome-settings-model-select">
+                                            <option value="">Select a model...</option>
+                                        </select>
+                                        <input type="text" class="ome-settings-model-custom" placeholder="Custom model ID..." style="display: none;">
+                                    </div>
+                                </div>
+                                <div class="ome-settings-group">
+                                    <label>API Key</label>
+                                    <input type="password" class="ome-settings-apikey" placeholder="sk-... or $ENV_VAR">
+                                </div>
+                                <div class="ome-settings-row">
+                                    <div class="ome-settings-group">
+                                        <label>Temperature</label>
+                                        <input type="number" class="ome-settings-temperature" min="0" max="2" step="0.1" value="0.7">
+                                        <div class="ome-settings-range-info"><span>0</span><span>2</span></div>
+                                    </div>
+                                    <div class="ome-settings-group">
+                                        <label>Max Tokens</label>
+                                        <input type="number" class="ome-settings-max-tokens" min="1" max="128000" value="2048">
+                                        <div class="ome-settings-range-info"><span>1</span><span>128k</span></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="ome-settings-row">
+
+                            <!-- Vectors Tab Content -->
+                            <div class="ome-settings-tab-content" data-tab="vectors">
+                                <div class="ome-settings-row">
+                                    <div class="ome-settings-group">
+                                        <label>Hybrid Search</label>
+                                        <select class="ome-settings-hybrid-enabled" title="Enable BM25 + vector hybrid search for better exact keyword matching">
+                                            <option value="true">Enabled</option>
+                                            <option value="false">Disabled</option>
+                                        </select>
+                                    </div>
+                                    <div class="ome-settings-group">
+                                        <label>BM25 Weight</label>
+                                        <input type="number" class="ome-settings-bm25-weight" min="0" max="1" step="0.1" value="0.4" title="Weight for keyword matching (0-1). Higher = more keyword influence">
+                                        <div class="ome-settings-range-info"><span>0</span><span>1</span></div>
+                                    </div>
+                                </div>
                                 <div class="ome-settings-group">
-                                    <label>Cap Score</label>
+                                    <label>Cap Score Threshold</label>
                                     <input type="number" class="ome-settings-cap-score" min="0" max="1" step="0.05" value="0.45" title="RAG confidence threshold - below this, no capabilities shown (saves tokens)">
+                                    <div class="ome-settings-range-info"><span>0 (show all)</span><span>1 (strict)</span></div>
                                 </div>
+                            </div>
+
+                            <!-- Context Tab Content -->
+                            <div class="ome-settings-tab-content" data-tab="context">
                                 <div class="ome-settings-group">
-                                    <label>Session Actions</label>
+                                    <label>Session Actions Limit</label>
                                     <input type="number" class="ome-settings-session-actions" min="5" max="50" step="1" value="20" title="Rolling limit for session-wide action history (cross-chat bridge)">
+                                    <div class="ome-settings-range-info"><span>5</span><span>50</span></div>
                                 </div>
-                            </div>
-                            <div class="ome-settings-row">
                                 <div class="ome-settings-group">
-                                    <label>Large Payload</label>
+                                    <label>Large Payload Threshold</label>
                                     <input type="number" class="ome-settings-large-payload" min="100" max="5000" step="50" value="500" title="Char threshold for large content - above this is summarised and indexed to session vector">
+                                    <div class="ome-settings-range-info"><span>100</span><span>5000 chars</span></div>
                                 </div>
                                 <div class="ome-settings-group">
-                                    <button class="ome-clear-session" title="Clear session content vector (large content summaries)">Clear Session</button>
+                                    <button class="ome-clear-session" title="Clear session content vector (large content summaries)">Clear Session Vector</button>
                                 </div>
                             </div>
-                            <div class="ome-settings-group">
-                                <label>New Tab URL</label>
-                                <input type="text" class="ome-settings-new-tab-url" placeholder="http://127.0.0.1:8080/" title="Default URL when opening new tabs without specifying a URL">
+
+                            <!-- UI Tab Content -->
+                            <div class="ome-settings-tab-content" data-tab="ui">
+                                <div class="ome-settings-group">
+                                    <label>New Tab URL</label>
+                                    <input type="text" class="ome-settings-new-tab-url" placeholder="http://127.0.0.1:8080/" title="Default URL when opening new tabs without specifying a URL">
+                                </div>
                             </div>
+
+                            <!-- Save Button (always visible) -->
                             <button class="ome-settings-save">Save Settings</button>
                             <div class="ome-settings-status"></div>
                         </div>
@@ -3979,23 +4091,68 @@
         // 🎛️ Settings Orb - click to toggle settings panel
         const settingsOrb = hud.querySelector('.ome-settings-orb-container');
         const settingsPanel = hud.querySelector('.ome-settings-panel');
+        const settingsBackdrop = hud.querySelector('.ome-settings-backdrop');
 
         settingsOrb?.addEventListener('click', (e) => {
             e.stopPropagation();
             const isOpen = settingsPanel?.classList.toggle('open');
+            settingsBackdrop?.classList.toggle('open', isOpen);
             if (isOpen) {
                 // Load current config when opening
                 loadSettingsIntoPanel();
             }
         });
 
-        // Close settings panel when clicking outside
-        hud.addEventListener('click', (e) => {
-            if (settingsPanel?.classList.contains('open') &&
-                !settingsPanel.contains(e.target) &&
-                !settingsOrb.contains(e.target)) {
-                settingsPanel.classList.remove('open');
+        // Close settings panel when clicking backdrop
+        settingsBackdrop?.addEventListener('click', () => {
+            settingsPanel?.classList.remove('open');
+            settingsBackdrop?.classList.remove('open');
+        });
+
+        // 🎛️ Settings Tab Switching
+        const settingsTabs = hud.querySelectorAll('.ome-settings-tab');
+        const settingsTabContents = hud.querySelectorAll('.ome-settings-tab-content');
+        const SETTINGS_TAB_KEY = 'ome_settings_active_tab';
+
+        // Restore last active tab from localStorage
+        const savedTab = localStorage.getItem(SETTINGS_TAB_KEY) || 'llm';
+        settingsTabs.forEach(tab => {
+            if (tab.dataset.tab === savedTab) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
             }
+        });
+        settingsTabContents.forEach(content => {
+            if (content.dataset.tab === savedTab) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+
+        // Tab click handler
+        settingsTabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const targetTab = tab.dataset.tab;
+
+                // Update tab active states
+                settingsTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Update content visibility
+                settingsTabContents.forEach(content => {
+                    if (content.dataset.tab === targetTab) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+
+                // Persist to localStorage
+                localStorage.setItem(SETTINGS_TAB_KEY, targetTab);
+            });
         });
 
         /**
@@ -4179,6 +4336,12 @@
                     if (capScoreInput) capScoreInput.value = settings.cap_score_threshold ?? 0.45;
                     const sessionActionsInput = hud.querySelector('.ome-settings-session-actions');
                     if (sessionActionsInput) sessionActionsInput.value = settings.session_actions_limit ?? 20;
+
+                    // Hybrid search settings
+                    const hybridEnabledSelect = hud.querySelector('.ome-settings-hybrid-enabled');
+                    if (hybridEnabledSelect) hybridEnabledSelect.value = settings.hybrid_search_enabled === false ? 'false' : 'true';
+                    const bm25WeightInput = hud.querySelector('.ome-settings-bm25-weight');
+                    if (bm25WeightInput) bm25WeightInput.value = settings.hybrid_bm25_weight ?? 0.4;
 
                     // Context settings
                     const context = config.context || {};
@@ -4374,6 +4537,17 @@
                         type: 'execute_capability',
                         action: 'SetLargePayloadThreshold',
                         params: { threshold: largePayloadThreshold }
+                    }, resolve);
+                });
+
+                // Set hybrid search settings
+                const hybridEnabled = hud.querySelector('.ome-settings-hybrid-enabled')?.value === 'true';
+                const bm25Weight = parseFloat(hud.querySelector('.ome-settings-bm25-weight')?.value || '0.4');
+                await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'SetHybridSearch',
+                        params: { enabled: hybridEnabled, bm25_weight: bm25Weight }
                     }, resolve);
                 });
 

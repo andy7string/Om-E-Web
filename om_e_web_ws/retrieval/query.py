@@ -1,11 +1,13 @@
 """
 Query orchestrator - searches both stores and builds system prompt.
+Supports hybrid BM25 + vector search when enabled in config.
 """
 
 import os
+import json
 import time
 from datetime import datetime
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 from dataclasses import dataclass
 from .capabilities_store import CapabilitiesStore
 from .elements_store import ElementsStore
@@ -15,6 +17,28 @@ from .chat_memory_store import ChatMemoryStore
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SYSTEM_PROMPT_PATH = os.path.join(BASE_DIR, 'data', 'prompts', 'system.md')
 LLM_DEBUG_PATH = os.path.join(BASE_DIR, 'llm_debug.md')
+LLM_CONFIG_PATH = os.path.join(BASE_DIR, 'data', 'llm_config.json')
+
+
+def get_hybrid_search_settings() -> Tuple[bool, float]:
+    """
+    Get hybrid search settings from config.
+    Reads config file each time for dynamic updates (no server restart needed).
+
+    Returns:
+        (enabled: bool, bm25_weight: float)
+    """
+    try:
+        if os.path.exists(LLM_CONFIG_PATH):
+            with open(LLM_CONFIG_PATH, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+            settings = config.get('settings', {})
+            enabled = settings.get('hybrid_search_enabled', True)
+            weight = settings.get('hybrid_bm25_weight', 0.4)
+            return (enabled, weight)
+    except Exception as e:
+        print(f"[RAG] Error reading hybrid search config: {e}")
+    return (True, 0.4)  # Defaults: enabled with 0.4 weight
 
 
 @dataclass
@@ -146,13 +170,26 @@ def query(user_prompt: str, k_elements: int = 7, k_caps: int = 10) -> RetrievalR
     caps_store = get_capabilities_store()
     t2 = time.time()
 
-    # Search both stores
-    element_results = elements_store.search(user_prompt, k=k_elements, threshold=0.25)
-    t3 = time.time()
-    # Use search_capabilities() for grouped results with max-score aggregation
-    cap_results = caps_store.search_capabilities(user_prompt, k=k_caps * 2, threshold=0.25)
+    # Get hybrid search settings (reads config for dynamic updates)
+    hybrid_enabled, bm25_weight = get_hybrid_search_settings()
+
+    # Search both stores - use hybrid search when enabled
+    if hybrid_enabled:
+        element_results = elements_store.hybrid_search(
+            user_prompt, k=k_elements, threshold=0.25, bm25_weight=bm25_weight
+        )
+        t3 = time.time()
+        # Note: caps_store uses search_capabilities() which does grouping
+        # We'll use regular search for caps (exact keyword less important there)
+        cap_results = caps_store.search_capabilities(user_prompt, k=k_caps * 2, threshold=0.25)
+    else:
+        element_results = elements_store.search(user_prompt, k=k_elements, threshold=0.25)
+        t3 = time.time()
+        cap_results = caps_store.search_capabilities(user_prompt, k=k_caps * 2, threshold=0.25)
+
     t4 = time.time()
-    print(f"[RAG] query(): get_elem={t1-t0:.0f}ms get_caps={t2-t1:.0f}ms search_elem={t3-t2:.0f}ms search_caps={t4-t3:.0f}ms total={t4-t0:.0f}ms")
+    search_type = "hybrid" if hybrid_enabled else "vector"
+    print(f"[RAG] query({search_type}): get_elem={t1-t0:.0f}ms get_caps={t2-t1:.0f}ms search_elem={t3-t2:.0f}ms search_caps={t4-t3:.0f}ms total={t4-t0:.0f}ms")
 
     # Convert to dicts with scores
     elements = [

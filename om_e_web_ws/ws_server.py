@@ -1676,6 +1676,37 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
             return {"large_payload_threshold": thresh_val}
         return {"error": "Failed to save config"}
 
+    elif action == "SetHybridSearch":
+        # Set hybrid search (BM25 + vector) settings
+        enabled = params.get("enabled")
+        bm25_weight = params.get("bm25_weight")
+
+        config = load_llm_config()
+        if "settings" not in config:
+            config["settings"] = {}
+
+        # Update enabled state if provided
+        if enabled is not None:
+            config["settings"]["hybrid_search_enabled"] = bool(enabled)
+
+        # Update BM25 weight if provided
+        if bm25_weight is not None:
+            try:
+                weight_val = float(bm25_weight)
+                if weight_val < 0 or weight_val > 1:
+                    return {"error": "bm25_weight must be between 0 and 1"}
+                config["settings"]["hybrid_bm25_weight"] = weight_val
+            except ValueError:
+                return {"error": "bm25_weight must be a number"}
+
+        if save_llm_config(config):
+            print(f"⚙️ Hybrid search: enabled={config['settings'].get('hybrid_search_enabled')}, bm25_weight={config['settings'].get('hybrid_bm25_weight')}")
+            return {
+                "hybrid_search_enabled": config["settings"].get("hybrid_search_enabled"),
+                "hybrid_bm25_weight": config["settings"].get("hybrid_bm25_weight")
+            }
+        return {"error": "Failed to save config"}
+
     elif action == "ClearSessionContent":
         # Clear session content vector store
         try:
