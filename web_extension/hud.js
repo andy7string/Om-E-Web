@@ -807,6 +807,20 @@
                 --theme-color: 0,229,255;  /* Cyan */
                 --theme-accent: #00e5ff;
                 --text-color: #00e5ff;
+                background: rgb(18, 20, 24);
+            }
+            /* 🤖 Robot theme HUD messages - clean, no borders */
+            .ome-hud[data-theme="robot"] .ome-hud-message.user {
+                background: transparent;
+                border: none;
+                color: rgba(0, 229, 255, 0.9);
+                opacity: 1;
+            }
+            .ome-hud[data-theme="robot"] .ome-hud-message.assistant {
+                background: transparent;
+                border: none;
+                color: rgba(0, 229, 255, 0.5);
+                opacity: 1;
             }
             .ome-hud[data-theme="atom"] {
                 --theme-color: 60,179,113;  /* Forest green RGB */
@@ -1770,6 +1784,18 @@
                 --theme-color: 0,229,255;
                 --theme-accent: #00e5ff;
                 --text-color: #00e5ff;
+                background: rgba(18, 20, 24, 0.95);
+            }
+            /* 🤖 Robot theme message styling - clean, no borders */
+            .ome-chat-panel[data-theme="robot"] .ome-chat-bubble.user {
+                background: transparent;
+                border: none;
+                color: rgba(0, 229, 255, 0.9);
+            }
+            .ome-chat-panel[data-theme="robot"] .ome-chat-bubble.assistant {
+                background: transparent;
+                border: none;
+                color: rgba(0, 229, 255, 0.5);
             }
             .ome-chat-panel[data-theme="atom"] {
                 --theme-color: 147,112,219;
@@ -2057,6 +2083,12 @@
             }
             .ome-sidebar.open {
                 transform: translateX(0);
+            }
+
+            /* 🤖 Robot theme - darker, more solid sidebar */
+            .ome-hud[data-theme="robot"] .ome-sidebar {
+                background: rgba(18, 20, 24, 0.95);
+                border-right: 1px solid rgba(0, 229, 255, 0.2);
             }
 
             /* 📚 Sidebar Header */
