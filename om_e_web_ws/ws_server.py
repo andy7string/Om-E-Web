@@ -870,6 +870,27 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
         page_url = params.get("page_url", "")
         page_title = params.get("page_title", "")
 
+        # 🛡️ Prevent duplicate chat creation when one was just created
+        # If current chat exists and has <=2 messages, just rename it instead of creating new
+        if CURRENT_CHAT_ID:
+            existing_chat = load_chat(CURRENT_CHAT_ID)
+            if existing_chat:
+                msg_count = len(existing_chat.get("messages", []))
+                if msg_count <= 2:
+                    # Rename existing chat instead of creating duplicate
+                    if title and title.strip() not in ("", "New Chat"):
+                        existing_chat["title"] = title
+                        existing_chat["updated_at"] = datetime.utcnow().isoformat() + "Z"
+                        save_chat(existing_chat)
+                        print(f"📚 Renamed existing chat {CURRENT_CHAT_ID} to '{title}' (had {msg_count} msgs)")
+                    else:
+                        print(f"📚 Skipping CreateChat - chat {CURRENT_CHAT_ID} already exists with {msg_count} msgs")
+                    return {
+                        "chat_id": CURRENT_CHAT_ID,
+                        "chat": existing_chat,
+                        "_hud_action": {"type": "load_chat", "chat_id": CURRENT_CHAT_ID, "chat": existing_chat}
+                    }
+
         # If no title provided, auto-generate "Chat N" name
         if not title or title.strip() in ("", "New Chat"):
             next_num = get_next_chat_number()
@@ -913,8 +934,9 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
             if chat_dict is None:
                 return {"error": f"Chat not found: {chat_id}"}
         else:
-            # Create new chat - use first words of content as title
-            title = params.get("title") or content
+            # Create new chat - use default "Chat N" naming (user can rename later)
+            next_num = get_next_chat_number()
+            title = f"Chat {next_num}"
             page_url = params.get("page_url", "")
             page_title = params.get("page_title", "")
             chat_id = generate_chat_id_from_prompt(title, now)
@@ -1177,15 +1199,17 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
                 # Current chat was deleted
                 CURRENT_CHAT_ID = None
 
-        # Create new chat if needed
+        # Create new chat if needed - use default "Chat N" naming
         if chat_dict is None:
-            chat_id = generate_chat_id_from_prompt(content, now)
+            next_num = get_next_chat_number()
+            title = f"Chat {next_num}"
+            chat_id = generate_chat_id_from_prompt(title, now)
             page_url = params.get("page_url", "")
             page_title = params.get("page_title", "")
             meta = {"page_url": page_url, "page_title": page_title}
-            chat_dict = create_new_chat(chat_id, content, meta)
+            chat_dict = create_new_chat(chat_id, title, meta)
             CURRENT_CHAT_ID = chat_id
-            print(f"💬 Created new chat: {chat_id}")
+            print(f"💬 Created new chat: {chat_id} ('{title}')")
 
         # Run through ingestion to detect large content and summarize
         # This handles: dedup, large payload detection, summarization, session vector indexing
