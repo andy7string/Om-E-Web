@@ -2109,6 +2109,21 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 if (message.hudVisible !== undefined) {
                     console.log('[SW] 🎛️ Setting hudVisible:', message.hudVisible, 'was:', orbState.hudVisible);
                     orbState.hudVisible = message.hudVisible;
+                    // 📺 Persist to storage as source of truth
+                    chrome.storage.local.set({ hudVisible: message.hudVisible });
+                    console.log('[SW] 📺 Saved hudVisible to storage');
+                    // 📺 Broadcast set_view to ALL tabs so they sync from persisted state
+                    const senderTabId = sender.tab?.id;
+                    chrome.tabs.query({}, (tabs) => {
+                        tabs.forEach(tab => {
+                            if (tab.id !== senderTabId) {
+                                chrome.tabs.sendMessage(tab.id, {
+                                    type: 'hud_action',
+                                    action: { type: 'set_view', hudVisible: message.hudVisible }
+                                }).catch(() => {});
+                            }
+                        });
+                    });
                 }
                 // 💬 Handle active chat ID changes
                 if (message.activeChatId !== undefined) {
@@ -4670,10 +4685,10 @@ connectWebSocket();
 ensureKeepAlivePort();
 scheduleHeartbeatAlarm();
 
-// 🎨 Restore saved orb theme, chat panel size, scan mode, and active chat on startup
+// 🎨 Restore saved orb theme, chat panel size, scan mode, view state and active chat on startup
 (async () => {
     try {
-        const { orbTheme, chatPanelSize, activeChatId, omeScanMode } = await chrome.storage.local.get(['orbTheme', 'chatPanelSize', 'activeChatId', 'omeScanMode']);
+        const { orbTheme, chatPanelSize, activeChatId, omeScanMode, hudVisible } = await chrome.storage.local.get(['orbTheme', 'chatPanelSize', 'activeChatId', 'omeScanMode', 'hudVisible']);
 
         // Restore theme/icon
         if (orbTheme) {
@@ -4699,6 +4714,12 @@ scheduleHeartbeatAlarm();
         if (omeScanMode && (omeScanMode === 'dom' || omeScanMode === 'at')) {
             orbState.scanMode = omeScanMode;
             console.log('[SW] 🌳 Restored scan mode:', omeScanMode);
+        }
+
+        // 📺 Restore HUD/orb view state
+        if (hudVisible !== undefined) {
+            orbState.hudVisible = hudVisible;
+            console.log('[SW] 📺 Restored view state:', hudVisible ? 'HUD' : 'orb');
         }
 
         // 💬 DON'T restore active chat ID - browser startup always starts with new chat

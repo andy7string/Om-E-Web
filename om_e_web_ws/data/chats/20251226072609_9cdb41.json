@@ -1,0 +1,19 @@
+{
+  "chat_id": "20251226072609_9cdb41",
+  "project_id": "default",
+  "created_at": "2025-12-26T07:26:09.490979Z",
+  "updated_at": "2025-12-26T07:26:09.490979Z",
+  "title": "Chat 2",
+  "default_title": "09_26_07_26_12_2025_chat",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "",
+    "page_title": ""
+  },
+  "messages": [],
+  "context_state": {
+    "token_counter": 0,
+    "last_summarized_idx": 0,
+    "recent_actions": []
+  }
+}

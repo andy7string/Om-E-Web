@@ -1,35 +1,42 @@
 {
-  "timestamp": 1766733141.0201652,
+  "timestamp": 1766745616.690895,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 3,
     "active_tab": {
-      "id": 1138058675,
-      "url": "http://127.0.0.1:8080/",
-      "title": "OM-E Web",
+      "id": 1138058853,
+      "url": "https://www.google.com/",
+      "title": "Google",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138058675,
+        "id": 1138058794,
         "url": "http://127.0.0.1:8080/",
         "title": "OM-E Web",
-        "active": true,
+        "active": false,
         "status": "complete"
       },
       {
-        "id": 1138058681,
-        "url": "https://www.linkedin.com/feed/",
-        "title": "(14) Feed | LinkedIn",
+        "id": 1138058851,
+        "url": "chrome://extensions/",
+        "title": "Extensions",
         "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138058853,
+        "url": "https://www.google.com/",
+        "title": "Google",
+        "active": true,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 20981.951292375,
+    "last_tabs_update": 33457.395569583,
     "extension_connected": true
   },
   "current_page": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
+    "url": "https://www.google.com/",
+    "title": "Google",
     "is_active_tab": true
   },
   "content_structure": {},

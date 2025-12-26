@@ -1,0 +1,163 @@
+{
+  "chat_id": "20251226083422_2fe2d1",
+  "project_id": "default",
+  "created_at": "2025-12-26T08:34:22.069377Z",
+  "updated_at": "2025-12-26T08:35:55.312575Z",
+  "title": "Chat 4",
+  "default_title": "22_34_08_26_12_2025_chat",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "",
+    "page_title": ""
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "lets go to google",
+      "timestamp": "2025-12-26T08:34:22.069728Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Opening Google for you!",
+      "timestamp": "2025-12-26T08:34:23.779443Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "orb view",
+      "timestamp": "2025-12-26T08:34:29.324464Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Switching to orb view mode now!",
+      "timestamp": "2025-12-26T08:34:30.844349Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "lets go to linkedin",
+      "timestamp": "2025-12-26T08:34:35.310469Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Opening LinkedIn for you!",
+      "timestamp": "2025-12-26T08:34:36.891919Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "lets go to ome web",
+      "timestamp": "2025-12-26T08:34:45.644516Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Switching to OM-E Web.",
+      "timestamp": "2025-12-26T08:34:47.068862Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "close the extensions tab",
+      "timestamp": "2025-12-26T08:34:54.707118Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Closing the Extensions tab for you.",
+      "timestamp": "2025-12-26T08:34:55.857472Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "close the google tab",
+      "timestamp": "2025-12-26T08:35:00.915928Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Closing the Google tab for you.",
+      "timestamp": "2025-12-26T08:35:02.419704Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-26T08:35:06.841685Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Opening Facebook for you!",
+      "timestamp": "2025-12-26T08:35:07.748097Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "switch to linkedin",
+      "timestamp": "2025-12-26T08:35:17.251725Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Switching to the LinkedIn tab for you.",
+      "timestamp": "2025-12-26T08:35:18.410422Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "go to omeweb",
+      "timestamp": "2025-12-26T08:35:47.097147Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Navigating to the OM-E web page for you!",
+      "timestamp": "2025-12-26T08:35:48.337717Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "switch to facebook",
+      "timestamp": "2025-12-26T08:35:54.161326Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Switching to the Facebook tab for you.",
+      "timestamp": "2025-12-26T08:35:55.312575Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 25,
+    "last_summarized_idx": 18,
+    "recent_actions": [],
+    "interaction_count": 2
+  },
+  "summaries": {
+    "rolling": [
+      {
+        "text": "The user intends to navigate between websites and switch display modes; the assistant opens Google, changes to orb view, and then opens LinkedIn as requested.",
+        "from_idx": 0,
+        "to_idx": 6,
+        "ts": "2025-12-26T19:04:37Z"
+      },
+      {
+        "text": "The user intends to navigate to the OM-E web page and close specific browser tabs, including the Extensions and Google tabs; the assistant carries out these tab management actions.",
+        "from_idx": 6,
+        "to_idx": 12,
+        "ts": "2025-12-26T19:05:03Z"
+      },
+      {
+        "text": "The user intends to navigate between different websites and social media platforms, specifically Facebook, LinkedIn, and the OM-E website, with the assistant executing each navigation command.",
+        "from_idx": 12,
+        "to_idx": 18,
+        "ts": "2025-12-26T19:05:49Z"
+      }
+    ]
+  }
+}

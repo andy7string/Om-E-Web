@@ -5400,8 +5400,18 @@
                             console.log('[Content] 💬 Restored chat panel: CLOSED');
                         }
                     }
-                    // 🎛️ HUD visibility - NOT auto-restored, user toggles manually
-                    // Global state tracked in orbState.hudVisible but not auto-applied
+                    // 📺 HUD visibility - restore from persisted source of truth
+                    if (response.hudVisible !== undefined) {
+                        hudState.visible = response.hudVisible;
+                        if (response.hudVisible) {
+                            hudState.hud?.classList.add('visible');
+                            hudState.orb?.classList.add('hud-active');
+                        } else {
+                            hudState.hud?.classList.remove('visible');
+                            hudState.orb?.classList.remove('hud-active');
+                        }
+                        console.log('[Content] 📺 Restored view from persisted state:', response.hudVisible ? 'HUD' : 'orb');
+                    }
                     // 💬 Restore chat input text
                     if (response.chatInput && hudState.chatPanel) {
                         const chatInput = hudState.chatPanel.querySelector('.ome-chat-input');
@@ -6821,6 +6831,22 @@
                     break;
 
                 // 🎛️ UI CONTROL ACTIONS
+                case 'set_view':
+                    // 📺 Set view state directly from persisted source of truth (no toggle)
+                    const targetVisible = action.hudVisible === true;
+                    if (hudState.visible !== targetVisible) {
+                        hudState.visible = targetVisible;
+                        if (targetVisible) {
+                            hudState.hud?.classList.add('visible');
+                            hudState.orb?.classList.add('hud-active');
+                        } else {
+                            hudState.hud?.classList.remove('visible');
+                            hudState.orb?.classList.remove('hud-active');
+                        }
+                        console.log('[Content] 📺 View set from persisted state:', targetVisible ? 'HUD' : 'orb');
+                    }
+                    break;
+
                 case 'toggle_hud':
                     toggleHUD();
                     break;

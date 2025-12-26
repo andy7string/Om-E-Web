@@ -1,104 +1,717 @@
 {
   "metadata": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
-    "timestamp": "2025-12-26T07:12:21Z",
-    "element_count": 9
+    "url": "https://www.google.com/",
+    "title": "Google",
+    "timestamp": "2025-12-26T10:40:16Z",
+    "element_count": 64
   },
   "elements": {
     "0": {
-      "label": "TOGGLE HUD OVERLAY",
-      "type": "Button",
-      "tag": "button",
+      "label": "About",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#hudToggleBtn",
-        "button.hud-toggle-btn"
+        "a.MV3Tnb"
       ],
-      "href": null
+      "href": "https://about.google/?fg=1&utm_source=google-AU&utm_medium=referral&utm_campaign=hp-header"
     },
     "1": {
-      "label": "WebSocket URL",
-      "type": "Input",
-      "tag": "input",
+      "label": "Store",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#wsUrl",
-        "input[placeholder='WebSocket URL']",
-        "input[type='text'][placeholder='WebSocket URL']"
+        "a[href*='/AU']",
+        "a.MV3Tnb"
       ],
-      "href": null
+      "href": "https://store.google.com/AU?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-AU"
     },
     "2": {
-      "label": "Save & Reconnect",
-      "type": "Button",
-      "tag": "button",
+      "label": "Gmail",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#saveBtn",
-        "button.primary"
+        "a[aria-label='Gmail ']",
+        "[aria-label='Gmail ']",
+        "a[href*='/mail/']",
+        "[data-pid='23']",
+        "a.gb_Z"
       ],
-      "href": null
+      "href": "https://mail.google.com/mail/?authuser=0&ogbl"
     },
     "3": {
-      "label": "Kawaii",
-      "type": "Button",
-      "tag": "button",
+      "label": "Search for Images",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#orbKawaii",
-        "[data-theme='kawaii']",
-        "button.orb-btn"
+        "a[aria-label='Search for Images ']",
+        "[aria-label='Search for Images ']",
+        "a[href*='/imghp']",
+        "[data-pid='2']",
+        "a.gb_Z"
       ],
-      "href": null
+      "href": "https://www.google.com/imghp?hl=en&authuser=0&ogbl"
     },
     "4": {
-      "label": "Om-E",
+      "label": "Google apps",
       "type": "Button",
-      "tag": "button",
+      "tag": "a",
       "selectors": [
-        "#orbRobot",
-        "[data-theme='robot']",
-        "button.orb-btn"
+        "a[aria-label='Google apps']",
+        "[aria-label='Google apps']",
+        "[role='button'][aria-label='Google apps']",
+        "a[href*='/intl/en/about/products']",
+        "a.gb_B"
       ],
-      "href": null
+      "href": "https://www.google.com.au/intl/en/about/products"
     },
     "5": {
-      "label": "Atom",
+      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
       "type": "Button",
-      "tag": "button",
+      "tag": "a",
       "selectors": [
-        "#orbAtom",
-        "[data-theme='atom']",
-        "button.orb-btn"
+        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "a[href*='/SignOutOptions']",
+        "a.gb_B.gb_0a"
       ],
-      "href": null
+      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/&ec=futura_exp_og_si_72776762_e"
     },
     "6": {
-      "label": "DOM\nTreeWalker",
+      "label": "Upload files or images",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#scanModeDom",
-        "[data-mode='dom']",
-        "button.scan-btn"
+        "button[aria-label='Upload files or images']",
+        "[aria-label='Upload files or images']",
+        "[data-ved='0ahUKEwjb_Ybhh9uRAxXMV2wGHYr3AeMQ0J0RCA8']",
+        "button.sF3Vod"
       ],
       "href": null
     },
     "7": {
-      "label": "AT\nAccessibility",
-      "type": "Button",
-      "tag": "button",
+      "label": "Search",
+      "type": "Select",
+      "tag": "textarea",
       "selectors": [
-        "#scanModeAt",
-        "[data-mode='at']",
-        "button.scan-btn"
+        "textarea[aria-label='Search']",
+        "[aria-label='Search']",
+        "#APjFqb",
+        "textarea[name='q']",
+        "[role='combobox'][aria-label='Search']",
+        "[data-ved='0ahUKEwjb_Ybhh9uRAxXMV2wGHYr3AeMQ39UDCBQ']",
+        "textarea.gLFyf"
       ],
       "href": null
     },
     "8": {
-      "label": "Extension Settings",
+      "label": "Search by voice",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Search by voice']",
+        "[aria-label='Search by voice']",
+        "[role='button'][aria-label='Search by voice']",
+        "[data-ved='0ahUKEwjb_Ybhh9uRAxXMV2wGHYr3AeMQvs8DCBY']",
+        "div.XDyW0e"
+      ],
+      "href": null
+    },
+    "9": {
+      "label": "Search by image",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Search by image']",
+        "[aria-label='Search by image']",
+        "[role='button'][aria-label='Search by image']",
+        "[data-base-lens-url='https://lens.google.com']",
+        "div.nDcEnd"
+      ],
+      "href": null
+    },
+    "10": {
+      "label": "AI Mode",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#extPageBtn",
-        "button.ext-toggle-btn"
+        "[data-ved='0ahUKEwjb_Ybhh9uRAxXMV2wGHYr3AeMQteYPCBg']",
+        "button.plR5qb.Y5MKCd"
+      ],
+      "href": null
+    },
+    "11": {
+      "label": "Google Search",
+      "type": "Button",
+      "tag": "input",
+      "selectors": [
+        "input[aria-label='Google Search']",
+        "[aria-label='Google Search']",
+        "input[name='btnK']",
+        "[role='button'][aria-label='Google Search']",
+        "[data-ved='0ahUKEwjb_Ybhh9uRAxXMV2wGHYr3AeMQ4dUDCCU']",
+        "input[type='submit'][name='btnK']",
+        "input.gNO89b"
+      ],
+      "href": null
+    },
+    "12": {
+      "label": "I'm Feeling Lucky",
+      "type": "Button",
+      "tag": "input",
+      "selectors": [
+        "input[aria-label='I\\'m Feeling Lucky']",
+        "[aria-label='I\\'m Feeling Lucky']",
+        "input[name='btnI']",
+        "[data-ved='0ahUKEwjb_Ybhh9uRAxXMV2wGHYr3AeMQ19QECCY']",
+        "input[type='submit'][name='btnI']",
+        "input.RNmpXc"
+      ],
+      "href": null
+    },
+    "13": {
+      "label": "Skip to Discover feed",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='0ahUKEwjb_Ybhh9uRAxXMV2wGHYr3AeMQ67oDCCg']",
+        "a.JMWBtb"
+      ],
+      "href": "https://www.google.com/#"
+    },
+    "14": {
+      "label": "Skip to sidebar",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='0ahUKEwjb_Ybhh9uRAxXMV2wGHYr3AeMQ67oDCCk']",
+        "a.JMWBtb"
+      ],
+      "href": "https://www.google.com/#"
+    },
+    "15": {
+      "label": "Skip to footer",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='0ahUKEwjb_Ybhh9uRAxXMV2wGHYr3AeMQ67oDCCo']",
+        "a.JMWBtb"
+      ],
+      "href": "https://www.google.com/#"
+    },
+    "16": {
+      "label": "Accessibility help",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/websearch/answer/181196']",
+        "a.JMWBtb"
+      ],
+      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
+    },
+    "17": {
+      "label": "Accessibility feedback",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-async-trigger='duf3-78']",
+        "a.JMWBtb"
+      ],
+      "href": "https://www.google.com/#"
+    },
+    "18": {
+      "label": "New Zealand’s biggest house price crash in modern history\nNew Zealand house prices continue to fall. The REINZ House Price Index fell 0.3% over the past two months (seasonally adjusted), with economists describing...\nMacroBusiness\n · \n4d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/2025/12/new-zealands-biggest-house-price-crash-in-modern-history/']",
+        "[data-hveid='CBkQAQ']"
+      ],
+      "href": "https://www.macrobusiness.com.au/2025/12/new-zealands-biggest-house-price-crash-in-modern-history/"
+    },
+    "19": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQAw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "20": {
+      "label": "Toyota RAV4 2026: Fresh New Styling, 58 MPG Efficiency & Premium Technology Unveiled\nToyota RAV4 2026 features fresh styling, outstanding 58 MPG efficiency, premium technology, spacious comfort, and advanced safety for modern drivers.\nCherry Design Group -\n · \n2h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/new-toyota-rav4-2026-unveiled-features/']",
+        "[data-hveid='CEAQAQ']"
+      ],
+      "href": "https://cherrydesigngroup.com/new-toyota-rav4-2026-unveiled-features/"
+    },
+    "21": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQBQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "22": {
+      "label": "Goodbye to the 24-hour day: from this date onwards, days on Earth will last 25 hours\nIf you have ever heard that Earth will “soon” switch to 25-hour days, the key word you should question is soon. Scientists do expect Earth's rotation to...\nECOticias.com\n · \n14h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/en/goodbye-to-the-24-hour-day-from-this-date-onwards-days-on-earth-will-last-25-hours/24912/']",
+        "[data-hveid='CGcQAQ']"
+      ],
+      "href": "https://www.ecoticias.com/en/goodbye-to-the-24-hour-day-from-this-date-onwards-days-on-earth-will-last-25-hours/24912/"
+    },
+    "23": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQBw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "24": {
+      "label": "China to enforce world’s first mandatory EV energy standard in 2026, capping two-tonne models at 15.1 kWh per 100 km\nChina will implement the world's first mandatory electric vehicle energy consumption standard in January 2026.\nCarNewsChina.com\n · \n7h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CI4BEAE']"
+      ],
+      "href": "https://carnewschina.com/2025/12/26/china-to-enforce-worlds-first-mandatory-ev-energy-standard-in-2026-capping-two-tonne-models-at-15-1-kwh-per-100-km/"
+    },
+    "25": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQCQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "26": {
+      "label": "Fire Stick owners urged to return their old devices to Amazon before end of year\nFire Stick owners have been urged to return their old devices to Amazon to receive a secret discount. At the time of writing, the new Amazon Fire TV Stick...\nUNILAD\n · \n2d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/technology/news/fire-tv-stick-discount-amazon-trade-in-program-xbox-game-pass-205244-20251223']",
+        "[data-hveid='CLUBEAE']"
+      ],
+      "href": "https://www.unilad.com/technology/news/fire-tv-stick-discount-amazon-trade-in-program-xbox-game-pass-205244-20251223"
+    },
+    "27": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQCw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "28": {
+      "label": "New Guineans and Aboriginal Australians descend from two groups who arrived 60,000 years ago, research suggests\nA collaboration between the University of Huddersfield's Archaeogenetics Research Group and the University of Southampton's Center for Maritime Archaeology,...\nPhys.org\n · \n19h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news/2025-12-guineans-aboriginal-australians-descend-groups.html']",
+        "[data-hveid='CNwBEAE']"
+      ],
+      "href": "https://phys.org/news/2025-12-guineans-aboriginal-australians-descend-groups.html"
+    },
+    "29": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQDQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "30": {
+      "label": "60,000 feet above Earth, NASA is hunting for the minerals that power phones, EVs and clean energy\nNASA's new microwave-sized sensor detects 'spectral fingerprints' of important minerals.\nSpace\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CIMCEAE']"
+      ],
+      "href": "https://www.space.com/astronomy/earth/60-000-feet-above-earth-nasa-is-hunting-for-the-minerals-that-power-phones-evs-and-clean-energy"
+    },
+    "31": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQDw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "32": {
+      "label": "Cillian Murphy meets Barry Keoghan in first look at Peaky Blinders film\nTwo stars of Irish acting unite in eagerly anticipated film about Birmingham gangster Tommy Shelby.\nThe Guardian\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/tv-and-radio/2025/dec/24/netflix-releases-glimpse-of-peaky-blinders-film-starring-cillian-murphy']",
+        "[data-hveid='CKoCEAE']"
+      ],
+      "href": "https://www.theguardian.com/tv-and-radio/2025/dec/24/netflix-releases-glimpse-of-peaky-blinders-film-starring-cillian-murphy"
+    },
+    "33": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQEQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "34": {
+      "label": "Submarine finds anomalous structures in Antarctica, then loses the signal\nAn autonomous submarine named Ran discovers strange structures under the Dotson Ice Shelf in Antarctica, before mysteriously disappearing.\nEarth.com\n · \n16h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news/ran-submarine-finds-anomalous-structures-in-dotson-ice-shelf-antarctica/']",
+        "[data-hveid='CNECEAE']"
+      ],
+      "href": "https://www.earth.com/news/ran-submarine-finds-anomalous-structures-in-dotson-ice-shelf-antarctica/"
+    },
+    "35": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQEw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "36": {
+      "label": "2026 Hyundai i30 N Premium DCT review\nThere are newer, cheaper, faster, roomier and more advanced hot hatchbacks than the Hyundai i30 N, but few are more fun.\nDrive\n · \n9h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/reviews/2026-hyundai-i30-n-premium-dct-review/']",
+        "[data-hveid='CPgCEAE']"
+      ],
+      "href": "https://www.drive.com.au/reviews/2026-hyundai-i30-n-premium-dct-review/"
+    },
+    "37": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQFQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "38": {
+      "label": "China’s new solar battery converts sunlight into stored electricity with 4.2% efficiency\nChinese scientists have built a solar battery that captures sunlight and stores electricity at the same time with 4.2 percent efficiency.\nInteresting Engineering\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/energy/china-battery-converts-sunlight-into-electricity']",
+        "[data-hveid='CBkQAQ']"
+      ],
+      "href": "https://interestingengineering.com/energy/china-battery-converts-sunlight-into-electricity"
+    },
+    "39": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQFw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "40": {
+      "label": "Mark Zuckerberg gifted noise-canceling headphones to his Palo Alto neighbors\nBillionaire Mark Zuckerberg has been rankling his neighbors in Palo Alto as he works on expanding and modifying the 11 homes that he has purchased in the...\nFortune\n · \n21h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/article/how-many-homes-does-mark-zuckerberg-own-palo-alto-neighbors-construction-noise-headphones/']",
+        "[data-hveid='CEAQAQ']"
+      ],
+      "href": "https://fortune.com/article/how-many-homes-does-mark-zuckerberg-own-palo-alto-neighbors-construction-noise-headphones/"
+    },
+    "41": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQGQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "42": {
+      "label": "What if we taxed what people spend, not what they earn?\nWhen people talk about tax fairness, the focus is almost always on income. How much the rich earn, how heavily that income should be taxed, and how to make...\nThe Conversation\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/what-if-we-taxed-what-people-spend-not-what-they-earn-272392']",
+        "[data-hveid='CGcQAQ']"
+      ],
+      "href": "https://theconversation.com/what-if-we-taxed-what-people-spend-not-what-they-earn-272392"
+    },
+    "43": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQGw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "44": {
+      "label": "I've just set up Dyson's new robovac, and I've already run into problems with the app\nOf all the reviews I've tackled in 2025, Dyson's new robotic vacuum cleaner arrived with the greatest air of excitement. No, really. I love my Dyson stick...\nTechRadar\n · \n2d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/home/robot-vacuums/dyson-spot-scrub-ai-first-impressions']",
+        "[data-hveid='CI4BEAE']"
+      ],
+      "href": "https://www.techradar.com/home/robot-vacuums/dyson-spot-scrub-ai-first-impressions"
+    },
+    "45": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQHQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "46": {
+      "label": "Italian bike maker unveils rare 5-cylinder engine with 240 hp punch\nItalian bike maker unveiled a radical five cylinder motorcycle engine at EICMA in Milan, breaking away from traditional superbike layouts.\nInteresting Engineering\n · \n21h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/transportation/five-cylinder-bike-engine-could-deliver-240-hp']",
+        "[data-hveid='CLUBEAE']"
+      ],
+      "href": "https://interestingengineering.com/transportation/five-cylinder-bike-engine-could-deliver-240-hp"
+    },
+    "47": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQHw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "48": {
+      "label": "Japan Joins Italy, Greece, Spain, Iceland, and France as Global Travel Powerhouses Enforcing Fines, Visitor Caps, and New Rules to Combat Overtourism and Redefine the Future of Sustainable Tourism Worldwide\nGlobal overtourism regulations are changing travel. Learn how new tourist fines, visitor caps, and rules affect trips worldwide in 2025.\nTravel And Tour World\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CNwBEAE']"
+      ],
+      "href": "https://www.travelandtourworld.com/news/article/japan-joins-italy-greece-spain-iceland-and-france-as-global-travel-powerhouses-enforcing-fines-visitor-caps-and-new-rules-to-combat-overtourism-and-redefine-the-future-of-sustainable-tourism-wor/"
+    },
+    "49": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQIQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "50": {
+      "label": "Mouse Study Suggests Nose-Picking Has a Surprising Link With Alzheimer's\nA study published in 2022 found a tenuous but plausible link between picking your nose and an increased risk of developing dementia.\nScienceAlert\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/mouse-study-suggests-nose-picking-has-a-surprising-link-with-alzheimers']",
+        "[data-hveid='CIMCEAE']"
+      ],
+      "href": "https://www.sciencealert.com/mouse-study-suggests-nose-picking-has-a-surprising-link-with-alzheimers"
+    },
+    "51": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQIw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "52": {
+      "label": "Adelaide weather forecast for Friday December 26th and the days ahead\nSunny skies and rising temperatures will define the days ahead in Adelaide, with a run of hot summer weather.\nGlam Adelaide\n · \n12h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/adelaide-weather-forecast-for-friday-december-26th-and-the-days-ahead/']",
+        "[data-hveid='CKoCEAE']"
+      ],
+      "href": "https://glamadelaide.com.au/adelaide-weather-forecast-for-friday-december-26th-and-the-days-ahead/"
+    },
+    "53": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQJQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "54": {
+      "label": "Flat-headed cat not seen in Thailand for almost 30 years is rediscovered\nConservationists are celebrating the rediscovery of flat-headed cats in Thailand after camera traps recorded the endangered feline for the first time in...\nLive Science\n · \n1h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/animals/flat-headed-cat-not-seen-in-thailand-for-almost-30-years-is-rediscovered']",
+        "[data-hveid='CNECEAE']"
+      ],
+      "href": "https://www.livescience.com/animals/flat-headed-cat-not-seen-in-thailand-for-almost-30-years-is-rediscovered"
+    },
+    "55": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQJw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "56": {
+      "label": "Five Aussie startups we’re excited to watch in 2026\nAussie innovation was on peak display throughout 2025. Here's five local startups we're excited to watch in the upcoming year.\nSmartCompany\n · \n3d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/startupsmart/five-aussie-startups-excited-to-watch-2026/']",
+        "[data-hveid='CPgCEAE']"
+      ],
+      "href": "https://www.smartcompany.com.au/startupsmart/five-aussie-startups-excited-to-watch-2026/"
+    },
+    "57": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwiIyZvih9uRAxUAAAAAHQAAAAAQKQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "58": {
+      "label": "Advertising",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/intl/en_au/ads/']",
+        "a.pHiOh"
+      ],
+      "href": "https://www.google.com/intl/en_au/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1"
+    },
+    "59": {
+      "label": "Business",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/services/']",
+        "a.pHiOh"
+      ],
+      "href": "https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1"
+    },
+    "60": {
+      "label": "How Search works",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search/howsearchworks/']",
+        "a.pHiOh"
+      ],
+      "href": "https://google.com/search/howsearchworks/?fg=1"
+    },
+    "61": {
+      "label": "Privacy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/privacy']",
+        "a.pHiOh"
+      ],
+      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
+    },
+    "62": {
+      "label": "Terms",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/terms']",
+        "a.pHiOh"
+      ],
+      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
+    },
+    "63": {
+      "label": "Settings",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div.CcNe6e"
       ],
       "href": null
     }

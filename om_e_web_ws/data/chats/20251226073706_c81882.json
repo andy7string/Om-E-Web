@@ -1,0 +1,192 @@
+{
+  "chat_id": "20251226073706_c81882",
+  "project_id": "default",
+  "created_at": "2025-12-26T07:37:06.539478Z",
+  "updated_at": "2025-12-26T07:38:39.633615Z",
+  "title": "Chat 3",
+  "default_title": "06_37_07_26_12_2025_chat",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "",
+    "page_title": ""
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey dude",
+      "timestamp": "2025-12-26T07:37:06.539696Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey dude! What's up? How can I help you today?",
+      "timestamp": "2025-12-26T07:37:07.877483Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "lets browse facebook marketplace for a new gibson guitar",
+      "timestamp": "2025-12-26T07:37:22.028797Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-26T07:37:23.118456Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "you could have done the search at the saem time",
+      "timestamp": "2025-12-26T07:37:34.565115Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "You're right! I could have started the search right away. Let me search Facebook Marketplace now for a new Gibson guitar for you.",
+      "timestamp": "2025-12-26T07:37:35.645855Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "do it now",
+      "timestamp": "2025-12-26T07:37:40.704419Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Refreshing the Facebook Marketplace page to start a fresh search for a new Gibson guitar now.",
+      "timestamp": "2025-12-26T07:37:41.820909Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "aaah fuck off",
+      "timestamp": "2025-12-26T07:37:49.919060Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "I'm here to help whenever you're ready. Just let me know what you need!",
+      "timestamp": "2025-12-26T07:37:50.921092Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "hud view",
+      "timestamp": "2025-12-26T07:37:59.246848Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Switching to HUD view now.",
+      "timestamp": "2025-12-26T07:38:00.250722Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-26T07:38:06.659319Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Opening Google for you now.",
+      "timestamp": "2025-12-26T07:38:07.801565Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "go to facebook",
+      "timestamp": "2025-12-26T07:38:15.121981Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Switching to Facebook for you.",
+      "timestamp": "2025-12-26T07:38:17.285296Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "orb view",
+      "timestamp": "2025-12-26T07:38:22.606383Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Switching to orb view now.",
+      "timestamp": "2025-12-26T07:38:23.694822Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "go to google",
+      "timestamp": "2025-12-26T07:38:27.759089Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Switching to Google for you.",
+      "timestamp": "2025-12-26T07:38:29.681329Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "orb view",
+      "timestamp": "2025-12-26T07:38:33.341960Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Switching to orb view now.",
+      "timestamp": "2025-12-26T07:38:34.518482Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "go to facebook",
+      "timestamp": "2025-12-26T07:38:38.791826Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Switching to Facebook for you.",
+      "timestamp": "2025-12-26T07:38:39.633615Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 96,
+    "last_summarized_idx": 24,
+    "recent_actions": [
+      {
+        "text": "OpenTab: lets browse facebook marketplace for a new gibson ",
+        "ts": "2025-12-26T07:37:23.118456Z"
+      }
+    ],
+    "interaction_count": 0
+  },
+  "summaries": {
+    "rolling": [
+      {
+        "text": "The user requested immediate actions including refreshing the Facebook Marketplace for a Gibson guitar and switching to HUD view, with the assistant responding promptly and offering help despite user frustration.",
+        "from_idx": 6,
+        "to_idx": 12,
+        "ts": "2025-12-26T18:08:01Z"
+      },
+      {
+        "text": "The user intends to navigate between websites and views, specifically opening Google, then Facebook, and switching to an orb view.",
+        "from_idx": 12,
+        "to_idx": 18,
+        "ts": "2025-12-26T18:08:24Z"
+      },
+      {
+        "text": "The user intends to navigate between different web pages or views, specifically Google, an orb view, and Facebook; the assistant facilitates by switching to each requested page or view.",
+        "from_idx": 18,
+        "to_idx": 24,
+        "ts": "2025-12-26T18:08:40Z"
+      }
+    ]
+  }
+}
