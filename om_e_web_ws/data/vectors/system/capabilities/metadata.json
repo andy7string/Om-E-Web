@@ -37,10 +37,11 @@
     "actual size",
     "OpenTab: Go to tab or open URL. Opens a URL or switches to existing tab. Auto-switches if tab already open.",
     "new tab",
+    "open new tab",
+    "open tab",
     "open website",
     "navigate to",
     "visit site",
-    "go to url",
     "GoogleIt: Google something on the web. Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
     "google it",
     "look up online",
@@ -90,6 +91,7 @@
     "atom mode",
     "change character",
     "ShowPrompt: Show the chat prompt. Shows the text input area for typing messages",
+    "show prompt",
     "open prompt",
     "text field",
     "input box",
@@ -121,10 +123,12 @@
     "retrieve chat",
     "read chat",
     "CreateChat: Create a new chat. Creates a new chat file and returns the chat_id",
+    "new chat",
     "new conversation",
     "start chat",
     "fresh chat",
     "begin chat",
+    "create chat",
     "AppendMessage: Append a message to a chat. Appends a user or assistant message to a chat. Creates chat if chat_id is null.",
     "add message",
     "save message",
@@ -138,12 +142,12 @@
     "save response",
     "record assistant reply",
     "RenameChat: Rename a chat. Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
+    "rename chat",
     "change title",
     "update name",
     "rename it",
     "new title",
     "call it",
-    "name it",
     "DeleteChat: Delete a chat. Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
     "remove chat",
     "erase chat",
@@ -155,11 +159,12 @@
     "what chat am i in",
     "current conversation",
     "SetCurrentChat: Switch to a chat. SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
+    "switch chat",
     "go to chat",
     "open chat",
     "load chat",
     "switch to chat",
-    "switch chat",
+    "change chat",
     "SearchChats: Search chats by title or content. Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
     "find chat",
     "look for chat",
@@ -224,6 +229,11 @@
     "refresh config",
     "reload settings",
     "apply config changes",
+    "SetNewTabURL: Set default new tab URL. Sets the default URL for new tabs when no URL is specified",
+    "default tab url",
+    "new tab page",
+    "homepage",
+    "set landing page",
     "AddLLMProvider: Add new LLM provider. Adds a new provider configuration",
     "new provider",
     "add ai provider",
@@ -245,7 +255,7 @@
       "group": "browser",
       "label": "Scroll down the page",
       "description": "Scrolls the page down by one viewport height",
-      "example": "{\"cap\": \"ScrollDown\"}",
+      "example": "{\"action\": \"ScrollDown\"}",
       "synonyms": [
         "page down",
         "move down",
@@ -262,7 +272,7 @@
       "group": "browser",
       "label": "Scroll down the page",
       "description": "Scrolls the page down by one viewport height",
-      "example": "{\"cap\": \"ScrollDown\"}",
+      "example": "{\"action\": \"ScrollDown\"}",
       "params": {}
     },
     {
@@ -273,7 +283,7 @@
       "group": "browser",
       "label": "Scroll down the page",
       "description": "Scrolls the page down by one viewport height",
-      "example": "{\"cap\": \"ScrollDown\"}",
+      "example": "{\"action\": \"ScrollDown\"}",
       "params": {}
     },
     {
@@ -284,7 +294,7 @@
       "group": "browser",
       "label": "Scroll down the page",
       "description": "Scrolls the page down by one viewport height",
-      "example": "{\"cap\": \"ScrollDown\"}",
+      "example": "{\"action\": \"ScrollDown\"}",
       "params": {}
     },
     {
@@ -295,7 +305,7 @@
       "group": "browser",
       "label": "Scroll down the page",
       "description": "Scrolls the page down by one viewport height",
-      "example": "{\"cap\": \"ScrollDown\"}",
+      "example": "{\"action\": \"ScrollDown\"}",
       "params": {}
     },
     {
@@ -304,7 +314,7 @@
       "group": "browser",
       "label": "Scroll up the page",
       "description": "Scrolls the page up by one viewport height",
-      "example": "{\"cap\": \"ScrollUp\"}",
+      "example": "{\"action\": \"ScrollUp\"}",
       "synonyms": [
         "page up",
         "move up",
@@ -321,7 +331,7 @@
       "group": "browser",
       "label": "Scroll up the page",
       "description": "Scrolls the page up by one viewport height",
-      "example": "{\"cap\": \"ScrollUp\"}",
+      "example": "{\"action\": \"ScrollUp\"}",
       "params": {}
     },
     {
@@ -332,7 +342,7 @@
       "group": "browser",
       "label": "Scroll up the page",
       "description": "Scrolls the page up by one viewport height",
-      "example": "{\"cap\": \"ScrollUp\"}",
+      "example": "{\"action\": \"ScrollUp\"}",
       "params": {}
     },
     {
@@ -343,7 +353,7 @@
       "group": "browser",
       "label": "Scroll up the page",
       "description": "Scrolls the page up by one viewport height",
-      "example": "{\"cap\": \"ScrollUp\"}",
+      "example": "{\"action\": \"ScrollUp\"}",
       "params": {}
     },
     {
@@ -354,7 +364,7 @@
       "group": "browser",
       "label": "Scroll up the page",
       "description": "Scrolls the page up by one viewport height",
-      "example": "{\"cap\": \"ScrollUp\"}",
+      "example": "{\"action\": \"ScrollUp\"}",
       "params": {}
     },
     {
@@ -363,7 +373,7 @@
       "group": "browser",
       "label": "Go to top of page",
       "description": "Scrolls to the very top of the page",
-      "example": "{\"cap\": \"ScrollTop\"}",
+      "example": "{\"action\": \"ScrollTop\"}",
       "synonyms": [
         "beginning",
         "start of page",
@@ -380,7 +390,7 @@
       "group": "browser",
       "label": "Go to top of page",
       "description": "Scrolls to the very top of the page",
-      "example": "{\"cap\": \"ScrollTop\"}",
+      "example": "{\"action\": \"ScrollTop\"}",
       "params": {}
     },
     {
@@ -391,7 +401,7 @@
       "group": "browser",
       "label": "Go to top of page",
       "description": "Scrolls to the very top of the page",
-      "example": "{\"cap\": \"ScrollTop\"}",
+      "example": "{\"action\": \"ScrollTop\"}",
       "params": {}
     },
     {
@@ -402,7 +412,7 @@
       "group": "browser",
       "label": "Go to top of page",
       "description": "Scrolls to the very top of the page",
-      "example": "{\"cap\": \"ScrollTop\"}",
+      "example": "{\"action\": \"ScrollTop\"}",
       "params": {}
     },
     {
@@ -413,7 +423,7 @@
       "group": "browser",
       "label": "Go to top of page",
       "description": "Scrolls to the very top of the page",
-      "example": "{\"cap\": \"ScrollTop\"}",
+      "example": "{\"action\": \"ScrollTop\"}",
       "params": {}
     },
     {
@@ -422,7 +432,7 @@
       "group": "browser",
       "label": "Go to bottom of page",
       "description": "Scrolls to the very bottom of the page",
-      "example": "{\"cap\": \"ScrollBottom\"}",
+      "example": "{\"action\": \"ScrollBottom\"}",
       "synonyms": [
         "end of page",
         "page end",
@@ -439,7 +449,7 @@
       "group": "browser",
       "label": "Go to bottom of page",
       "description": "Scrolls to the very bottom of the page",
-      "example": "{\"cap\": \"ScrollBottom\"}",
+      "example": "{\"action\": \"ScrollBottom\"}",
       "params": {}
     },
     {
@@ -450,7 +460,7 @@
       "group": "browser",
       "label": "Go to bottom of page",
       "description": "Scrolls to the very bottom of the page",
-      "example": "{\"cap\": \"ScrollBottom\"}",
+      "example": "{\"action\": \"ScrollBottom\"}",
       "params": {}
     },
     {
@@ -461,7 +471,7 @@
       "group": "browser",
       "label": "Go to bottom of page",
       "description": "Scrolls to the very bottom of the page",
-      "example": "{\"cap\": \"ScrollBottom\"}",
+      "example": "{\"action\": \"ScrollBottom\"}",
       "params": {}
     },
     {
@@ -472,7 +482,7 @@
       "group": "browser",
       "label": "Go to bottom of page",
       "description": "Scrolls to the very bottom of the page",
-      "example": "{\"cap\": \"ScrollBottom\"}",
+      "example": "{\"action\": \"ScrollBottom\"}",
       "params": {}
     },
     {
@@ -481,7 +491,7 @@
       "group": "browser",
       "label": "Zoom in / make bigger",
       "description": "Increases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomIn\"}",
+      "example": "{\"action\": \"ZoomIn\"}",
       "synonyms": [
         "enlarge",
         "magnify",
@@ -498,7 +508,7 @@
       "group": "browser",
       "label": "Zoom in / make bigger",
       "description": "Increases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomIn\"}",
+      "example": "{\"action\": \"ZoomIn\"}",
       "params": {}
     },
     {
@@ -509,7 +519,7 @@
       "group": "browser",
       "label": "Zoom in / make bigger",
       "description": "Increases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomIn\"}",
+      "example": "{\"action\": \"ZoomIn\"}",
       "params": {}
     },
     {
@@ -520,7 +530,7 @@
       "group": "browser",
       "label": "Zoom in / make bigger",
       "description": "Increases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomIn\"}",
+      "example": "{\"action\": \"ZoomIn\"}",
       "params": {}
     },
     {
@@ -531,7 +541,7 @@
       "group": "browser",
       "label": "Zoom in / make bigger",
       "description": "Increases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomIn\"}",
+      "example": "{\"action\": \"ZoomIn\"}",
       "params": {}
     },
     {
@@ -540,7 +550,7 @@
       "group": "browser",
       "label": "Zoom out / make smaller",
       "description": "Decreases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomOut\"}",
+      "example": "{\"action\": \"ZoomOut\"}",
       "synonyms": [
         "shrink",
         "reduce size",
@@ -557,7 +567,7 @@
       "group": "browser",
       "label": "Zoom out / make smaller",
       "description": "Decreases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomOut\"}",
+      "example": "{\"action\": \"ZoomOut\"}",
       "params": {}
     },
     {
@@ -568,7 +578,7 @@
       "group": "browser",
       "label": "Zoom out / make smaller",
       "description": "Decreases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomOut\"}",
+      "example": "{\"action\": \"ZoomOut\"}",
       "params": {}
     },
     {
@@ -579,7 +589,7 @@
       "group": "browser",
       "label": "Zoom out / make smaller",
       "description": "Decreases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomOut\"}",
+      "example": "{\"action\": \"ZoomOut\"}",
       "params": {}
     },
     {
@@ -590,7 +600,7 @@
       "group": "browser",
       "label": "Zoom out / make smaller",
       "description": "Decreases page zoom by 15%",
-      "example": "{\"cap\": \"ZoomOut\"}",
+      "example": "{\"action\": \"ZoomOut\"}",
       "params": {}
     },
     {
@@ -599,7 +609,7 @@
       "group": "browser",
       "label": "Reset zoom to 100%",
       "description": "Resets page zoom to default 100%",
-      "example": "{\"cap\": \"ZoomReset\"}",
+      "example": "{\"action\": \"ZoomReset\"}",
       "synonyms": [
         "normal zoom",
         "default zoom",
@@ -616,7 +626,7 @@
       "group": "browser",
       "label": "Reset zoom to 100%",
       "description": "Resets page zoom to default 100%",
-      "example": "{\"cap\": \"ZoomReset\"}",
+      "example": "{\"action\": \"ZoomReset\"}",
       "params": {}
     },
     {
@@ -627,7 +637,7 @@
       "group": "browser",
       "label": "Reset zoom to 100%",
       "description": "Resets page zoom to default 100%",
-      "example": "{\"cap\": \"ZoomReset\"}",
+      "example": "{\"action\": \"ZoomReset\"}",
       "params": {}
     },
     {
@@ -638,7 +648,7 @@
       "group": "browser",
       "label": "Reset zoom to 100%",
       "description": "Resets page zoom to default 100%",
-      "example": "{\"cap\": \"ZoomReset\"}",
+      "example": "{\"action\": \"ZoomReset\"}",
       "params": {}
     },
     {
@@ -649,7 +659,7 @@
       "group": "browser",
       "label": "Reset zoom to 100%",
       "description": "Resets page zoom to default 100%",
-      "example": "{\"cap\": \"ZoomReset\"}",
+      "example": "{\"action\": \"ZoomReset\"}",
       "params": {}
     },
     {
@@ -658,9 +668,11 @@
       "group": "browser",
       "label": "Go to tab or open URL",
       "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
-      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "example": "{\"action\": \"OpenTab\", \"url\": \"https://google.com\"}",
       "synonyms": [
         "new tab",
+        "open new tab",
+        "open tab",
         "open website",
         "navigate to",
         "visit site",
@@ -678,7 +690,33 @@
       "group": "browser",
       "label": "Go to tab or open URL",
       "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
-      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "example": "{\"action\": \"OpenTab\", \"url\": \"https://google.com\"}",
+      "params": {
+        "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
+      }
+    },
+    {
+      "name": "OpenTab",
+      "type": "synonym",
+      "synonym_text": "open new tab",
+      "synonym_index": 1,
+      "group": "browser",
+      "label": "Go to tab or open URL",
+      "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
+      "example": "{\"action\": \"OpenTab\", \"url\": \"https://google.com\"}",
+      "params": {
+        "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
+      }
+    },
+    {
+      "name": "OpenTab",
+      "type": "synonym",
+      "synonym_text": "open tab",
+      "synonym_index": 2,
+      "group": "browser",
+      "label": "Go to tab or open URL",
+      "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
+      "example": "{\"action\": \"OpenTab\", \"url\": \"https://google.com\"}",
       "params": {
         "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
       }
@@ -687,11 +725,11 @@
       "name": "OpenTab",
       "type": "synonym",
       "synonym_text": "open website",
-      "synonym_index": 1,
+      "synonym_index": 3,
       "group": "browser",
       "label": "Go to tab or open URL",
       "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
-      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "example": "{\"action\": \"OpenTab\", \"url\": \"https://google.com\"}",
       "params": {
         "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
       }
@@ -700,11 +738,11 @@
       "name": "OpenTab",
       "type": "synonym",
       "synonym_text": "navigate to",
-      "synonym_index": 2,
+      "synonym_index": 4,
       "group": "browser",
       "label": "Go to tab or open URL",
       "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
-      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "example": "{\"action\": \"OpenTab\", \"url\": \"https://google.com\"}",
       "params": {
         "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
       }
@@ -713,24 +751,11 @@
       "name": "OpenTab",
       "type": "synonym",
       "synonym_text": "visit site",
-      "synonym_index": 3,
+      "synonym_index": 5,
       "group": "browser",
       "label": "Go to tab or open URL",
       "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
-      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
-      "params": {
-        "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
-      }
-    },
-    {
-      "name": "OpenTab",
-      "type": "synonym",
-      "synonym_text": "go to url",
-      "synonym_index": 4,
-      "group": "browser",
-      "label": "Go to tab or open URL",
-      "description": "Opens a URL or switches to existing tab. Auto-switches if tab already open.",
-      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "example": "{\"action\": \"OpenTab\", \"url\": \"https://google.com\"}",
       "params": {
         "url": "Optional - URL or site name (e.g. 'google.com', 'youtube')"
       }
@@ -741,7 +766,7 @@
       "group": "browser",
       "label": "Google something on the web",
       "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
-      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "example": "{\"action\": \"GoogleIt\", \"query\": \"best restaurants nearby\"}",
       "synonyms": [
         "google it",
         "look up online",
@@ -762,7 +787,7 @@
       "group": "browser",
       "label": "Google something on the web",
       "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
-      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "example": "{\"action\": \"GoogleIt\", \"query\": \"best restaurants nearby\"}",
       "params": {
         "query": "Required - what to google"
       }
@@ -775,7 +800,7 @@
       "group": "browser",
       "label": "Google something on the web",
       "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
-      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "example": "{\"action\": \"GoogleIt\", \"query\": \"best restaurants nearby\"}",
       "params": {
         "query": "Required - what to google"
       }
@@ -788,7 +813,7 @@
       "group": "browser",
       "label": "Google something on the web",
       "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
-      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "example": "{\"action\": \"GoogleIt\", \"query\": \"best restaurants nearby\"}",
       "params": {
         "query": "Required - what to google"
       }
@@ -801,7 +826,7 @@
       "group": "browser",
       "label": "Google something on the web",
       "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
-      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "example": "{\"action\": \"GoogleIt\", \"query\": \"best restaurants nearby\"}",
       "params": {
         "query": "Required - what to google"
       }
@@ -814,7 +839,7 @@
       "group": "browser",
       "label": "Google something on the web",
       "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
-      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "example": "{\"action\": \"GoogleIt\", \"query\": \"best restaurants nearby\"}",
       "params": {
         "query": "Required - what to google"
       }
@@ -827,7 +852,7 @@
       "group": "browser",
       "label": "Google something on the web",
       "description": "Opens Google with your query. Use when user wants to look something up online, google it, or find info on the internet.",
-      "example": "{\"cap\": \"GoogleIt\", \"params\": {\"query\": \"best restaurants nearby\"}}",
+      "example": "{\"action\": \"GoogleIt\", \"query\": \"best restaurants nearby\"}",
       "params": {
         "query": "Required - what to google"
       }
@@ -838,7 +863,7 @@
       "group": "browser",
       "label": "Find videos on YouTube",
       "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
-      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "example": "{\"action\": \"YouTubeIt\", \"query\": \"how to cook pasta\"}",
       "synonyms": [
         "youtube it",
         "find videos",
@@ -859,7 +884,7 @@
       "group": "browser",
       "label": "Find videos on YouTube",
       "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
-      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "example": "{\"action\": \"YouTubeIt\", \"query\": \"how to cook pasta\"}",
       "params": {
         "query": "Required - what to find on YouTube"
       }
@@ -872,7 +897,7 @@
       "group": "browser",
       "label": "Find videos on YouTube",
       "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
-      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "example": "{\"action\": \"YouTubeIt\", \"query\": \"how to cook pasta\"}",
       "params": {
         "query": "Required - what to find on YouTube"
       }
@@ -885,7 +910,7 @@
       "group": "browser",
       "label": "Find videos on YouTube",
       "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
-      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "example": "{\"action\": \"YouTubeIt\", \"query\": \"how to cook pasta\"}",
       "params": {
         "query": "Required - what to find on YouTube"
       }
@@ -898,7 +923,7 @@
       "group": "browser",
       "label": "Find videos on YouTube",
       "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
-      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "example": "{\"action\": \"YouTubeIt\", \"query\": \"how to cook pasta\"}",
       "params": {
         "query": "Required - what to find on YouTube"
       }
@@ -911,7 +936,7 @@
       "group": "browser",
       "label": "Find videos on YouTube",
       "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
-      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "example": "{\"action\": \"YouTubeIt\", \"query\": \"how to cook pasta\"}",
       "params": {
         "query": "Required - what to find on YouTube"
       }
@@ -924,7 +949,7 @@
       "group": "browser",
       "label": "Find videos on YouTube",
       "description": "Opens YouTube with your query. Use when user wants to find videos, watch something, or look up on YouTube.",
-      "example": "{\"cap\": \"YouTubeIt\", \"params\": {\"query\": \"how to cook pasta\"}}",
+      "example": "{\"action\": \"YouTubeIt\", \"query\": \"how to cook pasta\"}",
       "params": {
         "query": "Required - what to find on YouTube"
       }
@@ -935,7 +960,7 @@
       "group": "browser",
       "label": "Close a tab",
       "description": "Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
-      "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
+      "example": "{\"action\": \"CloseTab\", \"name\": \"google\"}",
       "synonyms": [
         "shut tab",
         "kill tab",
@@ -955,7 +980,7 @@
       "group": "browser",
       "label": "Close a tab",
       "description": "Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
-      "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
+      "example": "{\"action\": \"CloseTab\", \"name\": \"google\"}",
       "params": {
         "tabId": "Optional - numeric tab ID to close",
         "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
@@ -969,7 +994,7 @@
       "group": "browser",
       "label": "Close a tab",
       "description": "Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
-      "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
+      "example": "{\"action\": \"CloseTab\", \"name\": \"google\"}",
       "params": {
         "tabId": "Optional - numeric tab ID to close",
         "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
@@ -983,7 +1008,7 @@
       "group": "browser",
       "label": "Close a tab",
       "description": "Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
-      "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
+      "example": "{\"action\": \"CloseTab\", \"name\": \"google\"}",
       "params": {
         "tabId": "Optional - numeric tab ID to close",
         "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
@@ -997,7 +1022,7 @@
       "group": "browser",
       "label": "Close a tab",
       "description": "Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.",
-      "example": "{\"cap\": \"CloseTab\", \"params\": {\"name\": \"google\"}}",
+      "example": "{\"action\": \"CloseTab\", \"name\": \"google\"}",
       "params": {
         "tabId": "Optional - numeric tab ID to close",
         "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
@@ -1009,7 +1034,7 @@
       "group": "browser",
       "label": "Go back in history",
       "description": "Navigates back in the current tab's history",
-      "example": "{\"cap\": \"GoBack\"}",
+      "example": "{\"action\": \"GoBack\"}",
       "synonyms": [
         "back",
         "previous page",
@@ -1026,7 +1051,7 @@
       "group": "browser",
       "label": "Go back in history",
       "description": "Navigates back in the current tab's history",
-      "example": "{\"cap\": \"GoBack\"}",
+      "example": "{\"action\": \"GoBack\"}",
       "params": {}
     },
     {
@@ -1037,7 +1062,7 @@
       "group": "browser",
       "label": "Go back in history",
       "description": "Navigates back in the current tab's history",
-      "example": "{\"cap\": \"GoBack\"}",
+      "example": "{\"action\": \"GoBack\"}",
       "params": {}
     },
     {
@@ -1048,7 +1073,7 @@
       "group": "browser",
       "label": "Go back in history",
       "description": "Navigates back in the current tab's history",
-      "example": "{\"cap\": \"GoBack\"}",
+      "example": "{\"action\": \"GoBack\"}",
       "params": {}
     },
     {
@@ -1059,7 +1084,7 @@
       "group": "browser",
       "label": "Go back in history",
       "description": "Navigates back in the current tab's history",
-      "example": "{\"cap\": \"GoBack\"}",
+      "example": "{\"action\": \"GoBack\"}",
       "params": {}
     },
     {
@@ -1068,7 +1093,7 @@
       "group": "browser",
       "label": "Go forward in history",
       "description": "Navigates forward in the current tab's history",
-      "example": "{\"cap\": \"GoForward\"}",
+      "example": "{\"action\": \"GoForward\"}",
       "synonyms": [
         "forward",
         "next page",
@@ -1085,7 +1110,7 @@
       "group": "browser",
       "label": "Go forward in history",
       "description": "Navigates forward in the current tab's history",
-      "example": "{\"cap\": \"GoForward\"}",
+      "example": "{\"action\": \"GoForward\"}",
       "params": {}
     },
     {
@@ -1096,7 +1121,7 @@
       "group": "browser",
       "label": "Go forward in history",
       "description": "Navigates forward in the current tab's history",
-      "example": "{\"cap\": \"GoForward\"}",
+      "example": "{\"action\": \"GoForward\"}",
       "params": {}
     },
     {
@@ -1107,7 +1132,7 @@
       "group": "browser",
       "label": "Go forward in history",
       "description": "Navigates forward in the current tab's history",
-      "example": "{\"cap\": \"GoForward\"}",
+      "example": "{\"action\": \"GoForward\"}",
       "params": {}
     },
     {
@@ -1118,7 +1143,7 @@
       "group": "browser",
       "label": "Go forward in history",
       "description": "Navigates forward in the current tab's history",
-      "example": "{\"cap\": \"GoForward\"}",
+      "example": "{\"action\": \"GoForward\"}",
       "params": {}
     },
     {
@@ -1127,7 +1152,7 @@
       "group": "browser",
       "label": "Refresh / reload the page",
       "description": "Reloads the current page",
-      "example": "{\"cap\": \"Refresh\"}",
+      "example": "{\"action\": \"Refresh\"}",
       "synonyms": [
         "reload",
         "update page",
@@ -1144,7 +1169,7 @@
       "group": "browser",
       "label": "Refresh / reload the page",
       "description": "Reloads the current page",
-      "example": "{\"cap\": \"Refresh\"}",
+      "example": "{\"action\": \"Refresh\"}",
       "params": {}
     },
     {
@@ -1155,7 +1180,7 @@
       "group": "browser",
       "label": "Refresh / reload the page",
       "description": "Reloads the current page",
-      "example": "{\"cap\": \"Refresh\"}",
+      "example": "{\"action\": \"Refresh\"}",
       "params": {}
     },
     {
@@ -1166,7 +1191,7 @@
       "group": "browser",
       "label": "Refresh / reload the page",
       "description": "Reloads the current page",
-      "example": "{\"cap\": \"Refresh\"}",
+      "example": "{\"action\": \"Refresh\"}",
       "params": {}
     },
     {
@@ -1177,7 +1202,7 @@
       "group": "browser",
       "label": "Refresh / reload the page",
       "description": "Reloads the current page",
-      "example": "{\"cap\": \"Refresh\"}",
+      "example": "{\"action\": \"Refresh\"}",
       "params": {}
     },
     {
@@ -1186,7 +1211,7 @@
       "group": "hud",
       "label": "Switch between HUD and orb view",
       "description": "Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floating orb.",
-      "example": "{\"cap\": \"SwitchView\"}",
+      "example": "{\"action\": \"SwitchView\"}",
       "synonyms": [
         "toggle view",
         "hud mode",
@@ -1205,7 +1230,7 @@
       "group": "hud",
       "label": "Switch between HUD and orb view",
       "description": "Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floating orb.",
-      "example": "{\"cap\": \"SwitchView\"}",
+      "example": "{\"action\": \"SwitchView\"}",
       "params": {}
     },
     {
@@ -1216,7 +1241,7 @@
       "group": "hud",
       "label": "Switch between HUD and orb view",
       "description": "Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floating orb.",
-      "example": "{\"cap\": \"SwitchView\"}",
+      "example": "{\"action\": \"SwitchView\"}",
       "params": {}
     },
     {
@@ -1227,7 +1252,7 @@
       "group": "hud",
       "label": "Switch between HUD and orb view",
       "description": "Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floating orb.",
-      "example": "{\"cap\": \"SwitchView\"}",
+      "example": "{\"action\": \"SwitchView\"}",
       "params": {}
     },
     {
@@ -1238,7 +1263,7 @@
       "group": "hud",
       "label": "Switch between HUD and orb view",
       "description": "Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floating orb.",
-      "example": "{\"cap\": \"SwitchView\"}",
+      "example": "{\"action\": \"SwitchView\"}",
       "params": {}
     },
     {
@@ -1249,7 +1274,7 @@
       "group": "hud",
       "label": "Switch between HUD and orb view",
       "description": "Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floating orb.",
-      "example": "{\"cap\": \"SwitchView\"}",
+      "example": "{\"action\": \"SwitchView\"}",
       "params": {}
     },
     {
@@ -1260,7 +1285,7 @@
       "group": "hud",
       "label": "Switch between HUD and orb view",
       "description": "Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floating orb.",
-      "example": "{\"cap\": \"SwitchView\"}",
+      "example": "{\"action\": \"SwitchView\"}",
       "params": {}
     },
     {
@@ -1269,7 +1294,7 @@
       "group": "hud",
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
-      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "example": "{\"action\": \"SetTheme\", \"theme\": \"kawaii\"}",
       "synonyms": [
         "switch persona",
         "different orb",
@@ -1333,7 +1358,7 @@
       "group": "hud",
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
-      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "example": "{\"action\": \"SetTheme\", \"theme\": \"kawaii\"}",
       "params": {
         "theme": {
           "required": true,
@@ -1381,7 +1406,7 @@
       "group": "hud",
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
-      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "example": "{\"action\": \"SetTheme\", \"theme\": \"kawaii\"}",
       "params": {
         "theme": {
           "required": true,
@@ -1429,7 +1454,7 @@
       "group": "hud",
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
-      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "example": "{\"action\": \"SetTheme\", \"theme\": \"kawaii\"}",
       "params": {
         "theme": {
           "required": true,
@@ -1477,7 +1502,7 @@
       "group": "hud",
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
-      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "example": "{\"action\": \"SetTheme\", \"theme\": \"kawaii\"}",
       "params": {
         "theme": {
           "required": true,
@@ -1525,7 +1550,7 @@
       "group": "hud",
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
-      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "example": "{\"action\": \"SetTheme\", \"theme\": \"kawaii\"}",
       "params": {
         "theme": {
           "required": true,
@@ -1573,7 +1598,7 @@
       "group": "hud",
       "label": "Change orb character style",
       "description": "Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb).",
-      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "example": "{\"action\": \"SetTheme\", \"theme\": \"kawaii\"}",
       "params": {
         "theme": {
           "required": true,
@@ -1619,8 +1644,9 @@
       "group": "hud",
       "label": "Show the chat prompt",
       "description": "Shows the text input area for typing messages",
-      "example": "{\"cap\": \"ShowPrompt\"}",
+      "example": "{\"action\": \"ShowPrompt\"}",
       "synonyms": [
+        "show prompt",
         "open prompt",
         "text field",
         "input box",
@@ -1631,45 +1657,56 @@
     {
       "name": "ShowPrompt",
       "type": "synonym",
-      "synonym_text": "open prompt",
+      "synonym_text": "show prompt",
       "synonym_index": 0,
       "group": "hud",
       "label": "Show the chat prompt",
       "description": "Shows the text input area for typing messages",
-      "example": "{\"cap\": \"ShowPrompt\"}",
+      "example": "{\"action\": \"ShowPrompt\"}",
+      "params": {}
+    },
+    {
+      "name": "ShowPrompt",
+      "type": "synonym",
+      "synonym_text": "open prompt",
+      "synonym_index": 1,
+      "group": "hud",
+      "label": "Show the chat prompt",
+      "description": "Shows the text input area for typing messages",
+      "example": "{\"action\": \"ShowPrompt\"}",
       "params": {}
     },
     {
       "name": "ShowPrompt",
       "type": "synonym",
       "synonym_text": "text field",
-      "synonym_index": 1,
+      "synonym_index": 2,
       "group": "hud",
       "label": "Show the chat prompt",
       "description": "Shows the text input area for typing messages",
-      "example": "{\"cap\": \"ShowPrompt\"}",
+      "example": "{\"action\": \"ShowPrompt\"}",
       "params": {}
     },
     {
       "name": "ShowPrompt",
       "type": "synonym",
       "synonym_text": "input box",
-      "synonym_index": 2,
+      "synonym_index": 3,
       "group": "hud",
       "label": "Show the chat prompt",
       "description": "Shows the text input area for typing messages",
-      "example": "{\"cap\": \"ShowPrompt\"}",
+      "example": "{\"action\": \"ShowPrompt\"}",
       "params": {}
     },
     {
       "name": "ShowPrompt",
       "type": "synonym",
       "synonym_text": "type here",
-      "synonym_index": 3,
+      "synonym_index": 4,
       "group": "hud",
       "label": "Show the chat prompt",
       "description": "Shows the text input area for typing messages",
-      "example": "{\"cap\": \"ShowPrompt\"}",
+      "example": "{\"action\": \"ShowPrompt\"}",
       "params": {}
     },
     {
@@ -1678,7 +1715,7 @@
       "group": "hud",
       "label": "Hide the chat prompt",
       "description": "Hides the text input area for typing messages",
-      "example": "{\"cap\": \"HidePrompt\"}",
+      "example": "{\"action\": \"HidePrompt\"}",
       "synonyms": [
         "close prompt",
         "dismiss prompt",
@@ -1695,7 +1732,7 @@
       "group": "hud",
       "label": "Hide the chat prompt",
       "description": "Hides the text input area for typing messages",
-      "example": "{\"cap\": \"HidePrompt\"}",
+      "example": "{\"action\": \"HidePrompt\"}",
       "params": {}
     },
     {
@@ -1706,7 +1743,7 @@
       "group": "hud",
       "label": "Hide the chat prompt",
       "description": "Hides the text input area for typing messages",
-      "example": "{\"cap\": \"HidePrompt\"}",
+      "example": "{\"action\": \"HidePrompt\"}",
       "params": {}
     },
     {
@@ -1717,7 +1754,7 @@
       "group": "hud",
       "label": "Hide the chat prompt",
       "description": "Hides the text input area for typing messages",
-      "example": "{\"cap\": \"HidePrompt\"}",
+      "example": "{\"action\": \"HidePrompt\"}",
       "params": {}
     },
     {
@@ -1728,7 +1765,7 @@
       "group": "hud",
       "label": "Hide the chat prompt",
       "description": "Hides the text input area for typing messages",
-      "example": "{\"cap\": \"HidePrompt\"}",
+      "example": "{\"action\": \"HidePrompt\"}",
       "params": {}
     },
     {
@@ -1737,7 +1774,7 @@
       "group": "hud",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "example": "{\"cap\": \"ShowChats\"}",
+      "example": "{\"action\": \"ShowChats\"}",
       "synonyms": [
         "show chats",
         "see chats",
@@ -1756,7 +1793,7 @@
       "group": "hud",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "example": "{\"cap\": \"ShowChats\"}",
+      "example": "{\"action\": \"ShowChats\"}",
       "params": {}
     },
     {
@@ -1767,7 +1804,7 @@
       "group": "hud",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "example": "{\"cap\": \"ShowChats\"}",
+      "example": "{\"action\": \"ShowChats\"}",
       "params": {}
     },
     {
@@ -1778,7 +1815,7 @@
       "group": "hud",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "example": "{\"cap\": \"ShowChats\"}",
+      "example": "{\"action\": \"ShowChats\"}",
       "params": {}
     },
     {
@@ -1789,7 +1826,7 @@
       "group": "hud",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "example": "{\"cap\": \"ShowChats\"}",
+      "example": "{\"action\": \"ShowChats\"}",
       "params": {}
     },
     {
@@ -1800,7 +1837,7 @@
       "group": "hud",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "example": "{\"cap\": \"ShowChats\"}",
+      "example": "{\"action\": \"ShowChats\"}",
       "params": {}
     },
     {
@@ -1811,7 +1848,7 @@
       "group": "hud",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "example": "{\"cap\": \"ShowChats\"}",
+      "example": "{\"action\": \"ShowChats\"}",
       "params": {}
     },
     {
@@ -1820,7 +1857,7 @@
       "group": "hud",
       "label": "Hide chats panel",
       "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
-      "example": "{\"cap\": \"HideChats\"}",
+      "example": "{\"action\": \"HideChats\"}",
       "synonyms": [
         "close chats",
         "hide chats",
@@ -1838,7 +1875,7 @@
       "group": "hud",
       "label": "Hide chats panel",
       "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
-      "example": "{\"cap\": \"HideChats\"}",
+      "example": "{\"action\": \"HideChats\"}",
       "params": {}
     },
     {
@@ -1849,7 +1886,7 @@
       "group": "hud",
       "label": "Hide chats panel",
       "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
-      "example": "{\"cap\": \"HideChats\"}",
+      "example": "{\"action\": \"HideChats\"}",
       "params": {}
     },
     {
@@ -1860,7 +1897,7 @@
       "group": "hud",
       "label": "Hide chats panel",
       "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
-      "example": "{\"cap\": \"HideChats\"}",
+      "example": "{\"action\": \"HideChats\"}",
       "params": {}
     },
     {
@@ -1871,7 +1908,7 @@
       "group": "hud",
       "label": "Hide chats panel",
       "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
-      "example": "{\"cap\": \"HideChats\"}",
+      "example": "{\"action\": \"HideChats\"}",
       "params": {}
     },
     {
@@ -1882,7 +1919,7 @@
       "group": "hud",
       "label": "Hide chats panel",
       "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
-      "example": "{\"cap\": \"HideChats\"}",
+      "example": "{\"action\": \"HideChats\"}",
       "params": {}
     },
     {
@@ -1891,7 +1928,7 @@
       "group": "hud",
       "label": "Toggle chats panel",
       "description": "Opens or closes the chats panel",
-      "example": "{\"cap\": \"ToggleChats\"}",
+      "example": "{\"action\": \"ToggleChats\"}",
       "synonyms": [
         "toggle sidebar",
         "chats on off"
@@ -1906,7 +1943,7 @@
       "group": "hud",
       "label": "Toggle chats panel",
       "description": "Opens or closes the chats panel",
-      "example": "{\"cap\": \"ToggleChats\"}",
+      "example": "{\"action\": \"ToggleChats\"}",
       "params": {}
     },
     {
@@ -1917,7 +1954,7 @@
       "group": "hud",
       "label": "Toggle chats panel",
       "description": "Opens or closes the chats panel",
-      "example": "{\"cap\": \"ToggleChats\"}",
+      "example": "{\"action\": \"ToggleChats\"}",
       "params": {}
     },
     {
@@ -1926,7 +1963,7 @@
       "group": "chat",
       "label": "Load a chat",
       "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
-      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
+      "example": "{\"action\": \"LoadChat\", \"chat\": 2}",
       "synonyms": [
         "open conversation",
         "get chat",
@@ -1948,7 +1985,7 @@
       "group": "chat",
       "label": "Load a chat",
       "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
-      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
+      "example": "{\"action\": \"LoadChat\", \"chat\": 2}",
       "params": {
         "chat": "Optional - chat NUMBER from visible chats list",
         "chat_id": "Optional - direct chat ID string",
@@ -1964,7 +2001,7 @@
       "group": "chat",
       "label": "Load a chat",
       "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
-      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
+      "example": "{\"action\": \"LoadChat\", \"chat\": 2}",
       "params": {
         "chat": "Optional - chat NUMBER from visible chats list",
         "chat_id": "Optional - direct chat ID string",
@@ -1980,7 +2017,7 @@
       "group": "chat",
       "label": "Load a chat",
       "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
-      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
+      "example": "{\"action\": \"LoadChat\", \"chat\": 2}",
       "params": {
         "chat": "Optional - chat NUMBER from visible chats list",
         "chat_id": "Optional - direct chat ID string",
@@ -1996,7 +2033,7 @@
       "group": "chat",
       "label": "Load a chat",
       "description": "Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.",
-      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
+      "example": "{\"action\": \"LoadChat\", \"chat\": 2}",
       "params": {
         "chat": "Optional - chat NUMBER from visible chats list",
         "chat_id": "Optional - direct chat ID string",
@@ -2010,12 +2047,14 @@
       "group": "chat",
       "label": "Create a new chat",
       "description": "Creates a new chat file and returns the chat_id",
-      "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
+      "example": "{\"action\": \"CreateChat\", \"title\": \"My Chat\"}",
       "synonyms": [
+        "new chat",
         "new conversation",
         "start chat",
         "fresh chat",
-        "begin chat"
+        "begin chat",
+        "create chat"
       ],
       "params": {
         "title": "Optional - title for the chat",
@@ -2026,12 +2065,27 @@
     {
       "name": "CreateChat",
       "type": "synonym",
-      "synonym_text": "new conversation",
+      "synonym_text": "new chat",
       "synonym_index": 0,
       "group": "chat",
       "label": "Create a new chat",
       "description": "Creates a new chat file and returns the chat_id",
-      "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
+      "example": "{\"action\": \"CreateChat\", \"title\": \"My Chat\"}",
+      "params": {
+        "title": "Optional - title for the chat",
+        "page_url": "Optional - page URL for metadata",
+        "page_title": "Optional - page title for metadata"
+      }
+    },
+    {
+      "name": "CreateChat",
+      "type": "synonym",
+      "synonym_text": "new conversation",
+      "synonym_index": 1,
+      "group": "chat",
+      "label": "Create a new chat",
+      "description": "Creates a new chat file and returns the chat_id",
+      "example": "{\"action\": \"CreateChat\", \"title\": \"My Chat\"}",
       "params": {
         "title": "Optional - title for the chat",
         "page_url": "Optional - page URL for metadata",
@@ -2042,11 +2096,11 @@
       "name": "CreateChat",
       "type": "synonym",
       "synonym_text": "start chat",
-      "synonym_index": 1,
+      "synonym_index": 2,
       "group": "chat",
       "label": "Create a new chat",
       "description": "Creates a new chat file and returns the chat_id",
-      "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
+      "example": "{\"action\": \"CreateChat\", \"title\": \"My Chat\"}",
       "params": {
         "title": "Optional - title for the chat",
         "page_url": "Optional - page URL for metadata",
@@ -2057,11 +2111,11 @@
       "name": "CreateChat",
       "type": "synonym",
       "synonym_text": "fresh chat",
-      "synonym_index": 2,
+      "synonym_index": 3,
       "group": "chat",
       "label": "Create a new chat",
       "description": "Creates a new chat file and returns the chat_id",
-      "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
+      "example": "{\"action\": \"CreateChat\", \"title\": \"My Chat\"}",
       "params": {
         "title": "Optional - title for the chat",
         "page_url": "Optional - page URL for metadata",
@@ -2072,11 +2126,26 @@
       "name": "CreateChat",
       "type": "synonym",
       "synonym_text": "begin chat",
-      "synonym_index": 3,
+      "synonym_index": 4,
       "group": "chat",
       "label": "Create a new chat",
       "description": "Creates a new chat file and returns the chat_id",
-      "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
+      "example": "{\"action\": \"CreateChat\", \"title\": \"My Chat\"}",
+      "params": {
+        "title": "Optional - title for the chat",
+        "page_url": "Optional - page URL for metadata",
+        "page_title": "Optional - page title for metadata"
+      }
+    },
+    {
+      "name": "CreateChat",
+      "type": "synonym",
+      "synonym_text": "create chat",
+      "synonym_index": 5,
+      "group": "chat",
+      "label": "Create a new chat",
+      "description": "Creates a new chat file and returns the chat_id",
+      "example": "{\"action\": \"CreateChat\", \"title\": \"My Chat\"}",
       "params": {
         "title": "Optional - title for the chat",
         "page_url": "Optional - page URL for metadata",
@@ -2089,7 +2158,7 @@
       "group": "chat",
       "label": "Append a message to a chat",
       "description": "Appends a user or assistant message to a chat. Creates chat if chat_id is null.",
-      "example": "{\"cap\": \"AppendMessage\", \"params\": {\"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}}",
+      "example": "{\"action\": \"AppendMessage\", \"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}",
       "synonyms": [
         "add message",
         "save message",
@@ -2112,7 +2181,7 @@
       "group": "chat",
       "label": "Append a message to a chat",
       "description": "Appends a user or assistant message to a chat. Creates chat if chat_id is null.",
-      "example": "{\"cap\": \"AppendMessage\", \"params\": {\"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}}",
+      "example": "{\"action\": \"AppendMessage\", \"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}",
       "params": {
         "chat_id": "Chat ID (null to create new chat)",
         "role": "Message role: user or assistant",
@@ -2130,7 +2199,7 @@
       "group": "chat",
       "label": "Append a message to a chat",
       "description": "Appends a user or assistant message to a chat. Creates chat if chat_id is null.",
-      "example": "{\"cap\": \"AppendMessage\", \"params\": {\"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}}",
+      "example": "{\"action\": \"AppendMessage\", \"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}",
       "params": {
         "chat_id": "Chat ID (null to create new chat)",
         "role": "Message role: user or assistant",
@@ -2148,7 +2217,7 @@
       "group": "chat",
       "label": "Append a message to a chat",
       "description": "Appends a user or assistant message to a chat. Creates chat if chat_id is null.",
-      "example": "{\"cap\": \"AppendMessage\", \"params\": {\"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}}",
+      "example": "{\"action\": \"AppendMessage\", \"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}",
       "params": {
         "chat_id": "Chat ID (null to create new chat)",
         "role": "Message role: user or assistant",
@@ -2164,7 +2233,7 @@
       "group": "chat",
       "label": "Append a user message to current chat",
       "description": "Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.",
-      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"Hello there\"}}",
+      "example": "{\"action\": \"AppendUserMessage\", \"content\": \"Hello there\"}",
       "synonyms": [
         "add user message",
         "save my message",
@@ -2184,7 +2253,7 @@
       "group": "chat",
       "label": "Append a user message to current chat",
       "description": "Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.",
-      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"Hello there\"}}",
+      "example": "{\"action\": \"AppendUserMessage\", \"content\": \"Hello there\"}",
       "params": {
         "content": "Required - message content",
         "page_url": "Optional - page URL for new chat metadata",
@@ -2199,7 +2268,7 @@
       "group": "chat",
       "label": "Append a user message to current chat",
       "description": "Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.",
-      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"Hello there\"}}",
+      "example": "{\"action\": \"AppendUserMessage\", \"content\": \"Hello there\"}",
       "params": {
         "content": "Required - message content",
         "page_url": "Optional - page URL for new chat metadata",
@@ -2214,7 +2283,7 @@
       "group": "chat",
       "label": "Append a user message to current chat",
       "description": "Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.",
-      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"Hello there\"}}",
+      "example": "{\"action\": \"AppendUserMessage\", \"content\": \"Hello there\"}",
       "params": {
         "content": "Required - message content",
         "page_url": "Optional - page URL for new chat metadata",
@@ -2227,7 +2296,7 @@
       "group": "chat",
       "label": "Append an assistant message to current chat",
       "description": "Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.",
-      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"Hi, how can I help?\"}}",
+      "example": "{\"action\": \"AppendAssistantMessage\", \"content\": \"Hi, how can I help?\"}",
       "synonyms": [
         "add assistant message",
         "save response",
@@ -2245,7 +2314,7 @@
       "group": "chat",
       "label": "Append an assistant message to current chat",
       "description": "Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.",
-      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"Hi, how can I help?\"}}",
+      "example": "{\"action\": \"AppendAssistantMessage\", \"content\": \"Hi, how can I help?\"}",
       "params": {
         "content": "Required - message content"
       }
@@ -2258,7 +2327,7 @@
       "group": "chat",
       "label": "Append an assistant message to current chat",
       "description": "Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.",
-      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"Hi, how can I help?\"}}",
+      "example": "{\"action\": \"AppendAssistantMessage\", \"content\": \"Hi, how can I help?\"}",
       "params": {
         "content": "Required - message content"
       }
@@ -2271,7 +2340,7 @@
       "group": "chat",
       "label": "Append an assistant message to current chat",
       "description": "Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.",
-      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"Hi, how can I help?\"}}",
+      "example": "{\"action\": \"AppendAssistantMessage\", \"content\": \"Hi, how can I help?\"}",
       "params": {
         "content": "Required - message content"
       }
@@ -2282,8 +2351,9 @@
       "group": "chat",
       "label": "Rename a chat",
       "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
+      "example": "{\"action\": \"RenameChat\", \"title\": \"My New Title\"}",
       "synonyms": [
+        "rename chat",
         "change title",
         "update name",
         "rename it",
@@ -2291,7 +2361,8 @@
         "call it",
         "name it",
         "rename this chat",
-        "rename chat to"
+        "rename chat to",
+        "change chat name"
       ],
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
@@ -2302,12 +2373,27 @@
     {
       "name": "RenameChat",
       "type": "synonym",
-      "synonym_text": "change title",
+      "synonym_text": "rename chat",
       "synonym_index": 0,
       "group": "chat",
       "label": "Rename a chat",
       "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
+      "example": "{\"action\": \"RenameChat\", \"title\": \"My New Title\"}",
+      "params": {
+        "chat": "Optional - chat NUMBER (omit for current chat)",
+        "name": "Optional - existing chat title for fuzzy matching",
+        "title": "Required - the new title"
+      }
+    },
+    {
+      "name": "RenameChat",
+      "type": "synonym",
+      "synonym_text": "change title",
+      "synonym_index": 1,
+      "group": "chat",
+      "label": "Rename a chat",
+      "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
+      "example": "{\"action\": \"RenameChat\", \"title\": \"My New Title\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - existing chat title for fuzzy matching",
@@ -2318,11 +2404,11 @@
       "name": "RenameChat",
       "type": "synonym",
       "synonym_text": "update name",
-      "synonym_index": 1,
+      "synonym_index": 2,
       "group": "chat",
       "label": "Rename a chat",
       "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
+      "example": "{\"action\": \"RenameChat\", \"title\": \"My New Title\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - existing chat title for fuzzy matching",
@@ -2333,11 +2419,11 @@
       "name": "RenameChat",
       "type": "synonym",
       "synonym_text": "rename it",
-      "synonym_index": 2,
+      "synonym_index": 3,
       "group": "chat",
       "label": "Rename a chat",
       "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
+      "example": "{\"action\": \"RenameChat\", \"title\": \"My New Title\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - existing chat title for fuzzy matching",
@@ -2348,11 +2434,11 @@
       "name": "RenameChat",
       "type": "synonym",
       "synonym_text": "new title",
-      "synonym_index": 3,
+      "synonym_index": 4,
       "group": "chat",
       "label": "Rename a chat",
       "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
+      "example": "{\"action\": \"RenameChat\", \"title\": \"My New Title\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - existing chat title for fuzzy matching",
@@ -2363,26 +2449,11 @@
       "name": "RenameChat",
       "type": "synonym",
       "synonym_text": "call it",
-      "synonym_index": 4,
-      "group": "chat",
-      "label": "Rename a chat",
-      "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
-      "params": {
-        "chat": "Optional - chat NUMBER (omit for current chat)",
-        "name": "Optional - existing chat title for fuzzy matching",
-        "title": "Required - the new title"
-      }
-    },
-    {
-      "name": "RenameChat",
-      "type": "synonym",
-      "synonym_text": "name it",
       "synonym_index": 5,
       "group": "chat",
       "label": "Rename a chat",
       "description": "Changes the TITLE of a chat. Use for 'rename this chat to X', 'call this chat X', 'change chat name to X'. The title param is the NEW name.",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
+      "example": "{\"action\": \"RenameChat\", \"title\": \"My New Title\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - existing chat title for fuzzy matching",
@@ -2395,7 +2466,7 @@
       "group": "chat",
       "label": "Delete a chat",
       "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"DeleteChat\", \"name\": \"my project\"}",
       "synonyms": [
         "remove chat",
         "erase chat",
@@ -2415,7 +2486,7 @@
       "group": "chat",
       "label": "Delete a chat",
       "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"DeleteChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - chat title for fuzzy matching"
@@ -2429,7 +2500,7 @@
       "group": "chat",
       "label": "Delete a chat",
       "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"DeleteChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - chat title for fuzzy matching"
@@ -2443,7 +2514,7 @@
       "group": "chat",
       "label": "Delete a chat",
       "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"DeleteChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - chat title for fuzzy matching"
@@ -2457,7 +2528,7 @@
       "group": "chat",
       "label": "Delete a chat",
       "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"DeleteChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - chat NUMBER (omit for current chat)",
         "name": "Optional - chat title for fuzzy matching"
@@ -2469,7 +2540,7 @@
       "group": "chat",
       "label": "Get the current active chat",
       "description": "Returns the current chat ID and chat data",
-      "example": "{\"cap\": \"GetCurrentChat\"}",
+      "example": "{\"action\": \"GetCurrentChat\"}",
       "synonyms": [
         "active chat",
         "which chat",
@@ -2486,7 +2557,7 @@
       "group": "chat",
       "label": "Get the current active chat",
       "description": "Returns the current chat ID and chat data",
-      "example": "{\"cap\": \"GetCurrentChat\"}",
+      "example": "{\"action\": \"GetCurrentChat\"}",
       "params": {}
     },
     {
@@ -2497,7 +2568,7 @@
       "group": "chat",
       "label": "Get the current active chat",
       "description": "Returns the current chat ID and chat data",
-      "example": "{\"cap\": \"GetCurrentChat\"}",
+      "example": "{\"action\": \"GetCurrentChat\"}",
       "params": {}
     },
     {
@@ -2508,7 +2579,7 @@
       "group": "chat",
       "label": "Get the current active chat",
       "description": "Returns the current chat ID and chat data",
-      "example": "{\"cap\": \"GetCurrentChat\"}",
+      "example": "{\"action\": \"GetCurrentChat\"}",
       "params": {}
     },
     {
@@ -2519,7 +2590,7 @@
       "group": "chat",
       "label": "Get the current active chat",
       "description": "Returns the current chat ID and chat data",
-      "example": "{\"cap\": \"GetCurrentChat\"}",
+      "example": "{\"action\": \"GetCurrentChat\"}",
       "params": {}
     },
     {
@@ -2528,13 +2599,16 @@
       "group": "chat",
       "label": "Switch to a chat",
       "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"SetCurrentChat\", \"name\": \"my project\"}",
       "synonyms": [
+        "switch chat",
         "go to chat",
         "open chat",
         "load chat",
         "switch to chat",
-        "switch chat"
+        "change chat",
+        "select chat",
+        "use chat"
       ],
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
@@ -2544,12 +2618,26 @@
     {
       "name": "SetCurrentChat",
       "type": "synonym",
-      "synonym_text": "go to chat",
+      "synonym_text": "switch chat",
       "synonym_index": 0,
       "group": "chat",
       "label": "Switch to a chat",
       "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"SetCurrentChat\", \"name\": \"my project\"}",
+      "params": {
+        "chat": "Optional - the chat NUMBER from visible chats list",
+        "name": "Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')"
+      }
+    },
+    {
+      "name": "SetCurrentChat",
+      "type": "synonym",
+      "synonym_text": "go to chat",
+      "synonym_index": 1,
+      "group": "chat",
+      "label": "Switch to a chat",
+      "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
+      "example": "{\"action\": \"SetCurrentChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
         "name": "Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')"
@@ -2559,11 +2647,11 @@
       "name": "SetCurrentChat",
       "type": "synonym",
       "synonym_text": "open chat",
-      "synonym_index": 1,
+      "synonym_index": 2,
       "group": "chat",
       "label": "Switch to a chat",
       "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"SetCurrentChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
         "name": "Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')"
@@ -2573,11 +2661,11 @@
       "name": "SetCurrentChat",
       "type": "synonym",
       "synonym_text": "load chat",
-      "synonym_index": 2,
+      "synonym_index": 3,
       "group": "chat",
       "label": "Switch to a chat",
       "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"SetCurrentChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
         "name": "Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')"
@@ -2587,11 +2675,11 @@
       "name": "SetCurrentChat",
       "type": "synonym",
       "synonym_text": "switch to chat",
-      "synonym_index": 3,
+      "synonym_index": 4,
       "group": "chat",
       "label": "Switch to a chat",
       "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"SetCurrentChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
         "name": "Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')"
@@ -2600,12 +2688,12 @@
     {
       "name": "SetCurrentChat",
       "type": "synonym",
-      "synonym_text": "switch chat",
-      "synonym_index": 4,
+      "synonym_text": "change chat",
+      "synonym_index": 5,
       "group": "chat",
       "label": "Switch to a chat",
       "description": "SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch to X'. Does NOT rename - use RenameChat for that.",
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"my project\"}}",
+      "example": "{\"action\": \"SetCurrentChat\", \"name\": \"my project\"}",
       "params": {
         "chat": "Optional - the chat NUMBER from visible chats list",
         "name": "Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')"
@@ -2617,7 +2705,7 @@
       "group": "chat",
       "label": "Search chats by title or content",
       "description": "Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
-      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"dude\"}}",
+      "example": "{\"action\": \"SearchChats\", \"query\": \"dude\"}",
       "synonyms": [
         "find chat",
         "look for chat",
@@ -2636,7 +2724,7 @@
       "group": "chat",
       "label": "Search chats by title or content",
       "description": "Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
-      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"dude\"}}",
+      "example": "{\"action\": \"SearchChats\", \"query\": \"dude\"}",
       "params": {
         "query": "Required - search query string (extract from user request)"
       }
@@ -2649,7 +2737,7 @@
       "group": "chat",
       "label": "Search chats by title or content",
       "description": "Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
-      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"dude\"}}",
+      "example": "{\"action\": \"SearchChats\", \"query\": \"dude\"}",
       "params": {
         "query": "Required - search query string (extract from user request)"
       }
@@ -2662,7 +2750,7 @@
       "group": "chat",
       "label": "Search chats by title or content",
       "description": "Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
-      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"dude\"}}",
+      "example": "{\"action\": \"SearchChats\", \"query\": \"dude\"}",
       "params": {
         "query": "Required - search query string (extract from user request)"
       }
@@ -2675,7 +2763,7 @@
       "group": "chat",
       "label": "Search chats by title or content",
       "description": "Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
-      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"dude\"}}",
+      "example": "{\"action\": \"SearchChats\", \"query\": \"dude\"}",
       "params": {
         "query": "Required - search query string (extract from user request)"
       }
@@ -2686,7 +2774,7 @@
       "group": "chat",
       "label": "Close the chat search",
       "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
-      "example": "{\"cap\": \"CloseSearch\"}",
+      "example": "{\"action\": \"CloseSearch\"}",
       "synonyms": [
         "clear search",
         "cancel search",
@@ -2704,7 +2792,7 @@
       "group": "chat",
       "label": "Close the chat search",
       "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
-      "example": "{\"cap\": \"CloseSearch\"}",
+      "example": "{\"action\": \"CloseSearch\"}",
       "params": {}
     },
     {
@@ -2715,7 +2803,7 @@
       "group": "chat",
       "label": "Close the chat search",
       "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
-      "example": "{\"cap\": \"CloseSearch\"}",
+      "example": "{\"action\": \"CloseSearch\"}",
       "params": {}
     },
     {
@@ -2726,7 +2814,7 @@
       "group": "chat",
       "label": "Close the chat search",
       "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
-      "example": "{\"cap\": \"CloseSearch\"}",
+      "example": "{\"action\": \"CloseSearch\"}",
       "params": {}
     },
     {
@@ -2737,7 +2825,7 @@
       "group": "chat",
       "label": "Close the chat search",
       "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
-      "example": "{\"cap\": \"CloseSearch\"}",
+      "example": "{\"action\": \"CloseSearch\"}",
       "params": {}
     },
     {
@@ -2748,7 +2836,7 @@
       "group": "chat",
       "label": "Close the chat search",
       "description": "Closes/clears the chat search box and shows all chats again. Use when user wants to exit search mode without closing the sidebar.",
-      "example": "{\"cap\": \"CloseSearch\"}",
+      "example": "{\"action\": \"CloseSearch\"}",
       "params": {}
     },
     {
@@ -2757,7 +2845,7 @@
       "group": "config",
       "label": "Get LLM configuration",
       "description": "Returns current LLM config including providers and settings",
-      "example": "{\"cap\": \"GetLLMConfig\"}",
+      "example": "{\"action\": \"GetLLMConfig\"}",
       "synonyms": [
         "show config",
         "what model",
@@ -2774,7 +2862,7 @@
       "group": "config",
       "label": "Get LLM configuration",
       "description": "Returns current LLM config including providers and settings",
-      "example": "{\"cap\": \"GetLLMConfig\"}",
+      "example": "{\"action\": \"GetLLMConfig\"}",
       "params": {}
     },
     {
@@ -2785,7 +2873,7 @@
       "group": "config",
       "label": "Get LLM configuration",
       "description": "Returns current LLM config including providers and settings",
-      "example": "{\"cap\": \"GetLLMConfig\"}",
+      "example": "{\"action\": \"GetLLMConfig\"}",
       "params": {}
     },
     {
@@ -2796,7 +2884,7 @@
       "group": "config",
       "label": "Get LLM configuration",
       "description": "Returns current LLM config including providers and settings",
-      "example": "{\"cap\": \"GetLLMConfig\"}",
+      "example": "{\"action\": \"GetLLMConfig\"}",
       "params": {}
     },
     {
@@ -2807,7 +2895,7 @@
       "group": "config",
       "label": "Get LLM configuration",
       "description": "Returns current LLM config including providers and settings",
-      "example": "{\"cap\": \"GetLLMConfig\"}",
+      "example": "{\"action\": \"GetLLMConfig\"}",
       "params": {}
     },
     {
@@ -2816,7 +2904,7 @@
       "group": "config",
       "label": "Switch active LLM provider",
       "description": "Changes which provider is used for LLM calls",
-      "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
+      "example": "{\"action\": \"SetLLMProvider\", \"provider\": \"openai\"}",
       "synonyms": [
         "change provider",
         "switch to openai",
@@ -2835,7 +2923,7 @@
       "group": "config",
       "label": "Switch active LLM provider",
       "description": "Changes which provider is used for LLM calls",
-      "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
+      "example": "{\"action\": \"SetLLMProvider\", \"provider\": \"openai\"}",
       "params": {
         "provider": "Required - provider key (openai, anthropic, lm_studio)"
       }
@@ -2848,7 +2936,7 @@
       "group": "config",
       "label": "Switch active LLM provider",
       "description": "Changes which provider is used for LLM calls",
-      "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
+      "example": "{\"action\": \"SetLLMProvider\", \"provider\": \"openai\"}",
       "params": {
         "provider": "Required - provider key (openai, anthropic, lm_studio)"
       }
@@ -2861,7 +2949,7 @@
       "group": "config",
       "label": "Switch active LLM provider",
       "description": "Changes which provider is used for LLM calls",
-      "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
+      "example": "{\"action\": \"SetLLMProvider\", \"provider\": \"openai\"}",
       "params": {
         "provider": "Required - provider key (openai, anthropic, lm_studio)"
       }
@@ -2874,7 +2962,7 @@
       "group": "config",
       "label": "Switch active LLM provider",
       "description": "Changes which provider is used for LLM calls",
-      "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
+      "example": "{\"action\": \"SetLLMProvider\", \"provider\": \"openai\"}",
       "params": {
         "provider": "Required - provider key (openai, anthropic, lm_studio)"
       }
@@ -2885,7 +2973,7 @@
       "group": "config",
       "label": "Set LLM endpoint URL",
       "description": "Updates the API endpoint for a provider",
-      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}}",
+      "example": "{\"action\": \"SetLLMEndpoint\", \"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}",
       "synonyms": [
         "change endpoint",
         "set api url",
@@ -2904,7 +2992,7 @@
       "group": "config",
       "label": "Set LLM endpoint URL",
       "description": "Updates the API endpoint for a provider",
-      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}}",
+      "example": "{\"action\": \"SetLLMEndpoint\", \"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}",
       "params": {
         "provider": "Required - provider to update",
         "endpoint": "Required - full endpoint URL"
@@ -2918,7 +3006,7 @@
       "group": "config",
       "label": "Set LLM endpoint URL",
       "description": "Updates the API endpoint for a provider",
-      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}}",
+      "example": "{\"action\": \"SetLLMEndpoint\", \"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}",
       "params": {
         "provider": "Required - provider to update",
         "endpoint": "Required - full endpoint URL"
@@ -2932,7 +3020,7 @@
       "group": "config",
       "label": "Set LLM endpoint URL",
       "description": "Updates the API endpoint for a provider",
-      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}}",
+      "example": "{\"action\": \"SetLLMEndpoint\", \"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}",
       "params": {
         "provider": "Required - provider to update",
         "endpoint": "Required - full endpoint URL"
@@ -2944,7 +3032,7 @@
       "group": "config",
       "label": "Set LLM model",
       "description": "Changes the model for a provider",
-      "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
+      "example": "{\"action\": \"SetLLMModel\", \"model\": \"gpt-4\"}",
       "synonyms": [
         "change model",
         "switch model",
@@ -2964,7 +3052,7 @@
       "group": "config",
       "label": "Set LLM model",
       "description": "Changes the model for a provider",
-      "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
+      "example": "{\"action\": \"SetLLMModel\", \"model\": \"gpt-4\"}",
       "params": {
         "provider": "Optional - provider to update (default: active)",
         "model": "Required - model name/ID"
@@ -2978,7 +3066,7 @@
       "group": "config",
       "label": "Set LLM model",
       "description": "Changes the model for a provider",
-      "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
+      "example": "{\"action\": \"SetLLMModel\", \"model\": \"gpt-4\"}",
       "params": {
         "provider": "Optional - provider to update (default: active)",
         "model": "Required - model name/ID"
@@ -2992,7 +3080,7 @@
       "group": "config",
       "label": "Set LLM model",
       "description": "Changes the model for a provider",
-      "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
+      "example": "{\"action\": \"SetLLMModel\", \"model\": \"gpt-4\"}",
       "params": {
         "provider": "Optional - provider to update (default: active)",
         "model": "Required - model name/ID"
@@ -3006,7 +3094,7 @@
       "group": "config",
       "label": "Set LLM model",
       "description": "Changes the model for a provider",
-      "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
+      "example": "{\"action\": \"SetLLMModel\", \"model\": \"gpt-4\"}",
       "params": {
         "provider": "Optional - provider to update (default: active)",
         "model": "Required - model name/ID"
@@ -3018,7 +3106,7 @@
       "group": "config",
       "label": "Set API key",
       "description": "Sets the API key for a provider",
-      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"openai\", \"api_key\": \"sk-...\"}}",
+      "example": "{\"action\": \"SetLLMAPIKey\", \"provider\": \"openai\", \"api_key\": \"sk-...\"}",
       "synonyms": [
         "set key",
         "update api key",
@@ -3037,7 +3125,7 @@
       "group": "config",
       "label": "Set API key",
       "description": "Sets the API key for a provider",
-      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"openai\", \"api_key\": \"sk-...\"}}",
+      "example": "{\"action\": \"SetLLMAPIKey\", \"provider\": \"openai\", \"api_key\": \"sk-...\"}",
       "params": {
         "provider": "Required - provider to update",
         "api_key": "Required - API key or $ENV_VAR reference"
@@ -3051,7 +3139,7 @@
       "group": "config",
       "label": "Set API key",
       "description": "Sets the API key for a provider",
-      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"openai\", \"api_key\": \"sk-...\"}}",
+      "example": "{\"action\": \"SetLLMAPIKey\", \"provider\": \"openai\", \"api_key\": \"sk-...\"}",
       "params": {
         "provider": "Required - provider to update",
         "api_key": "Required - API key or $ENV_VAR reference"
@@ -3065,7 +3153,7 @@
       "group": "config",
       "label": "Set API key",
       "description": "Sets the API key for a provider",
-      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"openai\", \"api_key\": \"sk-...\"}}",
+      "example": "{\"action\": \"SetLLMAPIKey\", \"provider\": \"openai\", \"api_key\": \"sk-...\"}",
       "params": {
         "provider": "Required - provider to update",
         "api_key": "Required - API key or $ENV_VAR reference"
@@ -3077,7 +3165,7 @@
       "group": "config",
       "label": "Set temperature",
       "description": "Adjusts LLM temperature (0.0-2.0)",
-      "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
+      "example": "{\"action\": \"SetTemperature\", \"temperature\": 0.7}",
       "synonyms": [
         "change temperature",
         "more creative",
@@ -3096,7 +3184,7 @@
       "group": "config",
       "label": "Set temperature",
       "description": "Adjusts LLM temperature (0.0-2.0)",
-      "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
+      "example": "{\"action\": \"SetTemperature\", \"temperature\": 0.7}",
       "params": {
         "temperature": "Required - temperature value"
       }
@@ -3109,7 +3197,7 @@
       "group": "config",
       "label": "Set temperature",
       "description": "Adjusts LLM temperature (0.0-2.0)",
-      "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
+      "example": "{\"action\": \"SetTemperature\", \"temperature\": 0.7}",
       "params": {
         "temperature": "Required - temperature value"
       }
@@ -3122,7 +3210,7 @@
       "group": "config",
       "label": "Set temperature",
       "description": "Adjusts LLM temperature (0.0-2.0)",
-      "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
+      "example": "{\"action\": \"SetTemperature\", \"temperature\": 0.7}",
       "params": {
         "temperature": "Required - temperature value"
       }
@@ -3135,7 +3223,7 @@
       "group": "config",
       "label": "Set temperature",
       "description": "Adjusts LLM temperature (0.0-2.0)",
-      "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
+      "example": "{\"action\": \"SetTemperature\", \"temperature\": 0.7}",
       "params": {
         "temperature": "Required - temperature value"
       }
@@ -3146,7 +3234,7 @@
       "group": "config",
       "label": "Set max tokens",
       "description": "Sets maximum response tokens",
-      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 2000}}",
+      "example": "{\"action\": \"SetMaxTokens\", \"max_tokens\": 2000}",
       "synonyms": [
         "response length",
         "max length",
@@ -3165,7 +3253,7 @@
       "group": "config",
       "label": "Set max tokens",
       "description": "Sets maximum response tokens",
-      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 2000}}",
+      "example": "{\"action\": \"SetMaxTokens\", \"max_tokens\": 2000}",
       "params": {
         "max_tokens": "Required - max tokens"
       }
@@ -3178,7 +3266,7 @@
       "group": "config",
       "label": "Set max tokens",
       "description": "Sets maximum response tokens",
-      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 2000}}",
+      "example": "{\"action\": \"SetMaxTokens\", \"max_tokens\": 2000}",
       "params": {
         "max_tokens": "Required - max tokens"
       }
@@ -3191,7 +3279,7 @@
       "group": "config",
       "label": "Set max tokens",
       "description": "Sets maximum response tokens",
-      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 2000}}",
+      "example": "{\"action\": \"SetMaxTokens\", \"max_tokens\": 2000}",
       "params": {
         "max_tokens": "Required - max tokens"
       }
@@ -3204,7 +3292,7 @@
       "group": "config",
       "label": "Set max tokens",
       "description": "Sets maximum response tokens",
-      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 2000}}",
+      "example": "{\"action\": \"SetMaxTokens\", \"max_tokens\": 2000}",
       "params": {
         "max_tokens": "Required - max tokens"
       }
@@ -3215,7 +3303,7 @@
       "group": "config",
       "label": "Set cap score threshold",
       "description": "Sets RAG confidence threshold for capabilities (0.0-1.0)",
-      "example": "{\"cap\": \"SetCapScoreThreshold\", \"params\": {\"threshold\": 0.45}}",
+      "example": "{\"action\": \"SetCapScoreThreshold\", \"threshold\": 0.45}",
       "synonyms": [
         "cap threshold",
         "confidence threshold",
@@ -3233,7 +3321,7 @@
       "group": "config",
       "label": "Set cap score threshold",
       "description": "Sets RAG confidence threshold for capabilities (0.0-1.0)",
-      "example": "{\"cap\": \"SetCapScoreThreshold\", \"params\": {\"threshold\": 0.45}}",
+      "example": "{\"action\": \"SetCapScoreThreshold\", \"threshold\": 0.45}",
       "params": {
         "threshold": "Required - threshold value (0.0-1.0)"
       }
@@ -3246,7 +3334,7 @@
       "group": "config",
       "label": "Set cap score threshold",
       "description": "Sets RAG confidence threshold for capabilities (0.0-1.0)",
-      "example": "{\"cap\": \"SetCapScoreThreshold\", \"params\": {\"threshold\": 0.45}}",
+      "example": "{\"action\": \"SetCapScoreThreshold\", \"threshold\": 0.45}",
       "params": {
         "threshold": "Required - threshold value (0.0-1.0)"
       }
@@ -3259,7 +3347,7 @@
       "group": "config",
       "label": "Set cap score threshold",
       "description": "Sets RAG confidence threshold for capabilities (0.0-1.0)",
-      "example": "{\"cap\": \"SetCapScoreThreshold\", \"params\": {\"threshold\": 0.45}}",
+      "example": "{\"action\": \"SetCapScoreThreshold\", \"threshold\": 0.45}",
       "params": {
         "threshold": "Required - threshold value (0.0-1.0)"
       }
@@ -3270,7 +3358,7 @@
       "group": "config",
       "label": "Set session actions limit",
       "description": "Sets rolling limit for session-wide action history (5-50)",
-      "example": "{\"cap\": \"SetSessionActionsLimit\", \"params\": {\"limit\": 20}}",
+      "example": "{\"action\": \"SetSessionActionsLimit\", \"limit\": 20}",
       "synonyms": [
         "session history limit",
         "action history size",
@@ -3288,7 +3376,7 @@
       "group": "config",
       "label": "Set session actions limit",
       "description": "Sets rolling limit for session-wide action history (5-50)",
-      "example": "{\"cap\": \"SetSessionActionsLimit\", \"params\": {\"limit\": 20}}",
+      "example": "{\"action\": \"SetSessionActionsLimit\", \"limit\": 20}",
       "params": {
         "limit": "Required - number of actions to keep (5-50)"
       }
@@ -3301,7 +3389,7 @@
       "group": "config",
       "label": "Set session actions limit",
       "description": "Sets rolling limit for session-wide action history (5-50)",
-      "example": "{\"cap\": \"SetSessionActionsLimit\", \"params\": {\"limit\": 20}}",
+      "example": "{\"action\": \"SetSessionActionsLimit\", \"limit\": 20}",
       "params": {
         "limit": "Required - number of actions to keep (5-50)"
       }
@@ -3314,7 +3402,7 @@
       "group": "config",
       "label": "Set session actions limit",
       "description": "Sets rolling limit for session-wide action history (5-50)",
-      "example": "{\"cap\": \"SetSessionActionsLimit\", \"params\": {\"limit\": 20}}",
+      "example": "{\"action\": \"SetSessionActionsLimit\", \"limit\": 20}",
       "params": {
         "limit": "Required - number of actions to keep (5-50)"
       }
@@ -3325,7 +3413,7 @@
       "group": "config",
       "label": "Set large payload threshold",
       "description": "Sets char threshold for large content detection (100-5000)",
-      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "example": "{\"action\": \"SetLargePayloadThreshold\", \"threshold\": 500}",
       "synonyms": [
         "large content threshold",
         "payload size limit",
@@ -3343,7 +3431,7 @@
       "group": "config",
       "label": "Set large payload threshold",
       "description": "Sets char threshold for large content detection (100-5000)",
-      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "example": "{\"action\": \"SetLargePayloadThreshold\", \"threshold\": 500}",
       "params": {
         "threshold": "Required - char threshold (100-5000)"
       }
@@ -3356,7 +3444,7 @@
       "group": "config",
       "label": "Set large payload threshold",
       "description": "Sets char threshold for large content detection (100-5000)",
-      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "example": "{\"action\": \"SetLargePayloadThreshold\", \"threshold\": 500}",
       "params": {
         "threshold": "Required - char threshold (100-5000)"
       }
@@ -3369,7 +3457,7 @@
       "group": "config",
       "label": "Set large payload threshold",
       "description": "Sets char threshold for large content detection (100-5000)",
-      "example": "{\"cap\": \"SetLargePayloadThreshold\", \"params\": {\"threshold\": 500}}",
+      "example": "{\"action\": \"SetLargePayloadThreshold\", \"threshold\": 500}",
       "params": {
         "threshold": "Required - char threshold (100-5000)"
       }
@@ -3380,7 +3468,7 @@
       "group": "config",
       "label": "Clear session content",
       "description": "Clears all session content from the in-memory vector store",
-      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "example": "{\"action\": \"ClearSessionContent\"}",
       "synonyms": [
         "clear session",
         "reset session memory",
@@ -3396,7 +3484,7 @@
       "group": "config",
       "label": "Clear session content",
       "description": "Clears all session content from the in-memory vector store",
-      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "example": "{\"action\": \"ClearSessionContent\"}",
       "params": {}
     },
     {
@@ -3407,7 +3495,7 @@
       "group": "config",
       "label": "Clear session content",
       "description": "Clears all session content from the in-memory vector store",
-      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "example": "{\"action\": \"ClearSessionContent\"}",
       "params": {}
     },
     {
@@ -3418,7 +3506,7 @@
       "group": "config",
       "label": "Clear session content",
       "description": "Clears all session content from the in-memory vector store",
-      "example": "{\"cap\": \"ClearSessionContent\"}",
+      "example": "{\"action\": \"ClearSessionContent\"}",
       "params": {}
     },
     {
@@ -3427,7 +3515,7 @@
       "group": "config",
       "label": "Reload LLM config",
       "description": "Reloads the server-side LLM agent config from disk",
-      "example": "{\"cap\": \"ReloadLLMConfig\"}",
+      "example": "{\"action\": \"ReloadLLMConfig\"}",
       "synonyms": [
         "refresh config",
         "reload settings",
@@ -3443,7 +3531,7 @@
       "group": "config",
       "label": "Reload LLM config",
       "description": "Reloads the server-side LLM agent config from disk",
-      "example": "{\"cap\": \"ReloadLLMConfig\"}",
+      "example": "{\"action\": \"ReloadLLMConfig\"}",
       "params": {}
     },
     {
@@ -3454,7 +3542,7 @@
       "group": "config",
       "label": "Reload LLM config",
       "description": "Reloads the server-side LLM agent config from disk",
-      "example": "{\"cap\": \"ReloadLLMConfig\"}",
+      "example": "{\"action\": \"ReloadLLMConfig\"}",
       "params": {}
     },
     {
@@ -3465,8 +3553,77 @@
       "group": "config",
       "label": "Reload LLM config",
       "description": "Reloads the server-side LLM agent config from disk",
-      "example": "{\"cap\": \"ReloadLLMConfig\"}",
+      "example": "{\"action\": \"ReloadLLMConfig\"}",
       "params": {}
+    },
+    {
+      "name": "SetNewTabURL",
+      "type": "primary",
+      "group": "config",
+      "label": "Set default new tab URL",
+      "description": "Sets the default URL for new tabs when no URL is specified",
+      "example": "{\"action\": \"SetNewTabURL\", \"url\": \"https://google.com\"}",
+      "synonyms": [
+        "default tab url",
+        "new tab page",
+        "homepage",
+        "set landing page"
+      ],
+      "params": {
+        "url": "Required - URL to open for new tabs"
+      }
+    },
+    {
+      "name": "SetNewTabURL",
+      "type": "synonym",
+      "synonym_text": "default tab url",
+      "synonym_index": 0,
+      "group": "config",
+      "label": "Set default new tab URL",
+      "description": "Sets the default URL for new tabs when no URL is specified",
+      "example": "{\"action\": \"SetNewTabURL\", \"url\": \"https://google.com\"}",
+      "params": {
+        "url": "Required - URL to open for new tabs"
+      }
+    },
+    {
+      "name": "SetNewTabURL",
+      "type": "synonym",
+      "synonym_text": "new tab page",
+      "synonym_index": 1,
+      "group": "config",
+      "label": "Set default new tab URL",
+      "description": "Sets the default URL for new tabs when no URL is specified",
+      "example": "{\"action\": \"SetNewTabURL\", \"url\": \"https://google.com\"}",
+      "params": {
+        "url": "Required - URL to open for new tabs"
+      }
+    },
+    {
+      "name": "SetNewTabURL",
+      "type": "synonym",
+      "synonym_text": "homepage",
+      "synonym_index": 2,
+      "group": "config",
+      "label": "Set default new tab URL",
+      "description": "Sets the default URL for new tabs when no URL is specified",
+      "example": "{\"action\": \"SetNewTabURL\", \"url\": \"https://google.com\"}",
+      "params": {
+        "url": "Required - URL to open for new tabs"
+      }
+    },
+    {
+      "name": "SetNewTabURL",
+      "type": "synonym",
+      "synonym_text": "set landing page",
+      "synonym_index": 3,
+      "group": "config",
+      "label": "Set default new tab URL",
+      "description": "Sets the default URL for new tabs when no URL is specified",
+      "example": "{\"action\": \"SetNewTabURL\", \"url\": \"https://google.com\"}",
+      "params": {
+        "url": "Required - URL to open for new tabs"
+      }
     },
     {
       "name": "AddLLMProvider",
@@ -3474,7 +3631,7 @@
       "group": "config",
       "label": "Add new LLM provider",
       "description": "Adds a new provider configuration",
-      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}}",
+      "example": "{\"action\": \"AddLLMProvider\", \"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}",
       "synonyms": [
         "new provider",
         "add ai provider",
@@ -3497,7 +3654,7 @@
       "group": "config",
       "label": "Add new LLM provider",
       "description": "Adds a new provider configuration",
-      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}}",
+      "example": "{\"action\": \"AddLLMProvider\", \"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}",
       "params": {
         "key": "Required - unique provider key",
         "name": "Required - display name",
@@ -3515,7 +3672,7 @@
       "group": "config",
       "label": "Add new LLM provider",
       "description": "Adds a new provider configuration",
-      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}}",
+      "example": "{\"action\": \"AddLLMProvider\", \"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}",
       "params": {
         "key": "Required - unique provider key",
         "name": "Required - display name",
@@ -3533,7 +3690,7 @@
       "group": "config",
       "label": "Add new LLM provider",
       "description": "Adds a new provider configuration",
-      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}}",
+      "example": "{\"action\": \"AddLLMProvider\", \"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}",
       "params": {
         "key": "Required - unique provider key",
         "name": "Required - display name",
@@ -3549,7 +3706,7 @@
       "group": "config",
       "label": "Remove LLM provider",
       "description": "Removes a provider from config",
-      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"custom\"}}",
+      "example": "{\"action\": \"RemoveLLMProvider\", \"provider\": \"custom\"}",
       "synonyms": [
         "delete provider",
         "remove ai provider",
@@ -3567,7 +3724,7 @@
       "group": "config",
       "label": "Remove LLM provider",
       "description": "Removes a provider from config",
-      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"custom\"}}",
+      "example": "{\"action\": \"RemoveLLMProvider\", \"provider\": \"custom\"}",
       "params": {
         "provider": "Required - provider key to remove"
       }
@@ -3580,7 +3737,7 @@
       "group": "config",
       "label": "Remove LLM provider",
       "description": "Removes a provider from config",
-      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"custom\"}}",
+      "example": "{\"action\": \"RemoveLLMProvider\", \"provider\": \"custom\"}",
       "params": {
         "provider": "Required - provider key to remove"
       }
@@ -3593,7 +3750,7 @@
       "group": "config",
       "label": "Remove LLM provider",
       "description": "Removes a provider from config",
-      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"custom\"}}",
+      "example": "{\"action\": \"RemoveLLMProvider\", \"provider\": \"custom\"}",
       "params": {
         "provider": "Required - provider key to remove"
       }
@@ -3604,7 +3761,7 @@
       "group": "config",
       "label": "Send message to LLM",
       "description": "Send a chat message to the configured LLM and get a response",
-      "example": "{\"cap\": \"LLMChat\", \"params\": {\"message\": \"What is the weather?\"}}",
+      "example": "{\"action\": \"LLMChat\", \"message\": \"What is the weather?\"}",
       "synonyms": [
         "chat with ai",
         "ask llm",
@@ -3625,7 +3782,7 @@
       "group": "config",
       "label": "Send message to LLM",
       "description": "Send a chat message to the configured LLM and get a response",
-      "example": "{\"cap\": \"LLMChat\", \"params\": {\"message\": \"What is the weather?\"}}",
+      "example": "{\"action\": \"LLMChat\", \"message\": \"What is the weather?\"}",
       "params": {
         "message": "Required - the message to send",
         "chat_id": "Optional - chat ID to associate response with",
@@ -3640,7 +3797,7 @@
       "group": "config",
       "label": "Send message to LLM",
       "description": "Send a chat message to the configured LLM and get a response",
-      "example": "{\"cap\": \"LLMChat\", \"params\": {\"message\": \"What is the weather?\"}}",
+      "example": "{\"action\": \"LLMChat\", \"message\": \"What is the weather?\"}",
       "params": {
         "message": "Required - the message to send",
         "chat_id": "Optional - chat ID to associate response with",
@@ -3655,7 +3812,7 @@
       "group": "config",
       "label": "Send message to LLM",
       "description": "Send a chat message to the configured LLM and get a response",
-      "example": "{\"cap\": \"LLMChat\", \"params\": {\"message\": \"What is the weather?\"}}",
+      "example": "{\"action\": \"LLMChat\", \"message\": \"What is the weather?\"}",
       "params": {
         "message": "Required - the message to send",
         "chat_id": "Optional - chat ID to associate response with",
@@ -3670,7 +3827,7 @@
       "group": "config",
       "label": "Send message to LLM",
       "description": "Send a chat message to the configured LLM and get a response",
-      "example": "{\"cap\": \"LLMChat\", \"params\": {\"message\": \"What is the weather?\"}}",
+      "example": "{\"action\": \"LLMChat\", \"message\": \"What is the weather?\"}",
       "params": {
         "message": "Required - the message to send",
         "chat_id": "Optional - chat ID to associate response with",

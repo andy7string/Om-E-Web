@@ -1,11 +1,11 @@
 # Unified LLM Call Debug
 
-**Generated:** 2025-12-24 13:25:49
-**User Message:** hello, are you back?
-**Messages:** 9
-**Capabilities:** 4
-**Tokens:** ~674 (system: 272, messages: 402)
-**LLM Time:** 943ms
+**Generated:** 2025-12-26 17:42:36
+**User Message:** detelet this chat
+**Messages:** 12
+**Capabilities:** 2
+**Tokens:** ~841 (system: 250, messages: 591)
+**LLM Time:** 1016ms
 
 ## System Prompt
 ```
@@ -26,11 +26,11 @@ You receive matching capabilities with scores. Pick the best match and fill para
 - Don't guess required params - ask if unclear
 
 ## Output (JSON only, one per message)
-{"type":"reply","text":"..."} - no capability fits, chat only
-{"type":"action","cap":"Name","params":{},"text":"Friendly action message..."} - capability matches intent
-{"type":"clarify","text":"..."} - required params unclear
-{"type":"options","text":"...","options":[...]} - user should pick between capabilities
-{"type":"search","query":"..."} - none of the capabilities fit, fetch more from RAG
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
 
 
 YOUR PERSONALITY
@@ -41,44 +41,63 @@ Example phrases:
 ```
 
 ## Conversation
-**USER:** what provider am I using
-**ASSISTANT:** Let me check which provider you are currently using...
-**USER:** get my LLM config settings
-**ASSISTANT:** Fetching your current LLM configuration settings now...
-**USER:** switch LLM to anthropic
-**USER:** hello
-**ASSISTANT:** I couldn't understand that.
-**USER:** hello, are you back?
+**SYSTEM:** [Chat summary: [{'text': 'The user intends to switch to orb view and request a list of their current chats, which the assistant provides.', 'from_idx': 36, 'to_idx': 42, 'ts': '2025-12-26T13:31:48Z'}, {'text': 'The user requested to list chats with numbers, switch to chat number 9, and open LinkedIn; the assistant complied by displaying chat list, switching chats, and opening LinkedIn.', 'from_idx': 42, 'to_idx': 48, 'ts': '2025-12-26T17:41:59Z'}, {'text': 'The user intends to change the display view multiple times, specifically switching to a different view mode, then to the OM-E Web tab, and finally to the HUD view.', 'from_idx': 48, 'to_idx': 54, 'ts': '2025-12-26T17:42:26Z'}]]
+**USER:** close this tab
+**USER:** orb view
+**USER:** list the chats
+**USER:** list my cahts you should see them now
+**USER:** with nubmers go
+**ASSISTANT:** Here are your chats with numbers:
+  
+  1. chat 69 (38 msgs) [26/Dec]
+  2. Chat 7 (0 msgs) [26/Dec]
+  3. rag research (0 msgs) [26/Dec]
+  4. Chat 6 (0 msgs) [26/Dec]
+  5. discovery (51 msgs) [26/Dec]
+  6. Chat 5 (0 msgs) [25/Dec]
+  7. rag research (20 msgs) [25/Dec]
+  8. Chat 4 (0 msgs) [25/Dec]
+  9. Chat 1 (0 msgs) [25/Dec]
+  
+  What would you like to do next?
+**USER:** open linked in
+**USER:** switch view
+**USER:** hud view
+**USER:** detelet this chat
 **USER:** ENVIRONMENT (current state - use these for actions)
   Page: OM-E Web (http://127.0.0.1:8080/)
   
   Tabs (currently open):
-    1. OM-E Web (127.0.0.1:8080) ← ACTIVE
-    2. Extensions (extensions)
+    5. OM-E Web (127.0.0.1:8080) ← ACTIVE
+    6. (14) Feed | LinkedIn (www.linkedin.com)
   
   Chats (current names - use these, not history):
-    1. what provider am I using (2 msgs) [24/Dec] ← CURRENT
+    1. chat 69 (46 msgs) [26/Dec] ← CURRENT
+    2. Chat 7 (0 msgs) [26/Dec]
+    3. rag research (0 msgs) [26/Dec]
+    4. Chat 6 (0 msgs) [26/Dec]
+    5. discovery (51 msgs) [26/Dec]
+    6. Chat 5 (0 msgs) [25/Dec]
+    7. rag research (20 msgs) [25/Dec]
+    8. Chat 4 (0 msgs) [25/Dec]
   
   Capabilities:
-  - GoBack: Navigates back in the current tab's history
-    ex: {"cap": "GoBack"}
-  - CreateChat: Creates a new chat file and returns the chat_id
-    ex: {"cap": "CreateChat", "params": {"title": "My Chat"}}
-    params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
-  - GetCurrentChat: Returns the current chat ID and chat data
-    ex: {"cap": "GetCurrentChat"}
-  - LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
-    ex: {"cap": "LoadChat", "params": {"chat": 2}}
-    params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+  - DeleteChat: Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.
+    ex: {"action": "DeleteChat", "name": "my project"}
+    params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - chat title for fuzzy matching
+  - HideChats: Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.
+    ex: {"action": "HideChats"}
   
-  [RAG Session Context - 3 matches:]
-  - [1] (score:0.57) Let me check which provider you are currently using...
-  - [2] (score:0.50) what provider am I using
-  - [3] (score:0.48) Fetching your current LLM configuration settings now...
+  [RAG Session Context - 2 matches:]
+  - [1] (score:0.68) start a new chat
+  - [2] (score:0.41) Here are the currently open tabs:
+  1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+  2. Facebook (www.facebook.com) - Tab ID 3
+  3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
   
-  USER: hello, are you back?
+  USER: detelet this chat
 
 ## Response
 ```json
-{"type":"reply","text":"Hello! Yes, I'm here and ready to help. What can I do for you today?"}
+{"action":"DeleteChat","chat":1,"text":"Deleting the current chat (chat 69) as requested."}
 ```

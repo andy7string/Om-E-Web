@@ -5400,6 +5400,8 @@
                             console.log('[Content] 💬 Restored chat panel: CLOSED');
                         }
                     }
+                    // 🎛️ HUD visibility - NOT auto-restored, user toggles manually
+                    // Global state tracked in orbState.hudVisible but not auto-applied
                     // 💬 Restore chat input text
                     if (response.chatInput && hudState.chatPanel) {
                         const chatInput = hudState.chatPanel.querySelector('.ome-chat-input');
@@ -5494,6 +5496,8 @@
             }
         }
         console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
+        // 🎛️ Persist HUD visibility to service worker
+        chrome.runtime.sendMessage({ type: 'set_orb_state', hudVisible: hudState.visible }).catch(() => {});
     }
 
     /**
@@ -6651,9 +6655,7 @@
 
             switch (action?.type) {
                 case 'load_chat':
-                    // 📚 Reuse show_sidebar pattern first
-                    if (!hudState.visible) toggleHUD();
-                    if (!hudState.sidebarOpen) toggleSidebar(true);
+                    // 📚 Load chat without forcing view change (user controls their view)
                     // Load and display a chat
                     if (action.chat_id && action.chat) {
                         chatState.currentChatId = action.chat_id;
@@ -6821,15 +6823,6 @@
                 // 🎛️ UI CONTROL ACTIONS
                 case 'toggle_hud':
                     toggleHUD();
-                    break;
-
-                case 'switch_to_orb':
-                    // 🌐 Smart switch - only toggle if currently in HUD view
-                    // Used before navigation actions so user can see the web page
-                    if (hudState.visible) {
-                        toggleHUD();  // Switch to orb view
-                        console.log('[Content] 🌐 Auto-switched to orb view for navigation');
-                    }
                     break;
 
                 case 'show_sidebar':

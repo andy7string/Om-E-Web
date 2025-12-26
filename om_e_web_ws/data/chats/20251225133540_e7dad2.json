@@ -1,0 +1,173 @@
+{
+  "chat_id": "20251225133540_e7dad2",
+  "project_id": "default",
+  "created_at": "2025-12-25T13:35:40.975272Z",
+  "updated_at": "2025-12-26T01:38:40.219524Z",
+  "title": "rag research",
+  "default_title": "40_35_13_25_12_2025_new",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "",
+    "page_title": ""
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "new chat please",
+      "timestamp": "2025-12-25T13:35:40.975442Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Creating a new chat for you now!",
+      "timestamp": "2025-12-25T13:35:42.036255Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "rename this to something that wont confuse us",
+      "timestamp": "2025-12-26T01:37:04.844779Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-26T01:37:05.753011Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "more like go f urself",
+      "timestamp": "2025-12-26T01:37:14.762753Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "I'm here to help you! If you'd like to rename the chat or need assistance with something else, just let me know.",
+      "timestamp": "2025-12-26T01:37:15.857768Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "rename it to that dude",
+      "timestamp": "2025-12-26T01:37:21.761231Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Renaming this chat to 'that dude' as requested.",
+      "timestamp": "2025-12-26T01:37:22.853675Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "rename this chat to go f yourself",
+      "timestamp": "2025-12-26T01:37:32.473273Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing RenameChat...",
+      "timestamp": "2025-12-26T01:37:33.392199Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "rename it to c u n t s t i n k",
+      "timestamp": "2025-12-26T01:37:45.438240Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Renaming the chat to 'c u n t s t i n k' as requested.",
+      "timestamp": "2025-12-26T01:37:46.606659Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "new chat please",
+      "timestamp": "2025-12-26T01:37:57.407195Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "I've created a new chat for you. What would you like to do next?",
+      "timestamp": "2025-12-26T01:37:58.667806Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "this is a nice new chat dont you think we should name it something like rag research",
+      "timestamp": "2025-12-26T01:38:15.666765Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Creating a new chat named 'rag research' for you. Let's keep things organized and clear!",
+      "timestamp": "2025-12-26T01:38:16.875567Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "let rename this chat to rag research",
+      "timestamp": "2025-12-26T01:38:26.173725Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Renaming this chat to 'rag research' as requested.",
+      "timestamp": "2025-12-26T01:38:27.443858Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "now lets youtube rag solutions",
+      "timestamp": "2025-12-26T01:38:39.109120Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Searching YouTube for 'rag solutions'.",
+      "timestamp": "2025-12-26T01:38:40.219524Z"
+    }
+  ],
+  "context_state": {
+    "token_counter": 107,
+    "last_summarized_idx": 18,
+    "recent_actions": [
+      {
+        "text": "RenameChat: rename this to something that wont confuse us",
+        "ts": "2025-12-26T01:37:05.753011Z"
+      },
+      {
+        "text": "RenameChat: rename this chat to go f yourself",
+        "ts": "2025-12-26T01:37:33.392199Z"
+      }
+    ],
+    "interaction_count": 2,
+    "summarized_up_to_index": 1
+  },
+  "summaries": {
+    "rolling": [
+      {
+        "text": "The user requested to start a new chat and rename it to avoid confusion, then responded with a rude comment; the assistant attempted to assist with renaming and maintained professionalism.",
+        "from_idx": 0,
+        "to_idx": 6,
+        "ts": "2025-12-26T12:07:17Z"
+      },
+      {
+        "text": "The user repeatedly requested renaming the chat to various offensive names, and the assistant complied with each renaming request.",
+        "from_idx": 6,
+        "to_idx": 12,
+        "ts": "2025-12-26T12:07:47Z"
+      },
+      {
+        "text": "The user intends to create and rename a new chat to \"rag research\" for organizational purposes, and the assistant has complied with these requests.",
+        "from_idx": 12,
+        "to_idx": 18,
+        "ts": "2025-12-26T12:08:29Z"
+      }
+    ]
+  }
+}

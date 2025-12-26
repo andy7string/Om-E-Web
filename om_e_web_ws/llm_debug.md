@@ -351161,3 +351161,3935 @@ Capabilities:
 USER: hello, are you back?
 
 ---
+
+
+# LLM Request #1
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 430
+**Context:** 0.4k / 1047k (0.0%)
+**Session Tokens:** 430
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (3 tokens)
+
+got to google
+
+---
+
+## USER (183 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080) ← ACTIVE
+
+Capabilities:
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+
+USER: got to google
+
+---
+
+
+# LLM Request #2
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 639
+**Context:** 0.6k / 1047k (0.1%)
+**Session Tokens:** 1,069
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (3 tokens)
+
+got to google
+
+---
+
+## USER (392 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Google (https://www.google.com/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. Google (www.google.com) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"action": "SearchChats", "query": "dude"}
+  params: query: Required - search query string (extract from user request)
+
+USER: go to facebook
+
+---
+
+
+# LLM Request #3
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 464
+**Context:** 0.5k / 1047k (0.0%)
+**Session Tokens:** 1,533
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (3 tokens)
+
+got to google
+
+---
+
+## USER (217 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Facebook (https://www.facebook.com/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. Google (www.google.com)
+  3. Facebook (www.facebook.com) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+
+USER: go to google
+
+---
+
+
+# LLM Request #4
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 102
+**Context:** 0.1k / 1047k (0.0%)
+**Session Tokens:** 1,635
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (58 tokens)
+
+Summarize this conversation exchange:
+
+USER: got to google
+ASSISTANT: Opening Google for you!
+USER: go to facebook
+ASSISTANT: Opening Facebook for you.
+USER: go to google
+ASSISTANT: Switching to Google tab for you.
+
+Intent summary:
+
+---
+
+
+# LLM Request #1
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 582
+**Context:** 0.6k / 1047k (0.1%)
+**Session Tokens:** 582
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (342 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. chat 69 (46 msgs) [26/Dec]
+  2. Chat 7 (0 msgs) [26/Dec]
+  3. rag research (0 msgs) [26/Dec]
+  4. Chat 6 (0 msgs) [26/Dec]
+  5. discovery (51 msgs) [26/Dec]
+  6. Chat 5 (0 msgs) [25/Dec]
+  7. rag research (20 msgs) [25/Dec]
+  8. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+
+USER: go to google
+
+---
+
+
+# LLM Request #2
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 787
+**Context:** 0.8k / 1047k (0.1%)
+**Session Tokens:** 1,369
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (547 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Google (https://www.google.com/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. Google (www.google.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. go to google (2 msgs) [26/Dec] ← CURRENT
+  2. chat 69 (46 msgs) [26/Dec]
+  3. Chat 7 (0 msgs) [26/Dec]
+  4. rag research (0 msgs) [26/Dec]
+  5. Chat 6 (0 msgs) [26/Dec]
+  6. discovery (51 msgs) [26/Dec]
+  7. Chat 5 (0 msgs) [25/Dec]
+  8. rag research (20 msgs) [25/Dec]
+  9. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"action": "SearchChats", "query": "dude"}
+  params: query: Required - search query string (extract from user request)
+
+USER: go to facebook
+
+---
+
+
+# LLM Request #3
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 898
+**Context:** 0.9k / 1047k (0.1%)
+**Session Tokens:** 2,267
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (652 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Facebook (https://www.facebook.com/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. Google (www.google.com)
+  3. Facebook (www.facebook.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. go to google (4 msgs) [26/Dec] ← CURRENT
+  2. chat 69 (46 msgs) [26/Dec]
+  3. Chat 7 (0 msgs) [26/Dec]
+  4. rag research (0 msgs) [26/Dec]
+  5. Chat 6 (0 msgs) [26/Dec]
+  6. discovery (51 msgs) [26/Dec]
+  7. Chat 5 (0 msgs) [25/Dec]
+  8. rag research (20 msgs) [25/Dec]
+  9. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- SwitchView: Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floatin
+  ex: {"action": "SwitchView"}
+- SetTheme: Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb)
+  ex: {"action": "SetTheme", "theme": "kawaii"}
+  params: theme: {'required': True, 'description': 'The character style to use', 'valid_values': ['robot', 'kawaii', 'atom'], 'value_labels': {'robot': 'Om-E (purple robot with goggles)', 'kawaii': 'Kawaii (cute fluffy cat)', 'atom': 'Atom (green science orb)'}, 'aliases': {'robot': ['ome', 'om-e', 'purple', 'default'], 'kawaii': ['kitten', 'kitty', 'cat', 'cute', 'bunny', 'bunny cat'], 'atom': ['green', 'science', 'atomic', 'nucleus']}}
+- SetLLMModel: Changes the model for a provider
+  ex: {"action": "SetLLMModel", "model": "gpt-4"}
+  params: provider: Optional - provider to update (default: active), model: Required - model name/ID
+- SetLLMProvider: Changes which provider is used for LLM calls
+  ex: {"action": "SetLLMProvider", "provider": "openai"}
+  params: provider: Required - provider key (openai, anthropic, lm_studio)
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+
+USER: switch view
+
+---
+
+
+# LLM Request #4
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 100
+**Context:** 0.1k / 1047k (0.0%)
+**Session Tokens:** 2,367
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (56 tokens)
+
+Summarize this conversation exchange:
+
+USER: go to google
+ASSISTANT: Opening Google for you.
+USER: go to facebook
+ASSISTANT: Opening Facebook for you.
+USER: switch view
+ASSISTANT: Switching the view mode now.
+
+Intent summary:
+
+---
+
+
+# LLM Request #5
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 529
+**Context:** 0.5k / 1047k (0.1%)
+**Session Tokens:** 2,896
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (62 tokens)
+
+[Chat summary: [{'text': 'The user intends to navigate to specific websites (Google and Facebook) and then change the display view mode.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:20:50Z'}]]
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (217 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Facebook (https://www.facebook.com/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. Google (www.google.com)
+  3. Facebook (www.facebook.com) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+
+USER: go to google
+
+---
+
+
+# LLM Request #6
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 970
+**Context:** 1.0k / 1047k (0.1%)
+**Session Tokens:** 3,866
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (62 tokens)
+
+[Chat summary: [{'text': 'The user intends to navigate to specific websites (Google and Facebook) and then change the display view mode.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:20:50Z'}]]
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (652 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Google (https://www.google.com/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. Google (www.google.com) ← ACTIVE
+  3. Facebook (www.facebook.com)
+
+Chats (current names - use these, not history):
+  1. go to google (2 msgs) [26/Dec] ← CURRENT
+  2. chat 69 (46 msgs) [26/Dec]
+  3. Chat 7 (0 msgs) [26/Dec]
+  4. rag research (0 msgs) [26/Dec]
+  5. Chat 6 (0 msgs) [26/Dec]
+  6. discovery (51 msgs) [26/Dec]
+  7. Chat 5 (0 msgs) [25/Dec]
+  8. rag research (20 msgs) [25/Dec]
+  9. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- SwitchView: Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floatin
+  ex: {"action": "SwitchView"}
+- SetTheme: Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb)
+  ex: {"action": "SetTheme", "theme": "kawaii"}
+  params: theme: {'required': True, 'description': 'The character style to use', 'valid_values': ['robot', 'kawaii', 'atom'], 'value_labels': {'robot': 'Om-E (purple robot with goggles)', 'kawaii': 'Kawaii (cute fluffy cat)', 'atom': 'Atom (green science orb)'}, 'aliases': {'robot': ['ome', 'om-e', 'purple', 'default'], 'kawaii': ['kitten', 'kitty', 'cat', 'cute', 'bunny', 'bunny cat'], 'atom': ['green', 'science', 'atomic', 'nucleus']}}
+- SetLLMModel: Changes the model for a provider
+  ex: {"action": "SetLLMModel", "model": "gpt-4"}
+  params: provider: Optional - provider to update (default: active), model: Required - model name/ID
+- SetLLMProvider: Changes which provider is used for LLM calls
+  ex: {"action": "SetLLMProvider", "provider": "openai"}
+  params: provider: Required - provider key (openai, anthropic, lm_studio)
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+
+USER: switch view
+
+---
+
+
+# LLM Request #7
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 720
+**Context:** 0.7k / 1047k (0.1%)
+**Session Tokens:** 4,586
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (62 tokens)
+
+[Chat summary: [{'text': 'The user intends to navigate to specific websites (Google and Facebook) and then change the display view mode.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:20:50Z'}]]
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (402 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Google (https://www.google.com/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080)
+  2. Google (www.google.com) ← ACTIVE
+  3. Facebook (www.facebook.com)
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"action": "SearchChats", "query": "dude"}
+  params: query: Required - search query string (extract from user request)
+
+USER: go to facebook
+
+---
+
+
+# LLM Request #8
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 105
+**Context:** 0.1k / 1047k (0.0%)
+**Session Tokens:** 4,691
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (61 tokens)
+
+Summarize this conversation exchange:
+
+USER: go to google
+ASSISTANT: Switching to Google tab.
+USER: switch view
+ASSISTANT: Switching the view mode now.
+USER: go to facebook
+ASSISTANT: Switching to the Facebook tab for you.
+
+Intent summary:
+
+---
+
+
+# LLM Request #1
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 590
+**Context:** 0.6k / 1047k (0.1%)
+**Session Tokens:** 590
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (350 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"action": "LoadChat", "chat": 2}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- ScrollUp: Scrolls the page up by one viewport height
+  ex: {"action": "ScrollUp"}
+
+USER: open facebook
+
+---
+
+
+# LLM Request #1
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 598
+**Context:** 0.6k / 1047k (0.1%)
+**Session Tokens:** 598
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (358 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  1. OM-E Web (127.0.0.1:8080) ← ACTIVE
+  2. Extensions (extensions)
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"action": "LoadChat", "chat": 2}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- ScrollUp: Scrolls the page up by one viewport height
+  ex: {"action": "ScrollUp"}
+
+USER: open facebook
+
+---
+
+
+# LLM Request #1
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 590
+**Context:** 0.6k / 1047k (0.1%)
+**Session Tokens:** 590
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (350 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"action": "LoadChat", "chat": 2}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- ScrollUp: Scrolls the page up by one viewport height
+  ex: {"action": "ScrollUp"}
+
+USER: open facebook
+
+---
+
+
+# LLM Request #2
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 511
+**Context:** 0.5k / 1047k (0.0%)
+**Session Tokens:** 1,101
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (271 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Facebook (https://www.facebook.com/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080)
+  3. Facebook (www.facebook.com) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+
+USER: open google
+
+---
+
+
+# LLM Request #3
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 641
+**Context:** 0.6k / 1047k (0.1%)
+**Session Tokens:** 1,742
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (394 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Google (https://www.google.com/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080)
+  3. Facebook (www.facebook.com)
+  4. Google (www.google.com) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"action": "LoadChat", "chat": 2}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SetLLMProvider: Changes which provider is used for LLM calls
+  ex: {"action": "SetLLMProvider", "provider": "openai"}
+  params: provider: Required - provider key (openai, anthropic, lm_studio)
+
+USER: open ome
+
+---
+
+
+# LLM Request #4
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 99
+**Context:** 0.1k / 1047k (0.0%)
+**Session Tokens:** 1,841
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (55 tokens)
+
+Summarize this conversation exchange:
+
+USER: open facebook
+ASSISTANT: Opening Facebook for you!
+USER: open google
+ASSISTANT: Opening Google for you.
+USER: open ome
+ASSISTANT: Opening OM-E Web for you.
+
+Intent summary:
+
+---
+
+
+# LLM Request #5
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 594
+**Context:** 0.6k / 1047k (0.1%)
+**Session Tokens:** 2,435
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (67 tokens)
+
+[Chat summary: [{'text': 'The user intends to open various websites (Facebook, Google, OM-E Web), and the assistant responds by initiating each requested site.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:38:53Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (270 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080) ← ACTIVE
+  3. Facebook (www.facebook.com)
+  4. Google (www.google.com)
+
+Capabilities:
+- SwitchView: Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floatin
+  ex: {"action": "SwitchView"}
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+- GoBack: Navigates back in the current tab's history
+  ex: {"action": "GoBack"}
+- GetLLMConfig: Returns current LLM config including providers and settings
+  ex: {"action": "GetLLMConfig"}
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+
+USER: hud view
+
+---
+
+
+# LLM Request #6
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 735
+**Context:** 0.7k / 1047k (0.1%)
+**Session Tokens:** 3,170
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (67 tokens)
+
+[Chat summary: [{'text': 'The user intends to open various websites (Facebook, Google, OM-E Web), and the assistant responds by initiating each requested site.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:38:53Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (411 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080) ← ACTIVE
+  3. Facebook (www.facebook.com)
+  4. Google (www.google.com)
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"action": "SearchChats", "query": "dude"}
+  params: query: Required - search query string (extract from user request)
+
+USER: go to facebook
+
+---
+
+
+# LLM Request #7
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 550
+**Context:** 0.6k / 1047k (0.1%)
+**Session Tokens:** 3,720
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (67 tokens)
+
+[Chat summary: [{'text': 'The user intends to open various websites (Facebook, Google, OM-E Web), and the assistant responds by initiating each requested site.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:38:53Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (226 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080) ← ACTIVE
+  3. Facebook (www.facebook.com)
+  4. Google (www.google.com)
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+
+USER: go to google
+
+---
+
+
+# LLM Request #8
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 106
+**Context:** 0.1k / 1047k (0.0%)
+**Session Tokens:** 3,826
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (62 tokens)
+
+Summarize this conversation exchange:
+
+USER: hud view
+ASSISTANT: Switching to HUD view for you now.
+USER: go to facebook
+ASSISTANT: Switching to the Facebook tab for you.
+USER: go to google
+ASSISTANT: Opening Google for you.
+
+Intent summary:
+
+---
+
+
+# LLM Request #9
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 794
+**Context:** 0.8k / 1047k (0.1%)
+**Session Tokens:** 4,620
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (135 tokens)
+
+[Chat summary: [{'text': 'The user intends to open various websites (Facebook, Google, OM-E Web), and the assistant responds by initiating each requested site.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:38:53Z'}, {'text': 'The user intends to navigate between different views and websites, specifically switching to HUD view, then accessing Facebook, followed by Google, with the assistant facilitating these transitions.', 'from_idx': 6, 'to_idx': 12, 'ts': '2025-12-26T17:39:13Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (402 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Google (https://www.google.com/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080)
+  3. Facebook (www.facebook.com)
+  4. Google (www.google.com) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"action": "SearchChats", "query": "dude"}
+  params: query: Required - search query string (extract from user request)
+
+USER: go to facebook
+
+---
+
+
+# LLM Request #10
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 812
+**Context:** 0.8k / 1047k (0.1%)
+**Session Tokens:** 5,432
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (135 tokens)
+
+[Chat summary: [{'text': 'The user intends to open various websites (Facebook, Google, OM-E Web), and the assistant responds by initiating each requested site.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:38:53Z'}, {'text': 'The user intends to navigate between different views and websites, specifically switching to HUD view, then accessing Facebook, followed by Google, with the assistant facilitating these transitions.', 'from_idx': 6, 'to_idx': 12, 'ts': '2025-12-26T17:39:13Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (420 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080)
+  3. Facebook (www.facebook.com)
+  5. OM-E Web (127.0.0.1:8080) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"action": "SearchChats", "query": "dude"}
+  params: query: Required - search query string (extract from user request)
+
+USER: go to facebook
+
+---
+
+
+# LLM Request #11
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 719
+**Context:** 0.7k / 1047k (0.1%)
+**Session Tokens:** 6,151
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (135 tokens)
+
+[Chat summary: [{'text': 'The user intends to open various websites (Facebook, Google, OM-E Web), and the assistant responds by initiating each requested site.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:38:53Z'}, {'text': 'The user intends to navigate between different views and websites, specifically switching to HUD view, then accessing Facebook, followed by Google, with the assistant facilitating these transitions.', 'from_idx': 6, 'to_idx': 12, 'ts': '2025-12-26T17:39:13Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (2 tokens)
+
+list tabs
+
+---
+
+## USER (321 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080)
+  3. Facebook (www.facebook.com)
+  5. OM-E Web (127.0.0.1:8080) ← ACTIVE
+
+Capabilities:
+- SetNewTabURL: Sets the default URL for new tabs when no URL is specified
+  ex: {"action": "SetNewTabURL", "url": "https://google.com"}
+  params: url: Required - URL to open for new tabs
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- CloseTab: Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.
+  ex: {"action": "CloseTab", "name": "google"}
+  params: tabId: Optional - numeric tab ID to close, name: Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+
+USER: list tabs
+
+---
+
+
+# LLM Request #12
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 168
+**Context:** 0.2k / 1047k (0.0%)
+**Session Tokens:** 6,319
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (124 tokens)
+
+Summarize this conversation exchange:
+
+USER: go to facebook
+ASSISTANT: Switching to Facebook tab for you.
+USER: go to facebook
+ASSISTANT: Switching to Facebook tab for you.
+USER: list tabs
+ASSISTANT: Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+Intent summary:
+
+---
+
+
+# LLM Request #13
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,061
+**Context:** 1.1k / 1047k (0.1%)
+**Session Tokens:** 7,380
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (216 tokens)
+
+[Chat summary: [{'text': 'The user intends to open various websites (Facebook, Google, OM-E Web), and the assistant responds by initiating each requested site.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:38:53Z'}, {'text': 'The user intends to navigate between different views and websites, specifically switching to HUD view, then accessing Facebook, followed by Google, with the assistant facilitating these transitions.', 'from_idx': 6, 'to_idx': 12, 'ts': '2025-12-26T17:39:13Z'}, {'text': 'The user repeatedly requested to switch to the Facebook tab, and then asked to list all open browser tabs; the assistant confirmed switching to Facebook and provided a list of open tabs including two OM-E Web tabs and one Facebook tab.', 'from_idx': 12, 'to_idx': 18, 'ts': '2025-12-26T17:39:49Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (2 tokens)
+
+list tabs
+
+---
+
+## ASSISTANT (69 tokens)
+
+Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+---
+
+## USER (509 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080)
+  3. Facebook (www.facebook.com)
+  5. OM-E Web (127.0.0.1:8080) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SearchChats: Searches all chats for a keyword or phrase. Extract the key search term from the user's request and 
+  ex: {"action": "SearchChats", "query": "dude"}
+  params: query: Required - search query string (extract from user request)
+
+[RAG Session Context - 1 matches:]
+- [1] (score:0.69) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+USER: go to facebook
+
+---
+
+
+# LLM Request #14
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 973
+**Context:** 1.0k / 1047k (0.1%)
+**Session Tokens:** 8,353
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (216 tokens)
+
+[Chat summary: [{'text': 'The user intends to open various websites (Facebook, Google, OM-E Web), and the assistant responds by initiating each requested site.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:38:53Z'}, {'text': 'The user intends to navigate between different views and websites, specifically switching to HUD view, then accessing Facebook, followed by Google, with the assistant facilitating these transitions.', 'from_idx': 6, 'to_idx': 12, 'ts': '2025-12-26T17:39:13Z'}, {'text': 'The user repeatedly requested to switch to the Facebook tab, and then asked to list all open browser tabs; the assistant confirmed switching to Facebook and provided a list of open tabs including two OM-E Web tabs and one Facebook tab.', 'from_idx': 12, 'to_idx': 18, 'ts': '2025-12-26T17:39:49Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (2 tokens)
+
+list tabs
+
+---
+
+## ASSISTANT (69 tokens)
+
+Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (415 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Facebook (https://www.facebook.com/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080)
+  3. Facebook (www.facebook.com) ← ACTIVE
+  5. OM-E Web (127.0.0.1:8080)
+
+Capabilities:
+- SwitchView: Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floatin
+  ex: {"action": "SwitchView"}
+- SetTheme: Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb)
+  ex: {"action": "SetTheme", "theme": "kawaii"}
+  params: theme: {'required': True, 'description': 'The character style to use', 'valid_values': ['robot', 'kawaii', 'atom'], 'value_labels': {'robot': 'Om-E (purple robot with goggles)', 'kawaii': 'Kawaii (cute fluffy cat)', 'atom': 'Atom (green science orb)'}, 'aliases': {'robot': ['ome', 'om-e', 'purple', 'default'], 'kawaii': ['kitten', 'kitty', 'cat', 'cute', 'bunny', 'bunny cat'], 'atom': ['green', 'science', 'atomic', 'nucleus']}}
+- ZoomIn: Increases page zoom by 15%
+  ex: {"action": "ZoomIn"}
+
+[RAG Session Context - 1 matches:]
+- [1] (score:0.56) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+USER: orb view
+
+---
+
+
+# LLM Request #15
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 875
+**Context:** 0.9k / 1047k (0.1%)
+**Session Tokens:** 9,228
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (216 tokens)
+
+[Chat summary: [{'text': 'The user intends to open various websites (Facebook, Google, OM-E Web), and the assistant responds by initiating each requested site.', 'from_idx': 0, 'to_idx': 6, 'ts': '2025-12-26T17:38:53Z'}, {'text': 'The user intends to navigate between different views and websites, specifically switching to HUD view, then accessing Facebook, followed by Google, with the assistant facilitating these transitions.', 'from_idx': 6, 'to_idx': 12, 'ts': '2025-12-26T17:39:13Z'}, {'text': 'The user repeatedly requested to switch to the Facebook tab, and then asked to list all open browser tabs; the assistant confirmed switching to Facebook and provided a list of open tabs including two OM-E Web tabs and one Facebook tab.', 'from_idx': 12, 'to_idx': 18, 'ts': '2025-12-26T17:39:49Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (2 tokens)
+
+list tabs
+
+---
+
+## ASSISTANT (69 tokens)
+
+Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (317 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Facebook (https://www.facebook.com/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080)
+  3. Facebook (www.facebook.com) ← ACTIVE
+  5. OM-E Web (127.0.0.1:8080)
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+
+[RAG Session Context - 1 matches:]
+- [1] (score:0.65) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+USER: go to ome web
+
+---
+
+
+# LLM Request #16
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 109
+**Context:** 0.1k / 1047k (0.0%)
+**Session Tokens:** 9,337
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (65 tokens)
+
+Summarize this conversation exchange:
+
+USER: go to facebook
+ASSISTANT: Switching to the Facebook tab for you.
+USER: orb view
+ASSISTANT: Switching to orb view now!
+USER: go to ome web
+ASSISTANT: Switching to OM-E Web tab.
+
+Intent summary:
+
+---
+
+
+# LLM Request #17
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 887
+**Context:** 0.9k / 1047k (0.1%)
+**Session Tokens:** 10,224
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (220 tokens)
+
+[Chat summary: [{'text': 'The user intends to navigate between different views and websites, specifically switching to HUD view, then accessing Facebook, followed by Google, with the assistant facilitating these transitions.', 'from_idx': 6, 'to_idx': 12, 'ts': '2025-12-26T17:39:13Z'}, {'text': 'The user repeatedly requested to switch to the Facebook tab, and then asked to list all open browser tabs; the assistant confirmed switching to Facebook and provided a list of open tabs including two OM-E Web tabs and one Facebook tab.', 'from_idx': 12, 'to_idx': 18, 'ts': '2025-12-26T17:39:49Z'}, {'text': 'The user intends to navigate between different web tabs, specifically Facebook, "orb view," and OM-E Web, with the assistant confirming each tab switch.', 'from_idx': 18, 'to_idx': 24, 'ts': '2025-12-26T17:40:32Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (2 tokens)
+
+list tabs
+
+---
+
+## ASSISTANT (69 tokens)
+
+Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (318 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  2. OM-E Web (127.0.0.1:8080) ← ACTIVE
+  3. Facebook (www.facebook.com)
+  5. OM-E Web (127.0.0.1:8080)
+
+Capabilities:
+- CloseTab: Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.
+  ex: {"action": "CloseTab", "name": "google"}
+  params: tabId: Optional - numeric tab ID to close, name: Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')
+- HidePrompt: Hides the text input area for typing messages
+  ex: {"action": "HidePrompt"}
+- HideChats: Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.
+  ex: {"action": "HideChats"}
+
+[RAG Session Context - 1 matches:]
+- [1] (score:0.57) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+USER: close this tab
+
+---
+
+
+# LLM Request #18
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 885
+**Context:** 0.9k / 1047k (0.1%)
+**Session Tokens:** 11,109
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (220 tokens)
+
+[Chat summary: [{'text': 'The user intends to navigate between different views and websites, specifically switching to HUD view, then accessing Facebook, followed by Google, with the assistant facilitating these transitions.', 'from_idx': 6, 'to_idx': 12, 'ts': '2025-12-26T17:39:13Z'}, {'text': 'The user repeatedly requested to switch to the Facebook tab, and then asked to list all open browser tabs; the assistant confirmed switching to Facebook and provided a list of open tabs including two OM-E Web tabs and one Facebook tab.', 'from_idx': 12, 'to_idx': 18, 'ts': '2025-12-26T17:39:49Z'}, {'text': 'The user intends to navigate between different web tabs, specifically Facebook, "orb view," and OM-E Web, with the assistant confirming each tab switch.', 'from_idx': 18, 'to_idx': 24, 'ts': '2025-12-26T17:40:32Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (2 tokens)
+
+list tabs
+
+---
+
+## ASSISTANT (69 tokens)
+
+Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (4 tokens)
+
+start a new chat
+
+---
+
+## USER (308 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Facebook (https://www.facebook.com/)
+
+Tabs (currently open):
+  3. Facebook (www.facebook.com) ← ACTIVE
+  5. OM-E Web (127.0.0.1:8080)
+
+Capabilities:
+- CreateChat: Creates a new chat file and returns the chat_id
+  ex: {"action": "CreateChat", "title": "My Chat"}
+  params: title: Optional - title for the chat, page_url: Optional - page URL for metadata, page_title: Optional - page title for metadata
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+
+[RAG Session Context - 1 matches:]
+- [1] (score:0.47) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+USER: start a new chat
+
+---
+
+
+# LLM Request #19
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,282
+**Context:** 1.3k / 1047k (0.1%)
+**Session Tokens:** 12,391
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (220 tokens)
+
+[Chat summary: [{'text': 'The user intends to navigate between different views and websites, specifically switching to HUD view, then accessing Facebook, followed by Google, with the assistant facilitating these transitions.', 'from_idx': 6, 'to_idx': 12, 'ts': '2025-12-26T17:39:13Z'}, {'text': 'The user repeatedly requested to switch to the Facebook tab, and then asked to list all open browser tabs; the assistant confirmed switching to Facebook and provided a list of open tabs including two OM-E Web tabs and one Facebook tab.', 'from_idx': 12, 'to_idx': 18, 'ts': '2025-12-26T17:39:49Z'}, {'text': 'The user intends to navigate between different web tabs, specifically Facebook, "orb view," and OM-E Web, with the assistant confirming each tab switch.', 'from_idx': 18, 'to_idx': 24, 'ts': '2025-12-26T17:40:32Z'}]]
+
+---
+
+## USER (3 tokens)
+
+open ome
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (2 tokens)
+
+list tabs
+
+---
+
+## ASSISTANT (69 tokens)
+
+Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (4 tokens)
+
+start a new chat
+
+---
+
+## USER (705 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Facebook (https://www.facebook.com/)
+
+Tabs (currently open):
+  3. Facebook (www.facebook.com) ← ACTIVE
+  5. OM-E Web (127.0.0.1:8080)
+
+Chats (current names - use these, not history):
+  1. Chat 70 (0 msgs) [26/Dec]
+  2. open facebook (28 msgs) [26/Dec] ← CURRENT
+  3. open facebook (2 msgs) [26/Dec]
+  4. open facebook (2 msgs) [26/Dec]
+  5. go to google (12 msgs) [26/Dec]
+  6. chat 69 (46 msgs) [26/Dec]
+  7. Chat 7 (0 msgs) [26/Dec]
+  8. rag research (0 msgs) [26/Dec]
+  9. Chat 6 (0 msgs) [26/Dec]
+  10. discovery (51 msgs) [26/Dec]
+  11. Chat 5 (0 msgs) [25/Dec]
+  12. rag research (20 msgs) [25/Dec]
+  13. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"action": "LoadChat", "chat": 2}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SetLLMProvider: Changes which provider is used for LLM calls
+  ex: {"action": "SetLLMProvider", "provider": "openai"}
+  params: provider: Required - provider key (openai, anthropic, lm_studio)
+
+[RAG Session Context - 2 matches:]
+- [1] (score:0.60) start a new chat
+- [2] (score:0.60) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+USER: open linkedin
+
+---
+
+
+# LLM Request #20
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 114
+**Context:** 0.1k / 1047k (0.0%)
+**Session Tokens:** 12,505
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (70 tokens)
+
+Summarize this conversation exchange:
+
+USER: close this tab
+ASSISTANT: Closing the current active tab (OM-E Web with Tab ID 2).
+USER: start a new chat
+ASSISTANT: Starting a new chat for you.
+USER: open linkedin
+ASSISTANT: Starting a new chat for you.
+
+Intent summary:
+
+---
+
+
+# LLM Request #21
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 769
+**Context:** 0.8k / 1047k (0.1%)
+**Session Tokens:** 13,274
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (522 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: Facebook (https://www.facebook.com/)
+
+Tabs (currently open):
+  3. Facebook (www.facebook.com) ← ACTIVE
+  5. OM-E Web (127.0.0.1:8080)
+
+Chats (current names - use these, not history):
+  1. Chat 70 (0 msgs) [26/Dec] ← CURRENT
+  2. open facebook (30 msgs) [26/Dec]
+  3. open facebook (2 msgs) [26/Dec]
+  4. open facebook (2 msgs) [26/Dec]
+  5. go to google (12 msgs) [26/Dec]
+  6. chat 69 (46 msgs) [26/Dec]
+  7. Chat 7 (0 msgs) [26/Dec]
+  8. rag research (0 msgs) [26/Dec]
+  9. Chat 6 (0 msgs) [26/Dec]
+  10. discovery (51 msgs) [26/Dec]
+  11. Chat 5 (0 msgs) [25/Dec]
+  12. rag research (20 msgs) [25/Dec]
+  13. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- CloseTab: Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.
+  ex: {"action": "CloseTab", "name": "google"}
+  params: tabId: Optional - numeric tab ID to close, name: Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')
+- HidePrompt: Hides the text input area for typing messages
+  ex: {"action": "HidePrompt"}
+- HideChats: Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.
+  ex: {"action": "HideChats"}
+
+[RAG Session Context - 2 matches:]
+- [1] (score:0.57) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+- [2] (score:0.48) start a new chat
+
+USER: close this tab
+
+---
+
+
+# LLM Request #22
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 903
+**Context:** 0.9k / 1047k (0.1%)
+**Session Tokens:** 14,177
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (3 tokens)
+
+open linked in
+
+---
+
+## USER (649 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  5. OM-E Web (127.0.0.1:8080) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. Chat 70 (0 msgs) [26/Dec] ← CURRENT
+  2. open facebook (30 msgs) [26/Dec]
+  3. open facebook (2 msgs) [26/Dec]
+  4. open facebook (2 msgs) [26/Dec]
+  5. go to google (12 msgs) [26/Dec]
+  6. chat 69 (46 msgs) [26/Dec]
+  7. Chat 7 (0 msgs) [26/Dec]
+  8. rag research (0 msgs) [26/Dec]
+  9. Chat 6 (0 msgs) [26/Dec]
+  10. discovery (51 msgs) [26/Dec]
+  11. Chat 5 (0 msgs) [25/Dec]
+  12. rag research (20 msgs) [25/Dec]
+  13. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"action": "LoadChat", "chat": 2}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+
+[RAG Session Context - 2 matches:]
+- [1] (score:0.60) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+- [2] (score:0.58) start a new chat
+
+USER: open linked in
+
+---
+
+
+# LLM Request #23
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 656
+**Context:** 0.7k / 1047k (0.1%)
+**Session Tokens:** 14,833
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (3 tokens)
+
+open linked in
+
+---
+
+## USER (402 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: (14) Feed | LinkedIn (https://www.linkedin.com/feed/)
+
+Tabs (currently open):
+  5. OM-E Web (127.0.0.1:8080)
+  6. (14) Feed | LinkedIn (www.linkedin.com) ← ACTIVE
+
+Capabilities:
+- GoBack: Navigates back in the current tab's history
+  ex: {"action": "GoBack"}
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- CloseTab: Closes a tab by ID or name. Say 'close the google tab' or 'close facebook'.
+  ex: {"action": "CloseTab", "name": "google"}
+  params: tabId: Optional - numeric tab ID to close, name: Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')
+- SetNewTabURL: Sets the default URL for new tabs when no URL is specified
+  ex: {"action": "SetNewTabURL", "url": "https://google.com"}
+  params: url: Required - URL to open for new tabs
+
+[RAG Session Context - 2 matches:]
+- [1] (score:0.66) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+- [2] (score:0.57) start a new chat
+
+USER: go back to the ome tab
+
+---
+
+
+# LLM Request #24
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 110
+**Context:** 0.1k / 1047k (0.0%)
+**Session Tokens:** 14,943
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (66 tokens)
+
+Summarize this conversation exchange:
+
+USER: close this tab
+ASSISTANT: Closing the Facebook tab for you!
+USER: open linked in
+ASSISTANT: Opening LinkedIn for you!
+USER: go back to the ome tab
+ASSISTANT: Switching back to the OM-E Web tab.
+
+Intent summary:
+
+---
+
+
+# LLM Request #25
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,225
+**Context:** 1.2k / 1047k (0.1%)
+**Session Tokens:** 16,168
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (188 tokens)
+
+[Chat summary: [{'text': 'The user intends to navigate and view content using "orb view" mode, specifically scrolling down and then up on a Facebook page.', 'from_idx': 24, 'to_idx': 30, 'ts': '2025-12-26T13:12:01Z'}, {'text': 'User intends to navigate within and then close the Facebook tab, specifically scrolling to the bottom, then top, followed by closing the tab.', 'from_idx': 30, 'to_idx': 36, 'ts': '2025-12-26T13:12:19Z'}, {'text': 'The user intends to switch to orb view and request a list of their current chats, which the assistant provides.', 'from_idx': 36, 'to_idx': 42, 'ts': '2025-12-26T13:31:48Z'}]]
+
+---
+
+## USER (1 tokens)
+
+up
+
+---
+
+## USER (1 tokens)
+
+bottom
+
+---
+
+## USER (1 tokens)
+
+top
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (3 tokens)
+
+list the chats
+
+---
+
+## USER (10 tokens)
+
+list my cahts you should see them now
+
+---
+
+## USER (5 tokens)
+
+with nubmers go
+
+---
+
+## ASSISTANT (137 tokens)
+
+Here are your chats with numbers:
+
+1. chat 69 (38 msgs) [26/Dec]
+2. Chat 7 (0 msgs) [26/Dec]
+3. rag research (0 msgs) [26/Dec]
+4. Chat 6 (0 msgs) [26/Dec]
+5. discovery (51 msgs) [26/Dec]
+6. Chat 5 (0 msgs) [25/Dec]
+7. rag research (20 msgs) [25/Dec]
+8. Chat 4 (0 msgs) [25/Dec]
+9. Chat 1 (0 msgs) [25/Dec]
+
+What would you like to do next?
+
+---
+
+## USER (3 tokens)
+
+open linked in
+
+---
+
+## USER (587 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  5. OM-E Web (127.0.0.1:8080) ← ACTIVE
+  6. (14) Feed | LinkedIn (www.linkedin.com)
+
+Chats (current names - use these, not history):
+  1. chat 69 (46 msgs) [26/Dec] ← CURRENT
+  2. Chat 7 (0 msgs) [26/Dec]
+  3. rag research (0 msgs) [26/Dec]
+  4. Chat 6 (0 msgs) [26/Dec]
+  5. discovery (51 msgs) [26/Dec]
+  6. Chat 5 (0 msgs) [25/Dec]
+  7. rag research (20 msgs) [25/Dec]
+  8. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+- LoadChat: Returns full chat content including all messages. Use chat NUMBER from list OR chat_id directly.
+  ex: {"action": "LoadChat", "chat": 2}
+  params: chat: Optional - chat NUMBER from visible chats list, chat_id: Optional - direct chat ID string, tail: Optional - only return last N messages (default: all), offset: Optional - skip last N messages before tail (for pagination)
+
+[RAG Session Context - 2 matches:]
+- [1] (score:0.60) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+- [2] (score:0.58) start a new chat
+
+USER: open linked in
+
+---
+
+
+# LLM Request #26
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 185
+**Context:** 0.2k / 1047k (0.0%)
+**Session Tokens:** 16,353
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (141 tokens)
+
+Summarize this conversation exchange:
+
+USER: with nubmers go
+ASSISTANT: Here are your chats with numbers:
+
+1. chat 69 (38 msgs) [26/Dec]
+2. Chat 7 (0 msgs) [26/Dec]
+3. rag research (0 msgs) [26/Dec]
+4. Chat 6 (0 msgs) [26/Dec]
+5. discovery (51 msgs) [26/Dec]
+6. Chat 5 (0 
+USER: go to chat number 9
+ASSISTANT: Switching to chat number 9.
+USER: open linked in
+ASSISTANT: Opening LinkedIn tab for you.
+
+Intent summary:
+
+---
+
+
+# LLM Request #27
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,390
+**Context:** 1.4k / 1047k (0.1%)
+**Session Tokens:** 17,743
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (197 tokens)
+
+[Chat summary: [{'text': 'User intends to navigate within and then close the Facebook tab, specifically scrolling to the bottom, then top, followed by closing the tab.', 'from_idx': 30, 'to_idx': 36, 'ts': '2025-12-26T13:12:19Z'}, {'text': 'The user intends to switch to orb view and request a list of their current chats, which the assistant provides.', 'from_idx': 36, 'to_idx': 42, 'ts': '2025-12-26T13:31:48Z'}, {'text': 'The user requested to list chats with numbers, switch to chat number 9, and open LinkedIn; the assistant complied by displaying chat list, switching chats, and opening LinkedIn.', 'from_idx': 42, 'to_idx': 48, 'ts': '2025-12-26T17:41:59Z'}]]
+
+---
+
+## USER (1 tokens)
+
+bottom
+
+---
+
+## USER (1 tokens)
+
+top
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (3 tokens)
+
+list the chats
+
+---
+
+## USER (10 tokens)
+
+list my cahts you should see them now
+
+---
+
+## USER (5 tokens)
+
+with nubmers go
+
+---
+
+## ASSISTANT (137 tokens)
+
+Here are your chats with numbers:
+
+1. chat 69 (38 msgs) [26/Dec]
+2. Chat 7 (0 msgs) [26/Dec]
+3. rag research (0 msgs) [26/Dec]
+4. Chat 6 (0 msgs) [26/Dec]
+5. discovery (51 msgs) [26/Dec]
+6. Chat 5 (0 msgs) [25/Dec]
+7. rag research (20 msgs) [25/Dec]
+8. Chat 4 (0 msgs) [25/Dec]
+9. Chat 1 (0 msgs) [25/Dec]
+
+What would you like to do next?
+
+---
+
+## USER (3 tokens)
+
+open linked in
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (742 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: (14) Feed | LinkedIn (https://www.linkedin.com/feed/)
+
+Tabs (currently open):
+  5. OM-E Web (127.0.0.1:8080)
+  6. (14) Feed | LinkedIn (www.linkedin.com) ← ACTIVE
+
+Chats (current names - use these, not history):
+  1. chat 69 (46 msgs) [26/Dec] ← CURRENT
+  2. Chat 7 (0 msgs) [26/Dec]
+  3. rag research (0 msgs) [26/Dec]
+  4. Chat 6 (0 msgs) [26/Dec]
+  5. discovery (51 msgs) [26/Dec]
+  6. Chat 5 (0 msgs) [25/Dec]
+  7. rag research (20 msgs) [25/Dec]
+  8. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- SwitchView: Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floatin
+  ex: {"action": "SwitchView"}
+- SetTheme: Changes the orb persona/character. Three styles: robot (Om-E), kawaii (cute cat), atom (science orb)
+  ex: {"action": "SetTheme", "theme": "kawaii"}
+  params: theme: {'required': True, 'description': 'The character style to use', 'valid_values': ['robot', 'kawaii', 'atom'], 'value_labels': {'robot': 'Om-E (purple robot with goggles)', 'kawaii': 'Kawaii (cute fluffy cat)', 'atom': 'Atom (green science orb)'}, 'aliases': {'robot': ['ome', 'om-e', 'purple', 'default'], 'kawaii': ['kitten', 'kitty', 'cat', 'cute', 'bunny', 'bunny cat'], 'atom': ['green', 'science', 'atomic', 'nucleus']}}
+- SetLLMModel: Changes the model for a provider
+  ex: {"action": "SetLLMModel", "model": "gpt-4"}
+  params: provider: Optional - provider to update (default: active), model: Required - model name/ID
+- SetLLMProvider: Changes which provider is used for LLM calls
+  ex: {"action": "SetLLMProvider", "provider": "openai"}
+  params: provider: Required - provider key (openai, anthropic, lm_studio)
+- SetCurrentChat: SWITCHES to a different chat by number or name. Use for 'go to chat X', 'open the X chat', 'switch t
+  ex: {"action": "SetCurrentChat", "name": "my project"}
+  params: chat: Optional - the chat NUMBER from visible chats list, name: Optional - chat title for fuzzy matching (e.g. 'my project', 'yesterday')
+
+[RAG Session Context - 2 matches:]
+- [1] (score:0.55) start a new chat
+- [2] (score:0.51) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+USER: switch view
+
+---
+
+
+# LLM Request #28
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 973
+**Context:** 1.0k / 1047k (0.1%)
+**Session Tokens:** 18,716
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (197 tokens)
+
+[Chat summary: [{'text': 'User intends to navigate within and then close the Facebook tab, specifically scrolling to the bottom, then top, followed by closing the tab.', 'from_idx': 30, 'to_idx': 36, 'ts': '2025-12-26T13:12:19Z'}, {'text': 'The user intends to switch to orb view and request a list of their current chats, which the assistant provides.', 'from_idx': 36, 'to_idx': 42, 'ts': '2025-12-26T13:31:48Z'}, {'text': 'The user requested to list chats with numbers, switch to chat number 9, and open LinkedIn; the assistant complied by displaying chat list, switching chats, and opening LinkedIn.', 'from_idx': 42, 'to_idx': 48, 'ts': '2025-12-26T17:41:59Z'}]]
+
+---
+
+## USER (1 tokens)
+
+bottom
+
+---
+
+## USER (1 tokens)
+
+top
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (3 tokens)
+
+list the chats
+
+---
+
+## USER (10 tokens)
+
+list my cahts you should see them now
+
+---
+
+## USER (5 tokens)
+
+with nubmers go
+
+---
+
+## ASSISTANT (137 tokens)
+
+Here are your chats with numbers:
+
+1. chat 69 (38 msgs) [26/Dec]
+2. Chat 7 (0 msgs) [26/Dec]
+3. rag research (0 msgs) [26/Dec]
+4. Chat 6 (0 msgs) [26/Dec]
+5. discovery (51 msgs) [26/Dec]
+6. Chat 5 (0 msgs) [25/Dec]
+7. rag research (20 msgs) [25/Dec]
+8. Chat 4 (0 msgs) [25/Dec]
+9. Chat 1 (0 msgs) [25/Dec]
+
+What would you like to do next?
+
+---
+
+## USER (3 tokens)
+
+open linked in
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (325 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: (14) Feed | LinkedIn (https://www.linkedin.com/feed/)
+
+Tabs (currently open):
+  5. OM-E Web (127.0.0.1:8080)
+  6. (14) Feed | LinkedIn (www.linkedin.com) ← ACTIVE
+
+Capabilities:
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+- GoogleIt: Opens Google with your query. Use when user wants to look something up online, google it, or find in
+  ex: {"action": "GoogleIt", "query": "best restaurants nearby"}
+  params: query: Required - what to google
+- ShowPrompt: Shows the text input area for typing messages
+  ex: {"action": "ShowPrompt"}
+
+[RAG Session Context - 2 matches:]
+- [1] (score:0.65) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+- [2] (score:0.56) start a new chat
+
+USER: go to ome web
+
+---
+
+
+# LLM Request #29
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,019
+**Context:** 1.0k / 1047k (0.1%)
+**Session Tokens:** 19,735
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (197 tokens)
+
+[Chat summary: [{'text': 'User intends to navigate within and then close the Facebook tab, specifically scrolling to the bottom, then top, followed by closing the tab.', 'from_idx': 30, 'to_idx': 36, 'ts': '2025-12-26T13:12:19Z'}, {'text': 'The user intends to switch to orb view and request a list of their current chats, which the assistant provides.', 'from_idx': 36, 'to_idx': 42, 'ts': '2025-12-26T13:31:48Z'}, {'text': 'The user requested to list chats with numbers, switch to chat number 9, and open LinkedIn; the assistant complied by displaying chat list, switching chats, and opening LinkedIn.', 'from_idx': 42, 'to_idx': 48, 'ts': '2025-12-26T17:41:59Z'}]]
+
+---
+
+## USER (1 tokens)
+
+top
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (3 tokens)
+
+list the chats
+
+---
+
+## USER (10 tokens)
+
+list my cahts you should see them now
+
+---
+
+## USER (5 tokens)
+
+with nubmers go
+
+---
+
+## ASSISTANT (137 tokens)
+
+Here are your chats with numbers:
+
+1. chat 69 (38 msgs) [26/Dec]
+2. Chat 7 (0 msgs) [26/Dec]
+3. rag research (0 msgs) [26/Dec]
+4. Chat 6 (0 msgs) [26/Dec]
+5. discovery (51 msgs) [26/Dec]
+6. Chat 5 (0 msgs) [25/Dec]
+7. rag research (20 msgs) [25/Dec]
+8. Chat 4 (0 msgs) [25/Dec]
+9. Chat 1 (0 msgs) [25/Dec]
+
+What would you like to do next?
+
+---
+
+## USER (3 tokens)
+
+open linked in
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (370 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  5. OM-E Web (127.0.0.1:8080) ← ACTIVE
+  6. (14) Feed | LinkedIn (www.linkedin.com)
+
+Capabilities:
+- SwitchView: Switches between fullscreen HUD mode and floating orb mode. Browser mode shows the page with floatin
+  ex: {"action": "SwitchView"}
+- ShowChats: Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then o
+  ex: {"action": "ShowChats"}
+- GoBack: Navigates back in the current tab's history
+  ex: {"action": "GoBack"}
+- GetLLMConfig: Returns current LLM config including providers and settings
+  ex: {"action": "GetLLMConfig"}
+- OpenTab: Opens a URL or switches to existing tab. Auto-switches if tab already open.
+  ex: {"action": "OpenTab", "url": "https://google.com"}
+  params: url: Optional - URL or site name (e.g. 'google.com', 'youtube')
+
+[RAG Session Context - 2 matches:]
+- [1] (score:0.49) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+- [2] (score:0.45) start a new chat
+
+USER: hud view
+
+---
+
+
+# LLM Request #30
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.7
+**Max Tokens:** 100
+**Request Tokens:** 107
+**Context:** 0.1k / 1047k (0.0%)
+**Session Tokens:** 19,842
+
+---
+
+## SYSTEM (36 tokens)
+
+You are a concise summarizer. Extract the key intent and topics from conversation exchanges.
+Be specific about topics, actions taken, and outcomes. Output 1-2 sentences only.
+
+---
+
+## USER (63 tokens)
+
+Summarize this conversation exchange:
+
+USER: switch view
+ASSISTANT: Switching the view mode now.
+USER: go to ome web
+ASSISTANT: Switching to OM-E Web tab now.
+USER: hud view
+ASSISTANT: Switching to HUD view now.
+
+Intent summary:
+
+---
+
+
+# LLM Request #31
+
+**Model:** gpt-4.1-mini
+**Temperature:** 0.1
+**Max Tokens:** 500
+**Request Tokens:** 1,092
+**Context:** 1.1k / 1047k (0.1%)
+**Session Tokens:** 20,934
+
+---
+
+## SYSTEM (232 tokens)
+
+# Browser Assistant
+
+You help users via conversation or browser actions. One JSON response per message.
+
+## Your Job
+1. Understand user intent
+2. Reply conversationally OR execute a capability
+3. Extract params from message when executing
+
+## Capabilities (injected at runtime)
+You receive matching capabilities with scores. Pick the best match and fill params from the message.
+
+## Param Extraction
+- Match references to context: "close youtube tab" → find youtube in tabs → use that tabId
+- Don't guess required params - ask if unclear
+
+## Output (JSON only, one per message)
+{"reply":"..."} - chat only, no action needed
+{"action":"CapName","param1":"value","text":"..."} - execute capability (params flat, not nested)
+{"clarify":"..."} - need more info from user
+{"options":"Which one?","list":["A","B"]} - user picks from choices
+{"search":"query"} - fetch more capabilities from RAG
+
+
+YOUR PERSONALITY
+You are Om-E. Helpful, enthusiastic, encouraging and playful.
+Tone: helpful
+Example phrases: 
+
+
+---
+
+## SYSTEM (204 tokens)
+
+[Chat summary: [{'text': 'The user intends to switch to orb view and request a list of their current chats, which the assistant provides.', 'from_idx': 36, 'to_idx': 42, 'ts': '2025-12-26T13:31:48Z'}, {'text': 'The user requested to list chats with numbers, switch to chat number 9, and open LinkedIn; the assistant complied by displaying chat list, switching chats, and opening LinkedIn.', 'from_idx': 42, 'to_idx': 48, 'ts': '2025-12-26T17:41:59Z'}, {'text': 'The user intends to change the display view multiple times, specifically switching to a different view mode, then to the OM-E Web tab, and finally to the HUD view.', 'from_idx': 48, 'to_idx': 54, 'ts': '2025-12-26T17:42:26Z'}]]
+
+---
+
+## USER (3 tokens)
+
+close this tab
+
+---
+
+## USER (2 tokens)
+
+orb view
+
+---
+
+## USER (3 tokens)
+
+list the chats
+
+---
+
+## USER (10 tokens)
+
+list my cahts you should see them now
+
+---
+
+## USER (5 tokens)
+
+with nubmers go
+
+---
+
+## ASSISTANT (137 tokens)
+
+Here are your chats with numbers:
+
+1. chat 69 (38 msgs) [26/Dec]
+2. Chat 7 (0 msgs) [26/Dec]
+3. rag research (0 msgs) [26/Dec]
+4. Chat 6 (0 msgs) [26/Dec]
+5. discovery (51 msgs) [26/Dec]
+6. Chat 5 (0 msgs) [25/Dec]
+7. rag research (20 msgs) [25/Dec]
+8. Chat 4 (0 msgs) [25/Dec]
+9. Chat 1 (0 msgs) [25/Dec]
+
+What would you like to do next?
+
+---
+
+## USER (3 tokens)
+
+open linked in
+
+---
+
+## USER (2 tokens)
+
+switch view
+
+---
+
+## USER (2 tokens)
+
+hud view
+
+---
+
+## USER (5 tokens)
+
+detelet this chat
+
+---
+
+## USER (432 tokens)
+
+ENVIRONMENT (current state - use these for actions)
+Page: OM-E Web (http://127.0.0.1:8080/)
+
+Tabs (currently open):
+  5. OM-E Web (127.0.0.1:8080) ← ACTIVE
+  6. (14) Feed | LinkedIn (www.linkedin.com)
+
+Chats (current names - use these, not history):
+  1. chat 69 (46 msgs) [26/Dec] ← CURRENT
+  2. Chat 7 (0 msgs) [26/Dec]
+  3. rag research (0 msgs) [26/Dec]
+  4. Chat 6 (0 msgs) [26/Dec]
+  5. discovery (51 msgs) [26/Dec]
+  6. Chat 5 (0 msgs) [25/Dec]
+  7. rag research (20 msgs) [25/Dec]
+  8. Chat 4 (0 msgs) [25/Dec]
+
+Capabilities:
+- DeleteChat: Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.
+  ex: {"action": "DeleteChat", "name": "my project"}
+  params: chat: Optional - chat NUMBER (omit for current chat), name: Optional - chat title for fuzzy matching
+- HideChats: Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.
+  ex: {"action": "HideChats"}
+
+[RAG Session Context - 2 matches:]
+- [1] (score:0.68) start a new chat
+- [2] (score:0.41) Here are the currently open tabs:
+1. OM-E Web (127.0.0.1:8080) - Tab ID 2
+2. Facebook (www.facebook.com) - Tab ID 3
+3. OM-E Web (127.0.0.1:8080) - Tab ID 5 (Active)
+
+USER: detelet this chat
+
+---
