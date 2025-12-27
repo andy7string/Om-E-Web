@@ -753,24 +753,34 @@ USER MESSAGE
             history = []
 
             # 1. Include rolling summary if available
+            # NOTE: Use "user" role for context injection - Anthropic only accepts user/assistant
             rolling_summary = summaries.get("rolling")
             if rolling_summary:
                 history.append({
-                    "role": "system",
-                    "content": f"[Chat summary: {rolling_summary}]"
+                    "role": "user",
+                    "content": f"[Previous conversation summary: {rolling_summary}]"
+                })
+                history.append({
+                    "role": "assistant",
+                    "content": "Got it, I have the context."
                 })
 
             # 2. Add recent SESSION actions - spans ALL chats in session
             # This is the cross-chat bridge - actions from any chat visible in prompt
             # Uses session_actions_limit from config (default 20)
+            # NOTE: Use "user" role for context injection - Anthropic only accepts user/assistant
             from retrieval.memory_cycle import format_session_actions_for_prompt
             actions_text = format_session_actions_for_prompt()  # Uses config limit
             if actions_text:
                 actions_text = f"[{actions_text}]"
                 print(f"[Session] Actions for prompt")
                 history.append({
-                    "role": "system",
-                    "content": actions_text
+                    "role": "user",
+                    "content": f"[Recent actions context: {actions_text}]"
+                })
+                history.append({
+                    "role": "assistant",
+                    "content": "Noted."
                 })
 
             # 3. Add recent content (last N messages from config)
@@ -1165,6 +1175,9 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
 """
             system_prompt = system_prompt + "\n" + personality_inject
 
+        # Reinforce JSON-only output (smaller models like Haiku need this reminder)
+        system_prompt = system_prompt + "\n\nCRITICAL: Respond with valid JSON only. No other text."
+
         # Build environment section
         env_lines = []
         if active_tab:
@@ -1270,9 +1283,15 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             json_data = self._extract_json(response_text)
             if json_data:
                 return json_data
+            else:
+                # Log when JSON extraction fails
+                print(f"[Orchestrator] ⚠️ No valid JSON in response: {response_text[:200]}...")
+                logger.warning(f"JSON extraction failed. Raw response: {response_text[:200]}")
 
         except Exception as e:
             logger.warning(f"Unified call error: {e}")
+            import traceback
+            traceback.print_exc()
 
         # Fallback
         return {"type": "cannot", "text": "I couldn't understand that."}
@@ -2078,8 +2097,120 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
     # Utilities
     # --------------------------------------------------------
 
+    def _repair_truncated_json(self, text: str) -> Optional[str]:
+        """
+        Attempt to repair truncated JSON from LLM responses.
+        Handles common cases like unclosed strings, arrays, and objects.
+        Returns repaired JSON string or None if repair not possible.
+        """
+        if not text or not text.strip().startswith("{"):
+            return None
+
+        text = text.strip()
+
+        # Track state for repair
+        in_string = False
+        escape_next = False
+        brace_count = 0
+        bracket_count = 0
+        repaired = []
+
+        for char in text:
+            repaired.append(char)
+
+            if escape_next:
+                escape_next = False
+                continue
+
+            if char == "\\":
+                escape_next = True
+                continue
+
+            if char == '"' and not escape_next:
+                in_string = not in_string
+                continue
+
+            if not in_string:
+                if char == "{":
+                    brace_count += 1
+                elif char == "}":
+                    brace_count -= 1
+                elif char == "[":
+                    bracket_count += 1
+                elif char == "]":
+                    bracket_count -= 1
+
+        # Build repair suffix
+        repair_suffix = ""
+
+        # Close unclosed string first
+        if in_string:
+            repair_suffix += '"'
+
+        # Close unclosed arrays
+        repair_suffix += "]" * bracket_count
+
+        # Close unclosed objects
+        repair_suffix += "}" * brace_count
+
+        if repair_suffix:
+            repaired_text = "".join(repaired) + repair_suffix
+            # Validate the repair worked
+            try:
+                json.loads(repaired_text)
+                logger.debug(f"[JSON Repair] Successfully repaired truncated JSON, added: {repr(repair_suffix)}")
+                return repaired_text
+            except json.JSONDecodeError:
+                # Try more aggressive repair - truncate to last complete key-value
+                return self._repair_aggressive(text)
+
+        return None
+
+    def _repair_aggressive(self, text: str) -> Optional[str]:
+        """
+        More aggressive JSON repair - finds last complete key-value pair.
+        Used when simple bracket closing fails.
+        """
+        # Find the last complete "key": value pattern
+        # Look for patterns like ,"key" or {"key" and truncate there
+        import re
+
+        # Try to find last complete value (ends with ", or })
+        # Pattern: complete values end with: true, false, null, number, "string", ], }
+        # followed by either , or nothing (end of object)
+
+        # First, try to find a good truncation point
+        # Look for the last comma followed by a quote (start of new key)
+        last_comma_quote = text.rfind(',"')
+        if last_comma_quote > 0:
+            truncated = text[:last_comma_quote] + "}"
+            try:
+                json.loads(truncated)
+                logger.debug(f"[JSON Repair] Aggressive repair: truncated to last complete pair")
+                return truncated
+            except json.JSONDecodeError:
+                pass
+
+        # Try removing everything after last complete string value
+        # Find last pattern of ": "value" where value is complete
+        match = re.search(r'("[^"]+"\s*:\s*"[^"]*")\s*[,}]?\s*$', text)
+        if match:
+            # Find where this match ends in original
+            end_pos = match.end()
+            truncated = text[:end_pos]
+            if not truncated.endswith("}"):
+                truncated += "}"
+            try:
+                json.loads(truncated)
+                logger.debug(f"[JSON Repair] Aggressive repair via regex")
+                return truncated
+            except json.JSONDecodeError:
+                pass
+
+        return None
+
     def _extract_json(self, text: str) -> Optional[Dict]:
-        """Extract JSON from LLM response."""
+        """Extract JSON from LLM response with repair for truncated responses."""
         text = text.strip()
 
         # Try direct parse
@@ -2102,6 +2233,7 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 continue
             cleaned_lines.append(line)
 
+        cleaned_text = ""
         if cleaned_lines:
             cleaned_text = "\n".join(cleaned_lines).strip()
             try:
@@ -2118,6 +2250,19 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 except json.JSONDecodeError:
                     continue
 
+        # REPAIR ATTEMPT: Try to fix truncated JSON
+        # Use cleaned text if available, otherwise original
+        repair_target = cleaned_text if cleaned_text else text
+        repaired = self._repair_truncated_json(repair_target)
+        if repaired:
+            try:
+                result = json.loads(repaired)
+                logger.info(f"[JSON Repair] Successfully parsed repaired JSON")
+                return result
+            except json.JSONDecodeError:
+                pass
+
+        logger.warning(f"[JSON Extract] Failed to parse or repair: {text[:100]}...")
         return None
 
     def _build_chat_debug(

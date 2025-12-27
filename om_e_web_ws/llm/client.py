@@ -271,6 +271,8 @@ class LLMClient:
         # Route to appropriate handler
         if provider_type == "anthropic":
             return await self._call_anthropic(endpoint, model, api_key, system_prompt, messages, temp, tokens)
+        elif provider_type == "google":
+            return await self._call_google(endpoint, model, api_key, system_prompt, messages, temp, tokens)
         else:
             # OpenAI and OpenAI-compatible (LM Studio, Ollama)
             return await self._call_openai(endpoint, model, api_key, system_prompt, messages, temp, tokens)
@@ -333,6 +335,9 @@ class LLMClient:
             payload["max_completion_tokens"] = max_tokens
         else:
             payload["max_tokens"] = max_tokens
+
+        # Force JSON output for chat completions (OpenAI supports this natively)
+        payload["response_format"] = {"type": "json_object"}
 
         # Log request to debug file
         log_request(endpoint, model, payload, "OpenAI")
@@ -504,10 +509,121 @@ class LLMClient:
         print(f"[LLM] → Calling {model}...")
         response = await client.post(endpoint, headers=headers, json=payload)
         t1 = time.time()
-        response.raise_for_status()
+
+        # Log Anthropic errors (same pattern as OpenAI handler)
+        try:
+            response.raise_for_status()
+        except Exception as e:
+            try:
+                print(f"[LLM Client] Anthropic error response: {response.text}")
+            except Exception:
+                pass
+            raise e
 
         data = response.json()
         content = data["content"][0]["text"]
+
+        # Count response tokens and log timing
+        try:
+            encoding = tiktoken.get_encoding("cl100k_base")
+            response_tokens = len(encoding.encode(content))
+            all_messages = [{"role": "system", "content": system_prompt}] + messages
+            request_tokens = count_tokens(all_messages, model).get("total", 0)
+            print(f"[LLM] ← Response in {(t1-t0)*1000:.0f}ms | req={request_tokens} res={response_tokens} tokens")
+        except Exception:
+            print(f"[LLM] ← Response in {(t1-t0)*1000:.0f}ms")
+
+        return content
+
+    async def _call_google(
+        self,
+        endpoint: str,
+        model: str,
+        api_key: Optional[str],
+        system_prompt: str,
+        messages: List[Dict[str, str]],
+        temperature: float,
+        max_tokens: int
+    ) -> str:
+        """Call Google Gemini API"""
+        client = self._get_client()
+
+        # Google Gemini uses a different endpoint format: base_url/models/{model}:generateContent
+        # The endpoint in config should be base URL, we append model
+        if "{model}" in endpoint:
+            url = endpoint.replace("{model}", model)
+        else:
+            # Default: append model to endpoint
+            url = f"{endpoint.rstrip('/')}/models/{model}:generateContent"
+
+        # Convert OpenAI-style messages to Gemini format
+        # Gemini uses "contents" array with "parts"
+        contents = []
+
+        # Add system prompt as first user message (Gemini doesn't have system role in contents)
+        # We'll use systemInstruction field instead
+        for msg in messages:
+            role = msg.get("role", "user")
+            content = msg.get("content", "")
+
+            # Map roles: user -> user, assistant -> model
+            gemini_role = "model" if role == "assistant" else "user"
+            contents.append({
+                "role": gemini_role,
+                "parts": [{"text": content}]
+            })
+
+        payload = {
+            "contents": contents,
+            "systemInstruction": {
+                "parts": [{"text": system_prompt}]
+            },
+            "generationConfig": {
+                "temperature": temperature,
+                "maxOutputTokens": max_tokens,
+                "responseMimeType": "application/json"
+            }
+        }
+
+        # Log request to debug file
+        # Convert to messages format for logging
+        log_messages = [{"role": "system", "content": system_prompt}] + messages
+        log_request(url, model, {"model": model, "messages": log_messages, "temperature": temperature, "max_tokens": max_tokens}, "Google")
+
+        # Throttle to 1 request per second
+        await self._throttle()
+
+        # Time the LLM request
+        t0 = time.time()
+        print(f"[LLM] → Calling {model} (Google)...")
+
+        # API key goes in URL query param for Gemini
+        response = await client.post(
+            f"{url}?key={api_key}",
+            headers={"Content-Type": "application/json"},
+            json=payload
+        )
+        t1 = time.time()
+
+        # Handle errors
+        try:
+            response.raise_for_status()
+        except Exception as e:
+            try:
+                print(f"[LLM Client] Google error response: {response.text}")
+            except Exception:
+                pass
+            raise e
+
+        data = response.json()
+
+        # Extract text from Gemini response format
+        # Response: {"candidates": [{"content": {"parts": [{"text": "..."}]}}]}
+        try:
+            content = data["candidates"][0]["content"]["parts"][0]["text"]
+        except (KeyError, IndexError) as e:
+            print(f"[LLM Client] Failed to parse Gemini response: {data}")
+            raise ValueError(f"Could not extract text from Gemini response: {e}")
 
         # Count response tokens and log timing
         try:

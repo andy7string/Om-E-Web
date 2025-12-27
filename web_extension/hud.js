@@ -34,6 +34,105 @@
         visibleChats: []               // 📚 Currently visible chats in sidebar (for LLM context)
     };
 
+    // ⏱️ Request metrics state for heartbeat animation + timer
+    const requestMetrics = {
+        timer: null,
+        startTime: 0,
+        metricsEl: null,
+        inputArea: null
+    };
+
+    /**
+     * ⏱️ Start request timer and heartbeat animation
+     * @param {HTMLElement} inputArea - The input area to animate (.ome-chat-input-area or .ome-hud-prompt-wrapper)
+     * @param {number} inputTokens - Estimated input tokens
+     */
+    function startRequestTimer(inputArea, inputTokens = 0) {
+        if (!inputArea) return;
+
+        // Add sending class for heartbeat animation
+        inputArea.classList.add('sending');
+        requestMetrics.inputArea = inputArea;
+
+        // Find metrics element (sibling or child depending on structure)
+        let metricsEl = inputArea.querySelector('.ome-request-metrics');
+        if (!metricsEl) {
+            metricsEl = inputArea.parentElement?.querySelector('.ome-request-metrics');
+        }
+        if (!metricsEl) {
+            metricsEl = inputArea.nextElementSibling;
+            if (!metricsEl?.classList?.contains('ome-request-metrics')) metricsEl = null;
+        }
+
+        if (metricsEl) {
+            metricsEl.classList.add('active');
+            requestMetrics.metricsEl = metricsEl;
+
+            // Set input tokens immediately
+            const tokensIn = metricsEl.querySelector('.ome-tokens-in');
+            if (tokensIn) tokensIn.textContent = `${inputTokens} in`;
+
+            // Reset output tokens to loading state
+            const tokensOut = metricsEl.querySelector('.ome-tokens-out');
+            if (tokensOut) tokensOut.textContent = '... out';
+        }
+
+        // Start live timer
+        requestMetrics.startTime = performance.now();
+        requestMetrics.timer = setInterval(() => {
+            const elapsed = Math.round(performance.now() - requestMetrics.startTime);
+            const timerEl = requestMetrics.metricsEl?.querySelector('.ome-timer');
+            if (timerEl) timerEl.textContent = `${elapsed}ms`;
+        }, 50); // Smooth 50ms updates
+
+        console.log(`[RequestMetrics] Started - ${inputTokens} input tokens`);
+    }
+
+    /**
+     * ⏱️ Stop request timer and show final metrics
+     * @param {number} outputTokens - Response tokens from backend
+     * @param {number} inputTokens - Actual input tokens from backend (optional update)
+     */
+    function stopRequestTimer(outputTokens = 0, inputTokens = null) {
+        // Stop heartbeat
+        if (requestMetrics.inputArea) {
+            requestMetrics.inputArea.classList.remove('sending');
+        }
+
+        // Stop timer
+        if (requestMetrics.timer) {
+            clearInterval(requestMetrics.timer);
+            requestMetrics.timer = null;
+        }
+
+        // Update final metrics
+        if (requestMetrics.metricsEl) {
+            // Update input tokens if provided by backend
+            if (inputTokens !== null) {
+                const tokensIn = requestMetrics.metricsEl.querySelector('.ome-tokens-in');
+                if (tokensIn) tokensIn.textContent = `${inputTokens} in`;
+            }
+
+            // Show output tokens
+            const tokensOut = requestMetrics.metricsEl.querySelector('.ome-tokens-out');
+            if (tokensOut) tokensOut.textContent = `${outputTokens} out`;
+
+            const elapsed = Math.round(performance.now() - requestMetrics.startTime);
+            console.log(`[RequestMetrics] Completed - ${elapsed}ms, ${outputTokens} output tokens`);
+
+            // Fade out metrics after 4 seconds
+            setTimeout(() => {
+                if (requestMetrics.metricsEl) {
+                    requestMetrics.metricsEl.classList.remove('active');
+                }
+            }, 4000);
+        }
+
+        // Reset state
+        requestMetrics.inputArea = null;
+        requestMetrics.metricsEl = null;
+    }
+
     // 💬 Save chat input immediately (persists across navigation)
     function saveChatInput(value) {
         try {
@@ -1058,6 +1157,7 @@
                 flex: 0 1 800px;  /* don't grow, can shrink, ideal 800px */
                 min-width: 240px; /* minimum usable width */
                 border: 1px solid rgba(var(--theme-color), 0.35);
+                position: relative; /* For heartbeat animation */
                 border-radius: 12px;
                 box-shadow: 0 0 6px rgba(var(--theme-color), 0.125),
                             0 0 12px rgba(var(--theme-color), 0.075),
@@ -1992,6 +2092,7 @@
                 gap: 8px;
                 padding: 12px 14px;
                 border-top: 1px solid rgba(var(--theme-color),0.15);
+                position: relative; /* For heartbeat animation */
             }
             .ome-chat-input-wrapper {
                 flex: 1;
@@ -2421,6 +2522,52 @@
                     transform: scale(1.02);
                 }
             }
+
+            /* 💓 Heartbeat wave animation for LLM request in progress */
+            @keyframes ome-heartbeat-wave {
+                0% { background-position: -200% 0; }
+                100% { background-position: 200% 0; }
+            }
+            .ome-hud-prompt-wrapper.sending::after,
+            .ome-chat-input-area.sending::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(var(--theme-color), 0.9) 50%,
+                    transparent 100%);
+                background-size: 200% 100%;
+                animation: ome-heartbeat-wave 1.2s ease-in-out infinite;
+                z-index: 10;
+            }
+            /* 📊 Request metrics display - timer + tokens */
+            .ome-request-metrics {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                font-size: 11px;
+                color: rgba(var(--theme-color), 0.5);
+                padding: 6px 0 2px 0;
+                font-family: 'SF Mono', Monaco, 'Consolas', monospace;
+                transition: opacity 0.3s ease;
+            }
+            .ome-request-metrics.active {
+                display: flex;
+            }
+            .ome-request-metrics .ome-timer {
+                color: rgba(var(--theme-color), 0.8);
+                min-width: 55px;
+                text-align: right;
+            }
+            .ome-request-metrics .ome-tokens-sep {
+                opacity: 0.4;
+            }
+
             .ome-sidebar-chat-meta {
                 font-size: 11px;
                 color: rgba(var(--theme-color, 126,200,227), 0.5);
@@ -3085,6 +3232,12 @@
                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
                 </div>
+                <div class="ome-request-metrics">
+                    <span class="ome-timer">0ms</span>
+                    <span class="ome-tokens-in">0 in</span>
+                    <span class="ome-tokens-sep">/</span>
+                    <span class="ome-tokens-out">0 out</span>
+                </div>
             </div>`;
 
         // 🔮 Wrap SVG in drag indicator wrapper with 4 directional arrows (theme colored)
@@ -3339,6 +3492,9 @@
                     addChatMessage('user', text);
 
                     // Send through chat pipeline (LLMChat now saves user message + gets response)
+                    const orbInputArea = chatPanel.querySelector('.ome-chat-input-area');
+                    const inputTokenEstimate = Math.round(text.length / 4);
+
                     try {
                         // 🧪 EXPERIMENT: Trigger scan before LLM submission
                         const t1 = performance.now();
@@ -3346,11 +3502,19 @@
                         const t2 = performance.now();
                         console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t2 - t1)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
+                        // ⏱️ Start heartbeat + timer AFTER scan (so timer = LLM time only)
+                        startRequestTimer(orbInputArea, inputTokenEstimate);
+
                         // Send to LLM (saves user msg + processes + saves response)
                         const llmResult = await sendLLMChat(text);
                         const t3 = performance.now();
                         console.log(`[Content] ⏱️ LLMChat: ${Math.round(t3 - t2)}ms`);
                         console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t3 - t0)}ms`);
+
+                        // ⏱️ Stop timer with actual token counts from backend
+                        const tokensOut = llmResult?.tokens_out || Math.round((llmResult?.response?.length || 0) / 4);
+                        const tokensIn = llmResult?.tokens_in || inputTokenEstimate;
+                        stopRequestTimer(tokensOut, tokensIn);
 
                         // 📬 Display assistant response
                         if (llmResult?.response) {
@@ -3370,6 +3534,8 @@
                     } catch (error) {
                         console.error('[Content] ❌ Orb chat send failed:', error);
                         addChatMessage('error', 'Failed to send message');
+                        // ⏱️ Stop timer on error
+                        stopRequestTimer(0, inputTokenEstimate);
                     }
 
                     // 🎯 Always refocus input after send (success or error)
@@ -3461,6 +3627,12 @@
                     <button class="ome-chat-send" title="Send message">
                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
+                </div>
+                <div class="ome-request-metrics">
+                    <span class="ome-timer">0ms</span>
+                    <span class="ome-tokens-in">0 in</span>
+                    <span class="ome-tokens-sep">/</span>
+                    <span class="ome-tokens-out">0 out</span>
                 </div>
             </div>`;
 
@@ -3962,6 +4134,12 @@
                                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                                     </button>
                                 </div>
+                            </div>
+                            <div class="ome-request-metrics">
+                                <span class="ome-timer">0ms</span>
+                                <span class="ome-tokens-in">0 in</span>
+                                <span class="ome-tokens-sep">/</span>
+                                <span class="ome-tokens-out">0 out</span>
                             </div>
                         </div>
 
@@ -4717,6 +4895,9 @@
             addChatMessage('user', text);
 
             // Send through chat pipeline (LLMChat now saves user message + gets response)
+            const hudPromptWrapper = hud.querySelector('.ome-hud-prompt-wrapper');
+            const inputTokenEstimate = Math.round(text.length / 4);
+
             try {
                 // 🧪 EXPERIMENT: Trigger scan before LLM submission
                 const t1 = performance.now();
@@ -4724,11 +4905,19 @@
                 const t2 = performance.now();
                 console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t2 - t1)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
+                // ⏱️ Start heartbeat + timer AFTER scan (so timer = LLM time only)
+                startRequestTimer(hudPromptWrapper, inputTokenEstimate);
+
                 // Send to LLM (saves user msg + processes + saves response)
                 const llmResult = await sendLLMChat(text);
                 const t3 = performance.now();
                 console.log(`[Content] ⏱️ LLMChat: ${Math.round(t3 - t2)}ms`);
                 console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t3 - t0)}ms`);
+
+                // ⏱️ Stop timer with actual token counts from backend
+                const tokensOut = llmResult?.tokens_out || Math.round((llmResult?.response?.length || 0) / 4);
+                const tokensIn = llmResult?.tokens_in || inputTokenEstimate;
+                stopRequestTimer(tokensOut, tokensIn);
 
                 // 📬 Display assistant response
                 if (llmResult?.response) {
@@ -4748,6 +4937,8 @@
             } catch (error) {
                 console.error('[Content] ❌ Chat send failed:', error);
                 addChatMessage('error', 'Failed to send message');
+                // ⏱️ Stop timer on error
+                stopRequestTimer(0, inputTokenEstimate);
             }
 
             // 🎯 Always refocus prompt textarea after send (success or error)
