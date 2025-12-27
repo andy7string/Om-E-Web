@@ -1,42 +1,42 @@
 {
-  "timestamp": 1766745616.690393,
+  "timestamp": 1766870239.383316,
   "browser_state": {
     "total_tabs": 3,
     "active_tab": {
-      "id": 1138058853,
-      "url": "https://www.google.com/",
-      "title": "Google",
-      "status": "complete"
+      "id": 1138059835,
+      "url": "https://www.google.com/search?q=cats&sca_esv=bcd32b3de9d160f4&sxsrf=AE3TifNExtJHzW5fOzgnngxiVa0zBRw2uw%3A1766870216467&source=hp&ei=yExQab3KGqmNseMP2fvQyAU&iflsig=AOw8s4IAAAAAaVBa2Gjfh7i3n5ZKo6YtsaCeyu-EAuhZ&oq=&gs_lp=Egdnd3Mtd2l6IgAqAggAMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMhAQIxigBhgnGOoCGKsGGN0FMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSOwSUABYAHABeACQAQCYAQCgAQCqAQC4AQHIAQCYAgGgAgqoAgqYAwrxBZa5XmT6J8XCkgcBMaAHALIHALgHAMIHAzMtMcgHCIAIAA&sclient=gws-wiz",
+      "title": "cats - Google Search",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138058794,
+        "id": 1138059819,
         "url": "http://127.0.0.1:8080/",
         "title": "OM-E Web",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138058851,
+        "id": 1138059826,
         "url": "chrome://extensions/",
         "title": "Extensions",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138058853,
-        "url": "https://www.google.com/",
-        "title": "Google",
+        "id": 1138059835,
+        "url": "https://www.google.com/search?q=cats&sca_esv=bcd32b3de9d160f4&sxsrf=AE3TifNExtJHzW5fOzgnngxiVa0zBRw2uw%3A1766870216467&source=hp&ei=yExQab3KGqmNseMP2fvQyAU&iflsig=AOw8s4IAAAAAaVBa2Gjfh7i3n5ZKo6YtsaCeyu-EAuhZ&oq=&gs_lp=Egdnd3Mtd2l6IgAqAggAMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMhAQIxigBhgnGOoCGKsGGN0FMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSOwSUABYAHABeACQAQCYAQCgAQCqAQC4AQHIAQCYAgGgAgqoAgqYAwrxBZa5XmT6J8XCkgcBMaAHALIHALgHAMIHAzMtMcgHCIAIAA&sclient=gws-wiz",
+        "title": "cats - Google Search",
         "active": true,
-        "status": "complete"
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 33457.395569583,
+    "last_tabs_update": 3249.896195,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/",
-    "title": "Google",
+    "url": "https://www.google.com/search?q=cats&sca_esv=bcd32b3de9d160f4&sxsrf=AE3TifNExtJHzW5fOzgnngxiVa0zBRw2uw%3A1766870216467&source=hp&ei=yExQab3KGqmNseMP2fvQyAU&iflsig=AOw8s4IAAAAAaVBa2Gjfh7i3n5ZKo6YtsaCeyu-EAuhZ&oq=&gs_lp=Egdnd3Mtd2l6IgAqAggAMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMhAQIxigBhgnGOoCGKsGGN0FMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSOwSUABYAHABeACQAQCYAQCgAQCqAQC4AQHIAQCYAgGgAgqoAgqYAwrxBZa5XmT6J8XCkgcBMaAHALIHALgHAMIHAzMtMcgHCIAIAA&sclient=gws-wiz",
+    "title": "cats - Google Search",
     "is_active_tab": true
   },
   "menu_structure": {

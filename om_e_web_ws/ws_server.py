@@ -1488,6 +1488,37 @@ async def execute_internal_capability(action: str, params: dict, offered_caps: l
         theme = params.get("theme", "robot")
         return {"_hud_action": {"type": "set_theme", "theme": theme}}
 
+    # 🗂️ BROWSER STATE CAPABILITIES
+    elif action == "ListTabs":
+        # Return list of open tabs from cached state
+        tabs_list = []
+        if CURRENT_TABS_INFO:
+            for tab in CURRENT_TABS_INFO:
+                tabs_list.append({
+                    "id": tab.get("id"),
+                    "stable_num": tab.get("stable_num"),
+                    "title": tab.get("title", "Untitled"),
+                    "url": tab.get("url", ""),
+                    "active": tab.get("active", False)
+                })
+
+        # Format as readable text for LLM response
+        if tabs_list:
+            tab_lines = []
+            for idx, t in enumerate(tabs_list, 1):
+                marker = " ← ACTIVE" if t["active"] else ""
+                num = t['stable_num'] if t['stable_num'] is not None else idx
+                tab_lines.append(f"{num}. {t['title']}{marker}")
+            tabs_text = "\n".join(tab_lines)
+        else:
+            tabs_text = "No tabs currently tracked."
+
+        return {
+            "tabs": tabs_list,
+            "tabs_text": tabs_text,
+            "count": len(tabs_list)
+        }
+
     # ═══════════════════════════════════════════════════════════════════════════
     # 🤖 LLM CONFIG CAPABILITIES
     # ═══════════════════════════════════════════════════════════════════════════
@@ -5792,6 +5823,8 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
 
                     # 🤖 LLM CHAT: Special async handler for LLM conversations
                     if action == "LLMChat":
+                        import time as _time
+                        _t_start = _time.time()
                         global LLM_AGENT, CURRENT_CHAT_ID, VISIBLE_CHATS
                         message = params.get("message", "")
                         # chat_id from params is reserved for future use
@@ -5817,10 +5850,12 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                             continue
 
                         # 🧹 INGESTION: Dedup and handle large payloads
+                        _t1 = _time.time()
                         ingestion_result = await preprocess_message(
                             chat_id=CURRENT_CHAT_ID or "default",
                             content=message
                         )
+                        print(f"⏱️ [TIMING] preprocess_message: {int((_time.time()-_t1)*1000)}ms")
 
                         if ingestion_result.get("is_dup"):
                             print(f"🧹 Ingestion: Duplicate message ignored")
@@ -5842,6 +5877,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                             message = processed_content  # Use stub for LLM
 
                         # 💾 Save user message via AppendMessage capability (handles chat creation + HUD push)
+                        _t2 = _time.time()
                         append_result = await execute_internal_capability(
                             "AppendMessage",
                             {
@@ -5851,6 +5887,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 "title": message[:100] if message else None
                             }
                         )
+                        print(f"⏱️ [TIMING] AppendMessage: {int((_time.time()-_t2)*1000)}ms")
 
                         # Update CURRENT_CHAT_ID if new chat was created
                         if append_result.get("chat_id"):
@@ -5876,6 +5913,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
 
                             try:
                                 # 🚀 Single-call unified or two-call legacy
+                                _t3 = _time.time()
                                 if USE_UNIFIED_PROMPT:
                                     print("🚀 Unified: Processing message (single call)...")
                                     orch_result = await PERSONA_ORCHESTRATOR.process_message_unified(
@@ -5897,12 +5935,16 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                         visible_chats=VISIBLE_CHATS if VISIBLE_CHATS else None
                                     )
 
+                                print(f"⏱️ [TIMING] Orchestrator total: {int((_time.time()-_t3)*1000)}ms (llm_ms={orch_result.llm_ms})")
+
                                 response_text = orch_result.response_text
                                 capability_results = []
 
                                 # Save response to chat history
                                 # Pass action_executed flag to control session vector indexing
                                 new_message = None
+                                chat_dict = None
+                                _t4 = _time.time()
                                 if CURRENT_CHAT_ID:
                                     chat_dict = load_chat(CURRENT_CHAT_ID)
                                     if chat_dict:
@@ -5912,11 +5954,15 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                         )
                                         save_chat(chat_dict)
                                         print(f"🎭 Orchestrator: Saved to chat {CURRENT_CHAT_ID}")
+                                print(f"⏱️ [TIMING] load+save chat: {int((_time.time()-_t4)*1000)}ms")
 
-                                        # Check if rolling summary is needed (saves if created)
-                                        summary = await check_and_create_rolling_summary(chat_dict)
-                                        if summary:
-                                            save_chat(chat_dict)
+                                # Check if rolling summary is needed (saves if created)
+                                _t5 = _time.time()
+                                if CURRENT_CHAT_ID and chat_dict:
+                                    summary = await check_and_create_rolling_summary(chat_dict)
+                                    if summary:
+                                        save_chat(chat_dict)
+                                print(f"⏱️ [TIMING] rolling_summary: {int((_time.time()-_t5)*1000)}ms")
 
                                 # Push response to HUD
                                 if new_message and EXTENSION_WS:
@@ -5939,6 +5985,68 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                         cap_params["value"] = orch_result.action_value
 
                                     print(f"🎭 Orchestrator: Executing capability {cap_action}")
+
+                                    # 🛡️ EARLY VALIDATION: Check if capability exists before routing
+                                    # Build set of ALL known capabilities to avoid timeout on unknown actions
+                                    internal_caps = load_internal_capabilities()
+                                    scroll_actions_check = {'ScrollDown', 'ScrollUp', 'ScrollLeft', 'ScrollRight', 'ScrollTop', 'ScrollBottom'}
+                                    zoom_actions_check = {'ZoomIn', 'ZoomOut', 'ZoomReset', 'ResetZoom'}
+                                    tab_actions_check = {'SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL'}
+                                    nav_actions_check = {'GoBack', 'GoForward', 'Refresh'}
+                                    extension_actions = {'GoogleIt', 'YouTubeIt'}
+
+                                    all_known_actions = (
+                                        set(internal_caps.keys()) |
+                                        scroll_actions_check |
+                                        zoom_actions_check |
+                                        tab_actions_check |
+                                        nav_actions_check |
+                                        extension_actions
+                                    )
+
+                                    # Also check site config capabilities for current URL
+                                    if is_site_config_capability(cap_action):
+                                        all_known_actions.add(cap_action)
+
+                                    if cap_action not in all_known_actions:
+                                        # Unknown capability - respond immediately without routing
+                                        print(f"⚠️ Unknown capability '{cap_action}' - not in known actions")
+                                        error_msg = f"I don't have a '{cap_action}' action. Let me help another way."
+
+                                        # Send friendly error to user
+                                        if CURRENT_CHAT_ID:
+                                            chat_dict = load_chat(CURRENT_CHAT_ID)
+                                            if chat_dict:
+                                                append_assistant_message(chat_dict, error_msg)
+                                                save_chat(chat_dict)
+                                        if EXTENSION_WS:
+                                            await EXTENSION_WS.send(json.dumps({
+                                                "type": "hud_action",
+                                                "action": {
+                                                    "type": "append_message",
+                                                    "chat_id": CURRENT_CHAT_ID,
+                                                    "message": {"role": "assistant", "content": error_msg}
+                                                }
+                                            }))
+
+                                        # ⏱️ TIMING for early exit
+                                        total_ms = int((_time.time() - _t_start) * 1000)
+                                        print(f"⏱️ [TIMING] === TOTAL: {total_ms}ms (unknown cap early exit) ===")
+
+                                        # Send result back to caller
+                                        await ws.send(json.dumps({
+                                            "type": "capability_result",
+                                            "action": action,
+                                            "ok": True,
+                                            "result": {
+                                                "response": error_msg,
+                                                "chat_id": CURRENT_CHAT_ID,
+                                                "error_type": "unknown_capability",
+                                                "attempted_action": cap_action
+                                            },
+                                            "id": request_id
+                                        }))
+                                        continue
 
                                     # Use existing capability routing
                                     scroll_actions = {
@@ -6247,6 +6355,10 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                         await EXTENSION_WS.send(json.dumps(instruction))
                                         add_action_to_history(f"Element:{action_type}", {"action_id": act_ref, "value": value}, {"ok": True})
 
+                                # ⏱️ TIMING SUMMARY
+                                total_ms = int((_time.time() - _t_start) * 1000)
+                                print(f"⏱️ [TIMING] === TOTAL: {total_ms}ms (llm_ms={orch_result.llm_ms}, overhead={total_ms - orch_result.llm_ms}ms) ===")
+
                                 result = {
                                     "response": response_text,
                                     "chat_id": CURRENT_CHAT_ID,
@@ -6254,7 +6366,10 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                     "capability_results": capability_results,
                                     "action_type": orch_result.action_type,
                                     "action_target": orch_result.action_target,
-                                    "turn_state": orch_result.turn_state.value
+                                    "turn_state": orch_result.turn_state.value,
+                                    "tokens_in": orch_result.tokens_in,
+                                    "tokens_out": orch_result.tokens_out,
+                                    "llm_ms": orch_result.llm_ms
                                 }
 
                                 await ws.send(json.dumps({

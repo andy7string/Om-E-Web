@@ -108,6 +108,15 @@
         "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
       }
     },
+    "ListTabs": {
+      "group": "browser",
+      "action": "ListTabs",
+      "label": "List all open tabs",
+      "description": "Lists all currently open browser tabs with their names and URLs. Returns tab info from cached state.",
+      "synonyms": ["show tabs", "what tabs", "open tabs", "my tabs", "which tabs", "tabs open"],
+      "example": "{\"action\": \"ListTabs\"}",
+      "params": {}
+    },
     "GoBack": {
       "group": "browser",
       "action": "GoBack",

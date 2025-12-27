@@ -1,5 +1,36 @@
 {
-  "session_id": "session_1766745458",
-  "started_at": "2025-12-26T21:07:38Z",
-  "actions": []
+  "session_id": "session_1766869271",
+  "started_at": "2025-12-28T07:31:11Z",
+  "actions": [
+    {
+      "text": "AppendAssistantMessage: hello, test message please appear in HUD",
+      "chat_title": "asdf",
+      "chat_id": "20251227210645_e0d411",
+      "ts": "2025-12-28T07:36:50Z"
+    },
+    {
+      "text": "YouTubeIt: open youtube and search for cunts",
+      "chat_title": "asdf",
+      "chat_id": "20251227210645_e0d411",
+      "ts": "2025-12-28T07:38:28Z"
+    },
+    {
+      "text": "SwitchView",
+      "chat_title": "asdf",
+      "chat_id": "20251227210645_e0d411",
+      "ts": "2025-12-28T07:38:41Z"
+    },
+    {
+      "text": "CloseTab: close this tab",
+      "chat_title": "asdf",
+      "chat_id": "20251227210645_e0d411",
+      "ts": "2025-12-28T07:38:49Z"
+    },
+    {
+      "text": "SwitchView",
+      "chat_title": "asdf",
+      "chat_id": "20251227210645_e0d411",
+      "ts": "2025-12-28T07:44:27Z"
+    }
+  ]
 }

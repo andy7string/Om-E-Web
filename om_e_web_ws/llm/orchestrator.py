@@ -141,6 +141,10 @@ class OrchestratorResult:
     requires_deep_scan_consent: bool = False
     requires_confirmation: bool = False
     noop_reason: Optional[str] = None
+    # Token counts for UI display (estimated via length/4)
+    tokens_in: int = 0   # Input tokens (system + messages)
+    tokens_out: int = 0  # Output tokens (response)
+    llm_ms: int = 0      # LLM API call time in milliseconds
 
 
 # ============================================================
@@ -1155,11 +1159,15 @@ USER MESSAGE
         chat_id: Optional[str] = None,
         orb_theme: Optional[str] = None,
         visible_chats: Optional[List[Dict]] = None,
-    ) -> Dict:
+    ) -> tuple[Dict, int, int, int]:
         """
         Single LLM call - builds prompt from chat_prompt.md + injected context.
 
-        Returns dict with type: reply | action | clarify | options | cannot | noop
+        Returns tuple: (output_dict, tokens_in, tokens_out, llm_ms)
+        - output_dict: reply | action | clarify | options | cannot | noop
+        - tokens_in: estimated input tokens (system + messages)
+        - tokens_out: estimated output tokens (response)
+        - llm_ms: LLM API call time in milliseconds
         """
         # Build from Role A base (chat_prompt.md), not a separate unified template
         system_prompt = self._prompt_cache.get("chat_persona", "")
@@ -1268,6 +1276,12 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             )
             llm_elapsed_ms = (time.time() - llm_start) * 1000
 
+            # Calculate token counts for UI display
+            system_tokens = estimate_tokens(system_prompt)
+            messages_tokens = sum(estimate_tokens(m.get("content", "")) for m in messages)
+            tokens_in = system_tokens + messages_tokens
+            tokens_out = estimate_tokens(response_text)
+
             # Write debug file
             debug_content = self._build_unified_debug(
                 user_message=user_message,
@@ -1280,21 +1294,23 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             _write_debug_file("llm_unified.md", debug_content)
 
             # Parse JSON response
+            llm_ms = int(llm_elapsed_ms)
             json_data = self._extract_json(response_text)
             if json_data:
-                return json_data
+                return (json_data, tokens_in, tokens_out, llm_ms)
             else:
                 # Log when JSON extraction fails
                 print(f"[Orchestrator] ⚠️ No valid JSON in response: {response_text[:200]}...")
                 logger.warning(f"JSON extraction failed. Raw response: {response_text[:200]}")
+                return ({"type": "cannot", "text": "I couldn't understand that."}, tokens_in, tokens_out, llm_ms)
 
         except Exception as e:
             logger.warning(f"Unified call error: {e}")
             import traceback
             traceback.print_exc()
 
-        # Fallback
-        return {"type": "cannot", "text": "I couldn't understand that."}
+        # Fallback (no tokens available on error)
+        return ({"type": "cannot", "text": "I couldn't understand that."}, 0, 0, 0)
 
     def _build_unified_debug(
         self,
@@ -1445,7 +1461,7 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
 
         # STEP 2: Single unified LLM call (use prompt_message for large payload handling)
         t0 = time.time()
-        output = await self._call_unified(
+        output, tokens_in, tokens_out, llm_ms = await self._call_unified(
             prompt_message, shaped_options, active_tab, tabs, chat_id, orb_theme, visible_chats
         )
         metrics.chat_persona_ms = (time.time() - t0) * 1000  # Reuse field for unified call
@@ -1479,7 +1495,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             return OrchestratorResult(
                 response_text=reply_text,
                 turn_state=TurnState.TURN_CHAT_ONLY,
-                action_executed=False
+                action_executed=False,
+                tokens_in=tokens_in,
+                tokens_out=tokens_out,
+                llm_ms=llm_ms
             )
 
         elif output_type == "action":
@@ -1515,7 +1534,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 action_type="cap",
                 action_target=cap_name,
                 action_params=params,
-                action_executed=True
+                action_executed=True,
+                tokens_in=tokens_in,
+                tokens_out=tokens_out,
+                llm_ms=llm_ms
             )
 
         elif output_type == "clarify":
@@ -1536,7 +1558,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             return OrchestratorResult(
                 response_text=clarify_text,
                 turn_state=TurnState.TURN_COMPLETED,
-                action_type="clarify"
+                action_type="clarify",
+                tokens_in=tokens_in,
+                tokens_out=tokens_out,
+                llm_ms=llm_ms
             )
 
         elif output_type == "options":
@@ -1560,7 +1585,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
 
             return OrchestratorResult(
                 response_text=option_text,
-                turn_state=TurnState.TURN_COMPLETED
+                turn_state=TurnState.TURN_COMPLETED,
+                tokens_in=tokens_in,
+                tokens_out=tokens_out,
+                llm_ms=llm_ms
             )
 
         elif output_type == "search":
@@ -1580,48 +1608,54 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 # Cap at 12 total for expanded search
                 shaped_options = shaped_options[:12]
 
-                # Retry with expanded caps
-                output = await self._call_unified(
+                # Retry with expanded caps (update tokens from retry)
+                retry_output, tokens_in, tokens_out, llm_ms = await self._call_unified(
                     prompt_message, shaped_options, active_tab, tabs, chat_id, orb_theme, visible_chats
                 )
 
                 # Re-detect type for retry response
-                if "action" in output:
+                if "action" in retry_output:
                     output_type = "action"
-                elif "reply" in output:
+                elif "reply" in retry_output:
                     output_type = "reply"
                 else:
-                    output_type = output.get("type", "reply")
+                    output_type = retry_output.get("type", "reply")
 
                 # Handle the new output (recursive-ish but only one level)
                 if output_type == "reply":
                     self.state.transition_to(TurnState.TURN_CHAT_ONLY)
                     metrics.total_ms = (time.time() - turn_start) * 1000
                     await log_turn_metrics(metrics)
-                    reply_text = output.get("reply") or output.get("text", "")
+                    reply_text = retry_output.get("reply") or retry_output.get("text", "")
                     return OrchestratorResult(
                         response_text=reply_text,
                         turn_state=TurnState.TURN_CHAT_ONLY,
-                        action_executed=False
+                        action_executed=False,
+                        tokens_in=tokens_in,
+                        tokens_out=tokens_out,
+                        llm_ms=llm_ms
                     )
                 elif output_type == "action":
-                    cap_name = output.get("action") or output.get("cap", "")
+                    cap_name = retry_output.get("action") or retry_output.get("cap", "")
                     # Extract params: new format has flat params, old has nested
-                    if "params" in output:
-                        params = output.get("params", {})
+                    if "params" in retry_output:
+                        params = retry_output.get("params", {})
                     else:
-                        params = {k: v for k, v in output.items() if k not in ("action", "text", "type", "cap")}
+                        params = {k: v for k, v in retry_output.items() if k not in ("action", "text", "type", "cap")}
                     self.state.transition_to(TurnState.TURN_EXECUTING)
                     metrics.total_ms = (time.time() - turn_start) * 1000
                     await log_turn_metrics(metrics)
-                    action_text = output.get("text", f"Executing {cap_name}...")
+                    action_text = retry_output.get("text", f"Executing {cap_name}...")
                     return OrchestratorResult(
                         response_text=action_text,
                         turn_state=TurnState.TURN_EXECUTING,
                         action_type="cap",
                         action_target=cap_name,
                         action_params=params,
-                        action_executed=True
+                        action_executed=True,
+                        tokens_in=tokens_in,
+                        tokens_out=tokens_out,
+                        llm_ms=llm_ms
                     )
 
             # Fallback if search didn't help
@@ -1631,7 +1665,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             return OrchestratorResult(
                 response_text="I couldn't find a matching capability. Could you rephrase?",
                 turn_state=TurnState.TURN_COMPLETED,
-                action_type="clarify"
+                action_type="clarify",
+                tokens_in=tokens_in,
+                tokens_out=tokens_out,
+                llm_ms=llm_ms
             )
 
         elif output_type == "noop":
@@ -1640,7 +1677,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             return OrchestratorResult(
                 response_text=output.get("text", "Already done."),
                 turn_state=TurnState.TURN_COMPLETED,
-                action_type="noop"
+                action_type="noop",
+                tokens_in=tokens_in,
+                tokens_out=tokens_out,
+                llm_ms=llm_ms
             )
 
         else:
@@ -1650,7 +1690,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
             fallback_text = output.get("text") or output.get("reply", "I can't do that.")
             return OrchestratorResult(
                 response_text=fallback_text,
-                turn_state=TurnState.TURN_COMPLETED
+                turn_state=TurnState.TURN_COMPLETED,
+                tokens_in=tokens_in,
+                tokens_out=tokens_out,
+                llm_ms=llm_ms
             )
 
     # --------------------------------------------------------
@@ -1957,7 +2000,7 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
 
             # Re-call LLM with combined context and preserved capabilities
             # The shaped_options from the original clarify should include the relevant cap
-            output = await self._call_unified(
+            output, tokens_in, tokens_out, llm_ms = await self._call_unified(
                 combined_message,
                 shaped_options,
                 active_tab=None,  # Will be fetched in _call_unified if needed
@@ -1982,7 +2025,10 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                     action_type="cap",
                     action_target=cap_name,
                     action_params=params,
-                    action_executed=True
+                    action_executed=True,
+                    tokens_in=tokens_in,
+                    tokens_out=tokens_out,
+                    llm_ms=llm_ms
                 )
             elif output_type == "clarify":
                 # Still need more info - store context again
@@ -1996,13 +2042,19 @@ Example phrases: {', '.join(profile.get('example_phrases', []))}
                 return OrchestratorResult(
                     response_text=output.get("text", "Could you clarify?"),
                     turn_state=TurnState.TURN_COMPLETED,
-                    action_type="clarify"
+                    action_type="clarify",
+                    tokens_in=tokens_in,
+                    tokens_out=tokens_out,
+                    llm_ms=llm_ms
                 )
             else:
                 # Reply or other - just return it
                 return OrchestratorResult(
                     response_text=output.get("text", ""),
-                    turn_state=TurnState.TURN_COMPLETED
+                    turn_state=TurnState.TURN_COMPLETED,
+                    tokens_in=tokens_in,
+                    tokens_out=tokens_out,
+                    llm_ms=llm_ms
                 )
 
         # Simple case: capability and param known, user's message is the value

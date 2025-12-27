@@ -100,55 +100,68 @@ Advanced RAG techniques (multi-query, query expansion, agentic retrieval) are in
 
 ---
 
-## CLAUDE CODE: How to Test Om-E via Chrome MCP
+## CLAUDE CODE: How to Test Om-E
 
 **READ THIS FIRST when you need to test the chat/message pipeline.**
 
-### Quick Reference
+### Preferred Method: test_capability.py
 
-**Step 1:** Get tab context
-```
-mcp__claude-in-chrome__tabs_context_mcp
-```
-Returns `tabId` for the Om-E Web tab (usually `http://127.0.0.1:8080/`)
+The **recommended way** to test Om-E is via the WebSocket test script. This is simpler and more reliable than Chrome MCP:
 
-**Step 2:** Send a message using `omeSendChat`
-```javascript
-// mcp__claude-in-chrome__javascript_tool
-// action: "javascript_exec"
-// tabId: {the tabId from step 1}
-// text:
-window.omeSendChat('Your test message here').then(r => console.log('Done:', r));
-'Message sent'
-```
-
-**Step 3:** Verify via console
-```
-mcp__claude-in-chrome__read_console_messages with tabId and pattern "Result"
-```
-
-**Step 4:** Check debug output
 ```bash
-cat om_e_web_ws/llm_unified.md
+# Full LLM flow - message appears in HUD, goes through orchestrator
+python3 om_e_web_ws/tests/test_capability.py -m "your message here"
+
+# Direct capability execution (bypasses LLM)
+python3 om_e_web_ws/tests/test_capability.py -c ListTabs
+python3 om_e_web_ws/tests/test_capability.py -c OpenTab -p '{"url": "google.com"}'
 ```
+
+**What happens:**
+- `-m "message"` → Uses `LLMChat` capability → Saves user message → LLM processes → Response appears in HUD
+- `-c CapName` → Directly executes capability → Useful for testing individual capabilities
+
+**Example output:**
+```
+🧪 Test Script
+   Server: ws://localhost:17892
+
+📝 Mode: Chat Message (LLM flow)
+💬 Sending message: "what tabs do I have open?"
+📤 Request: {...}
+
+📥 Response (892ms):
+{
+  "type": "capability_result",
+  "result": {
+    "reply": "You've got 3 tabs open: OM-E Web, Extensions, and YouTube.",
+    "_hud_action": {...}
+  }
+}
+
+✅ Success
+```
+
+### Quick Reference (test_capability.py)
+
+| Test Type | Command |
+|-----------|---------|
+| Chat message (full LLM flow) | `python3 om_e_web_ws/tests/test_capability.py -m "hello"` |
+| List tabs | `python3 om_e_web_ws/tests/test_capability.py -c ListTabs` |
+| Open tab | `python3 om_e_web_ws/tests/test_capability.py -c OpenTab -p '{"url": "google.com"}'` |
+| Close tab | `python3 om_e_web_ws/tests/test_capability.py -c CloseTab -p '{"name": "youtube"}'` |
+| Unknown action (error test) | `python3 om_e_web_ws/tests/test_capability.py -c BogusAction` |
+| Test with chat ID | `python3 om_e_web_ws/tests/test_capability.py -m "hello" --chat-id myChat` |
 
 ### Testing Large Payloads (>500 chars)
 
-```javascript
-// action: "javascript_exec", tabId: {tabId}
-const largeContent = `Sharks are a group of elasmobranch fish characterized by a cartilaginous skeleton, five to seven gill slits on the sides of the head, and pectoral fins that are not fused to the head. They have been around for more than 400 million years, predating dinosaurs. There are over 500 species of sharks, ranging from the small dwarf lanternshark at just 17 centimeters to the massive whale shark reaching up to 12 meters. Sharks play a crucial role as apex predators in maintaining healthy ocean ecosystems.`;
-window.omeSendChat(largeContent).then(r => console.log('Done:', r));
-'Large payload sent'
+```bash
+python3 om_e_web_ws/tests/test_capability.py -m "Sharks are a group of elasmobranch fish characterized by a cartilaginous skeleton, five to seven gill slits on the sides of the head, and pectoral fins that are not fused to the head. They have been around for more than 400 million years, predating dinosaurs. There are over 500 species of sharks, ranging from the small dwarf lanternshark at just 17 centimeters to the massive whale shark reaching up to 12 meters. Sharks play a crucial role as apex predators in maintaining healthy ocean ecosystems."
 ```
 
 Then check:
 - `data/chats/*.json` - should have stub `[Large content: ...; ref=hash]`
 - `data/large_payloads/` - should have full content file
-
-### DO NOT USE
-
-- `window.postMessage({type: 'ome_send_chat_test', ...})` - may not work on dashboard page
-- `window.omeLLMChat()` - doesn't save user message to chat file
 
 ### Key Files to Monitor
 
@@ -159,31 +172,9 @@ Then check:
 | `llm_unified.md` | LLM prompt debug output |
 | Server terminal | `[SessionContent] Added:` logs for vector indexing |
 
-### MCP Testing Loop
-
-```
-1. GET CONTEXT
-   mcp__claude-in-chrome__tabs_context_mcp
-   → Returns: tabId for Om-E Web tab
-
-2. SCREENSHOT (verify state)
-   mcp__claude-in-chrome__computer action=screenshot tabId=XXX
-
-3. SEND MESSAGE
-   mcp__claude-in-chrome__javascript_tool
-   → window.omeSendChat('test message')
-
-4. WAIT
-   mcp__claude-in-chrome__computer action=wait duration=3 tabId=XXX
-
-5. READ FEEDBACK
-   Read /Users/andy7string/Projects/Om_E_Web/om_e_web_ws/llm_unified.md
-   → Contains: User Message, Tokens, Capabilities, Full prompt, Response
-
-6. VERIFY & ITERATE
-```
-
 ### Debug Output File Structure (`llm_unified.md`)
+
+After running a test, check `om_e_web_ws/llm_unified.md` for the full debug output:
 
 ```markdown
 # Unified LLM Call Debug
@@ -217,6 +208,28 @@ python om_e_web_ws/ws_server.py
 ```
 
 Config changes in `llm_config.json` also need restart (server caches on load).
+
+---
+
+### Alternative: Chrome MCP (manual browser testing)
+
+For testing UI interactions or when you need visual feedback, use Chrome MCP:
+
+**Step 1:** Get tab context
+```
+mcp__claude-in-chrome__tabs_context_mcp
+```
+
+**Step 2:** Send a message using `omeSendChat`
+```javascript
+// mcp__claude-in-chrome__javascript_tool
+window.omeSendChat('Your test message here').then(r => console.log('Done:', r));
+```
+
+**Step 3:** Check debug output
+```bash
+cat om_e_web_ws/llm_unified.md
+```
 
 ---
 

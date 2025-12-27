@@ -61,6 +61,13 @@
     "kill tab",
     "close window",
     "close it",
+    "ListTabs: List all open tabs. Lists all currently open browser tabs with their names and URLs. Returns tab info from cached state.",
+    "show tabs",
+    "what tabs",
+    "open tabs",
+    "my tabs",
+    "which tabs",
+    "tabs open",
     "GoBack: Go back in history. Navigates back in the current tab's history",
     "back",
     "previous page",
@@ -221,6 +228,11 @@
     "large content threshold",
     "payload size limit",
     "content size threshold",
+    "SetHybridSearch: Set hybrid search settings. Configures BM25 + vector hybrid search. Enable for better exact keyword matching.",
+    "bm25",
+    "hybrid search",
+    "keyword search",
+    "search mode",
     "ClearSessionContent: Clear session content. Clears all session content from the in-memory vector store",
     "clear session",
     "reset session memory",
@@ -1027,6 +1039,89 @@
         "tabId": "Optional - numeric tab ID to close",
         "name": "Optional - tab title/name for fuzzy matching (e.g. 'google', 'facebook')"
       }
+    },
+    {
+      "name": "ListTabs",
+      "type": "primary",
+      "group": "browser",
+      "label": "List all open tabs",
+      "description": "Lists all currently open browser tabs with their names and URLs. Returns tab info from cached state.",
+      "example": "{\"action\": \"ListTabs\"}",
+      "synonyms": [
+        "show tabs",
+        "what tabs",
+        "open tabs",
+        "my tabs",
+        "which tabs",
+        "tabs open"
+      ],
+      "params": {}
+    },
+    {
+      "name": "ListTabs",
+      "type": "synonym",
+      "synonym_text": "show tabs",
+      "synonym_index": 0,
+      "group": "browser",
+      "label": "List all open tabs",
+      "description": "Lists all currently open browser tabs with their names and URLs. Returns tab info from cached state.",
+      "example": "{\"action\": \"ListTabs\"}",
+      "params": {}
+    },
+    {
+      "name": "ListTabs",
+      "type": "synonym",
+      "synonym_text": "what tabs",
+      "synonym_index": 1,
+      "group": "browser",
+      "label": "List all open tabs",
+      "description": "Lists all currently open browser tabs with their names and URLs. Returns tab info from cached state.",
+      "example": "{\"action\": \"ListTabs\"}",
+      "params": {}
+    },
+    {
+      "name": "ListTabs",
+      "type": "synonym",
+      "synonym_text": "open tabs",
+      "synonym_index": 2,
+      "group": "browser",
+      "label": "List all open tabs",
+      "description": "Lists all currently open browser tabs with their names and URLs. Returns tab info from cached state.",
+      "example": "{\"action\": \"ListTabs\"}",
+      "params": {}
+    },
+    {
+      "name": "ListTabs",
+      "type": "synonym",
+      "synonym_text": "my tabs",
+      "synonym_index": 3,
+      "group": "browser",
+      "label": "List all open tabs",
+      "description": "Lists all currently open browser tabs with their names and URLs. Returns tab info from cached state.",
+      "example": "{\"action\": \"ListTabs\"}",
+      "params": {}
+    },
+    {
+      "name": "ListTabs",
+      "type": "synonym",
+      "synonym_text": "which tabs",
+      "synonym_index": 4,
+      "group": "browser",
+      "label": "List all open tabs",
+      "description": "Lists all currently open browser tabs with their names and URLs. Returns tab info from cached state.",
+      "example": "{\"action\": \"ListTabs\"}",
+      "params": {}
+    },
+    {
+      "name": "ListTabs",
+      "type": "synonym",
+      "synonym_text": "tabs open",
+      "synonym_index": 5,
+      "group": "browser",
+      "label": "List all open tabs",
+      "description": "Lists all currently open browser tabs with their names and URLs. Returns tab info from cached state.",
+      "example": "{\"action\": \"ListTabs\"}",
+      "params": {}
     },
     {
       "name": "GoBack",
@@ -3460,6 +3555,80 @@
       "example": "{\"action\": \"SetLargePayloadThreshold\", \"threshold\": 500}",
       "params": {
         "threshold": "Required - char threshold (100-5000)"
+      }
+    },
+    {
+      "name": "SetHybridSearch",
+      "type": "primary",
+      "group": "config",
+      "label": "Set hybrid search settings",
+      "description": "Configures BM25 + vector hybrid search. Enable for better exact keyword matching.",
+      "example": "{\"action\": \"SetHybridSearch\", \"enabled\": true, \"bm25_weight\": 0.4}",
+      "synonyms": [
+        "bm25",
+        "hybrid search",
+        "keyword search",
+        "search mode"
+      ],
+      "params": {
+        "enabled": "Optional - enable/disable hybrid search (boolean)",
+        "bm25_weight": "Optional - BM25 weight 0.0-1.0 (higher = more keyword matching)"
+      }
+    },
+    {
+      "name": "SetHybridSearch",
+      "type": "synonym",
+      "synonym_text": "bm25",
+      "synonym_index": 0,
+      "group": "config",
+      "label": "Set hybrid search settings",
+      "description": "Configures BM25 + vector hybrid search. Enable for better exact keyword matching.",
+      "example": "{\"action\": \"SetHybridSearch\", \"enabled\": true, \"bm25_weight\": 0.4}",
+      "params": {
+        "enabled": "Optional - enable/disable hybrid search (boolean)",
+        "bm25_weight": "Optional - BM25 weight 0.0-1.0 (higher = more keyword matching)"
+      }
+    },
+    {
+      "name": "SetHybridSearch",
+      "type": "synonym",
+      "synonym_text": "hybrid search",
+      "synonym_index": 1,
+      "group": "config",
+      "label": "Set hybrid search settings",
+      "description": "Configures BM25 + vector hybrid search. Enable for better exact keyword matching.",
+      "example": "{\"action\": \"SetHybridSearch\", \"enabled\": true, \"bm25_weight\": 0.4}",
+      "params": {
+        "enabled": "Optional - enable/disable hybrid search (boolean)",
+        "bm25_weight": "Optional - BM25 weight 0.0-1.0 (higher = more keyword matching)"
+      }
+    },
+    {
+      "name": "SetHybridSearch",
+      "type": "synonym",
+      "synonym_text": "keyword search",
+      "synonym_index": 2,
+      "group": "config",
+      "label": "Set hybrid search settings",
+      "description": "Configures BM25 + vector hybrid search. Enable for better exact keyword matching.",
+      "example": "{\"action\": \"SetHybridSearch\", \"enabled\": true, \"bm25_weight\": 0.4}",
+      "params": {
+        "enabled": "Optional - enable/disable hybrid search (boolean)",
+        "bm25_weight": "Optional - BM25 weight 0.0-1.0 (higher = more keyword matching)"
+      }
+    },
+    {
+      "name": "SetHybridSearch",
+      "type": "synonym",
+      "synonym_text": "search mode",
+      "synonym_index": 3,
+      "group": "config",
+      "label": "Set hybrid search settings",
+      "description": "Configures BM25 + vector hybrid search. Enable for better exact keyword matching.",
+      "example": "{\"action\": \"SetHybridSearch\", \"enabled\": true, \"bm25_weight\": 0.4}",
+      "params": {
+        "enabled": "Optional - enable/disable hybrid search (boolean)",
+        "bm25_weight": "Optional - BM25 weight 0.0-1.0 (higher = more keyword matching)"
       }
     },
     {

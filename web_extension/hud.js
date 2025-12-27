@@ -92,8 +92,9 @@
      * ⏱️ Stop request timer and show final metrics
      * @param {number} outputTokens - Response tokens from backend
      * @param {number} inputTokens - Actual input tokens from backend (optional update)
+     * @param {number|null} llmMs - Actual LLM API call time from backend (overrides live timer)
      */
-    function stopRequestTimer(outputTokens = 0, inputTokens = null) {
+    function stopRequestTimer(outputTokens = 0, inputTokens = null, llmMs = null) {
         // Stop heartbeat
         if (requestMetrics.inputArea) {
             requestMetrics.inputArea.classList.remove('sending');
@@ -117,8 +118,12 @@
             const tokensOut = requestMetrics.metricsEl.querySelector('.ome-tokens-out');
             if (tokensOut) tokensOut.textContent = `${outputTokens} out`;
 
-            const elapsed = Math.round(performance.now() - requestMetrics.startTime);
-            console.log(`[RequestMetrics] Completed - ${elapsed}ms, ${outputTokens} output tokens`);
+            // Use backend LLM time if provided, otherwise use elapsed
+            const displayMs = llmMs !== null ? llmMs : Math.round(performance.now() - requestMetrics.startTime);
+            const timerEl = requestMetrics.metricsEl.querySelector('.ome-timer');
+            if (timerEl) timerEl.textContent = `${displayMs}ms`;
+
+            console.log(`[RequestMetrics] Completed - ${displayMs}ms (llm_ms=${llmMs}), ${outputTokens} output tokens`);
 
             // Fade out metrics after 4 seconds
             setTimeout(() => {
@@ -3511,10 +3516,11 @@
                         console.log(`[Content] ⏱️ LLMChat: ${Math.round(t3 - t2)}ms`);
                         console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t3 - t0)}ms`);
 
-                        // ⏱️ Stop timer with actual token counts from backend
+                        // ⏱️ Stop timer with actual metrics from backend
                         const tokensOut = llmResult?.tokens_out || Math.round((llmResult?.response?.length || 0) / 4);
                         const tokensIn = llmResult?.tokens_in || inputTokenEstimate;
-                        stopRequestTimer(tokensOut, tokensIn);
+                        const llmMs = llmResult?.llm_ms || null;
+                        stopRequestTimer(tokensOut, tokensIn, llmMs);
 
                         // 📬 Display assistant response
                         if (llmResult?.response) {
@@ -3535,7 +3541,7 @@
                         console.error('[Content] ❌ Orb chat send failed:', error);
                         addChatMessage('error', 'Failed to send message');
                         // ⏱️ Stop timer on error
-                        stopRequestTimer(0, inputTokenEstimate);
+                        stopRequestTimer(0, inputTokenEstimate, null);
                     }
 
                     // 🎯 Always refocus input after send (success or error)
@@ -4914,10 +4920,11 @@
                 console.log(`[Content] ⏱️ LLMChat: ${Math.round(t3 - t2)}ms`);
                 console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t3 - t0)}ms`);
 
-                // ⏱️ Stop timer with actual token counts from backend
+                // ⏱️ Stop timer with actual metrics from backend
                 const tokensOut = llmResult?.tokens_out || Math.round((llmResult?.response?.length || 0) / 4);
                 const tokensIn = llmResult?.tokens_in || inputTokenEstimate;
-                stopRequestTimer(tokensOut, tokensIn);
+                const llmMs = llmResult?.llm_ms || null;
+                stopRequestTimer(tokensOut, tokensIn, llmMs);
 
                 // 📬 Display assistant response
                 if (llmResult?.response) {
@@ -4938,7 +4945,7 @@
                 console.error('[Content] ❌ Chat send failed:', error);
                 addChatMessage('error', 'Failed to send message');
                 // ⏱️ Stop timer on error
-                stopRequestTimer(0, inputTokenEstimate);
+                stopRequestTimer(0, inputTokenEstimate, null);
             }
 
             // 🎯 Always refocus prompt textarea after send (success or error)

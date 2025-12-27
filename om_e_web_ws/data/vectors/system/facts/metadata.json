@@ -2,7 +2,10 @@
   "texts": [
     "User is frustrated that the assistant did not remember their previous conversation.",
     "User likes cats",
-    "User prefers the green one"
+    "User prefers the green one",
+    "\"User wants the assistant to reply in JSON format.\"",
+    "\"Assistant should remember the conversation\"",
+    "\"Assistant has memory\""
   ],
   "metadata": [
     {
@@ -22,6 +25,24 @@
       "source_message": "i like the green one more",
       "chat_id": "20251223123048_da95a3",
       "timestamp": "2025-12-24T12:18:44Z"
+    },
+    {
+      "type": "fact",
+      "source_message": "you can remember to reply in json for a start poes",
+      "chat_id": "20251226142055_2fbefe",
+      "timestamp": "2025-12-27T00:51:09Z"
+    },
+    {
+      "type": "fact",
+      "source_message": "for sure, how long doyou think you can last reading this conversation to remember what we saying and be in the moment with me",
+      "chat_id": "20251227124707_6b2aba",
+      "timestamp": "2025-12-27T23:19:37Z"
+    },
+    {
+      "type": "fact",
+      "source_message": "thats correct well done, this is pretty amazing right having the ability to remember like that is fun, should we do something now",
+      "chat_id": "20251227124707_6b2aba",
+      "timestamp": "2025-12-27T23:21:37Z"
     }
   ]
 }

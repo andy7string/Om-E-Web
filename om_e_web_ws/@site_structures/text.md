@@ -1,160 +1,214 @@
-# Google
+# cats - Google Search
 
-**URL:** https://www.google.com/
-**Timestamp:** 2025-12-26 21:10:16
+**URL:** https://www.google.com/search?q=cats&sca_esv=bcd32b3de9d160f4&sxsrf=AE3TifNExtJHzW5fOzgnngxiVa0zBRw2uw%3A1766870216467&source=hp&ei=yExQab3KGqmNseMP2fvQyAU&iflsig=AOw8s4IAAAAAaVBa2Gjfh7i3n5ZKo6YtsaCeyu-EAuhZ&oq=&gs_lp=Egdnd3Mtd2l6IgAqAggAMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMhAQIxigBhgnGOoCGKsGGN0FMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSOwSUABYAHABeACQAQCYAQCgAQCqAQC4AQHIAQCYAgGgAgqoAgqYAwrxBZa5XmT6J8XCkgcBMaAHALIHALgHAMIHAzMtMcgHCIAIAA&sclient=gws-wiz
+**Timestamp:** 2025-12-28 07:47:19
 
 **Tabs:**
 - Tab 1: "OM-E Web" (127.0.0.1)
-- Tab 3: "Extensions" (extensions) -- ACTIVE TAB
+- Tab 2: "Extensions" (extensions)
+- Tab 4: "cats - Google Search" (www.google.com) -- ACTIVE TAB
 
 ---
 
-Google Search homepage
-[0] Link: About → {"act": 0}
-[1] Link: Store → {"act": 1}
-[2] Link: Gmail → {"act": 2}
-[3] Link: Search for Images → {"act": 3}
-[4] Button: Google apps → {"act": 4}
-Button: Google Account: Andrew Orsmond
-[5] (andreworsmond21175@gmail.com) → {"act": 5}
-[6] Button: Upload files or images → {"act": 6}
-[7] Select: Search → {"act": 7, "value": "...", "submit": true}
-[8] Button: Search by voice → {"act": 8}
-[9] Button: Search by image → {"act": 9}
-[10] Button: AI Mode → {"act": 10}
-[11] Button: Google Search → {"act": 11}
-[12] Button: I'm Feeling Lucky → {"act": 12}
+<style>table,div,span,p{display:none}</style><meta content="0;url=/httpservice/retry/enablejs?sei=3kxQafrvM7LhseMPg4_AqQM" http-equiv="refresh"><div style="display:block">Please click <a href="/httpservice/retry/enablejs?sei=3kxQafrvM7LhseMPg4_AqQM">here</a> if you are not redirected within a few seconds.</div>
 Accessibility links
-[13] Link: Skip to Discover feed → {"act": 13}
-[14] Link: Skip to sidebar → {"act": 14}
-[15] Link: Skip to footer → {"act": 15}
-[16] Link: Accessibility help → {"act": 16}
-[17] Link: Accessibility feedback → {"act": 17}
-Discover
-Link: New Zealand’s biggest house price crash in modern history
-New Zealand house prices continue to fall. The REINZ House Price Index fell 0.3% over the past two months (seasonally adjusted), with economists describing...
-MacroBusiness
-·
-[18] 4d → {"act": 18}
-[19] Button: More options → {"act": 19}
-Link: Toyota RAV4 2026: Fresh New Styling, 58 MPG Efficiency & Premium Technology Unveiled
-Toyota RAV4 2026 features fresh styling, outstanding 58 MPG efficiency, premium technology, spacious comfort, and advanced safety for modern drivers.
-Cherry Design Group -
-·
-[20] 2h → {"act": 20}
-[21] Button: More options → {"act": 21}
-Link: Goodbye to the 24-hour day: from this date onwards, days on Earth will last 25 hours
-If you have ever heard that Earth will “soon” switch to 25-hour days, the key word you should question is soon. Scientists do expect Earth's rotation to...
-ECOticias.com
-·
-[22] 14h → {"act": 22}
-[23] Button: More options → {"act": 23}
-Link: China to enforce world’s first mandatory EV energy standard in 2026, capping two-tonne models at 15.1 kWh per 100 km
-China will implement the world's first mandatory electric vehicle energy consumption standard in January 2026.
-CarNewsChina.com
-·
-[24] 7h → {"act": 24}
-[25] Button: More options → {"act": 25}
-Link: Fire Stick owners urged to return their old devices to Amazon before end of year
-Fire Stick owners have been urged to return their old devices to Amazon to receive a secret discount. At the time of writing, the new Amazon Fire TV Stick...
-UNILAD
-·
-[26] 2d → {"act": 26}
-[27] Button: More options → {"act": 27}
-Link: New Guineans and Aboriginal Australians descend from two groups who arrived 60,000 years ago, research suggests
-A collaboration between the University of Huddersfield's Archaeogenetics Research Group and the University of Southampton's Center for Maritime Archaeology,...
-Phys.org
-·
-[28] 19h → {"act": 28}
-[29] Button: More options → {"act": 29}
-Link: 60,000 feet above Earth, NASA is hunting for the minerals that power phones, EVs and clean energy
-NASA's new microwave-sized sensor detects 'spectral fingerprints' of important minerals.
-Space
-·
-[30] 1d → {"act": 30}
-[31] Button: More options → {"act": 31}
-Link: Cillian Murphy meets Barry Keoghan in first look at Peaky Blinders film
-Two stars of Irish acting unite in eagerly anticipated film about Birmingham gangster Tommy Shelby.
-The Guardian
-·
-[32] 1d → {"act": 32}
-[33] Button: More options → {"act": 33}
-Link: Submarine finds anomalous structures in Antarctica, then loses the signal
-An autonomous submarine named Ran discovers strange structures under the Dotson Ice Shelf in Antarctica, before mysteriously disappearing.
-Earth.com
-·
-[34] 16h → {"act": 34}
-[35] Button: More options → {"act": 35}
-Link: 2026 Hyundai i30 N Premium DCT review
-There are newer, cheaper, faster, roomier and more advanced hot hatchbacks than the Hyundai i30 N, but few are more fun.
-Drive
-·
-[36] 9h → {"act": 36}
-[37] Button: More options → {"act": 37}
-Link: China’s new solar battery converts sunlight into stored electricity with 4.2% efficiency
-Chinese scientists have built a solar battery that captures sunlight and stores electricity at the same time with 4.2 percent efficiency.
-Interesting Engineering
-·
-[38] 1d → {"act": 38}
-[39] Button: More options → {"act": 39}
-Link: Mark Zuckerberg gifted noise-canceling headphones to his Palo Alto neighbors
-Billionaire Mark Zuckerberg has been rankling his neighbors in Palo Alto as he works on expanding and modifying the 11 homes that he has purchased in the...
-Fortune
-·
-[40] 21h → {"act": 40}
-[41] Button: More options → {"act": 41}
-Link: What if we taxed what people spend, not what they earn?
-When people talk about tax fairness, the focus is almost always on income. How much the rich earn, how heavily that income should be taxed, and how to make...
-The Conversation
-·
-[42] 1d → {"act": 42}
-[43] Button: More options → {"act": 43}
-Link: I've just set up Dyson's new robovac, and I've already run into problems with the app
-Of all the reviews I've tackled in 2025, Dyson's new robotic vacuum cleaner arrived with the greatest air of excitement. No, really. I love my Dyson stick...
-TechRadar
-·
-[44] 2d → {"act": 44}
-[45] Button: More options → {"act": 45}
-Link: Italian bike maker unveils rare 5-cylinder engine with 240 hp punch
-Italian bike maker unveiled a radical five cylinder motorcycle engine at EICMA in Milan, breaking away from traditional superbike layouts.
-Interesting Engineering
-·
-[46] 21h → {"act": 46}
-[47] Button: More options → {"act": 47}
-Link: Japan Joins Italy, Greece, Spain, Iceland, and France as Global Travel Powerhouses Enforcing Fines, Visitor Caps, and New Rules to Combat Overtourism and Redefine the Future of Sustainable Tourism Worldwide
-Global overtourism regulations are changing travel. Learn how new tourist fines, visitor caps, and rules affect trips worldwide in 2025.
-Travel And Tour World
-·
-[48] 1d → {"act": 48}
-[49] Button: More options → {"act": 49}
-Link: Mouse Study Suggests Nose-Picking Has a Surprising Link With Alzheimer's
-A study published in 2022 found a tenuous but plausible link between picking your nose and an increased risk of developing dementia.
-ScienceAlert
-·
-[50] 1d → {"act": 50}
-[51] Button: More options → {"act": 51}
-Link: Adelaide weather forecast for Friday December 26th and the days ahead
-Sunny skies and rising temperatures will define the days ahead in Adelaide, with a run of hot summer weather.
-Glam Adelaide
-·
-[52] 12h → {"act": 52}
-[53] Button: More options → {"act": 53}
-Link: Flat-headed cat not seen in Thailand for almost 30 years is rediscovered
-Conservationists are celebrating the rediscovery of flat-headed cats in Thailand after camera traps recorded the endangered feline for the first time in...
-Live Science
-·
-[54] 1h → {"act": 54}
-[55] Button: More options → {"act": 55}
-Link: Five Aussie startups we’re excited to watch in 2026
-Aussie innovation was on peak display throughout 2025. Here's five local startups we're excited to watch in the upcoming year.
-SmartCompany
-·
-[56] 3d → {"act": 56}
-[57] Button: More options → {"act": 57}
+[0] Link: Skip to main content → {"act": 0}
+[1] Link: Accessibility help → {"act": 1}
+[2] Link: Accessibility feedback → {"act": 2}
+[3] Link: Go to Google Home → {"act": 3}
+[4] Select: Search (cats) → {"act": 4, "value": "...", "submit": true}
+[5] Button: Clear → {"act": 5}
+[6] Button: Search by voice → {"act": 6}
+[7] Button: Search by image → {"act": 7}
+[8] Button: Search → {"act": 8}
+[9] Button: Google apps → {"act": 9}
+Button: Google Account: Andrew Orsmond
+[10] (andreworsmond21175@gmail.com) → {"act": 10}
+Filters and topics
+[11] Link: AI Mode → {"act": 11}
+[12] Link: All → {"act": 12}
+[13] Link: Images → {"act": 13}
+[14] Link: Videos → {"act": 14}
+[15] Link: Short videos → {"act": 15}
+[16] Link: Shopping → {"act": 16}
+[17] Link: News → {"act": 17}
+[18] Button: More → {"act": 18}
+[19] Button: Tools → {"act": 19}
+Search Results
+AI overview
+Searching
+Generating
+Link: Cat
+
+Wikipedia
+[20] https://en.wikipedia.org › wiki › Cat → {"act": 20}
+The cat (Felis catus), also called domestic cat and house cat, is
+a small carnivorous mammal
+. It is an obligate carnivore, requiring a predominantly meat-based diet. Its retractable claws are adapted to killing small prey species such as mice and rats.
+[21] Link: Read more → {"act": 21}
+[22] Link: List of cat breeds → {"act": 22}
+[23] Link: Human interaction with cats → {"act": 23}
+[24] Link: Aging in cats → {"act": 24}
+[25] Link: Cancer in cats → {"act": 25}
+Link: CATS the Musical | Australia | 2025
+
+CATS the Musical | Australia
+[26] https://catsthemusical.com.au → {"act": 26}
+Experience the 40th Australian Anniversary of Andrew Lloyd Webber's record-breaking musical
+CATS
+, coming to Perth, Melbourne and Brisbane.
+[27] Link: Melbourne → {"act": 27}
+[28] Link: Brisbane → {"act": 28}
+[29] Link: Cast → {"act": 29}
+[30] Link: Gallery → {"act": 30}
+People also ask
+[31] Button: About this result → {"act": 31}
+[32] Button: What is the 3-3-3 rule for cats? → {"act": 32}
+[33] Button: What are 10 facts about cats? → {"act": 33}
+[34] Button: What is the #1 cat in the world? → {"act": 34}
+[35] Button: How many cats are left? → {"act": 35}
+[36] Button: Feedback → {"act": 36}
+Link: Safe and Happy Cats: Home
+
+Safe and Happy Cats
+[37] https://safeandhappycats.com.au → {"act": 37}
+We know that
+cats can be safe and happy at home
+, avoiding the dangers of roaming. Many owners provide a safe environment that promotes positive wellbeing for ...
+[38] Link: Read more → {"act": 38}
+Videos
+[39] Button: About this result → {"act": 39}
+Link: Try Not to Laugh! Hilarious and Funniest CAT Videos of the Year
+YouTube · Little Love
+[40] 6 days ago → {"act": 40}
+[41] Button: About this result → {"act": 41}
+[42] Button: Try Not to Laugh! Hilarious and Funniest CAT Videos of the Year by Little Love on YouTube. Play on Google. 31:18 → {"act": 42}
+Link: Cats Can't Stop Being Dramatic on the Internet TOP Funny ...
+YouTube · Funny And Cute Cat's Life
+[43] 1 week ago → {"act": 43}
+[44] Button: About this result → {"act": 44}
+[45] Button: Cats Can't Stop Being Dramatic on the Internet TOP Funny ... by Funny And Cute Cat's Life on YouTube. Play on Google. 32:22 → {"act": 45}
+[46] Button: Cats can be a bit puzzling but they're also really adorable. → {"act": 46}
+Link: Cat Picks You As His "Favorite Person" Cute Cat and Human ...
+YouTube · Funny And Cute Cat's Life
+[47] 31 Oct 2025 → {"act": 47}
+[48] Button: About this result → {"act": 48}
+[49] Button: Cat Picks You As His "Favorite Person" Cute Cat and Human ... by Funny And Cute Cat's Life on YouTube. Play on Google. 10:35 → {"act": 49}
+[50] Button: Cats usually decide who they like from beginning no matter how many times you make them decide. → {"act": 50}
+[51] Link: View all videos → {"act": 51}
+Link: Cat | Breeds, Origins, History, Body Types, Senses ...
+
+Britannica
+[52] https://www.britannica.com › ... › Cats & the Feline Family → {"act": 52}
+5 days ago
+—
+Domestic
+cats
+are characterized by retractable claws, powerful bodies, acute senses, long tails, and specialized teeth adapted for hunting prey.
+[53] Link: Read more → {"act": 53}
+[54] Link: List of selected shorthair breeds → {"act": 54}
+[55] Link: List of selected longhair breeds → {"act": 55}
+[56] Link: Feral cat → {"act": 56}
+Link: Caring for Cats and Kittens
+
+RSPCA New South Wales
+[57] https://www.rspcansw.org.au › ... › Caring for Animals → {"act": 57}
+RSPCA NSW offers up-to-date expert advice
+on everything from bathing and grooming your cats to guidance on nutrition and veterinary care.
+[58] Link: Read more → {"act": 58}
+Link: Cats in Australia
+
+Invasive Species Council
+[59] https://invasives.org.au › ... › Feral animals in Australia → {"act": 59}
+Cats have caused more environmental damage in Australia than any other continent in the world
+. Cats are believed to have first arrived in Australia in 1788.
+[60] Link: Read more → {"act": 60}
+Link: Cats | Animal Welfare Victoria | Livestock and animals
+
+Agriculture Victoria
+[61] https://agriculture.vic.gov.au › livestock-and-animals › cats → {"act": 61}
+Cats are a popular pet in Australia
+. Find out more about how to keep them healthy and safe.
+Link: Cats (2019)
+
+IMDb
+[62] https://www.imdb.com › title → {"act": 62}
+A tribe of cats called the Jellicles
+must decide yearly which one will ascend to the Heaviside Layer and come back to a new Jellicle life.A tribe of cats ...
+[63] Link: Read more → {"act": 63}
+2.8/10
+(58,634)
+[64] Link: Cats → {"act": 64}
+[65] Link: Full cast & crew → {"act": 65}
+[66] Link: User reviews → {"act": 66}
+[67] Link: Tom Hooper → {"act": 67}
+Link: Domestic cat
+
+National Geographic
+[68] https://www.nationalgeographic.com › mammals › facts → {"act": 68}
+There are at least 45 domestic breeds
+, which differ widely in features such as coat color, tail length, hair texture, and temperament.
+[69] Link: Read more → {"act": 69}
+Ads
+People also search for
+[70] Link: Cats for sale → {"act": 70}
+[71] Link: Cats Photos → {"act": 71}
+[72] Link: Cats movie → {"act": 72}
+[73] Link: Cats show → {"act": 73}
+[74] Link: Cats play → {"act": 74}
+[75] Link: Cats Australia → {"act": 75}
+[76] Link: Cats musical Australia → {"act": 76}
+[77] Link: Cats types → {"act": 77}
+Page navigation
+1
+[78] Link: Page 2 → {"act": 78}
+[79] Link: Page 3 → {"act": 79}
+[80] Link: Page 4 → {"act": 80}
+[81] Link: Page 5 → {"act": 81}
+[82] Link: Page 6 → {"act": 82}
+[83] Link: Page 7 → {"act": 83}
+[84] Link: Page 8 → {"act": 84}
+[85] Link: Page 9 → {"act": 85}
+[86] Link: Page 10 → {"act": 86}
+[87] Link: Next → {"act": 87}
+[88] Button: Share → {"act": 88}
+[89] Link: Cat → {"act": 89}
+Animal
+The cat, also called domestic cat and house cat, is a small carnivorous mammal. It is an obligate carnivore, requiring a predominantly meat-based diet. Its retractable claws are adapted to killing small prey species such as mice and rats.
+Source:
+[90] Link: Wikipedia → {"act": 90}
+Link: Lifespan
+13 – 20 years
+[91] Domestic → {"act": 91}
+Link: Gestation period
+[92] 65 days → {"act": 92}
+Daily sleep
+:
+12 – 16 hours
+Collective noun
+:
+clowder, cluster, clutter, glaring, pounce
+[93] Link: Wikimedia Foundation → {"act": 93}
+Class
+:
+Mammalia
+Family
+:
+Felidae
+[94] Link: Breeds → {"act": 94}
+[95] Link: Siamese cat → {"act": 95}
+[96] Link: British Shorthair → {"act": 96}
+[97] Link: Maine Coon → {"act": 97}
+[98] Link: Persian cat → {"act": 98}
+Footer links
+Results are personalised
+-
+[99] Link: Try without personalisation → {"act": 99}
 Australia
-[58] Link: Advertising → {"act": 58}
-[59] Link: Business → {"act": 59}
-[60] Link: How Search works → {"act": 60}
-[61] Link: Privacy → {"act": 61}
-[62] Link: Terms → {"act": 62}
-[63] Button: Settings → {"act": 63}
+[100] Button: Teringie, South Australia - Based on your places (Home) → {"act": 100}
+-
+[101] Button: Update location → {"act": 101}
+[102] Link: Help → {"act": 102}
+[103] Link: Send feedback → {"act": 103}
+[104] Link: Privacy → {"act": 104}
+[105] Link: Terms → {"act": 105}

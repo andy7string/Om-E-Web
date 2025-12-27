@@ -1325,100 +1325,77 @@ om_e_web_ws/
 
 ---
 
-## Claude Code Testing via Chrome MCP (Feedback Loop)
+## Claude Code Testing (Feedback Loop)
 
-**Overview:** Claude Code (this AI assistant) can directly test Om_E_Web functionality using Chrome MCP tools. This creates a complete feedback loop where Claude can:
-1. Send messages to the HUD chat input
+**Overview:** Claude Code (this AI assistant) can directly test Om_E_Web functionality. This creates a complete feedback loop where Claude can:
+1. Send messages or execute capabilities
 2. Wait for LLM processing
 3. Read the debug output file (`llm_unified.md`)
 4. Verify the system behavior
 5. Iterate on fixes
 
-### Available MCP Tools
+### Preferred Method: test_capability.py
 
-| Tool | Purpose |
-|------|---------|
-| `tabs_context_mcp` | Get current tab IDs and URLs |
-| `read_page` | Read accessibility tree (find input refs) |
-| `computer` | Click, type, screenshot, wait |
-| `form_input` | Set form values by ref |
+The **recommended way** to test Om-E is via the WebSocket test script. This is simpler and more reliable than Chrome MCP:
 
-### Testing Workflow
+```bash
+# Full LLM flow - message appears in HUD, goes through orchestrator
+python3 om_e_web_ws/tests/test_capability.py -m "your message here"
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    Claude Code MCP Testing Loop                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-
-1. GET CONTEXT
-   mcp__claude-in-chrome__tabs_context_mcp
-   → Returns: tabId for Om-E Web (http://127.0.0.1:8080/)
-
-2. SCREENSHOT (verify state)
-   mcp__claude-in-chrome__computer action=screenshot tabId=XXX
-   → Visual confirmation of HUD state
-
-3. CLICK INPUT
-   mcp__claude-in-chrome__computer action=left_click coordinate=[470,711] tabId=XXX
-   → Focus the "Ask me anything..." input
-
-4. TYPE MESSAGE
-   mcp__claude-in-chrome__computer action=type text="test message" tabId=XXX
-   → Type test input
-
-5. SUBMIT
-   mcp__claude-in-chrome__computer action=key text=Return tabId=XXX
-   → Send message to Om-E
-
-6. WAIT
-   mcp__claude-in-chrome__computer action=wait duration=3 tabId=XXX
-   → Allow LLM processing time
-
-7. READ FEEDBACK
-   Read /Users/andy7string/Projects/Om_E_Web/om_e_web_ws/llm_unified.md
-   → Contains:
-      - User Message (what was sent)
-      - Messages count
-      - Capabilities injected
-      - Token counts (system, messages, total)
-      - LLM processing time
-      - Full system prompt
-      - All messages sent to LLM
-      - LLM response JSON
-
-8. VERIFY & ITERATE
-   - Check if expected context was injected
-   - Verify token counts
-   - Confirm capabilities matched
-   - Test edge cases
-   - Fix code → restart server → repeat
+# Direct capability execution (bypasses LLM)
+python3 om_e_web_ws/tests/test_capability.py -c ListTabs
+python3 om_e_web_ws/tests/test_capability.py -c OpenTab -p '{"url": "google.com"}'
 ```
 
-### Example: Testing Large Payload Handling
+**What happens:**
+- `-m "message"` → Uses `LLMChat` capability → Saves user message → LLM processes → Response appears in HUD
+- `-c CapName` → Directly executes capability → Useful for testing individual capabilities
 
-```python
-# 1. Send large message (>500 chars)
-mcp__claude-in-chrome__computer action=type text="Here is a really long message..."
-
-# 2. Submit
-mcp__claude-in-chrome__computer action=key text=Return
-
-# 3. Wait for processing
-mcp__claude-in-chrome__computer action=wait duration=5
-
-# 4. Check feedback file
-Read llm_unified.md
-
-# Expected output shows:
-# **User Message:** [User sent 516 chars, stored as vector:XXX] <summary>
-# **Tokens:** ~1027 (reduced from ~1500)
-#
-# And in the prompt section:
-# [Relevant stored content:]
-# - <summary of stored payload>
+**Example output:**
 ```
+🧪 Test Script
+   Server: ws://localhost:17892
+
+📝 Mode: Chat Message (LLM flow)
+💬 Sending message: "what tabs do I have open?"
+📤 Request: {...}
+
+📥 Response (892ms):
+{
+  "type": "capability_result",
+  "result": {
+    "reply": "You've got 3 tabs open: OM-E Web, Extensions, and YouTube.",
+    "_hud_action": {...}
+  }
+}
+
+✅ Success
+```
+
+### Quick Reference (test_capability.py)
+
+| Test Type | Command |
+|-----------|---------|
+| Chat message (full LLM flow) | `python3 om_e_web_ws/tests/test_capability.py -m "hello"` |
+| List tabs | `python3 om_e_web_ws/tests/test_capability.py -c ListTabs` |
+| Open tab | `python3 om_e_web_ws/tests/test_capability.py -c OpenTab -p '{"url": "google.com"}'` |
+| Close tab | `python3 om_e_web_ws/tests/test_capability.py -c CloseTab -p '{"name": "youtube"}'` |
+| Unknown action (error test) | `python3 om_e_web_ws/tests/test_capability.py -c BogusAction` |
+| Test with chat ID | `python3 om_e_web_ws/tests/test_capability.py -m "hello" --chat-id myChat` |
+
+### Testing Large Payload Handling
+
+```bash
+python3 om_e_web_ws/tests/test_capability.py -m "Sharks are a group of elasmobranch fish characterized by a cartilaginous skeleton, five to seven gill slits on the sides of the head, and pectoral fins that are not fused to the head. They have been around for more than 400 million years, predating dinosaurs. There are over 500 species of sharks..."
+```
+
+Then check:
+- `data/chats/*.json` - should have stub `[Large content: ...; ref=hash]`
+- `data/large_payloads/` - should have full content file
 
 ### Debug Output File Structure (`llm_unified.md`)
+
+After running a test, check `om_e_web_ws/llm_unified.md`:
 
 ```markdown
 # Unified LLM Call Debug
@@ -1431,34 +1408,14 @@ Read llm_unified.md
 **LLM Time:** XXXms
 
 ## System Prompt
-```
 <full system prompt with personality, rules, output format>
-```
 
-## Messages (sent to LLM)
-
-### 1. USER
-```
-<first message or rolling history>
-```
-
-### 2. USER
-```
+## Conversation
+**USER:** <message content>
 ENVIRONMENT (current state)
-Page: <title> (<url>)
-Tabs (currently open):
-  1. Tab name ← ACTIVE
-  2. Other tabs
-
-Capabilities:
-- CapName: Description
-  params: key: description
-
-[Relevant stored content:]    ← PAYLOAD CONTEXT (if any)
-- Summary of stored large content
-
-USER: <the actual user message>
-```
+  Page: <title> (<url>)
+  Tabs: ...
+  Capabilities: ...
 
 ## Response
 ```json
@@ -1496,19 +1453,20 @@ Config lives in `data/llm_config.json`:
 **Workflow:**
 1. Edit config
 2. Restart ws_server.py
-3. Test via MCP
+3. Test via `test_capability.py`
 4. Check llm_unified.md
 5. Iterate
 
 ### Common Test Scenarios
 
-| Scenario | What to Send | What to Verify |
-|----------|--------------|----------------|
-| Chat only | "how are you" | No caps injected if score < threshold |
-| Action | "google cats" | GoogleIt cap executed |
-| Large payload | 600+ char message | Summarized, stored in vector |
-| Payload retrieval | "what did I say about X" | `[Relevant stored content:]` appears |
-| Search escape | Ambiguous request | LLM uses `{"type":"search","query":"..."}` |
+| Scenario | Command | What to Verify |
+|----------|---------|----------------|
+| Chat only | `-m "how are you"` | No caps injected if score < threshold |
+| Action | `-m "google cats"` | GoogleIt cap executed |
+| Large payload | `-m "600+ char message"` | Summarized, stored in vector |
+| Payload retrieval | `-m "what did I say about X"` | `[Relevant stored content:]` appears |
+| List tabs | `-c ListTabs` | Returns current tabs |
+| Unknown action | `-c BogusAction` | Returns error quickly (not timeout) |
 
 ### Server Restart Required
 
@@ -1522,6 +1480,26 @@ python om_e_web_ws/ws_server.py
 ```
 
 Config changes in `llm_config.json` also need restart (server caches on load).
+
+---
+
+### Alternative: Chrome MCP (manual browser testing)
+
+For testing UI interactions or when you need visual feedback, use Chrome MCP tools:
+
+| Tool | Purpose |
+|------|---------|
+| `tabs_context_mcp` | Get current tab IDs and URLs |
+| `read_page` | Read accessibility tree (find input refs) |
+| `computer` | Click, type, screenshot, wait |
+| `javascript_tool` | Run `window.omeSendChat('message')` |
+
+**Workflow:**
+1. `tabs_context_mcp` → Get tabId
+2. `computer action=screenshot` → Verify state
+3. `javascript_tool` → `window.omeSendChat('test message')`
+4. `computer action=wait duration=3` → Wait for processing
+5. Read `llm_unified.md` → Check debug output
 
 ---
 
